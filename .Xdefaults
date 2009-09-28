@@ -1,0 +1,26 @@
+URxvt.font:		xft:Bitstream Vera Sans mono:pixelsize=16
+URxvt*termName:		xterm-color
+URxvt*foreground:	green
+URxvt*transparent:	true
+URxvt*tintColor:	#0000EE
+URxvt*highlightColor:   blue
+!URxvt*shading:		100
+URxvt*fading:		35
+!URxvt*fg:		white
+URxvt*loginShell:	true
+URxvt*scrollBar:	false
+URxvt*cursorUnderline:  true
+urxvt*depth:             24
+
+
+urxvt*cutchars:           "()*,<>[]{}|'
+
+
+URxvt.urlLauncher: 	firefox
+
+xterm*faceName:		calibri
+xterm*faceSize: 	10
+
+urxvt.perl-ext-common:	default,matcher,tabbed
+Xcursor*theme: gruppled_white_lite
+

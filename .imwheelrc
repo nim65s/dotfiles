@@ -1,0 +1,17 @@
+".*"
+None,		Button13,	Super_L|Right
+None,		Button15,	Super_L|Left
+"^Kate"
+None,		Button6,	Alt_L|Left
+None,		Button8,	Alt_L|Left
+None,		Button7,	Alt_L|Right
+None,		Button9,	Alt_L|Right
+# None,		Button17,	Control_L|n
+"^urxvt"
+None,		Button6,	Shift_L|Left
+None,		Button7,	Shift_L|Right
+#None,		Button17,	Shift_L|Down
+"^Firefox"
+None,		Button6,	Control_L|Shift_L|Tab
+None,		Button7,	Control_L|Tab
+
