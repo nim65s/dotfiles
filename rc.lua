@@ -63,6 +63,7 @@ apptags =
     ["Firefox"] = { screen = 1, tag = 2 },
     ["amarokapp"] = { screen = 1, tag = 9 },
     ["akregator"] = { screen = 1, tag = 4 },
+    ["liferea"] = { screen = 1, tag = 4 },
     ["kmail"] = { screen = 1, tag = 4 },
     ["konversation"] = { screen = 1, tag = 4 },
     --["kmess"] = { screen = 2, tag = 2 },
@@ -91,6 +92,16 @@ for s = 1, screen.count() do
     tags[s][1].selected = true
 end
 -- }}}
+
+-- {{{ Tags, by Nim.
+tags = {}
+tags[1] = {}
+tags[1][1] = tag(1)
+tags[1][1].screen = 1
+
+
+
+
 
 -- {{{ Wibox
 -- Create a textbox widget
@@ -255,7 +266,22 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
+              end),
+
+    awful.key({ modkey }, "F11", 
+              function ()
+                  awful.prompt.run({ prompt = "Calculate: " }, 
+                  mypromptbox[mouse.screen].widget,
+                  function (expr)
+                      local xmessage = "xmessage -timeout 10 -file -"
+                      awful.util.spawn_with_shell("echo '" .. expr .. ' = ' ..
+                      awful.util.eval("return (" .. expr .. ")") .. "' | " .. xmessage, false
+                      )
+                  end)
               end)
+
+
+
 )
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
