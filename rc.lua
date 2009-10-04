@@ -94,11 +94,11 @@ end
 -- }}}
 
 -- {{{ Tags, by Nim.
-tags = {}
-tags[1] = {}
-tags[1][1] = tag(1)
-tags[1][1].screen = 1
-
+--tags = {}
+-- tags[1] = {}
+-- tags[1][1] = tag(1)
+-- tags[1][1].screen = 1
+-- awful.layout.set(layouts[1], tags[1][1])
 
 
 
@@ -224,7 +224,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
+    awful.key({ modkey,           }, "a", function () mymainmenu:show(true)        end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1) end),
@@ -268,7 +268,37 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
 
-    awful.key({ modkey }, "F11", 
+    awful.key({ modkey }, "w",
+              function ()
+                  awful.prompt.run({ prompt = "Wikipedia: " },
+                  mypromptbox[mouse.screen].widget,
+                  function (command)
+                      awful.util.spawn("firefox 'http://wikipedia.fr/Resultats.php?q="..command.."'", false)
+                      awful.tag.viewonly(tags[1][2])
+                      end)
+              end),
+
+    awful.key({ modkey }, "g",
+              function ()
+                  awful.prompt.run({ prompt = "Google: " },
+                  mypromptbox[mouse.screen].widget,
+                  function (command)
+                      awful.util.spawn("firefox 'http://www.google.com/search?q="..command.."'", false)
+                      awful.tag.viewonly(tags[1][2])
+                      end)
+              end),
+
+    awful.key({ modkey }, "y",
+              function ()
+                  awful.prompt.run({ prompt = "YubNub: " },
+                  mypromptbox[mouse.screen].widget,
+                  function (command)
+                      awful.util.spawn("firefox 'http://yubnub.org/parser/parse?command="..command.."'", false)
+                      awful.tag.viewonly(tags[1][2])
+                      end)
+              end),
+
+    awful.key({ }, "XF86Calculator", 
               function ()
                   awful.prompt.run({ prompt = "Calculate: " }, 
                   mypromptbox[mouse.screen].widget,
@@ -278,10 +308,32 @@ globalkeys = awful.util.table.join(
                       awful.util.eval("return (" .. expr .. ")") .. "' | " .. xmessage, false
                       )
                   end)
+              end),
+-- TODO : si rien ne rien faire
+    awful.key({ }, "XF86Favorites",
+              function ()
+                  awful.prompt.run({ prompt = "Manual: " }, 
+                  mypromptbox[mouse.screen].widget,
+                  function (page) awful.util.spawn("khelpcenter man:" .. page, false) end,
+                  function(cmd, cur_pos, ncomp)
+                      local pages = {}
+                      local m = 'IFS=: && find $(manpath||echo "$MANPATH") -type f -printf "%f\n"| cut -d. -f1'
+                      local c, err = io.popen(m)
+                      if c then while true do
+                          local manpage = c:read("*line")
+                          if not manpage then break end
+                          if manpage:find("^" .. cmd:sub(1, cur_pos)) then
+                              table.insert(pages, manpage)
+                              end
+                          end
+                      c:close()
+                      else io.stderr:write(err) end
+                      if #cmd == 0 then return cmd, cur_pos end
+                      if #pages == 0 then return end
+                      while ncomp > #pages do ncomp = ncomp - #pages end
+                      return pages[ncomp], cur_pos
+                      end)
               end)
-
-
-
 )
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
@@ -469,7 +521,7 @@ end)
 -- }}}
 
 -- Autorun programs http://wiki.archlinux.org/index.php/Awesome
-autorun = true
+autorun = false
 autorunApps = 
 { 
    "amarok",
