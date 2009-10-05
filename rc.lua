@@ -75,30 +75,60 @@ apptags =
 use_titlebar = false
 -- }}}
 
--- {{{ Tags
--- Define tags table.
+-- {{{ Tags, by Nim.
 tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = {}
-    -- Create 9 tags per screen.
-    for tagnumber = 1, 9 do
-        tags[s][tagnumber] = tag(tagnumber)
-        -- Add tags to screen one by one
-        tags[s][tagnumber].screen = s
-        awful.layout.set(layouts[1], tags[s][tagnumber])
-    end
-    -- I'm sure you want to see at least one tag.
-    tags[s][1].selected = true
-end
+tags[1] = {}
+tags[1][1] = tag(1)
+    tags[1][1].screen = 1
+    awful.layout.set(layouts[1], tags[1][1])
+tags[1][2] = tag("2:firefox")
+    tags[1][2].screen = 1
+    awful.layout.set(layouts[1], tags[1][2])
+    awful.tag.setmwfact(.33, tags[1][2])
+tags[1][3] = tag(3)
+    tags[1][3].screen = 1
+    awful.layout.set(layouts[1], tags[1][3])
+tags[1][4] = tag("4:mail&rss")
+    tags[1][4].screen = 1
+    awful.layout.set(layouts[1], tags[1][4])
+tags[1][5] = tag(5)
+    tags[1][5].screen = 1
+    awful.layout.set(layouts[1], tags[1][5])
+tags[1][6] = tag(6)
+    tags[1][6].screen = 1
+    awful.layout.set(layouts[1], tags[1][6])
+tags[1][7] = tag(7)
+    tags[1][7].screen = 1
+    awful.layout.set(layouts[1], tags[1][7])
+tags[1][8] = tag(8)
+    tags[1][8].screen = 1
+    awful.layout.set(layouts[1], tags[1][8])
+tags[1][9] = tag("9:amarok")
+    tags[1][9].screen = 1
+    awful.layout.set(layouts[1], tags[1][9])
+tags[1][1].selected = true
+tags[2] = {}
+tags[2][1] = tag("1:kmess")
+    tags[2][1].screen = 2
+    awful.layout.set(layouts[5], tags[2][1])
+tags[2][2] = tag("2:fah&rtorrent")
+    tags[2][2].screen = 2
+    awful.layout.set(layouts[1], tags[2][2])
+tags[2][3] = tag(3)
+    tags[2][3].screen = 2
+    awful.layout.set(layouts[1], tags[2][3])
+tags[2][4] = tag(4)
+    tags[2][4].screen = 2
+    awful.layout.set(layouts[1], tags[2][4])
+tags[2][1].selected = true
 -- }}}
 
--- {{{ Tags, by Nim.
---tags = {}
--- tags[1] = {}
--- tags[1][1] = tag(1)
--- tags[1][1].screen = 1
--- awful.layout.set(layouts[1], tags[1][1])
+
+
+
+
+
+
 
 
 
@@ -260,6 +290,14 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
+    --test de changement d'écran pour amarokapp
+--     awful.key({        }, "XF86AudioPlay",
+--               function ()
+--                   if mouse.screen == 2 then awful.screen.focus (1) end
+--                   awful.util.spawn(amarok -t, false)
+--               end),
+--marche pas x) osef :)
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -273,6 +311,7 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "Wikipedia: " },
                   mypromptbox[mouse.screen].widget,
                   function (command)
+                      if mouse.screen == 2 then awful.screen.focus (1) end
                       awful.util.spawn("firefox 'http://wikipedia.fr/Resultats.php?q="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
@@ -283,6 +322,7 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "Google: " },
                   mypromptbox[mouse.screen].widget,
                   function (command)
+                      if mouse.screen == 2 then awful.screen.focus (1) end
                       awful.util.spawn("firefox 'http://www.google.com/search?q="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
@@ -293,6 +333,7 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "YubNub: " },
                   mypromptbox[mouse.screen].widget,
                   function (command)
+                      if mouse.screen == 2 then awful.screen.focus (1) end
                       awful.util.spawn("firefox 'http://yubnub.org/parser/parse?command="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
@@ -309,6 +350,7 @@ globalkeys = awful.util.table.join(
                       )
                   end)
               end),
+
 -- TODO : si rien ne rien faire
     awful.key({ }, "XF86Favorites",
               function ()
