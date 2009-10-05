@@ -1,33 +1,18 @@
--- Standard awesome library
 require("awful")
--- Theme handling library
 require("beautiful")
--- Notification library
 require("naughty")
 
--- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
--- The default is a dark theme
--- theme_path = "/usr/share/awesome/themes/default/theme.lua"
--- Uncommment this for a lighter theme
-theme_path = "/usr/share/awesome/themes/sky/theme.lua"
-
--- Actually load theme
+--theme
+theme_path = "/usr/share/awesome/themes/nim/theme.lua"
 beautiful.init(theme_path)
 
--- This is used later as the default terminal and editor to run.
+-- var
 terminal = "urxvtc"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
--- Table of layouts to cover with awful.layout.inc, order matters.
+-- layouts
 layouts =
 {
     awful.layout.suit.tile,
@@ -52,6 +37,7 @@ floatapps =
     ["MPlayer"] = true,
     ["pinentry"] = true,
     ["gimp"] = true,
+    -- ["conky"] = true,
     -- by instance
     ["mocp"] = true
 }
@@ -75,7 +61,7 @@ apptags =
 use_titlebar = false
 -- }}}
 
--- {{{ Tags, by Nim.
+-- {{{ Tags
 tags = {}
 tags[1] = {}
 tags[1][1] = tag(1)
@@ -134,9 +120,7 @@ tags[2][1].selected = true
 
 
 -- {{{ Wibox
--- Create a textbox widget
 mytextbox = widget({ type = "textbox", align = "right" })
--- Set the default text in textbox
 mytextbox.text = "<b><small> " .. awesome.release .. " </small></b>"
 
 -- Create a laucher widget and a main menu
@@ -219,7 +203,7 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = wibox({ position = "top", fg = beautiful.fg_normal, bg = beautiful.bg_normal })
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = { mylauncher,
+    mywibox[s].widgets = { s == 1 and mylauncher or nil,
                            mytaglist[s],
                            mytasklist[s],
                            mypromptbox[s],
@@ -228,7 +212,23 @@ for s = 1, screen.count() do
                            s == 1 and mysystray or nil }
     mywibox[s].screen = s
 end
+
+--nimwibox = wibox({ position = "right", fg = beautiful.fg_normal, bg = beautiful.bg_normal })
+--nimwibox.widgets = {       
+
 -- }}}
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -284,13 +284,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
     
-    -- http://wiki.archlinux.org/index.php/Awesome3
+    -- http://wiki.archlinux.org/index.php/Awesome3 TODO
     awful.key({ modkey,           }, "Print", function () awesome.util.spawn("scrot -e 'mv $f ~/images/screenshots/ 2>/dev/null'") end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
-    --test de changement d'écran pour amarokapp
+    --test de changement d'écran pour amarokapp TODO
 --     awful.key({        }, "XF86AudioPlay",
 --               function ()
 --                   if mouse.screen == 2 then awful.screen.focus (1) end
@@ -387,6 +387,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey }, "t", awful.client.togglemarked),
+-- marchepo : amarok muet
     awful.key({ modkey,}, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -489,7 +490,6 @@ awful.hooks.manage.register(function (c, startup)
     end
 
     if use_titlebar then
-        -- Add a titlebar
         awful.titlebar.add(c, { modkey = modkey })
     end
     -- Add mouse bindings
@@ -582,4 +582,5 @@ end
 if c.class == "feh" then
     c.maximized_horizontal = true
     c.maximized_vertical = true
+    c.fullscreen = true
 end

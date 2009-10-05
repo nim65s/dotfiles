@@ -1,8 +1,10 @@
 -------------------------------
+--    "Nim" awesome theme    --
+--         By Nim ^^'        --
+--          based on         --
 --    "Sky" awesome theme    --
 --  By Andrei "Garoth" Thorp --
 -------------------------------
--- If you want SVGs and extras, get them from garoth.com/awesome/sky-theme
 
 -- BASICS
 theme = {}
