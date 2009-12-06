@@ -6,9 +6,28 @@
 --  By Andrei "Garoth" Thorp --
 -------------------------------
 
+-- There are other variable sets
+-- overriding the default one when
+-- defined, the sets are:
+-- [taglist|tasklist]_[bg|fg]_[focus|urgent]
+-- titlebar_[normal|focus]
+-- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
+-- Example:
+--theme.taglist_bg_focus = "#CC9393"
+-- {{{ Widgets
+-- You can add as many variables as
+-- you wish and access them by using
+-- beautiful.variable in your rc.lua
+--theme.fg_widget        = "#AECF96"
+--theme.fg_center_widget = "#88A175"
+--theme.fg_end_widget    = "#FF5656"
+--theme.bg_widget        = "#494B4F"
+--theme.border_widget    = "#3F3F3F"
+-- }}}
+
 -- BASICS
 theme = {}
-theme.font          = "Bitsream Vera Sans Mono 8"
+theme.font          = "DejaVu Sans 8"
 
 theme.bg_focus      = "#ffff00"
 theme.bg_normal     = "#48B0EA"
@@ -26,16 +45,18 @@ theme.border_focus  = "#f5ea00"
 theme.border_marked = "#eeeeec"
 
 -- IMAGES
-theme.layout_fairh           = "/usr/share/awesome/themes/sky/layouts/fairh.png"
-theme.layout_fairv           = "/usr/share/awesome/themes/sky/layouts/fairv.png"
-theme.layout_floating        = "/usr/share/awesome/themes/sky/layouts/floating.png"
-theme.layout_magnifier       = "/usr/share/awesome/themes/sky/layouts/magnifier.png"
-theme.layout_max             = "/usr/share/awesome/themes/sky/layouts/max.png"
-theme.layout_fullscreen      = "/usr/share/awesome/themes/sky/layouts/fullscreen.png"
-theme.layout_tilebottom      = "/usr/share/awesome/themes/sky/layouts/tilebottom.png"
-theme.layout_tileleft        = "/usr/share/awesome/themes/sky/layouts/tileleft.png"
-theme.layout_tile            = "/usr/share/awesome/themes/sky/layouts/tile.png"
-theme.layout_tiletop         = "/usr/share/awesome/themes/sky/layouts/tiletop.png"
+theme.layout_tile       = "/usr/share/awesome/themes/zenburn/layouts/tile.png"
+theme.layout_tileleft   = "/usr/share/awesome/themes/zenburn/layouts/tileleft.png"
+theme.layout_tilebottom = "/usr/share/awesome/themes/zenburn/layouts/tilebottom.png"
+theme.layout_tiletop    = "/usr/share/awesome/themes/zenburn/layouts/tiletop.png"
+theme.layout_fairv      = "/usr/share/awesome/themes/zenburn/layouts/fairv.png"
+theme.layout_fairh      = "/usr/share/awesome/themes/zenburn/layouts/fairh.png"
+theme.layout_spiral     = "/usr/share/awesome/themes/zenburn/layouts/spiral.png"
+theme.layout_dwindle    = "/usr/share/awesome/themes/zenburn/layouts/dwindle.png"
+theme.layout_max        = "/usr/share/awesome/themes/zenburn/layouts/max.png"
+theme.layout_fullscreen = "/usr/share/awesome/themes/zenburn/layouts/fullscreen.png"
+theme.layout_magnifier  = "/usr/share/awesome/themes/zenburn/layouts/magnifier.png"
+theme.layout_floating   = "/usr/share/awesome/themes/zenburn/layouts/floating.png"
 
 theme.awesome_icon           = "/usr/share/awesome/themes/sky/awesome-icon.png"
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/sky/layouts/floating.png"
@@ -46,9 +67,12 @@ theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squaref
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
 
 -- MISC
-theme.wallpaper_cmd         = { "awsetbg /home/nim/images/min_nabo_totoro_01.png" }
+theme.wallpaper_cmd         = { "awsetbg /home/nim/images/wall/301.min_nabo_totoro_01.png" }
 theme.taglist_squares       = "true"
 theme.titlebar_close_button = "true"
+-- Variables set for theming the menu:
+-- menu_[bg|fg]_[normal|focus]
+-- menu_[border_color|border_width]
 theme.menu_height           = "15"
 theme.menu_width            = "100"
 
@@ -77,4 +101,3 @@ theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/defau
 theme.titlebar_maximized_button_focus_active = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
 return theme
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:encoding=utf-8:textwidth=80
