@@ -3,6 +3,7 @@ require("awful.autofocus")
 require("awful.rules")
 require("beautiful")
 require("naughty")
+require("vicious")
 
 beautiful.init("/usr/share/awesome/themes/nim/theme.lua")
 
@@ -58,8 +59,16 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+
+-- Vicious 
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
+pacwidget = widget({ type = "textbox" })
+vicious.register(pacwidget, vicious.widgets.pacman, "$1 ")
+
+
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" }, " %T - %d/%m ", 1)
+mytextclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -134,6 +143,8 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         s == 1 and mysystray or nil,
+        s == 1 and pacwidget or nil,
+        s == 1 and cpuwidget or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
