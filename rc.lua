@@ -380,7 +380,7 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][4] } },
     { rule = { class = "Chrome" },
       properties = { tag = tags[1][2] } },
     { rule = { class = "Thunderbird" },
