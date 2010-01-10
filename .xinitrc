@@ -8,7 +8,7 @@
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-mpd
+#mpd
 urxvtd -q -f -o
 setxkbmap fr
-exec awesome --config /home/nim/.config/awesome/rc.lua
+exec awesome

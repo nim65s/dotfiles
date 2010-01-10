@@ -32,7 +32,7 @@ layouts =
 
 -- {{{ Tags
 tags = {}
-tags[1] = awful.tag({ 1, "2:chrome", "3:thunderbird", 4, 5, 6, 7, 8, "9:amarok"}, 1, { layouts[5], layouts[1], layouts[9], layouts[5], layouts[5], layouts[5], layouts[5], layouts[5], layouts[9]})
+tags[1] = awful.tag({ "1:amarok", "2:chrome", "3:thunderbird", 4, 5, 6, 7, 8, 9}, 1, { layouts[5], layouts[1], layouts[9], layouts[5], layouts[5], layouts[5], layouts[5], layouts[5], layouts[9]})
 tags[2] = awful.tag({ "1:kmess", "2:fah&rtorrent", 3, 4}, 2, awful.layout.suit.fair)
 awful.tag.setmwfact(0.25,tags[1][2])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
@@ -66,8 +66,23 @@ vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
 pacwidget = widget({ type = "textbox" })
 vicious.register(pacwidget, vicious.widgets.pacman, "$1 ")
 
+-- function pacfunc(format)
+--     local updates = 0
+--     local f = io.popen("pacman -Qu")
+--     for line in f:lines() do
+--         updates = updates + 1
+--     end
+--     f:close()
+--     return {updates}
+-- end
+-- pactime = timer({ timeout = 10 })
+-- pactime:add_signal("timeout", function() pacwidget.text = pacfunc() end)
+-- pactime:start()
+pacwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn("urxvtc -e yaourt -Su",1) end),
+                                        awful.button({ }, 3, function () awful.util.spawn("urxvtc -e yaourt -Syu", -1) end)))
 
 -- Create a textclock widget
+
 mytextclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 
 -- Create a systray
@@ -420,3 +435,15 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- {{{ Lancement automatique au démarage
+-- awful.screen.focus(1)
+-- os.execute("pgrep -u nim -x chrome  || ( chromium-browser &)")
+-- os.execute("pgrep -u nim -x thunderbird  || ( thunderbird &)")
+-- awful.tag.viewonly(tags[1][8])
+-- os.execute("pgrep -u nim -x kmix  || ( kmix &)")
+-- awful.tag.viewonly(tags[1][9])
+-- os.execute("pgrep -u nim -x amarok  || (amarok  &)")
+-- os.execute("pgrep -u nim -x kmess  || (kmess  &)")
+
+--}}}
