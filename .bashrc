@@ -1,4 +1,3 @@
-# Check for an interactive session
 [ -z "$PS1" ] && return
 
 export EDITOR=kate
@@ -29,37 +28,43 @@ alias cp='cp -r'
 alias ll='ls -lArth'
 alias le='ls --sort=extension'
 alias df='df -h'
-
+alias mv='mv -v'
+alias cl='cd $PWD/$1 ; ls'
+alias cll='cd $PWD/$1 ; ls -lArth'
+alias meurs='/home/nim/scripts/meurs.sh'
+alias minuter='/home/nim/scripts/minuteur.sh'
 alias leecher='/home/nim/scripts/leecher.sh'
 alias seeder='/home/nim/scripts/seeder.sh'
 alias wow='wine /media/320/World\ of\ Warcraft/Wow.exe -opengl'
 alias carto='wine /home/nim/.wine/drive_c/Program\ Files/WowCartographe/WowCartographe.exe'
-alias fah='cd /media/60/nim/FAH ; ./fah6 -smp'
+alias fah='cd /home/nim/folding/ ; ./fah6 -smp -verbosity 9'
 alias urter='/media/70/home/nim/down/UrbanTerror/ioUrbanTerror.x86_64'
 alias wa='cd /home/nim/Desktop/logs/weekalarm ; ./weekalarm.py'
 alias psef='ps -ef | grep -v grep | grep'
+alias psj='ps j | grep -v grep | grep'
 alias tag='mpc stop'
 alias hist='cat /home/nim/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias cn='fortune chucknorris'
 alias sql='mysql -uroot -pfdsjkl65'
-alias ka='/media/60/nim/scripts/ka.sh'
-alias kaok='/media/60/nim/scripts/kaok.sh'
-alias fer='ILS=$"\n" && for DOS in `ls` ; do feh -FrSname $DOS ; done'
-alias ext='/home/nim/60/scripts/extracteur.sh'
-alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.nimono xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
+alias ka='/home/nim/scripts/ka.sh'
+alias kaok='/home/nim/scripts/kaok.sh'
+alias fer='IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done'
+alias ext='/home/nim/scripts/extracteur.sh'
+alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.xinon xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
-alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -f ; find . -type d -empty -print0 | xargs -0 /bin/rmdir'
+alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -v'
 alias tor='mv /home/nim/T*/*.torrent /home/nim/Desktop/'
-alias keni='/home/nim/60/scripts/keni.sh'
-
-
-
-
-
-
+alias keni='/home/nim/scripts/keni.sh'
+alias fixkmail='/home/nim/scripts/fixkmail.sh'
+alias windirstat='wine /home/nim/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
+alias testrc='cp /home/nim/dotfiles/rc.lua /home/nim/.config/awesome/rc.lua ; cp /home/nim/dotfiles/theme.lua /usr/share/awesome/themes/nim/theme.lua ;( awesome -k && echo -e "\033[1;32mmod4 + ctrl + r\033[0;32m" ) || echo -e "\033[1;31mFAIL\033[0;32m"'
+alias makewallpaper='/home/nim/scripts/make.wallpaper.sh'
+alias dl='/home/nim/scripts/dl.sh'
+#alias dl='plowdown -a nim65s:fdsjkl65'
+alias dladd='/home/nim/scripts/dladd.sh'
 
 
 # put this in your bashrc for bash tab completion with mpc
@@ -133,3 +138,5 @@ alias keni='/home/nim/60/scripts/keni.sh'
 	esac
 }
 complete -F _mpdadd_complete_func mpc
+
+alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
