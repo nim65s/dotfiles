@@ -11,6 +11,6 @@
 #mpd
 #urxvtd -q -f -o
 #setxkbmap fr
-#exec awesome 
+#exec awesome
 #--config /home/nim/.config/awesome/rc.lua
-exec wine /media/320/World\ of\ Warcraft/Wow.exe -opengl
+exec wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl
