@@ -32,9 +32,10 @@ layouts =
 
 -- {{{ Tags
 tags = {}
-tags[1] = awful.tag({ "1:amarok", "2:chrome", "3:thunderbird", 4, 5, 6, 7, 8, 9}, 1, { layouts[5], layouts[1], layouts[9], layouts[5], layouts[5], layouts[5], layouts[5], layouts[5], layouts[9]})
+tags[1] = awful.tag({ "1:amarok", "2:chrome", "3:thunderbird", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
 tags[2] = awful.tag({ "1:kmess", "2:fah&rtorrent", 3, 4}, 2, awful.layout.suit.fair)
-awful.tag.setmwfact(0.25,tags[1][2])
+awful.tag.setmwfact(0.3,tags[1][2])
+awful.tag.setmwfact(0.25,tags[1][4])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
 -- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
 -- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
@@ -239,7 +240,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium-browser 'http://wikipedia.fr/Resultats.php?q="..command.."'", false)
+                      awful.util.spawn("chromium 'http://wikipedia.fr/Resultats.php?q="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -250,7 +251,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium-browser 'http://www.google.com/search?q="..command.."'", false)
+                      awful.util.spawn("chromium 'http://www.google.com/search?q="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -261,7 +262,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium-browser 'http://www.google.com/search?btnI=Recherche+Google&q="..command.."'", false)
+                      awful.util.spawn("chromium 'http://www.google.com/search?btnI=Recherche+Google&q="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -272,7 +273,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium-browser 'http://yubnub.org/parser/parse?command="..command.."'", false)
+                      awful.util.spawn("chromium 'http://yubnub.org/parser/parse?command="..command.."'", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -395,13 +396,24 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "Firefox" },
-      properties = { tag = tags[1][4] } },
-    { rule = { class = "Chrome" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][4],
+      border_width = 0 } },
+    { rule = { class = "Chromium" },
+      properties = { tag = tags[1][2],
+      border_width = 0,
+      switchtotag = true } },
     { rule = { class = "Thunderbird" },
-      properties = { tag = tags[1][3] } },
+      properties = { tag = tags[1][3],
+      border_width = 0 } },
     { rule = { class = "Kmess" },
-      properties = { tag = tags[2][1] } },
+      properties = { tag = tags[2][1],
+      switchtotag = true } },
+    { rule = { class = "amarokapp" },
+      properties = { tag = tags[1][1],
+      border_width = 0 } },
+    { rule = { class = "kmix" },
+      properties = { tag = tags[1][9],
+      border_width = 0 } }
 }
 -- }}}
 
@@ -438,7 +450,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Lancement automatique au démarage
 -- awful.screen.focus(1)
--- os.execute("pgrep -u nim -x chrome  || ( chromium-browser &)")
+-- os.execute("pgrep -u nim -x chrome  || ( chromium &)")
 -- os.execute("pgrep -u nim -x thunderbird  || ( thunderbird &)")
 -- awful.tag.viewonly(tags[1][8])
 -- os.execute("pgrep -u nim -x kmix  || ( kmix &)")
