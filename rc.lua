@@ -407,13 +407,16 @@ awful.rules.rules = {
       border_width = 0 } },
     { rule = { class = "Kmess" },
       properties = { tag = tags[2][1],
-      switchtotag = true } },
+      switchtotag = true,
+      screen = 2 } },
     { rule = { class = "amarokapp" },
       properties = { tag = tags[1][1],
       border_width = 0 } },
+    { rule = { class = "feh"},
+      properties = { fullscreen = true } },
     { rule = { class = "kmix" },
       properties = { tag = tags[1][9],
-      border_width = 0 } }
+      border_width = 0 } } 
 }
 -- }}}
 
