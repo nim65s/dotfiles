@@ -12,6 +12,11 @@ editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
+-- Boldify text
+function bold(text)
+    return '<b>' .. text .. '</b>'
+end
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
@@ -60,31 +65,61 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
-
 -- Vicious 
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
-pacwidget = widget({ type = "textbox" })
-vicious.register(pacwidget, vicious.widgets.pacman, "$1 ")
 
--- function pacfunc(format)
---     local updates = 0
---     local f = io.popen("pacman -Qu")
---     for line in f:lines() do
---         updates = updates + 1
---     end
---     f:close()
---     return {updates}
--- end
--- pactime = timer({ timeout = 10 })
--- pactime:add_signal("timeout", function() pacwidget.text = pacfunc() end)
--- pactime:start()
-pacwidget:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn("urxvtc -e yaourt -Su",1) end),
-                                        awful.button({ }, 3, function () awful.util.spawn("urxvtc -e yaourt -Syu", -1) end)))
+pacwidget = widget({ type = "textbox" })
+pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/pacup.sh",1) end)
+pacwidget:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) end),
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) end)))
+
+-- {{{ Naughty Calendar, from hg.kaworu.ch
+calendar = {
+    offset = 0,
+    font = "monospace"
+}
+
+function calendar:month(month_offset)
+    local save_offset = self.offset
+    self:remove()
+    self.offset = save_offset + month_offset
+    local datespec = os.date("*t")
+    datespec = datespec.year * 12 + datespec.month - 1 + self.offset
+    datespec = (datespec % 12 + 1) .. " " .. math.floor(datespec / 12)
+    local cal = awful.util.pread("cal " .. datespec)
+    if self.offset == 0 then -- this month, hilight day and month
+        cal = string.gsub(cal, "%s" .. tonumber(os.date("%d")) .. "%s", bold("%1"))
+        cal = string.gsub(cal, "^(%s*%w+%s+%d+)", bold("%1"))
+    end
+    self.display = naughty.notify {
+        opacity = use_composite and beautiful.opacity.naughty or 1,
+        text = string.format('<span font_desc="%s">%s</span>', self.font, cal),
+        timeout = 0,
+        hover_timeout = 0.5,
+        margin = 10,
+    }
+end
+
+function calendar:remove()
+    if self.display ~= nil then
+        naughty.destroy(self.display)
+        self.display = nil
+        self.offset = 0
+    end
+end
+-- }}}
+
+
 
 -- Create a textclock widget
-
-mytextclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
+wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
+wiclock:buttons(awful.util.table.join(
+    awful.button({ }, 1, function() calendar:month(0) end),
+    awful.button({ }, 3, function() calendar:remove() end),
+    awful.button({ }, 5, function() calendar:month(-1) end),
+    awful.button({ }, 4, function() calendar:month(1)  end)))
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -157,9 +192,9 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
-        s == 1 and mysystray or nil,
+        wiclock,
         s == 1 and pacwidget or nil,
+        s == 1 and mysystray or nil,
         s == 1 and cpuwidget or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -452,13 +487,27 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- {{{ Lancement automatique au démarage
+-- function run_once(prg)end
+--     awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
+-- end
+-- 
 -- awful.screen.focus(1)
--- os.execute("pgrep -u nim -x chrome  || ( chromium &)")
--- os.execute("pgrep -u nim -x thunderbird  || ( thunderbird &)")
--- awful.tag.viewonly(tags[1][8])
--- os.execute("pgrep -u nim -x kmix  || ( kmix &)")
+-- run_once("amarok")
+-- run_once("chromium")
+-- run_once("thunderbird")
 -- awful.tag.viewonly(tags[1][9])
--- os.execute("pgrep -u nim -x amarok  || (amarok  &)")
--- os.execute("pgrep -u nim -x kmess  || (kmess  &)")
-
+-- run_once("kmix")
+-- awful.screen.focus(2)
+-- run_once("kmess")
 --}}}
+
+-- {{{ Timer
+mytimer = timer { timeout = 60 }
+mytimer:add_signal("timeout", function()
+    pacwidget:emit_signal("update")
+--    wiclock:emit_signal("update")
+--    wimpd:emit_signal("update")
+--    wiacpi:emit_signal("update")
+end)
+mytimer:start()
+-- }}}
