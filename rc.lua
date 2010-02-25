@@ -115,9 +115,11 @@ end
 
 -- Create a textclock widget
 wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
+wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
+wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() calendar:month(0) end),
-    awful.button({ }, 3, function() calendar:remove() end),
+    awful.button({ }, 1, function() calendar:month(-1) end),
+    awful.button({ }, 3, function() calendar:month(1) end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1)  end)))
 
@@ -502,12 +504,9 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --}}}
 
 -- {{{ Timer
-mytimer = timer { timeout = 60 }
+mytimer = timer { timeout = 300 }
 mytimer:add_signal("timeout", function()
     pacwidget:emit_signal("update")
---    wiclock:emit_signal("update")
---    wimpd:emit_signal("update")
---    wiacpi:emit_signal("update")
 end)
 mytimer:start()
 -- }}}

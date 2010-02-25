@@ -1,4 +1,4 @@
-URxvt.font:		xft:Bitstream Vera Sans mono:pixelsize=16
+URxvt.font:		xft:DejaVu Sans Mono:pixelsize=16
 URxvt*termName:		xterm-color
 URxvt*foreground:	green
 URxvt*transparent:	true
@@ -10,17 +10,20 @@ URxvt*fading:		35
 URxvt*loginShell:	true
 URxvt*scrollBar:	false
 URxvt*cursorUnderline:  true
-urxvt*depth:             24
+urxvt*depth:            24
 
+urxvt*cutchars:         "()*,<>[]{}|'
 
-urxvt*cutchars:           "()*,<>[]{}|'
-
-
-URxvt.urlLauncher: 	firefox
+URxvt.urlLauncher: 	chromium
 
 xterm*faceName:		calibri
 xterm*faceSize: 	10
 
 urxvt.perl-ext-common:	default,matcher,tabbed
-Xcursor*theme: gruppled_white_lite
+Xcursor*theme: 		gruppled_white_lite
 
+URxvt.urgentOnBell: 	True
+
+URxvt*iconFile:		/home/nim/images/favicon.png
+
+xpdf*urlCommand:        /usr/bin/chromium %s
