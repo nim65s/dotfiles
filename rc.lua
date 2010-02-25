@@ -16,7 +16,7 @@ modkey = "Mod4"
 function bold(text)
     return '<b>' .. text .. '</b>'
 end
-
+--balises pango : b big i s (strike) sub sup small tt (monospace) u
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
