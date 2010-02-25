@@ -58,7 +58,7 @@ alias dl='$HOME/scripts/dl.sh'
 
 alias wow='wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl'
 alias fah='cd $HOME/FAH/ ; ./fah6 -smp -verbosity 9'
-alias windirstat='wine /home/nim/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
+alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
 
 alias hist='cat $HOME/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
