@@ -44,6 +44,11 @@ theme.border_normal = "#48B0EA"
 theme.border_focus  = "#f5ea00"
 theme.border_marked = "#eeeeec"
 
+-- theme.fg_widget        = "#60B48A"
+-- theme.fg_center_widget = "#F7B60F"
+-- theme.fg_end_widget    = "#BF0303"
+
+
 -- IMAGES
 theme.layout_tile       = "/usr/share/awesome/themes/zenburn/layouts/tile.png"
 theme.layout_tileleft   = "/usr/share/awesome/themes/zenburn/layouts/tileleft.png"

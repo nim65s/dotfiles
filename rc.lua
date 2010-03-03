@@ -65,15 +65,21 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
--- Vicious 
+
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
 
 pacwidget = widget({ type = "textbox" })
-pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/pacup.sh",1) end)
+-- pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 pacwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) end),
     awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) end)))
+
+smpwidget = widget({ type = "textbox" })
+smpwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-smp/MyFolding.html'", false) end)))
+--gpuwidget.text = "999999999999"
+gpuwidget = widget({ type = "textbox" })
+gpuwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-gpu/alpha/MyFolding.html'", false) end)))
 
 -- {{{ Naughty Calendar, from hg.kaworu.ch
 calendar = {
@@ -195,13 +201,22 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         wiclock,
-        s == 1 and pacwidget or nil,
+--         s == 1 and pacwidget or nil,
         s == 1 and mysystray or nil,
-        s == 1 and cpuwidget or nil,
+--         s == 1 and cpuwidget or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
+
+-- on ajoute une autre wibox en bas à gauche
+
+nimbox = awful.wibox({ position = "bottom", screen = 2, align = "right" })
+nimbox.widgets = {
+        {pacwidget,
+        cpuwidget},
+        smpwidget,
+        gpuwidget }
 -- }}}
 
 -- {{{ Mouse bindings
@@ -504,9 +519,12 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --}}}
 
 -- {{{ Timer
-mytimer = timer { timeout = 300 }
-mytimer:add_signal("timeout", function()
-    pacwidget:emit_signal("update")
-end)
+-- mytimer = timer { timeout = 300 }
+-- mytimer:add_signal("timeout", function()
+--     pacwidget:emit_signal("update")
+-- end)
+-- mytimer:start()
+mytimer = timer({ timeout = 300 })
+mytimer:add_signal("timeout", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 mytimer:start()
 -- }}}

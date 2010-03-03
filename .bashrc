@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
-export MUUA=***:***
-alias sql='mysql -u*** -p***'
+export MUUA=nim65s:fdsjkl65
+alias sql='mysql -uroot -pfdsjkl65'
 
 export KDEWM=awesome
 
@@ -26,6 +26,7 @@ PS1='\[\033[1;37m\][\
 # ALIAS
 
 alias ls='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
+alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -57,7 +58,6 @@ alias makewallpaper='$HOME/scripts/make.wallpaper.sh'
 alias dl='$HOME/scripts/dl.sh'
 
 alias wow='wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl'
-alias fah='cd $HOME/FAH/ ; ./fah6 -smp -verbosity 9'
 alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
 
 alias hist='cat $HOME/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
