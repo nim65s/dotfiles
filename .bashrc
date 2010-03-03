@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
-export MUUA=nim65s:fdsjkl65
-alias sql='mysql -uroot -pfdsjkl65'
+export MUUA=***:***
+alias sql='mysql -uroot -p***'
 
 export KDEWM=awesome
 
@@ -52,10 +52,13 @@ alias seeder='$HOME/scripts/seeder.sh'
 alias ka='$HOME/scripts/ka.sh'
 alias kaok='$HOME/scripts/kaok.sh'
 alias kako='$HOME/scripts/kako.sh'
+alias akko='$HOME/scripts/akko.sh'
 alias ext='$HOME/scripts/extracteur.sh'
 alias keni='$HOME/scripts/keni.sh'
 alias makewallpaper='$HOME/scripts/make.wallpaper.sh'
 alias dl='$HOME/scripts/dl.sh'
+
+alias fah='sudo $HOME/scripts/fah.sh'
 
 alias wow='wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl'
 alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
