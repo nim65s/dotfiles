@@ -75,11 +75,25 @@ pacwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) end),
     awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) end)))
 
-smpwidget = widget({ type = "textbox" })
-smpwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-smp/MyFolding.html'", false) end)))
---gpuwidget.text = "999999999999"
-gpuwidget = widget({ type = "textbox" })
-gpuwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-gpu/alpha/MyFolding.html'", false) end)))
+--fah
+fahwidget = widget({ type = "imagebox" })
+fahwidget.image = image("/home/nim/.config/awesome/fahstop.png")
+fahwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end)))
+
+fahgpuwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
+fahgpuwidget:set_background_color(beautiful.bg_normal)
+fahgpuwidget:set_border_color(beautiful.bg_focus)
+fahgpuwidget:set_color(beautiful.bg_focus)
+awful.widget.layout.margins[fahgpuwidget.widget] = { top = 1, bottom = 1 }
+fahgpuwidget:set_value(1)
+--fahgpuwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-gpu/alpha/MyFolding.html' 'file:///opt//fah-gpu/alpha/unitinfo.txt'", false) end))) TODO
+fahsmpwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
+fahsmpwidget:set_background_color(beautiful.bg_normal)
+fahsmpwidget:set_border_color(beautiful.bg_focus)
+fahsmpwidget:set_color(beautiful.bg_focus)
+awful.widget.layout.margins[fahgpuwidget.widget] = { top = 1, bottom = 1 }
+fahsmpwidget:set_value(1)
+--fahsmpwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-smp/MyFolding.html' 'file:///opt//fah-smp/unitinfo.txt'", false) end))) TODO
 
 -- {{{ Naughty Calendar, from hg.kaworu.ch
 calendar = {
@@ -171,6 +185,10 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
+-- Create the wibox
+mywibox[1] = awful.wibox({ position = "top", screen = 1 })
+mywibox[2] = awful.wibox({ position = "bottom", screen = 2 })
+
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
@@ -190,8 +208,6 @@ for s = 1, screen.count() do
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
-    -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -201,23 +217,16 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         wiclock,
---         s == 1 and pacwidget or nil,
-        s == 1 and mysystray or nil,
---         s == 1 and cpuwidget or nil,
+        s == 2 and pacwidget or nil,
+        s == 2 and fahgpuwidget or nil,
+        fahwidget,
+        s == 2 and fahsmpwidget or nil,
+        s == 2 and cpuwidget or nil,
+        mysystray,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
-
--- on ajoute une autre wibox en bas à gauche
-
-nimbox = awful.wibox({ position = "bottom", screen = 2, align = "right" })
-nimbox.widgets = {
-        {pacwidget,
-        cpuwidget},
-        smpwidget,
-        gpuwidget }
--- }}}
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -458,9 +467,10 @@ awful.rules.rules = {
       properties = { tag = tags[1][3],
       border_width = 0 } },
     { rule = { class = "Kmess" },
-      properties = { tag = tags[2][1],
-      switchtotag = true,
-      screen = 2 } },
+      properties = { switchtotag = true,
+--       tag = tags[2][1],
+--       screen = 2 
+      } },
     { rule = { class = "amarokapp" },
       properties = { tag = tags[1][1],
       border_width = 0 } },
@@ -524,7 +534,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --     pacwidget:emit_signal("update")
 -- end)
 -- mytimer:start()
-mytimer = timer({ timeout = 300 })
+mytimer = timer({ timeout = 30 })
 mytimer:add_signal("timeout", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 mytimer:start()
 -- }}}
