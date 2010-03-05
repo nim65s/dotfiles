@@ -70,6 +70,7 @@ cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
 
 pacwidget = widget({ type = "textbox" })
+pacwidget.bg = beautiful.bg_urgent
 -- pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 pacwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) end),
@@ -77,8 +78,8 @@ pacwidget:buttons(awful.util.table.join(
 
 --fah
 fahwidget = widget({ type = "imagebox" })
-fahwidget.image = image("/home/nim/.config/awesome/fahstop.png")
-fahwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end)))
+fahwidget.image = image("/home/nim/.config/awesome/fahrun.gif")
+fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
 
 fahgpuwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
 fahgpuwidget:set_background_color(beautiful.bg_normal)
@@ -211,18 +212,20 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mytaglist[s],
-            mypromptbox[s],
-            layout = awful.widget.layout.horizontal.leftright
+        mytaglist[s],
+        mypromptbox[s],
+        layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
         wiclock,
-        s == 2 and pacwidget or nil,
+        s == 1 and pacwidget or nil,
+        s == 1 and pacwidget or nil, --TODO
+        s == 2 and cpuwidget or nil,
         s == 2 and fahgpuwidget or nil,
         fahwidget,
         s == 2 and fahsmpwidget or nil,
         s == 2 and cpuwidget or nil,
-        mysystray,
+        s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
@@ -534,7 +537,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --     pacwidget:emit_signal("update")
 -- end)
 -- mytimer:start()
-mytimer = timer({ timeout = 30 })
+mytimer = timer({ timeout = 300 })
 mytimer:add_signal("timeout", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 mytimer:start()
 -- }}}
