@@ -81,18 +81,18 @@ fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image("/home/nim/.config/awesome/fahrun.gif")
 fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
 
-fahgpuwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
-fahgpuwidget:set_background_color(beautiful.bg_normal)
-fahgpuwidget:set_border_color(beautiful.bg_focus)
-fahgpuwidget:set_color(beautiful.bg_focus)
-awful.widget.layout.margins[fahgpuwidget.widget] = { top = 1, bottom = 1 }
-fahgpuwidget:set_value(1)
+-- fahgpuwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
+-- fahgpuwidget:set_background_color(beautiful.bg_normal)
+-- fahgpuwidget:set_border_color(beautiful.bg_focus)
+-- fahgpuwidget:set_color(beautiful.bg_focus)
+-- awful.widget.layout.margins[fahgpuwidget.widget] = { top = 1, bottom = 1 }
+-- fahgpuwidget:set_value(1)
 --fahgpuwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-gpu/alpha/MyFolding.html' 'file:///opt//fah-gpu/alpha/unitinfo.txt'", false) end))) TODO
 fahsmpwidget = awful.widget.progressbar({ layout = awful.widget.layout.horizontal.rightleft })
 fahsmpwidget:set_background_color(beautiful.bg_normal)
 fahsmpwidget:set_border_color(beautiful.bg_focus)
 fahsmpwidget:set_color(beautiful.bg_focus)
-awful.widget.layout.margins[fahgpuwidget.widget] = { top = 1, bottom = 1 }
+awful.widget.layout.margins[fahsmpwidget.widget] = { top = 1, bottom = 1 }
 fahsmpwidget:set_value(1)
 --fahsmpwidget:buttons(awful.util.table.join( awful.button({ }, 1, function () awful.util.spawn("chromium 'file:///opt//fah-smp/MyFolding.html' 'file:///opt//fah-smp/unitinfo.txt'", false) end))) TODO
 
@@ -221,7 +221,7 @@ for s = 1, screen.count() do
         s == 1 and pacwidget or nil,
         s == 1 and pacwidget or nil, --TODO
         s == 2 and cpuwidget or nil,
-        s == 2 and fahgpuwidget or nil,
+--         s == 2 and fahgpuwidget or nil,
         fahwidget,
         s == 2 and fahsmpwidget or nil,
         s == 2 and cpuwidget or nil,
@@ -352,6 +352,26 @@ globalkeys = awful.util.table.join(
                       awful.util.eval("return (" .. expr .. ")") .. "' | " .. xmessage, false
                       )
                   end)
+              end),
+
+    awful.key({ }, "XF86HomePage", 
+              function ()
+                  if mouse.screen == 2 then awful.screen.focus (1) end
+                  awful.util.spawn("chromium", false)
+                  awful.tag.viewonly(tags[1][2])
+              end),
+
+    awful.key({ }, "XF86Mail", 
+              function ()
+                  if mouse.screen == 2 then awful.screen.focus (1) end
+                  awful.util.spawn("thunderbird", false)
+              end),
+
+    awful.key({ }, "XF86AudioMute", 
+              function ()
+                  if mouse.screen == 2 then awful.screen.focus (1) end
+                  awful.tag.viewonly(tags[1][1])
+                  awful.util.spawn("amarok", false)
               end),
 
 -- TODO : si rien ne rien faire
