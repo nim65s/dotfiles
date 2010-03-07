@@ -219,8 +219,6 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         wiclock,
         s == 1 and pacwidget or nil,
-        s == 1 and pacwidget or nil, --TODO
-        s == 2 and cpuwidget or nil,
 --         s == 2 and fahgpuwidget or nil,
         fahwidget,
         s == 2 and fahsmpwidget or nil,
