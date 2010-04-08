@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
-export MUUA=***:***
-alias sql='mysql -uroot -p***'
+export MUUA=nick:pass
+alias sql='mysql -unick -ppass'
 
 export KDEWM=awesome
 
@@ -12,7 +12,7 @@ export XDG_CONFIG_HOME=~/.config/
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 
-PS1='\[\033[1;37m\][\
+PS1='\n\[\033[1;37m\][\
 \[\033[1;33m\]\u\
 \[\033[1;37m\]@\
 \[\033[1;36m\]\h\
@@ -57,6 +57,7 @@ alias ext='$HOME/scripts/extracteur.sh'
 alias keni='$HOME/scripts/keni.sh'
 alias makewallpaper='$HOME/scripts/make.wallpaper.sh'
 alias dl='$HOME/scripts/dl.sh'
+alias adl='$HOME/scripts/autodl.sh'
 
 alias fah='sudo $HOME/scripts/fah.sh'
 
@@ -65,11 +66,11 @@ alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.
 
 alias hist='cat $HOME/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
-alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -v'
+alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv --ignore-fail-on-non-empty; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv'
 alias testrc='cp $HOME/dotfiles/rc.lua $HOME/.config/awesome/rc.lua ; cp $HOME/dotfiles/theme.lua /usr/share/awesome/themes/nim/theme.lua ;( awesome -k && echo -e "\033[1;32mmod4 + ctrl + r\033[0;32m" ) || echo -e "\033[1;31mFAIL\033[0;32m"'
 alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
 
-alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.xinon xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
+alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
 

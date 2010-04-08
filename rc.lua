@@ -73,8 +73,12 @@ pacwidget = widget({ type = "textbox" })
 pacwidget.bg = beautiful.bg_urgent
 -- pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 pacwidget:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) end)))
+    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) 
+                                     awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1)
+                                     end),
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) 
+                                     awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1)
+                                     end)))
 
 --fah
 fahwidget = widget({ type = "imagebox" })
@@ -489,8 +493,8 @@ awful.rules.rules = {
       border_width = 0 } },
     { rule = { class = "Kmess" },
       properties = { switchtotag = true,
---       tag = tags[2][1],
---       screen = 2 
+      tag = tags[2][1],
+      screen = 2 
       } },
     { rule = { class = "amarokapp" },
       properties = { tag = tags[1][1],
