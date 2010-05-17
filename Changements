@@ -1,8 +1,15 @@
 Ce fichier indique les changements des autres fichiers de ce dossier.
 Parceque j'ai la flemme de le faire dans git.
 
-rc.lua 
-  modification des espaces par des + dans les raccourcis de recherche utilisant chromium
-
 .bashrc
-  virerdossiervide : ajout des options -p --ignore-fail-on-non-empty
+  modification des PS
+  ajout de dlbot en alias
+
+.rtorrent.rc
+  on passe dans Téléchargement tant que j’ai pas codé ces scripts
+
+.Xdefaults
+   Urxvt background
+
+rc.lua
+  bépo

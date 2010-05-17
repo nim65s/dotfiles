@@ -2,8 +2,8 @@ URxvt.font:		xft:DejaVu Sans Mono:pixelsize=16
 URxvt*termName:		xterm-color
 URxvt*foreground:	green
 URxvt*transparent:	true
-URxvt*tintColor:	#0000EE
-URxvt*highlightColor:   blue
+URxvt*tintColor:	#000080
+URxvt*highlightColor:   yellow
 !URxvt*shading:		100
 URxvt*fading:		35
 !URxvt*fg:		white
@@ -11,8 +11,6 @@ URxvt*loginShell:	true
 URxvt*scrollBar:	false
 URxvt*cursorUnderline:  true
 urxvt*depth:            24
-
-urxvt*cutchars:         "()*,<>[]{}|'
 
 URxvt.urlLauncher: 	chromium
 

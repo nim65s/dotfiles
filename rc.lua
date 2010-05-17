@@ -66,6 +66,9 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 
+spacerwidget = widget({ type = "textbox" })
+spacerwidget.text = " "
+
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $1% ")
 
@@ -73,12 +76,21 @@ pacwidget = widget({ type = "textbox" })
 pacwidget.bg = beautiful.bg_urgent
 -- pacwidget:add_signal("update", function() awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1) end)
 pacwidget:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Su",1) 
-                                     awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1)
-                                     end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur",1) 
-                                     awful.util.spawn_with_shell("/home/nim/.config/awesome/5min.sh",1)
-                                     end)))
+    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu && /home/nim/.config/awesome/5min.sh",1) end),
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur && /home/nim/.config/awesome/5min.sh",1) end)))
+
+--bepo
+bepowidget = widget({ type = "textbox" })
+bepowidget.text = "fr "
+bepowidget:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () 
+        bepowidget.text = "fr "
+        awful.util.spawn("setxkbmap fr", false)
+        end),
+    awful.button({ }, 3, function ()
+        bepowidget.text = "bépo "
+        awful.util.spawn("setxkbmap fr bepo", false)
+        end)))
 
 --fah
 fahwidget = widget({ type = "imagebox" })
@@ -220,11 +232,13 @@ for s = 1, screen.count() do
         mypromptbox[s],
         layout = awful.widget.layout.horizontal.leftright
         },
+        s == 1 and pacwidget or nil,
+        bepowidget,
+        spacerwidget,
+        fahwidget,
         mylayoutbox[s],
         wiclock,
-        s == 1 and pacwidget or nil,
 --         s == 2 and fahgpuwidget or nil,
-        fahwidget,
         s == 2 and fahsmpwidget or nil,
         s == 2 and cpuwidget or nil,
         s == 1 and mysystray or nil,
@@ -306,7 +320,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium 'http://wikipedia.fr/Resultats.php?q="..command.."'", false)
+                      awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -317,7 +331,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium 'http://www.google.com/search?q="..command.."'", false)
+                      awful.util.spawn_with_shell("chromium http://www.google.com/search?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -328,7 +342,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium 'http://www.google.com/search?btnI=Recherche+Google&q="..command.."'", false)
+                      awful.util.spawn_with_shell("chromium http://www.google.com/search?btnI=Recherche+Google\\&q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -339,7 +353,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 2 then awful.screen.focus (1) end
-                      awful.util.spawn("chromium 'http://yubnub.org/parser/parse?command="..command.."'", false)
+                      awful.util.spawn("chromium http://yubnub.org/parser/parse?command=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1][2])
                       end)
               end),
@@ -374,6 +388,18 @@ globalkeys = awful.util.table.join(
                   if mouse.screen == 2 then awful.screen.focus (1) end
                   awful.tag.viewonly(tags[1][1])
                   awful.util.spawn("amarok", false)
+              end),
+
+    awful.key({ }, "XF86Search", 
+              function ()
+                  bepowidget.text = "fr "
+                  awful.util.spawn("setxkbmap fr", false)
+              end),
+
+    awful.key({ modkey }, "XF86Search", 
+              function ()
+                  bepowidget.text = "bépo "
+                  awful.util.spawn("setxkbmap fr bepo", false)
               end),
 
 -- TODO : si rien ne rien faire
