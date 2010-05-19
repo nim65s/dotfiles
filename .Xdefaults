@@ -3,7 +3,6 @@ URxvt*termName:		xterm-color
 URxvt*foreground:	green
 URxvt*transparent:	true
 URxvt*tintColor:	#000080
-URxvt*highlightColor:   yellow
 !URxvt*shading:		100
 URxvt*fading:		35
 !URxvt*fg:		white
