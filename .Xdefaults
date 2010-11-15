@@ -1,1 +1,26 @@
-../.Xdefaults
+URxvt.font:		xft:DejaVuSansMono-Oblique:pixelsize=16
+URxvt*termName:		xterm-color
+URxvt*foreground:	#DCDCCC
+URxvt*transparent:	true
+URxvt*tintColor:	#3F3F3F
+!URxvt*shading:		100
+URxvt*fading:		35
+!URxvt*fg:		white
+URxvt*loginShell:	true
+URxvt*scrollBar:	false
+URxvt*cursorUnderline:  true
+urxvt*depth:            24
+
+URxvt.urlLauncher: 	chromium
+
+xterm*faceName:		calibri
+xterm*faceSize: 	10
+
+urxvt.perl-ext-common:	default,matcher,tabbed
+Xcursor*theme: 		gruppled_white_lite
+
+URxvt.urgentOnBell: 	True
+
+URxvt*iconFile:		/home/nim/images/favicon.png
+
+xpdf*urlCommand:        /usr/bin/chromium %s
