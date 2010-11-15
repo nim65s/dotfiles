@@ -1,0 +1,1 @@
+/home/nim/.config/awesome/rc.lua

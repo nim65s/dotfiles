@@ -1,0 +1,1 @@
+/home/nim/.config/awesome/awesome.zenburn.nimed.theme.lua

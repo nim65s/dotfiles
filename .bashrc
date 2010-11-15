@@ -1,33 +1,34 @@
 [ -z "$PS1" ] && return
 
-export MUUA=nick:pass
-alias sql='mysql -unick -ppass'
+export MUUA=user:password
+alias sql='/opt/lampp/bin/mysql -uuser -ppassword'
 
 export KDEWM=awesome
 
-export EDITOR=kate
-export VISUAL=kate
+export EDITOR=vim
 export XDG_DATA_HOME=~/.uzbl/data/
-export XDG_CONFIG_HOME=~/.config/
+export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_DIRS=/etc/xdg
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
-export LS_COLORS='di=1;33:fi=0:ln=35:pi=5:so=5:bd=5:cd=5:or=31:mi=41:ex=104:*.rpm=90:*~=94:*.zip=37:*.rar=37:*.tar=37:*.tgz=37:*.tar.gz=37:*.tar.bz2=37:*.7z=37'
 
-# \[\033[1;32m\]]$( for((i=1;i<$(( $(tput cols) - 17 - $( wc -c <<< $USER ) - $( wc -c <<< $HOSTNAME ) - $( echo $PWD | sed "s/[/]home[/]$USER/~/" | wc -c) ));i++)); do echo -n "─";done)[\
+export N7=saurelg@ssh.inpt.fr
+export VIMRUNTIME=/usr/share/vim/vim73/
+# export TERM=xterm-256color
 
-PS1="┌─\
+PS1='\[\033[0;32m\]┌─\
 \[\033[1;32m\][\
 \[\033[1;33m\]\u\
 \[\033[1;37m\]@\
 \[\033[1;36m\]\h\
 \[\033[1;37m\]:\
 \[\033[1;37m\]\w\
-\[\033[1;32m\]]────[\
+\[\033[1;32m\]]-[\
 \[\033[0;32m\]\t\
 \[\033[1;32m\]]
 \[\033[0;32m\]└─>\
 \[\033[1;31m\]$\
-\[\033[0;32m\] "
+\[\033[0m\] '
 PS2='\[\033[1;32m\]└──>\[\033[m\] '
 PS3='└─?> '
 #\D{%A %-d %B - %X}\
@@ -68,24 +69,22 @@ alias makewallpaper='$HOME/scripts/make.wallpaper.sh'
 alias dl='$HOME/scripts/dl.sh'
 alias adl='$HOME/scripts/autodl.sh'
 alias dlbot='$HOME/scripts/dlbot.sh'
-alias bdl='$HOME/scripts/bdl.sh'
 
 alias fah='sudo $HOME/scripts/fah.sh'
 
 alias wow='wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl'
 alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
-alias ts2='wine $HOME/.wine/drive_c/Program\ Files/Teamspeak2_RC2/TeamSpeak.exe'
 
 alias hist='cat $HOME/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
 alias testrc='cp $HOME/dotfiles/rc.lua $HOME/.config/awesome/rc.lua ; cp $HOME/dotfiles/theme.lua /usr/share/awesome/themes/nim/theme.lua ;( awesome -k && echo -e "\033[1;32mmod4 + ctrl + r\033[0;32m" ) || echo -e "\033[1;31mFAIL\033[0;32m"'
-alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd "$I" ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
+alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
 
 alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
-
+alias xxm='sudo cp /etc/X11/xorg.conf.xmonad /etc/X11/xorg.conf ; startx'
 
 # put this in your bashrc for bash tab completion with mpc
 # $ cat mpc-bashrc >> ~/.bashrc
@@ -158,4 +157,3 @@ alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
 	esac
 }
 complete -F _mpdadd_complete_func mpc
-export PYTHONPATH=/home/nim/workspace/gdata/gdata-2.0.10/src
