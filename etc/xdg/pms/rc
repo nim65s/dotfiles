@@ -1,1 +1,10 @@
-/etc/xdg/pms/rc
+set nextinterval=1
+set crossfade=0
+set followplayback
+set scrolloff=2
+set resetstatus=1
+set sort=artist album track
+set columns=title artist album length
+set mouse
+set nodebug
+set resetstatus=1
