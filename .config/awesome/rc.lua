@@ -60,6 +60,17 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 
+function wiboxtoggle()
+		if mywibox[1].visible then
+				mywibox[1].visible = false
+				mywibox[2].visible = false
+				mywibox[3].visible = false
+		else
+				mywibox[1].visible = true
+				mywibox[2].visible = true
+				mywibox[3].visible = true
+		end
+end
 
 playicone = widget({ type = "imagebox" })
 playicone.image = image(beautiful.play_icon)
@@ -71,6 +82,8 @@ previcone = widget({ type = "imagebox" })
 previcone.image = image(beautiful.prev_icon)
 downicone = widget({ type = "imagebox" })
 downicone.image = image(beautiful.down_icon)
+upicone = widget({ type = "imagebox" })
+upicone.image = image(beautiful.up_icon)
 cpuicone = widget({ type = "imagebox" })
 cpuicone.image = image(beautiful.cpu_icon)
 gmailicone = widget({ type = "imagebox" })
@@ -152,8 +165,10 @@ np_widget = widget({ type = "textbox", name = "np_widget", align = "right" })
 
 
 netwidget = widget({ type = "textbox", align = "right" })
-vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb}', 3)
-netwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e sudo iptraf", 2) end))
+vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
+netwidget:buttons(awful.util.table.join(
+	awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e sudo iptraf -i eth0", 2) end),
+	awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e sudo iftop", 2) end)))
 
 --pulsewidget = widget({ type = "textbox" })
 --vicious.register(pulsewidget, vicious.contrib.pulse, " $1 ")
@@ -205,7 +220,7 @@ pacwidget.text = io.popen("pacman -Qu | qc -l"):read() -- TODO marche pas x)
 --        end)))
 
 fahwidget = widget({ type = "imagebox" })
-fahwidget.image = image("/home/nim/dotfiles/fah.png")
+fahwidget.image = image(beautiful.aw_icon)
 fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
 fahwidget:add_signal("mouse::enter", function() awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") end)
 
@@ -366,6 +381,7 @@ for s = 1, screen.count() do
 	    cpuicone,
 	    fswidget,
 	    homeicone,
+		upicone,
 	    netwidget,
 	    downicone,
 	    layout = awful.widget.layout.horizontal.rightleft
@@ -433,6 +449,9 @@ globalkeys = awful.util.table.join(
     
     -- http://wiki.archlinux.org/index.php/Awesome3
     awful.key({ modkey,           }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/images/screenshots/ 2>/dev/null'") end),
+	
+	-- tentative de cachage de ces p*** de wibox pour voir des trucs en plein écran...
+	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),

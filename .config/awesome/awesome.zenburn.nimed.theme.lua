@@ -95,6 +95,7 @@ theme.cpu_icon               = "/home/nim/images/awicons/cpu.png"
 theme.gmail_icon             = "/home/nim/images/awicons/gmail.png"
 theme.home_icon              = "/home/nim/images/awicons/home.png"
 theme.spkr_icon              = "/home/nim/images/awicons/spkr.png"
+theme.aw_icon                = "/home/nim/images/awicons/fah.png"
 -- }}}
 
 -- {{{ Layout
