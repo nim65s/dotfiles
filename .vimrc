@@ -102,3 +102,4 @@ set background=dark
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set t_Co=256
 colorscheme zenburn
+set tabstop=4

@@ -29,8 +29,9 @@ layouts =
 }
 
 -- {{{ Tags
-tags = {}
-tags[1] = awful.tag({ "firefox", "vim", 3, 4, 5, 6, 7, 8, "pidgin" }, s, layouts[1])
+--rc.lua pour UN SEUL écran => simplification moche
+s = 1
+tags = awful.tag({ "firefox", "vim", 3, 4, 5, 6, 7, 8, "pidgin" }, s, layouts[1])
 -- }}}
 
 -- {{{ Menu
@@ -302,29 +303,18 @@ clientkeys = awful.util.table.join(
         end)
 )
 
--- Compute the maximum number of digit we need, limited to 9
-keynumber = 0
-for s = 1, screen.count() do
-   keynumber = math.min(9, math.max(#tags[s], keynumber));
-end
-
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it works on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, keynumber do
+for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = mouse.screen
-                        if tags[screen][i] then
-                            awful.tag.viewonly(tags[screen][i])
+                        if tags[i] then
+                            awful.tag.viewonly(tags[i])
                         end
                   end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
-                      local screen = mouse.screen
-                      if tags[screen][i] then
-                          awful.tag.viewtoggle(tags[screen][i])
+                      if tags[i] then
+                          awful.tag.viewtoggle(tags[i])
                       end
                   end),
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
