@@ -1,18 +1,22 @@
 [ -z "$PS1" ] && return
 
-export MUUA=nick:pass
-alias sql='mysql -unick -ppass'
+export MUUA=user:password
+alias sql='/opt/lampp/bin/mysql -uuser -ppassword'
 
 export KDEWM=awesome
 
-export EDITOR=kate
-export VISUAL=kate
+export EDITOR=vim
 export XDG_DATA_HOME=~/.uzbl/data/
-export XDG_CONFIG_HOME=~/.config/
+export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_DIRS=/etc/xdg
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 
-PS1='┌─\
+export N7=saurelg@ssh.inpt.fr
+export VIMRUNTIME=/usr/share/vim/vim73/
+# export TERM=xterm-256color
+
+PS1='\[\033[0;32m\]┌─\
 \[\033[1;32m\][\
 \[\033[1;33m\]\u\
 \[\033[1;37m\]@\
@@ -24,7 +28,7 @@ PS1='┌─\
 \[\033[1;32m\]]
 \[\033[0;32m\]└─>\
 \[\033[1;31m\]$\
-\[\033[0;32m\] '
+\[\033[0m\] '
 PS2='\[\033[1;32m\]└──>\[\033[m\] '
 PS3='└─?> '
 #\D{%A %-d %B - %X}\
@@ -80,7 +84,7 @@ alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo
 alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
-
+alias xxm='sudo cp /etc/X11/xorg.conf.xmonad /etc/X11/xorg.conf ; startx'
 
 # put this in your bashrc for bash tab completion with mpc
 # $ cat mpc-bashrc >> ~/.bashrc
