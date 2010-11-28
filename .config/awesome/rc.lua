@@ -92,6 +92,10 @@ homeicone = widget({ type = "imagebox" })
 homeicone.image = image(beautiful.home_icon)
 spkricone = widget({ type = "imagebox" })
 spkricone.image = image(beautiful.spkr_icon)
+spkricone:buttons(awful.util.table.join(
+	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
+	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
+	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 
 -- {{{ mise en forme de texte, from hg.kaworu.ch
 function bg(color, text)
@@ -200,11 +204,16 @@ pacmanicone = widget({ type = "imagebox" })
 pacmanicone.image = image(beautiful.pacman_icon)
 pacwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu && /home/nim/dotfiles/5min.sh",2) end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur && /home/nim/dotfiles/5min.sh",2) end)))
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur --devel && /home/nim/dotfiles/5min.sh",2) end)))
 pacmanicone:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu && /home/nim/dotfiles/5min.sh",2) end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur && /home/nim/dotfiles/5min.sh",2) end)))
-pacwidget.text = io.popen("pacman -Qu | qc -l"):read() -- TODO marche pas x)
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur --devel && /home/nim/dotfiles/5min.sh",2) end)))
+pacwidget_timer = timer({ timeout = 300 })
+pacwidget_timer:add_signal("timeout", function () pacwidget.text = io.popen("pacman -Qu | wc -l", "r"):read("*a") end)
+pacwidget_timer:start()
+
+-- pacwidget.text = io.popen("pacman -Qu | wc -l"):read() -- TODO marche pas x)
+-- pacwidget:add_signal("mousse::enter", function() pacwidget.text = io.popen("pacman -Qu | wc -l"):read() end)
 
 --bepo
 --bepowidget = widget({ type = "textbox", align = "right" })
@@ -223,6 +232,33 @@ fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
 fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
 fahwidget:add_signal("mouse::enter", function() awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") end)
+
+fahsmpwidget = awful.widget.progressbar()
+fahsmpwidget:set_width(8)
+fahsmpwidget:set_vertical(true)
+fahsmpwidget:set_color(beautiful.fg_normal)
+fahgpuwidget = awful.widget.progressbar()
+fahgpuwidget:set_width(8)
+fahgpuwidget:set_vertical(true)
+fahgpuwidget:set_color(beautiful.fg_normal)
+
+fahwidget_timer = timer({ timeout = 300 })
+fahwidget_timer:add_signal("timeout", function () 
+		fahgpuwidget:set_value(io.popen("tail -n 1 /opt/fah-gpu/alpha/unitinfo.txt | cut -d' ' -f 2 | sed 's/%//'","r"):read("*a")/100)
+		fahsmpwidget:set_value(io.popen("tail -n 1 /opt/fah-smp/unitinfo.txt | cut -d' ' -f 2 | sed 's/%//'","r"):read("*a")/100)
+end)
+fahwidget_timer:start()
+
+volwidget = awful.widget.progressbar()
+volwidget:set_width(10)
+volwidget:set_vertical(true)
+volwidget:set_color(beautiful.fg_normal)
+volwidget:set_max_value(10)
+volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
+--volwidget.widget:buttons(awful.util.table.join(
+--	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
+--	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
+--	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 
 tw = widget ({ type = "textbox"})
 tw.text = "test"
@@ -267,8 +303,8 @@ wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/nim/scripts/ics2txt.sh notify") end),
-    awful.button({ }, 3, function() calendar:month(1) end),
+    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify") end),
+    awful.button({ }, 3, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify alarm") end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
@@ -365,10 +401,13 @@ for s = 1, screen.count() do
 	    {
 		    mylauncher,
 		    mysystray,
+			fahgpuwidget,
 		    fahwidget,
+			fahsmpwidget,
 		    previcone,
 		    playicone,
 		    nexticone,
+			volwidget,
 		    spkricone,
 		    mpdwidget,
 		    layout = awful.widget.layout.horizontal.leftright
@@ -532,13 +571,6 @@ globalkeys = awful.util.table.join(
               function ()
                   if mouse.screen == 1 then awful.screen.focus (2) end
                   awful.util.spawn("thunderbird", false)
-              end),
-
-    awful.key({ }, "XF86AudioMute", 
-              function ()
-                  if mouse.screen == 1 then awful.screen.focus (2) end
-                  awful.tag.viewonly(tags[2][1])
-                  awful.util.spawn("amarok", false)
               end),
 
     awful.key({ }, "XF86Search", 
@@ -726,17 +758,8 @@ end
 awful.screen.focus(2)
 awful.tag.viewonly(tags[2][9])
 run_once("kalarm")
-run_once("pavucontrol")
-run_once("gnome-alsamixer")
--- awful.screen.focus(1)
--- awful.tag.viewonly(tags[1][9])
--- awful.screen.focus(2)
 --}}}
 
-
-awful.hooks.focus.register( function (c)
-	naughty.config.presets.low.screen=2
-	naughty.config.presets.normal.screen=2
-	naughty.config.presets.critical.screen=2
-end)
--- }}}
+naughty.config.presets.low.screen=2
+naughty.config.presets.normal.screen=2
+naughty.config.presets.critical.screen=2

@@ -60,15 +60,20 @@
     m:0x0 + c:173
     XF86AudioPrev 
 
-#mpc volup
-"mpc volume +2"
-    m:0x10 + c:123
-    Mod2 + XF86AudioRaiseVolume 
+#volup
+"ossmix vmix0-outvol -- +2"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume 
 
-#mpc voldown
-"mpc volume -2"
-    m:0x10 + c:122
-    Mod2 + XF86AudioLowerVolume 
+#voldown
+"ossmix vmix0-outvol -- -2"
+    m:0x0 + c:122
+    XF86AudioLowerVolume 
+
+#mute
+"[[ "$(ossmix misc.front-mute | cut -d" " -f 10)" == "ON" ]] && ossmix misc.front-mute OFF || ossmix misc.front-mute ON"
+    m:0x0 + c:121
+    XF86AudioMute 
 
 #
 # End of xbindkeys configuration
