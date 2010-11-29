@@ -40,38 +40,38 @@
     m:0x40 + c:33
     Mod4 + p 
 
-#mpc toggle
-"mpc toggle"
+#toggle
+"/home/nim/scripts/audio.sh t"
     m:0x0 + c:172
     XF86AudioPlay 
 
-#mpc stop
-"mpc stop"
+#stop
+"/home/nim/scripts/audio.sh s"
     m:0x0 + c:174
     XF86AudioStop 
 
-#mpc next
-"mpc next"
+#next
+"/home/nim/scripts/audio.sh n"
     m:0x0 + c:171
     XF86AudioNext 
 
-#mpc prev
-"mpc prev"
+#prev
+"/home/nim/scripts/audio.sh p"
     m:0x0 + c:173
     XF86AudioPrev 
 
 #volup
-"ossmix vmix0-outvol -- +2"
+"/home/nim/scripts/audio.sh +"
     m:0x0 + c:123
     XF86AudioRaiseVolume 
 
 #voldown
-"ossmix vmix0-outvol -- -2"
+"/home/nim/scripts/audio.sh -"
     m:0x0 + c:122
     XF86AudioLowerVolume 
 
 #mute
-"[[ "$(ossmix misc.front-mute | cut -d" " -f 10)" == "ON" ]] && ossmix misc.front-mute OFF || ossmix misc.front-mute ON"
+"/home/nim/scripts/audio.sh m"
     m:0x0 + c:121
     XF86AudioMute 
 

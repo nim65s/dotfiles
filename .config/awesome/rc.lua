@@ -97,7 +97,6 @@ spkricone:buttons(awful.util.table.join(
 	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
 	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 
--- {{{ mise en forme de texte, from hg.kaworu.ch
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
 end
@@ -113,15 +112,15 @@ end
 
 cpuwidget = widget({ type = "textbox", align = "right" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $2% - $3% ")
-cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e htop",2) end))
+cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'htop'",2) end))
 
 mpdwidget = widget({ type = "textbox", name = "mpdwidget", align = "center" })
 vicious.register(mpdwidget, vicious.widgets.mpd, 
 function(widget,args)
 	if args["{state}"] == "Stop" then
-		return " - " 
+		return " Stop " 
 	else
-		return ' '..args["{volume}"]..' : '.. bold(args["{Artist}"]).. ' => '..args["{Title}"]
+		return ' '..args["{volume}"]..' : '.. bold(args["{Artist}"])..' ( '..args["{Album}"]..' ) => '..args["{Title}"]
 	end
 end, 3)
 mpdwidget:buttons(awful.util.table.join(
@@ -131,51 +130,11 @@ mpdwidget:buttons(awful.util.table.join(
 previcone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc seek 0%") end))
 nexticone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc next") end))
 
--- Music player
---[[function np_feed_widget ()
-   local np_file = io.popen('mpc 2> /dev/null')
-   local track = np_file:read("*line")
-
-   if track == nil or track:find("volume:") then
-	  np_widget.visible = false
-	  np_icon.visible = false
-   else
-	  np_widget.visible = true
-	  np_icon.visible = true
-
-      track = track:gsub('&', '&amp;')
-
-      local status = np_file:read("*line")
-      
-      if status:find("playing") then
-         np_icon.image = image(icon_play)
-      else
-         np_icon.image = image(icon_stop)
-      end
-
-      local dur_pattern = "%d+:%d+/%d+:%d+"
-      local duration = string.find(status, dur_pattern) and string.sub(status, string.find(status, dur_pattern)) or ""
-
-      np_widget.text = "<span color='" .. widget_fg_end .. "'>" .. track .. " (" .. duration .. ")</span>"
-   end
-
-   np_file:close()
-end
-
-np_icon = widget({ type = "imagebox", name = "np_icon", align = "right" })
-np_icon:buttons({button({ }, 1, function () awful.util.spawn(music_toggle); np_feed_widget () end)})
-np_widget = widget({ type = "textbox", name = "np_widget", align = "right" })
---]]
-
-
 netwidget = widget({ type = "textbox", align = "right" })
 vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
 netwidget:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e sudo iptraf -i eth0", 2) end),
-	awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e sudo iftop", 2) end)))
-
---pulsewidget = widget({ type = "textbox" })
---vicious.register(pulsewidget, vicious.contrib.pulse, " $1 ")
+	awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'sudo iptraf -i eth0'", 2) end),
+	awful.button({ }, 3, function () awful.util.spawn_with_shell("terminator -e 'sudo iftop'", 2) end)))
 
 --senwidget = widget({ type = "textbox" })
 --vicious.register(senwidget, vicious.contrib.sensors, " $1 ")
@@ -183,7 +142,7 @@ netwidget:buttons(awful.util.table.join(
 
 fswidget = widget({ type = "textbox", align = "right" })
 vicious.register(fswidget, vicious.widgets.fs, "${/home used_p}% / ${/ used_p}%")
-fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e \"df -h; read -n 1\"", 2) end))
+fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'df -h; read -n 1'", 2) end))
 
 mygmail = widget({ type = "textbox" })
 mygmail_t = awful.tooltip({ objects = { mygmail }, })
@@ -203,30 +162,26 @@ pacwidget = widget({ type = "textbox", align = "right" })
 pacmanicone = widget({ type = "imagebox" })
 pacmanicone.image = image(beautiful.pacman_icon)
 pacwidget:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu && /home/nim/dotfiles/5min.sh",2) end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur --devel && /home/nim/dotfiles/5min.sh",2) end)))
+    awful.button({ }, 1, function () 
+			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu'",2)
+			pacwidget.text = '0'
+	end),
+    awful.button({ }, 3, function () 
+			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu --aur --devel'",2)
+			pacwidget.text = '0'
+	end)))
 pacmanicone:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu && /home/nim/dotfiles/5min.sh",2) end),
-    awful.button({ }, 3, function () awful.util.spawn_with_shell("urxvtc -e yaourt -Syu --aur --devel && /home/nim/dotfiles/5min.sh",2) end)))
+    awful.button({ }, 1, function () 
+			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu'",2)
+			pacwidget.text = '0'
+	end),
+    awful.button({ }, 3, function ()
+			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu --aur --devel'",2)
+			pacwidget.text = '0'
+	end)))
 pacwidget_timer = timer({ timeout = 300 })
 pacwidget_timer:add_signal("timeout", function () pacwidget.text = io.popen("pacman -Qu | wc -l", "r"):read("*a") end)
 pacwidget_timer:start()
-
--- pacwidget.text = io.popen("pacman -Qu | wc -l"):read() -- TODO marche pas x)
--- pacwidget:add_signal("mousse::enter", function() pacwidget.text = io.popen("pacman -Qu | wc -l"):read() end)
-
---bepo
---bepowidget = widget({ type = "textbox", align = "right" })
---bepowidget.text = "fr "
---bepowidget:buttons(awful.util.table.join(
---    awful.button({ }, 1, function () 
---        bepowidget.text = "fr "
---        awful.util.spawn("setxkbmap fr", false)
---        end),
---    awful.button({ }, 3, function ()
---        bepowidget.text = "bépo "
---        awful.util.spawn("setxkbmap fr bepo", false)
---        end)))
 
 fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
@@ -260,9 +215,6 @@ volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("
 --	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
 --	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 
-tw = widget ({ type = "textbox"})
-tw.text = "test"
-
 calendar = {
     offset = 0,
     font = "monospace"
@@ -284,8 +236,6 @@ function calendar:month(month_offset)
         text = string.format('<span font_desc="%s">%s</span>', self.font, cal),
         timeout = 0,
         hover_timeout = 0.5,
---	screen = 2,
---	position = "top_right"
     }
 end
 
@@ -392,8 +342,8 @@ for s = 1, screen.count() do
 		    mypromptbox[2],
 		    layout = awful.widget.layout.horizontal.leftright
 	    },
-	    mylayoutbox[2],
 	    wiclock,
+	    mylayoutbox[2],
 	    mytasklist[2],
 	    layout = awful.widget.layout.horizontal.rightleft
     }
