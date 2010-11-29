@@ -96,6 +96,15 @@ spkricone:buttons(awful.util.table.join(
 	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
 	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
 	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
+clockicone = widget({ type = "imagebox" })
+clockicone.image = image(beautiful.clock_icon)
+clockicone:add_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l | grep morningbird | cut -d' ' -f -3","r"):read("*a") }) end)
+clockicone_timer = timer({ timeout = 3600 })
+clockicone_timer:add_signal("timeout", function ()
+		local l = io.popen("crontab -l | grep morningbird | wc -l","r"):read("*a")
+		if l == 0 then clockicone.visible = false else clockicone.visible = true end
+end)
+clockicone_timer:start()
 
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
@@ -186,7 +195,10 @@ pacwidget_timer:start()
 fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
 fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
-fahwidget:add_signal("mouse::enter", function() awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") end)
+fahwidget:add_signal("mouse::enter", function()
+		fahwidget_timer:emit_signal("timeout")
+		awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") 
+end)
 
 fahsmpwidget = awful.widget.progressbar()
 fahsmpwidget:set_width(8)
@@ -254,7 +266,10 @@ wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
     awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify") end),
-    awful.button({ }, 3, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify alarm") end),
+    awful.button({ }, 3, function() 
+			awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify alarm") 
+			clockicone_timer:emit_signal("timeout")
+	end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
@@ -343,6 +358,7 @@ for s = 1, screen.count() do
 		    layout = awful.widget.layout.horizontal.leftright
 	    },
 	    wiclock,
+		clockicone,
 	    mylayoutbox[2],
 	    mytasklist[2],
 	    layout = awful.widget.layout.horizontal.rightleft

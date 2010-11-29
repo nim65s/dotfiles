@@ -97,6 +97,7 @@ theme.home_icon              = "/home/nim/images/awicons/home.png"
 theme.spkr_icon              = "/home/nim/images/awicons/spkr.png"
 theme.aw_icon                = "/home/nim/images/awicons/fah.png"
 theme.mute_icon              = "/home/nim/images/awicons/spkr_mute.png"
+theme.clock_icon             = "/home/nim/images/awicons/clock.png"
 -- }}}
 
 -- {{{ Layout
