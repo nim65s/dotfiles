@@ -397,7 +397,7 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
-run_once("firefox")
+run_once("chromium")
 run_once("pidgin")
-run_once("padevchooser")
+--run_once("padevchooser")
 
