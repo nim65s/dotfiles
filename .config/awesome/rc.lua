@@ -31,8 +31,8 @@ layouts =
 
 -- {{{ Tags
 tags = {}
-tags[2] = awful.tag({ "1:pms", "2:chrome", "3:vim", "4:firefox", 5, 6, 7, 8, 9}, 2, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
-tags[1] = awful.tag({ "1:IM", "2:fah&rtorrent", 3, 4}, 1, awful.layout.suit.fair)
+tags[2] = awful.tag({ "1:zik", "2:www", "3:vim", "4:firefox", 5, 6, 7, 8, 9}, 2, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
+tags[1] = awful.tag({ "1:IM", 2, 3, 4}, 1, awful.layout.suit.fair)
 awful.tag.setmwfact(0.3,tags[1][2])
 awful.tag.setmwfact(0.25,tags[1][4])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
@@ -44,7 +44,7 @@ awful.tag.setmwfact(0.25,tags[1][4])
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "edit config", function () awful.util.spawn_with_shell("terminator -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -98,13 +98,14 @@ spkricone:buttons(awful.util.table.join(
 	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 clockicone = widget({ type = "imagebox" })
 clockicone.image = image(beautiful.clock_icon)
-clockicone:add_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l | grep morningbird | cut -d' ' -f -3","r"):read("*a") }) end)
+clockicone:add_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l","r"):read("*a") }) end)
 clockicone_timer = timer({ timeout = 3600 })
 clockicone_timer:add_signal("timeout", function ()
-		local l = io.popen("crontab -l | grep morningbird | wc -l","r"):read("*a")
-		if l == 0 then clockicone.visible = false else clockicone.visible = true end
+		local l = io.popen("crontab -l | grep morningbird | wc -l","r"):read("*line")
+		if l == '0' then clockicone.visible = false else clockicone.visible = true end
 end)
 clockicone_timer:start()
+clockicone_timer:emit_signal("timeout")
 
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
@@ -194,11 +195,17 @@ pacwidget_timer:start()
 
 fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
-fahwidget:buttons(awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end))
+fahwidget:buttons(awful.util.table.join(
+	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end),
+	awful.button({ }, 2, function () 
+			awful.util.spawn_with_shell("chromium http://fah-web.stanford.edu/cgi-bin/main.py?qtype=userpage&username=[Inpact]_nim65s", false)
+			awful.util.spawn_with_shell("chromium http://folding.fleucorp.net/INpact.htm", false)
+	end)))
 fahwidget:add_signal("mouse::enter", function()
 		fahwidget_timer:emit_signal("timeout")
 		awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") 
 end)
+awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify")
 
 fahsmpwidget = awful.widget.progressbar()
 fahsmpwidget:set_width(8)
@@ -723,7 +730,7 @@ function run_once(prg)
 end
 awful.screen.focus(2)
 awful.tag.viewonly(tags[2][9])
-run_once("kalarm")
+--run_once("kalarm")
 --}}}
 
 naughty.config.presets.low.screen=2

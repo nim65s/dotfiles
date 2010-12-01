@@ -14,7 +14,6 @@ export HISTFILESIZE=${HISTSIZE}
 
 export N7=saurelg@ssh.inpt.fr
 export VIMRUNTIME=/usr/share/vim/vim73/
-# export TERM=xterm-256color
 
 PS1='\[\033[0;32m\]┌─\
 \[\033[1;32m\][\
@@ -31,7 +30,6 @@ PS1='\[\033[0;32m\]┌─\
 \[\033[0m\] '
 PS2='\[\033[1;32m\]└──>\[\033[m\] '
 PS3='└─?> '
-#\D{%A %-d %B - %X}\
 
 # ALIAS
 
@@ -50,22 +48,13 @@ alias reboot='sudo reboot'
 
 alias ll='ls -lArth'
 alias le='ls --sort=extension'
-alias cl='cd $PWD/$1 ; ls'
-alias cll='cd $PWD/$1 ; ls -lArth'
+alias la='ls -A'
 alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
 
 alias meurs='$HOME/scripts/meurs.sh'
-alias leecher='$HOME/scripts/leecher.sh'
-alias seeder='$HOME/scripts/seeder.sh'
-alias ka='$HOME/scripts/ka.sh'
-alias kaok='$HOME/scripts/kaok.sh'
-alias kako='$HOME/scripts/kako.sh'
-alias akko='$HOME/scripts/akko.sh'
 alias ext='$HOME/scripts/extracteur.sh'
-alias keni='$HOME/scripts/keni.sh'
-alias makewallpaper='$HOME/scripts/make.wallpaper.sh'
 alias dl='$HOME/scripts/dl.sh'
 alias adl='$HOME/scripts/autodl.sh'
 alias dlbot='$HOME/scripts/dlbot.sh'
@@ -85,13 +74,6 @@ alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xi
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
 alias xxm='sudo cp /etc/X11/xorg.conf.xmonad /etc/X11/xorg.conf ; startx'
-
-# put this in your bashrc for bash tab completion with mpc
-# $ cat mpc-bashrc >> ~/.bashrc
-
-
-#export MPD_HOST="127.0.0.1"
-#export MPD_PORT="6600"
 
  _mpdadd_complete_func ()
 {
