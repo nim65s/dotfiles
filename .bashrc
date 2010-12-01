@@ -15,30 +15,42 @@ export HISTFILESIZE=${HISTSIZE}
 export N7=saurelg@ssh.inpt.fr
 export VIMRUNTIME=/usr/share/vim/vim73/
 
-PS1='\[\033[0;32m\]┌─\
-\[\033[1;32m\][\
-\[\033[1;33m\]\u\
-\[\033[1;37m\]@\
-\[\033[1;36m\]\h\
-\[\033[1;37m\]:\
-\[\033[1;37m\]\w\
-\[\033[1;32m\]]-[\
-\[\033[0;32m\]\t\
-\[\033[1;32m\]]
-\[\033[0;32m\]└─>\
-\[\033[1;31m\]$\
-\[\033[0m\] '
+nc="\[\033[m\]"
+noir="\[\033[0;30m\]"
+rouge="\[\033[0;31m\]"
+vert="\[\033[0;32m\]"
+jaune="\[\033[0;33m\]"
+bleu="\[\033[0;34m\]"
+magenta="\[\033[0;35m\]"
+cyan="\[\033[0;36m\]"
+blanc="\[\033[0;37m\]"
+NOIR="\[\033[1;30m\]"
+ROUGE="\[\033[1;31m\]"
+VERT="\[\033[1;32m\]"
+JAUNE="\[\033[1;33m\]"
+BLEU="\[\033[1;34m\]"
+MAGENTA="\[\033[1;35m\]"
+CYAN="\[\033[1;36m\]"
+BLANC="\[\033[1;37m\]"
+
+function ps1
+{
+RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
+
+PS1="${RETC}┌─${VERT}[${JAUNE}\u${BLANC}@${CYAN}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]
+${RETC}└─>${ROUGE}\$ ${nc}"
+}
+
+PROMPT_COMMAND=ps1
 PS2='\[\033[1;32m\]└──>\[\033[m\] '
 PS3='└─?> '
-
-# ALIAS
 
 alias ls='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias df='df -h'
+alias df='df -Th'
 alias mv='mv -v'
 alias cp='cp -r'
 
@@ -64,12 +76,14 @@ alias fah='sudo $HOME/scripts/fah.sh'
 alias wow='wine /media/T/Jeux/World\ of\ Warcraft/Wow.exe -opengl'
 alias windirstat='wine $HOME/.wine/drive_c/Program\ Files/WinDirStat/windirstat.exe'
 
-alias hist='cat $HOME/.bash_history | sort | cut -f 1 --delimiter=" " | uniq'
+alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
-alias testrc='cp $HOME/dotfiles/rc.lua $HOME/.config/awesome/rc.lua ; cp $HOME/dotfiles/theme.lua /usr/share/awesome/themes/nim/theme.lua ;( awesome -k && echo -e "\033[1;32mmod4 + ctrl + r\033[0;32m" ) || echo -e "\033[1;31mFAIL\033[0;32m"'
+alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
+alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
+alias x='startx 1> ~/.x.log 2> ~/.x.err'
 alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
@@ -139,3 +153,25 @@ alias xxm='sudo cp /etc/X11/xorg.conf.xmonad /etc/X11/xorg.conf ; startx'
 	esac
 }
 complete -F _mpdadd_complete_func mpc
+
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s dirspell
+shopt -s histappend
+shopt -s histreedit
+shopt -s hostcomplete
+shopt -s lithist
+shopt -s nocaseglob
+
+if [[ -x /usr/bin/fortune ]]
+		then
+				/usr/bin/fortune
+		fi
+
+function _exit()
+{
+		echo -e "\033[0;31mHasta la vista, baby"
+}
+trap _exit EXIT
+
+
