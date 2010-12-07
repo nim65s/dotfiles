@@ -47,6 +47,7 @@ PS3='└─?> '
 
 alias ls='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
+alias vmi='vim'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

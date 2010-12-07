@@ -197,8 +197,8 @@ fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
 fahwidget:buttons(awful.util.table.join(
 	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end),
-	awful.button({ }, 2, function () 
-			awful.util.spawn_with_shell("chromium http://fah-web.stanford.edu/cgi-bin/main.py?qtype=userpage&username=[Inpact]_nim65s", false)
+	awful.button({ }, 3, function () 
+			awful.util.spawn_with_shell("chromium 'http://fah-web.stanford.edu/cgi-bin/main.py?qtype=userpage&amp;username=[Inpact]_nim65s'", false)
 			awful.util.spawn_with_shell("chromium http://folding.fleucorp.net/INpact.htm", false)
 	end)))
 fahwidget:add_signal("mouse::enter", function()
@@ -267,7 +267,6 @@ function calendar:remove()
 end
 -- }}}
 
--- Create a textclock widget
 wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
@@ -468,14 +467,6 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey },            "v",     function () teardrop("terminator", "bottom", "center", 1, 0.2, true) end),
-
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end),
 
     awful.key({ modkey }, "w",
               function ()
@@ -693,10 +684,6 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
-    -- Add a titlebar
-    -- awful.titlebar.add(c, { modkey = modkey })
-
-    -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
@@ -705,11 +692,6 @@ client.add_signal("manage", function (c, startup)
     end)
 
     if not startup then
-        -- Set the windows at the slave,
-        -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
-
-        -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
             awful.placement.no_offscreen(c)
@@ -721,17 +703,6 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- {{{ Autostart 
-function run_once(prg)
-	if not prg then
-		do return nil end
-	end
-	awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
-end
-awful.screen.focus(2)
-awful.tag.viewonly(tags[2][9])
---run_once("kalarm")
---}}}
 
 naughty.config.presets.low.screen=2
 naughty.config.presets.normal.screen=2

@@ -67,7 +67,17 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
--- {{{ Naughty Calendar, from hg.kaworu.ch
+--[[mygmail = widget({ type = "textbox" })
+mygmail_t = awful.tooltip({ objects = { mygmail }, })
+vicious.register(mygmail, vicious.widgets.gmail,function (widget, args)
+					             mygmail_t:set_text(args["{subject}"])
+					             return args["{count}"]
+						 end, 10)
+mygmail:buttons(awful.button({ }, 1, function () 
+	awful.util.spawn_with_shell("chromium https://mail.google.com") 
+	awful.tag.viewonly(tags[2][2])
+end ))]]--
+
 calendar = {
     offset = 0,
     font = "monospace"
@@ -170,8 +180,8 @@ mywibox.widgets = {
             mypromptbox,
             layout = awful.widget.layout.horizontal.leftright
         },
-        mylayoutbox,
         wiclock,
+        mylayoutbox,
         mysystray,
         mytasklist,
         layout = awful.widget.layout.horizontal.rightleft
@@ -234,13 +244,14 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "p",     function () mypromptbox:run() end),
+    awful.key({ modkey },            "v",     function () teardrop("terminator", "bottom", "center", 1, 0.2, true) end),
 
     awful.key({ modkey }, "w",
               function ()
                   awful.prompt.run({ prompt = "Wikipedia: " },
                   mypromptbox.widget,
                   function (command)
-                      awful.util.spawn_with_shell("firefox http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1])
                       end)
               end),
@@ -250,7 +261,7 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "Google: " },
                   mypromptbox.widget,
                   function (command)
-                      awful.util.spawn_with_shell("firefox http://www.google.com/search?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.util.spawn_with_shell("chromium http://www.google.com/search?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1])
                       end)
               end),
@@ -260,7 +271,7 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "Lucky Google: " },
                   mypromptbox.widget,
                   function (command)
-                      awful.util.spawn_with_shell("firefox http://www.google.com/search?btnI=Recherche+Google\\&q=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.util.spawn_with_shell("chromium http://www.google.com/search?btnI=Recherche+Google\\&q=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1])
                       end)
               end),
@@ -270,17 +281,9 @@ globalkeys = awful.util.table.join(
                   awful.prompt.run({ prompt = "YubNub: " },
                   mypromptbox.widget,
                   function (command)
-                      awful.util.spawn("firefox http://yubnub.org/parser/parse?command=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.util.spawn("chromium http://yubnub.org/parser/parse?command=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[1])
                       end)
-              end),
-
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox.widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
               end)
 )
 
@@ -289,8 +292,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-	--awful.key({ modkey,           }, '*'       function () teardrop("urxvtc", "top") end),
-	awful.key({ modkey            }, "v",      function () teardrop("urxvtc", "bottom", "center", 1, 0.2, true) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
