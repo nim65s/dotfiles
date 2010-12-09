@@ -79,7 +79,7 @@ mygmail_timer = timer({ timeout = 301 })
 mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
 mygmail_timer:start()
 mygmail_timer:emit_signal("timeout")
-mygmail:add_signal("mouse::enter", function () naughty.notify({ text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
+mygmail:add_signal("mouse::enter", function () naughty.notify({ icon = image(beautiful.gmail_icon), title = "    Gmail :", text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
 
 calendar = {
     offset = 0,
