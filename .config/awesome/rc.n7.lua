@@ -31,14 +31,14 @@ layouts =
 -- {{{ Tags
 --rc.lua pour UN SEUL écran => simplification moche
 s = 1
-tags = awful.tag({ "firefox", "vim", 3, 4, 5, 6, 7, 8, "pidgin" }, s, layouts[1])
+tags = awful.tag({ "www", "vim", 3, 4, 5, 6, 7, 8, "im" }, s, layouts[1])
 -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "edit config", function () awful.util.spawn_with_shell("terminator -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -53,7 +53,10 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
--- {{{ mise en forme de texte, from hg.kaworu.ch
+
+gmailicone = widget({ type = "imagebox" })
+gmailicone.image = image(beautiful.gmail_icon)
+
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
 end
@@ -67,16 +70,16 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
---[[mygmail = widget({ type = "textbox" })
-mygmail_t = awful.tooltip({ objects = { mygmail }, })
-vicious.register(mygmail, vicious.widgets.gmail,function (widget, args)
-					             mygmail_t:set_text(args["{subject}"])
-					             return args["{count}"]
-						 end, 10)
+mygmail = widget({ type = "textbox" })
 mygmail:buttons(awful.button({ }, 1, function () 
 	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[2][2])
-end ))]]--
+	awful.tag.viewonly(tags[1])
+end ))
+mygmail_timer = timer({ timeout = 301 })
+mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
+mygmail_timer:start()
+mygmail_timer:emit_signal("timeout")
+mygmail:add_signal("mouse::enter", function () naughty.notify({ text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
 
 calendar = {
     offset = 0,
@@ -117,8 +120,7 @@ wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() calendar:month(-1) end),
-    awful.button({ }, 3, function() calendar:month(1) end),
+    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/saurelg/scripts/edt.sh notify") end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
@@ -181,6 +183,7 @@ mywibox.widgets = {
             layout = awful.widget.layout.horizontal.leftright
         },
         wiclock,
+		mygmail,
         mylayoutbox,
         mysystray,
         mytasklist,

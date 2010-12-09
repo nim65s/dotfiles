@@ -1,8 +1,5 @@
 [ -z "$PS1" ] && return
 
-export MUUA=user:password
-alias sql='/opt/lampp/bin/mysql -uuser -ppassword'
-
 export KDEWM=awesome
 
 export EDITOR=vim

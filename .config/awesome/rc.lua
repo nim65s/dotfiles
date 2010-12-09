@@ -155,15 +155,15 @@ vicious.register(fswidget, vicious.widgets.fs, "${/home used_p}% / ${/ used_p}%"
 fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'df -h; read -n 1'", 2) end))
 
 mygmail = widget({ type = "textbox" })
-mygmail_t = awful.tooltip({ objects = { mygmail }, })
-vicious.register(mygmail, vicious.widgets.gmail,function (widget, args)
-					             mygmail_t:set_text(args["{subject}"])
-					             return args["{count}"]
-						 end, 10)
 mygmail:buttons(awful.button({ }, 1, function () 
 	awful.util.spawn_with_shell("chromium https://mail.google.com") 
 	awful.tag.viewonly(tags[2][2])
 end ))
+mygmail_timer = timer({ timeout = 301 })
+mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
+mygmail_timer:start()
+mygmail_timer:emit_signal("timeout")
+mygmail:add_signal("mouse::enter", function () naughty.notify({ text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
 
 memwidget = widget({ type = "textbox", align = "right" })
 vicious.register(memwidget, vicious.widgets.sensors, " $1% ")
@@ -192,6 +192,7 @@ pacmanicone:buttons(awful.util.table.join(
 pacwidget_timer = timer({ timeout = 300 })
 pacwidget_timer:add_signal("timeout", function () pacwidget.text = io.popen("pacman -Qu | wc -l", "r"):read("*a") end)
 pacwidget_timer:start()
+pacwidget_timer:emit_signal("timeout")
 
 fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
@@ -279,10 +280,7 @@ wiclock:buttons(awful.util.table.join(
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
--- Create a systray
 mysystray = widget({ type = "systray" })
-
--- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -327,25 +325,18 @@ mywibox[2] = awful.wibox({ position = "top", screen = 2 })
 mywibox[3] = awful.wibox({ position = "bottom", screen = 2 })
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
                            awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
-    -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
-
-    -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 				  end
-    -- Add widgets to the wibox - order matters
     mywibox[1].widgets = {
         {
             mytaglist[1],
@@ -461,7 +452,6 @@ globalkeys = awful.util.table.join(
     -- http://wiki.archlinux.org/index.php/Awesome3
     awful.key({ modkey,           }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/images/screenshots/ 2>/dev/null'") end),
 	
-	-- tentative de cachage de ces p*** de wibox pour voir des trucs en plein écran...
 	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
     -- Prompt
@@ -642,7 +632,6 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 awful.rules.rules = {
-    -- All clients will match this rule.
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
