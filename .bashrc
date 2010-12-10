@@ -81,7 +81,7 @@ alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
-alias x='startx 1> ~/.x.log 2> ~/.x.err'
+alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
