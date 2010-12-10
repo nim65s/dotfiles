@@ -56,6 +56,10 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 gmailicone = widget({ type = "imagebox" })
 gmailicone.image = image(beautiful.gmail_icon)
+gmailicone:buttons(awful.button({ }, 1, function () 
+	awful.util.spawn_with_shell("chromium https://mail.google.com") 
+	awful.tag.viewonly(tags[1])
+end ))
 
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
@@ -183,6 +187,7 @@ mywibox.widgets = {
             layout = awful.widget.layout.horizontal.leftright
         },
         wiclock,
+		gmailicone,
 		mygmail,
         mylayoutbox,
         mysystray,
