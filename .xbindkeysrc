@@ -79,5 +79,20 @@
 "echo lol"
    m:0x0 + c:757
 
+#next2
+"/home/nim/scripts/audio.sh n2"
+    m:0x6 + c:171
+    Control + XF86AudioNext 
+
+#next3
+"/home/nim/scripts/audio.sh n3"
+    m:0x3 + c:171
+    Shift + XF86AudioNext 
+
+#Nimode
+"/home/nim/scripts/audio.sh r"
+    m:0x8 + c:171
+    Alt + XF86AudioNext 
+
 #
 # End of xbindkeys configuration

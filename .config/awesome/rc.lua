@@ -140,6 +140,12 @@ mpdwidget:buttons(awful.util.table.join(
 previcone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc seek 0%") end))
 nexticone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc next") end))
 
+mpdmode = widget ({ type = "textbox" })
+mpdmode_timer = timer({ timeout = 3601 })
+mpdmode_timer:add_signal("timetout", function () mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a") end)
+mpdmode_timer:start()
+mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a")
+
 netwidget = widget({ type = "textbox", align = "right" })
 vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
 netwidget:buttons(awful.util.table.join(
@@ -339,6 +345,23 @@ for s = 1, screen.count() do
 				  end
     mywibox[1].widgets = {
         {
+			--[[
+			-- Nim7
+			
+		    mylauncher,
+		    mysystray,
+			fahgpuwidget,
+		    fahwidget,
+			fahsmpwidget,
+		    previcone,
+		    playicone,
+		    nexticone,
+			volwidget,
+		    spkricone,
+		    mpdwidget,
+
+			-- /Nim7
+			]]--
             mytaglist[1],
             mypromptbox[1],
             layout = awful.widget.layout.horizontal.leftright
@@ -346,6 +369,23 @@ for s = 1, screen.count() do
         mylayoutbox[1],
         wiclock,
         mytasklist[1],
+		--[[
+		-- Nim7
+		
+	    mygmail,
+	    gmailicone,
+	    pacwidget,
+	    pacmanicone,
+	    cpuwidget,
+	    cpuicone,
+	    fswidget,
+	    homeicone,
+		upicone,
+	    netwidget,
+	    downicone,
+
+		-- /Nim7
+		]]--
         layout = awful.widget.layout.horizontal.rightleft
     }
     mywibox[2].widgets = {
@@ -370,6 +410,7 @@ for s = 1, screen.count() do
 		    previcone,
 		    playicone,
 		    nexticone,
+			mpdmode,
 			volwidget,
 		    spkricone,
 		    mpdwidget,
