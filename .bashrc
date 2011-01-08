@@ -56,6 +56,7 @@ alias kdm='sudo kdm'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 
+alias y='yaourt'
 alias ll='ls -lArth'
 alias le='ls -X'
 alias lle='ls -lArXh'
@@ -177,3 +178,11 @@ function _exit()
 trap _exit EXIT
 
 
+function lsd()
+{
+	cd $* && ls
+}
+fairytail()
+{
+	tail -f $* | ccze -A
+}

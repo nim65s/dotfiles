@@ -103,3 +103,14 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set t_Co=256
 colorscheme zenburn
 set tabstop=4
+set scrolloff=3
+set ai
+set showcmd
+set number
+set ruler
+set hlsearch
+set ignorecase
+set smartcase
+set visualbell t_vb=
+set novisualbell
+filetype indent on

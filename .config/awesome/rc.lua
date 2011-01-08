@@ -124,6 +124,9 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
+--eteo = widget({ type = "textbox", align = "right" })
+--meteo.text = 'test'
+
 cpuwidget = widget({ type = "textbox", align = "right" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $2% - $3% ")
 cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'htop'",2) end))
@@ -431,6 +434,7 @@ for s = 1, screen.count() do
 		upicone,
 	    netwidget,
 	    downicone,
+		--meteo,
 	    layout = awful.widget.layout.horizontal.rightleft
     }
 -- }}}
