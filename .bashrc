@@ -164,7 +164,6 @@ shopt -s histappend
 shopt -s histreedit
 shopt -s hostcomplete
 shopt -s lithist
-shopt -s nocaseglob
 
 if [[ -x /usr/bin/fortune ]]
 		then
@@ -173,7 +172,7 @@ if [[ -x /usr/bin/fortune ]]
 
 function _exit()
 {
-		echo -e "\033[0;31mHasta la vista, baby"
+		echo -e "\033[0;31mHasta la vista, baby\033[0m"
 }
 trap _exit EXIT
 
