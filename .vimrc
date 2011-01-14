@@ -103,6 +103,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set t_Co=256
 colorscheme zenburn
 set tabstop=4
+set expandtab
 set scrolloff=3
 set ai
 set showcmd
