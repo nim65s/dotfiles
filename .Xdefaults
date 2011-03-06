@@ -17,7 +17,8 @@ xterm*faceName:		calibri
 xterm*faceSize: 	10
 
 urxvt.perl-ext-common:	default,matcher,tabbed
-Xcursor*theme: 		gruppled_white_lite
+Xcursor.theme: 		gruppled
+Xcursor*theme: 		gruppled
 
 URxvt.urgentOnBell: 	True
 

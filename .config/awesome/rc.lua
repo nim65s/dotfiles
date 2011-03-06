@@ -242,7 +242,7 @@ volwidget:set_width(10)
 volwidget:set_vertical(true)
 volwidget:set_color(beautiful.fg_normal)
 volwidget:set_max_value(10)
-volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
+-- TODO volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
 --volwidget.widget:buttons(awful.util.table.join(
 --	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
 --	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
@@ -514,6 +514,28 @@ globalkeys = awful.util.table.join(
                   function (command)
                       if mouse.screen == 1 then awful.screen.focus (2) end
                       awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.tag.viewonly(tags[2][2])
+                      end)
+              end),
+
+    awful.key({ modkey }, "a",
+              function ()
+                  awful.prompt.run({ prompt = "Archlinux: " },
+                  mypromptbox[mouse.screen].widget,
+                  function (command)
+                      if mouse.screen == 1 then awful.screen.focus (2) end
+                      awful.util.spawn_with_shell("chromium https://wiki.archlinux.org/index.php?search="..command, false)
+                      awful.tag.viewonly(tags[2][2])
+                      end)
+              end),
+
+    awful.key({ modkey, "Shift" }, "a",
+              function ()
+                  awful.prompt.run({ prompt = "ArchlinuxFr: " },
+                  mypromptbox[mouse.screen].widget,
+                  function (command)
+                      if mouse.screen == 1 then awful.screen.focus (2) end
+                      awful.util.spawn_with_shell("chromium http://wiki.archlinux.fr/index.php?search="..command, false)
                       awful.tag.viewonly(tags[2][2])
                       end)
               end),
