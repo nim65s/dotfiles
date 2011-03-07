@@ -74,6 +74,7 @@ alias dl='$HOME/scripts/dl.sh'
 alias adl='$HOME/scripts/autodl.sh'
 alias dlbot='$HOME/scripts/dlbot.sh'
 alias generateTexMakefile='$HOME/scripts/generateTexMakefile.sh'
+alias newCproject='$HOME/scripts/newCproject.sh'
 
 alias fah='sudo $HOME/scripts/fah.sh'
 
