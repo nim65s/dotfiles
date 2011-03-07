@@ -87,6 +87,7 @@ alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias trouvelesfichierslourds='for I in `find / -mount -type d`; do cd $I ; echo `ls -lAh | grep total | cut --delimiter=" " -f 2` $I; done | sort -h'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
+alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xinitrc.wow .xinitrc ; startx'
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
@@ -159,6 +160,8 @@ alias arsync='cd;for dos in latex;do echo -e "\t\t$dos"; rsync -avP $dos saurelg
 }
 complete -F _mpdadd_complete_func mpc
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s dirspell
@@ -178,8 +181,7 @@ function _exit()
 }
 trap _exit EXIT
 
-
-function lsd()
+lsd()
 {
 	cd $* && ls
 }
