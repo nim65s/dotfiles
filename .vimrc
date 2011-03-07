@@ -115,3 +115,5 @@ set smartcase
 set visualbell t_vb=
 set novisualbell
 filetype indent on
+set pastetoggle=<F5>
+
