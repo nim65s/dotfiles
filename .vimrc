@@ -128,3 +128,5 @@ set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 runtime macros/matchit.vim
 runtime macros/shellmenu.vim
+set pastetoggle=<F5>
+
