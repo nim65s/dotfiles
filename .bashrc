@@ -73,6 +73,7 @@ alias ext='$HOME/scripts/extracteur.sh'
 alias dl='$HOME/scripts/dl.sh'
 alias adl='$HOME/scripts/autodl.sh'
 alias dlbot='$HOME/scripts/dlbot.sh'
+alias generateTexMakefile='$HOME/scripts/generateTexMakefile.sh'
 
 alias fah='sudo $HOME/scripts/fah.sh'
 
@@ -91,6 +92,7 @@ alias xwow='cd /etc/X11/ ; sudo cp xorg.conf.24seul xorg.conf ; cd ; sudo cp .xi
 alias xaw='cd /etc/X11/ ; sudo cp xorg.conf.awesome xorg.conf ; cd ; sudo cp .xinitrc.awesome .xinitrc ; startx'
 alias xkd='sudo cp /etc/X11/xorg.conf.tv /etc/X11/xorg.conf ; sudo kdm'
 alias xxm='sudo cp /etc/X11/xorg.conf.xmonad /etc/X11/xorg.conf ; startx'
+alias arsync='cd;for dos in latex;do echo -e "\t\t$dos"; rsync -avP $dos saurelg@ssh.inpt.fr:~/$dos;done'
 
  _mpdadd_complete_func ()
 {

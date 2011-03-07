@@ -27,7 +27,7 @@ if has("vms")
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
+set history=1000 " keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
@@ -115,3 +115,16 @@ set smartcase
 set visualbell t_vb=
 set novisualbell
 filetype indent on
+
+" http://items.sjbach.com/319/configuring-vim-right
+
+set hidden
+let mapleader = ","
+set wildmenu
+set title
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+runtime macros/matchit.vim
+runtime macros/shellmenu.vim

@@ -5,6 +5,7 @@ setxkbmap fr
 numlockx on
 xbindkeys
 . /etc/X11/xinit/xinitrc.d/*
+xscreensaver -nosplash &
 case $1 in
         xmonad)
                 exec xmonad
@@ -12,6 +13,6 @@ case $1 in
                 ;;
         *)
                 export WM=awesome
-                exec awesome 2> .X.err
+                exec awesome > .X.log 2> .X.err
                 ;;
 esac
