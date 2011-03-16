@@ -5,7 +5,7 @@ setxkbmap fr
 numlockx on
 xbindkeys
 . /etc/X11/xinit/xinitrc.d/*
-#xscreensaver -nosplash &
+xscreensaver -nosplash &
 case $1 in
         xmonad)
                 exec xmonad

@@ -130,3 +130,4 @@ runtime macros/matchit.vim
 runtime macros/shellmenu.vim
 set pastetoggle=<F5>
 
+set shiftwidth=4
