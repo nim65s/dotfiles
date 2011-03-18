@@ -55,6 +55,7 @@ alias df='df -Th'
 alias mv='mv -v'
 alias cp='cp -r'
 alias dc='cd'
+alias cd..='cd ..'
 
 alias kdm='sudo kdm'
 alias halt='sudo halt'

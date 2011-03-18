@@ -54,6 +54,7 @@ alias cp='cp -r'
 alias dc='cd'
 alias tree='tree -aC'
 alias treel='tree -aphugDC'
+alias cd..='cd ..'
 
 alias kdm='sudo kdm'
 alias halt='sudo halt'
