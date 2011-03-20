@@ -11,7 +11,7 @@
   tab_position = bottom
 [keybindings]
   cycle_prev = <Alt>k
-  next_tab = <Alt>o
+  next_tab = <Alt>o 
   go_up = <Alt><Shift>K
   resize_up = <Alt><Ctrl>k
   resize_left = <Alt><Ctrl>h
