@@ -1,6 +1,5 @@
 [gcalcli]
 user: nimisageek
-pw: fdsjkl-(65
 details: true
 ignore-started: true
 alarm-command: mpc play
