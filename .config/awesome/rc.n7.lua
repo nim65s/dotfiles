@@ -264,6 +264,26 @@ globalkeys = awful.util.table.join(
                       end)
               end),
 
+    awful.key({ modkey }, "a",
+              function ()
+                  awful.prompt.run({ prompt = "Archlinux: " },
+                  mypromptbox.widget,
+                  function (command)
+                      awful.util.spawn_with_shell("chromium https://wiki.archlinux.org/index.php?search="..command, false)
+                      awful.tag.viewonly(tags[1])
+                      end)
+              end),
+
+    awful.key({ modkey, "Shift" }, "a",
+              function ()
+                  awful.prompt.run({ prompt = "ArchlinuxFr: " },
+                  mypromptbox.widget,
+                  function (command)
+                      awful.util.spawn_with_shell("chromium http://wiki.archlinux.fr/index.php?search="..command, false)
+                      awful.tag.viewonly(tags[1])
+                      end)
+              end),
+
     awful.key({ modkey }, "g",
               function ()
                   awful.prompt.run({ prompt = "Google: " },
