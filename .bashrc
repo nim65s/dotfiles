@@ -192,5 +192,5 @@ lsd()
 }
 fairytail()
 {
-	tail -f $* | ccze -A
+	tail -n 100 -f $* | ccze -A
 }
