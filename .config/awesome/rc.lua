@@ -206,7 +206,7 @@ pacwidget_timer = timer({ timeout = 300 })
 pacwidget_timer:add_signal("timeout", function () pacwidget.text = io.popen("pacman -Qu | wc -l", "r"):read("*a") end)
 pacwidget_timer:start()
 pacwidget_timer:emit_signal("timeout")
-
+--[[
 fahwidget = widget({ type = "imagebox" })
 fahwidget.image = image(beautiful.aw_icon)
 fahwidget:buttons(awful.util.table.join(
@@ -236,17 +236,18 @@ fahwidget_timer:add_signal("timeout", function ()
 		fahsmpwidget:set_value(io.popen("tail -n 1 /opt/fah-smp/unitinfo.txt | cut -d' ' -f 2 | sed 's/%//'","r"):read("*a")/100)
 end)
 fahwidget_timer:start()
-
+]]--
 volwidget = awful.widget.progressbar()
 volwidget:set_width(10)
 volwidget:set_vertical(true)
 volwidget:set_color(beautiful.fg_normal)
-volwidget:set_max_value(10)
--- TODO volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
---volwidget.widget:buttons(awful.util.table.join(
---	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
---	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
---	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
+volwidget:set_max_value(100)
+-- volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
+volwidget:set_value(tonumber(io.popen("amixer get Master| tail -n 1 | cut -d' ' -f 6 | sed 's/\[//;s/%\]//'","r"):read("*a")))
+volwidget.widget:buttons(awful.util.table.join(
+	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
+	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
+	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
 
 calendar = {
     offset = 0,
@@ -411,9 +412,9 @@ for s = 1, screen.count() do
 	    {
 		    mylauncher,
 		    mysystray,
-			fahgpuwidget,
-		    fahwidget,
-			fahsmpwidget,
+			--fahgpuwidget,
+		    --fahwidget,
+			--fahsmpwidget,
 		    previcone,
 		    playicone,
 		    nexticone,
