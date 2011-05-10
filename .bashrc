@@ -35,8 +35,9 @@ BLANC="\[\033[1;37m\]"
 function ps1
 {
 RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
+USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
 
-PS1="${RETC}┌─${VERT}[${JAUNE}\u${BLANC}@${CYAN}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]
+PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${CYAN}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]
 ${RETC}└─>${ROUGE}\$ ${nc}"
 }
 
