@@ -82,7 +82,7 @@ alias adl='$HOME/scripts/autodl.sh'
 alias dlbot='$HOME/scripts/dlbot.sh'
 alias generateTexMakefile='$HOME/scripts/generateTexMakefile.sh'
 alias newCproject='$HOME/scripts/newCproject.sh'
-alias majgit='$HOME/scripts/majgit.sh'
+alias majgit='ssh-add; $HOME/scripts/majgit.sh'
 
 alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
