@@ -93,7 +93,7 @@ alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
-alias testc='while true; do read -n 1 a; make && ../bin/* ; done'
+alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 
 
 export XDG_CONFIG_HOME="$HOME/.config"
