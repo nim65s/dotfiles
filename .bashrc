@@ -59,6 +59,9 @@ alias tree='tree -aC'
 alias treel='tree -aphugDC'
 alias cd..='cd ..'
 
+alias :q='exit'
+alias :e='vim'
+
 alias kdm='sudo kdm'
 alias halt='sudo halt'
 alias reboot='sudo reboot'

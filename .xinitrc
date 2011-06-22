@@ -2,8 +2,8 @@
 # ~/.xinitrc
 urxvtd -q -f -o
 setxkbmap fr
-numlockx on
 xbindkeys
+numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
 xscreensaver -nosplash &
 case $1 in
@@ -16,6 +16,6 @@ case $1 in
                 ;;
         *)
                 export WM=awesome
-                exec awesome > .X.log 2> .X.err
+                exec ssh-agent awesome > .X.log 2> .X.err
                 ;;
 esac
