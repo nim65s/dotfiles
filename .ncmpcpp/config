@@ -44,7 +44,7 @@ visualizer_fifo_path = "/tmp/mpd.fifo"
 ## are some problems with it.
 ##
 #
-visualizer_output_name = "Nim's FIFO"
+visualizer_output_name = "Nim's fifo output for MPD"
 #
 ##
 ## Note: Below parameter defines how often ncmpcpp
