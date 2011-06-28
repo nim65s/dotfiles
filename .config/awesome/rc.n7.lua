@@ -4,6 +4,7 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("teardrop")
+require("vicious")
 
 beautiful.init("/home/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
@@ -29,9 +30,13 @@ layouts =
 }
 
 -- {{{ Tags
---rc.lua pour UN SEUL écran => simplification moche
-s = 1
-tags = awful.tag({ "www", "vim", 3, 4, 5, 6, 7, 8, "im" }, s, layouts[1])
+tags = {}
+tags[1] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
+awful.tag.setmwfact(0.3,tags[2][2])
+awful.tag.setmwfact(0.25,tags[2][4])
+-- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
+-- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
+-- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
 -- }}}
 
 -- {{{ Menu
@@ -54,11 +59,23 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 
+function wiboxtoggle()
+		if mywibox[1].visible then
+				mywibox[1].visible = false
+				mywibox[2].visible = false
+				mywibox[3].visible = false
+		else
+				mywibox[1].visible = true
+				mywibox[2].visible = true
+				mywibox[3].visible = true
+		end
+end
+
 gmailicone = widget({ type = "imagebox" })
 gmailicone.image = image(beautiful.gmail_icon)
 gmailicone:buttons(awful.button({ }, 1, function () 
 	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[1])
+	awful.tag.viewonly(tags[1][1])
 end ))
 
 function bg(color, text)
@@ -77,7 +94,7 @@ end
 mygmail = widget({ type = "textbox" })
 mygmail:buttons(awful.button({ }, 1, function () 
 	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[1])
+	awful.tag.viewonly(tags[1][1])
 end ))
 mygmail_timer = timer({ timeout = 301 })
 mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
@@ -167,20 +184,22 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
-mypromptbox = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
-mylayoutbox = awful.widget.layoutbox(s)
-mylayoutbox:buttons(awful.util.table.join(
+-- Create the wibox
+mywibox[1] = awful.wibox({ position = "top", screen = 1 })
+for s = 1, screen.count() do
+    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    mylayoutbox[s] = awful.widget.layoutbox(s)
+    mylayoutbox[s]:buttons(awful.util.table.join(
                            awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
-mytaglist = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
-mytasklist = awful.widget.tasklist(function(c)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+    mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
-
-mywibox = awful.wibox({ position = "top"})
-mywibox.widgets = {
+	end
+mywibox[1].widgets = {
         {
             mytaglist,
             mypromptbox,
@@ -250,68 +269,69 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
     -- Prompt
-    awful.key({ modkey },            "p",     function () mypromptbox:run() end),
+    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey },            "v",     function () teardrop("terminator", "bottom", "center", 1, 0.2, true) end),
 
     awful.key({ modkey }, "w",
               function ()
                   awful.prompt.run({ prompt = "Wikipedia: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end),
 
     awful.key({ modkey }, "a",
               function ()
                   awful.prompt.run({ prompt = "Archlinux: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium https://wiki.archlinux.org/index.php?search="..command, false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end),
 
     awful.key({ modkey, "Shift" }, "a",
               function ()
                   awful.prompt.run({ prompt = "ArchlinuxFr: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://wiki.archlinux.fr/index.php?search="..command, false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end),
 
     awful.key({ modkey }, "g",
               function ()
                   awful.prompt.run({ prompt = "Google: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://www.google.com/search?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end),
 
     awful.key({ modkey, "Control" }, "g",
               function ()
                   awful.prompt.run({ prompt = "Lucky Google: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://www.google.com/search?btnI=Recherche+Google\\&q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end),
 
     awful.key({ modkey }, "y",
               function ()
                   awful.prompt.run({ prompt = "YubNub: " },
-                  mypromptbox.widget,
+                  mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn("chromium http://yubnub.org/parser/parse?command=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1])
+                      awful.tag.viewonly(tags[1][1])
                       end)
               end)
 )
@@ -325,7 +345,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",      function (c) c.minimized = not c.minimized    end),
-	awful.key({ modkey,           }, "b",      function (c) mywibox.visible = not mywibox.visible end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -333,18 +352,29 @@ clientkeys = awful.util.table.join(
         end)
 )
 
-for i = 1, 9 do
+-- Compute the maximum number of digit we need, limited to 9
+keynumber = 0
+for s = 1, screen.count() do
+   keynumber = math.min(9, math.max(#tags[s], keynumber));
+end
+
+-- Bind all key numbers to tags.
+-- Be careful: we use keycodes to make it works on any keyboard layout.
+-- This should map on the top row of your keyboard, usually 1 to 9.
+for i = 1, keynumber do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        if tags[i] then
-                            awful.tag.viewonly(tags[i])
+                        local screen = mouse.screen
+                        if tags[screen][i] then
+                            awful.tag.viewonly(tags[screen][i])
                         end
                   end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
-                      if tags[i] then
-                          awful.tag.viewtoggle(tags[i])
+                      local screen = mouse.screen
+                      if tags[screen][i] then
+                          awful.tag.viewtoggle(tags[screen][i])
                       end
                   end),
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
@@ -385,9 +415,14 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "Firefox" },
-      properties = { tag = tags[1] } },
+      properties = { tag = tags[2][4],
+      border_width = 0 } },
+    { rule = { class = "Chromium" },
+      properties = { tag = tags[2][2],
+      border_width = 0,
+      switchtotag = true } },
     { rule = { class = "Pidgin" },
-      properties = { tag = tags[9] } }
+      properties = { tag = tags[1][9] } }
 }
 -- }}}
 
@@ -409,14 +444,8 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) 
-		c.border_color = beautiful.border_focus
-		c.opacity = 1
-end)
-client.add_signal("unfocus", function(c) 
-		c.border_color = beautiful.border_normal
-		c.opacity=0.7
-end)
+client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 -- {{{ Autostart
@@ -430,5 +459,4 @@ end
 run_once("chromium")
 run_once("pidgin")
 run_once("ssh-add")
---run_once("padevchooser")
 

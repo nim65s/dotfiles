@@ -31,10 +31,10 @@ layouts =
 
 -- {{{ Tags
 tags = {}
-tags[2] = awful.tag({ "1:zik", "2:www", "3:vim", "4:firefox", 5, 6, 7, 8, 9}, 2, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
+tags[2] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 2, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
 tags[1] = awful.tag({ "1:IM", 2, 3, 4}, 1, awful.layout.suit.fair)
-awful.tag.setmwfact(0.3,tags[1][2])
-awful.tag.setmwfact(0.25,tags[1][4])
+awful.tag.setmwfact(0.3,tags[2][2])
+awful.tag.setmwfact(0.25,tags[2][4])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
 -- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
 -- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
@@ -124,7 +124,7 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
---eteo = widget({ type = "textbox", align = "right" })
+--meteo = widget({ type = "textbox", align = "right" })
 --meteo.text = 'test'
 
 cpuwidget = widget({ type = "textbox", align = "right" })
@@ -267,9 +267,11 @@ function calendar:month(month_offset)
         cal = string.gsub(cal, "^(%s*%w+%s+%d+)", bold("%1"))
     end
     self.display = naughty.notify {
+        opacity = use_composite and beautiful.opacity.naughty or 1,
         text = string.format('<span font_desc="%s">%s</span>', self.font, cal),
         timeout = 0,
         hover_timeout = 0.5,
+        margin = 10,
     }
 end
 
@@ -311,7 +313,7 @@ mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
                                               if not c:isvisible() then
-                                                  awful.tag.viewonly(c:tags()[1])
+                                                  awful.tag.viewonly(c:tags())
                                               end
                                               client.focus = c
                                               c:raise()
@@ -350,8 +352,8 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
-				  end
-    mywibox[1].widgets = {
+	end
+mywibox[1].widgets = {
         {
 			--[[
 			-- Nim7
@@ -484,6 +486,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal)   end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey,           }, "q",     function() awful.util.spawn("xscreensaver-command -lock") end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -500,7 +503,6 @@ globalkeys = awful.util.table.join(
     		end),
     
     -- http://wiki.archlinux.org/index.php/Awesome3
-    awful.key({ modkey,           }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/images/screenshots/ 2>/dev/null'") end),
 	
 	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
@@ -722,23 +724,7 @@ awful.rules.rules = {
     { rule = { class = "Chromium" },
       properties = { tag = tags[2][2],
       border_width = 0,
-      switchtotag = true } },
-    { rule = { class = "Thunderbird" },
-      properties = { tag = tags[2][3],
-      border_width = 0 } },
-    { rule = { class = "Kmess" },
-      properties = { switchtotag = true,
-      tag = tags[1][1],
-      screen = 1 
-      } },
-    { rule = { class = "amarokapp" },
-      properties = { tag = tags[2][1],
-      border_width = 0 } },
-    { rule = { class = "feh"},
-      properties = { fullscreen = true } },
-    { rule = { class = "kmix" },
-      properties = { tag = tags[1][9],
-      border_width = 0 } } 
+      switchtotag = true } }
 }
 -- }}}
 
@@ -764,6 +750,17 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- {{{ Autostart
+function run_once(prg)
+    if not prg then
+        do return nil end
+    end
+    awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
+end
+
+run_once("chromium")
+run_once("pidgin")
+run_once("ssh-add")
 
 naughty.config.presets.low.screen=2
 naughty.config.presets.normal.screen=2
