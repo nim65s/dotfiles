@@ -131,3 +131,6 @@ runtime macros/shellmenu.vim
 set pastetoggle=<F5>
 
 set shiftwidth=4
+
+map <F10> :NERDTreeToggle<cr>
+nmap <F4> :TlistToggle<cr>

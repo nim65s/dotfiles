@@ -427,8 +427,6 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
-run_once("chromium")
 run_once("pidgin")
 run_once("ssh-add")
---run_once("padevchooser")
-
+run_once("chromium")
