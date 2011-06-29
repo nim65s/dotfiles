@@ -758,9 +758,10 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
-run_once("chromium")
 run_once("pidgin")
+awful.screen.focus_relative(1)
 run_once("ssh-add")
+run_once("chromium")
 
 naughty.config.presets.low.screen=2
 naughty.config.presets.normal.screen=2
