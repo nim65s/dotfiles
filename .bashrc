@@ -110,13 +110,13 @@ shopt -s hostcomplete
 shopt -s lithist
 
 if [[ -x /usr/bin/fortune ]]
-		then
-				/usr/bin/fortune
-		fi
-
+	then
+		/usr/bin/fortune
+	fi
+users
 function _exit()
 {
-		echo -e "\033[0;31mHasta la vista, baby\033[0m"
+	echo -e "\033[0;31mHasta la vista, baby\033[0m"
 }
 trap _exit EXIT
 
