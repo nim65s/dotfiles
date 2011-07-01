@@ -6,6 +6,7 @@ xbindkeys
 numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
 xscreensaver -nosplash &
+. .password
 case $1 in
         xmonad)
                 exec xmonad
