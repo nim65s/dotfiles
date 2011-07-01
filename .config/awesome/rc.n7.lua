@@ -32,8 +32,8 @@ layouts =
 -- {{{ Tags
 tags = {}
 tags[1] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
-awful.tag.setmwfact(0.3,tags[2][2])
-awful.tag.setmwfact(0.25,tags[2][4])
+awful.tag.setmwfact(0.3,tags[1][2])
+awful.tag.setmwfact(0.25,tags[1][4])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
 -- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
 -- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
@@ -415,10 +415,10 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "Firefox" },
-      properties = { tag = tags[2][4],
+      properties = { tag = tags[1][4],
       border_width = 0 } },
     { rule = { class = "Chromium" },
-      properties = { tag = tags[2][2],
+      properties = { tag = tags[1][2],
       border_width = 0,
       switchtotag = true } },
     { rule = { class = "Pidgin" },
@@ -458,8 +458,5 @@ end
 
 run_once("pidgin")
 run_once("ssh-add")
-<<<<<<< HEAD
 run_once("chromium")
-=======
 
->>>>>>> beeeaeb2406e35570becefb8bb079b026778ecbc
