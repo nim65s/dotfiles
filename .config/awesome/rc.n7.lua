@@ -201,15 +201,15 @@ for s = 1, screen.count() do
 	end
 mywibox[1].widgets = {
         {
-            mytaglist,
-            mypromptbox,
+            mytaglist[1],
+            mypromptbox[1],
             layout = awful.widget.layout.horizontal.leftright
         },
         wiclock,
 		gmailicone,
 		mygmail,
-        mylayoutbox,
-        mysystray,
+        mylayoutbox[1],
+        mysystray[1],
         mytasklist,
         layout = awful.widget.layout.horizontal.rightleft
     }
