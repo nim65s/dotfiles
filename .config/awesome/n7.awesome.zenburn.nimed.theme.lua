@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/saurelg/images/totoro_parapluie.jpg" }
+theme.wallpaper_cmd = { "$HOME/scripts/wallpaper.sh hostname" }
 -- }}}
 
 -- {{{ Styles
