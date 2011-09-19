@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "$HOME/scripts/wallpaper.sh hostname" }
+theme.wallpaper_cmd = { "./scripts/wallpaper.sh hostname" }
 -- }}}
 
 -- {{{ Styles

@@ -209,7 +209,7 @@ mywibox[1].widgets = {
 		gmailicone,
 		mygmail,
         mylayoutbox[1],
-        mysystray[1],
+        mysystray,
         mytasklist,
         layout = awful.widget.layout.horizontal.rightleft
     }
