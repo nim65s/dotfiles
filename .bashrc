@@ -58,6 +58,7 @@ alias dc='cd'
 alias tree='tree -aC'
 alias treel='tree -aphugDC'
 alias cd..='cd ..'
+alias mr='rm'
 
 alias :q='exit'
 alias :e='vim'
