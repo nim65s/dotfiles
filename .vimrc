@@ -134,3 +134,4 @@ set shiftwidth=4
 
 map <F10> :NERDTreeToggle<cr>
 nmap <F4> :TlistToggle<cr>
+set patchmode=.orig
