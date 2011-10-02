@@ -142,7 +142,7 @@ mpdwidget = widget({ type = "textbox", name = "mpdwidget", align = "center" })
 --end, 3)
 --
 mpdwidget_timer = timer({ timeout = 1 })
-mpdwidget_timer:add_signal("timeout", function () mpdwidget.text = io.popen('mpc --format " [[<b>%artist%</b>[ (%album%)] =>] %title%]|[%file%]" | sed "N;s/\\n/ /;s=#[0-9]*/[0-9]*==;N;s/\\n/ /;s/&/&amp;/g;s/repeat.*//"'):read("*a") end)
+mpdwidget_timer:add_signal("timeout", function () mpdwidget.text = io.popen('mpc --format " [[<b>%artist%</b>[ (%album%)] =>] %title%]|[%file%]" | sed "N;s/\\n/ /;s=#[0-9]*/[0-9]*==;N;s/\\n/ /;s/&/&amp;/g"'):read("*a") end)
 mpdwidget_timer:start()
 
 mpdwidget:buttons(awful.util.table.join(
@@ -151,12 +151,6 @@ mpdwidget:buttons(awful.util.table.join(
 	awful.button({ }, 4, function () awful.util.spawn("mpc volume +3") end)))
 previcone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc seek 0%") end))
 nexticone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc next") end))
-
-mpdmode = widget ({ type = "textbox" })
-mpdmode_timer = timer({ timeout = 3601 })
-mpdmode_timer:add_signal("timetout", function () mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a") end)
-mpdmode_timer:start()
-mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a")
 
 netwidget = widget({ type = "textbox", align = "right" })
 vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
@@ -428,7 +422,6 @@ mywibox[1].widgets = {
 		    previcone,
 		    playicone,
 		    nexticone,
-			mpdmode,
 			volwidget,
 		    spkricone,
 		    mpdwidget,
