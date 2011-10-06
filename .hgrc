@@ -1,3 +1,16 @@
+[auth]
+bde_inp.prefix = hg.bde.inp-toulouse.fr
+bde_inp.username = saurelg
+bde_n7.prefix = hg.bde.enseeiht.fr
+bde_n7.username = saurelg
+inpt.prefix = hg.inpt.fr
+inpt.username = saurelg
+
 [ui]
 username = Nim <guilhem.saurel@etu.enseeiht.fr>
 verbose = True
+
+[hostfingerprints]
+hg.inpt.fr = 2f:3e:70:c0:47:8c:16:06:78:bb:d7:8b:16:a4:86:4b:ee:83:ed:05
+hg.bde.inp-toulouse.fr = 2f:3e:70:c0:47:8c:16:06:78:bb:d7:8b:16:a4:86:4b:ee:83:ed:05
+hg.bde.enseeiht.fr = d7:81:2c:8d:42:45:a6:99:09:b3:15:e8:c6:32:3b:e3:c0:4f:ea:d7
