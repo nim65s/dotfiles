@@ -8,8 +8,9 @@ export EDITOR=vim
 export XDG_DATA_HOME=~/.uzbl/data/
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
-export HISTSIZE=10000
+export HISTSIZE=100000
 export HISTFILESIZE=${HISTSIZE}
+export JAVA_HOME=/opt/java
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 export VIMRUNTIME=/usr/share/vim/vim73/
@@ -61,6 +62,7 @@ alias cd..='cd ..'
 alias mr='rm'
 
 alias :q='exit'
+alias :x='exit'
 alias :e='vim'
 
 alias kdm='sudo kdm'

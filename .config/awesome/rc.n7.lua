@@ -6,7 +6,7 @@ require("naughty")
 require("teardrop")
 require("vicious")
 
-beautiful.init("/home/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
+beautiful.init("/home/nim/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
 terminal = "terminator"
 editor = os.getenv("EDITOR") or "vim"
@@ -31,7 +31,8 @@ layouts =
 
 -- {{{ Tags
 tags = {}
-tags[1] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
+--tags[1] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
+tags[1] = awful.tag({"1:amarok", "2:vlc", "3:terminator"}, 1, { layouts[1], layouts[1], layouts[1]})
 awful.tag.setmwfact(0.3,tags[1][2])
 awful.tag.setmwfact(0.25,tags[1][4])
 -- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
@@ -141,7 +142,7 @@ wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/saurelg/scripts/edt.sh notify") end),
+    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify") end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
@@ -456,7 +457,7 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
-run_once("pidgin")
-run_once("ssh-add")
-run_once("chromium")
+--run_once("pidgin")
+--run_once("ssh-add")
+--run_once("chromium")
 

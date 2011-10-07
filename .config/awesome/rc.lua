@@ -132,26 +132,25 @@ vicious.register(cpuwidget, vicious.widgets.cpu, " $2% - $3% ")
 cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'htop'",2) end))
 
 mpdwidget = widget({ type = "textbox", name = "mpdwidget", align = "center" })
-vicious.register(mpdwidget, vicious.widgets.mpd, 
-function(widget,args)
-	if args["{state}"] == "Stop" then
-		return " Stop " 
-	else
-		return ' '..args["{volume}"]..' : '.. bold(args["{Artist}"])..' ( '..args["{Album}"]..' ) => '..args["{Title}"]
-	end
-end, 3)
+--vicious.register(mpdwidget, vicious.widgets.mpd, 
+--function(widget,args)
+--	if args["{state}"] == "Stop" then
+--		return " Stop " 
+--	else
+--		return ' '..args["{volume}"]..' : '.. bold(args["{Artist}"])..' ( '..args["{Album}"]..' ) => '..args["{Title}"]
+--	end
+--end, 3)
+--
+mpdwidget_timer = timer({ timeout = 1 })
+mpdwidget_timer:add_signal("timeout", function () mpdwidget.text = io.popen('mpc --format " [[<b>%artist%</b>[ (%album%)] =>] %title%]|[%file%]" | sed "N;s/\\n/ /;s=#[0-9]*/[0-9]*==;N;s/\\n/ /;s/&/&amp;/g"'):read("*a") end)
+mpdwidget_timer:start()
+
 mpdwidget:buttons(awful.util.table.join(
 	awful.button({ }, 1, function () awful.util.spawn("mpc toggle") end),
 	awful.button({ }, 5, function () awful.util.spawn("mpc volume -3") end),
 	awful.button({ }, 4, function () awful.util.spawn("mpc volume +3") end)))
 previcone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc seek 0%") end))
 nexticone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc next") end))
-
-mpdmode = widget ({ type = "textbox" })
-mpdmode_timer = timer({ timeout = 3601 })
-mpdmode_timer:add_signal("timetout", function () mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a") end)
-mpdmode_timer:start()
-mpdmode.text = io.popen("[[ $(mpc status | tail -n 1 | awk '{print $9}') == on ]] && echo C || echo N"):read("*a")
 
 netwidget = widget({ type = "textbox", align = "right" })
 vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
@@ -296,7 +295,9 @@ wiclock:buttons(awful.util.table.join(
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
-mysystray = widget({ type = "systray" })
+mysystray = {}
+mysystray[1] = widget({ type = "systray" })
+mysystray[2] = widget({ type = "systray" })
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -378,6 +379,7 @@ mywibox[1].widgets = {
         },
         mylayoutbox[1],
         wiclock,
+        mysystray[1],
         mytasklist[1],
 		--[[
 		-- Nim7
@@ -413,14 +415,13 @@ mywibox[1].widgets = {
     mywibox[3].widgets = {
 	    {
 		    mylauncher,
-		    mysystray,
+		    mysystray[2],
 			--fahgpuwidget,
 		    --fahwidget,
 			--fahsmpwidget,
 		    previcone,
 		    playicone,
 		    nexticone,
-			mpdmode,
 			volwidget,
 		    spkricone,
 		    mpdwidget,
