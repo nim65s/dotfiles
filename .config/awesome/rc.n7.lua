@@ -282,7 +282,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end),
 
@@ -292,7 +292,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium https://wiki.archlinux.org/index.php?search="..command, false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end),
 
@@ -302,7 +302,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://wiki.archlinux.fr/index.php?search="..command, false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end),
 
@@ -312,7 +312,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://www.google.com/search?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end),
 
@@ -322,7 +322,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn_with_shell("chromium http://www.google.com/search?btnI=Recherche+Google\\&q=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end),
 
@@ -332,7 +332,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       awful.util.spawn("chromium http://yubnub.org/parser/parse?command=$(echo '"..command.."' | sed 's/ /+/g')", false)
-                      awful.tag.viewonly(tags[1][1])
+                      awful.tag.viewonly(tags[1][2])
                       end)
               end)
 )
