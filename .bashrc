@@ -101,6 +101,7 @@ alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 
+alias gobby_tunnel='ssh -L 6522:localhost:6522 n7 ssh -L 6522:localhost:6522 discover & gobby'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
