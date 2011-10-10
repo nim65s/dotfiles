@@ -62,7 +62,7 @@ theme.opacity_normal = 0.80
 
 -- {{{ Mouse finder
 theme.mouse_finder_color = "#CC9393"
--- mouse_finder_[timeout|animate_timeout|radius|factor]
+-- mouse_finder_[timeout|asaurelgate_timeout|radius|factor]
 -- }}}
 
 -- {{{ Menu
@@ -84,20 +84,20 @@ theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez
 theme.awesome_icon           = "/usr/share/awesome/themes/zenburn/awesome-icon.png"
 theme.menu_submenu_icon      = "/usr/share/awesome/themes/default/submenu.png"
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floatingw.png"
---[[theme.pacman_icon            = "/home/nim/images/awicons/pacman.png"
-theme.play_icon              = "/home/nim/images/awicons/play.png"
-theme.pause_icon             = "/home/nim/images/awicons/pause.png"
-theme.next_icon              = "/home/nim/images/awicons/next.png"
-theme.prev_icon              = "/home/nim/images/awicons/prev.png"
-theme.up_icon                = "/home/nim/images/awicons/up.png"
-theme.down_icon              = "/home/nim/images/awicons/down.png"
-theme.cpu_icon               = "/home/nim/images/awicons/cpu.png"]]--
-theme.gmail_icon             = "/home/nim/images/awicons/gmail.png"
---[[theme.home_icon              = "/home/nim/images/awicons/home.png"
-theme.spkr_icon              = "/home/nim/images/awicons/spkr.png"
-theme.aw_icon                = "/home/nim/images/awicons/fah.png"
-theme.mute_icon              = "/home/nim/images/awicons/spkr_mute.png"
-theme.clock_icon             = "/home/nim/images/awicons/clock.png"]]--
+--[[theme.pacman_icon            = "/home/saurelg/images/awicons/pacman.png"
+theme.play_icon              = "/home/saurelg/images/awicons/play.png"
+theme.pause_icon             = "/home/saurelg/images/awicons/pause.png"
+theme.next_icon              = "/home/saurelg/images/awicons/next.png"
+theme.prev_icon              = "/home/saurelg/images/awicons/prev.png"
+theme.up_icon                = "/home/saurelg/images/awicons/up.png"
+theme.down_icon              = "/home/saurelg/images/awicons/down.png"
+theme.cpu_icon               = "/home/saurelg/images/awicons/cpu.png"]]--
+theme.gmail_icon             = "/home/saurelg/images/awicons/gmail.png"
+--[[theme.home_icon              = "/home/saurelg/images/awicons/home.png"
+theme.spkr_icon              = "/home/saurelg/images/awicons/spkr.png"
+theme.aw_icon                = "/home/saurelg/images/awicons/fah.png"
+theme.mute_icon              = "/home/saurelg/images/awicons/spkr_mute.png"
+theme.clock_icon             = "/home/saurelg/images/awicons/clock.png"]]--
 -- }}}
 
 -- {{{ Layout
