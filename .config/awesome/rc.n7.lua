@@ -6,7 +6,7 @@ require("naughty")
 require("teardrop")
 require("vicious")
 
-beautiful.init("/home/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
+beautiful.init("/home/n7/promo2013/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
 terminal = "terminator"
 editor = os.getenv("EDITOR") or "vim"
