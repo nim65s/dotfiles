@@ -68,6 +68,7 @@ alias :e='vim'
 alias kdm='sudo kdm'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
+alias rc.d='sudo rc.d'
 
 alias y='yaourt'
 alias ll='ls -lArth'
