@@ -46,29 +46,40 @@ PROMPT_COMMAND=ps1
 PS2='\[\033[1;32m\]└──>\[\033[m\] '
 PS3='└─?> '
 
+# Options par défaut
 alias ls='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
-alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
-alias vmi='vim'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias df='df -Th'
 alias mv='mv -v'
 alias cp='cp -r'
-alias dc='cd'
 alias tree='tree -aC'
-alias treel='tree -aphugDC'
-alias cd..='cd ..'
-alias mr='rm'
+alias tmux='tmux -2 -u'
 
+alias treel='tree -aphugDC'
+
+# Fautes de frappes courantes
+alias dc='cd'
+alias cd..='cd ..'
+alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
+alias mr='rm'
+alias vmi='vim'
+
+# Quand on code trop ...
 alias :q='exit'
 alias :x='exit'
 alias :e='vim'
 
+# Quelques sudos
 alias kdm='sudo kdm'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias rc.d='sudo rc.d'
+alias updatedb='sudo updatedb'
+
+# Lancer des programmes dans des Tmux
+alias mcabber='tmux has-session -t "mcabber" && tmux attach -d -t "mcabber" || tmux new -s "mcabber" -n "client" mcabber'
 
 alias y='yaourt'
 alias ll='ls -lArth'
@@ -82,6 +93,7 @@ alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
 
+# Scripts perso http://github.com/nim65s/scripts
 alias meurs='$HOME/scripts/meurs.sh'
 alias ext='$HOME/scripts/extracteur.sh'
 alias dl='$HOME/scripts/dl.sh'
@@ -133,3 +145,8 @@ fairytail()
 {
 	tail -n 100 -f $* | ccze -A
 }
+
+# TODO : une "launch" fonction, qui fait un tmux, 
+#   si un argument : cmd
+#   si deux : session-name & cmd
+#   si trois : session-name, window-name & cmd
