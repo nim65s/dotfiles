@@ -1,27 +1,37 @@
-URxvt.font:		xft:DejaVuSansMono-Oblique:pixelsize=16
-URxvt*termName:		xterm-color
-URxvt*foreground:	#DCDCCC
-URxvt*transparent:	true
-URxvt*tintColor:	#3F3F3F
-!URxvt*shading:		100
-URxvt*fading:		35
-!URxvt*fg:		white
-URxvt*loginShell:	true
-URxvt*scrollBar:	false
-URxvt*cursorUnderline:  true
-urxvt*depth:            24
+URxvt*depth:                32
+URxvt*foreground:	        #DCDCCC
+Urxvt*cursorColor:          white
+URxvt*transparent:	        true
+URxvt*fading:		        15
+URxvt*tintColor:	        #3F3F3F
+URxvt*blurRadius:           3
+URxvt*iconFile:		        /home/nim/images/favicon.png
+URxvt.font:		            xft:DejaVuSansMono-Oblique:pixelsize=16,xft:Code2000:antialias=false
+URxvt*urgentOnBell: 	    True
+URxvt*visualBell:           True
+URxvt*loginShell:	        True
+URxvt*scrollBar:	        False
+URxvt*scrollTtyOutput:      True
+URxvt*scrollTtyKeypress:    True
+!URxvt*borderLess:           True
+URxvt*cursorUnderline:      true
+URxvt*termName:		        xterm-color
+URxvt*perl-ext-common:	    default,url-select,fullscreen
 
-URxvt.urlLauncher: 	chromium
+URxvt*keysym.M-u:           perl:url-select:select_next
+URxvt*underlineURLs:        true
 
-xterm*faceName:		calibri
-xterm*faceSize: 	10
+URxvt*keysym.F11:           perl:fullscreen:switch
+URxvt*urlLauncher:          chromium
 
-urxvt.perl-ext-common:	default,matcher,tabbed
-Xcursor.theme: 		gruppled
-Xcursor*theme: 		gruppled
+Xft*dpi:                    96
+Xft*antialias:              True
+Xft*hinting:                True
+Xft*hintstyel:              full
 
-URxvt.urgentOnBell: 	True
+xpdf*urlCommand:            /usr/bin/chromium %s
 
-URxvt*iconFile:		/home/nim/images/favicon.png
+Xcursor*theme:              gruppled
 
-xpdf*urlCommand:        /usr/bin/chromium %s
+xterm*faceName:             calibri
+xterm*faceSize:             10

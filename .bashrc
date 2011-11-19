@@ -131,19 +131,21 @@ if [[ -x /usr/bin/fortune ]]
 		/usr/bin/fortune
 	fi
 users
-function _exit()
-{
+function _exit() {
 	echo -e "\033[0;31mHasta la vista, baby\033[0m"
 }
 trap _exit EXIT
 
-lsd()
-{
+lsd() {
 	cd $* && ls
 }
-fairytail()
-{
+
+fairytail() {
 	tail -n 100 -f $* | ccze -A
+}
+
+fs() {
+    printf '\33]50;%s%d%s\007' "xft:DejaVuSansMono-Oblique:pixelsize=" $1 ",xft:Code2000:antialias=false"
 }
 
 # TODO : une "launch" fonction, qui fait un tmux, 

@@ -8,7 +8,7 @@ require("vicious")
 
 beautiful.init("/home/nim/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
-terminal = "terminator"
+terminal = "urxvtc"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
