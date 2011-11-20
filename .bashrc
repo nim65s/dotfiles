@@ -4,7 +4,7 @@ export KDEWM=awesome
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
-export EDITOR=vim
+export EDITOR='TERM=xterm vim'
 export XDG_DATA_HOME=~/.uzbl/data/
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
@@ -56,6 +56,7 @@ alias mv='mv -v'
 alias cp='cp -r'
 alias tree='tree -aC'
 alias tmux='tmux -2 -u'
+alias vim='TERM=xterm vim'
 
 alias treel='tree -aphugDC'
 
@@ -64,12 +65,12 @@ alias dc='cd'
 alias cd..='cd ..'
 alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias mr='rm'
-alias vmi='vim'
+alias vmi='TERM=xterm vim'
 
 # Quand on code trop ...
 alias :q='exit'
 alias :x='exit'
-alias :e='vim'
+alias :e='TERM=xterm vim'
 
 # Quelques sudos
 alias kdm='sudo kdm'
@@ -80,6 +81,7 @@ alias updatedb='sudo updatedb'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='tmux has-session -t "mcabber" && tmux attach -d -t "mcabber" || tmux new -s "mcabber" -n "client" mcabber'
+alias ncmpcpp='tmux has-session -t "mpc" && tmux attach -d -t "mpc" || tmux new -s "mpc" -n "client" ncmpcpp'
 
 alias y='yaourt'
 alias ll='ls -lArth'
@@ -106,7 +108,7 @@ alias majgit='ssh-add; $HOME/scripts/majgit.sh'
 alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
-alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
+alias ka='TERM=xterm vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
@@ -146,6 +148,12 @@ fairytail() {
 
 fs() {
     printf '\33]50;%s%d%s\007' "xft:DejaVuSansMono-Oblique:pixelsize=" $1 ",xft:Code2000:antialias=false"
+}
+
+nam() {
+    echo -e "\033]0;$1\007\c"
+    man $1
+    echo -e "\033]0;${HOSTNAME}\007\c"
 }
 
 # TODO : une "launch" fonction, qui fait un tmux, 

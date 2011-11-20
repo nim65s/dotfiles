@@ -112,8 +112,8 @@ set ruler
 set hlsearch
 set ignorecase
 set smartcase
-set visualbell t_vb=
-set novisualbell
+set visualbell
+"set novisualbell
 filetype indent on
 
 " http://items.sjbach.com/319/configuring-vim-right

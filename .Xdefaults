@@ -3,7 +3,7 @@ URxvt*foreground:	        #DCDCCC
 Urxvt*cursorColor:          white
 URxvt*transparent:	        true
 URxvt*fading:		        15
-URxvt*tintColor:	        #3F3F3F
+URxvt*tintColor:	        #5F5F5F
 URxvt*blurRadius:           3
 URxvt*iconFile:		        /home/nim/images/favicon.png
 URxvt.font:		            xft:DejaVuSansMono-Oblique:pixelsize=16,xft:Code2000:antialias=false
