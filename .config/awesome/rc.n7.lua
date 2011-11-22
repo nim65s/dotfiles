@@ -8,7 +8,7 @@ require("vicious")
 
 beautiful.init("/home/n7/promo2013/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
-terminal = "terminator"
+terminal = "urxvtc"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
@@ -43,7 +43,7 @@ awful.tag.setmwfact(0.25,tags[1][4])
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", function () awful.util.spawn_with_shell("terminator -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
+   { "edit config", function () awful.util.spawn_with_shell("urxvtc -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -71,12 +71,12 @@ function wiboxtoggle()
 		end
 end
 
-gmailicone = widget({ type = "imagebox" })
-gmailicone.image = image(beautiful.gmail_icon)
-gmailicone:buttons(awful.button({ }, 1, function () 
-	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[1][1])
-end ))
+--gmailicone = widget({ type = "imagebox" })
+--gmailicone.image = image(beautiful.gmail_icon)
+--gmailicone:buttons(awful.button({ }, 1, function () 
+--	awful.util.spawn_with_shell("chromium https://mail.google.com") 
+--	awful.tag.viewonly(tags[1][1])
+--end ))
 
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
@@ -91,16 +91,16 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
-mygmail = widget({ type = "textbox" })
-mygmail:buttons(awful.button({ }, 1, function () 
-	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[1][1])
-end ))
-mygmail_timer = timer({ timeout = 301 })
-mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
-mygmail_timer:start()
-mygmail_timer:emit_signal("timeout")
-mygmail:add_signal("mouse::enter", function () naughty.notify({ icon = image(beautiful.gmail_icon), title = "    Gmail :", text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
+--mygmail = widget({ type = "textbox" })
+--mygmail:buttons(awful.button({ }, 1, function () 
+--	awful.util.spawn_with_shell("chromium https://mail.google.com") 
+--	awful.tag.viewonly(tags[1][1])
+--end ))
+--mygmail_timer = timer({ timeout = 301 })
+--mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
+--mygmail_timer:start()
+--mygmail_timer:emit_signal("timeout")
+--mygmail:add_signal("mouse::enter", function () naughty.notify({ icon = image(beautiful.gmail_icon), title = "    Gmail :", text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
 
 calendar = {
     offset = 0,
@@ -206,8 +206,8 @@ mywibox[1].widgets = {
             layout = awful.widget.layout.horizontal.leftright
         },
         wiclock,
-		gmailicone,
-		mygmail,
+		--gmailicone,
+		--mygmail,
         mylayoutbox[1],
         mysystray,
         mytasklist,
@@ -273,7 +273,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-    awful.key({ modkey },            "v",     function () teardrop("terminator", "bottom", "center", 1, 0.2, true) end),
+    awful.key({ modkey },            "v",     function () teardrop("urxvtc", "bottom", "center", 1, 0.2, true) end),
 
     awful.key({ modkey }, "w",
               function ()

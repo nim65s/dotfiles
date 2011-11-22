@@ -5,7 +5,7 @@ setxkbmap fr oss && setxkbmap fr
 xbindkeys
 numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
-[[ $(hostname) == "totoro" ]] && xscreensaver -nosplash &
+xscreensaver -nosplash &
 xrdb ~/.Xresources &
 . .password
 case $1 in
