@@ -9,7 +9,7 @@ require("vicious")
 beautiful.init("/home/nim/.config/awesome/awesome.zenburn.nimed.theme.lua")
 
 terminal = "urxvtc"
-editor = os.getenv("EDITOR") or "vim"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
@@ -35,16 +35,15 @@ tags[2] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 2, { layouts
 tags[1] = awful.tag({ "1:IM", 2, 3, 4}, 1, awful.layout.suit.fair)
 awful.tag.setmwfact(0.3,tags[2][2])
 awful.tag.setmwfact(0.25,tags[2][4])
--- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
--- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
--- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
+awful.tag.seticon("/home/nim/images/awicons/xmpp.png", tags[1][1])
+awful.tag.seticon("/home/nim/images/awicons/chromium.png", tags[2][2])
 -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", function () awful.util.spawn_with_shell("terminator -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
+   { "edit config", function () awful.util.spawn_with_shell(terminal .. "-e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -124,23 +123,11 @@ function italic(text)
     return '<i>' .. text .. '</i>'
 end
 
---meteo = widget({ type = "textbox", align = "right" })
---meteo.text = 'test'
-
 cpuwidget = widget({ type = "textbox", align = "right" })
 vicious.register(cpuwidget, vicious.widgets.cpu, " $2% - $3% ")
-cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'htop'",2) end))
+cpuwidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell(terminal .. "-e 'htop'",2) end))
 
 mpdwidget = widget({ type = "textbox", name = "mpdwidget", align = "center" })
---vicious.register(mpdwidget, vicious.widgets.mpd, 
---function(widget,args)
---	if args["{state}"] == "Stop" then
---		return " Stop " 
---	else
---		return ' '..args["{volume}"]..' : '.. bold(args["{Artist}"])..' ( '..args["{Album}"]..' ) => '..args["{Title}"]
---	end
---end, 3)
---
 mpdwidget_timer = timer({ timeout = 1 })
 mpdwidget_timer:add_signal("timeout", function () mpdwidget.text = io.popen('mpc --format " [[<b>%artist%</b>[ (%album%)] =>] %title%]|[%file%]" | sed "N;s/\\n/ /;s=#[0-9]*/[0-9]*==;N;s/\\n/ /;s/&/&amp;/g"'):read("*a") end)
 mpdwidget_timer:start()
@@ -155,27 +142,12 @@ nexticone:buttons(awful.button({ }, 1, function () awful.util.spawn("mpc next") 
 netwidget = widget({ type = "textbox", align = "right" })
 vicious.register(netwidget, vicious.widgets.net, '${eth0 down_kb} - ${eth0 up_kb}', 3)
 netwidget:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'sudo iptraf -i eth0'", 2) end),
-	awful.button({ }, 3, function () awful.util.spawn_with_shell("terminator -e 'sudo iftop'", 2) end)))
-
---senwidget = widget({ type = "textbox" })
---vicious.register(senwidget, vicious.contrib.sensors, " $1 ")
-
+	awful.button({ }, 1, function () awful.util.spawn_with_shell(terminal .. "-e 'sudo iptraf -i eth0'", 2) end),
+	awful.button({ }, 3, function () awful.util.spawn_with_shell(terminal .. "-e 'sudo iftop'", 2) end)))
 
 fswidget = widget({ type = "textbox", align = "right" })
 vicious.register(fswidget, vicious.widgets.fs, "${/home used_p}% / ${/ used_p}%")
-fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell("terminator -e 'df -h; read -n 1'", 2) end))
-
-mygmail = widget({ type = "textbox" })
-mygmail:buttons(awful.button({ }, 1, function () 
-	awful.util.spawn_with_shell("chromium https://mail.google.com") 
-	awful.tag.viewonly(tags[2][2])
-end ))
-mygmail_timer = timer({ timeout = 301 })
-mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
-mygmail_timer:start()
-mygmail_timer:emit_signal("timeout")
-mygmail:add_signal("mouse::enter", function () naughty.notify({ icon = image(beautiful.gmail_icon), title = "    Gmail :", text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
+fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell(terminal .. "-e 'df -h; read -n 1'", 2) end))
 
 memwidget = widget({ type = "textbox", align = "right" })
 vicious.register(memwidget, vicious.widgets.sensors, " $1% ")
@@ -185,57 +157,26 @@ pacmanicone = widget({ type = "imagebox" })
 pacmanicone.image = image(beautiful.pacman_icon)
 pacwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () 
-			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu'",2)
+			awful.util.spawn_with_shell(terminal .. "-e 'yaourt -Syu'",2)
 			pacwidget.text = '0'
 	end),
     awful.button({ }, 3, function () 
-			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu --aur --devel'",2)
+			awful.util.spawn_with_shell(terminal .. "-e 'yaourt -Syu --aur --devel'",2)
 			pacwidget.text = '0'
 	end)))
 pacmanicone:buttons(awful.util.table.join(
     awful.button({ }, 1, function () 
-			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu'",2)
+			awful.util.spawn_with_shell(terminal .. "-e 'yaourt -Syu'",2)
 			pacwidget.text = '0'
 	end),
     awful.button({ }, 3, function ()
-			awful.util.spawn_with_shell("terminator -e 'yaourt -Syu --aur --devel'",2)
+			awful.util.spawn_with_shell(terminal .. "-e 'yaourt -Syu --aur --devel'",2)
 			pacwidget.text = '0'
 	end)))
 pacwidget_timer = timer({ timeout = 300 })
 pacwidget_timer:add_signal("timeout", function () pacwidget.text = io.popen("pacman -Qu | wc -l", "r"):read("*a") end)
 pacwidget_timer:start()
 pacwidget_timer:emit_signal("timeout")
---[[
-fahwidget = widget({ type = "imagebox" })
-fahwidget.image = image(beautiful.aw_icon)
-fahwidget:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/fah.sh awesome", false) end),
-	awful.button({ }, 3, function () 
-			awful.util.spawn_with_shell("chromium 'http://fah-web.stanford.edu/cgi-bin/main.py?qtype=userpage&amp;username=[Inpact]_nim65s'", false)
-			awful.util.spawn_with_shell("chromium http://folding.fleucorp.net/INpact.htm", false)
-	end)))
-fahwidget:add_signal("mouse::enter", function()
-		fahwidget_timer:emit_signal("timeout")
-		awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify") 
-end)
-awful.util.spawn_with_shell("/home/nim/scripts/fah.sh notify")
-
-fahsmpwidget = awful.widget.progressbar()
-fahsmpwidget:set_width(8)
-fahsmpwidget:set_vertical(true)
-fahsmpwidget:set_color(beautiful.fg_normal)
-fahgpuwidget = awful.widget.progressbar()
-fahgpuwidget:set_width(8)
-fahgpuwidget:set_vertical(true)
-fahgpuwidget:set_color(beautiful.fg_normal)
-
-fahwidget_timer = timer({ timeout = 300 })
-fahwidget_timer:add_signal("timeout", function () 
-		fahgpuwidget:set_value(io.popen("tail -n 1 /opt/fah-gpu/alpha/unitinfo.txt | cut -d' ' -f 2 | sed 's/%//'","r"):read("*a")/100)
-		fahsmpwidget:set_value(io.popen("tail -n 1 /opt/fah-smp/unitinfo.txt | cut -d' ' -f 2 | sed 's/%//'","r"):read("*a")/100)
-end)
-fahwidget_timer:start()
-]]--
 volwidget = awful.widget.progressbar()
 volwidget:set_width(10)
 volwidget:set_vertical(true)
@@ -356,23 +297,6 @@ for s = 1, screen.count() do
 	end
 mywibox[1].widgets = {
         {
-			--[[
-			-- Nim7
-			
-		    mylauncher,
-		    mysystray,
-			fahgpuwidget,
-		    fahwidget,
-			fahsmpwidget,
-		    previcone,
-		    playicone,
-		    nexticone,
-			volwidget,
-		    spkricone,
-		    mpdwidget,
-
-			-- /Nim7
-			]]--
             mytaglist[1],
             mypromptbox[1],
             layout = awful.widget.layout.horizontal.leftright
@@ -381,23 +305,6 @@ mywibox[1].widgets = {
         wiclock,
         mysystray[1],
         mytasklist[1],
-		--[[
-		-- Nim7
-		
-	    mygmail,
-	    gmailicone,
-	    pacwidget,
-	    pacmanicone,
-	    cpuwidget,
-	    cpuicone,
-	    fswidget,
-	    homeicone,
-		upicone,
-	    netwidget,
-	    downicone,
-
-		-- /Nim7
-		]]--
         layout = awful.widget.layout.horizontal.rightleft
     }
     mywibox[2].widgets = {
@@ -416,9 +323,6 @@ mywibox[1].widgets = {
 	    {
 		    mylauncher,
 		    mysystray[2],
-			--fahgpuwidget,
-		    --fahwidget,
-			--fahsmpwidget,
 		    previcone,
 		    playicone,
 		    nexticone,
@@ -427,7 +331,6 @@ mywibox[1].widgets = {
 		    mpdwidget,
 		    layout = awful.widget.layout.horizontal.leftright
 	    },
-	    mygmail,
 	    gmailicone,
 	    pacwidget,
 	    pacmanicone,
@@ -438,7 +341,6 @@ mywibox[1].widgets = {
 		upicone,
 	    netwidget,
 	    downicone,
-		--meteo,
 	    layout = awful.widget.layout.horizontal.rightleft
     }
 -- }}}
@@ -509,7 +411,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-    awful.key({ modkey },            "v",     function () teardrop("terminator", "bottom", "center", 1, 0.2, true) end),
+    awful.key({ modkey },            "v",     function () teardrop(terminal, "bottom", "center", 1, 0.2, true) end),
 
     awful.key({ modkey }, "w",
               function ()
@@ -759,7 +661,6 @@ function run_once(prg)
     awful.util.spawn_with_shell("pgrep -f -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
---run_once("pidgin")
 awful.screen.focus_relative(1)
 run_once("ssh-add")
 run_once("chromium")
