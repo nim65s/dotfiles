@@ -82,6 +82,7 @@ alias updatedb='sudo updatedb'
 # Lancer des programmes dans des Tmux
 alias mcabber='tmux has-session -t "mcabber" && tmux attach -d -t "mcabber" || tmux new -s "mcabber" -n "client" mcabber'
 alias ncmpcpp='tmux has-session -t "mpc" && tmux attach -d -t "mpc" || tmux new -s "mpc" -n "client" ncmpcpp'
+alias nmux='tmux new -s'
 
 alias y='yaourt'
 alias ll='ls -lArth'
