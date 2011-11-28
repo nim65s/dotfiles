@@ -6,10 +6,10 @@ require("naughty")
 require("teardrop")
 require("vicious")
 
-beautiful.init("/home/n7/promo2013/saurelg/.config/awesome/awesome.zenburn.nimed.theme.lua")
+beautiful.init(".config/awesome/awesome.zenburn.nimed.theme.lua")
 
 terminal = "urxvtc"
-editor = os.getenv("EDITOR") or "vim"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
@@ -34,16 +34,16 @@ tags = {}
 tags[1] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 1, { layouts[1], layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2]})
 awful.tag.setmwfact(0.3,tags[1][2])
 awful.tag.setmwfact(0.25,tags[1][4])
--- awful.tag.seticon("/home/nim/images/icones/32.ff.png", tags[1][2])
--- awful.tag.seticon("/home/nim/images/icones/32.tb.png", tags[1][3])
--- awful.tag.seticon("/home/nim/images/icones/32.am.png", tags[1][9])
+awful.tag.seticon("images/awicons/spotify.png", tags[1][1])
+awful.tag.seticon("images/awicons/chromium.png", tags[1][2])
+awful.tag.seticon("images/awicons/xmpp.png", tags[1][9])
 -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", function () awful.util.spawn_with_shell("urxvtc -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
+   { "edit config", function () awful.util.spawn_with_shell(terminal .. "-e 'vim .config/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -60,23 +60,16 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 
 function wiboxtoggle()
-		if mywibox[1].visible then
-				mywibox[1].visible = false
-				mywibox[2].visible = false
-				mywibox[3].visible = false
-		else
-				mywibox[1].visible = true
-				mywibox[2].visible = true
-				mywibox[3].visible = true
-		end
+		if mywibox[1].visible then mywibox[1].visible = false
+		else mywibox[1].visible = true end
 end
 
---gmailicone = widget({ type = "imagebox" })
---gmailicone.image = image(beautiful.gmail_icon)
---gmailicone:buttons(awful.button({ }, 1, function () 
---	awful.util.spawn_with_shell("chromium https://mail.google.com") 
---	awful.tag.viewonly(tags[1][1])
---end ))
+gmailicone = widget({ type = "imagebox" })
+gmailicone.image = image(beautiful.gmail_icon)
+gmailicone:buttons(awful.button({ }, 1, function () 
+	awful.util.spawn_with_shell("chromium https://mail.google.com") 
+	awful.tag.viewonly(tags[1][2])
+end ))
 
 function bg(color, text)
     return '<bg color="' .. color .. '" />' .. text
@@ -90,17 +83,6 @@ end
 function italic(text)
     return '<i>' .. text .. '</i>'
 end
-
---mygmail = widget({ type = "textbox" })
---mygmail:buttons(awful.button({ }, 1, function () 
---	awful.util.spawn_with_shell("chromium https://mail.google.com") 
---	awful.tag.viewonly(tags[1][1])
---end ))
---mygmail_timer = timer({ timeout = 301 })
---mygmail_timer:add_signal("timeout", function () mygmail.text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | grep fullcount | sed 's/<[/]*fullcount>//g' || echo 'netrc'", "r"):read("*a") end)
---mygmail_timer:start()
---mygmail_timer:emit_signal("timeout")
---mygmail:add_signal("mouse::enter", function () naughty.notify({ icon = image(beautiful.gmail_icon), title = "    Gmail :", text = io.popen("grep -q mail.google.com $HOME/.netrc && curl --connect-timeout 1 -m 3 -fsn https://mail.google.com/mail/feed/atom/unread | egrep 'title|summary' | sed '1d;s/title/b/g;s/<[/]*summary>//g' || echo 'votre fichier $HOME/.netrc ne contient pas d informations à propos de la machine mail.google.com'","r"):read("*a") }) end)
 
 calendar = {
     offset = 0,
@@ -141,7 +123,7 @@ wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/saurelg/scripts/edt.sh notify") end),
+    awful.button({ }, 1, function() awful.util.spawn_with_shell("./scripts/edt.sh notify") end),
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
@@ -206,8 +188,7 @@ mywibox[1].widgets = {
             layout = awful.widget.layout.horizontal.leftright
         },
         wiclock,
-		--gmailicone,
-		--mygmail,
+		gmailicone,
         mylayoutbox[1],
         mysystray,
         mytasklist,

@@ -6,7 +6,7 @@ require("naughty")
 require("teardrop")
 require("vicious")
 
-beautiful.init("/home/nim/.config/awesome/awesome.zenburn.nimed.theme.lua")
+beautiful.init(".config/awesome/awesome.zenburn.nimed.theme.lua")
 
 terminal = "urxvtc"
 editor = "vim"
@@ -35,8 +35,8 @@ tags[2] = awful.tag({ "1:zik", "2:www", "3:vim", 4, 5, 6, 7, 8, 9}, 2, { layouts
 tags[1] = awful.tag({ "1:IM", 2, 3, 4}, 1, awful.layout.suit.fair)
 awful.tag.setmwfact(0.3,tags[2][2])
 awful.tag.setmwfact(0.25,tags[2][4])
-awful.tag.seticon("/home/nim/images/awicons/xmpp.png", tags[1][1])
-awful.tag.seticon("/home/nim/images/awicons/chromium.png", tags[2][2])
+awful.tag.seticon("images/awicons/xmpp.png", tags[1][1])
+awful.tag.seticon("images/awicons/chromium.png", tags[2][2])
 -- }}}
 
 -- {{{ Menu
@@ -96,9 +96,9 @@ homeicone.image = image(beautiful.home_icon)
 spkricone = widget({ type = "imagebox" })
 spkricone.image = image(beautiful.spkr_icon)
 spkricone:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
-	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
-	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
+	awful.button({ }, 1, function () awful.util.spawn("./scripts/audio.sh m") end),
+	awful.button({ }, 5, function () awful.util.spawn("./scripts/audio.sh -") end),
+	awful.button({ }, 4, function () awful.util.spawn("./scripts/audio.sh +") end)))
 clockicone = widget({ type = "imagebox" })
 clockicone.image = image(beautiful.clock_icon)
 clockicone:add_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l","r"):read("*a") }) end)
@@ -185,9 +185,9 @@ volwidget:set_max_value(100)
 -- volwidget:set_value(io.popen("ossmix vmix0-outvol | cut -d' ' -f 10","r"):read("*a")-15)
 volwidget:set_value(tonumber(io.popen("amixer get Master| tail -n 1 | cut -d' ' -f 6 | sed 's/\[//;s/%\]//'","r"):read("*a")))
 volwidget.widget:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn("/home/nim/scripts/audio.sh m") end),
-	awful.button({ }, 5, function () awful.util.spawn("/home/nim/scripts/audio.sh -") end),
-	awful.button({ }, 4, function () awful.util.spawn("/home/nim/scripts/audio.sh +") end)))
+	awful.button({ }, 1, function () awful.util.spawn("./scripts/audio.sh m") end),
+	awful.button({ }, 5, function () awful.util.spawn("./scripts/audio.sh -") end),
+	awful.button({ }, 4, function () awful.util.spawn("./scripts/audio.sh +") end)))
 
 calendar = {
     offset = 0,
@@ -228,9 +228,9 @@ wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
 wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
 wiclock:add_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify") end),
+    awful.button({ }, 1, function() awful.util.spawn_with_shell("./scripts/edt.sh notify") end),
     awful.button({ }, 3, function() 
-			awful.util.spawn_with_shell("/home/nim/scripts/edt.sh notify alarm") 
+			awful.util.spawn_with_shell("./scripts/edt.sh notify alarm") 
 			clockicone_timer:emit_signal("timeout")
 	end),
     awful.button({ }, 5, function() calendar:month(-1) end),
