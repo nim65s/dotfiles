@@ -149,9 +149,6 @@ fswidget = widget({ type = "textbox", align = "right" })
 vicious.register(fswidget, vicious.widgets.fs, "${/home used_p}% / ${/ used_p}%")
 fswidget:buttons(awful.button({ }, 1, function () awful.util.spawn_with_shell(terminal .. "-e 'df -h; read -n 1'", 2) end))
 
-memwidget = widget({ type = "textbox", align = "right" })
-vicious.register(memwidget, vicious.widgets.sensors, " $1% ")
-
 pacwidget = widget({ type = "textbox", align = "right" })
 pacmanicone = widget({ type = "imagebox" })
 pacmanicone.image = image(beautiful.pacman_icon)
