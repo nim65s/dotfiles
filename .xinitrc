@@ -9,6 +9,9 @@ xscreensaver -nosplash &
 xrdb ~/.Xresources &
 . .password
 case $1 in
+        kde)
+            startkde
+            ;;
         xmonad)
                 exec xmonad
                 # SOME OTHER STUFF TODO

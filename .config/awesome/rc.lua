@@ -408,7 +408,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-    awful.key({ modkey },            "v",     function () teardrop(terminal .. " -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.2, true) end),
+    awful.key({ modkey },            "v",     function () teardrop(terminal .. " -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.3, true) end),
 
 
     awful.key({ modkey }, "w",

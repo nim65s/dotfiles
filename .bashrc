@@ -85,6 +85,7 @@ alias ncmpcpp='tmux has-session -t "mpc" && tmux attach -t mpc || tmux new -s mp
 alias teardrop='tmux has-session -t "TearDrop" && tmux attach -t TearDrop || tmux new -s TearDrop'
 alias nmux='tmux new -s'
 
+# Raccourcis
 alias y='yaourt'
 alias ll='ls -lArth'
 alias le='ls -X'
@@ -118,6 +119,7 @@ alias fixpa='ssh mi /etc/init.d/pulseaudio restart'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
+alias clean='rm *.orig'
 
 alias gobby_tunnel='ssh -L 6522:localhost:6522 n7 ssh -L 6522:localhost:6522 discover & gobby'
 
