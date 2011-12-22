@@ -161,6 +161,10 @@ nam() {
     echo -e "\033]0;${HOSTNAME}\007\c"
 }
 
+cmd_clients() {
+    ssh mi "./cmd_clients.sh $@"
+}
+
 # TODO : une "launch" fonction, qui fait un tmux, 
 #   si un argument : cmd
 #   si deux : session-name & cmd
