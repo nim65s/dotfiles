@@ -1,7 +1,7 @@
 #!/bin/sh
 # ~/.xinitrc
 urxvtd -q -f -o
-setxkbmap fr oss && setxkbmap fr
+setxkbmap fr bepo
 xbindkeys
 numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
