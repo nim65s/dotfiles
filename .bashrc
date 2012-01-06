@@ -14,6 +14,7 @@ export JAVA_HOME=/opt/java
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 if [[ -d "/usr/share/vim/vim73" ]]
+then
     export VIMRUNTIME=/usr/share/vim/vim73/
 else
     export VIMRUNTIME=/usr/share/vim/vim72/
