@@ -13,7 +13,11 @@ export HISTFILESIZE=${HISTSIZE}
 export JAVA_HOME=/opt/java
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-export VIMRUNTIME=/usr/share/vim/vim73/
+if [[ -d "/usr/share/vim/vim73" ]]
+    export VIMRUNTIME=/usr/share/vim/vim73/
+else
+    export VIMRUNTIME=/usr/share/vim/vim72/
+fi
 
 nc="\[\033[m\]"
 noir="\[\033[0;30m\]"
@@ -57,6 +61,7 @@ alias cp='cp -r'
 alias tree='tree -aC'
 alias tmux='tmux -2 -u'
 alias vim='TERM=xterm vim'
+alias vi='TERM=xterm vim'
 
 alias treel='tree -aphugDC'
 
