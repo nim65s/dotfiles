@@ -115,7 +115,7 @@ alias ka='TERM=xterm vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
-alias fixpa='ssh mi /etc/init.d/pulseaudio restart'
+alias fixpa='ssh mi /etc/init.d/pulseaudio stop; ssh mi /etc/init.d/pulseaudio start'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
