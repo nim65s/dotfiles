@@ -13,7 +13,12 @@ export HISTFILESIZE=${HISTSIZE}
 export JAVA_HOME=/opt/java
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-export VIMRUNTIME=/usr/share/vim/vim73/
+if [[ -d "/usr/share/vim/vim73" ]]
+then
+    export VIMRUNTIME=/usr/share/vim/vim73/
+else
+    export VIMRUNTIME=/usr/share/vim/vim72/
+fi
 
 nc="\[\033[m\]"
 noir="\[\033[0;30m\]"
@@ -57,6 +62,7 @@ alias cp='cp -r'
 alias tree='tree -aC'
 alias tmux='tmux -2 -u'
 alias vim='TERM=xterm vim'
+alias vi='TERM=xterm vim'
 
 alias treel='tree -aphugDC'
 
@@ -115,7 +121,7 @@ alias ka='TERM=xterm vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
 
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
-alias fixpa='ssh mi /etc/init.d/pulseaudio restart'
+alias fixpa='ssh mi /etc/init.d/pulseaudio stop; ssh mi /etc/init.d/pulseaudio start'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
