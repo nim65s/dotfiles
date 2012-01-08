@@ -129,9 +129,11 @@ alias clean='rm *.orig'
 
 alias gobby_tunnel='ssh -L 6522:localhost:6522 n7 ssh -L 6522:localhost:6522 discover & gobby'
 
-alias guignols='cd net7/pipo-parici/canalplus/; python2 mplayer_guignols_HD.py; cd'
-
 export XDG_CONFIG_HOME="$HOME/.config"
+
+export PAGER=~/vimpager/vimpager 
+alias less=$PAGER 
+alias zless=$PAGER
 
 shopt -s cdspell
 shopt -s checkwinsize
