@@ -138,6 +138,21 @@ set patchmode=.orig
 
 set encoding=utf-8
 set fileencoding=utf-8
+
+" Toggle option 'spell'
+
+function! ToggleSpell()
+  if &spell
+    set nospell
+  else
+    set spell
+  end
+endfunction
+
+noremap <F11> :call ToggleSpell()<cr>
+inoremap <F11> <Esc>:call ToggleSpell()<cr>a
+:setlocal spell spelllang=fr
+
 "set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,fp,j^,z$,aq,us,id,ef,\,g,ch,tj,sk,nl,rm,mù,^*,ê<,àw,hx,yc,.v,kb,'n,q\,,g;;,x:,w!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,J¨,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,NL,RM,M%,!*,Ê>,ÀW,HX,YC,:V,KB,\\;N,QG,G.,X/,W§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,[[,]|,±`,¬\,×^,÷@,¯],%}
 
 " {W} -> [É]
