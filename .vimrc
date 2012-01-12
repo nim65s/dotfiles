@@ -124,7 +124,7 @@ set wildmenu
 set title
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set listchars=tab:>-,trail:·,eol:$
+"set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 runtime macros/matchit.vim
 runtime macros/shellmenu.vim
