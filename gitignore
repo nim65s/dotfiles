@@ -1,0 +1,12 @@
+*.pdf
+*.aux
+*.pyg
+*.log
+*.old
+*.orig
+*.xz
+*.out
+*.cmake
+Makefile*
+*.toc
+*~
