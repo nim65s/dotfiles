@@ -103,6 +103,7 @@ alias llq='ls -lArSh'
 alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
+alias za='zathura'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias meurs='$HOME/scripts/meurs.sh'

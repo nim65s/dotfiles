@@ -1,0 +1,7 @@
+set transparency 0.5
+map r reload
+map t navigate next
+map s navigate previous
+map v zoom -
+map l zoom +
+map q quit
