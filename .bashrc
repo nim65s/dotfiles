@@ -149,6 +149,7 @@ if [[ -x /usr/bin/fortune ]]
 		/usr/bin/fortune
 	fi
 users
+tmux ls 2> /dev/null || true
 function _exit() {
 	echo -e "\033[0;31mHasta la vista, baby\033[0m"
 }
