@@ -128,6 +128,9 @@ alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 alias clean='rm *.orig'
 
+alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
+alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
+
 alias gobby_tunnel='ssh -L 6522:localhost:6522 n7 ssh -L 6522:localhost:6522 discover & gobby'
 
 export XDG_CONFIG_HOME="$HOME/.config"

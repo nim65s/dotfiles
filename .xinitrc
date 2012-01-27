@@ -5,7 +5,7 @@ setxkbmap fr bepo
 xbindkeys
 numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
-#xscreensaver -nosplash &
+xscreensaver -nosplash &
 xrdb ~/.Xresources &
 . .password
 case $1 in
