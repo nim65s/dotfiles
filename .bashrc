@@ -148,11 +148,14 @@ shopt -s hostcomplete
 shopt -s lithist
 
 if [[ -x /usr/bin/fortune ]]
-	then
-		/usr/bin/fortune
-	fi
+then
+    /usr/bin/fortune
+fi
+echo
 users
+echo
 tmux ls 2> /dev/null || true
+echo
 function _exit() {
 	echo -e "\033[0;31mHasta la vista, baby\033[0m"
 }
