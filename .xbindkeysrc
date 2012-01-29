@@ -94,23 +94,22 @@
     m:0x8 + c:171
     Alt + XF86AudioNext 
 
-#Next
-"echo KeyStrPress Control_L KeyStrPress ISO_Left_Tab KeyStrRelease ISO_Left_Tab KeyStrRelease Control_L | xmacroplay -d 0 :0.1"
-    m:0x0 + b:13
-
-#Prev
-"echo KeyStrPress Control_L KeyStrPress Shift_L KeyStrPress ISO_Left_Tab KeyStrRelease ISO_Left_Tab KeyStrRelease Shift_L KeyStrRelease Control_L | xmacroplay -d 0 :0.1"
-    m:0x0 + b:15
-
-#Close
-"xvkbd -text '\C\[F4]'"
-    m:0x0 + b:17
-
 #Left
-"echo KeyStrPress Super_L KeyStrPress Left KeyStrRelease Super_L KeyStrRelease Left | xmacroplay -d 0 :0.1"
+"wmctrl -s $(($(wmctrl -d|grep '*'|cut -d' ' -f1)-1))"
     m:0x0 + b:6
 
 #Right
-"echo KeyStrPress Super_L KeyStrPress Right KeyStrRelease Super_L KeyStrRelease Right | xmacroplay -d 0 :0.1"
+"wmctrl -s $(($(wmctrl -d|grep '*'|cut -d' ' -f1)+1))"
     m:0x0 + b:7
 
+#Next
+"/usr/bin/xvkbd -text "\[Control_L]\[Page_Up]""
+    m:0x0 + b:13
+
+#Prev
+"/usr/bin/xvkbd -text "\[Control_L]\[Page_Down]""
+    m:0x0 + b:15
+
+#Close
+"/usr/bin/xvkbd -text "\[Control_L]\[F4]""
+    m:0x0 + b:17
