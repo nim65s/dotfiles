@@ -103,11 +103,11 @@
     m:0x0 + b:7
 
 #Next
-"/usr/bin/xvkbd -text "\[Control_L]\[Page_Up]""
+"/usr/bin/xvkbd -text "\[Control_L]\[Page_Down]""
     m:0x0 + b:13
 
 #Prev
-"/usr/bin/xvkbd -text "\[Control_L]\[Page_Down]""
+"/usr/bin/xvkbd -text "\[Control_L]\[Page_Up]""
     m:0x0 + b:15
 
 #Close
