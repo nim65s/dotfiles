@@ -240,3 +240,13 @@ noremap <BS> <C-U>
 noremap <Space> <C-D>
 
 noremap <Return> zz
+
+"NERDTree section
+let NERDTreeMapActivateNode='<space>'
+let NERDTreeMapOpenInTab='d'
+let NERDTreeMapOpenInTabSilent='D'
+let NERDTreeMapOpenSplit='j'
+let NERDTreeMapOpenVSplit='n'
+let NERDTreeMapJumpFirstChild='S'
+let NERDTreeMapJumpLastChild='T'
+
