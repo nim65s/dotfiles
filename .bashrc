@@ -61,8 +61,8 @@ alias mv='mv -v'
 alias cp='cp -r'
 alias tree='tree -aC'
 alias tmux='tmux -2 -u'
-alias vim='vim'
 alias vi='vim'
+alias vd='vimdiff'
 
 alias treel='tree -aphugDC'
 
