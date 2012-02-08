@@ -120,13 +120,14 @@ alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
 alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
-
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
 alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 alias clean='rm *.orig'
+alias todo='vim ~/todo'
+alias todod='[[ $(hostname) == "totoro" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://totoro/todo'
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
