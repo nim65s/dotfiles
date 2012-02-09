@@ -24,6 +24,19 @@ URxvt*underlineURLs:        true
 URxvt*keysym.F11:           perl:fullscreen:switch
 URxvt*urlLauncher:          chromium
 
+urxvt.matcher.pattern.1: (?:http://)?(?:www\\.)?youtube\\.com/watch\\?v=([^&]*)
+urxvt.matcher.launcher.1: videoob play $1@youtube
+urxvt.matcher.pattern.2: (?:http://)?(?:www\\.)?youporn\\.com/watch/([^/]*)
+urxvt.matcher.launcher.2: videoob play $1@youporn
+urxvt.matcher.pattern.3: (?:http://)?(?:www\\.)?canalplus.fr/.*vid=([^&]*)
+urxvt.matcher.launcher.3: videoob play $1@canalplus
+urxvt.matcher.pattern.4: (?:http://)?(?:www\\.)?videos\\.arte\\.tv/.*/([^.]*)\\.html
+urxvt.matcher.launcher.4: videoob play $1@arte
+urxvt.matcher.pattern.5: (?:http://)?(?:www\\.)?ina.fr/(.*)/video/(.*)\\.html
+urxvt.matcher.launcher.5: videoob play $1\/$2@ina
+urxvt.matcher.pattern.6: (?:http://)?(?:www\\.)?youjizz\\.com/.*/([^.]*)\\.html
+urxvt.matcher.launcher.6: videoob play $1@youjizz
+
 Xft*dpi:                    96
 Xft*antialias:              True
 Xft*hinting:                True
