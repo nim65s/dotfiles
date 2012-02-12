@@ -6,4 +6,4 @@ schedule = watch_directory,5,5,load_start=*.torrent
 schedule = untied_directory,5,5,stop_untied=*.torrent
 port_range = 6890-6999
 use_udp_trackers = yes
-#session = .rtorrent.session
+session = .rtorrent.session
