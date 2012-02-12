@@ -17,13 +17,14 @@ URxvt*scrollTtyKeypress:    True
 URxvt*cursorUnderline:      true
 URxvt*termName:		        xterm-color
 
-URxvt*perl-ext-common:	    default,url-select,fullscreen
+URxvt*perl-ext-common:	    default,fullscreen,matcher,url-select
 
 URxvt*keysym.M-u:           perl:url-select:select_next
 URxvt*underlineURLs:        true
 
 URxvt*keysym.F11:           perl:fullscreen:switch
 URxvt*urlLauncher:          chromium
+URvxt*urlButton:            7
 
 dXft*dpi:                    96
 Xft*antialias:              True
@@ -36,3 +37,11 @@ Xcursor*theme:              gruppled
 
 xterm*faceName:             calibri
 xterm*faceSize:             10
+
+URxvt*matcher.button:       1
+URxvt*matcher.pattern.1:    (?:www\\.)?youtube\\.com/watch\\?v=([^&]*)
+URxvt*matcher.launcher.1:   echo videoob -b youtube play $1@youtube
+URxvt*matcher.pattern.2:    (?:www\\.)?dailymotion.com/video/(.*)
+URxvt*matcher.launcher.2:   echo videoob play -b dailymotion $1@dailymotion
+URxvt*matcher.pattern.3:    (?:www\\.)?canalplus.fr/.*vid=([^&]*)
+URxvt*matcher.launcher.3:   echo videoob -b canalplus play $1@canalplus
