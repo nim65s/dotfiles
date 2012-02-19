@@ -5,7 +5,7 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
 export EDITOR='vim'
-export XDG_DATA_HOME=~/.uzbl/data/
+export XDG_DATA_HOME=~/.local/
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
 export HISTSIZE=100000
@@ -131,6 +131,7 @@ alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && ma
 alias clean='rm *.orig'
 alias td='vim ~/todo'
 alias tdd='[[ $(hostname) == "totoro" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://totoro/todo'
+alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umount /dev/sr0 && eject'
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
