@@ -119,6 +119,8 @@ alias status='$HOME/scripts/git.sh status'
 alias pull='$HOME/scripts/git.sh pull'
 alias commit='$HOME/scripts/git.sh commit'
 alias push='$HOME/scripts/git.sh push'
+alias monte='$HOME/scripts/monter.sh'
+alias demonte='$HOME/scripts/demonter.sh'
 
 alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
