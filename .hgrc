@@ -19,4 +19,6 @@ hg.bde.enseeiht.fr = d7:81:2c:8d:42:45:a6:99:09:b3:15:e8:c6:32:3b:e3:c0:4f:ea:d7
 hg.sleduc.fr = 38:50:4c:3d:4b:93:c3:01:d6:95:02:d0:85:22:f5:df:67:5a:27:9f
 
 [extensions]
-transplant=
+transplant =
+graphlog =
+hgext.churn =
