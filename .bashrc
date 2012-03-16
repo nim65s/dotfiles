@@ -64,6 +64,7 @@ alias tmux='tmux -2 -u'
 alias vi='vim'
 alias vd='vimdiff'
 alias rm='rm -Iv'
+alias m='mplayer'
 
 alias treel='tree -aphugDC'
 
