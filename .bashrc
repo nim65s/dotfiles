@@ -134,7 +134,7 @@ alias fixx='killall mplayer'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
-alias clean='rm -v *.orig'
+alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
 alias td='vim ~/todo'
 alias tdd='[[ $(hostname) == "totoro" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://totoro/todo'
 alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umount /dev/sr0 && eject'
