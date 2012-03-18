@@ -70,6 +70,7 @@ alias treel='tree -aphugDC'
 
 # Fautes de frappes courantes
 alias dc='cd'
+alias CD='cd'
 alias cd..='cd ..'
 alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias mr='rm -Iv'
