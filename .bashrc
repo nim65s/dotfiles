@@ -64,7 +64,6 @@ alias tmux='tmux -2 -u'
 alias vi='vim'
 alias vd='vimdiff'
 alias rm='rm -Iv'
-alias m='mplayer'
 
 alias treel='tree -aphugDC'
 
@@ -109,6 +108,7 @@ alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
 alias za='zathura'
+alias m='mplayer'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias meurs='$HOME/scripts/meurs.sh'
