@@ -110,6 +110,8 @@ alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
 alias za='zathura'
 alias m='mplayer'
+alias bépo='setxkbmap fr'
+alias azer='setxkbmap fr bepo'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias meurs='$HOME/scripts/meurs.sh'
