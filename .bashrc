@@ -64,6 +64,7 @@ alias tmux='tmux -2 -u'
 alias vi='vim'
 alias vd='vimdiff'
 alias rm='rm -Iv'
+alias mysql='mysql --auto-rehash -u root -p'
 
 alias treel='tree -aphugDC'
 
