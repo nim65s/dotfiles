@@ -11,6 +11,7 @@ sleduc.username = nim
 [ui]
 username = Nim <guilhem.saurel@etu.enseeiht.fr>
 verbose = True
+merge = vimdiff
 
 [hostfingerprints]
 hg.inpt.fr = 2f:3e:70:c0:47:8c:16:06:78:bb:d7:8b:16:a4:86:4b:ee:83:ed:05
@@ -22,3 +23,17 @@ hg.sleduc.fr = 38:50:4c:3d:4b:93:c3:01:d6:95:02:d0:85:22:f5:df:67:5a:27:9f
 transplant =
 graphlog =
 hgext.churn =
+hgext.extdiff =
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[extdiff]
+cmd.vimdiff = vim
+opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
+
+[alias]
+vi = vimdiff
+vd = vimdiff
+vimdiff = vimdiff
