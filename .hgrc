@@ -31,7 +31,7 @@ vimdiff.args = -d $base $local $output $other +close +close
 
 [extdiff]
 cmd.vimdiff = vim
-opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
+opts.vimdiff = -f '+next' '+execute "DirDiff" fnameescape(argv(0)) fnameescape(argv(1))'
 
 [alias]
 vi = vimdiff
