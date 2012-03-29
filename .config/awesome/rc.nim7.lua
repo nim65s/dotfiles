@@ -499,7 +499,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   function (command)
                       if mouse.screen == 1 then awful.screen.focus (2) end
-                      awful.util.spawn_with_shell("chromium http://wikipedia.fr/Resultats.php?q=$(echo '"..command.."' | sed 's/ /+/g')", false)
+                      awful.util.spawn_with_shell("chromium http://fr.wikipedia.org/w/index.php?title=Sp%C3%A9cial:Recherche\\&search=$(echo '"..command.."' | sed 's/ /+/g')", false)
                       awful.tag.viewonly(tags[2][2])
                       end)
               end),
