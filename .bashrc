@@ -147,8 +147,6 @@ alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umoun
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
 
-alias gobby_tunnel='ssh -L 6522:localhost:6522 n7 ssh -L 6522:localhost:6522 discover & gobby'
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export PAGER=~/vimpager/vimpager 
