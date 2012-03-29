@@ -114,6 +114,7 @@ alias bépo='setxkbmap fr'
 alias azer='setxkbmap fr bepo'
 
 # Scripts perso http://github.com/nim65s/scripts
+alias a='$HOME/scripts/audio.sh'
 alias meurs='$HOME/scripts/meurs.sh'
 alias ext='$HOME/scripts/extracteur.sh'
 alias dl='$HOME/scripts/dl.sh'
