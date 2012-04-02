@@ -7,7 +7,7 @@ numlockx on
 #. /etc/X11/xinit/xinitrc.d/*
 xscreensaver -nosplash &
 xrdb ~/.Xresources &
-. .password
+[[ -f ~/.password ]] && . ~/.password
 case $1 in
         kde)
             startkde
