@@ -65,6 +65,7 @@ alias vi='vim'
 alias vd='vimdiff'
 alias rm='rm -Iv'
 alias mysql='mysql --auto-rehash -u root -p'
+alias mplayer='mplayer -fs'
 
 alias treel='tree -aphugDC'
 
@@ -109,9 +110,10 @@ alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
 alias za='zathura'
-alias m='mplayer'
+alias m='mplayer -fs'
 alias bépo='setxkbmap fr'
 alias azer='setxkbmap fr bepo'
+alias qwer='setxkbmap fr bepo'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='$HOME/scripts/audio.sh'
@@ -144,7 +146,7 @@ alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
 alias td='vim ~/todo'
 alias tdd='[[ $(hostname) == "totoro" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://totoro/todo'
 alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umount /dev/sr0 && eject'
-alias guignols='f=$(ls -lrth --sort=time ~/guignol_*|head -n 1|cut -d" " -f8); mplayer $f && rm $f'
+alias guignols='f=$(ls -lrth --sort=time ~/guignol_*|head -n 1|cut -d" " -f8); mplayer -fs $f && rm $f'
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
