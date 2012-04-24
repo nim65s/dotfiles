@@ -4,7 +4,8 @@ export KDEWM=awesome
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
-export EDITOR='vim'
+export EDITOR=vim
+export BROWSER=chromium
 export XDG_DATA_HOME=~/.local/
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
