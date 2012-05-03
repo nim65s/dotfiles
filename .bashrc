@@ -154,7 +154,7 @@ alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/n
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export PAGER=~/vimpager/vimpager 
+export PAGER=~/scripts/vimpager/vimpager 
 alias less=$PAGER 
 alias zless=$PAGER
 
