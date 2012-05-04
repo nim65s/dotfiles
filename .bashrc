@@ -131,6 +131,7 @@ alias newCproject='$HOME/scripts/newCproject.sh'
 alias pull='$HOME/scripts/git.sh pull'
 alias push='$HOME/scripts/git.sh push'
 alias status='$HOME/scripts/git.sh status'
+alias 9='while true; do $HOME/scripts/9gag.py; sleep 540; done'
 
 alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias fer='OLDIFS=$IFS ; IFS=$'\n' && for DOS in * ; do feh -FrSname $DOS ; done ; IFS=$OLDIFS'
