@@ -13,3 +13,4 @@ Makefile*
 *.toc
 *~
 *.pyc
+*.ignore
