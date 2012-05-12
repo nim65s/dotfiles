@@ -259,8 +259,8 @@ progressbar_look = "# "
 #fancy_scrolling = "yes"
 #cyclic_scrolling = "no"
 #lines_scrolled = "2"
-#follow_now_playing_lyrics = "no"
-#store_lyrics_in_song_dir = "no"
+follow_now_playing_lyrics = "yes"
+store_lyrics_in_song_dir = "yes"
 ##
 ## Note: If you set this variable, ncmpcpp will try to
 ## get info from last.fm in language you set and if it
