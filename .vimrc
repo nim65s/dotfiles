@@ -250,3 +250,5 @@ let NERDTreeMapOpenVSplit='n'
 let NERDTreeMapJumpFirstChild='S'
 let NERDTreeMapJumpLastChild='T'
 
+"Tlist section
+let Tlist_Use_Right_Window=1
