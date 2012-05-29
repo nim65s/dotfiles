@@ -203,6 +203,14 @@ cmd_clients() {
     ssh mi "./cmd_clients.sh $@"
 }
 
+
+wol() {
+    for host in $@
+    do
+        wakeonlan -f ~/dotfiles/wol/$host
+    done
+}
+
 # TODO : une "launch" fonction, qui fait un tmux, 
 #   si un argument : cmd
 #   si deux : session-name & cmd
