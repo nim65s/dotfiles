@@ -394,5 +394,5 @@ function run_once(prg)
 end
 
 run_once("ssh-add")
-run_once("chromium /home/nim/www_public/index.html")
+--run_once("chromium /home/nim/www_public/index.html")
 
