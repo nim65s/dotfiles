@@ -619,6 +619,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { class = "Gvim" },
+      properties = { floating = true } },
     { rule = { class = "Firefox" },
       properties = { tag = tags[2][4],
       border_width = 0 } },

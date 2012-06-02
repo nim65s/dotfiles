@@ -677,6 +677,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "Gvim" },
+      properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "Firefox" },
