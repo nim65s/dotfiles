@@ -67,6 +67,7 @@ alias vd='vimdiff'
 alias rm='rm -Iv'
 alias mysql='mysql --auto-rehash -u root -p'
 alias mplayer='mplayer -fs'
+alsas matlab='matlab -nodisplay -nojvm'
 
 alias treel='tree -aphugDC'
 
