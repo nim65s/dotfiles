@@ -2,5 +2,6 @@
 # ~/.xinitrc
 urxvtd -q -f -o
 setxkbmap fr bepo
+xbindkeys
 xrdb ~/.Xresources &
 exec ssh-agent awesome > .X.log 2> .X.err
