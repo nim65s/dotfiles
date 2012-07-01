@@ -74,6 +74,9 @@ alias treel='tree -aphugDC'
 alias dc='cd'
 alias CD='cd'
 alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias sl='ls --color=auto --time-style=+"%d.%m.%Y %H:%M"'
 alias mr='rm -Iv'
 alias vmi='vim'
@@ -95,7 +98,7 @@ alias updatedb='sudo updatedb'
 alias mcabber='tmux has-session -t mcabber && tmux attach -d -t mcabber || tmux new -s mcabber -n client mcabber'
 alias ncmpcpp='tmux has-session -t mpc && tmux attach -t mpc || tmux new -s mpc -n client ". ~/.password; ncmpcpp"'
 alias teardrop='tmux has-session -t TearDrop && tmux attach -t TearDrop || tmux new -s TearDrop'
-alias rtorrent='tmux has-session -t rtorrent && tmux attach -t rtorrent || tmux new -s rtorrent -n client "cd ~/Telechargements/; rtorrent"'
+alias rtorrent='tmux has-session -t rtorrent && tmux attach -t rtorrent || tmux new -s rtorrent -n client "cd ~/Downdloads/; rtorrent"'
 alias nmux='tmux new -s'
 
 # Raccourcis
@@ -141,7 +144,7 @@ alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
 alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
 alias fixx='killall mplayer'
-alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
+alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
@@ -152,6 +155,10 @@ alias guignols='f=$(ls -lrth --sort=time ~/guignol_*|head -n 1|cut -d" " -f8); m
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
+
+alias nimericable='sudo netcfg eth1-Nimericable'
+alias usb='sudo dhcpcd usb0'
+alias eth='sudo dhcpcd eth0'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 

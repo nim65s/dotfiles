@@ -120,7 +120,7 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 -- Create the wibox
-mywibox[1] = awful.wibox({ position = "top", screen = 1 })
+mywibox[1] = awful.wibox({ position = "bottom", screen = 1 })
 for s = 1, screen.count() do
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -396,5 +396,6 @@ function run_once(prg)
 end
 
 run_once("ssh-add")
+run_once("synergys")
 --run_once("chromium /home/nim/www_public/index.html")
 
