@@ -58,7 +58,7 @@ modern_scm_prompt() {
 }
 
 battery_prompt() {
-    acpi -a | grep -q off && echo "−[${ROUGE}$(acpi -b|cut -d: -f 2-)${VERT}]"
+    acpi -a 2> /dev/null | grep -q off && echo "−[${ROUGE}$(acpi -b|cut -d: -f 2-)${VERT}]"
 }
 
 function ps1
