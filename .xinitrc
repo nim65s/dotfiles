@@ -14,8 +14,9 @@ urxvtd -q -f -o
 setxkbmap fr bepo
 xbindkeys
 numlockx on
-[[ "$(hostname)" != "jill" ]] && [[ "$(hostname)" != "totoro" ]] && xscreensaver -nosplash &
 xrdb ~/.Xresources &
+
+[[ -f ~/.xinitrc.local ]] && . ~/.xinitrc.local
 [[ -f ~/.password ]] && . ~/.password
 case $1 in
     kde) startkde ;;
