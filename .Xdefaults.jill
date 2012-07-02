@@ -33,7 +33,7 @@ Xft*hintstyel:              full
 
 xpdf*urlCommand:            /usr/bin/chromium %s
 
-Xcursor*theme:              gruppled
+Xcursor*theme:              gruppled_white_lite
 
 xterm*faceName:             calibri
 xterm*faceSize:             10

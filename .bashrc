@@ -123,6 +123,7 @@ alias ncmpcpp='tmux has-session -t mpc && tmux attach -t mpc || tmux new -s mpc 
 alias teardrop='tmux has-session -t TearDrop && tmux attach -t TearDrop || tmux new -s TearDrop'
 alias rtorrent='tmux has-session -t rtorrent && tmux attach -t rtorrent || tmux new -s rtorrent -n client "cd ~/Downdloads/; rtorrent"'
 alias nmux='tmux new -s'
+alias amux='tmux a'
 
 # Raccourcis
 alias y='yaourt'
