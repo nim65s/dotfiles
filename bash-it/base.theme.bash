@@ -18,18 +18,6 @@ SCM_SVN_CHAR='⑆'
 SCM_NONE='NONE'
 SCM_NONE_CHAR='○'
 
-RVM_THEME_PROMPT_PREFIX=' |'
-RVM_THEME_PROMPT_SUFFIX='|'
-
-VIRTUALENV_THEME_PROMPT_PREFIX=' |'
-VIRTUALENV_THEME_PROMPT_SUFFIX='|'
-
-RBENV_THEME_PROMPT_PREFIX=' |'
-RBENV_THEME_PROMPT_SUFFIX='|'
-
-RBFU_THEME_PROMPT_PREFIX=' |'
-RBFU_THEME_PROMPT_SUFFIX='|'
-
 function scm {
   if [[ -f .git/HEAD ]]; then SCM=$SCM_GIT
   elif [[ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]]; then SCM=$SCM_GIT
@@ -70,18 +58,20 @@ function scm_prompt_info {
 }
 
 function git_prompt_vars {
-  if [[ -n $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
-    SCM_DIRTY=1
-     SCM_STATE=${GIT_THEME_PROMPT_DIRTY:-$SCM_THEME_PROMPT_DIRTY}
-  else
-    SCM_DIRTY=0
-     SCM_STATE=${GIT_THEME_PROMPT_CLEAN:-$SCM_THEME_PROMPT_CLEAN}
-  fi
   SCM_PREFIX=${GIT_THEME_PROMPT_PREFIX:-$SCM_THEME_PROMPT_PREFIX}
-  SCM_SUFFIX=${GIT_THEME_PROMPT_SUFFIX:-$SCM_THEME_PROMPT_SUFFIX}
-  local ref=$(git symbolic-ref HEAD 2> /dev/null)
-  SCM_BRANCH=${ref#refs/heads/}
-  SCM_CHANGE=$(git rev-parse HEAD 2>/dev/null)
+
+  branch=$(git branch 2>/dev/null| sed 's/* //')
+  if git diff --quiet 2>/dev/null >&2 ; then
+    if [[ $(git rev-list origin/$branch..$branch) ]] ; then
+      color=$JAUNE
+    else
+      color=$VERT
+    fi
+  else
+    color=$ROUGE
+  fi
+
+  SCM_BRANCH=$color$branch
 }
 
 function svn_prompt_vars {
@@ -114,7 +104,7 @@ function hg_prompt_vars {
 
 function git_prompt_info {
   git_prompt_vars
-  echo -e "$SCM_PREFIX$SCM_BRANCH$SCM_STATE$SCM_SUFFIX"
+  echo -e "$SCM_PREFIX$SCM_BRANCH"
 }
 
 function svn_prompt_info {

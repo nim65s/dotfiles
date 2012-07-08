@@ -54,7 +54,7 @@ export MYSQL_PS1="(\u@\h) [\d]> "
 
 modern_scm_prompt() {
     CHAR=$(scm_char)
-    [[ $CHAR != $SCM_NONE_CHAR ]] && echo "−[${CHAR} ${nc}$(scm_prompt_info)${VERT}]"
+    [[ $CHAR != $SCM_NONE_CHAR ]] && echo "−[${CHAR} $(scm_prompt_info)${VERT}]"
 }
 
 battery_prompt() {
