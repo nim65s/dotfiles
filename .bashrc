@@ -61,12 +61,16 @@ battery_prompt() {
     acpi -a 2> /dev/null | grep -q off && echo "−[${ROUGE}$(acpi -b|cut -d: -f 2-)${VERT}]"
 }
 
+jobs_prompt() {
+    [[ "$(jobs)" ]] && echo ${VERT}−[${nc}$(jobs -r|wc -l)r/$(jobs -s|wc -l)s${VERT}]
+}
+
 function ps1
 {
 RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
 USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
 
-PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${CYAN}\h${BLANC}:\w${VERT}]−[${RETC}\t${VERT}]$(modern_scm_prompt)$(battery_prompt)
+PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${BLEU}\h${BLANC}:\w${VERT}]−[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
 ${RETC}└─>${ROUGE}\$ ${nc}"
 }
 
