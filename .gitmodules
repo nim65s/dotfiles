@@ -1,0 +1,3 @@
+[submodule "vim-fish"]
+	path = vim-fish
+	url = git://github.com/aliva/vim-fish.git
