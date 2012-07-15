@@ -1,8 +1,13 @@
 function fish_prompt
     and set retc green; or set retc red
+    tty|grep -q tty; and set tty tty; or set tty pts
 
     set_color $retc
-    echo -n ┬─
+    if [ $tty = tty ]
+        echo -n .-
+    else
+        echo -n '┬─'
+    end
     set_color -o green
     echo -n [
     if [ $USER = root ]
@@ -26,7 +31,11 @@ function fish_prompt
     echo -n ']'
     set_color normal
     set_color $retc
-    echo -n ─
+    if [ $tty = tty ]
+        echo -n '-'
+    else
+        echo -n '─'
+    end
     set_color -o green
     echo -n '['
     set_color normal
@@ -62,14 +71,23 @@ function fish_prompt
     set_color normal
     for job in (jobs)
         set_color $retc
-        echo -n '│ '
+        if [ $tty = tty ]
+            echo -n '; '
+        else
+            echo -n '│ '
+        end
         set_color brown
         echo $job
     end
     set_color normal
     set_color $retc
-    echo -n '╰─>'
+    if [ $tty = tty ]
+        echo -n "'->"
+    else
+        echo -n '╰─>'
+    end
     set_color -o red
     echo -n '$ '
     set_color normal
 end
+# vim: set filetype=fish:
