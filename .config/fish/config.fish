@@ -1,6 +1,20 @@
+if status --is-login
+    if not set -q LANG >/dev/null
+        set -gx LANG fr_FR.UTF-8
+    end
+    if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
+        if test "$TERM" = linux
+            if which unicode_start >/dev/null
+                unicode_start
+            end
+        end
+    end
+end
+
 function fish_prompt
     and set retc green; or set retc red
     tty|grep -q tty; and set tty tty; or set tty pts
+    #set tty tty
 
     set_color $retc
     if [ $tty = tty ]
@@ -166,19 +180,22 @@ function CD
 end;
 
 function cd..
-    cd ../$argv
+    cd ../
 end;
 
 function ..
-    cd ../$argv
+    cd ../
+    ls
 end;
 
 function ...
-    cd ../../$argv
+    cd ../../
+    ls
 end;
 
 function ....
-    cd ../../../$argv
+    cd ../../../
+    ls
 end;
 
 function sl
@@ -494,4 +511,11 @@ function wol
     end
 end
 
+#
+# Init file for fish
+#
+
+#
+# Some things should only be done for login terminals
+#
 # vim: set filetype=fish:
