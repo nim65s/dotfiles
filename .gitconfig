@@ -1,0 +1,12 @@
+[user]
+    name = Guilhem Saurel
+    email = guilhem.saurel@gmail.com
+[github]
+    user = nim65s
+    token = NOYOUWILLNOTHAVEMYTOKENLOL
+[diff]
+    external = ~/scripts/git_diff_wrapper.sh
+[pager]
+    diff =
+[core]
+    excludesfile = ~/dotfiles/gitignore
