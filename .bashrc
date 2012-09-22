@@ -71,7 +71,7 @@ RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
 USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
 SSHC="$([[ $SSH_CLIENT ]] && echo $BLEU || echo $CYAN)"
 
-PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]−[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
+PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
 ${RETC}└─>${ROUGE}\$ ${nc}"
 }
 
@@ -183,7 +183,7 @@ alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umoun
 alias guignols='f=$(ls -lrth --sort=time ~/guignol_*|head -n 1|cut -d" " -f8); mplayer -fs $f && rm $f'
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
-alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log' 
+alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log'
 
 alias nimericable='sudo netcfg eth1-Nimericable'
 alias usb='sudo dhcpcd usb0'
@@ -191,8 +191,8 @@ alias eth='sudo dhcpcd eth0'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export PAGER=~/scripts/vimpager/vimpager 
-alias less=$PAGER 
+export PAGER=~/scripts/vimpager/vimpager
+alias less=$PAGER
 alias zless=$PAGER
 
 shopt -s autocd
@@ -250,7 +250,7 @@ wol() {
     done
 }
 
-# TODO : une "launch" fonction, qui fait un tmux, 
+# TODO : une "launch" fonction, qui fait un tmux,
 #   si un argument : cmd
 #   si deux : session-name & cmd
 #   si trois : session-name, window-name & cmd
