@@ -1,29 +1,31 @@
 URxvt*depth:                32
-URxvt*foreground:	        #DCDCCC
+URxvt*foreground:           #DCDCCC
 Urxvt*cursorColor:          white
-URxvt*transparent:	        true
-URxvt*fading:		        15
-URxvt*tintColor:	        #5F5F5F
+URxvt*transparent:          true
+URxvt*fading:               15
+URxvt*tintColor:            #5F5F5F
 URxvt*blurRadius:           3
-URxvt*iconFile:		        /home/nim/images/favicon.png
-URxvt.font:		            xft:DejaVuSansMono-Oblique:pixelsize=12,xft:Code2000:antialias=false
-URxvt*urgentOnBell: 	    True
+URxvt*iconFile:             /home/nim/images/favicon.png
+URxvt.font:                 xft:DejaVuSansMono-Oblique:pixelsize=12,xft:Code2000:antialias=false
+URxvt*urgentOnBell:         True
 URxvt*visualBell:           True
-URxvt*loginShell:	        True
-URxvt*scrollBar:	        False
+URxvt*loginShell:           True
+URxvt*scrollBar:            False
 URxvt*scrollTtyOutput:      True
 URxvt*scrollTtyKeypress:    True
 !URxvt*borderLess:           True
 URxvt*cursorUnderline:      true
-URxvt*termName:		        xterm-color
+URxvt*termName:             xterm-color
 
-URxvt*perl-ext-common:	    default,fullscreen,matcher,url-select
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
 
-URxvt*keysym.M-u:           perl:url-select:select_next
-URxvt*underlineURLs:        true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.url-select.underline: true
 
 URxvt*keysym.F11:           perl:fullscreen:switch
-URxvt*urlLauncher:          chromium
+URxvt.url-select.launcher:  chromium
 URvxt*urlButton:            7
 
 dXft*dpi:                    96
@@ -45,3 +47,5 @@ xterm*faceSize:             10
 !URxvt*matcher.launcher.2:   videoob play -b dailymotion $1@dailymotion
 !URxvt*matcher.pattern.3:    (?:www\\.)?canalplus.fr/.*vid=([^&]*)
 !URxvt*matcher.launcher.3:   videoob -b canalplus play $1@canalplus
+
+
