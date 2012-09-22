@@ -8,9 +8,9 @@ require("vicious")
 
 beautiful.init(".config/awesome/awesome.zenburn.nimed.theme.lua")
 
-terminal = "urxvtc"
+terminal = "urxvtc -e fish"
 editor = "vim"
-editor_cmd = terminal .. " -e " .. editor
+editor_cmd = "urxvtc -e " .. editor
 modkey = "Mod4"
 
 layouts =
@@ -42,8 +42,8 @@ awful.tag.seticon("images/awicons/xmpp.png", tags[1][9])
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", function () awful.util.spawn_with_shell(terminal .. "-e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
+   { "manual", "urxvtc -e man awesome" },
+   { "edit config", function () awful.util.spawn_with_shell("urxtvc -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -209,7 +209,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "h",     function () mypromptbox[1]:run() end),
-    awful.key({ modkey },            "v",     function () teardrop(terminal .. " -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.3, true) end),
+    awful.key({ modkey },            "v",     function () teardrop("urxvtc -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.3, true) end),
 
 
     awful.key({ modkey }, "w",
