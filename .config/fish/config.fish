@@ -248,6 +248,10 @@ function updatedb
     sudo updatedb $argv
 end;
 
+function netcfg
+    sudo netcfg $argv
+end;
+
 # Lancer des programmes dans des Tmux
 function mcabber
     tmux has-session -t mcabber
