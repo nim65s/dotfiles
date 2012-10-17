@@ -14,8 +14,8 @@ urxvtd -q -f -o
 setxkbmap fr bepo
 xbindkeys
 numlockx on
-xrdb ~/.Xresources &
 
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources &
 [[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
 [[ -f ~/.password ]] && . ~/.password
 case $1 in

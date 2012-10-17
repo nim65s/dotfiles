@@ -8,9 +8,9 @@ require("vicious")
 
 beautiful.init(".config/awesome/awesome.zenburn.nimed.theme.lua")
 
-terminal = "urxvtc -e fish"
+terminal = "urxvtc"
 editor = "vim"
-editor_cmd = "urxvtc -e " .. editor
+editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 layouts =
@@ -42,8 +42,8 @@ awful.tag.seticon("images/awicons/xmpp.png", tags[1][9])
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual", "urxvtc -e man awesome" },
-   { "edit config", function () awful.util.spawn_with_shell("urxtvc -e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
+   { "manual", terminal .. " -e man awesome" },
+   { "edit config", function () awful.util.spawn_with_shell(terminal .. "-e 'vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k; read -n 1'", 2) end },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -60,8 +60,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 
 function wiboxtoggle()
-		if mywibox[1].visible then mywibox[1].visible = false
-		else mywibox[1].visible = true end
+        if mywibox[1].visible then mywibox[1].visible = false
+        else mywibox[1].visible = true end
 end
 
 function bg(color, text)
@@ -76,9 +76,9 @@ end
 function italic(text)
     return '<i>' .. text .. '</i>'
 end
+-- }}}
+
 wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
-wiclock:buttons(awful.util.table.join(
-    awful.button({ }, 1, function() awful.util.spawn_with_shell("./scripts/edt.sh notify") end)))
 
 mysystray = widget({ type = "systray" })
 mywibox = {}
@@ -133,7 +133,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
-	end
+    end
 mywibox[1].widgets = {
         {
             mytaglist[1],
@@ -202,14 +202,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    
+
     -- http://wiki.archlinux.org/index.php/Awesome3
-	
-	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
+
+    awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
     -- Prompt
     awful.key({ modkey },            "h",     function () mypromptbox[1]:run() end),
-    awful.key({ modkey },            "v",     function () teardrop("urxvtc -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.3, true) end),
+    awful.key({ modkey },            "v",     function () teardrop(terminal .. " -e ./scripts/teardrop.sh", "bottom", "center", 1, 0.3, true) end),
 
 
     awful.key({ modkey }, "w",
@@ -397,5 +397,3 @@ end
 
 run_once("ssh-add")
 run_once("synergys")
---run_once("chromium /home/nim/www_public/index.html")
-
