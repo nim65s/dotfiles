@@ -121,6 +121,7 @@ alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias rc.d='sudo rc.d'
 alias updatedb='sudo updatedb'
+alias ctl='sudo systemctl'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='tmux has-session -t mcabber && tmux attach -d -t mcabber || tmux new -s mcabber -n client mcabber'
@@ -173,7 +174,8 @@ alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm
 alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
 alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
 alias fixx='killall mplayer'
-alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
+#alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
+alias x='startx 1>> ~/.X.log 2>> ~/.X.err'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias testc='a="a" ; while [[ a != "q" ]] ; do read -n 1 a; [[ a == "c" ]] && make clean ; make && ../bin/* ; done'
 alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
