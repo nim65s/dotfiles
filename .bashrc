@@ -69,7 +69,7 @@ function ps1
 {
 RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
 USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
-SSHC="$([[ $SSH_CLIENT ]] && echo $BLEU || echo $CYAN)"
+SSHC="$([[ $SSH_CLIENT ]] && echo $CYAN || echo $BLEU)"
 
 PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
 ${RETC}└─>${ROUGE}\$ ${nc}"
@@ -121,6 +121,7 @@ alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias rc.d='sudo rc.d'
 alias updatedb='sudo updatedb'
+alias ctl='sudo systemctl'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='tmux has-session -t mcabber && tmux attach -d -t mcabber || tmux new -s mcabber -n client mcabber'
@@ -225,7 +226,12 @@ lsd() {
 }
 
 fairytail() {
-	tail -n 100 -F $* | ccze -A
+    if [[ -n "$(which $1)" ]]
+    then
+        $1 | tail -n 100 -f | ccze -A
+    else
+        tail -n 100 -F $* | ccze -A
+    fi
 }
 
 fs() {
