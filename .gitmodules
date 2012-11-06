@@ -1,3 +1,6 @@
 [submodule "vim-fish"]
 	path = vim-fish
 	url = git://github.com/aliva/vim-fish.git
+[submodule "vim-ipython"]
+	path = vim-ipython
+	url = git://github.com/ivanov/vim-ipython.git

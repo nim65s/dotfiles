@@ -16,6 +16,8 @@ xbindkeys
 numlockx on
 xrdb ~/.Xresources &
 
+. /etc/profile
+
 [[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
 [[ -f ~/.password ]] && . ~/.password
 case $1 in

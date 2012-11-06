@@ -60,8 +60,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 
 function wiboxtoggle()
-		if mywibox[1].visible then mywibox[1].visible = false
-		else mywibox[1].visible = true end
+        if mywibox[1].visible then mywibox[1].visible = false
+        else mywibox[1].visible = true end
 end
 
 function bg(color, text)
@@ -133,7 +133,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
-	end
+    end
 mywibox[1].widgets = {
         {
             mytaglist[1],
@@ -202,10 +202,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    
+
     -- http://wiki.archlinux.org/index.php/Awesome3
-	
-	awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
+
+    awful.key({ modkey,           }, "b",     function () wiboxtoggle()                    end),
 
     -- Prompt
     awful.key({ modkey },            "h",     function () mypromptbox[1]:run() end),
@@ -396,6 +396,4 @@ function run_once(prg)
 end
 
 run_once("ssh-add")
-run_once("synergys")
---run_once("chromium /home/nim/www_public/index.html")
-
+run_once("synergyc totoro")
