@@ -397,3 +397,4 @@ end
 
 run_once("ssh-add")
 run_once("synergys")
+run_once("pulseaudio --start")
