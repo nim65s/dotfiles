@@ -225,7 +225,12 @@ lsd() {
 }
 
 fairytail() {
-	tail -n 100 -F $* | ccze -A
+    if [[ -n "$(which $1)" ]]
+    then
+        $1 | tail -n 100 -f | ccze -A
+    else
+        tail -n 100 -F $* | ccze -A
+    fi
 }
 
 fs() {
