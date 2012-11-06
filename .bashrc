@@ -69,7 +69,7 @@ function ps1
 {
 RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
 USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
-SSHC="$([[ $SSH_CLIENT ]] && echo $BLEU || echo $CYAN)"
+SSHC="$([[ $SSH_CLIENT ]] && echo $CYAN || echo $BLEU)"
 
 PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
 ${RETC}└─>${ROUGE}\$ ${nc}"
