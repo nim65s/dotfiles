@@ -41,21 +41,21 @@ BLANC="\[\033[1;37m\]"
 
 . $HOME/dotfiles/bash-it/base.theme.bash
 
-SCM_THEME_PROMPT_PREFIX=""
-SCM_THEME_PROMPT_SUFFIX=""
+#SCM_THEME_PROMPT_PREFIX=""
+#SCM_THEME_PROMPT_SUFFIX=""
 
-SCM_THEME_PROMPT_DIRTY=" ${ROUGE}✗${nc}"
-SCM_THEME_PROMPT_CLEAN=" ${VERT}✓${nc}"
-SCM_GIT_CHAR="${VERT}±${nc}"
-SCM_SVN_CHAR="${CYAN}⑆${nc}"
-SCM_HG_CHAR="${ROUGE}☿${nc}"
+#SCM_THEME_PROMPT_DIRTY=" ${ROUGE}✗${nc}"
+#SCM_THEME_PROMPT_CLEAN=" ${VERT}✓${nc}"
+#SCM_GIT_CHAR="${VERT}±${nc}"
+#SCM_SVN_CHAR="${CYAN}⑆${nc}"
+#SCM_HG_CHAR="${ROUGE}☿${nc}"
 
 export MYSQL_PS1="(\u@\h) [\d]> "
 
-modern_scm_prompt() {
-    CHAR=$(scm_char)
-    [[ $CHAR != $SCM_NONE_CHAR ]] && echo "−[${CHAR} $(scm_prompt_info)${VERT}]"
-}
+#modern_scm_prompt() {
+    #CHAR=$(scm_char)
+    #[[ $CHAR != $SCM_NONE_CHAR ]] && echo "−[${CHAR} $(scm_prompt_info)${VERT}]"
+#}
 
 battery_prompt() {
     acpi -a 2> /dev/null | grep -q off && echo "−[${ROUGE}$(acpi -b|cut -d: -f 2-|sed 's/ Discharging, //')${VERT}]"
@@ -71,7 +71,7 @@ RETC="$([[ $? == 0 ]] && echo $vert || echo $rouge)"
 USERC="$([[ $UID == 0 ]] && echo $ROUGE || echo $JAUNE)"
 SSHC="$([[ $SSH_CLIENT ]] && echo $CYAN || echo $BLEU)"
 
-PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]$(modern_scm_prompt)$(jobs_prompt)$(battery_prompt)
+PS1="${RETC}┌─${VERT}[${USERC}\u${BLANC}@${SSHC}\h${BLANC}:\w${VERT}]-[${RETC}\t${VERT}]$(jobs_prompt)$(battery_prompt)
 ${RETC}└─>${ROUGE}\$ ${nc}"
 }
 
