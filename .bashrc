@@ -226,7 +226,7 @@ lsd() {
 }
 
 fairytail() {
-    if [[ -n "$(which $1)" ]]
+    if [[ -n "$(which $1 2> /dev/null)" ]]
     then
         $1 | tail -n 100 -f | ccze -A
     else
