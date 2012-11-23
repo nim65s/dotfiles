@@ -148,6 +148,7 @@ alias m='mplayer -fs'
 alias bépo='setxkbmap fr'
 alias azer='setxkbmap fr bepo'
 alias qwer='setxkbmap fr bepo'
+alias ipynb='ipython2 notebook --profile=sci'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='$HOME/scripts/audio.sh'
