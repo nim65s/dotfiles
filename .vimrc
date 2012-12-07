@@ -245,3 +245,7 @@ let Tlist_Use_Right_Window=1
 "Fin de l’espace insécable indésirable dans le code
 set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<
 set list
+
+"vim-latexsuite
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
