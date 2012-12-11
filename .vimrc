@@ -249,3 +249,6 @@ set list
 "vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+
+"vim-pathogen
+call pathogen#infect()
