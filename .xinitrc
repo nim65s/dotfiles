@@ -21,7 +21,8 @@ numlockx on
 [[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
 [[ -f ~/.password ]] && . ~/.password
 case $1 in
-    kde) startkde ;;
+    kde) exec startkde ;;
+    e17) exec enlightenment_start ;;
     xmonad) exec xmonad ;;
     gnome) exec ck-launch-session gnome-session ;;
     *)
