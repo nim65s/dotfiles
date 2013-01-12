@@ -20,13 +20,19 @@ numlockx on
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources &
 [[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
 [[ -f ~/.password ]] && . ~/.password
+
+xsetroot -cursor_name left_ptr
+
 case $1 in
     kde) exec startkde ;;
     e17) exec enlightenment_start ;;
-    xmonad) exec xmonad ;;
     gnome) exec ck-launch-session gnome-session ;;
-    *)
+    awesome)
         export WM=awesome
         exec ssh-agent awesome > .X.log 2> .X.err
         ;;
+    *)
+        [[ -x /usr/local/bin/nitrogen ]] && /usr/local/bin/nitrogen --head=1 --set-zoom-fill images/hostname/$HOSTNAME.jpg
+        trayer --edge noe --align center --SetDockType true --SetPartialStrut true --expand true --width 4 --transparent true --tint 0x191970 --height 15 &
+        exec ssh-agent xmonad ;;
 esac
