@@ -3,3 +3,8 @@
 .config/ranger/history
 .config/ranger/tagged
 __pycache__
+
+xmonad.errors
+xmonad.hi
+xmonad.o
+xmonad-x86_64-linux
