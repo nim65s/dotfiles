@@ -8,6 +8,7 @@
 --
 
 import XMonad
+import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
@@ -121,16 +122,26 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_l), sendMessage (IncMasterN (-1)))
 
     -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
+    , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    -- prev/next WS
+    , ((modm,               xK_Left  ),  moveTo Prev HiddenWS )
+    , ((modm,               xK_Right ),  moveTo Next HiddenWS )
+    , ((modm,               xK_Down  ),  moveTo Prev EmptyWS  )
+    , ((modm,               xK_Up    ),  moveTo Next EmptyWS  )
+    , ((modm .|. shiftMask, xK_Left  ),  shiftTo Prev HiddenWS)
+    , ((modm .|. shiftMask, xK_Right ),  shiftTo Next HiddenWS)
+    , ((modm .|. shiftMask, xK_Down  ),  shiftTo Prev EmptyWS )
+    , ((modm .|. shiftMask, xK_Up    ),  shiftTo Next EmptyWS )
+
+    -- toggle WS
+    , ((modm,               xK_Escape),  toggleWS )
     ]
     ++
 
@@ -191,7 +202,7 @@ myLayout = smartBorders tiled ||| Mirror tiled ||| noBorders Full
      nmaster = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
+     ratio   = 1/3
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
