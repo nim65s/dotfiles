@@ -9,19 +9,29 @@
 
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Prompt
+import XMonad.Prompt.Input
+import XMonad.Prompt.AppLauncher as AL
+import XMonad.Prompt.Shell (getBrowser)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout
 import XMonad.Layout.NoBorders
 import System.IO
 import Data.Monoid
+import Data.String
+import Data.List
 import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+
+import XMonad.Core
+import XMonad.Util.Run
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -124,6 +134,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Toggle the status bar gap
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
+    -- Toggle borders on the focused window
+    , ((modm .|. shiftMask, xK_b     ), withFocused toggleBorder)
+
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -142,6 +155,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- toggle WS
     , ((modm,               xK_Escape),  toggleWS )
+
+    -- AppLauncher
+    , ((modm .|. shiftMask, xK_j     ), AL.launchApp nimXPConfig "chromium" )
+    , ((modm              , xK_w     ), wikiPrompt nimXPConfig )
+    , ((modm              , xK_a     ), archPrompt nimXPConfig )
+    , ((modm              , xK_g     ), googlePrompt nimXPConfig )
     ]
     ++
 
@@ -311,3 +330,67 @@ defaults = defaultConfig {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
+
+-- Prompts
+nimXPConfig = defaultXPConfig
+    { font = "xft:SourceCodePro-Regular:pixelsize=13"
+    , bgColor = "black"
+    , fgColor = "green"
+    , fgHLight = "yellow"
+    , bgHLight = "blue"
+    , borderColor = "black"
+    , promptBorderWidth = 0
+    , position = Top
+    , height = 15
+    , historySize = 10
+    }
+
+wikiPrompt :: XPConfig -> X ()
+wikiPrompt c = nimPrompt c "Wikipedia" "http://fr.wikipedia.org/w/index.php?title=Sp%C3%A9cial:Recherche&search="
+
+archPrompt :: XPConfig -> X ()
+archPrompt c = nimPrompt c "Archlinux" "https://wiki.archlinux.org/index.php?search="
+
+googlePrompt :: XPConfig -> X ()
+googlePrompt c = nimPrompt c "Google" "http://www.google.com/search?q="
+
+nimPrompt :: XPConfig -> String -> String -> X ()
+nimPrompt c text url =
+    inputPrompt c text ?+ \query ->
+    safeSpawn "chromium" [url ++ replace " " "+" query] -- TODO: getBrowser
+        >> return ()
+
+-- Next comes from http://hackage.haskell.org/packages/archive/MissingH/1.0.0/doc/html/Data-String-Utils.html to get replace function…
+--
+--  −− I’m dirty and I know it \o/ −−
+--
+
+replace :: Eq a => [a] -> [a] -> [a] -> [a]
+replace old new l = join new . split old $ l
+
+split :: Eq a => [a] -> [a] -> [[a]]
+split _ [] = []
+split delim str =
+    let (firstline, remainder) = breakList (isPrefixOf delim) str
+        in
+        firstline : case remainder of
+                                   [] -> []
+                                   x -> if x == delim
+                                        then [] : []
+                                        else split delim
+                                                 (drop (length delim) x)
+
+join :: [a] -> [[a]] -> [a]
+join delim l = concat (intersperse delim l)
+
+breakList :: ([a] -> Bool) -> [a] -> ([a], [a])
+breakList func = spanList (not . func)
+
+spanList :: ([a] -> Bool) -> [a] -> ([a], [a])
+
+spanList _ [] = ([],[])
+spanList func list@(x:xs) =
+    if func list
+       then (x:ys,zs)
+       else ([],list)
+    where (ys,zs) = spanList func xs
