@@ -1,4 +1,4 @@
-ZSH=/home/nim/dotfiles/oh-my-zsh
+ZSH=$HOME/dotfiles/oh-my-zsh
 ZSH_THEME="nim"
 CASE_SENSITIVE="true"
 GIT_PS1_SHOWDIRTYSTATE="true"
