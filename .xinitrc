@@ -32,7 +32,12 @@ case $1 in
         exec ssh-agent awesome > .X.log 2> .X.err
         ;;
     *)
-        [[ -x /usr/local/bin/nitrogen ]] && /usr/local/bin/nitrogen --head=1 --set-zoom-fill images/hostname/$HOSTNAME.jpg
+        if [[ $HOSTNAME == "ashitaka" ]]
+        then
+            nitrogen --head=1 --set-zoom-fill images/hostname/$HOSTNAME.jpg
+        else
+            nitrogen --set-zoom-fill images/hostname/$HOSTNAME.jpg
+        fi
         trayer --edge noe --align center --SetDockType true --SetPartialStrut true --expand true --width 4 --transparent true --tint 0x191970 --height 15 &
         exec ssh-agent xmonad ;;
 esac
