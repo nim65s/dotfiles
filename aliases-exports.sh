@@ -163,3 +163,5 @@ LS_COLORS='rs=0:di=01;33:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export LS_COLORS
 
 export MYSQL_PS1="(\u@\h) [\d]> "
+
+[[ -x ~/dotfiles/aliases-exports.$(hostname).sh ]] && . ~/dotfiles/aliases-exports.$(hostname).sh
