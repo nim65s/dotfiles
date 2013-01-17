@@ -154,4 +154,4 @@ export LS_COLORS
 
 export MYSQL_PS1="(\u@\h) [\d]> "
 
-[[ -x aliases-exports.$(hostname).sh ]] && . ./aliases-exports.$(hostname).sh
+[[ -x ~/dotfiles/aliases-exports.$(hostname).sh ]] && . ~/dotfiles/aliases-exports.$(hostname).sh
