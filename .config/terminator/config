@@ -31,7 +31,7 @@
 [profiles]
   [[default]]
     use_system_font = False
-    font = DejaVu Sans Mono 12
+    font = source code pro 8
     visible_bell = True
     background_darkness = 0.61
     urgent_bell = True
