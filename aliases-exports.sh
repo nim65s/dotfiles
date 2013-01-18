@@ -39,6 +39,8 @@ alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias rc.d='sudo rc.d'
 alias updatedb='sudo updatedb'
+alias wifi-menu='sudo wifi-menu'
+alias netcfg='sudo netcfg'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='ssh totoro'
