@@ -10,3 +10,5 @@
     diff =
 [core]
     excludesfile = ~/dotfiles/gitignore
+[push]
+	default = matching
