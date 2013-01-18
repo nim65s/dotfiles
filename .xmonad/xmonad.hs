@@ -36,7 +36,7 @@ import XMonad.Util.Run
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "urxvtc"
+myTerminal      = "terminator"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
