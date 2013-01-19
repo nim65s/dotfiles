@@ -8,3 +8,5 @@ xmonad.errors
 xmonad.hi
 xmonad.o
 xmonad-x86_64-linux
+
+.config/ipython/profile_*/startup/README
