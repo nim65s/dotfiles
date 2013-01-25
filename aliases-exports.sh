@@ -101,7 +101,6 @@ fi
 
 export EDITOR=vim
 export BROWSER=chromium
-export XDG_DATA_HOME=~/.local/
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
 export HISTSIZE=100000
