@@ -17,8 +17,9 @@ import XMonad.Prompt
 import XMonad.Prompt.Input
 import XMonad.Prompt.AppLauncher as AL
 import XMonad.Prompt.Shell (getBrowser)
-import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Scratchpad
 import XMonad.Layout
 import XMonad.Layout.NoBorders
 import System.IO
@@ -161,6 +162,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_w     ), wikiPrompt nimXPConfig )
     , ((modm              , xK_a     ), archPrompt nimXPConfig )
     , ((modm              , xK_g     ), googlePrompt nimXPConfig )
+
+    -- sratchpad
+    , ((modm               , xK_k     ), scratchpadSpawnActionTerminal "urxvtc" )
     ]
     ++
 
@@ -288,7 +292,7 @@ myStartupHook = return ()
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ ewmh defaults
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { manageHook = manageScratchPad <+> manageDocks <+> manageHook defaultConfig
         , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
         , layoutHook = lessBorders OnlyFloat $ avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
@@ -297,12 +301,13 @@ main = do
             , ppWsSep = ""
             , ppTitle = xmobarColor "green" ""
             , ppCurrent = xmobarColor "green" ""
-            , ppVisible = xmobarColor "yellow" ""
-            , ppHidden = xmobarColor "white" ""
-            , ppHiddenNoWindows = xmobarColor "black" ""
+            , ppVisible = xmobarColor "yellow" "" . noScratchPad
+            , ppHidden = xmobarColor "white" "" . noScratchPad
+            , ppHiddenNoWindows = xmobarColor "black" "" . noScratchPad
             }
         }
 
+noScratchPad ws = if ws == "NSP" then "" else ws
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
 -- use the defaults defined in xmonad/XMonad/Config.hs
@@ -330,6 +335,16 @@ defaults = defaultConfig {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
+
+-- scracthpad
+manageScratchPad :: ManageHook
+manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+    where
+        h = 0.3
+        w = 1
+        t = 1 - h
+        l = 1 - w
+
 
 -- Prompts
 nimXPConfig = defaultXPConfig
