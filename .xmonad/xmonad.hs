@@ -145,17 +145,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- prev/next WS
-    , ((modm,               xK_Left  ),  moveTo Prev HiddenWS )
-    , ((modm,               xK_Right ),  moveTo Next HiddenWS )
+    , ((modm,               xK_Left  ),  moveTo Prev (WSIs (return $ not . (=="NSP") . W.tag)))
+    , ((modm,               xK_Right ),  moveTo Next (WSIs (return $ not . (=="NSP") . W.tag)))
     , ((modm,               xK_Down  ),  moveTo Prev EmptyWS  )
     , ((modm,               xK_Up    ),  moveTo Next EmptyWS  )
-    , ((modm .|. shiftMask, xK_Left  ),  shiftTo Prev HiddenWS)
-    , ((modm .|. shiftMask, xK_Right ),  shiftTo Next HiddenWS)
+    , ((modm .|. shiftMask, xK_Left  ),  shiftTo Prev (WSIs (return $ not . (=="NSP") . W.tag)))
+    , ((modm .|. shiftMask, xK_Right ),  shiftTo Next (WSIs (return $ not . (=="NSP") . W.tag)))
     , ((modm .|. shiftMask, xK_Down  ),  shiftTo Prev EmptyWS )
     , ((modm .|. shiftMask, xK_Up    ),  shiftTo Next EmptyWS )
 
     -- toggle WS
-    , ((modm,               xK_Escape),  toggleWS )
+    , ((modm,               xK_Escape),  toggleWS' ["NSP"] )
 
     -- AppLauncher
     , ((modm .|. shiftMask, xK_j     ), AL.launchApp nimXPConfig "chromium" )
@@ -164,7 +164,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_g     ), googlePrompt nimXPConfig )
 
     -- sratchpad
-    , ((modm               , xK_k     ), scratchpadSpawnActionTerminal "urxvtc" )
+    , ((modm               , xK_h    ), scratchpadSpawnActionTerminal "urxvtc" )
     ]
     ++
 
