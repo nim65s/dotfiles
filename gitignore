@@ -9,6 +9,7 @@
 *.xz
 *.out
 *.cmake
+*.synctex.gz
 Makefile*
 *.toc
 *~
