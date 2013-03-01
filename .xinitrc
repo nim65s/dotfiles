@@ -14,6 +14,7 @@ urxvtd -q -f -o
 setxkbmap fr bepo
 xbindkeys
 numlockx on
+wmname LG3D
 
 . /etc/profile
 
@@ -22,6 +23,8 @@ numlockx on
 [[ -f ~/.password ]] && . ~/.password
 
 xsetroot -cursor_name left_ptr
+
+export TERMINAL=terminator
 
 case $1 in
     kde) exec startkde ;;
