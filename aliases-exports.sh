@@ -41,6 +41,7 @@ alias rc.d='sudo rc.d'
 alias updatedb='sudo updatedb'
 alias wifi-menu='sudo wifi-menu'
 alias netcfg='sudo netcfg'
+alias dhclient='sudo dhclient'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='ssh totoro'
@@ -61,7 +62,7 @@ alias m='mplayer -fs'
 alias bépo='setxkbmap fr'
 alias azer='setxkbmap fr bepo'
 alias qwer='setxkbmap fr bepo'
-alias ipynb='ipython2 notebook --profile=sci'
+alias cours='cd ~/N7/cours/; ipython2 notebook --profile=sci'
 alias gc='git commit -m'
 
 # Scripts perso http://github.com/nim65s/scripts
