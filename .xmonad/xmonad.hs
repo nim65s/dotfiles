@@ -247,6 +247,7 @@ myLayout = smartBorders tiled ||| Mirror tiled ||| noBorders Full
 --
 myManageHook = composeAll
     [ className =? "MPlayer"            --> doFloat
+    , className =? "eog"                --> doFloat
     , className =? "Gimp"               --> doFloat
     , className =? "feh"                --> doFloat
     , className =? "x11-ssh-askpass"    --> doFloat
