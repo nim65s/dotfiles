@@ -39,7 +39,7 @@ MAGENTA="\[\033[1;35m\]"
 CYAN="\[\033[1;36m\]"
 BLANC="\[\033[1;37m\]"
 
-. $HOME/dotfiles/bash-it/base.theme.bash
+[[ "$UID" != 0 ]] && . $HOME/dotfiles/bash-it/base.theme.bash
 
 #SCM_THEME_PROMPT_PREFIX=""
 #SCM_THEME_PROMPT_SUFFIX=""
@@ -266,4 +266,4 @@ export LS_COLORS
 
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 
-. $HOME/dotfiles/bash-it/git.completion.bash
+[[ "$UID" != 0 ]] && . $HOME/dotfiles/bash-it/git.completion.bash
