@@ -85,7 +85,7 @@ alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
 alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
 alias td='vim ~/todo'
-alias tdd='[[ $(hostname) == "ashitaka" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://ashitaka/todo'
+alias tdd='[[ $(hostname -s) == "ashitaka" ]] && vimdiff ~/todo scp://n7/todo || vimdiff ~/todo scp://ashitaka/todo'
 alias dvd='sudo mount /dev/sr0 /mnt/dvd && cvlc -f dvd:///mnt/dvd/ && sudo umount /dev/sr0 && eject'
 alias guignols='f=$(ls -r --file-type --sort=time ~/Guignols/guignol_*|head -n 1|cut -d" " -f9); [[ -f $f ]] && mplayer -fs $f && rm $f || echo "Pas de nouveaux épisodes"'
 
@@ -160,5 +160,5 @@ export LS_COLORS
 
 export MYSQL_PS1="(\u@\h) [\d]> "
 
-[[ -x ~/dotfiles/aliases-exports.$(hostname -s).sh ]] && . ~/dotfiles/aliases-exports.$(hostname).sh
+[[ -x ~/dotfiles/aliases-exports.$(hostname -s).sh ]] && . ~/dotfiles/aliases-exports.$(hostname -s).sh
 [[ -x ~/aliases-exports.local.sh ]] && . ~//aliases-exports.local.sh
