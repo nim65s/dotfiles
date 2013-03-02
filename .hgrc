@@ -24,6 +24,7 @@ hg.sleduc.fr = 4c:96:3d:e8:f4:4a:d3:94:82:75:7b:1c:7c:d9:c4:fd:c3:50:91:93
 [extensions]
 transplant =
 graphlog =
+rebase =
 hgext.churn =
 hgext.extdiff =
 

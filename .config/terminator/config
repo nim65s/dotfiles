@@ -10,28 +10,28 @@
   tab_position = bottom
   title_inactive_bg_color = "#2f2f2f"
 [keybindings]
-  cycle_prev = <Alt>k
-  next_tab = <Alt>o
-  new_tab = <Alt>i
-  go_up = <Alt><Shift>K
-  resize_down = <Alt><Ctrl>j
-  resize_left = <Alt><Ctrl>h
-  split_horiz = <Alt>p
-  prev_tab = <Alt>u
-  go_down = <Alt><Shift>J
-  cycle_next = <Alt>j
-  split_vert = <Alt>m
-  go_right = <Alt><Shift>L
-  group_all = <Alt>t
-  resize_up = <Alt><Ctrl>k
-  go_left = <Alt><Shift>H
-  resize_right = <Alt><Ctrl>l
-  hide_window = <Control><Shift><Alt>H
-  ungroup_all = <Alt>g
+  cycle_prev = <Alt>s
+  next_tab = <Alt>l
+  new_tab = <Alt>d
+  go_up = <Alt><Shift>s
+  resize_down = <Alt><Ctrl>t
+  resize_left = <Alt><Ctrl>c
+  split_horiz = <Alt>j
+  prev_tab = <Alt>v
+  go_down = <Alt><Shift>t
+  cycle_next = <Alt>t
+  split_vert = <Alt>n
+  go_right = <Alt><Shift>r
+  group_all = <Alt>o
+  resize_up = <Alt><Ctrl>s
+  go_left = <Alt><Shift>c
+  resize_right = <Alt><Ctrl>r
+  hide_window = <Control><Shift><Alt>c
+  ungroup_all = <Alt>comma
 [profiles]
   [[default]]
     use_system_font = False
-    font = DejaVu Sans Mono 12
+    font = source code pro 9
     visible_bell = True
     background_darkness = 0.61
     urgent_bell = True

@@ -1,0 +1,13 @@
+Config { font = "xft:SourceCodePro-Regular:pixelsize=13"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Static {xpos = 1920, ypos = 1425, width = 2560, height = 15 }
+       , commands = [ Run Date "%x %X" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc>"
+       }

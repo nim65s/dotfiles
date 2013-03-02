@@ -5,7 +5,7 @@ URxvt*transparent:          true
 URxvt*fading:               15
 URxvt*tintColor:            #5F5F5F
 URxvt*blurRadius:           3
-URxvt.font:                 xft:DejaVuSansMono-Oblique:pixelsize=11,xft:Code2000:antialias=false
+URxvt.font:                 xft:SourceCodePro-Regular:pixelsize=12,xft:Code2000:antialias=false
 URxvt*visualBell:           True
 URxvt*loginShell:           True
 URxvt*scrollBar:            False

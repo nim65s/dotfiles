@@ -9,6 +9,7 @@
 *.xz
 *.out
 *.cmake
+*.synctex.gz
 Makefile*
 *.toc
 *~
@@ -16,3 +17,5 @@ Makefile*
 *.ignore
 *shelve
 *.sqlite
+.xmonad/history
+.xmonad/xmonad

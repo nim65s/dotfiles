@@ -1,10 +1,10 @@
-require("awful")
-require("awful.autofocus")
-require("awful.rules")
-require("beautiful")
-require("naughty")
-require("teardrop")
-require("vicious")
+awful = require("awful")
+awful.autofocus = require("awful.autofocus")
+awful.rules = require("awful.rules")
+beautiful = require("beautiful")
+naughty = require("naughty")
+teardrop = require("teardrop")
+vicious = require("vicious")
 
 beautiful.init(".config/awesome/awesome.zenburn.nimed.theme.lua")
 
@@ -71,39 +71,39 @@ function wiboxtoggle()
         end
 end
 
-playicone = widget({ type = "imagebox" })
+playicone = widget({ type = "wibox.widget.image" })
 playicone.image = image(beautiful.play_icon)
-pauseicone = widget({ type = "imagebox" })
+pauseicone = widget({ type = "wibox.widget.image" })
 pauseicone.image = image(beautiful.pause_icon)
-nexticone = widget({ type = "imagebox" })
+nexticone = widget({ type = "wibox.widget.image" })
 nexticone.image = image(beautiful.next_icon)
-previcone = widget({ type = "imagebox" })
+previcone = widget({ type = "wibox.widget.image" })
 previcone.image = image(beautiful.prev_icon)
-downicone = widget({ type = "imagebox" })
+downicone = widget({ type = "wibox.widget.image" })
 downicone.image = image(beautiful.down_icon)
-upicone = widget({ type = "imagebox" })
+upicone = widget({ type = "wibox.widget.image" })
 upicone.image = image(beautiful.up_icon)
-cpuicone = widget({ type = "imagebox" })
+cpuicone = widget({ type = "wibox.widget.image" })
 cpuicone.image = image(beautiful.cpu_icon)
-gmailicone = widget({ type = "imagebox" })
+gmailicone = widget({ type = "wibox.widget.image" })
 gmailicone.image = image(beautiful.gmail_icon)
 gmailicone:buttons(awful.button({ }, 1, function () 
     awful.util.spawn_with_shell("chromium https://mail.google.com") 
     awful.tag.viewonly(tags[1])
 end ))
-homeicone = widget({ type = "imagebox" })
+homeicone = widget({ type = "wibox.widget.image" })
 homeicone.image = image(beautiful.home_icon)
-spkricone = widget({ type = "imagebox" })
+spkricone = widget({ type = "wibox.widget.image" })
 spkricone.image = image(beautiful.spkr_icon)
 spkricone:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn("./scripts/audio.sh m") end),
     awful.button({ }, 5, function () awful.util.spawn("./scripts/audio.sh -") end),
     awful.button({ }, 4, function () awful.util.spawn("./scripts/audio.sh +") end)))
-clockicone = widget({ type = "imagebox" })
+clockicone = widget({ type = "wibox.widget.image" })
 clockicone.image = image(beautiful.clock_icon)
-clockicone:add_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l","r"):read("*a") }) end)
+clockicone:connect_signal("mouse::enter", function() naughty.notify({ text = io.popen("crontab -l","r"):read("*a") }) end)
 clockicone_timer = timer({ timeout = 3600 })
-clockicone_timer:add_signal("timeout", function ()
+clockicone_timer:connect_signal("timeout", function ()
         local l = io.popen("crontab -l | grep morningbird | wc -l","r"):read("*line")
         if l == '0' then clockicone.visible = false else clockicone.visible = true end
 end)
@@ -158,8 +158,8 @@ end
 -- }}}
 
 wiclock = awful.widget.textclock({ align = "right" }, "%T - %d/%m ", 1)
-wiclock:add_signal("mouse::enter", function() calendar:month(0) end)
-wiclock:add_signal("mouse::leave", function() calendar:remove() end)
+wiclock:connect_signal("mouse::enter", function() calendar:month(0) end)
+wiclock:connect_signal("mouse::leave", function() calendar:remove() end)
 wiclock:buttons(awful.util.table.join(
     awful.button({ }, 1, function() awful.util.spawn_with_shell("./scripts/edt.sh notify") end),
     awful.button({ }, 3, function() 
@@ -169,9 +169,9 @@ wiclock:buttons(awful.util.table.join(
     awful.button({ }, 5, function() calendar:month(-1) end),
     awful.button({ }, 4, function() calendar:month(1) end)))
 
-mysystray = {}
-mysystray[1] = widget({ type = "systray" })
-mysystray[2] = widget({ type = "systray" })
+mywibox.widget.systray = {}
+mywibox.widget.systray[1] = widget({ type = "wibox.widget.systray" })
+mywibox.widget.systray[2] = widget({ type = "wibox.widget.systray" })
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -223,7 +223,7 @@ for s = 1, screen.count() do
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
-    mytasklist[s] = awful.widget.tasklist(function(c)
+    mytasklist[s] = awful.widget.tasklist(s, function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
     end
@@ -235,7 +235,7 @@ mywibox[1].widgets = {
         },
         mylayoutbox[1],
         wiclock,
-        mysystray[1],
+        mywibox.widget.systray[1],
         mytasklist[1],
         layout = awful.widget.layout.horizontal.rightleft
     }
@@ -544,8 +544,8 @@ awful.rules.rules = {
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
-client.add_signal("manage", function (c, startup)
-    c:add_signal("mouse::enter", function(c)
+client.connect_signal("manage", function (c, startup)
+    c:connect_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
@@ -560,8 +560,8 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 -- {{{ Autostart
