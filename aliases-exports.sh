@@ -44,7 +44,7 @@ alias netcfg='sudo netcfg'
 alias dhclient='sudo dhclient'
 
 # Lancer des programmes dans des Tmux
-alias mcabber='ssh totoro'
+alias mcabber='ssh yuppa'
 alias ncmpcpp='tmux has-session -t mpc && tmux attach -t mpc || tmux new -s mpc -n client ". ~/.password; ncmpcpp"'
 alias teardrop='tmux has-session -t TearDrop && tmux attach -t TearDrop || tmux new -s TearDrop'
 alias rtorrent='tmux has-session -t rtorrent && tmux attach -t rtorrent || tmux new -s rtorrent -n client "cd ~/Downdloads/; rtorrent"'
