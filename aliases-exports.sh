@@ -42,9 +42,13 @@ alias updatedb='sudo updatedb'
 alias wifi-menu='sudo wifi-menu'
 alias netcfg='sudo netcfg'
 alias dhclient='sudo dhclient'
+alias vpn='cd /etc/openvpn; sudo openvpn inpnet.conf'
+alias journalctl='sudo journalctl'
+alias netctl='sudo netctl'
+alias dhcpcd='sudo dhcpcd'
 
 # Lancer des programmes dans des Tmux
-alias mcabber='ssh yuppa'
+alias mcabber='mosh yuppa'
 alias ncmpcpp='tmux has-session -t mpc && tmux attach -t mpc || tmux new -s mpc -n client ". ~/.password; ncmpcpp"'
 alias teardrop='tmux has-session -t TearDrop && tmux attach -t TearDrop || tmux new -s TearDrop'
 alias rtorrent='tmux has-session -t rtorrent && tmux attach -t rtorrent || tmux new -s rtorrent -n client "cd ~/Downdloads/; rtorrent"'
@@ -149,9 +153,9 @@ syn() {
     synergys
     if [[ $# -eq 0 ]]
     then
-        ssh ashitaka "DISPLAY=:0 synergyc nausicaa"
+        mosh ashitaka "DISPLAY=:0 synergyc nausicaa"
     else
-        ssh $1 "DISPLAY=:0 synergyc nausicaa"
+        mosh $1 "DISPLAY=:0 synergyc nausicaa"
     fi
 }
 
