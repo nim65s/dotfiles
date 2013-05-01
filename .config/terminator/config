@@ -39,6 +39,7 @@
     scrollbar_position = hidden
     foreground_color = "#dcdccc"
     copy_on_selection = True
+  [[n&b]]
 [layouts]
   [[default]]
     [[[child1]]]
