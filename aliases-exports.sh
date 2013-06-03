@@ -77,6 +77,7 @@ alias generateTexMakefile='$HOME/scripts/generateTexMakefile.sh'
 alias meurs='$HOME/scripts/meurs.sh'
 alias monte='$HOME/scripts/monter.sh'
 alias newCproject='$HOME/scripts/newCproject.sh'
+alias gitup='$HOME/scripts/gitup.sh'
 
 alias hist='cat $HOME/.bash_history | cut -f 1 -d" " | sed "s/[[:space:]]//g;/^$/d" | sort | uniq'
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
@@ -109,6 +110,8 @@ export BROWSER=chromium
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
 export PYTHONDOCS=/usr/share/doc/python2/html/
+export XDG_DATA_DIR=~/.local
+export XDG_CACHE_DIR=~/.cache
 export HISTSIZE=100000
 export HISTFILESIZE=${HISTSIZE}
 export JAVA_HOME=/opt/java

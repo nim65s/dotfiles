@@ -27,6 +27,8 @@ graphlog =
 rebase =
 hgext.churn =
 hgext.extdiff =
+color =
+pager =
 
 [merge-tools]
 vimdiff.executable = vim
@@ -40,3 +42,6 @@ opts.vimdiff = -f '+next' '+execute "DirDiff" fnameescape(argv(0)) fnameescape(a
 vi = vimdiff
 vd = vimdiff
 vimdiff = vimdiff
+
+[diff]
+git = True
