@@ -37,6 +37,7 @@
     urgent_bell = True
     background_type = transparent
     scrollbar_position = hidden
+    background_image = None
     foreground_color = "#dcdccc"
     copy_on_selection = True
 [layouts]

@@ -108,6 +108,7 @@ export EDITOR=vim
 export BROWSER=chromium
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
+export PYTHONDOCS=/usr/share/doc/python2/html/
 export HISTSIZE=100000
 export HISTFILESIZE=${HISTSIZE}
 export JAVA_HOME=/opt/java
