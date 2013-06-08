@@ -68,6 +68,7 @@ alias azer='setxkbmap fr bepo'
 alias qwer='setxkbmap fr bepo'
 alias cours='cd ~/N7/cours/; ipython2 notebook --profile=sci'
 alias gc='git commit -m'
+alias submodules='git commit -am "submodules"; git push'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='$HOME/scripts/audio.sh'
