@@ -30,17 +30,18 @@
   ungroup_all = <Alt>comma
 [profiles]
   [[default]]
+    scrollbar_position = hidden
     use_system_font = False
     font = source code pro 9
     visible_bell = True
     background_darkness = 0.61
     urgent_bell = True
     background_type = transparent
-    scrollbar_position = hidden
     background_image = None
     foreground_color = "#dcdccc"
     copy_on_selection = True
   [[n&b]]
+    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
