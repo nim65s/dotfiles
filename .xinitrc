@@ -24,7 +24,7 @@ wmname LG3D
 
 xsetroot -cursor_name left_ptr
 
-export TERMINAL=terminator
+export TERMINAL=terminology
 
 case $1 in
     kde) exec startkde ;;
@@ -42,5 +42,6 @@ case $1 in
             nitrogen --set-zoom-fill images/hostname/$HOSTNAME.jpg
         fi
         trayer --edge noe --align center --SetDockType true --SetPartialStrut true --expand true --width 4 --transparent true --tint 0x191970 --height 15 &
-        exec ssh-agent xmonad ;;
+        xcompmgr &
+        exec ssh-agent xmonad > .X.log 2> .X.err ;;
 esac
