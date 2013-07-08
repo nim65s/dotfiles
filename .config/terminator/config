@@ -3,7 +3,7 @@
   focus = mouse
   title_transmit_fg_color = "#000000"
   title_inactive_fg_color = "#8f8f8f"
-  borderless = True
+  borderless = False
   title_receive_bg_color = "#9f9f9f"
   title_transmit_bg_color = "#dfdfdf"
   title_receive_fg_color = "#000000"
@@ -47,6 +47,7 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""

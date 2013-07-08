@@ -19,3 +19,5 @@ Makefile*
 *.sqlite
 .xmonad/history
 .xmonad/xmonad
+.project
+.buildpath
