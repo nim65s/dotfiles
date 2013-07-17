@@ -21,3 +21,5 @@ Makefile*
 .xmonad/xmonad
 .project
 .buildpath
+CMakeCache.txt
+CMakeFiles
