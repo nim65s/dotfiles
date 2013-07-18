@@ -11,6 +11,7 @@ xmonad-x86_64-linux
 
 .config/ipython/profile_*/startup/README
 .config/ipython/profile_*/security
+.config/ipython/profile_default/
 
 .config/fish/fish_history
 .config/fish/fishd.*
