@@ -3,11 +3,11 @@
   focus = mouse
   title_transmit_fg_color = "#000000"
   title_inactive_fg_color = "#8f8f8f"
-  borderless = False
   title_receive_bg_color = "#9f9f9f"
   title_transmit_bg_color = "#dfdfdf"
   title_receive_fg_color = "#000000"
   tab_position = bottom
+  inactive_color_offset = 0.81
   title_inactive_bg_color = "#2f2f2f"
 [keybindings]
   cycle_prev = <Alt>s
@@ -34,7 +34,7 @@
     use_system_font = False
     font = source code pro 9
     visible_bell = True
-    background_darkness = 0.61
+    background_darkness = 0.74
     urgent_bell = True
     background_type = transparent
     background_image = None
