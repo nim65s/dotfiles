@@ -103,7 +103,9 @@ alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/n
 alias usb='sudo dhcpcd usb0'
 alias eth='sudo dhcpcd eth0'
 
-if [[ -d "/usr/share/vim/vim73" ]]
+if [[ -d "/usr/share/vim/vim74" ]]
+then export VIMRUNTIME=/usr/share/vim/vim74/
+elif [[ -d "/usr/share/vim/vim73" ]]
 then export VIMRUNTIME=/usr/share/vim/vim73/
 else export VIMRUNTIME=/usr/share/vim/vim72/
 fi
