@@ -1,0 +1,100 @@
+#!/bin/bash
+# Options par défaut
+alias ls='ls --file-type --color=auto --time-style=+"%d.%m.%Y-%H:%M"'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias mv='mv -v'
+alias cp='cp -r'
+alias tree='tree -aC'
+alias tmux='tmux -2 -u'
+alias vi='vim'
+alias vd='vimdiff'
+alias rm='rm -Iv'
+alias mysql='mysql --auto-rehash -u root -p'
+alias mplayer='mplayer -fs'
+alias matlab='matlab -nodisplay -nojvm'
+alias treel='tree -aphugDC'
+
+# Fautes de frappes courantes
+alias dc='cd'
+alias CD='cd'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias sl='ls --file-type --color=auto --time-style=+"%d.%m.%Y-%H:%M"'
+alias mr='rm -Iv'
+alias vmi='vim'
+
+# Quand on code trop ...
+alias :q='exit'
+alias :x='exit'
+alias :e='vim'
+
+# Quelques sudos
+alias kdm='sudo kdm'
+alias halt='sudo halt'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
+alias rc.d='sudo rc.d'
+alias updatedb='sudo updatedb'
+alias wifi-menu='sudo wifi-menu'
+alias netcfg='sudo netcfg'
+alias dhclient='sudo dhclient'
+alias vpn='cd /etc/openvpn; sudo openvpn inpnet.conf'
+alias journalctl='sudo journalctl'
+alias netctl='sudo netctl'
+alias dhcpcd='sudo dhcpcd'
+
+# Lancer des programmes dans des Tmux
+alias mcabber='mosh yuppa'
+alias nmux='tmux new -s'
+alias amux='tmux a'
+
+# Raccourcis
+alias y='yaourt'
+alias ll='ls -lArth --file-type'
+alias psef='ps -ef | grep -v grep | grep'
+alias psj='ps j | grep -v grep | grep'
+alias cn='fortune chucknorris'
+alias za='zathura'
+alias m='mplayer -fs'
+alias bépo='setxkbmap fr'
+alias azer='setxkbmap fr bepo'
+alias qwer='setxkbmap fr bepo'
+alias cours='cd ~/N7/cours/; ipython2 notebook --profile=sci'
+alias gc='git commit -m'
+alias gd='git diff'
+alias gst='git status'
+alias submodules='git commit -am "submodules"; git push'
+alias ipa='ip a'
+alias ipr='ip r'
+
+# Scripts perso http://github.com/nim65s/scripts
+alias a='$HOME/scripts/audio.sh'
+alias demonte='$HOME/scripts/demonter.sh'
+alias ext='$HOME/scripts/extracteur.sh'
+alias generateTexMakefile='$HOME/scripts/generateTexMakefile.sh'
+alias meurs='$HOME/scripts/meurs.sh'
+alias monte='$HOME/scripts/monter.sh'
+alias newCproject='$HOME/scripts/newCproject.sh'
+alias gitup='$HOME/scripts/gitup.sh'
+
+alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
+alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
+alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
+alias fixchromium='rm $HOME/.config/chromium/SingletonLock'
+alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
+alias fixx='killall mplayer'
+alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
+alias dodo='mpc crop; sleep 300; xset dpms force standby; $HOME/scripts/audio.sh um; $HOME/scripts/audio.sh m'
+alias clean="find . -name '*.orig' -print0 | xargs -0 /bin/rm -fv"
+alias td='vim ~/todo'
+
+alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
+
+alias usb='sudo dhcpcd usb0'
+alias eth='sudo dhcpcd eth0'
+
+
