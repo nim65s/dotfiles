@@ -157,7 +157,7 @@ end
 
 if test -d "/usr/share/vim/vim74"
     set -x VIMRUNTIME /usr/share/vim/vim74
-else if -d "/usr/share/vim/vim73"
+else if test -d "/usr/share/vim/vim73"
     set -x VIMRUNTIME /usr/share/vim/vim73
 else
     set -x VIMRUNTIME /usr/share/vim/vim72
