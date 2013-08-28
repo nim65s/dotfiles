@@ -252,3 +252,6 @@ let g:tex_flavor = "latex"
 
 "vim-pathogen
 call pathogen#infect()
+
+"jedi-vim
+autocmd FileType python setlocal completeopt-=preview
