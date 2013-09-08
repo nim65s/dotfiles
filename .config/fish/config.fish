@@ -151,6 +151,10 @@ function virus_show
     sed '/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log'
 end
 
+function bd
+    cd (python $HOME/scripts/bd.py $argv)
+end
+
 . ~/dotfiles/portable-aliases.sh
 
 # exports
