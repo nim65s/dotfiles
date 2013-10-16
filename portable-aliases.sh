@@ -71,6 +71,8 @@ alias gp='git push'
 alias submodules='git commit -am "submodules"; git push'
 alias ipa='ip a'
 alias ipr='ip r'
+alias wi='sudo wifi-menu'
+alias ipy='ipython2'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='~/scripts/audio.sh'
