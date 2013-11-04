@@ -26,8 +26,6 @@ xsetroot -cursor_name left_ptr
 
 export TERMINAL=terminology
 
-grep -q saurel /etc/resolv.conf && synergyc ashitaka
-
 case $1 in
     kde) exec startkde ;;
     e17) exec enlightenment_start ;;
