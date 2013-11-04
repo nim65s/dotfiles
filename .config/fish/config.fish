@@ -2,6 +2,9 @@ if status --is-login
     if not set -q LANG >/dev/null
         set -gx LANG fr_FR.UTF-8
     end
+    if test -z "$DISPLAY" -a $XDG_VTNR = 1
+        exec startx
+    end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
         if test "$TERM" = linux
             if which unicode_start >/dev/null
