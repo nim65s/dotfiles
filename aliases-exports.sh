@@ -49,3 +49,4 @@ export MYSQL_PS1="(\u@\h) [\d]> "
 [[ -x ~/dotfiles/portable-aliases.sh ]] && . ~/dotfiles/portable-aliases.sh
 [[ -x ~/dotfiles/aliases-exports.$(hostname -s).sh ]] && . ~/dotfiles/aliases-exports.$(hostname -s).sh
 [[ -x ~/aliases-exports.local.sh ]] && . ~//aliases-exports.local.sh
+
