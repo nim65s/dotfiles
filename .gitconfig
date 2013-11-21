@@ -11,4 +11,4 @@
 [core]
     excludesfile = ~/dotfiles/gitignore
 [push]
-	default = matching
+    default = matching
