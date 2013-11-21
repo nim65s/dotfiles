@@ -11,6 +11,7 @@ then export VIMRUNTIME=/usr/share/vim/vim73/
 else export VIMRUNTIME=/usr/share/vim/vim72/
 fi
 
+export TERMINAL=terminator
 export EDITOR=vim
 export BROWSER=chromium
 export XDG_CONFIG_HOME=~/.config
