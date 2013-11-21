@@ -3,7 +3,7 @@ if status --is-login
         set -gx LANG fr_FR.UTF-8
     end
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        exec startx
+        exec ssh-agent startx
     end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
         if test "$TERM" = linux
@@ -156,6 +156,15 @@ end
 
 function bd
     cd (python $HOME/scripts/bd.py $argv)
+end
+
+function i3lock
+    xset dpms force off
+    /usr/bin/i3lock -i {$HOME}/images/hostname/(hostname).png -c 000000
+end
+
+function startx
+    ssh-agent startx
 end
 
 . ~/dotfiles/portable-aliases.sh
