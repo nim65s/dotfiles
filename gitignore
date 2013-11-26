@@ -24,3 +24,4 @@ Makefile*
 CMakeCache.txt
 CMakeFiles
 *local_settings.py
+Thumbs.db
