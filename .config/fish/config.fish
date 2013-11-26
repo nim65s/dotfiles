@@ -60,13 +60,13 @@ function fish_prompt
     echo -n (date +%X)
     set_color -o green
     echo -n ]
-    if [ (acpi -a 2> /dev/null | grep off) ]
-        echo -n '─['
-        set_color -o red
-        echo -n (acpi -b|cut -d' ' -f 4-)
-        set_color -o green
-        echo -n ']'
-    end
+   #if [ (acpi -a 2> /dev/null | grep off) ]
+   #    echo -n '─['
+   #    set_color -o red
+   #    echo -n (acpi -b|cut -d' ' -f 4-)
+   #    set_color -o green
+   #    echo -n ']'
+   #end
     set_color normal
     echo -n (__fish_git_prompt)
     echo
