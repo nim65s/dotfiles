@@ -26,10 +26,10 @@ bindsym $mod+Left workspace prev
 #bindsym $mod+Up focus up
 bindsym $mod+Right workspace next
 
-bindsym $mod+Control+Left exec ~/scripts/i3-new-workspace.py switch prev
-bindsym $mod+Control+Right exec ~/scripts/i3-new-workspace.py switch next
-bindsym $mod+Control+Shift+Left exec ~/scripts/i3-new-workspace.py move prev
-bindsym $mod+Control+Shift+Right exec ~/scripts/i3-new-workspace.py move next
+bindsym $mod+Control+Left exec ~/scripts/i3-free-workspace.py switch prev
+bindsym $mod+Control+Right exec ~/scripts/i3-free-workspace.py switch next
+bindsym $mod+Control+Shift+Left exec ~/scripts/i3-free-workspace.py move prev
+bindsym $mod+Control+Shift+Right exec ~/scripts/i3-free-workspace.py move next
 
 # move focused window
 bindsym $mod+Shift+t move left
