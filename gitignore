@@ -17,6 +17,7 @@ Makefile*
 *.ignore
 *shelve
 *.sqlite
+*.directory
 .xmonad/history
 .xmonad/xmonad
 .project
