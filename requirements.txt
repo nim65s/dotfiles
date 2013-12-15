@@ -1,7 +1,7 @@
 akismet
 beautifulsoup4
 django-app-namespace-template-loader
-django-autocomplete-light
+django-autocomplete-light==1.4.9
 django-blog-zinnia
 django-braces
 django_compressor
