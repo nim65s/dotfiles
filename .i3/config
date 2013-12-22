@@ -129,6 +129,7 @@ mode "resize" {
 bindsym $mod+o mode "resize"
 
 assign [class="(?i)chromium"] 2
+assign [title="(?i)minecraft"] 3
 assign [class="(?i)firefox"] 4
 assign [class="(?i)thunderbird"] 5
 assign [class="(?i)spotify"] 10
