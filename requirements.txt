@@ -3,11 +3,13 @@ beautifulsoup4
 django-app-namespace-template-loader
 django-autocomplete-light==1.4.9
 django-blog-zinnia
+django-bootstrap3
 django-braces
 django_compressor
 django-dajax
 django-dajaxice
 django-disqus
+django-jquery-lightbox
 django-mptt
 django-sekizai
 django-tinymce
