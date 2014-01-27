@@ -45,6 +45,7 @@ alias dhclient='sudo dhclient'
 alias vpn='cd /etc/openvpn; sudo openvpn inpnet.conf'
 alias journalctl='sudo journalctl'
 alias netctl='sudo netctl'
+alias netctl-auto='sudo netctl-auto'
 alias dhcpcd='sudo dhcpcd'
 
 # Lancer des programmes dans des Tmux
