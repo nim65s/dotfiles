@@ -14,8 +14,8 @@ django-mptt
 django-sekizai
 django-tinymce
 django-widget-tweaks
+isort
 Pillow
-psycopg2
 pyparsing
 python-levenshtein
 python-memcached
