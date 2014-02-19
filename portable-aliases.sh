@@ -26,6 +26,7 @@ alias ....='cd ../../..'
 alias sl='ls --file-type --color=auto --time-style=+"%d.%m.%Y-%H:%M"'
 alias mr='rm -Iv'
 alias vmi='vim'
+alias vvim='vim'
 
 # Quand on code trop ...
 alias :q='exit'
@@ -56,6 +57,7 @@ alias amux='tmux a'
 # Raccourcis
 alias y='yaourt'
 alias ll='ls -lArth --file-type'
+alias lll='ls -lArth --file-type'
 alias psef='ps -ef | grep -v grep | grep'
 alias psj='ps j | grep -v grep | grep'
 alias cn='fortune chucknorris'
