@@ -14,6 +14,7 @@ django-mptt
 django-sekizai
 django-tinymce
 django-widget-tweaks
+IPython
 isort
 Pillow
 psycopg2
