@@ -144,4 +144,4 @@ bar {
 }
 
 exec ssh-add < /dev/null
-exec "grep -q home.saurel.me /etc/resolv.conf; and synergyc ashitaka"
+#exec "grep -q home.saurel.me /etc/resolv.conf; and synergyc ashitaka"
