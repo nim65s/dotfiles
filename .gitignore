@@ -15,3 +15,4 @@ xmonad-x86_64-linux
 
 .config/fish/fish_history
 .config/fish/fishd.*
+.aria2/dht.dat
