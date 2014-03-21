@@ -88,6 +88,8 @@ alias newCproject='~/scripts/newCproject.sh'
 alias gitup='~/scripts/gitup.sh'
 alias pipup='~/scripts/pipup.sh'
 alias optimg='~/scripts/optimg.sh'
+alias max_brightness='sudo ~/scripts/max_brightness.sh'
+alias kbd_off='sudo ~/scripts/kbd_off.sh'
 
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
 alias ka='vim $XDG_CONFIG_HOME/awesome/rc.lua; awesome -k'
