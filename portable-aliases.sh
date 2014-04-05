@@ -48,6 +48,7 @@ alias journalctl='sudo journalctl'
 alias netctl='sudo netctl'
 alias netctl-auto='sudo netctl-auto'
 alias dhcpcd='sudo dhcpcd'
+alias systemctl='sudo systemctl'
 
 # Lancer des programmes dans des Tmux
 alias mcabber='mosh yuppa'
