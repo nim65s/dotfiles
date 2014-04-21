@@ -1,5 +1,18 @@
 set $mod Mod4
 
+workspace 1 output LVDS1
+workspace 2 output LVDS1
+workspace 3 output LVDS1
+workspace 4 output LVDS1
+workspace 5 output LVDS1
+workspace 6 output LVDS1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
+workspace 11 output VGA1
+workspace 12 output VGA1
+
 font pango:Source Code Pro 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -82,6 +95,8 @@ bindsym $mod+plus workspace 7
 bindsym $mod+minus workspace 8
 bindsym $mod+slash workspace 9
 bindsym $mod+asterisk workspace 10
+bindsym $mod+equal workspace 11
+bindsym $mod+percent workspace 12
 
 # move focused container to workspace
 bindsym $mod+Shift+quotedbl move container to workspace 1
@@ -94,6 +109,8 @@ bindsym $mod+Shift+plus move container to workspace 7
 bindsym $mod+Shift+minus move container to workspace 8
 bindsym $mod+Shift+slash move container to workspace 9
 bindsym $mod+Shift+asterisk move container to workspace 10
+bindsym $mod+Shift+equal move container to workspace 11
+bindsym $mod+Shift+percent move container to workspace 12
 
 # reload the configuration file
 bindsym $mod+Shift+x reload
@@ -106,6 +123,11 @@ bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+d exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
 bindsym $mod+v exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous > /dev/null"
 bindsym $mod+l exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next > /dev/null"
+
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
+bindsym XF86AudioPause exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous > /dev/null"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next > /dev/null"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

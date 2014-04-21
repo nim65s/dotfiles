@@ -78,6 +78,7 @@ alias ipa='ip a'
 alias ipr='ip r'
 alias wi='sudo wifi-menu'
 alias ipy='ipython2'
+alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='~/scripts/audio.sh'
