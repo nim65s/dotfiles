@@ -120,15 +120,19 @@ bindsym $mod+Shift+o restart
 bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Spotify
-bindsym $mod+d exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
-bindsym $mod+v exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous > /dev/null"
-bindsym $mod+l exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next > /dev/null"
+bindsym $mod+d exec "$HOME/scripts/spotify.py playpause"
+bindsym $mod+v exec "$HOME/scripts/spotify.py previous"
+bindsym $mod+l exec "$HOME/scripts/spotify.py next"
 
-bindsym XF86AudioPlayPause exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
-bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause > /dev/null; dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause > /dev/null"
-bindsym XF86AudioPause exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause > /dev/null"
-bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous > /dev/null"
-bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next > /dev/null"
+bindsym XF86AudioPlayPause exec "$HOME/scripts/spotify.py playpause"
+# Workaround headset, which only Plays…
+bindsym XF86AudioPlay      exec "$HOME/scripts/spotify.py playpause"
+bindsym XF86AudioPause     exec "$HOME/scripts/spotify.py pause"
+bindsym XF86AudioPrev      exec "$HOME/scripts/spotify.py previous"
+bindsym XF86AudioNext      exec "$HOME/scripts/spotify.py next"
+
+# i3lock
+bindsym $mod+x exec "/usr/bin/i3lock -d -i /home/nim/images/hostname/Nausicaa.png -c ffffff"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
