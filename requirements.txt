@@ -23,6 +23,7 @@ python-levenshtein
 python-memcached
 pytz
 rarfile
+raven
 reportlab
 requests
 zinnia-theme-bootstrap
