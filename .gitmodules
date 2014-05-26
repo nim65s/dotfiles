@@ -13,6 +13,3 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:nim65s/oh-my-zsh.git
-[submodule "vlsub"]
-	path = vlsub
-	url = git@github.com:exebetche/vlsub.git
