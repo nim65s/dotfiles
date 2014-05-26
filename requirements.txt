@@ -16,6 +16,7 @@ django-tinymce
 django-widget-tweaks
 IPython
 isort
+pep8
 Pillow
 psycopg2
 pyparsing
