@@ -103,6 +103,8 @@ set hlsearch
 set ignorecase
 set smartcase
 set visualbell
+set cursorline
+highlight CursorLine cterm=bold ctermbg=NONE
 "set novisualbell
 filetype indent on
 
@@ -270,3 +272,8 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 set laststatus=2
 set ttimeoutlen=50
+
+"vim-flake8
+let g:flake8_max_line_length=160
+let g:flake8_ignore="E123,E126,E128"
+
