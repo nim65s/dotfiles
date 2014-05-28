@@ -13,14 +13,14 @@ set nocompatible
 set backspace=indent,eol,start
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup
 else
-  set backup		" keep a backup file
+  set backup
 endif
 set history=1000 " keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set ruler
+set showcmd
+set incsearch
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -74,7 +74,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent
 
 endif " has("autocmd")
 
@@ -83,7 +83,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+          \ | wincmd p | diffthis
 endif
 
 " ADD by Nim
@@ -128,7 +128,7 @@ set patchmode=.orig
 
 set encoding=utf-8
 set fileencoding=utf-8
-"set tw=80 
+"set tw=80
 
 " Toggle option 'spell'
 
@@ -162,7 +162,7 @@ noremap wc <C-w>h
 noremap wt <C-w>j
 noremap ws <C-w>k
 noremap wr <C-w>l
- 
+
 " [HJKL] -> {CTSR}
 " ————————————————
 " {cr} = « gauche / droite »
@@ -180,7 +180,7 @@ noremap S K
 " Corollaire : repli suivant / précédent
 noremap zs zj
 noremap zt zk
- 
+
 " {HJKL} <- [CTSR]
 " ————————————————
 " {J} = « Jusqu'à »            (j = suivant, J = précédant)
@@ -198,7 +198,7 @@ noremap K S
 " Corollaire : correction orthographique
 noremap ]k ]s
 noremap [k [s
- 
+
 " Désambiguation de {g}
 " —————————————————————
 " ligne écran précédente / suivante (à l'intérieur d'une phrase)
@@ -212,7 +212,7 @@ noremap gB :exe "silent! tabfirst"<CR>
 noremap gÉ :exe "silent! tablast"<CR>
 " optionnel : {g"} pour aller au début de la ligne écran
 noremap g" g0
- 
+
 " <> en direct
 " ————————————
 noremap « <
@@ -221,7 +221,7 @@ noremap » >
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
 inoremap &lt;S-Tab> <Tab>
- 
+
 " Même chose, mais en mode visuel
 vnoremap <Tab> <Esc>
 vnoremap &lt;S-Tab> <Tab>
@@ -256,3 +256,17 @@ call pathogen#infect()
 
 "jedi-vim
 autocmd FileType python setlocal completeopt-=preview
+
+"vim-airline
+let g:airline_theme='wombat'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+set laststatus=2
+set ttimeoutlen=50
