@@ -15,6 +15,7 @@ django-sekizai
 django-tinymce
 django-widget-tweaks
 flake8
+futures
 IPython
 isort
 jedi
