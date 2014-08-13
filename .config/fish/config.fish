@@ -3,7 +3,8 @@ if status --is-login
         set -gx LANG fr_FR.UTF-8
     end
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        exec ssh-agent startx
+        #exec ssh-agent startx
+        echo 'ssh-agent startx'
     end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
         if test "$TERM" = linux
