@@ -177,5 +177,7 @@ bar {
         status_command i3status
 }
 
+exec numlockx on
+exec setxkbmap fr bepo
 exec ssh-add < /dev/null
 #exec "grep -q home.saurel.me /etc/resolv.conf; and synergyc ashitaka"
