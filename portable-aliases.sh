@@ -110,4 +110,5 @@ alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/sca
 alias usb='sudo dhcpcd usb0'
 alias eth='sudo dhcpcd eth0'
 
-
+# quand y’en a marre
+alias fu='ponysay -q'
