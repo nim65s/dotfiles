@@ -123,7 +123,7 @@ end
 
 function df
     dfc -Tdsq name
-    or df
+    or /bin/df -h
 end
 
 function dvd
