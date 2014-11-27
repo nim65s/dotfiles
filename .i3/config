@@ -1,10 +1,10 @@
 set $mod Mod4
 
 workspace 1 output LVDS1
-workspace 2 output LVDS1
+workspace 2 output VGA1
 workspace 3 output LVDS1
 workspace 4 output LVDS1
-workspace 5 output LVDS1
+workspace 5 output VGA1
 workspace 6 output LVDS1
 workspace 7 output LVDS1
 workspace 8 output LVDS1
