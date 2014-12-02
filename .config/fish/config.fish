@@ -1,8 +1,8 @@
 set -g VIRTUALFISH_COMPAT_ALIASES
-. virtualfish/virtual.fish
-. virtualfish/auto_activation.fish
-. virtualfish/global_requirements.fish
-. virtualfish/projects.fish
+. ~/dotfiles/virtualfish/virtual.fish
+. ~/dotfiles/virtualfish/auto_activation.fish
+. ~/dotfiles/virtualfish/global_requirements.fish
+. ~/dotfiles/virtualfish/projects.fish
 
 if status --is-login
     if not set -q LANG >/dev/null

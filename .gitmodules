@@ -26,5 +26,5 @@
 	path = .vim/bundle/vim-flake8
 	url = git@github.com:nvie/vim-flake8.git
 [submodule "virtualfish"]
-	path = .config/fish/virtualfish
+	path = virtualfish
 	url = git@github.com:adambrenecki/virtualfish.git

@@ -14,7 +14,9 @@ xmonad-x86_64-linux
 .config/ipython/profile_*/static/
 .config/ipython/profile_default/
 
-.config/fish/fish_history
+.config/fish/fish_history*
 .config/fish/fishd.*
+.config/fish/generated_completions
 .aria2/dht.dat
 .config/ipython/nbextensions/mathjax/
+
