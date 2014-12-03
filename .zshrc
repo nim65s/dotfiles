@@ -28,5 +28,26 @@ plugins=(git django gitfast systemd)
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/../aliases-exports.sh
+source $(which virtualenvwrapper.sh)
 
 # Customize to your needs...
+
+function check_for_virtual_env {
+    local GIT_REPO=$(git rev-parse --show-toplevel 2> /dev/null)
+
+    if [[ $? == 0 && -f $GIT_REPO/.venv ]]; then
+        local ENV_NAME=$(cat $GIT_REPO/.venv)
+
+        if [ "${VIRTUAL_ENV##*/}" != $ENV_NAME ] && [ -e $WORKON_HOME/$ENV_NAME/bin/activate ]; then
+            workon $ENV_NAME && export CD_VIRTUAL_ENV=$ENV_NAME
+        fi
+    elif [ $CD_VIRTUAL_ENV ]; then
+        deactivate && unset CD_VIRTUAL_ENV
+    fi
+}
+
+function cd {
+    builtin cd "$@" && check_for_virtual_env
+}
+
+check_for_virtual_env
