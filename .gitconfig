@@ -12,5 +12,3 @@
     excludesfile = ~/dotfiles/gitignore
 [push]
     default = matching
-[init]
-    templatedir = ~/dotfiles/git-templates
