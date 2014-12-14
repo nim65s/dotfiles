@@ -1,0 +1,13 @@
+enum34
+flake8
+ipaddress
+IPython
+isort
+jedi
+pathlib
+pep8
+psycopg2
+pytz
+raven
+requests
+virtualenvwrapper
