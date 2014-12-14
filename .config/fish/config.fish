@@ -152,6 +152,12 @@ function startx
     ssh-agent startx
 end
 
+function check_websites
+    for server in tind jiro yuppa
+        chromium (ssh $server "grep ServerName /etc/apache2/sites-enabled/*|cut -d: -f2|sort|uniq|sed 's/ServerName /http:\/\//'")
+    end
+end
+
 . ~/dotfiles/portable-aliases.sh
 
 # exports
