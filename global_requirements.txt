@@ -4,8 +4,10 @@ ipaddress
 IPython
 isort
 jedi
+mccabe
 pathlib
 pep8
+pep8-naming
 psycopg2
 pytz
 raven
