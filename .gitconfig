@@ -12,3 +12,5 @@
     excludesfile = ~/dotfiles/gitignore
 [push]
     default = matching
+[merge]
+    tool = vimdiff
