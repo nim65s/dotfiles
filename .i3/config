@@ -160,6 +160,9 @@ mode "resize" {
 
 bindsym $mod+o mode "resize"
 
+bindsym $mod+w move workspace to output right
+bindsym $mod+z move workspace to output left
+
 assign [class="(?i)chromium"] 2
 assign [title="(?i)minecraft"] 3
 assign [class="(?i)firefox"] 4

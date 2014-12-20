@@ -32,3 +32,5 @@ Project Outputs for *
 */db.sqlite3
 venv
 .venv
+static_dest/*
+media/*
