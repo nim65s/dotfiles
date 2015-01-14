@@ -25,7 +25,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+b kill
 
 # start dmenu (a program launcher)
-bindsym $mod+i exec ~/scripts/yegane.sh
+# bindsym $mod+i exec ~/scripts/yegane.sh
+bindsym $mod+i exec gnome-do
 
 # change focus
 bindsym $mod+t focus left
@@ -184,3 +185,6 @@ exec numlockx on
 exec setxkbmap fr bepo
 exec ssh-add < /dev/null
 #exec "grep -q home.saurel.me /etc/resolv.conf; and synergyc ashitaka"
+exec chromium
+exec thunderbird
+exec pidgin
