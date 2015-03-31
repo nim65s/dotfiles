@@ -1,9 +1,3 @@
-set -g VIRTUALFISH_COMPAT_ALIASES
-. ~/dotfiles/virtualfish/virtual.fish
-. ~/dotfiles/virtualfish/auto_activation.fish
-. ~/dotfiles/virtualfish/global_requirements.fish
-. ~/dotfiles/virtualfish/projects.fish
-
 if status --is-login
     if not set -q LANG >/dev/null
         set -gx LANG fr_FR.UTF-8
@@ -186,6 +180,8 @@ set __fish_git_prompt_char_stagedstate A
 set __fish_git_prompt_char_invalidstate D
 set __fish_git_prompt_char_dirtystate M
 set __fish_git_prompt_char_untrackedfiles '?'
+
+eval (python -m virtualfish auto_activation global_requirements projects)
 
 
 # vim: set filetype=fish:
