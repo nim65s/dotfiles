@@ -12,5 +12,6 @@ psycopg2
 pytz
 raven
 requests
+thefuck
 virtualenvwrapper
 virtualfish

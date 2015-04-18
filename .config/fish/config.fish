@@ -152,6 +152,10 @@ function check_websites
     end
 end
 
+function fuck
+    thefuck $history[2] | source
+end
+
 . ~/dotfiles/portable-aliases.sh
 
 # exports

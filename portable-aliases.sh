@@ -79,6 +79,11 @@ alias ipr='ip r'
 alias wi='sudo wifi-menu'
 alias ipy='ipython2'
 alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
+alias ns='netctl-auto switch-to'
+alias nda='netctl-auto disable-all'
+alias nea='netctl-auto enable-all'
+alias nd='netctl-auto disable'
+alias ne='netctl-auto enable'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='~/scripts/audio.sh'
