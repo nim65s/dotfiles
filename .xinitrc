@@ -43,11 +43,6 @@ case $1 in
         xcompmgr &
         exec ssh-agent xmonad > .X.log 2> .X.err ;;
     *)
-        if [[ $HOSTNAME == "ashitaka" ]]
-        then
-            nitrogen --head=1 --set-zoom-fill images/hostname/$HOSTNAME.jpg
-        else
-            nitrogen --set-zoom-fill images/hostname/$HOSTNAME.jpg
-        fi
+        nitrogen --set-zoom-fill images/hostname/$HOSTNAME.jpg
         exec i3 -V > ~/.i3/log 2> ~/.i3/err;;
 esac

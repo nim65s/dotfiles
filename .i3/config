@@ -164,6 +164,7 @@ bindsym $mod+o mode "resize"
 bindsym $mod+w move workspace to output right
 bindsym $mod+z move workspace to output left
 
+assign [class="(?i)pidgin"] 1
 assign [class="(?i)chromium"] 2
 assign [title="(?i)minecraft"] 3
 assign [class="(?i)firefox"] 4
@@ -188,3 +189,4 @@ exec ssh-add < /dev/null
 exec chromium
 exec thunderbird
 exec pidgin
+exec ~/scripts/hotplug_monitor.sh
