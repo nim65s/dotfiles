@@ -190,3 +190,4 @@ exec chromium
 exec thunderbird
 exec pidgin
 exec ~/scripts/hotplug_monitor.sh
+exec connman-notify &
