@@ -1,6 +1,3 @@
-test (fish -v 2>|cut -d' ' -f3| cut -d'.' -f1) -eq 2
-or exec bash
-
 if status --is-login
     if not set -q LANG >/dev/null
         set -gx LANG fr_FR.UTF-8
