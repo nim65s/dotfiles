@@ -1,3 +1,6 @@
+test (fish -v 2>|cut -d' ' -f3| cut -d'.' -f1) -eq 2
+or exec bash
+
 if status --is-login
     if not set -q LANG >/dev/null
         set -gx LANG fr_FR.UTF-8
@@ -77,7 +80,6 @@ function fish_prompt
     and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
     acpi -a 2> /dev/null | grep -q off
     and nim_prompt_wrapper $retc $tty B 'acpi -b | cut -d: -f2- | sed ":a;N;\$!ba;s/\n/|/g"'
-    test (fish -v 2>|cut -d' ' -f3| cut -d'.' -f1) -eq 2
     and echo -n (__fish_git_prompt)
     echo
     set_color normal
