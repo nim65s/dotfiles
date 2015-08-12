@@ -5,7 +5,10 @@
     user = nim65s
     token = NOYOUWILLNOTHAVEMYTOKENLOL
 [diff]
-    external = ~/scripts/git_diff_wrapper.sh
+    tool = vimdiff
+[difftool]
+    cmd = vimdiff
+    prompt = false
 [pager]
     diff =
 [core]
@@ -17,4 +20,5 @@
 [flake8]
     max-line-length = 160
     ignore = E128,E123,E126
-    exclude = venv,.hg,.git,__pycache,migrations
+[alias]
+    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'

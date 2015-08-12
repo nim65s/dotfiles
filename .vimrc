@@ -272,3 +272,4 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 set laststatus=2
 set ttimeoutlen=50
+set noro
