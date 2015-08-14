@@ -1,0 +1,3 @@
+IPython
+pip
+pip-tools
