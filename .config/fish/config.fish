@@ -156,6 +156,14 @@ function fuck
     thefuck $history[2] | source
 end
 
+function watchmakepdf
+    while true
+        inotifywait $argv.tex
+        make
+        and cp $argv.pdf ok.pdf
+    end
+end
+
 . ~/dotfiles/portable-aliases.sh
 
 # exports
