@@ -20,3 +20,4 @@ xmonad-x86_64-linux
 .aria2/dht.dat
 .config/ipython/nbextensions/mathjax/
 
+.vim/spell/*.add*
