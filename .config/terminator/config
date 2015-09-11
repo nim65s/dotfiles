@@ -1,54 +1,53 @@
 [global_config]
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   focus = mouse
-  title_transmit_fg_color = "#000000"
+  inactive_color_offset = 0.81
+  tab_position = bottom
+  title_font = Source Code Pro Semi-Bold 9
+  title_inactive_bg_color = "#2f2f2f"
   title_inactive_fg_color = "#8f8f8f"
   title_receive_bg_color = "#9f9f9f"
-  title_transmit_bg_color = "#dfdfdf"
   title_receive_fg_color = "#000000"
-  tab_position = bottom
-  inactive_color_offset = 0.81
-  title_inactive_bg_color = "#2f2f2f"
+  title_transmit_bg_color = "#dfdfdf"
+  title_transmit_fg_color = "#000000"
+  title_use_system_font = False
 [keybindings]
+  cycle_next = <Alt>t
   cycle_prev = <Alt>s
-  next_tab = <Alt>l
-  new_tab = <Alt>d
+  go_down = <Alt><Shift>t
+  go_left = <Alt><Shift>c
+  go_right = <Alt><Shift>r
   go_up = <Alt><Shift>s
+  group_all = <Alt>o
+  hide_window = <Control><Shift><Alt>c
+  new_tab = <Alt>d
+  next_tab = <Alt>l
+  prev_tab = <Alt>v
   resize_down = <Alt><Ctrl>t
   resize_left = <Alt><Ctrl>c
-  split_horiz = <Alt>j
-  prev_tab = <Alt>v
-  go_down = <Alt><Shift>t
-  cycle_next = <Alt>t
-  split_vert = <Alt>n
-  go_right = <Alt><Shift>r
-  group_all = <Alt>o
-  resize_up = <Alt><Ctrl>s
-  go_left = <Alt><Shift>c
   resize_right = <Alt><Ctrl>r
-  hide_window = <Control><Shift><Alt>c
+  resize_up = <Alt><Ctrl>s
+  split_horiz = <Alt>j
+  split_vert = <Alt>n
   ungroup_all = <Alt>comma
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    use_system_font = False
-    font = source code pro 9
-    visible_bell = True
-    background_darkness = 0.74
-    urgent_bell = True
-    background_type = transparent
-    background_image = None
-    foreground_color = "#dcdccc"
-    copy_on_selection = True
-  [[n&b]]
-    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.74
+    background_type = transparent
+    copy_on_selection = True
+    font = source code pro 9
+    foreground_color = "#dcdccc"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    urgent_bell = True
+    use_system_font = False
