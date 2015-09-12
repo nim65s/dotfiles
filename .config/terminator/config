@@ -14,6 +14,7 @@
 [keybindings]
   cycle_next = <Alt>t
   cycle_prev = <Alt>s
+  edit_window_title = <Alt>Escape
   go_down = <Alt><Shift>t
   go_left = <Alt><Shift>c
   go_right = <Alt><Shift>r
