@@ -172,12 +172,12 @@ function pipup
     git status --porcelain
     git pull --rebase
     pip-compile > /dev/null
+    git diff requirements.txt | grep '^-\|^+'
+    pip-sync
 
     test (git status --porcelain | wc -l) -gt 0
     or return
 
-    git diff requirements.txt | grep '^-\|^+'
-    pip-sync
     git add requirements.txt
     git commit -m "pip-update"
     git push
