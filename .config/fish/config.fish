@@ -164,6 +164,25 @@ function watchmakepdf
     end
 end
 
+function pipup
+    test -f requirements.in
+    or exit 1
+
+    pip install -U pip
+    git status --porcelain
+    git pull --rebase
+    pip-compile > /dev/null
+
+    test (git status --porcelain | wc -l) -gt 0
+    or exit 0
+
+    git diff requirements.txt | grep '^-\|^+'
+    pip-sync
+    git add requirements.txt
+    git commit -m "pip-update"
+    git push
+end
+
 . ~/dotfiles/portable-aliases.sh
 
 # exports
