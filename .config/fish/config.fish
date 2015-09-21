@@ -166,7 +166,7 @@ end
 
 function pipup
     test -f requirements.in
-    or exit 1
+    or return
 
     pip install -U pip
     git status --porcelain
@@ -174,7 +174,7 @@ function pipup
     pip-compile > /dev/null
 
     test (git status --porcelain | wc -l) -gt 0
-    or exit 0
+    or return
 
     git diff requirements.txt | grep '^-\|^+'
     pip-sync
