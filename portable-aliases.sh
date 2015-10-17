@@ -107,7 +107,7 @@ alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
 alias fixx='killall mplayer'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; ~/scripts/audio.sh um; ~/scripts/audio.sh m'
-alias clean="find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb)'"
+alias clean="find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb)' -delete"
 alias td='vim ~/todo'
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
