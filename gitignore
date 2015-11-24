@@ -36,3 +36,4 @@ venv
 .venv
 static_dest/*
 media/*
+.nfs*
