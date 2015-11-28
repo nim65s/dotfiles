@@ -51,10 +51,10 @@ bindsym $mod+Shift+r move up
 bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move to workspace prev
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move to workspace next
+bindsym $mod+Shift+Left move workspace to output right
+bindsym $mod+Shift+Down move to workspace prev
+bindsym $mod+Shift+Up move to workspace next
+bindsym $mod+Shift+Right move workspace to output left
 
 bindsym $mod+Escape workspace back_and_forth
 

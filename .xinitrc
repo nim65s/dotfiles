@@ -10,7 +10,7 @@ fi
 
 xsetroot -cursor_name left_ptr
 setxkbmap fr bepo
-numlockx on
+hostname | grep -qi ashitaka || numlockx on
 wmname LG3D
 
 . /etc/profile
