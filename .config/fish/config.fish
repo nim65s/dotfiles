@@ -159,7 +159,7 @@ end
 function watchmakepdf
     while true
         inotifywait $argv.tex
-        make
+        make $argv.pdf
         and cp $argv.pdf ok.pdf
     end
 end
