@@ -107,7 +107,7 @@ alias fixpa='ssh mi "/etc/init.d/pulseaudio stop;/etc/init.d/pulseaudio start"'
 alias fixx='killall mplayer'
 alias x='startx 1>> ~/.X.log 2>> ~/.X.err;exit'
 alias dodo='mpc crop; sleep 300; xset dpms force standby; ~/scripts/audio.sh um; ~/scripts/audio.sh m'
-alias clean="find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb)' -delete"
+alias clean="find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb|fls|fdb_latexmk|blg|pdfpc|bbl)' -delete"
 alias td='vim ~/todo'
 alias proxynet7='ssh -D 6565 -p 443 n7'
 
