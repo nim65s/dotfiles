@@ -191,3 +191,5 @@ exec thunderbird
 exec pidgin
 exec ~/scripts/hotplug_monitor.sh
 exec connman-notify &
+exec --no-startup-id i3-msg 'workspace 4; exec terminology'
+exec --no-startup-id i3-msg 'workspace 3; exec terminology'
