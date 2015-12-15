@@ -181,7 +181,7 @@ bar {
         status_command i3status
 }
 
-exec compton --config compton.conf -b
+exec compton --config ~/.compton.conf -b
 exec numlockx on
 exec setxkbmap fr bepo
 exec ssh-add < /dev/null
