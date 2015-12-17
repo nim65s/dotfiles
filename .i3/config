@@ -184,7 +184,6 @@ bar {
 exec compton --config ~/.compton.conf -b
 exec numlockx on
 exec setxkbmap fr bepo
-exec ssh-add < /dev/null
 #exec "grep -q home.saurel.me /etc/resolv.conf; and synergyc ashitaka"
 exec chromium
 exec thunderbird
@@ -193,3 +192,4 @@ exec ~/scripts/hotplug_monitor.sh
 exec connman-notify &
 exec --no-startup-id i3-msg 'workspace 4; exec terminology'
 exec --no-startup-id i3-msg 'workspace 3; exec terminology'
+exec ssh-add < /dev/null

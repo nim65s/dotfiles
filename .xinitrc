@@ -21,7 +21,7 @@ wmname LG3D
 
 xsetroot -cursor_name left_ptr
 
-export TERMINAL=terminator
+export TERMINAL=terminology
 export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
 
 case $1 in
