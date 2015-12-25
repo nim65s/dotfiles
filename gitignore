@@ -40,3 +40,6 @@ venv
 static_dest/*
 media/*
 .nfs*
+dist/*
+*.egg-info/*
+
