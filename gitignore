@@ -9,7 +9,6 @@
 *.old
 *.fls
 *.fdb_latexmk
-*.pdfpc
 *.orig
 *.xz
 *.out
