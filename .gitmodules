@@ -34,3 +34,6 @@
 	path = .vim/bundle/vim-flake8
 	url = git@github.com:nvie/vim-flake8.git
 	branch = master
+[submodule "Zenburn"]
+	path = Zenburn
+	url = git@github.com:jnurmine/Zenburn.git
