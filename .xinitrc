@@ -21,7 +21,7 @@ wmname LG3D
 
 xsetroot -cursor_name left_ptr
 
-export TERMINAL=terminology
+export TERMINAL=terminator
 export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
 
 case $1 in
@@ -43,6 +43,7 @@ case $1 in
         xcompmgr &
         exec ssh-agent xmonad > .X.log 2> .X.err ;;
     *)
-        nitrogen --restore
+        #nitrogen --restore
+        nitrogen --set-zoom-fill images/hostname/$HOSTNAME.jpg
         exec i3 -V > ~/.i3/log 2> ~/.i3/err;;
 esac

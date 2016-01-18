@@ -180,8 +180,8 @@ bar {
         status_command i3status
 }
 
-exec compton --config ~/.compton.conf -b
-exec spotify
+#exec compton --config ~/.compton.conf -b
+#exec spotify
 exec numlockx on
 exec setxkbmap fr bepo
 exec chromium
