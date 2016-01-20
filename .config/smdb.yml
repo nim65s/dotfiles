@@ -1,0 +1,22 @@
+LAAS:
+  author: Guilhem Saurel
+  lang: fr
+  links:
+    - [Blog, 'https://saurel.me']
+    - [Twitter, 'https://twitter.com/nim65s']
+    - [GitHub, 'https://github.com/nim65s/']
+  pages: [transHumUs]
+  ssh: gsaurel@homepages.laas.fr
+  title: Guilhem Saurel
+  url: http://homepages.laas.fr/gsaurel/
+n7:
+  author: Guilhem Saurel
+  lang: fr
+  links:
+    - [Blog, 'https://saurel.me']
+    - [Twitter, 'https://twitter.com/nim65s']
+    - [GitHub, 'https://github.com/nim65s/']
+  pages: [transHumUs]
+  ssh: n7:www/
+  title: Guilhem Saurel
+  url: http://bde.enseeiht.fr/~saurelg/
