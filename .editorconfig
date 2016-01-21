@@ -10,6 +10,13 @@ trim_trailing_whitespace = true
 end_of_line = lf
 charset = utf-8
 
+[*.py]
+# isort
+line_length=119
+known_standard_library=pathlib
+known_django=django
+sections=FUTURE,STDLIB,DJANGO,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
+
 # Use 2 spaces for the HTML files
 [*.html]
 indent_size = 2
