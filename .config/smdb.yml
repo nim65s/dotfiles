@@ -6,8 +6,8 @@ LAAS:
     - [Twitter, 'https://twitter.com/nim65s']
     - [GitHub, 'https://github.com/nim65s/']
   pages: [transHumUs]
-  ssh: gsaurel@homepages.laas.fr
-  title: Guilhem Saurel
+  ssh: gsaurel@homepages.laas.fr:./
+  blogtitle: Guilhem Saurel
   url: http://homepages.laas.fr/gsaurel/
 n7:
   author: Guilhem Saurel
@@ -18,5 +18,5 @@ n7:
     - [GitHub, 'https://github.com/nim65s/']
   pages: [transHumUs]
   ssh: n7:www/
-  title: Guilhem Saurel
+  blogtitle: Guilhem Saurel
   url: http://bde.enseeiht.fr/~saurelg/
