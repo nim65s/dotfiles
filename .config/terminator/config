@@ -40,7 +40,6 @@
     [[[window0]]]
       parent = ""
       type = Window
-[
 [profiles]
   [[default]]
     background_darkness = 0.74
