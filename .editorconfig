@@ -17,6 +17,7 @@ known_standard_library=pathlib
 known_django=django
 sections=FUTURE,STDLIB,DJANGO,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
 combine_as_import=True
+balanced_wrapping=True
 
 # Use 2 spaces for the HTML files
 [*.html]
