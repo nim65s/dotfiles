@@ -255,9 +255,6 @@ set list
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
-"vim-pathogen
-call pathogen#infect()
-
 "jedi-vim
 autocmd FileType python setlocal completeopt-=preview
 
@@ -275,3 +272,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 set laststatus=2
 set ttimeoutlen=50
 set noro
+
+"vim-pathogen
+call pathogen#infect()
