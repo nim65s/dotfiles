@@ -1,16 +1,5 @@
-enum34
 flake8
-ipaddress
 IPython
 isort
-jedi
-mccabe
-pathlib
 pep8-naming
-psycopg2
-pytz
-raven
-requests
-thefuck
-virtualenvwrapper
 virtualfish
