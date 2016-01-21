@@ -37,3 +37,6 @@
 [submodule "Zenburn"]
 	path = Zenburn
 	url = git@github.com:jnurmine/Zenburn.git
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = .vim/bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
