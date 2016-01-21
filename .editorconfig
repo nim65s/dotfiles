@@ -16,6 +16,7 @@ line_length=119
 known_standard_library=pathlib
 known_django=django
 sections=FUTURE,STDLIB,DJANGO,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
+combine_as_import=True
 
 # Use 2 spaces for the HTML files
 [*.html]
