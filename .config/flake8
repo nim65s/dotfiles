@@ -1,4 +1,3 @@
 [flake8]
 max-line-length = 119
-ignore = E128,E123,E126,E701
 exclude = venv,.hg,.git,__pycache,migrations
