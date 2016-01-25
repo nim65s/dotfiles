@@ -132,7 +132,7 @@ bindsym XF86AudioPrev      exec "$HOME/scripts/spotify.py previous"
 bindsym XF86AudioNext      exec "$HOME/scripts/spotify.py next"
 
 # i3lock
-bindsym $mod+x exec "/usr/bin/i3lock -d -i /home/nim/images/hostname/Nausicaa.png -c ffffff"
+bindsym $mod+x exec "/usr/bin/i3lock -d -i /home/nim/images/hostname/ashinau.png -c 000000"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
