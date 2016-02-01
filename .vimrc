@@ -269,3 +269,6 @@ set noro
 
 "vim-pathogen
 call pathogen#infect()
+
+"*.md: markdown and not modula2
+autocmd BufNewFile,BufRead *.md set filetype=markdown
