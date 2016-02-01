@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vim-isort"]
 	path = .vim/bundle/vim-isort
 	url = git@github.com:fisadev/vim-isort.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
