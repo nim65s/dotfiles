@@ -5,6 +5,7 @@ LAAS:
     - [Blog, 'https://saurel.me']
     - [Twitter, 'https://twitter.com/nim65s']
     - [GitHub, 'https://github.com/nim65s/']
+    - [Gepetto, 'http://projects.laas.fr/gepetto/index.php/Members/GuilhemSaurel']
   pages: [transHumUs]
   ssh: gsaurel@homepages.laas.fr:./
   blogtitle: Guilhem Saurel
