@@ -183,6 +183,7 @@ bar {
 #exec compton --config ~/.compton.conf -b
 #exec spotify
 exec ./.screenlayout/iwaki.sh
+exec nitrogen --restore
 exec numlockx on
 exec setxkbmap fr bepo
 exec firefox
