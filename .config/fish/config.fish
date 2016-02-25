@@ -4,7 +4,7 @@ if status --is-login
     end
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
         #exec ssh-agent startx
-        echo 'ssh-agent startx'
+        echo coucou
     end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
         if test "$TERM" = linux
@@ -117,7 +117,8 @@ function wol
 end
 
 function df
-    dfc -Tdsq name
+    which dfc > /dev/null
+    and dfc -Tdsq name
     or /bin/df -h
 end
 
@@ -135,11 +136,6 @@ end
 
 function bd
     cd (python $HOME/scripts/bd.py $argv)
-end
-
-function i3lock
-    xset dpms force off
-    /usr/bin/i3lock -i {$HOME}/images/hostname/(hostname).png -c 000000
 end
 
 function startx
@@ -184,6 +180,7 @@ function pipup
 end
 
 . ~/dotfiles/portable-aliases.sh
+. ~/dotfiles/.config/fish/completions
 
 # exports
 
