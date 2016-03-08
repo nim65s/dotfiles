@@ -75,7 +75,8 @@ function fish_prompt
     nim_prompt_wrapper $retc $tty '' date +%X
     set -q VIRTUAL_ENV
     and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
-    acpi -a 2> /dev/null | grep -q off
+    which acpi > /dev/null ^ /dev/null
+    and acpi -a ^ /dev/null | grep -q off
     and nim_prompt_wrapper $retc $tty B 'acpi -b | cut -d: -f2- | sed ":a;N;\$!ba;s/\n/|/g"'
     echo -n (__fish_git_prompt)
     echo
