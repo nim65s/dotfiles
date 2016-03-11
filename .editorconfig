@@ -35,10 +35,10 @@ indent_size = 2
 indent_size = 2
 insert_final_newline = ignore
 
-[**/admin/js/vendor/**,**.min.js]
+[{**/admin/js/vendor/**,**.min.js}]
 indent_style = ignore
 indent_size = ignore
 insert_final_newline = ignore
 
-[Makefile*,*.bat,*.go]
+[{Makefile*,*.bat,*.go}]
 indent_style = tab

@@ -258,6 +258,8 @@ let g:tex_flavor = "latex"
 "jedi-vim
 autocmd FileType python setlocal completeopt-=preview
 
+autocmd FileType go setlocal listchars=nbsp:¤,tab:  ,trail:¤,extends:>,precedes:<
+
 "vim-airline
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
