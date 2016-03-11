@@ -35,19 +35,10 @@ indent_size = 2
 indent_size = 2
 insert_final_newline = ignore
 
-[**/admin/js/vendor/**]
+[**/admin/js/vendor/**,**.min.js]
 indent_style = ignore
 indent_size = ignore
-
-# Minified JavaScript files shouldn't be changed
-[**.min.js]
-indent_style = ignore
 insert_final_newline = ignore
 
-# Makefiles always use tabs for indentation
-[Makefile*]
-indent_style = tab
-
-# Batch files use tabs for indentation
-[*.bat]
+[Makefile*,*.bat,*.go]
 indent_style = tab
