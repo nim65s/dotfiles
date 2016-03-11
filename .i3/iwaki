@@ -162,6 +162,7 @@ bindsym $mod+o mode "resize"
 
 bindsym $mod+w move workspace to output right
 bindsym $mod+z move workspace to output left
+bindsym $mod+b exec "$HOME/cc.sh"
 
 assign [class="(?i)pidgin"] 1
 assign [class="(?i)spotify"] 1
