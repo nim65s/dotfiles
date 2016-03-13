@@ -258,7 +258,6 @@ let g:tex_flavor = "latex"
 "jedi-vim
 autocmd FileType python setlocal completeopt-=preview
 
-autocmd FileType go setlocal listchars=nbsp:¤,tab:  ,trail:¤,extends:>,precedes:<
 
 "vim-airline
 let g:airline_theme='wombat'
@@ -271,6 +270,11 @@ set noro
 
 "vim-pathogen
 call pathogen#infect()
+
+"vim-go
+autocmd FileType go setlocal listchars=nbsp:¤,tab:  ,trail:¤,extends:>,precedes:<
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 "*.md: markdown and not modula2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
