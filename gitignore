@@ -41,4 +41,4 @@ media/*
 .nfs*
 dist/*
 *.egg-info/*
-
+htmlcov

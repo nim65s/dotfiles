@@ -18,6 +18,7 @@ wmname LG3D
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources &
 [[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
 [[ -f ~/.password ]] && . ~/.password
+[[ -f ~/.screenlayout/$(hostname).sh ]] && . ~/.screenlayout/$(hostname).sh
 
 xsetroot -cursor_name left_ptr
 
