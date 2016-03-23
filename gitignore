@@ -42,3 +42,4 @@ media/*
 dist/*
 *.egg-info/*
 htmlcov
+.coverage
