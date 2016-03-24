@@ -43,3 +43,9 @@ insert_final_newline = ignore
 
 [{Makefile*,*.bat,*.go}]
 indent_style = tab
+
+[.travis.yml]
+indent_size = 2
+
+[*.bib]
+indent_size = 2
