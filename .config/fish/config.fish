@@ -180,6 +180,12 @@ function pipup
     git push
 end
 
+function gepetto_commit
+    git diff -w --no-color | git apply --cached --ignore-whitespace
+    and git commit -m "$argv"
+    and git checkout -- .
+end
+
 . ~/dotfiles/portable-aliases.sh
 . ~/dotfiles/.config/fish/completions
 
