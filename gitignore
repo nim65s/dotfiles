@@ -43,3 +43,4 @@ dist/*
 *.egg-info/*
 htmlcov
 .coverage
+db.sqlite3
