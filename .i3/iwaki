@@ -169,6 +169,7 @@ assign [class="(?i)spotify"] 1
 assign [class="(?i)firefox"] 2
 assign [class="(?i)thunderbird"] 5
 assign [class="(?i)osgViewer"] 6
+assign [title="(?i)Nim"] 6
 assign [class="(?i)pavucontrol"] 10
 for_window [title="(?i)float"] floating enable
 
