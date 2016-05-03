@@ -45,9 +45,11 @@
     background_darkness = 0.74
     background_type = transparent
     copy_on_selection = True
+    background_image = None
     font = source code pro 9
     foreground_color = "#dcdccc"
     scrollback_infinite = True
     scrollbar_position = hidden
     urgent_bell = True
     use_system_font = False
+[plugins]
