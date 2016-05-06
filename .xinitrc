@@ -1,6 +1,8 @@
 #!/bin/sh
 # ~/.xinitrc
 
+cd
+
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$f" ] && . "$f"
@@ -15,10 +17,8 @@ wmname LG3D
 
 . /etc/profile
 
-[[ -f ~/.Xresources ]] && xrdb ~/.Xresources &
-[[ -f ~/dotfiles/.xinitrc.local.$(hostname) ]] && . ~/dotfiles/.xinitrc.local.$(hostname)
-[[ -f ~/.password ]] && . ~/.password
-[[ -f ~/.screenlayout/$(hostname).sh ]] && . ~/.screenlayout/$(hostname).sh
+[[ -f dotfiles/.xinitrc.local.$(hostname) ]] && ./dotfiles/.xinitrc.local.$(hostname)
+nitrogen --restore
 
 xsetroot -cursor_name left_ptr
 
@@ -44,6 +44,5 @@ case $1 in
         xcompmgr &
         exec ssh-agent xmonad > .X.log 2> .X.err ;;
     *)
-        nitrogen --restore
         exec i3 -V > ~/.i3/log 2> ~/.i3/err;;
 esac
