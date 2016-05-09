@@ -17,6 +17,7 @@ wmname LG3D
 
 . /etc/profile
 
+sleep 2
 [[ -f dotfiles/.xinitrc.local.$(hostname) ]] && ./dotfiles/.xinitrc.local.$(hostname)
 nitrogen --restore
 
