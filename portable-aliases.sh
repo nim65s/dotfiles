@@ -85,7 +85,6 @@ alias nda='netctl-auto disable-all'
 alias nea='netctl-auto enable-all'
 alias nd='netctl-auto disable'
 alias ne='netctl-auto enable'
-alias gvs='gepetto-viewer-server'
 
 # Scripts perso http://github.com/nim65s/scripts
 alias a='~/scripts/audio.sh'
