@@ -1,13 +1,9 @@
 if status --is-login
-    if not set -q LANG >/dev/null
+    if not set -q LANG
         set -gx LANG fr_FR.UTF-8
     end
-    if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        #exec ssh-agent startx
-        echo coucou
-    end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
-        if test "$TERM" = linux
+        if [ "$TERM" = linux ]
             if which unicode_start >/dev/null
                 unicode_start
             end
@@ -75,16 +71,13 @@ function fish_prompt
     nim_prompt_wrapper $retc $tty '' date +%X
     set -q VIRTUAL_ENV
     and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
-    which acpi > /dev/null ^ /dev/null
-    and acpi -a ^ /dev/null | grep -q off
-    and nim_prompt_wrapper $retc $tty B 'acpi -b | cut -d: -f2- | sed ":a;N;\$!ba;s/\n/|/g"'
     echo -n (__fish_git_prompt)
     echo
     set_color normal
     for job in (jobs)
         set_color $retc
         if [ $tty = tty ]
-            echo -n '; '
+            echo -n '| '
         else
             echo -n '│ '
         end
