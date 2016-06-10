@@ -278,3 +278,10 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 "*.md: markdown and not modula2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" c++ completion
+autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+set nocp
+map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/pinocchio

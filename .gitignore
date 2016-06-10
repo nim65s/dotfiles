@@ -21,3 +21,4 @@ xmonad-x86_64-linux
 .config/ipython/nbextensions/mathjax/
 
 .vim/spell/*.add*
+.vim/tags/*
