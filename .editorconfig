@@ -49,3 +49,6 @@ indent_size = 2
 
 [*.bib]
 indent_size = 2
+
+[{**.cmake,CMakeLists.txt}]
+indent_size = 2
