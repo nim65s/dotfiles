@@ -213,5 +213,7 @@ set __fish_git_prompt_char_untrackedfiles '?'
 
 eval (python -m virtualfish auto_activation global_requirements projects)
 
+__fish_complete_django django-admin.py
+__fish_complete_django manage.py
 
 # vim: set filetype=fish:
