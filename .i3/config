@@ -51,10 +51,10 @@ bindsym $mod+Shift+r move up
 bindsym $mod+Shift+n move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move workspace to output right
-bindsym $mod+Shift+Down move to workspace prev
-bindsym $mod+Shift+Up move to workspace next
-bindsym $mod+Shift+Right move workspace to output left
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Down move workspace to output down
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
 
 bindsym $mod+Escape workspace back_and_forth
 
@@ -131,8 +131,21 @@ bindsym XF86AudioPause     exec "$HOME/scripts/spotify.py pause"
 bindsym XF86AudioPrev      exec "$HOME/scripts/spotify.py previous"
 bindsym XF86AudioNext      exec "$HOME/scripts/spotify.py next"
 
-# i3lock
-bindsym $mod+x exec "/usr/bin/i3lock -d -i /home/nim/images/hostname/ashinau.png -c 000000"
+# PulseAudio
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+# Display
+bindsym XF86Display exec "$HOME/scripts/hotplug_monitor.sh"
+
+# i3lock / sleep
+bindsym $mod+x exec "i3lock -d -i ${HOME}/images/hostname/$(hostname).png -c 000000"
+bindsym XF86Sleep exec "i3lock -d -i ${HOME}/images/hostname/$(hostname).png -c 000000; systemctl suspend"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -179,6 +192,7 @@ workspace_auto_back_and_forth yes
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
 }
 
 #exec compton --config ~/.compton.conf -b
