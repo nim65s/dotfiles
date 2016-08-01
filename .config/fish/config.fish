@@ -147,8 +147,8 @@ function fuck
 end
 
 function watchmakepdf
-    while true
-        inotifywait $argv.tex
+    while inotifywait $argv.tex
+        sleep 0.5
         make $argv.pdf
         and cp $argv.pdf ok.pdf
     end

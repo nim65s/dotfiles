@@ -133,6 +133,7 @@ set patchmode=.orig
 set encoding=utf-8
 set fileencoding=utf-8
 set tw=119
+set colorcolumn=+1
 
 " Toggle option 'spell'
 
