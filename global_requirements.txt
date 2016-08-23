@@ -3,3 +3,4 @@ IPython
 isort
 pep8-naming
 virtualfish
+pip-tools
