@@ -286,3 +286,7 @@ set nocp
 map <C-F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/pinocchio
+
+" BFYTW
+command W w
+command WW w
