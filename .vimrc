@@ -290,3 +290,6 @@ set tags+=~/.vim/tags/pinocchio
 " BFYTW
 command W w
 command WW w
+command Q q
+command Wq x
+command WQ x
