@@ -164,7 +164,6 @@ bindsym $mod+w move workspace to output right
 bindsym $mod+z move workspace to output left
 bindsym $mod+b exec "$HOME/cc.sh"
 
-assign [class="(?i)pidgin"] 1
 assign [class="(?i)spotify"] 1
 assign [class="(?i)firefox"] 2
 assign [class="(?i)thunderbird"] 5
@@ -197,5 +196,4 @@ exec numlockx on
 exec setxkbmap fr bepo
 exec firefox
 exec thunderbird
-exec pidgin
 exec ssh-add < /dev/null

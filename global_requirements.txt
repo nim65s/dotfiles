@@ -4,3 +4,4 @@ isort
 pep8-naming
 virtualfish
 pip-tools
+pygments_zenburn
