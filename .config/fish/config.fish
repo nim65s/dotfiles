@@ -184,7 +184,9 @@ end
 
 # exports
 
-if test -d "/usr/share/vim/vim74"
+if test -d "/usr/share/vim/vim80"
+    set -x VIMRUNTIME /usr/share/vim/vim80
+else if test -d "/usr/share/vim/vim74"
     set -x VIMRUNTIME /usr/share/vim/vim74
 else if test -d "/usr/share/vim/vim73"
     set -x VIMRUNTIME /usr/share/vim/vim73

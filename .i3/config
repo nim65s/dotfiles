@@ -176,7 +176,6 @@ bindsym $mod+o mode "resize"
 bindsym $mod+w move workspace to output right
 bindsym $mod+z move workspace to output left
 
-assign [class="(?i)pidgin"] 11
 assign [class="(?i)spotify"] 12
 assign [class="(?i)chromium"] 1
 assign [class="(?i)firefox"] 6
@@ -201,6 +200,5 @@ exec numlockx on
 exec setxkbmap fr bepo
 exec chromium
 exec thunderbird
-exec pidgin
 exec connman-notify &
 exec ssh-add < /dev/null
