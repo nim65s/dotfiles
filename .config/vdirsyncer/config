@@ -1,0 +1,34 @@
+[general]
+status_path = ~/.config/vdirsyncer/status/
+
+[pair saurel]
+a = saurel_local
+b = saurel_remote
+collections = [["fusion", "Fusion", "fusion"], ["personnel", "Perso", "personnel"]]
+
+[storage saurel_local]
+type = filesystem
+path = ~/.calendars/saurel/
+fileext = .ics
+
+[storage saurel_remote]
+type = caldav
+url = https://cloud.saurel.me/remote.php/caldav/calendars/adnim/personnel
+username = adnim
+password.fetch = ["command", "pass", "web/cloud"]
+
+[pair laas]
+a = laas_local
+b = laas_remote
+collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"]]
+
+[storage laas_local]
+type = filesystem
+path = ~/.calendars/laas/
+fileext = .ics
+
+[storage laas_remote]
+type = caldav
+url = https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/personnel
+username = gsaurel
+password.fetch = ["command", "pass", "laas/main"]
