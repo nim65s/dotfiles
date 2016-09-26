@@ -167,6 +167,7 @@ bindsym $mod+b exec "$HOME/cc.sh"
 assign [class="(?i)spotify"] 1
 assign [class="(?i)firefox"] 2
 assign [class="(?i)thunderbird"] 5
+assign [class="(?i)Sylpheed"] 5
 assign [class="(?i)osgViewer"] 6
 assign [title="(?i)Nim"] 6
 assign [title="(?i)Passive Dynamic Walker simulator"] 6
@@ -195,5 +196,5 @@ exec nitrogen --restore
 exec numlockx on
 exec setxkbmap fr bepo
 exec firefox
-exec thunderbird
+exec sylpheed
 exec ssh-add < /dev/null
