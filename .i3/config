@@ -180,6 +180,7 @@ assign [class="(?i)spotify"] 12
 assign [class="(?i)chromium"] 1
 assign [class="(?i)firefox"] 6
 assign [class="(?i)thunderbird"] 5
+assign [class="(?i)sylpheed"] 5
 assign [class="(?i)pavucontrol"] 10
 for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
@@ -199,6 +200,6 @@ bar {
 exec numlockx on
 exec setxkbmap fr bepo
 exec chromium
-exec thunderbird
+exec sylpheed
 exec connman-notify &
 exec ssh-add < /dev/null
