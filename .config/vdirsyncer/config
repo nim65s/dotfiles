@@ -33,6 +33,22 @@ url = https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-
 username = gsaurel
 password.fetch = ["command", "pass", "laas/main"]
 
+[pair ctf]
+a = ctf_local
+b = ctf_remote
+collections = ["from b"]
+
+[storage ctf_local]
+type = filesystem
+path = ~/.calendars/ctf/
+fileext = .ics
+
+[storage ctf_remote]
+type = caldav
+url = https://cloud.ctf.inpt.fr/remote.php/dav/calendars/Nim/ctf_shared_by_pony7/
+username = nim
+password.fetch = ["command", "pass", "web/ctf/cloud"]
+
 [pair cinenim]
 a = cinenim_local
 b = cinenim_remote
