@@ -36,7 +36,7 @@ password.fetch = ["command", "pass", "laas/main"]
 [pair ctf]
 a = ctf_local
 b = ctf_remote
-collections = ["from b"]
+collections = [["thc", "thc", "ctf_shared_by_pony7"]]
 
 [storage ctf_local]
 type = filesystem
