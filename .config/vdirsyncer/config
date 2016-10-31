@@ -118,3 +118,18 @@ fileext = .ics
 [storage vacances_remote]
 type = http
 url = http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics
+
+[pair contacts]
+a = contacts_local
+b = contacts_remote
+collections = null
+
+[storage contacts_local]
+type = singlefile
+path = ~/.contacts/cloud.vcf
+
+[storage contacts_remote]
+type = carddav
+url = https://cloud.saurel.me/remote.php/carddav/addressbooks/adnim/contacts
+username = adnim
+password.fetch = ["command", "pass", "web/cloud"]
