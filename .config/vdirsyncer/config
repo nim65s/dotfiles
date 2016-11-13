@@ -1,139 +1,139 @@
 [general]
-status_path = ~/.config/vdirsyncer/status/
+status_path = "~/.config/vdirsyncer/status/"
 
 [pair saurel]
-a = saurel_local
-b = saurel_remote
+a = "saurel_local"
+b = "saurel_remote"
 collections = [["fusion", "Fusion", "fusion"], ["personnel", "Perso", "personnel"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage saurel_local]
-type = filesystem
-path = ~/.calendars/saurel/
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/saurel/"
+fileext = ".ics"
 
 [storage saurel_remote]
-type = caldav
-url = https://cloud.saurel.me/remote.php/caldav/calendars/adnim/personnel
-username = adnim
+type = "caldav"
+url = "https://cloud.saurel.me/remote.php/caldav/calendars/adnim/personnel"
+username = "adnim"
 password.fetch = ["command", "pass", "web/cloud"]
 
 [pair laas]
-a = laas_local
-b = laas_remote
+a = "laas_local"
+b = "laas_remote"
 collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
-type = filesystem
-path = ~/.calendars/laas/
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/laas/"
+fileext = ".ics"
 
 [storage laas_remote]
-type = caldav
-url = https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/personnel
-username = gsaurel
+type = "caldav"
+url = "https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/personnel"
+username = "gsaurel"
 password.fetch = ["command", "pass", "laas/main"]
 
 [pair ctf]
-a = ctf_local
-b = ctf_remote
+a = "ctf_local"
+b = "ctf_remote"
 collections = [["thc", "thc", "ctf_shared_by_pony7"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage ctf_local]
-type = filesystem
-path = ~/.calendars/ctf/
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ctf/"
+fileext = ".ics"
 
 [storage ctf_remote]
-type = caldav
-url = https://cloud.ctf.inpt.fr/remote.php/dav/calendars/Nim/ctf_shared_by_pony7/
-username = nim
+type = "caldav"
+url = "https://cloud.ctf.inpt.fr/remote.php/dav/calendars/Nim/ctf_shared_by_pony7/"
+username = "nim"
 password.fetch = ["command", "pass", "web/ctf/cloud"]
 
 [pair cinenim]
-a = cinenim_local
-b = cinenim_remote
+a = "cinenim_local"
+b = "cinenim_remote"
 collections = null
 
 [storage cinenim_local]
-type = filesystem
-path = ~/.calendars/ro/cinenim
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ro/cinenim"
+fileext = ".ics"
 
 [storage cinenim_remote]
-type = http
-url = https://saurel.me/cine/cinenim.ics
+type = "http"
+url = "https://saurel.me/cine/cinenim.ics"
 
 [pair werome]
-a = werome_local
-b = werome_remote
+a = "werome_local"
+b = "werome_remote"
 collections = null
 
 [storage werome_local]
-type = filesystem
-path = ~/.calendars/ro/werome
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ro/werome"
+fileext = ".ics"
 
 [storage werome_remote]
-type = http
-url = https://www.laas.fr/roboticsmeetings/calendar-node-field-date/ical/0/calendar.ics
+type = "http"
+url = "https://www.laas.fr/roboticsmeetings/calendar-node-field-date/ical/0/calendar.ics"
 
 [pair n7]
-a = n7_local
-b = n7_remote
+a = "n7_local"
+b = "n7_remote"
 collections = null
 
 [storage n7_local]
-type = filesystem
-path = ~/.calendars/ro/n7
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ro/n7"
+fileext = ".ics"
 
 [storage n7_remote]
-type = http
-url = https://www.bde.enseeiht.fr/services/edt/saurelg.ics
+type = "http"
+url = "https://www.bde.enseeiht.fr/services/edt/saurelg.ics"
 
 [pair toulibre]
-a = toulibre_local
-b = toulibre_remote
+a = "toulibre_local"
+b = "toulibre_remote"
 collections = null
 
 [storage toulibre_local]
-type = filesystem
-path = ~/.calendars/ro/toulibre
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ro/toulibre"
+fileext = ".ics"
 
 [storage toulibre_remote]
-type = http
-url = http://www.agendadulibre.org/ical.php?tag=toulibre
+type = "http"
+url = "http://www.agendadulibre.org/ical.php?tag=toulibre"
 
 [pair vacances]
-a = vacances_local
-b = vacances_remote
+a = "vacances_local"
+b = "vacances_remote"
 collections = null
 
 [storage vacances_local]
-type = filesystem
-path = ~/.calendars/ro/vacances
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/ro/vacances"
+fileext = ".ics"
 
 [storage vacances_remote]
-type = http
-url = http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics
+type = "http"
+url = "http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics"
 
 [pair contacts]
-a = contacts_local
-b = contacts_remote
+a = "contacts_local"
+b = "contacts_remote"
 collections = null
 conflict_resolution = ["command", "vimdiff"]
 
 [storage contacts_local]
-type = singlefile
-path = ~/.contacts/cloud.vcf
+type = "singlefile"
+path = "~/.contacts/cloud.vcf"
 
 [storage contacts_remote]
-type = carddav
-url = https://cloud.saurel.me/remote.php/carddav/addressbooks/adnim/contacts
-username = adnim
+type = "carddav"
+url = "https://cloud.saurel.me/remote.php/carddav/addressbooks/adnim/contacts"
+username = "adnim"
 password.fetch = ["command", "pass", "web/cloud"]
