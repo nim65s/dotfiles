@@ -5,6 +5,7 @@ status_path = ~/.config/vdirsyncer/status/
 a = saurel_local
 b = saurel_remote
 collections = [["fusion", "Fusion", "fusion"], ["personnel", "Perso", "personnel"]]
+conflict_resolution = ["command", "vimdiff"]
 
 [storage saurel_local]
 type = filesystem
@@ -21,6 +22,7 @@ password.fetch = ["command", "pass", "web/cloud"]
 a = laas_local
 b = laas_remote
 collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"]]
+conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
 type = filesystem
@@ -37,6 +39,7 @@ password.fetch = ["command", "pass", "laas/main"]
 a = ctf_local
 b = ctf_remote
 collections = [["thc", "thc", "ctf_shared_by_pony7"]]
+conflict_resolution = ["command", "vimdiff"]
 
 [storage ctf_local]
 type = filesystem
@@ -123,6 +126,7 @@ url = http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics
 a = contacts_local
 b = contacts_remote
 collections = null
+conflict_resolution = ["command", "vimdiff"]
 
 [storage contacts_local]
 type = singlefile
