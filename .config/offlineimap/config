@@ -1,0 +1,35 @@
+[general]
+accounts = gandi, laas
+pythonfile = ~/scripts/offlineimap.py
+
+[Account gandi]
+localrepository = gandi-local
+remoterepository = gandi-remote
+status_backend = sqlite
+
+[Repository gandi-local]
+type = Maildir
+localfolders = ~/.mails/gandi
+
+[Repository gandi-remote]
+type = IMAP
+remotehost = mail.gandi.net
+remoteuser = guilhem@saurel.me
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass("mail/gandi")
+
+[Account laas]
+localrepository = laas-local
+remoterepository = laas-remote
+status_backend = sqlite
+
+[Repository laas-local]
+type = Maildir
+localfolders = ~/.mails/laas
+
+[Repository laas-remote]
+type = IMAP
+remotehost = imap.laas.fr
+remoteuser = gsaurel
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass("laas/main")
