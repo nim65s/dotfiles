@@ -52,7 +52,7 @@ alias dhcpcd='sudo dhcpcd'
 alias systemctl='sudo systemctl'
 
 # Lancer des programmes dans des Tmux
-alias mcabber='mosh yuppa'
+#alias mcabber='mosh yuppa'
 alias nmux='tmux new -s'
 alias amux='tmux a'
 
