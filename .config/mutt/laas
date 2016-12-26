@@ -1,0 +1,9 @@
+set mbox_type=Maildir
+set folder=~/.mails/laas
+set spoolfile=+INBOX
+set record=+Sent
+set postponed=+Drafts
+set from="gsaurel@laas.fr"
+set hostname="laas.fr"
+
+# vim: set syntax=muttrc:

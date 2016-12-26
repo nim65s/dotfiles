@@ -293,3 +293,6 @@ command WW w
 command Q q
 command Wq x
 command WQ x
+
+" mutt
+au BufRead /tmp/mutt-* set tw=72

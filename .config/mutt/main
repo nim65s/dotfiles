@@ -1,0 +1,56 @@
+set header_cache = "~/.cache/mutt"
+set editor=vim
+set realname="Guilhem Saurel"
+set send_charset="utf-8"
+set mbox_type=Maildir
+set folder=~/.mails
+set spoolfile=+gandi/INBOX
+set sleep_time = 0
+set pgp_encrypt_self = yes
+set pgp_sign_as = 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28
+set abort_noattach = ask-yes
+set attach_keyword = "\\<attach(|ed|ments|é|és|e|ons?)|join(|te|ts|tes|s?)\\>"
+set nm_default_uri = "notmuch:///home/nim/.mails
+virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
+
+set sidebar_visible = yes
+set sidebar_sort_method = 'flagged'
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
+set sidebar_width = 20
+set sidebar_indent_string = ' '
+set mail_check_stats
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?"
+set sidebar_divider_char = '│'
+
+bind pager t next-line
+bind pager s previous-line
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind index,pager N sidebar-next-new
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager B sidebar-toggle-visible
+bind index,pager X change-vfolder
+
+source "~/.config/mutt/boxes"
+
+set mailcap_path = ~/.config/mutt/cap
+mime_lookup application/force-download
+mime_lookup application/x-download
+
+# source "~/.config/mutt/gandi"
+# folder-hook $folder 'source ~/.config/mutt/gandi'
+
+# source "~/.config/mutt/laas"
+# folder-hook $folder 'source ~/.config/mutt/laas'
+
+folder-hook gandi set from="guilhem@saurel.me"
+folder-hook laas set from="gsaurel@laas.fr"
+
+source "~/.config/mutt/colors-zenburn"
+
+# vim: set syntax=muttrc:

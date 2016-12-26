@@ -1,0 +1,9 @@
+set mbox_type=Maildir
+set folder=~/.mails/gandi
+set spoolfile=+INBOX
+set record=+Sent
+set postponed=+Drafts
+set from="guilhem@saurel.me"
+set hostname="saurel.me"
+
+# vim: set syntax=muttrc:

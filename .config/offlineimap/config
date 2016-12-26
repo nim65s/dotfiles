@@ -2,6 +2,15 @@
 accounts = gandi, laas
 pythonfile = ~/scripts/offlineimap.py
 
+[mbnames]
+enabled = yes
+filename = ~/.config/mutt/boxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+
 [Account gandi]
 localrepository = gandi-local
 remoterepository = gandi-remote
