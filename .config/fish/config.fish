@@ -199,6 +199,8 @@ set -x BROWSER chromium
 set -x JAVA_HOME /opt/java
 set -x PAGER ~/scripts/vimpager/vimpager
 set -x PIP_USE_WHEEL "true"
+set -x TERM xterm-256color
+
 if test -d ~/go
     set -x GOPATH ~/go
     set -x PATH $GOPATH/bin $PATH

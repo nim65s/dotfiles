@@ -14,20 +14,20 @@
 #
 
 # general
-color normal     color188 color237
-color error      color115 color236
-color markers    color142 color238
-color tilde      color108 color237
-color status     color144 color234
+color normal     color188 default
+color error      color115 default
+color markers    color142 default
+color tilde      color108 default
+color status     color144 default
 
 # index stuff
-color indicator  color108 color236
-color tree       color109 color234
-color index      color188 color234 ~A
-color index      color188 color234 ~N
-color index      color188 color234 ~O
-color index      color174 color234 ~F
-color index      color174 color234 ~D
+color indicator  color108 default
+color tree       color109 default
+color index      color188 default ~A
+color index      color188 default ~N
+color index      color188 default ~O
+color index      color174 default ~F
+color index      color174 default ~D
 
 #color index_number  color116 color234
 #color index_date    color47  color234
@@ -65,16 +65,16 @@ color attachment color174 color237
 color signature  color223 color237
 
 # quote levels
-color quoted     color108 color237
-color quoted1    color116 color237
-color quoted2    color247 color237
-color quoted3    color108 color237
-color quoted4    color116 color237
-color quoted5    color247 color237
-color quoted6    color108 color237
-color quoted7    color116 color237
-color quoted8    color247 color237
-color quoted9    color108 color237
+color quoted     color108 default
+color quoted1    color116 default
+color quoted2    color247 default
+color quoted3    color108 default
+color quoted4    color116 default
+color quoted5    color247 default
+color quoted6    color108 default
+color quoted7    color116 default
+color quoted8    color247 default
+color quoted9    color108 default
 
 
 #Usage: color object foreground background  [ regexp ]
