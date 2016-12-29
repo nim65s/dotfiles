@@ -6,12 +6,19 @@ set mbox_type=Maildir
 set folder=~/.mails
 set spoolfile=+gandi/INBOX
 set sleep_time = 0
-set pgp_encrypt_self = yes
-set pgp_sign_as = 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28
 set abort_noattach = ask-yes
 set attach_keyword = "\\<attach(|ed|ments|é|és|e|ons?)|join(|te|ts|tes|s?)\\>"
 set nm_default_uri = "notmuch:///home/nim/.mails
 virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
+
+set crypt_use_gpgme = yes
+set crypt_autosign = yes
+set crypt_opportunistic_encrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+set crypt_replyencrypt = yes
+set pgp_encrypt_self = yes
+set pgp_sign_as = 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28
 
 set sidebar_visible = yes
 set sidebar_sort_method = 'flagged'
@@ -47,22 +54,17 @@ bind attach e edit-type
 bind attach <Space> view-attach
 # next flagged
 macro index S <search>~F\r
+bind index * search-next
 
 source "~/.config/mutt/boxes"
+source "~/.config/mutt/colors-zenburn"
 
 set mailcap_path = ~/.config/mutt/cap
 mime_lookup application/force-download
 mime_lookup application/x-download
 
-# source "~/.config/mutt/gandi"
-# folder-hook $folder 'source ~/.config/mutt/gandi'
-
-# source "~/.config/mutt/laas"
-# folder-hook $folder 'source ~/.config/mutt/laas'
-
 folder-hook gandi set from="guilhem@saurel.me"
 folder-hook laas set from="gsaurel@laas.fr"
 
-source "~/.config/mutt/colors-zenburn"
 
 # vim: set syntax=muttrc:
