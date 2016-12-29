@@ -22,19 +22,31 @@ set sidebar_indent_string = ' '
 set mail_check_stats
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?"
 set sidebar_divider_char = '│'
+set sort="threads"
 
 bind pager t next-line
 bind pager s previous-line
+bind index t next-undeleted
+bind index s previous-undeleted
+bind attach t next-entry
+bind attach s previous-entry
+bind index,pager n next-new-then-unread
+bind index,pager p previous-new-then-unread
+macro index,pager N '<sidebar-next-new><sidebar-open>'
+macro index,pager P '<sidebar-prev-new><sidebar-open>'
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
-bind index,pager N sidebar-next-new
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
 bind index,pager B sidebar-toggle-visible
 bind index,pager X change-vfolder
+bind attach e edit-type
+bind attach <Space> view-attach
+# next flagged
+macro index S <search>~F\r
 
 source "~/.config/mutt/boxes"
 
