@@ -201,7 +201,5 @@ exec spotify
 exec numlockx on
 exec setxkbmap fr bepo
 exec chromium
-exec claws-mail
-exec connman-notify &
 exec ssh-add < /dev/null
 for_window [class="(?i)spotify"] move container to workspace 12
