@@ -1,30 +1,11 @@
 set $mod Mod4
 
-workspace 1 output DP-2
-workspace 2 output DP-0
-workspace 3 output DP-0
-workspace 4 output DP-0
-workspace 5 output DP-2
-workspace 6 output DP-2
-workspace 7 output DP-0
-workspace 8 output DP-0
-workspace 9 output DP-2
-workspace 10 output DP-4
-workspace 11 output DP-4
-workspace 12 output DP-4
-
 font pango:Source Code Pro 8
 
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-
-# kill focused window
 bindsym $mod+Shift+b kill
-
-# start dmenu (a program launcher)
 bindsym $mod+i exec ~/scripts/demunim.py
 
 # change focus
@@ -120,16 +101,16 @@ bindsym $mod+Shift+o restart
 bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Spotify
-bindsym $mod+d exec "$HOME/scripts/spotify.py playpause"
-bindsym $mod+v exec "$HOME/scripts/spotify.py previous"
-bindsym $mod+l exec "$HOME/scripts/spotify.py next"
+bindsym $mod+d exec "~/scripts/spotify.py playpause"
+bindsym $mod+v exec "~/scripts/spotify.py previous"
+bindsym $mod+l exec "~/scripts/spotify.py next"
 
-bindsym XF86AudioPlayPause exec "$HOME/scripts/spotify.py playpause"
+bindsym XF86AudioPlayPause exec "~/scripts/spotify.py playpause"
 # Workaround headset, which only Plays…
-bindsym XF86AudioPlay      exec "$HOME/scripts/spotify.py playpause"
-bindsym XF86AudioPause     exec "$HOME/scripts/spotify.py pause"
-bindsym XF86AudioPrev      exec "$HOME/scripts/spotify.py previous"
-bindsym XF86AudioNext      exec "$HOME/scripts/spotify.py next"
+bindsym XF86AudioPlay      exec "~/scripts/spotify.py playpause"
+bindsym XF86AudioPause     exec "~/scripts/spotify.py pause"
+bindsym XF86AudioPrev      exec "~/scripts/spotify.py previous"
+bindsym XF86AudioNext      exec "~/scripts/spotify.py next"
 
 # PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -141,11 +122,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Display
-bindsym XF86Display exec "$HOME/scripts/hotplug_monitor.sh"
+bindsym XF86Display exec "~/scripts/hotplug_monitor.sh"
 
 # i3lock / sleep
-bindsym $mod+x exec "i3lock -d -i ${HOME}/images/hostname/$(hostname).png -c 000000"
-bindsym XF86Sleep exec "i3lock -d -i ${HOME}/images/hostname/$(hostname).png -c 000000; systemctl suspend"
+bindsym $mod+x exec "i3lock -d -i ~/images/hostname/$(hostname).png -c 000000"
+bindsym XF86Sleep exec "i3lock -d -i ~/images/hostname/$(hostname).png -c 000000; systemctl suspend"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,30 +157,13 @@ bindsym $mod+o mode "resize"
 bindsym $mod+w move workspace to output right
 bindsym $mod+z move workspace to output left
 
-assign [class="(?i)chromium"] 1
-assign [class="(?i)firefox"] 6
-assign [class="(?i)thunderbird"] 5
-assign [class="(?i)sylpheed"] 5
-assign [class="(?i)claws-mail"] 5
-assign [class="(?i)pavucontrol"] 10
-assign [title="(?i)Figure 1"] 6
-for_window [title="(?i)float"] floating enable
-for_window [title="(?i)DédéNimeur"] floating enable
-
 workspace_auto_back_and_forth yes
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        tray_output primary
+    status_command i3status
+    tray_output primary
+    font pango:Source Code Pro 8
 }
-
-exec compton --config ~/.compton.conf -b
-exec spotify
-exec numlockx on
-exec setxkbmap fr bepo
-exec chromium
-exec ssh-add < /dev/null
-for_window [class="(?i)spotify"] move container to workspace 12

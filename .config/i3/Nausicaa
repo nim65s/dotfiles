@@ -1,0 +1,26 @@
+workspace 1 output DP-2
+workspace 2 output DP-0
+workspace 3 output DP-0
+workspace 4 output DP-0
+workspace 5 output DP-2
+workspace 6 output DP-2
+workspace 7 output DP-0
+workspace 8 output DP-0
+workspace 9 output DP-2
+workspace 10 output DP-4
+workspace 11 output DP-4
+workspace 12 output DP-4
+
+assign [class="(?i)chromium"] 1
+assign [class="(?i)firefox"] 6
+assign [class="(?i)thunderbird"] 5
+assign [class="(?i)sylpheed"] 5
+assign [class="(?i)claws-mail"] 5
+assign [class="(?i)pavucontrol"] 10
+assign [title="(?i)Figure 1"] 6
+for_window [title="(?i)float"] floating enable
+for_window [title="(?i)DédéNimeur"] floating enable
+
+exec snapclient -d -h calcifer
+exec compton --config ~/.compton.conf -b
+exec chromium
