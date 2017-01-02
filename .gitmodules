@@ -48,6 +48,3 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = git@github.com:fatih/vim-go.git
