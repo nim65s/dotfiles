@@ -37,7 +37,7 @@ disk "/home" {
 }
 
 disk "/var" {
-        format = "~ %percentage_used"
+        format = "var %percentage_used"
 }
 
 battery 0 {
