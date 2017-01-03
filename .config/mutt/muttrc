@@ -11,6 +11,8 @@ set attach_keyword = "\\<attach(|ed|ments|é|és|e|ons?)|join(|te|ts|tes|s?)\\>"
 set nm_default_uri = "notmuch:///home/nim/.mails
 virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
 auto_view text/html
+alternative_order text/plain text/html
+set edit_headers = yes
 
 set crypt_use_gpgme = yes
 set crypt_autosign = yes
@@ -42,6 +44,7 @@ bind index,pager n next-new-then-unread
 bind index,pager p previous-new-then-unread
 macro index,pager N '<sidebar-next-new><sidebar-open>'
 macro index,pager P '<sidebar-prev-new><sidebar-open>'
+bind pager R group-reply
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
