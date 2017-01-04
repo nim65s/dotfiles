@@ -11,14 +11,6 @@ workspace 10 output DP-2
 workspace 11 output DP-1
 workspace 12 output DP-1
 
-bindsym XF86AudioPlayPause exec "$HOME/scripts/spotify.py playpause"
-# Workaround headset, which only Plays…
-bindsym XF86AudioPlay      exec "$HOME/scripts/spotify.py playpause"
-bindsym XF86AudioPause     exec "$HOME/scripts/spotify.py pause"
-bindsym XF86AudioPrev      exec "$HOME/scripts/spotify.py previous"
-bindsym XF86AudioNext      exec "$HOME/scripts/spotify.py next"
-
-
 assign [class="(?i)spotify"] 1
 assign [class="(?i)firefox"] 2
 assign [class="(?i)thunderbird"] 5
@@ -36,7 +28,6 @@ for_window [title="(?i)Nim"] floating enable
 for_window [title="(?i)Passive Dynamic Walker simulator"] floating enable
 for_window [title="(?i)Optimized Passive Dynamic Walker Player"] floating enable
 for_window [title="(?i)Gepetto Viewer Server Manager"] floating enable
-
 
 exec ./.screenlayout/iwaki.sh
 exec firefox

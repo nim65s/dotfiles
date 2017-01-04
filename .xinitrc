@@ -35,7 +35,6 @@ case $1 in
         exec ssh-agent xmonad > .X.log 2> .X.err ;;
     *)
         # thanks obama -_- https://github.com/i3/i3/issues/2599
-        rm ~/.config/i3/config
-        cat ~/.config/i3/top $([[ -f ~/.config/i3/$(hostname) ]] && echo ~/.config/i3/$(hostname)) ~/.config/i3/bot >> ~/.config/i3/config
+        cat ~/.config/i3/top $([[ -f ~/.config/i3/$(hostname) ]] && echo ~/.config/i3/$(hostname)) ~/.config/i3/bot > ~/.config/i3/config
         exec i3 > ~/.xlog 2> ~/.xerr;;
 esac
