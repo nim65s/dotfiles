@@ -22,5 +22,5 @@ for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
 
 exec snapclient -d -h calcifer.suginami
-exec compton --config ~/.compton.conf -b
+exec compton -b
 exec chromium

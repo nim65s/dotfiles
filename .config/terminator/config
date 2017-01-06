@@ -53,4 +53,5 @@
     scrollbar_position = hidden
     urgent_bell = True
     use_system_font = False
+    cursor_color = "#dcdccc"
 [plugins]
