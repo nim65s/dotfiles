@@ -1,4 +1,3 @@
 exec nitrogen --restore
 exec numlockx on
 exec setxkbmap fr bepo
-exec ssh-add < /dev/null

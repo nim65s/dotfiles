@@ -28,11 +28,11 @@ case $1 in
     gnome) exec ck-launch-session gnome-session ;;
     awesome)
         export WM=awesome
-        exec ssh-agent awesome > .X.log 2> .X.err ;;
+        exec awesome > .X.log 2> .X.err ;;
     xmonad)
         trayer --edge noe --align center --SetDockType true --SetPartialStrut true --expand true --width 4 --transparent true --tint 0x191970 --height 15 &
         xcompmgr &
-        exec ssh-agent xmonad > .X.log 2> .X.err ;;
+        exec xmonad > .X.log 2> .X.err ;;
     *)
         # thanks obama -_- https://github.com/i3/i3/issues/2599
         cat ~/.config/i3/top $([[ -f ~/.config/i3/$(hostname) ]] && echo ~/.config/i3/$(hostname)) ~/.config/i3/bot > ~/.config/i3/config
