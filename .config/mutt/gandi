@@ -1,8 +1,6 @@
-set mbox_type=Maildir
-set folder=~/.mails/gandi
-set spoolfile=+INBOX
-set record=+Sent
-set postponed=+Drafts
+set spoolfile=+gandi/INBOX
+set record=+gandi/Sent
+set postponed=+gandi/Drafts
 set from="guilhem@saurel.me"
 set hostname="saurel.me"
 

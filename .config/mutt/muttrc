@@ -4,7 +4,6 @@ set realname="Guilhem Saurel"
 set send_charset="utf-8"
 set mbox_type=Maildir
 set folder=~/.mails
-set spoolfile=+gandi/INBOX
 set sleep_time = 0
 set abort_noattach = ask-yes
 set attach_keyword = "\\<attach(|ed|ments|é|és|e|ons?)|join(|te|ts|tes|s?)\\>"
@@ -13,6 +12,8 @@ virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
 auto_view text/html
 alternative_order text/plain text/html
 set edit_headers = yes
+set date_format = "%A %F %R"
+set attribution = "Mail de %n du %d:"
 
 set crypt_use_gpgme = yes
 set crypt_autosign = yes
@@ -56,6 +57,7 @@ bind index,pager B sidebar-toggle-visible
 bind index,pager X change-vfolder
 bind attach e edit-type
 bind attach <Space> view-attach
+bind attach a save-entry
 # next flagged
 macro index S <search>~F\r
 bind index * search-next
@@ -67,8 +69,8 @@ set mailcap_path = ~/.config/mutt/cap
 mime_lookup application/force-download
 mime_lookup application/x-download
 
-folder-hook gandi set from="guilhem@saurel.me"
-folder-hook laas set from="gsaurel@laas.fr"
-
+source "~/.config/mutt/gandi"
+folder-hook gandi source "~/.config/mutt/gandi"
+folder-hook laas source "~/.config/mutt/laas"
 
 # vim: set syntax=muttrc:
