@@ -3,5 +3,6 @@ set record=+laas/Sent
 set postponed=+laas/Drafts
 set from="gsaurel@laas.fr"
 set hostname="laas.fr"
+my_hdr Bcc: gsaurel@laas.fr
 
 # vim: set syntax=muttrc:

@@ -167,3 +167,6 @@ bar {
     tray_output primary
     font pango:Source Code Pro 8
 }
+
+
+for_window [class="(?i)qemu-pebble"] floating enable

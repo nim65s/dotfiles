@@ -3,5 +3,6 @@ set record=+gandi/Sent
 set postponed=+gandi/Drafts
 set from="guilhem@saurel.me"
 set hostname="saurel.me"
+my_hdr Bcc: guilhem@saurel.me
 
 # vim: set syntax=muttrc:
