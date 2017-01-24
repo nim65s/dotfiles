@@ -55,4 +55,4 @@ longdatetimeformat = %c
 [default]
 default_calendar = Fusion
 print_new = event
-default_command = agenda
+default_command = list
