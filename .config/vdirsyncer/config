@@ -137,3 +137,19 @@ type = "carddav"
 url = "https://cloud.saurel.me/remote.php/carddav/addressbooks/adnim/contacts"
 username = "adnim"
 password.fetch = ["command", "pass", "web/cloud"]
+
+[pair googlaas]
+a = "googlaas_local"
+b = "googlaas_remote"
+collections = null
+
+[storage googlaas_local]
+type = "filesystem"
+path = "~/.calendars/ro/googlaas"
+fileext = ".ics"
+
+[storage googlaas_remote]
+type = "http"
+url = "https://calendar.google.com/calendar/ical/gsaurel%40laas.fr/public/basic.ics"
+
+

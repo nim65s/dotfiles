@@ -30,6 +30,10 @@ path = ~/.calendars/ro/werome
 color = dark cyan
 readonly = True
 
+[[GoogLAAS]]
+path = ~/.calendars/ro/googlaas
+readonly = True
+
 [[n7]]
 path = ~/.calendars/ro/n7
 color = light magenta
