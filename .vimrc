@@ -60,6 +60,10 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
+  " mails
+  autocmd FileType mail setlocal fo-=l
+  autocmd FileType mail setlocal spell
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -147,7 +151,7 @@ endfunction
 
 noremap <F9> :call ToggleSpell()<cr>
 
-:setlocal spelllang=fr,en
+set spelllang=fr,en
 
 "set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,fp,j^,z$,aq,us,id,ef,\,g,ch,tj,sk,nl,rm,mù,^*,ê<,àw,hx,yc,.v,kb,'n,q\,,g;;,x:,w!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,J¨,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,NL,RM,M%,!*,Ê>,ÀW,HX,YC,:V,KB,\\;N,QG,G.,X/,W§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,[[,]|,±`,¬\,×^,÷@,¯],%}
 
@@ -263,7 +267,7 @@ autocmd FileType python setlocal completeopt-=preview
 "vim-airline
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
- let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 set laststatus=2
 set ttimeoutlen=50
