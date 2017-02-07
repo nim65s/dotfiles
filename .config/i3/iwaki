@@ -21,6 +21,7 @@ assign [title="(?i)Nim"] 6
 assign [title="(?i)Passive Dynamic Walker simulator"] 6
 assign [title="(?i)Optimized Passive Dynamic Walker Player"] 6
 assign [title="(?i)Gepetto Viewer Server Manager"] 6
+assign [title="(?i)Figure 1"] 6
 assign [class="(?i)gepetto-gui"] 6
 assign [class="(?i)pavucontrol"] 10
 for_window [title="(?i)float"] floating enable
