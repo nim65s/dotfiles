@@ -226,4 +226,8 @@ eval (python -m virtualfish auto_activation global_requirements projects)
 __fish_complete_django django-admin.py
 __fish_complete_django manage.py
 
+if test -f ~/.config/fish/(hostname).fish
+    . ~/.config/fish/(hostname).fish
+end
+
 # vim: set filetype=fish:
