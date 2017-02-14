@@ -62,6 +62,9 @@ bind attach a save-entry
 macro index S <search>~F\r
 bind index * search-next
 
+macro index,pager J "<Save-message>=gandi/Junk.Spam<enter><enter>" "move message to Spam"
+macro index,pager H "<Copy-message>=gandi/Junk.Ham<enter><enter>" "Copy message to Ham"
+
 source "~/.config/mutt/boxes"
 source "~/.config/mutt/colors-zenburn"
 
