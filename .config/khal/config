@@ -49,6 +49,11 @@ path = ~/.calendars/ro/vacances
 color = light red
 readonly = True
 
+[[Meetup]]
+path = ~/.calendars/ro/meetup
+readonly = True
+color = brown
+
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m
