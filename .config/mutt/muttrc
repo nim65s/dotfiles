@@ -33,12 +33,16 @@ set sidebar_indent_string = ' '
 set mail_check_stats
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?"
 set sidebar_divider_char = '│'
-set sort="threads"
+set sort = threads
+set sort_aux = last-date-received
+set pager_index_lines = 6
 
 bind pager t next-line
 bind pager s previous-line
 bind index t next-undeleted
 bind index s previous-undeleted
+bind index,pager T next-undeleted
+bind index,pager S previous-undeleted
 bind attach,browser t next-entry
 bind attach,browser s previous-entry
 bind index,pager n next-new-then-unread
