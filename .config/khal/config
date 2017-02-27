@@ -16,6 +16,10 @@ color = dark red
 path = ~/.calendars/laas/Gepetto
 color = yellow
 
+[[escalaas]]
+path = ~/.calendars/laas/escalaas
+color = dark blue
+
 [[CTF]]
 path = ~/.calendars/ctf/thc/
 color = white

@@ -14,14 +14,14 @@ fileext = ".ics"
 
 [storage saurel_remote]
 type = "caldav"
-url = "https://cloud.saurel.me/remote.php/caldav/calendars/adnim/personnel"
+url = "https://cloud.saurel.me/remote.php/caldav/calendars/adnim/"
 username = "adnim"
 password.fetch = ["command", "pass", "web/cloud"]
 
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
-collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"]]
+collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"], ["escalaas", "escalaas", "escalaas"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
@@ -31,7 +31,7 @@ fileext = ".ics"
 
 [storage laas_remote]
 type = "caldav"
-url = "https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/personnel"
+url = "https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/"
 username = "gsaurel"
 password.fetch = ["command", "pass", "laas/main"]
 
