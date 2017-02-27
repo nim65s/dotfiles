@@ -40,9 +40,11 @@ static_dest/*
 media/*
 .nfs*
 dist/*
+dst/*
 *.egg-info/*
 htmlcov
 .coverage
 db.sqlite3
 tags
 build/*
+node_modules/

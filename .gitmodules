@@ -51,3 +51,6 @@
 [submodule "imapfilter"]
 	path = .imapfilter
 	url = git@github.com:nim65s/imapfilter.git
+[submodule ".vim/bundle/vim-jsx"]
+	path = .vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
