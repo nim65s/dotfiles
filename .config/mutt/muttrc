@@ -35,7 +35,7 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?"
 set sidebar_divider_char = '│'
 set sort = threads
 set sort_aux = last-date-received
-set pager_index_lines = 6
+set pager_index_lines = 10
 
 bind pager t next-line
 bind pager s previous-line

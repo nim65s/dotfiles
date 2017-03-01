@@ -300,3 +300,6 @@ command WQ x
 
 " mutt
 au BufRead /tmp/mutt-* set tw=72
+au BufRead /tmp/mutt-* set shiftwidth=2
+au BufRead /tmp/mutt-* set tabstop=2
+au BufRead /tmp/mutt-* set noexpandtab
