@@ -101,3 +101,6 @@ alias fu='ponysay -q'
 
 # B00
 alias boo='xrandr --output HDMI1 --mode 1920x1080i -r 50 --above eDP1'
+
+# Bogofilter
+alias bogup='rm -rf ~/.bogofilter; bogofilter -s -B ~/.mails/gandi/Junk.Spam;  bogofilter -n -B ~/.mails/gandi/Junk.Ham'
