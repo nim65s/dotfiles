@@ -98,3 +98,6 @@ alias eth='sudo dhcpcd eth0'
 
 # quand y’en a marre
 alias fu='ponysay -q'
+
+# B00
+alias boo='xrandr --output HDMI1 --mode 1920x1080i -r 50 --above eDP1'
