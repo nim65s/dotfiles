@@ -23,6 +23,7 @@ set crypt_replysignencrypted = yes
 set crypt_replyencrypt = yes
 set pgp_encrypt_self = yes
 set pgp_sign_as = 9B1A79065D2F2B806C8A5A1C7D2ACDAF4653CF28
+bind index,pager k extract-keys
 
 set sidebar_visible = yes
 set sidebar_sort_method = 'flagged'
