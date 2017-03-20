@@ -176,6 +176,17 @@ function gepetto_commit
     and git checkout -- .
 end
 
+function ii
+    while true
+        pass test
+        and imapfilter
+        and offlineimap
+        and vdirsyncer sync
+        and rsync -avP --delete .calendars root@jiro.saurel.me:
+        sleep 300
+    end
+end
+
 . ~/dotfiles/portable-aliases.sh
 . ~/dotfiles/.config/fish/completions
 
