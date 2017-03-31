@@ -183,6 +183,8 @@ function ii
         and offlineimap
         and vdirsyncer sync
         and rsync -avP --delete .calendars root@jiro.saurel.me:
+        and echo end
+        or echo fail
         sleep 300
     end
 end
