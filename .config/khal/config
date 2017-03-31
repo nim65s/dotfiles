@@ -61,9 +61,7 @@ color = brown
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m
-longdateformat = %A %-e %B %Y
 datetimeformat = %d/%m %H:%M
-longdatetimeformat = %c
 
 [default]
 default_calendar = Fusion
