@@ -13,6 +13,7 @@ alias vd='vimdiff'
 alias rm='rm -Iv'
 alias mplayer='mplayer -fs'
 alias treel='tree -aphugDC'
+alias watch='watch --color'
 
 # Fautes de frappes courantes
 alias dc='cd'
