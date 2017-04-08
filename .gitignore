@@ -23,3 +23,4 @@ xmonad-x86_64-linux
 .vim/spell/*.add*
 .vim/tags/*
 .ipython/profile_default/db/
+.config/mutt/boxes

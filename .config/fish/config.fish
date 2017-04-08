@@ -177,13 +177,14 @@ function gepetto_commit
 end
 
 function ii
+    cd
     while true
         pass test
         and imapfilter
         and offlineimap
         and vdirsyncer sync
         and rsync -avP --delete .calendars root@jiro.saurel.me:
-        and echo end
+        and echo fini
         or echo fail
         sleep 300
     end
