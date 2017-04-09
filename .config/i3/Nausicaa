@@ -21,6 +21,6 @@ assign [title="(?i)Figure 1"] 6
 for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
 
-exec snapclient
+exec snapclient -h totoro.suginami
 exec compton -b
 exec chromium

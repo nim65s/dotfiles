@@ -19,9 +19,6 @@ wmname LG3D
 sleep 2
 [[ -f dotfiles/.xinitrc.local.$(hostname) ]] && source ./dotfiles/.xinitrc.local.$(hostname)
 
-export TERMINAL=terminator
-export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
-
 case $1 in
     kde) exec startkde ;;
     e17) exec enlightenment_start ;;
