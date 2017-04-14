@@ -47,4 +47,5 @@ htmlcov
 db.sqlite3
 tags
 build/*
+build-rel/*
 node_modules/
