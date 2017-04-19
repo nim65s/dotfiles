@@ -79,7 +79,7 @@ alias wi='sudo wifi-menu'
 alias demonte='~/scripts/demonter.sh'
 alias generateTexMakefile='~/scripts/generateTexMakefile.sh'
 alias monte='~/scripts/monter.sh'
-alias gitup='~/scripts/gitup.sh'
+alias gitup='~/scripts/gitup.py'
 alias optimg='~/scripts/optimg.sh'
 alias max_brightness='sudo ~/scripts/max_brightness.sh'
 
