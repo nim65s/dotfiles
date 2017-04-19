@@ -22,3 +22,9 @@
     ignore = E128,E123,E126
 [alias]
     lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+[color]
+    ui = always
+    branch = always
+    diff = always
+    interactive = always
+    status = always
