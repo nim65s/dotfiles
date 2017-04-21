@@ -190,6 +190,15 @@ function ii
     end
 end
 
+function srihash
+    switch $argv
+        case '*://*'
+            curl -s $argv | openssl dgst -sha384 -binary | openssl base64 -A
+        case '*'
+            openssl dgst -sha384 -binary $argv | openssl base64 -A
+    end
+end
+
 . ~/dotfiles/portable-aliases.sh
 . ~/dotfiles/.config/fish/completions
 
