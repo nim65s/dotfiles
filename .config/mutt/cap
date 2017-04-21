@@ -1,5 +1,6 @@
-application/pdf          ; /usr/bin/zathura %s                             ; copiousoutput;
-text/html                ; elinks -dump                                    ; copiousoutput;
-image/*                  ; /usr/bin/feh %s                                 ; copiousoutput;
-audio/*                  ; /usr/bin/mplayer %s                             ; copiousoutput;
-video/*                  ; /usr/bin/mplayer %s                             ; copiousoutput;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document    ; /usr/bin/loffice %s ; copiousoutput;
+application/pdf                                                            ; /usr/bin/zathura %s ; copiousoutput;
+text/html                                                                  ; elinks -dump        ; copiousoutput;
+image/*                                                                    ; /usr/bin/feh %s     ; copiousoutput;
+audio/*                                                                    ; /usr/bin/mplayer %s ; copiousoutput;
+video/*                                                                    ; /usr/bin/mplayer %s ; copiousoutput;
