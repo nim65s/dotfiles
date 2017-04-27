@@ -17,6 +17,7 @@ order += "disk /var"
 order += "wireless wlp2s0"
 order += "battery 0"
 order += "tztime fr"
+order += "tztime ca"
 
 wireless wlp2s0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
@@ -25,6 +26,11 @@ wireless wlp2s0 {
 
 tztime fr {
         timezone = "Europe/Paris"
+        format = "%H:%M:%S"
+}
+
+tztime ca {
+        timezone = "Canada/Eastern"
         format = "%H:%M:%S %d/%m/%Y"
 }
 
