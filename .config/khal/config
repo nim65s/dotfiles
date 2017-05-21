@@ -48,6 +48,11 @@ path = ~/.calendars/ro/toulibre
 color = light cyan
 readonly = True
 
+[[holiday]]
+path = ~/.calendars/ro/holiday
+color = light red
+readonly = True
+
 [[vacances]]
 path = ~/.calendars/ro/vacances
 color = light red
