@@ -1,11 +1,11 @@
 [calendars]
 
 [[Perso]]
-path = ~/.calendars/saurel/Perso
+path = ~/.calendars/ananas/Perso
 color = light blue
 
 [[Fusion]]
-path = ~/.calendars/saurel/Fusion
+path = ~/.calendars/ananas/Fusion
 color = light green
 
 [[LAAS]]
