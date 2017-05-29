@@ -283,6 +283,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 "*.md: markdown and not modula2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown setlocal fo-=l
 
 " c++ completion
 autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
