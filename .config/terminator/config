@@ -48,7 +48,7 @@
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#dcdccc"
-    font = source code pro 12
+    font = source code pro 10
     foreground_color = "#dcdccc"
     scrollback_infinite = True
     scrollbar_position = hidden
