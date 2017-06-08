@@ -40,10 +40,10 @@ bindsym $mod+Shift+Right move workspace to output right
 bindsym $mod+Escape workspace back_and_forth
 
 # split in horizontal orientation
-bindsym $mod+c split h
+bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+period split v
+bindsym $mod+shift+h split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+e fullscreen
