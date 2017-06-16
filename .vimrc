@@ -260,10 +260,6 @@ set list
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
-"jedi-vim
-autocmd FileType python setlocal completeopt-=preview
-
-
 "vim-airline
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
@@ -306,14 +302,14 @@ au BufRead /tmp/mutt-* set noexpandtab
 call plug#begin()
 Plug 'aliva/vim-fish', {'for': 'fish'}
 Plug 'bling/vim-airline'
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fisadev/vim-isort', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'mhinz/vim-signify'
-Plug 'mxw/vim-jsx', {'for': 'jsx'}
+Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline-themes'
