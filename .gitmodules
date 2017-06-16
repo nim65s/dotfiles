@@ -1,56 +1,9 @@
-[submodule "vim-fish"]
-	path = vim-fish
-	url = git@github.com:aliva/vim-fish.git
-	branch = master
-[submodule "vim-ipython"]
-	path = vim-ipython
-	url = git@github.com:ivanov/vim-ipython.git
-	branch = master
-[submodule "vim-pathogen"]
-	path = vim-pathogen
-	url = git@github.com:tpope/vim-pathogen.git
-	branch = master
-[submodule "jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = git@github.com:davidhalter/jedi-vim.git
-	branch = master
-[submodule "vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
-	branch = master
-[submodule "vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = git@github.com:bling/vim-airline.git
-	branch = master
-[submodule "vim-signify"]
-	path = .vim/bundle/vim-signify
-	url = git@github.com:mhinz/vim-signify.git
-	branch = master
-[submodule ".vim/bundle/vim-flake8"]
-	path = .vim/bundle/vim-flake8
-	url = git@github.com:nvie/vim-flake8.git
-	branch = master
 [submodule "Zenburn"]
 	path = Zenburn
 	url = git@github.com:jnurmine/Zenburn.git
-[submodule ".vim/bundle/editorconfig-vim"]
-	path = .vim/bundle/editorconfig-vim
-	url = git@github.com:editorconfig/editorconfig-vim.git
-[submodule ".vim/bundle/vim-python-pep8-indent"]
-	path = .vim/bundle/vim-python-pep8-indent
-	url = git@github.com:hynek/vim-python-pep8-indent.git
-[submodule ".vim/bundle/vim-isort"]
-	path = .vim/bundle/vim-isort
-	url = git@github.com:fisadev/vim-isort.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = git@github.com:vim-airline/vim-airline-themes.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = git@github.com:scrooloose/nerdcommenter.git
 [submodule "imapfilter"]
 	path = .imapfilter
 	url = git@github.com:nim65s/imapfilter.git
-[submodule ".vim/bundle/vim-jsx"]
-	path = .vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
+[submodule "vim-plug"]
+	path = vim-plug
+	url = https://github.com/junegunn/vim-plug.git

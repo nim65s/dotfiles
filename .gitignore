@@ -24,3 +24,4 @@ xmonad-x86_64-linux
 .vim/tags/*
 .ipython/profile_default/db/
 .config/mutt/boxes
+.vim/plugged

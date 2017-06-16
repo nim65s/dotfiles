@@ -273,9 +273,6 @@ set laststatus=2
 set ttimeoutlen=50
 set noro
 
-"vim-pathogen
-call pathogen#infect()
-
 "vim-go
 autocmd FileType go setlocal listchars=nbsp:¤,tab:  ,trail:¤,extends:>,precedes:<
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
@@ -304,3 +301,20 @@ au BufRead /tmp/mutt-* set tw=72
 au BufRead /tmp/mutt-* set shiftwidth=2
 au BufRead /tmp/mutt-* set tabstop=2
 au BufRead /tmp/mutt-* set noexpandtab
+
+" vim-plug
+call plug#begin()
+Plug 'aliva/vim-fish', {'for': 'fish'}
+Plug 'bling/vim-airline'
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fisadev/vim-isort', {'for': 'python'}
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'mhinz/vim-signify'
+Plug 'mxw/vim-jsx', {'for': 'jsx'}
+Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
