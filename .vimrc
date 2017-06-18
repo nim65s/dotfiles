@@ -298,11 +298,14 @@ au BufRead /tmp/mutt-* set shiftwidth=2
 au BufRead /tmp/mutt-* set tabstop=2
 au BufRead /tmp/mutt-* set noexpandtab
 
+" Grammalecte-fr
+let g:grammalecte_cli_py='/usr/share/grammalecte-fr/cli.py'
+
 " vim-plug
 call plug#begin()
 Plug 'aliva/vim-fish', {'for': 'fish'}
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'dpelle/vim-Grammalecte'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fisadev/vim-isort', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
@@ -312,5 +315,6 @@ Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'scrooloose/nerdcommenter', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
