@@ -312,7 +312,7 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'mhinz/vim-signify'
 Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
-Plug 'scrooloose/nerdcommenter', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
