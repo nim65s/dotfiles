@@ -179,3 +179,17 @@ fileext = ".ics"
 [storage googlaas_remote]
 type = "http"
 url = "https://calendar.google.com/calendar/ical/gsaurel%40laas.fr/public/basic.ics"
+
+[pair fb]
+a = "fb_local"
+b = "fb_remote"
+collections = null
+
+[storage fb_local]
+type = "filesystem"
+path = "~/.calendars/ro/fb"
+fileext = ".ics"
+
+[storage fb_remote]
+type = "http"
+url = "https://www.facebook.com/ical/u.php?uid=664926601&key=AQB3hnvr5WHeT2q1"

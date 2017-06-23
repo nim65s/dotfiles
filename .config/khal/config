@@ -63,6 +63,11 @@ path = ~/.calendars/ro/meetup
 readonly = True
 color = brown
 
+[[Facebook]]
+path = ~/.calendars/ro/fb
+readonly = True
+color = '#3B5998'
+
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m
