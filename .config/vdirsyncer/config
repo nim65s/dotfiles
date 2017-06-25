@@ -4,12 +4,12 @@ status_path = "~/.config/vdirsyncer/status/"
 [pair ananas]
 a = "ananas_local"
 b = "ananas_remote"
-collections = ["Perso", "Fusion"]
+collections = ["from b"]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage ananas_local]
 type = "filesystem"
-path = "~/.calendars/ananas/"
+path = "~/.vdir/calendars/ananas/"
 fileext = ".ics"
 
 [storage ananas_remote]
@@ -26,7 +26,7 @@ conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
 type = "filesystem"
-path = "~/.calendars/laas/"
+path = "~/.vdir/calendars/laas/"
 fileext = ".ics"
 
 [storage laas_remote]
@@ -43,7 +43,7 @@ conflict_resolution = ["command", "vimdiff"]
 
 [storage ctf_local]
 type = "filesystem"
-path = "~/.calendars/ctf/"
+path = "~/.vdir/calendars/ctf/"
 fileext = ".ics"
 
 [storage ctf_remote]
@@ -59,7 +59,7 @@ collections = null
 
 [storage cinenim_local]
 type = "filesystem"
-path = "~/.calendars/ro/cinenim"
+path = "~/.vdir/calendars/ro/cinenim"
 fileext = ".ics"
 
 [storage cinenim_remote]
@@ -73,7 +73,7 @@ collections = null
 
 [storage meetup_local]
 type = "filesystem"
-path = "~/.calendars/ro/meetup"
+path = "~/.vdir/calendars/ro/meetup"
 fileext = ".ics"
 
 [storage meetup_remote]
@@ -87,7 +87,7 @@ collections = null
 
 [storage werome_local]
 type = "filesystem"
-path = "~/.calendars/ro/werome"
+path = "~/.vdir/calendars/ro/werome"
 fileext = ".ics"
 
 [storage werome_remote]
@@ -101,7 +101,7 @@ collections = null
 
 [storage n7_local]
 type = "filesystem"
-path = "~/.calendars/ro/n7"
+path = "~/.vdir/calendars/ro/n7"
 fileext = ".ics"
 
 [storage n7_remote]
@@ -115,7 +115,7 @@ collections = null
 
 [storage toulibre_local]
 type = "filesystem"
-path = "~/.calendars/ro/toulibre"
+path = "~/.vdir/calendars/ro/toulibre"
 fileext = ".ics"
 
 [storage toulibre_remote]
@@ -129,7 +129,7 @@ collections = null
 
 [storage holiday_local]
 type = "filesystem"
-path = "~/.calendars/ro/holiday"
+path = "~/.vdir/calendars/ro/holiday"
 fileext = ".ics"
 
 [storage holiday_remote]
@@ -143,7 +143,7 @@ collections = null
 
 [storage vacances_local]
 type = "filesystem"
-path = "~/.calendars/ro/vacances"
+path = "~/.vdir/calendars/ro/vacances"
 fileext = ".ics"
 
 [storage vacances_remote]
@@ -157,8 +157,10 @@ collections = ["from b"]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage contacts_local]
-type = "singlefile"
-path = "~/.contacts/%s.vcf"
+type = "filesystem"
+path = "~/.vdir/contacts"
+fileext = ".vcf"
+encoding = "utf-8"
 
 [storage contacts_remote]
 type = "carddav"
@@ -173,7 +175,7 @@ collections = null
 
 [storage googlaas_local]
 type = "filesystem"
-path = "~/.calendars/ro/googlaas"
+path = "~/.vdir/calendars/ro/googlaas"
 fileext = ".ics"
 
 [storage googlaas_remote]
@@ -187,7 +189,7 @@ collections = null
 
 [storage fb_local]
 type = "filesystem"
-path = "~/.calendars/ro/fb"
+path = "~/.vdir/calendars/ro/fb"
 fileext = ".ics"
 
 [storage fb_remote]

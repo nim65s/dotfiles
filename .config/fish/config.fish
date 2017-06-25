@@ -183,7 +183,7 @@ function ii
         and imapfilter
         and offlineimap
         and vdirsyncer sync
-        and rsync -avP --delete .calendars root@jiro.saurel.me:
+        and rsync -avP --delete .vdir root@jiro.saurel.me:
         and echo fini
         or echo fail
         sleep 300

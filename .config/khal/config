@@ -1,70 +1,70 @@
 [calendars]
 
 [[Perso]]
-path = ~/.calendars/ananas/Perso
+path = ~/.vdir/calendars/ananas/Perso
 color = light blue
 
 [[Fusion]]
-path = ~/.calendars/ananas/Fusion
+path = ~/.vdir/calendars/ananas/Fusion
 color = light green
 
 [[LAAS]]
-path = ~/.calendars/laas/LAAS
+path = ~/.vdir/calendars/laas/LAAS
 color = dark red
 
 [[Gepetto]]
-path = ~/.calendars/laas/Gepetto
+path = ~/.vdir/calendars/laas/Gepetto
 color = yellow
 
 [[escalaas]]
-path = ~/.calendars/laas/escalaas
+path = ~/.vdir/calendars/laas/escalaas
 color = dark blue
 
 [[CTF]]
-path = ~/.calendars/ctf/thc/
+path = ~/.vdir/calendars/ctf/thc/
 color = white
 
 [[CinéNim]]
-path = ~/.calendars/ro/cinenim
+path = ~/.vdir/calendars/ro/cinenim
 color = brown
 readonly = True
 
 [[We-Rome]]
-path = ~/.calendars/ro/werome
+path = ~/.vdir/calendars/ro/werome
 color = dark cyan
 readonly = True
 
 [[GoogLAAS]]
-path = ~/.calendars/ro/googlaas
+path = ~/.vdir/calendars/ro/googlaas
 readonly = True
 
 [[n7]]
-path = ~/.calendars/ro/n7
+path = ~/.vdir/calendars/ro/n7
 color = light magenta
 readonly = True
 
 [[Toulibre]]
-path = ~/.calendars/ro/toulibre
+path = ~/.vdir/calendars/ro/toulibre
 color = light cyan
 readonly = True
 
 [[holiday]]
-path = ~/.calendars/ro/holiday
+path = ~/.vdir/calendars/ro/holiday
 color = light red
 readonly = True
 
 [[vacances]]
-path = ~/.calendars/ro/vacances
+path = ~/.vdir/calendars/ro/vacances
 color = light red
 readonly = True
 
 [[Meetup]]
-path = ~/.calendars/ro/meetup
+path = ~/.vdir/calendars/ro/meetup
 readonly = True
 color = brown
 
 [[Facebook]]
-path = ~/.calendars/ro/fb
+path = ~/.vdir/calendars/ro/fb
 readonly = True
 color = '#3B5998'
 
