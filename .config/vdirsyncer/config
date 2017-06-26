@@ -31,7 +31,7 @@ fileext = ".ics"
 
 [storage laas_remote]
 type = "caldav"
-url = "https://cloud.laas.fr/remote.php/caldav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/"
+url = "https://cloud.laas.fr/remote.php/caldav/calendars/gsaurel/"
 username = "gsaurel"
 password.fetch = ["command", "pass", "laas/main"]
 
