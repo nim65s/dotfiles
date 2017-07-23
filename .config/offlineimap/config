@@ -10,10 +10,10 @@ peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
 footer = "\n"
 
-
 [Account gandi]
 localrepository = gandi-local
 remoterepository = gandi-remote
+postsynchook = notmuch new
 
 [Repository gandi-local]
 type = Maildir
@@ -29,6 +29,7 @@ remotepasseval = get_pass("mail/gandi")
 [Account laas]
 localrepository = laas-local
 remoterepository = laas-remote
+postsynchook = notmuch new
 
 [Repository laas-local]
 type = Maildir
