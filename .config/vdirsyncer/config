@@ -78,7 +78,7 @@ fileext = ".ics"
 
 [storage meetup_remote]
 type = "http"
-url = "https://www.meetup.com/fr-FR/events/ical/152438662/d7c896fc9668e100a73f17963286e4958d4cdb1a/going"
+url.fetch = ["command", "pass", "ics/meetup"]
 
 [pair werome]
 a = "werome_local"
@@ -194,4 +194,4 @@ fileext = ".ics"
 
 [storage fb_remote]
 type = "http"
-url = "https://www.facebook.com/ical/u.php?uid=664926601&key=AQB3hnvr5WHeT2q1"
+url.fetch = ["command", "pass", "ics/fb"]
