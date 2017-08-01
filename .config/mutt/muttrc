@@ -73,6 +73,14 @@ bind index,pager M save-message
 macro index,pager J "<Save-message>=gandi/Junk.Spam<enter><enter>" "move message to Spam"
 macro index,pager H "<Copy-message>=gandi/Junk.Ham<enter><enter>" "Copy message to Ham"
 
+# khard
+
+set query_command= "khard email --parsable %s"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
+
+
 source "~/.config/mutt/boxes"
 source "~/.config/mutt/colors-zenburn"
 
