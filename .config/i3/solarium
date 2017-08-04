@@ -1,1 +1,3 @@
 exec nm-applet
+exec compton -b
+exec chromium
