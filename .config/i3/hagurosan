@@ -13,6 +13,7 @@ workspace 12 output DP-1
 
 assign [class="(?i)spotify"] 1
 assign [class="(?i)firefox"] 2
+assign [class="(?i)chromium-browser"] 2
 assign [class="(?i)thunderbird"] 5
 assign [class="(?i)Sylpheed"] 5
 assign [class="(?i)claws-mail"] 5
@@ -29,7 +30,6 @@ for_window [title="(?i)Optimized Passive Dynamic Walker Player"] floating enable
 for_window [title="(?i)Gepetto Viewer Server Manager"] floating enable
 
 exec ./.screenlayout/hagurosan.sh
-exec firefox
-exec thunderbird
+exec chromium-browser
 exec spotify
 exec ssh-add
