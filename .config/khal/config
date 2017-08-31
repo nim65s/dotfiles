@@ -8,6 +8,10 @@ color = light blue
 path = ~/.vdir/calendars/ananas/Fusion
 color = light green
 
+[[Anniversaires]]
+path = ~/.vdir/calendars/ananas/anniversaires_shared_by_doudou
+color = black
+
 [[LAAS]]
 path = ~/.vdir/calendars/laas/LAAS
 color = dark red
