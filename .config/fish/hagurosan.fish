@@ -9,3 +9,5 @@ function ii
         sleep 300
     end
 end
+
+set -x SSH_AUTH_SOCK /home/gsaurel/.gnupg/S.gpg-agent.ssh
