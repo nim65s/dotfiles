@@ -12,6 +12,7 @@ fi
 
 setxkbmap fr bepo
 hostname | grep -qi ashitaka || numlockx on
+hostname | grep -qi nausicaa && snapclient -h nimopidy > /dev/null &
 wmname LG3D
 
 . /etc/profile
