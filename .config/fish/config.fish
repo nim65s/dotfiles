@@ -220,7 +220,7 @@ set -x JAVA_HOME /opt/java
 set -x PAGER vimpager
 set -x PIP_USE_WHEEL "true"
 set -x TERM xterm-256color
-set -x MPD_HOST "nausicaa"
+set -x MPD_HOST "nimopidy"
 
 set -x GOPATH ~/go
 for p in GOPATH ~/.local ~/.cabal-sandbox
