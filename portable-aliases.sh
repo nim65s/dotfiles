@@ -14,6 +14,7 @@ alias rm='rm -Iv'
 alias mplayer='mplayer -fs'
 alias treel='tree -aphugDC -I .git'
 alias watch='watch --color -d'
+alias mpv='mpv --no-border'
 
 # Fautes de frappes courantes
 alias dc='cd'
