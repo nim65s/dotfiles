@@ -72,6 +72,11 @@ path = ~/.vdir/calendars/ro/fb
 readonly = True
 color = '#3B5998'
 
+[[PyConn]]
+path = ~/.vdir/calendars/ro/pycon
+readonly = True
+color = yellow
+
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m

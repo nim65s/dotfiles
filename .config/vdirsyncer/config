@@ -195,3 +195,17 @@ fileext = ".ics"
 [storage fb_remote]
 type = "http"
 url.fetch = ["command", "pass", "ics/fb"]
+
+[pair pycon]
+a = "pycon_local"
+b = "pycon_remote"
+collections = null
+
+[storage pycon_local]
+type = "filesystem"
+path = "~/.vdir/calendars/ro/pycon"
+fileext = ".ics"
+
+[storage pycon_remote]
+type = "http"
+url = "https://cfp.pycon.fr/schedule/ics/"
