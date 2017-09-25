@@ -1,3 +1,6 @@
+assign [title="pdfpc - presentation"] 6
+for_window [title="pdfpc - presentation"] fullscreen enable
+
 exec nitrogen --restore
 exec numlockx on
 exec setxkbmap fr bepo

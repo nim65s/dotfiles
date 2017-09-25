@@ -12,7 +12,7 @@ workspace 11 output DP-4
 workspace 12 output DP-4
 
 assign [class="(?i)chromium"] 1
-assign [class="(?i)firefox"] 6
+assign [class="(?i)firefox"] 1
 assign [class="(?i)thunderbird"] 5
 assign [class="(?i)sylpheed"] 5
 assign [class="(?i)claws-mail"] 5
@@ -22,4 +22,4 @@ for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
 
 exec compton -b
-exec chromium
+exec firefox-developer

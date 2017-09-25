@@ -1,0 +1,4 @@
+unbind period
+unbind Escape
+bind period overview
+option disable-compression true
