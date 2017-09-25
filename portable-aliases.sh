@@ -16,6 +16,7 @@ alias mplayer='mplayer -fs'
 alias treel='tree -aphugDC -I .git'
 alias watch='watch --color -d'
 alias mpv='mpv --no-border'
+alias pdfpc='pdfpc --persist-cache'
 
 # Fautes de frappes courantes
 alias dc='cd'
