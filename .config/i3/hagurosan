@@ -29,5 +29,5 @@ for_window [title="(?i)Optimized Passive Dynamic Walker Player"] floating enable
 for_window [title="(?i)Gepetto Viewer Server Manager"] floating enable
 
 exec ./.screenlayout/hagurosan.sh
-exec chromium-browser
+exec ./misc/firefox-beta/firefox/firefox
 exec thunderbird
