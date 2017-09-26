@@ -1,4 +1,6 @@
 unbind period
+unbind h
 unbind Escape
 bind period overview
+bind h overview
 option disable-compression true
