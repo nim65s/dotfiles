@@ -49,3 +49,5 @@ tags
 build/*
 build-rel/*
 node_modules/
+*.tar.gz
+*.tar.gz.asc
