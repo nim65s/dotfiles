@@ -172,3 +172,4 @@ bar {
 
 for_window [class="(?i)qemu-pebble"] floating enable
 for_window [title="(?i)Blender Render"] floating enable
+for_window [title="(?i)pinentry"] floating enable
