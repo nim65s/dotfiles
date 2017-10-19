@@ -1,0 +1,9 @@
+[global]
+    follow = keyboard
+    geometry = 0x5-10+10
+    indicate_hidden = yes
+    padding = 10
+    horizontal_padding = 10
+    sort = yes
+    format = "<b>%s</b>\n%b"
+    browser = /usr/bin/firefox-developer -new-tab

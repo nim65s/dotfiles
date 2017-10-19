@@ -182,6 +182,7 @@ function ii
         pass test
         and imapfilter
         and offlineimap
+        and ~/scripts/nmnnn.sh
         and vdirsyncer sync
         and rsync -avP --delete .vdir root@jiro.saurel.me:
         and echo fini
