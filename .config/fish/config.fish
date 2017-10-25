@@ -255,4 +255,8 @@ if test -f ~/.config/fish/(hostname).fish
     . ~/.config/fish/(hostname).fish
 end
 
+if test -f /opt/ros/kinetic/share/rosbash/rosfish
+    . /opt/ros/kinetic/share/rosbash/rosfish
+end
+
 # vim: set filetype=fish:
