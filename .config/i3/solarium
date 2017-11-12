@@ -1,3 +1,7 @@
+assign [class="(?i)chromium"] 1
+assign [class="(?i)firefox"] 1
+assign [class="(?i)pavucontrol"] 10
+
 exec nm-applet
 exec compton -b
-exec chromium
+exec firefox-developer
