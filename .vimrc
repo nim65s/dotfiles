@@ -63,6 +63,7 @@ if has("autocmd")
   " mails
   autocmd FileType mail setlocal fo-=l
   autocmd FileType mail setlocal spell
+  autocmd FileType mail setlocal tw=80
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
