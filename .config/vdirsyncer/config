@@ -21,7 +21,7 @@ password.fetch = ["command", "pass", "web/ananas/cloud"]
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
-collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"], ["escalaas", "escalaas", "escalaas"]]
+collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
