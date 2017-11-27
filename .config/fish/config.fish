@@ -255,10 +255,12 @@ if test -f ~/.config/fish/(hostname).fish
     . ~/.config/fish/(hostname).fish
 end
 
-for ros in indigo kinetic lunar
-    if test -f /opt/ros/$ros/share/rosbash/rosfish
-        . /opt/ros/$ros/share/rosbash/rosfish
-    end
+function ros
+    set -x ROS_DIR /opt/ros/$argv[1]
+    set -x PATH $ROS_DIR/bin $PATH
+    set -x PYTHONPATH $ROS_DIR/lib/python2.7/site-packages $PYTHONPATH
+    set -x LD_LIBRARY_PATH $ROS_DIR/lib $LD_LIBRARY_PATH
+    . $ROS_DIR/share/rosbash/rosfish
 end
 
 # vim: set filetype=fish:
