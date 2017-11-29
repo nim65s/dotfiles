@@ -20,10 +20,6 @@ color = dark red
 path = ~/.vdir/calendars/laas/Gepetto
 color = yellow
 
-[[escalaas]]
-path = ~/.vdir/calendars/laas/escalaas
-color = dark blue
-
 [[CTF]]
 path = ~/.vdir/calendars/ctf/thc/
 color = white
