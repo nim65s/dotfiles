@@ -10,4 +10,11 @@ function ii
     end
 end
 
+function matin
+    killall snapclient
+    khal
+    snapclient -h localhost > /dev/null &
+    ii
+end
+
 set -x SSH_AUTH_SOCK /home/gsaurel/.gnupg/S.gpg-agent.ssh
