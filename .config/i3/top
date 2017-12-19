@@ -102,9 +102,9 @@ bindsym $mod+Shift+o restart
 bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Spotify
-bindsym $mod+d exec "~/scripts/spotify.py playpause"
-bindsym $mod+v exec "~/scripts/spotify.py previous"
-bindsym $mod+l exec "~/scripts/spotify.py next"
+bindsym $mod+d exec "mpc toggle"
+bindsym $mod+v exec "mpc previous"
+bindsym $mod+l exec "mpc next"
 
 bindsym XF86AudioPlayPause exec "~/scripts/spotify.py playpause"
 # Workaround headset, which only Plays…
