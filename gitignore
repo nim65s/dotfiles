@@ -53,3 +53,4 @@ node_modules/
 *.tar.gz.asc
 *.so
 .env
+.python-version

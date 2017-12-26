@@ -227,9 +227,14 @@ set -x EDITOR vim
 set -x BROWSER chromium
 set -x JAVA_HOME /opt/java
 set -x PAGER vimpager
-set -x PIP_USE_WHEEL "true"
+set -x PIP_USE_WHEEL true
 set -x TERM xterm-256color
-set -x MPD_HOST "nimopidy"
+set -x MPD_HOST nimopidy
+set -x PYENV_ROOT $HOME/dotfiles/pyenv
+set -x PATH $PYENV_ROOT/bin $PATH
+
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 set -x GOPATH ~/go
 for p in GOPATH ~/.local ~/.cabal-sandbox
@@ -253,8 +258,6 @@ set __fish_git_prompt_char_stagedstate A
 set __fish_git_prompt_char_invalidstate D
 set __fish_git_prompt_char_dirtystate M
 set __fish_git_prompt_char_untrackedfiles '?'
-
-eval (python -m virtualfish auto_activation global_requirements projects)
 
 __fish_complete_django django-admin.py
 __fish_complete_django manage.py

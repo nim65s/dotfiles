@@ -7,3 +7,9 @@
 [submodule "vim-plug"]
 	path = vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "pyenv"]
+	path = pyenv
+	url = git@github.com:pyenv/pyenv.git
+[submodule "pyenv-virtualenv"]
+	path = pyenv-virtualenv
+	url = git@github.com:pyenv/pyenv-virtualenv.git
