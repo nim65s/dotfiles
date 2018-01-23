@@ -4,7 +4,9 @@ assign [class="(?i)thunderbird"] 5
 assign [class="(?i)sylpheed"] 5
 assign [class="(?i)claws-mail"] 5
 assign [class="(?i)pavucontrol"] 10
-for_window [title="(?i)float"] floating enable
+assign [class="(?i)riot"] 12
+# for_window [title="(?i)float"] floating enable
 
 exec compton -b
 exec firefox-developer
+exec riot-desktop

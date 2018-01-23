@@ -4,3 +4,4 @@ map s navigate previous
 map v zoom in
 map l zoom out
 map q quit
+map n rotate
