@@ -17,9 +17,11 @@ assign [class="(?i)thunderbird"] 5
 assign [class="(?i)sylpheed"] 5
 assign [class="(?i)claws-mail"] 5
 assign [class="(?i)pavucontrol"] 10
+assign [class="(?i)riot"] 12
 assign [title="(?i)Figure 1"] 6
 for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
 
 exec compton -b
 exec firefox-developer
+exec riot-desktop
