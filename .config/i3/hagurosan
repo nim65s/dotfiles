@@ -32,4 +32,4 @@ for_window [title="(?i)Gepetto Viewer Server Manager"] floating enable
 exec ./.screenlayout/hagurosan.sh
 exec firefox
 exec thunderbird
-exec riot-desktop
+exec riot-web

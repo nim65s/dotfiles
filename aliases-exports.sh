@@ -14,7 +14,7 @@ else export VIMRUNTIME=/usr/share/vim/vim72/
 fi
 
 export EDITOR=vim
-export BROWSER=chromium
+export BROWSER=firefox
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
 export PYTHONDOCS=/usr/share/doc/python2/html/
