@@ -1,8 +1,8 @@
 set spoolfile=+laas/INBOX
 set record=+laas/Sent
 set postponed=+laas/Drafts
-set from="gsaurel@laas.fr"
+set from="guilhem.saurel@laas.fr"
 set hostname="laas.fr"
-my_hdr Bcc: gsaurel@laas.fr
+my_hdr Bcc: guilhem.saurel@laas.fr
 
 # vim: set syntax=muttrc:
