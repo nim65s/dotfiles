@@ -20,6 +20,11 @@ color = dark red
 path = ~/.vdir/calendars/laas/Gepetto
 color = yellow
 
+[[RIA]]
+path = ~/.vdir/calendars/laas_rob/RIA
+color = yellow
+readonly = True
+
 [[CTF]]
 path = ~/.vdir/calendars/ctf/thc/
 color = white
