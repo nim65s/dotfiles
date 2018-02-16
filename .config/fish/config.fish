@@ -200,6 +200,13 @@ function srihash
     end
 end
 
+function pypiup
+    pandoc README.md -o README.rst
+    python setup.py sdist bdist_wheel
+    and gpg --detach-sign -a dist/*.tar.gz
+    and twine upload dist/*
+end
+
 # thx http://lewandowski.io/2016/10/fish-env/
 function posix-source -d "loads a POSIX environment file"
     for i in (cat $argv)
