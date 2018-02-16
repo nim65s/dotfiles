@@ -25,3 +25,4 @@ for_window [title="(?i)DédéNimeur"] floating enable
 exec compton -b
 exec firefox-developer
 exec riot-desktop
+exec pavucontrol
