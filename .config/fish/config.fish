@@ -205,7 +205,7 @@ function pypiup
     python setup.py sdist bdist_wheel
     and gpg --detach-sign -a dist/*.tar.gz
     and twine upload dist/*
-    and rm -rf build dist README.rst
+    and rm -rf build dist *egg-info README.rst
 end
 
 # thx http://lewandowski.io/2016/10/fish-env/
