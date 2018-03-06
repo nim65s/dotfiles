@@ -44,7 +44,7 @@ insert_final_newline = ignore
 [{Makefile*,*.bat,*.go}]
 indent_style = tab
 
-[*.yml,*.yaml]
+[*.y{,a}ml]
 indent_size = 2
 
 [*.bib]
