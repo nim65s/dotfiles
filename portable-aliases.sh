@@ -16,6 +16,7 @@ alias treel='tree -aphugDC -I .git'
 alias watch='watch --color -d'
 alias mpv='mpv --no-border'
 alias pdfpc='pdfpc --persist-cache'
+alias kal='khal list today Sunday'
 
 # Fautes de frappes courantes
 alias dc='cd'

@@ -81,7 +81,6 @@ datetimeformat = %d/%m %H:%M
 [default]
 default_calendar = Fusion
 print_new = event
-default_command = list
 
 [view]
 agenda_event_format = {calendar-color}{start-end-time-style} {title}{reset}
