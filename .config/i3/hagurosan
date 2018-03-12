@@ -33,3 +33,4 @@ exec ./.screenlayout/hagurosan.sh
 exec firefox
 exec thunderbird
 exec riot-web
+exec pavucontrol
