@@ -201,11 +201,10 @@ function srihash
 end
 
 function pypiup
-    pandoc README.md -o README.rst
     python setup.py sdist bdist_wheel
     and gpg --detach-sign -a dist/*.tar.gz
     and twine upload dist/*
-    and rm -rf build dist *egg-info README.rst
+    and rm -rf build dist *egg-info
 end
 
 # thx http://lewandowski.io/2016/10/fish-env/
