@@ -24,6 +24,7 @@ assign [title="(?i)Figure 1"] 6
 assign [class="(?i)gepetto-gui"] 6
 assign [class="(?i)pavucontrol"] 10
 assign [class="(?i)riot"] 12
+assign [class="(?i)pidgin"] 12
 for_window [title="(?i)float"] floating enable
 for_window [title="(?i)Passive Dynamic Walker simulator"] floating enable
 for_window [title="(?i)Optimized Passive Dynamic Walker Player"] floating enable
@@ -34,3 +35,4 @@ exec firefox
 exec thunderbird
 exec riot-web
 exec pavucontrol
+exec pidgin
