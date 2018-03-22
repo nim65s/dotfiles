@@ -14,7 +14,6 @@
 *.out
 *.cmake
 *.synctex.gz
-Makefile*
 *.toc
 *~
 *.pyc
