@@ -32,7 +32,7 @@ Thumbs.db
 History
 Project Logs for *
 Project Outputs for *
-*/db.sqlite3
+*.sqlite3
 venv
 .venv
 static_dest/*
@@ -43,7 +43,6 @@ dst/*
 *.egg-info/*
 htmlcov
 .coverage
-db.sqlite3
 tags
 build/*
 build-rel/*
