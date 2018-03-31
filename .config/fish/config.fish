@@ -107,7 +107,7 @@ end
 
 function wol
     for host in $argv
-        wakeonlan -f ~/dotfiles/wol/$host
+        wol -f ~/dotfiles/wol/$host
     end
 end
 
