@@ -52,3 +52,4 @@ node_modules/
 *.so
 .env
 .python-version
+PLIST.guess
