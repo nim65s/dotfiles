@@ -210,9 +210,14 @@ end
 # thx http://lewandowski.io/2016/10/fish-env/
 function posix-source -d "loads a POSIX environment file"
     for i in (cat $argv)
-        set arr (echo $i | tr = \n)
+        set arr (string split -m1 = $i)
         set -gx $arr[1] $arr[2]
     end
+end
+
+function __check_env --on-variable PWD --description 'load .env'
+    test -f .env
+    and posix-source .env
 end
 
 . ~/dotfiles/portable-aliases.sh
