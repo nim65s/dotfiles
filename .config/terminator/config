@@ -21,7 +21,6 @@
   go_right = <Alt><Shift>r
   go_up = <Alt><Shift>s
   group_tab_toggle = <Alt>o
-  hide_window = <Control><Shift><Alt>c
   new_tab = <Alt>d
   next_tab = <Alt>l
   prev_tab = <Alt>v
