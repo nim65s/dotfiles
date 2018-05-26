@@ -4,14 +4,14 @@ alias guignols='f=$(ls -r --file-type --sort=time ~/Guignols/guignol_*|head -n 1
 alias teardrop='tmux has-session -t TearDrop && tmux attach -t TearDrop || tmux new -s TearDrop'
 alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log'
 
-if [[ -d "/usr/share/vim/vim80" ]]
-then export VIMRUNTIME=/usr/share/vim/vim80/
-elif [[ -d "/usr/share/vim/vim74" ]]
-then export VIMRUNTIME=/usr/share/vim/vim74/
-elif [[ -d "/usr/share/vim/vim73" ]]
-then export VIMRUNTIME=/usr/share/vim/vim73/
-else export VIMRUNTIME=/usr/share/vim/vim72/
-fi
+#if [[ -d "/usr/share/vim/vim80" ]]
+#then export VIMRUNTIME=/usr/share/vim/vim80/
+#elif [[ -d "/usr/share/vim/vim74" ]]
+#then export VIMRUNTIME=/usr/share/vim/vim74/
+#elif [[ -d "/usr/share/vim/vim73" ]]
+#then export VIMRUNTIME=/usr/share/vim/vim73/
+#else export VIMRUNTIME=/usr/share/vim/vim72/
+#fi
 
 export EDITOR=vim
 export BROWSER=firefox
