@@ -318,4 +318,5 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline-themes'
+Plug 'leafgarland/typescript-vim'
 call plug#end()

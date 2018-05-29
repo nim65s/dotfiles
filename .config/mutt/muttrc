@@ -14,6 +14,8 @@ alternative_order text/plain text/html
 set edit_headers = yes
 set date_format = "%A %F %R"
 set attribution = "Mail de %n du %d:"
+set mime_forward
+set mime_forward_rest=yes
 
 set crypt_use_gpgme = yes
 set crypt_autosign = yes
