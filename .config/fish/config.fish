@@ -221,7 +221,6 @@ function __check_env --on-variable PWD --description 'load .env'
 end
 
 . ~/dotfiles/portable-aliases.sh
-. ~/dotfiles/.config/fish/completions
 
 # exports
 
