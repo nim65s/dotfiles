@@ -242,11 +242,11 @@ set -x PAGER vimpager
 set -x PIP_USE_WHEEL true
 set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
-set -x PYENV_ROOT $HOME/dotfiles/pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
+#set -x PYENV_ROOT $HOME/dotfiles/pyenv
+#set -x PATH $PYENV_ROOT/bin $PATH
 
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+#status --is-interactive; and source (pyenv init -|psub)
+#status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 set -x GOPATH ~/go
 for p in GOPATH ~/.local ~/.cabal-sandbox
