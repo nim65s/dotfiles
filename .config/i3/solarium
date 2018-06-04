@@ -4,4 +4,4 @@ assign [class="(?i)pavucontrol"] 10
 
 exec nm-applet
 exec compton -b
-exec firefox-developer
+exec firefox-developer-edition

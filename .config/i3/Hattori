@@ -8,5 +8,5 @@ assign [class="(?i)riot"] 12
 # for_window [title="(?i)float"] floating enable
 
 exec compton -b
-exec firefox-developer
+exec firefox-developer-edition
 exec riot-desktop
