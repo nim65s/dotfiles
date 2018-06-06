@@ -152,7 +152,7 @@ end
 #end
 
 set -x EDITOR vim
-set -x BROWSER chromium
+set -x BROWSER firefox-developer-edition
 set -x JAVA_HOME /opt/java
 set -x PAGER vimpager
 set -x PIP_USE_WHEEL true
