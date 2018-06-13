@@ -39,9 +39,11 @@ function nim_prompt_wrapper
 end
 
 function fish_prompt
-    and set retc green; or set retc red
-    tty|grep -q tty; and set tty tty; or set tty pts
-    #set tty tty
+    and set retc green
+    or set retc red
+    tty | string match -q -r tty
+    and set tty tty
+    or set tty pts
 
     set_color $retc
     if [ $tty = tty ]
@@ -51,7 +53,7 @@ function fish_prompt
     end
     set_color -o green
     echo -n [
-    if [ $USER = root ]
+    if test "$USER" = root -o "$USER" = toor
         set_color -o red
     else
         set_color -o yellow
@@ -64,7 +66,7 @@ function fish_prompt
     else
         set_color -o cyan
     end
-    echo -n (hostname)
+    echo -n (prompt_hostname)
     set_color -o white
     echo -n :(prompt_pwd)
     set_color -o green
@@ -78,7 +80,7 @@ function fish_prompt
     for job in (jobs)
         set_color $retc
         if [ $tty = tty ]
-            echo -n '| '
+            echo -n '; '
         else
             echo -n '│ '
         end
