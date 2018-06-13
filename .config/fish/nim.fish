@@ -1,6 +1,8 @@
 # name: Nim
 # author: Guilhem "Nim" Saurel − https://github.com/nim65s/dotfiles/
 
+set __fish_git_prompt_showupstream auto
+
 function nim_prompt_wrapper
     set retc $argv[1]
     set tty $argv[2]
@@ -58,15 +60,16 @@ function fish_prompt
     echo -n :(prompt_pwd)
     set_color -o green
     echo -n ']'
+
     nim_prompt_wrapper $retc $tty '' (date +%X)
     set -q VIRTUAL_ENV
     and nim_prompt_wrapper $retc $tty V (basename "$VIRTUAL_ENV")
-    if type -q acpi
-        and (acpi -a 2> /dev/null | string match -r off)
-        nim_prompt_wrapper $retc $tty B (acpi -b | cut -d' ' -f 4-)
-    end
+    type -q acpi
+    and test (acpi -a 2> /dev/null | string match -r off)
+    and nim_prompt_wrapper $retc $tty B (acpi -b | cut -d' ' -f 4-)
     echo -n (__fish_git_prompt)
     echo
+
     set_color normal
     for job in (jobs)
         set_color $retc
