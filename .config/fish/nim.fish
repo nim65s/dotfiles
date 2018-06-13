@@ -3,11 +3,9 @@
 
 function nim_prompt_wrapper
     set retc $argv[1]
-    set -e argv[1]
-    set tty $argv[1]
-    set -e argv[1]
-    set fname $argv[1]
-    set -e argv[1]
+    set tty $argv[2]
+    set field_name $argv[3]
+    set field_value $argv[4]
 
     set_color normal
     set_color $retc
@@ -19,10 +17,10 @@ function nim_prompt_wrapper
     set_color -o green
     echo -n '['
     set_color normal
-    test -n $fname
-    and echo -n $fname:
+    test -n $field_name
+    and echo -n $field_name:
     set_color $retc
-    echo -n (eval $argv)
+    echo -n $field_value
     set_color -o green
     echo -n ']'
 end
@@ -60,13 +58,12 @@ function fish_prompt
     echo -n :(prompt_pwd)
     set_color -o green
     echo -n ']'
-    nim_prompt_wrapper $retc $tty '' date +%X
+    nim_prompt_wrapper $retc $tty '' (date +%X)
     set -q VIRTUAL_ENV
-    and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
+    and nim_prompt_wrapper $retc $tty V (basename "$VIRTUAL_ENV")
     if type -q acpi
-        if [ (acpi -a 2> /dev/null | string match -r off) ]
-            nim_prompt_wrapper $retc $tty (acpi -b|cut -d' ' -f 4-)
-        end
+        and (acpi -a 2> /dev/null | string match -r off)
+        nim_prompt_wrapper $retc $tty B (acpi -b | cut -d' ' -f 4-)
     end
     echo -n (__fish_git_prompt)
     echo
