@@ -67,7 +67,9 @@ function fish_prompt
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
     and nim_prompt_wrapper $retc $tty B (acpi -b | cut -d' ' -f 4-)
-    echo -n (__fish_git_prompt)
+    test -d .git
+    or git rev-parse --git-dir > /dev/null ^ /dev/null
+    and nim_prompt_wrapper $retc $tty G (__fish_git_prompt | string trim -c ' ()')
     echo
 
     set_color normal

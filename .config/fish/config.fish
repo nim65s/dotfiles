@@ -180,12 +180,7 @@ or set -x SSH_AUTH_SOCK "/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 set -x GIT_SSH_COMMAND 'ssh -o ControlMaster=no -o ForwardAgent=no'
 
-set __fish_git_prompt_color_branch green
 set __fish_git_prompt_show_informative_status 'yes'
-set __fish_git_prompt_char_stagedstate A
-set __fish_git_prompt_char_invalidstate D
-set __fish_git_prompt_char_dirtystate M
-set __fish_git_prompt_char_untrackedfiles '?'
 
 __fish_complete_django django-admin.py
 __fish_complete_django manage.py
