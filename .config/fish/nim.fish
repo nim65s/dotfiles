@@ -63,6 +63,11 @@ function fish_prompt
     nim_prompt_wrapper $retc $tty '' date +%X
     set -q VIRTUAL_ENV
     and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
+    if type -q acpi
+        if [ (acpi -a 2> /dev/null | string match -r off) ]
+            nim_prompt_wrapper $retc $tty (acpi -b|cut -d' ' -f 4-)
+        end
+    end
     echo -n (__fish_git_prompt)
     echo
     set_color normal
