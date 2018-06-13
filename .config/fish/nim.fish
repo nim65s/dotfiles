@@ -1,0 +1,89 @@
+# name: Nim
+# author: Guilhem "Nim" Saurel − https://github.com/nim65s/dotfiles/
+
+function nim_prompt_wrapper
+    set retc $argv[1]
+    set -e argv[1]
+    set tty $argv[1]
+    set -e argv[1]
+    set fname $argv[1]
+    set -e argv[1]
+
+    set_color normal
+    set_color $retc
+    if [ $tty = tty ]
+        echo -n '-'
+    else
+        echo -n '─'
+    end
+    set_color -o green
+    echo -n '['
+    set_color normal
+    test -n $fname
+    and echo -n $fname:
+    set_color $retc
+    echo -n (eval $argv)
+    set_color -o green
+    echo -n ']'
+end
+
+function fish_prompt
+    and set retc green
+    or set retc red
+    tty | string match -q -r tty
+    and set tty tty
+    or set tty pts
+
+    set_color $retc
+    if [ $tty = tty ]
+        echo -n .-
+    else
+        echo -n '┬─'
+    end
+    set_color -o green
+    echo -n [
+    if test "$USER" = root -o "$USER" = toor
+        set_color -o red
+    else
+        set_color -o yellow
+    end
+    echo -n $USER
+    set_color -o white
+    echo -n @
+    if [ -z "$SSH_CLIENT" ]
+        set_color -o blue
+    else
+        set_color -o cyan
+    end
+    echo -n (prompt_hostname)
+    set_color -o white
+    echo -n :(prompt_pwd)
+    set_color -o green
+    echo -n ']'
+    nim_prompt_wrapper $retc $tty '' date +%X
+    set -q VIRTUAL_ENV
+    and nim_prompt_wrapper $retc $tty V basename "$VIRTUAL_ENV"
+    echo -n (__fish_git_prompt)
+    echo
+    set_color normal
+    for job in (jobs)
+        set_color $retc
+        if [ $tty = tty ]
+            echo -n '; '
+        else
+            echo -n '│ '
+        end
+        set_color brown
+        echo $job
+    end
+    set_color normal
+    set_color $retc
+    if [ $tty = tty ]
+        echo -n "'->"
+    else
+        echo -n '╰─>'
+    end
+    set_color -o red
+    echo -n '$ '
+    set_color normal
+end
