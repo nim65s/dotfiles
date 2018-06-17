@@ -14,7 +14,7 @@ alias virus_show='sed "/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/n
 #fi
 
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=firefox-developer-edition
 export XDG_CONFIG_HOME=~/.config
 export XDG_CONFIG_DIRS=/etc/xdg
 export PYTHONDOCS=/usr/share/doc/python2/html/
