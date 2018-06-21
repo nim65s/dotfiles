@@ -9,7 +9,7 @@
 # - date +%X
 # - the current virtual environment, if any
 # - the current git status, if any, with __fish_git_prompt
-# - the current battery state, if any, and if your power cable is unplugged
+# - the current battery state, if any, and if your power cable is unplugged, and if you have "acpi"
 # - current background jobs, if any
 
 # It goes from:
@@ -18,12 +18,13 @@
 
 # To:
 # ┬─[nim@Hattori:~/w/dashboard]─[11:37:14]─[V:django20]─[G:master↑1|●1✚1…1]─[B:85%, 05:41:42 remaining]
+# │ 2	15054	0%	arrêtée	sleep 100000
 # │ 1	15048	0%	arrêtée	sleep 100000
 # ╰─>$ echo there
 
 set __fish_git_prompt_showupstream auto
 
-function nim_prompt_wrapper
+function _nim_prompt_wrapper
     set retc $argv[1]
     set field_name $argv[2]
     set field_value $argv[3]
@@ -70,21 +71,21 @@ function fish_prompt
     echo -n ']'
 
     # Date
-    nim_prompt_wrapper $retc '' (date +%X)
+    _nim_prompt_wrapper $retc '' (date +%X)
 
     # Virtual Environment
     set -q VIRTUAL_ENV
-    and nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+    and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
 
     # git
     test -d .git
-    or git rev-parse --git-dir > /dev/null ^ /dev/null
-    and nim_prompt_wrapper $retc G (__fish_git_prompt | string trim -c ' ()')
+    or git rev-parse --git-dir >/dev/null ^/dev/null
+    and _nim_prompt_wrapper $retc G (__fish_git_prompt | string trim -c ' ()')
 
     # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
-    and nim_prompt_wrapper $retc B (acpi -b | cut -d' ' -f 4-)
+    and _nim_prompt_wrapper $retc B (acpi -b | cut -d' ' -f 4-)
 
     # New line
     echo
