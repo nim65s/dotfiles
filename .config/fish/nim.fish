@@ -1,6 +1,26 @@
 # name: Nim
 # author: Guilhem "Nim" Saurel − https://github.com/nim65s/dotfiles/
 
+# This prompt shows:
+# - green lines if the last return command is OK, red otherwise
+# - your user name, in red if root or yellow otherwise
+# - your hostname, in cyan if ssh or blue otherwise
+# - the current path (with prompt_pwd)
+# - date +%X
+# - the current virtual environment, if any
+# - the current git status, if any, with __fish_git_prompt
+# - the current battery state, if any, and if your power cable is unplugged
+# - current background jobs, if any
+
+# It goes from:
+# ┬─[nim@Hattori:~]─[11:39:00]
+# ╰─>$ echo here
+
+# To:
+# ┬─[nim@Hattori:~/w/dashboard]─[11:37:14]─[V:django20]─[G:master↑1|●1✚1…1]─[B:85%, 05:41:42 remaining]
+# │ 1	15048	0%	arrêtée	sleep 100000
+# ╰─>$ echo there
+
 set __fish_git_prompt_showupstream auto
 
 function nim_prompt_wrapper
@@ -49,17 +69,27 @@ function fish_prompt
     set_color -o green
     echo -n ']'
 
+    # Date
     nim_prompt_wrapper $retc '' (date +%X)
+
+    # Virtual Environment
     set -q VIRTUAL_ENV
     and nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+
+    # git
     test -d .git
     or git rev-parse --git-dir > /dev/null ^ /dev/null
     and nim_prompt_wrapper $retc G (__fish_git_prompt | string trim -c ' ()')
+
+    # Battery status
     type -q acpi
     and test (acpi -a 2> /dev/null | string match -r off)
     and nim_prompt_wrapper $retc B (acpi -b | cut -d' ' -f 4-)
+
+    # New line
     echo
 
+    # Background jobs
     set_color normal
     for job in (jobs)
         set_color $retc
