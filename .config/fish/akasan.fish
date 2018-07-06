@@ -10,3 +10,9 @@ function ii
 end
 
 set -x SSH_AUTH_SOCK /home/gsaurel/.gnupg/S.gpg-agent.ssh
+
+function rosenv
+    set -x FISH_ROS_ENV $PWD
+    echo "set FISH_ROS_ENV to $FISH_ROS_ENV"
+    bash
+end

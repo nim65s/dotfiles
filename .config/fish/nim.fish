@@ -8,6 +8,7 @@
 # - the current path (with prompt_pwd)
 # - date +%X
 # - the current virtual environment, if any
+# - the current ROS workspace, if any
 # - the current git status, if any, with __fish_git_prompt
 # - the current battery state, if any, and if your power cable is unplugged, and if you have "acpi"
 # - current background jobs, if any
@@ -76,6 +77,10 @@ function fish_prompt
     # Virtual Environment
     set -q VIRTUAL_ENV
     and _nim_prompt_wrapper $retc V (basename "$VIRTUAL_ENV")
+
+    # ROS workspace
+    set -q ROS_WORKSPACE
+    and _nim_prompt_wrapper $retc R (basename (dirname "$ROS_WORKSPACE"))
 
     # git
     set prompt_git (__fish_git_prompt | string trim -c ' ()')
