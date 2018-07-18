@@ -234,4 +234,8 @@ else
     end
 end
 
+function ``` --description 'no-op, to ease copy-paste from markdown'
+    return 0
+end
+
 # vim: set filetype=fish:
