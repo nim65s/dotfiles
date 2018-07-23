@@ -165,7 +165,7 @@ set -x MPD_HOST nimopidy
 #status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 set -x GOPATH ~/go
-for p in GOPATH ~/.local ~/.cabal-sandbox
+for p in GOPATH ~/.local ~/.cabal-sandbox /usr/lib/ccache
     if test -d $p
         mkdir -p $p/bin
         set -x PATH $p/bin $PATH
