@@ -16,3 +16,5 @@ function rosenv
     echo "set FISH_ROS_ENV to $FISH_ROS_ENV"
     bash
 end
+
+set -x BROWSER firefox
