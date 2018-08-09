@@ -120,6 +120,7 @@ end
 function pypiup
     python setup.py sdist bdist_wheel
     and gpg --detach-sign -a dist/*.tar.gz
+    and gpg --detach-sign -a dist/*.whl
     and twine upload dist/*
     rm -rf build *egg-info
 end
