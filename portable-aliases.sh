@@ -116,3 +116,6 @@ alias bogup='rm -rf ~/.bogofilter; bogofilter -s -B ~/.mails/gandi/Junk.Spam;  b
 # reflector
 alias refl="sudo reflector --verbose --latest 100 --sort rate --save /etc/pacman.d/mirrorlist -c France -c \
     'United Kingdom' -c Netherlands -c Germany -c Sweden -c Switzerland -c Spain -c Italy -c Ireland"
+
+# catkin needs python2
+alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so"
