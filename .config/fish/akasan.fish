@@ -9,7 +9,8 @@ function ii
     end
 end
 
-set -x SSH_AUTH_SOCK /home/gsaurel/.gnupg/S.gpg-agent.ssh
+set -q SSH_AUTH_SOCK
+or set -x SSH_AUTH_SOCK /home/gsaurel/.gnupg/S.gpg-agent.ssh
 
 function rosenv
     set -x FISH_ROS_ENV $PWD
