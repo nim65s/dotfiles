@@ -22,6 +22,7 @@ assign [class="(?i)riot"] 12
 assign [title="(?i)Figure 1"] 6
 for_window [title="(?i)float"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
+for_window [class="(?i)Steam"] floating enable
 
 exec compton -b
 exec spotify
