@@ -79,6 +79,7 @@ bindsym $mod+slash workspace 9
 bindsym $mod+asterisk workspace 10
 bindsym $mod+equal workspace 11
 bindsym $mod+percent workspace 12
+bindsym $mod+z workspace 12
 
 # move focused container to workspace
 bindsym $mod+Shift+quotedbl move container to workspace 1
@@ -93,6 +94,7 @@ bindsym $mod+Shift+slash move container to workspace 9
 bindsym $mod+Shift+asterisk move container to workspace 10
 bindsym $mod+Shift+equal move container to workspace 11
 bindsym $mod+Shift+percent move container to workspace 12
+bindsym $mod+Shift+z move container to workspace 12
 
 # reload the configuration file
 bindsym $mod+Shift+x reload
