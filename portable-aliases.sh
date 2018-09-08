@@ -60,7 +60,7 @@ alias nmux='tmux new -s'
 alias amux='tmux a'
 
 # Raccourcis
-alias y='yaourt'
+alias y='yay'
 alias ll='ls -lArth --file-type'
 alias lll='ls -lArth --file-type'
 alias psef='ps -ef | grep -v grep | grep'
