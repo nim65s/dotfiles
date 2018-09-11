@@ -308,11 +308,8 @@ Plug 'aliva/vim-fish', {'for': 'fish'}
 Plug 'bling/vim-airline'
 Plug 'dpelle/vim-Grammalecte'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fisadev/vim-isort', {'for': 'python'}
-Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'mhinz/vim-signify'
 Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
-Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -323,3 +320,9 @@ Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml'
 Plug 'w0rp/ale'
 call plug#end()
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+            \'python': ['isort', 'yapf'],
+            \'*': ['remove_trailing_lines', 'trim_whitespace'],
+            \}
