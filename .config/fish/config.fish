@@ -118,11 +118,13 @@ function srihash
 end
 
 function pypiup
+    set -x TWINE_PASSWORD (pass web/pypi)
     python setup.py sdist bdist_wheel
     and gpg --detach-sign -a dist/*.tar.gz
     and gpg --detach-sign -a dist/*.whl
-    and twine upload dist/*
+    and twine upload -s dist/*
     rm -rf build *egg-info
+    set -e TWINE_PASSWORD
 end
 
 # thx http://lewandowski.io/2016/10/fish-env/
