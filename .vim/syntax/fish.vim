@@ -1,1 +1,0 @@
-../../vim-fish/syntax/fish.vim

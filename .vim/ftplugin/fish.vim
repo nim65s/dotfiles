@@ -1,1 +1,0 @@
-../../vim-fish/ftplugin/fish.vim
