@@ -24,7 +24,11 @@ end
 
 function wol
     for host in $argv
-        wol -f ~/dotfiles/wol/$host
+        if test -f ~/dotfiles/wol/$host
+            /usr/bin/wol (cat ~/dotfiles/wol/$host)
+        else
+            /usr/bin/wol $argv
+        end
     end
 end
 
