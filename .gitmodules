@@ -13,3 +13,6 @@
 [submodule "pyenv-virtualenv"]
 	path = pyenv-virtualenv
 	url = git@github.com:pyenv/pyenv-virtualenv.git
+[submodule "submodules/docker-fish-completion"]
+	path = submodules/docker-fish-completion
+	url = ../../barnybug-archive/docker-fish-completion

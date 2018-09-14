@@ -1,0 +1,1 @@
+../../../submodules/docker-fish-completion/docker.fish
