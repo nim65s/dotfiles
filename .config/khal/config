@@ -8,6 +8,10 @@ color = light blue
 path = ~/.vdir/calendars/ananas/Fusion
 color = light green
 
+[[Émilia]]
+path = ~/.vdir/calendars/ananas/milia_shared_by_doudou
+color = white
+
 [[Anniversaires]]
 path = ~/.vdir/calendars/ananas/anniversaires_shared_by_doudou
 color = black
