@@ -80,6 +80,7 @@ color = yellow
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m
+longdateformat = %d/%m/%Y
 datetimeformat = %d/%m %H:%M
 
 [default]
