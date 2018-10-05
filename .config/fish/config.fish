@@ -205,6 +205,15 @@ function ros
     . $ROS_DIR/share/rosbash/rosfish
 end
 
+function restash
+    git stash
+    and git rebase -i HEAD~$argv[1]
+    and git stash pop
+    and git commit -a --amend --no-edit
+    and git rebase --continue
+    and echo YEEEEAAAAAAAAHH
+end
+
 # https://github.com/fisherman/pipenv/blob/master/conf.d/pipenv.fish + --fancy
 if command -s pipenv > /dev/null
 
