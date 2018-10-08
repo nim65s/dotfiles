@@ -33,11 +33,6 @@ readonly = True
 path = ~/.vdir/calendars/ctf/thc/
 color = white
 
-[[CinéNim]]
-path = ~/.vdir/calendars/ro/cinenim
-color = brown
-readonly = True
-
 [[We-Rome]]
 path = ~/.vdir/calendars/ro/werome
 color = dark cyan

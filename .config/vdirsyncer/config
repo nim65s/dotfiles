@@ -70,20 +70,6 @@ url = "https://cloud.ctf.inpt.fr/remote.php/dav/calendars/Nim/ctf_shared_by_pony
 username = "nim"
 password.fetch = ["command", "pass", "web/ctf/cloud"]
 
-[pair cinenim]
-a = "cinenim_local"
-b = "cinenim_remote"
-collections = null
-
-[storage cinenim_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/cinenim"
-fileext = ".ics"
-
-[storage cinenim_remote]
-type = "http"
-url = "https://saurel.me/cine/cinenim.ics"
-
 [pair meetup]
 a = "meetup_local"
 b = "meetup_remote"
