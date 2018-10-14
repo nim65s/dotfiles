@@ -72,6 +72,11 @@ path = ~/.vdir/calendars/ro/pycon
 readonly = True
 color = yellow
 
+[[Trainline]]
+path = ~/.vdir/calendars/ro/trainline
+readonly = True
+color = yellow
+
 [locale]
 timeformat = %H:%M
 dateformat = %d/%m
