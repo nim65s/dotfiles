@@ -16,3 +16,6 @@
 [submodule "submodules/docker-fish-completion"]
 	path = submodules/docker-fish-completion
 	url = ../../barnybug-archive/docker-fish-completion
+[submodule "backups"]
+	path = backups
+	url = ../backups.git
