@@ -18,4 +18,8 @@ function rosenv
     bash
 end
 
+function gitup
+    python3.7 ~/scripts/gitup.py
+end
+
 set -x BROWSER firefox
