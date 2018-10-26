@@ -22,4 +22,8 @@ function gitup
     python3.7 ~/scripts/gitup.py
 end
 
+function y
+    apt search $argv
+end
+
 set -x BROWSER firefox
