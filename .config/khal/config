@@ -29,10 +29,6 @@ path = ~/.vdir/calendars/laas_rob/RIA
 color = yellow
 readonly = True
 
-[[CTF]]
-path = ~/.vdir/calendars/ctf/thc/
-color = white
-
 [[We-Rome]]
 path = ~/.vdir/calendars/ro/werome
 color = dark cyan
@@ -57,20 +53,10 @@ path = ~/.vdir/calendars/ro/vacances
 color = light red
 readonly = True
 
-[[Meetup]]
-path = ~/.vdir/calendars/ro/meetup
-readonly = True
-color = brown
-
 [[Facebook]]
 path = ~/.vdir/calendars/ro/fb
 readonly = True
 color = '#3B5998'
-
-[[PyConn]]
-path = ~/.vdir/calendars/ro/pycon
-readonly = True
-color = yellow
 
 [[Trainline]]
 path = ~/.vdir/calendars/ro/trainline
