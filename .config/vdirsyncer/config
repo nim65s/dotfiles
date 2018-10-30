@@ -80,20 +80,6 @@ fileext = ".ics"
 type = "http"
 url = "https://www.bde.enseeiht.fr/services/edt/saurelg.ics"
 
-[pair toulibre]
-a = "toulibre_local"
-b = "toulibre_remote"
-collections = null
-
-[storage toulibre_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/toulibre"
-fileext = ".ics"
-
-[storage toulibre_remote]
-type = "http"
-url = "http://www.agendadulibre.org/ical.php?tag=toulibre"
-
 [pair holiday]
 a = "holiday_local"
 b = "holiday_remote"

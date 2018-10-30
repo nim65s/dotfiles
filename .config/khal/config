@@ -38,11 +38,6 @@ readonly = True
 path = ~/.vdir/calendars/ro/googlaas
 readonly = True
 
-[[Toulibre]]
-path = ~/.vdir/calendars/ro/toulibre
-color = light cyan
-readonly = True
-
 [[holiday]]
 path = ~/.vdir/calendars/ro/holiday
 color = light red
