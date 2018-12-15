@@ -107,6 +107,7 @@ function ii
         and vdirsyncer sync
         and echo fini
         or echo fail
+        date
         sleep 300
     end
 end
