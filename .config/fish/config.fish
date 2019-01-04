@@ -262,4 +262,16 @@ function ``` --description 'no-op, to ease copy-paste from markdown'
     return 0
 end
 
+function cxx_cov
+    cmake \
+        -DCMAKE_BUILD_TYPE=Debug \
+        -DCMAKE_CXX_FLAGS="--coverage" \
+        -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
+        -DCMAKE_MODULE_LINKER_FLAGS="--coverage" \
+        ..
+    and make -j8
+    and make test
+    and gcovr -r .. --html --html-details -o /tmp/cov/index.html
+end
+
 # vim: set filetype=fish:
