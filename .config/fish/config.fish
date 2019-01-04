@@ -167,6 +167,7 @@ set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
 #set -x PYENV_ROOT $HOME/dotfiles/pyenv
 #set -x PATH $PYENV_ROOT/bin $PATH
+set -x CTEST_PARALLEL_LEVEL (nproc)
 
 #status --is-interactive; and source (pyenv init -|psub)
 #status --is-interactive; and source (pyenv virtualenv-init -|psub)
