@@ -1,7 +1,6 @@
 [ -z "$PS1" ] && return
 
 export KDEWM=awesome
-export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
