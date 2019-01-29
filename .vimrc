@@ -318,6 +318,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'w0rp/ale'
+Plug 'posva/vim-vue'
 call plug#end()
 
 let g:ale_fix_on_save = 1
