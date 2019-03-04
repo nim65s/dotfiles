@@ -99,7 +99,7 @@ set t_Co=256
 let g:zenburn_transparent = 1
 colors zenburn
 hi Normal ctermbg=NONE
-set tabstop=4
+set tabstop=8
 set expandtab
 set scrolloff=3
 set ai
