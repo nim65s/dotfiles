@@ -326,7 +326,11 @@ c.TerminalInteractiveShell.confirm_exit = False
 # monokai, paraiso-dark, bw, tango, vs, default, perldoc, paraiso-light, algol,
 # lovelace, rrt, autumn, vim, colorful, pastie, xcode, trac, igor, fruity,
 # borland, murphy, native, manni, algol_nu, zenburn
-c.TerminalInteractiveShell.highlighting_style = 'zenburn'
+try:
+    import zenburn
+    c.TerminalInteractiveShell.highlighting_style = 'zenburn'
+except ImportError:
+    pass
 
 # Override highlighting format for specific tokens
 # c.TerminalInteractiveShell.highlighting_style_overrides = {}
