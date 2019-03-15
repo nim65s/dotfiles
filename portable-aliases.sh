@@ -99,6 +99,7 @@ alias clean="find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|to
 alias td='todo'
 alias vdir='vdirsyncer sync'
 alias proxynet7='ssh -D 6565 -p 443 n7'
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 
 alias virus_detect='sudo clamscan -r > /donnees/nim/scan.log 2> /donnees/nim/scan.err; echo "EOS" >> /donnees/nim/scan.log'
 
