@@ -323,6 +323,7 @@ Plug 'chrisbra/Colorizer'
 call plug#end()
 
 let g:ale_fix_on_save = 1
+let g:ale_rust_cargo_use_clippy = 1
 let g:ale_fixers = {
             \'python': ['isort', 'yapf'],
             \'rust': ['rustfmt'],
