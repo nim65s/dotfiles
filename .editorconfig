@@ -41,8 +41,9 @@ indent_style = ignore
 indent_size = ignore
 insert_final_newline = ignore
 
-[{Makefile*,*.bat,*.go}]
+[{Makefile*,*.bat,*.go,*.mk}]
 indent_style = tab
+indent_size = 8
 
 [*.y{,a}ml]
 indent_size = 2
