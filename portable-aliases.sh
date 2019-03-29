@@ -36,6 +36,9 @@ alias :q='exit'
 alias :x='exit'
 alias :e='vim'
 
+# copier/coller trop rapides
+alias +='echo'
+
 # Quelques sudos
 alias kdm='sudo kdm'
 alias halt='sudo halt'
