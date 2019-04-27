@@ -153,17 +153,3 @@ fileext = ".ics"
 [storage fb_remote]
 type = "http"
 url.fetch = ["command", "pass", "ics/fb"]
-
-[pair trainline]
-a = "trainline_local"
-b = "trainline_remote"
-collections = null
-
-[storage trainline_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/trainline"
-fileext = ".ics"
-
-[storage trainline_remote]
-type = "http"
-url.fetch = ["command", "pass", "ics/trainline"]
