@@ -1,18 +1,18 @@
 [submodule "Zenburn"]
 	path = Zenburn
-	url = git@github.com:jnurmine/Zenburn.git
+	url = ../../jnurmine/Zenburn.git
 [submodule "imapfilter"]
 	path = .imapfilter
-	url = git@github.com:nim65s/imapfilter.git
+	url = ../imapfilter.git
 [submodule "vim-plug"]
 	path = vim-plug
-	url = https://github.com/junegunn/vim-plug.git
+	url = ../../junegunn/vim-plug.git
 [submodule "pyenv"]
 	path = pyenv
-	url = git@github.com:pyenv/pyenv.git
+	url = ../../pyenv/pyenv.git
 [submodule "pyenv-virtualenv"]
 	path = pyenv-virtualenv
-	url = git@github.com:pyenv/pyenv-virtualenv.git
+	url = ../../pyenv/pyenv-virtualenv.git
 [submodule "submodules/docker-fish-completion"]
 	path = submodules/docker-fish-completion
 	url = ../../barnybug-archive/docker-fish-completion
