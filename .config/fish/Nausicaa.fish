@@ -13,3 +13,6 @@ test -d $ROBOTPKG_BASE/lib
 and set -x LD_LIBRARY_PATH $ROBOTPKG_BASE/lib $LD_LIBRARY_PATH
 test -d $ROBOTPKG_BASE/share
 and set -x ROS_PACKAGE_PATH $ROBOTPKG_BASE/share $ROS_PACKAGE_PATH
+
+test -d /home/nim/celeste/ESP/esp-idf
+and set -x IDF_PATH /home/nim/celeste/ESP/esp-idf
