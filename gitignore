@@ -11,6 +11,7 @@
 *.fdb_latexmk
 *.orig
 *.xz
+*.xdv
 *.out
 *.cmake
 *.synctex.gz
