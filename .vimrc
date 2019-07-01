@@ -60,6 +60,12 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
+  " tex files
+  autocmd FileType tex setlocal wrap
+  autocmd FileType tex setlocal linebreak
+  autocmd FileType tex setlocal nolist
+  autocmd FileType tex setlocal textwidth=0
+
   " mails
   autocmd FileType mail setlocal fo-=l
   autocmd FileType mail setlocal spell
