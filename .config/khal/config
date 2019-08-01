@@ -24,6 +24,10 @@ color = dark red
 path = ~/.vdir/calendars/laas/Gepetto
 color = yellow
 
+[[Guilhem]]
+path = ~/.vdir/calendars/laas/Guilhem
+color = black
+
 [[RIA]]
 path = ~/.vdir/calendars/laas_rob/RIA
 color = yellow
@@ -47,11 +51,6 @@ readonly = True
 path = ~/.vdir/calendars/ro/vacances
 color = light red
 readonly = True
-
-[[Facebook]]
-path = ~/.vdir/calendars/ro/fb
-readonly = True
-color = '#3B5998'
 
 [locale]
 timeformat = %H:%M
