@@ -160,6 +160,7 @@ end
 
 set -x EDITOR vim
 set -x BROWSER firefox-developer-edition
+set -x TERMINAL alacritty
 set -x JAVA_HOME /opt/java
 set -x PAGER vimpager
 set -x PIP_USE_WHEEL true
