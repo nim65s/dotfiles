@@ -260,6 +260,11 @@ else
     end
 end
 
+function fish_greeting
+    command -qs ponysay
+    and ponysay -o
+end
+
 function ``` --description 'no-op, to ease copy-paste from markdown'
     return 0
 end
