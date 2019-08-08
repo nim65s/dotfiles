@@ -261,8 +261,8 @@ else
 end
 
 function fish_greeting
-    command -qs ponysay
-    and ponysay -o
+    #command -qs ponysay
+    #and ponysay -o
 end
 
 function ``` --description 'no-op, to ease copy-paste from markdown'
