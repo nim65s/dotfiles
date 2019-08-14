@@ -169,6 +169,7 @@ set -x MPD_HOST nimopidy
 #set -x PATH $PYENV_ROOT/bin $PATH
 set -x CTEST_PARALLEL_LEVEL (nproc)
 set -x CTEST_OUTPUT_ON_FAILURE 1
+set -x ORBInitRef NameService=corbaname::localhost
 
 #status --is-interactive; and source (pyenv init -|psub)
 #status --is-interactive; and source (pyenv virtualenv-init -|psub)

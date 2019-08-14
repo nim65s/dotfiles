@@ -21,3 +21,5 @@ function y
 end
 
 set -x BROWSER firefox
+
+alias td todoman
