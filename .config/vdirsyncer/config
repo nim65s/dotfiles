@@ -4,7 +4,7 @@ status_path = "~/.config/vdirsyncer/status/"
 [pair ananas]
 a = "ananas_local"
 b = "ananas_remote"
-collections = ["from b"]
+collections = ["from a"]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage ananas_local]
@@ -14,9 +14,9 @@ fileext = ".ics"
 
 [storage ananas_remote]
 type = "caldav"
-url = "https://nextcloud.ananas.space/remote.php/dav/"
+url = "https://cloud.baroustan.org/remote.php/dav/"
 username = "nim"
-password.fetch = ["command", "pass", "web/ananas/cloud"]
+password.fetch = ["command", "pass", "baroustan/cloud"]
 
 [pair laas]
 a = "laas_local"
@@ -111,7 +111,7 @@ url = "http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics"
 [pair contacts]
 a = "contacts_local"
 b = "contacts_remote"
-collections = ["from b"]
+collections = ["from a"]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage contacts_local]
@@ -122,9 +122,9 @@ encoding = "utf-8"
 
 [storage contacts_remote]
 type = "carddav"
-url = "https://nextcloud.ananas.space/remote.php/dav/addressbooks/"
+url = "https://cloud.baroustan.org/remote.php/dav/addressbooks/"
 username = "nim"
-password.fetch = ["command", "pass", "web/ananas/cloud"]
+password.fetch = ["command", "pass", "baroustan/cloud"]
 
 [pair googlaas]
 a = "googlaas_local"
