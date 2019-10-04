@@ -33,6 +33,11 @@ path = ~/.vdir/calendars/laas_rob/RIA
 color = yellow
 readonly = True
 
+[[PI2]]
+path = ~/.vdir/calendars/laas_pi2/PI2
+color = yellow
+readonly = True
+
 [[We-Rome]]
 path = ~/.vdir/calendars/ro/werome
 color = dark cyan

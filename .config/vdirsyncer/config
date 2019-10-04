@@ -52,6 +52,24 @@ url = "https://sogo.laas.fr/SOGo/dav/felix/Calendar/599A-4D590A80-55-539BFD80"
 username = "gsaurel"
 password.fetch = ["command", "pass", "laas/main"]
 
+[pair laas_pi2]
+a = "laas_pi2_local"
+b = "laas_pi2_remote"
+collections = [["PI2", "PI2", "3F50-5B519380-F-16C79740"]]
+conflict_resolution = ["command", "vimdiff"]
+
+[storage laas_pi2_local]
+type = "filesystem"
+path = "~/.vdir/calendars/laas_pi2/"
+fileext = ".ics"
+
+[storage laas_pi2_remote]
+type = "caldav"
+url = "https://sogo.laas.fr/SOGo/dav/pfauret/Calendar/3F50-5B519380-F-16C79740"
+username = "gsaurel"
+password.fetch = ["command", "pass", "laas/main"]
+
+
 [pair werome]
 a = "werome_local"
 b = "werome_remote"
