@@ -7,12 +7,6 @@
 [submodule "vim-plug"]
 	path = vim-plug
 	url = ../../junegunn/vim-plug.git
-[submodule "pyenv"]
-	path = pyenv
-	url = ../../pyenv/pyenv.git
-[submodule "pyenv-virtualenv"]
-	path = pyenv-virtualenv
-	url = ../../pyenv/pyenv-virtualenv.git
 [submodule "submodules/docker-fish-completion"]
 	path = submodules/docker-fish-completion
 	url = ../../barnybug-archive/docker-fish-completion
