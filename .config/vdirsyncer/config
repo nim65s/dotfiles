@@ -84,20 +84,6 @@ fileext = ".ics"
 type = "http"
 url = "https://www.laas.fr/roboticsmeetings/calendar-node-field-date/ical/0/calendar.ics"
 
-[pair n7]
-a = "n7_local"
-b = "n7_remote"
-collections = null
-
-[storage n7_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/n7"
-fileext = ".ics"
-
-[storage n7_remote]
-type = "http"
-url = "https://www.bde.enseeiht.fr/services/edt/saurelg.ics"
-
 [pair holiday]
 a = "holiday_local"
 b = "holiday_remote"
