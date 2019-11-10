@@ -55,3 +55,4 @@ node_modules/
 .env
 .python-version
 PLIST.guess
+.ipynb_checkpoints
