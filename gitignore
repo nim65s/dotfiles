@@ -56,3 +56,4 @@ node_modules/
 .python-version
 PLIST.guess
 .ipynb_checkpoints
+.mypy_cache
