@@ -27,10 +27,10 @@ bindsym $mod+Control+Shift+Left exec ~/scripts/i3-free-workspace.py move prev
 bindsym $mod+Control+Shift+Right exec ~/scripts/i3-free-workspace.py move next
 
 # move focused window
-bindsym $mod+Shift+t move left
-bindsym $mod+Shift+s move down
-bindsym $mod+Shift+r move up
-bindsym $mod+Shift+n move right
+bindsym $mod+Shift+c move left
+bindsym $mod+Shift+t move down
+bindsym $mod+Shift+s move up
+bindsym $mod+Shift+r move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Up move workspace to output up
