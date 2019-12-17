@@ -47,6 +47,7 @@ htmlcov
 tags
 build/*
 build2/*
+build3/*
 build-rel/*
 node_modules/
 *.tar.gz
