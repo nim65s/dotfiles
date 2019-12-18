@@ -2,6 +2,8 @@ set $mod Mod4
 
 font pango:Source Code Pro 8
 
+hide_edge_borders smart
+
 floating_modifier $mod
 
 bindsym $mod+Return exec i3-sensible-terminal
