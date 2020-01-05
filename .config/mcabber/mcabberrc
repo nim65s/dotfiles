@@ -4,8 +4,8 @@ set jid = gsaurel@laas.fr
 set server = xmpp.laas.fr
 #set port = 5222
 
-set resource = mcabber
-#set disable_random_resource = 0
+set resource = mononoke
+set disable_random_resource = 1
 
 #set priority = 3
 #set priority_away = 0
@@ -40,7 +40,7 @@ set tls = 1
 #set ssl_fingerprint = SHA256:647d2eef7f972001d4fe8b6bedb3007d095dcd982ebb6773c6fb74adb8cc27c0
 # Set ssl_ignore_checks to 1 to disable all certificate checks except the
 # fingerprint check.
-#set ssl_ignore_checks = 0
+set ssl_ignore_checks = 1
 
 # PGP support
 # Set pgp to 1 to enable OpenPGP.
@@ -118,7 +118,7 @@ set cmdhistory_lines = 250
 
 # Let MCabber accept some vi(1)-like "normal mode" commands by setting the
 # option 'vi_mode' to 1 (default: 0).
-set vi_mode = 1
+#set vi_mode = 0
 
 # You can set up a mask to filter buddies and display them according to
 # their status.  The mask should contain the shortcut letters of the
