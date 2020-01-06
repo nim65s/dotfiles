@@ -123,6 +123,7 @@ end
 
 function pypiup
     set -x TWINE_PASSWORD (pass web/pypi)
+    clean
     python setup.py sdist bdist_wheel
     and gpg --detach-sign -a dist/*.tar.gz
     and gpg --detach-sign -a dist/*.whl
