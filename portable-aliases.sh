@@ -125,4 +125,4 @@ alias refl="sudo reflector --verbose --latest 100 --sort rate --save /etc/pacman
 # catkin needs python2
 alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so"
 
-alias im='mosh -- mononoke tmux a -t im'
+alias im='mosh -- mononoke tmux a -d -t im'
