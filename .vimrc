@@ -102,7 +102,8 @@ set autoindent
 " set background=dark
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set t_Co=256
-let g:zenburn_transparent = 1
+let g:zenburn_italic_Comment=1
+let g:zenburn_transparent=1
 colors zenburn
 hi Normal ctermbg=NONE
 set tabstop=8
