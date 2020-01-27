@@ -307,4 +307,7 @@ function cxx_cov
     and gcovr -r .. --html --html-details -o /tmp/cov/index.html
 end
 
+test -d /opt/esp-idf
+and set -x IDF_PATH /opt/esp-idf
+
 # vim: set filetype=fish:
