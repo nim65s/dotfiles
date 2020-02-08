@@ -327,7 +327,11 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 Plug 'chrisbra/Colorizer'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
+
+let g:clang_format#command = 'clang-format-6.0'
+let g:clang_format#auto_format = 1
 
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = 1
