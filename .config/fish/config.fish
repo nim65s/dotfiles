@@ -307,6 +307,10 @@ function cxx_cov
     and gcovr -r .. --html --html-details -o /tmp/cov/index.html
 end
 
+function geplint
+    docker run --rm -v (pwd -P):/root/src -it gepetto/linters
+end
+
 test -d /opt/esp-idf
 and set -x IDF_PATH /opt/esp-idf
 
