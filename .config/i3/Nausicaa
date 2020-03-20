@@ -20,6 +20,7 @@ assign [class="(?i)spotify"] 10
 assign [class="(?i)pavucontrol"] 10
 assign [class="(?i)riot"] 12
 assign [title="(?i)Figure 1"] 6
+assign [title="Gazebo"] 6
 assign [title="Welcome - Zeal"] 9
 for_window [title="(?i)nimfloat"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
