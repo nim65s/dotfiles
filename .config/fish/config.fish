@@ -311,6 +311,14 @@ function geplint
     docker run --rm -v (pwd -P):/root/src -it gepetto/linters
 end
 
+function rptest
+    make -C (make show-var VARNAME=WRKSRC) test
+end
+
+function rprelease
+    make clean && make mdi && make && make install && make print-PLIST && vd PLIST.guess PLIST && make install confirm
+end
+
 test -d /opt/esp-idf
 and set -x IDF_PATH /opt/esp-idf
 
