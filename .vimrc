@@ -328,6 +328,7 @@ Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 Plug 'chrisbra/Colorizer'
 Plug 'rhysd/vim-clang-format'
+Plug 'bogado/file-line'
 call plug#end()
 
 let g:clang_format#command = 'clang-format-6.0'
