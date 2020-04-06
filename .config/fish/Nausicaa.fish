@@ -20,3 +20,5 @@ and set -x PKG_DBDIR $ROBOTPKG_BASE/var/db/robotpkg
 
 test -d /home/nim/celeste/ESP/esp-idf
 and set -x IDF_PATH /home/nim/celeste/ESP/esp-idf
+
+set -x DOCKER_BUILDKIT 1
