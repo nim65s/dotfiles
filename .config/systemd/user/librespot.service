@@ -1,0 +1,12 @@
+[Unit]
+Description=Spotify
+StartLimitInterval=200
+StartLimitBurst=5
+
+[Service]
+ExecStart=/home/nim/.cargo/bin/librespot -n "Librespot %H" -u ${SPOTIFY_USER} -p ${SPOTIFY_PASSWORD} --initial-volume 100
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target

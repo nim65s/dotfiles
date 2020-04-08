@@ -28,7 +28,6 @@ for_window [title="(?i)DédéNimeur"] floating enable
 for_window [class="(?i)Steam"] floating enable
 
 exec compton -b
-exec --no-startup-id i3-msg 'workspace 10; exec spotify; workspace 1'
 exec firefox-developer-edition
 exec riot-desktop
 exec pavucontrol
