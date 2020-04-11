@@ -29,3 +29,8 @@
     status = always
 [url "git@gepgitlab.laas.fr"]
     insteadof = git@eur0c.laas.fr
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
