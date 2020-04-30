@@ -13,8 +13,6 @@ test -d $ROBOTPKG_BASE/lib
 and set -x LD_LIBRARY_PATH $ROBOTPKG_BASE/lib $LD_LIBRARY_PATH
 test -d $ROBOTPKG_BASE/share
 and set -x ROS_PACKAGE_PATH $ROBOTPKG_BASE/share $ROS_PACKAGE_PATH
-test -d $ROBOTPKG_BASE/share/example-robot-data
-and set -x ROS_PACKAGE_PATH $ROBOTPKG_BASE/share/example-robot-data $ROS_PACKAGE_PATH
 test -d $ROBOTPKG_BASE/var/db/robotpkg
 and set -x PKG_DBDIR $ROBOTPKG_BASE/var/db/robotpkg
 
