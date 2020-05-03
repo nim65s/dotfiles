@@ -22,7 +22,7 @@ export XDG_DATA_DIR=~/.local
 export XDG_CACHE_DIR=~/.cache
 export HISTSIZE=100000
 export HISTFILESIZE=${HISTSIZE}
-export JAVA_HOME=/opt/java
+#export JAVA_HOME=/opt/java
 export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
@@ -51,4 +51,3 @@ export MYSQL_PS1="(\u@\h) [\d]> "
 [[ -x ~/dotfiles/portable-aliases.sh ]] && . ~/dotfiles/portable-aliases.sh
 [[ -x ~/dotfiles/aliases-exports.$(hostname -s).sh ]] && . ~/dotfiles/aliases-exports.$(hostname -s).sh
 [[ -x ~/aliases-exports.local.sh ]] && . ~//aliases-exports.local.sh
-
