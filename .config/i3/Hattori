@@ -7,6 +7,6 @@ assign [class="(?i)pavucontrol"] 10
 assign [class="(?i)riot"] 12
 # for_window [title="(?i)nimfloat"] floating enable
 
-exec compton -b
+exec picom -b
 exec firefox-developer-edition
 exec riot-desktop

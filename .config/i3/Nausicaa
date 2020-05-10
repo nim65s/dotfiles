@@ -27,7 +27,7 @@ for_window [title="(?i)nimfloat"] floating enable
 for_window [title="(?i)DédéNimeur"] floating enable
 for_window [class="(?i)Steam"] floating enable
 
-exec compton -b
+exec picom -b
 exec firefox-developer-edition
 exec riot-desktop
 exec pavucontrol
