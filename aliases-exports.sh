@@ -23,7 +23,7 @@ export XDG_CACHE_DIR=~/.cache
 export HISTSIZE=100000
 export HISTFILESIZE=${HISTSIZE}
 #export JAVA_HOME=/opt/java
-export PAGER=vimpager
+export PAGER=less
 alias less=$PAGER
 alias zless=$PAGER
 
