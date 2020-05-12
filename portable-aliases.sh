@@ -128,3 +128,8 @@ alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INC
 
 alias im='mosh -- mononoke tmux a -d -t im'
 alias civ='env LD_PRELOAD=/usr/lib32/libopenal.so.1 steam steam://rungameid/8930'
+
+#CMake
+alias bn='cmake -B build -G Ninja'
+alias bb='cmake --build build'
+alias bnb='bn && bb'
