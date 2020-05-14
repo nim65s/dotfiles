@@ -170,6 +170,16 @@ set -x MPD_HOST nimopidy
 set -x CTEST_PARALLEL_LEVEL (nproc)
 set -x CTEST_OUTPUT_ON_FAILURE 1
 set -x ORBInitRef NameService=corbaname::localhost
+set -x CC gcc
+set -x CXX g++
+set -x CXXFLAGS -fdiagnostics-color=always  # GCC
+
+function cl
+    set -x CC clang
+    set -x CXX clang++
+    set -x CXXFLAGS -fcolor-diagnostics
+end
+
 
 set -x GOPATH ~/go
 for p in GOPATH ~/.local ~/.cabal-sandbox /usr/lib/ccache
