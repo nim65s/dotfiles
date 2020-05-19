@@ -7,10 +7,9 @@
 [difftool]
     cmd = vimdiff
     prompt = false
-[pager]
-    diff =
 [core]
     excludesfile = ~/dotfiles/gitignore
+    pager = delta --theme='zenburn'
 [push]
     default = matching
 [merge]
@@ -34,3 +33,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[interactive]
+    diffFilter = delta --color-only

@@ -163,7 +163,6 @@ set -x EDITOR vim
 set -x BROWSER firefox-developer-edition
 #set -x JAVA_HOME /opt/java
 set -x _JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dawt.useSystemAAFontSettings=lcd'
-set -x PAGER vimpager
 set -x PIP_USE_WHEEL true
 set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
