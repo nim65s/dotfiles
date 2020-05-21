@@ -132,6 +132,23 @@ function pypiup
     set -e TWINE_PASSWORD
 end
 
+function pypoup --description 'increment version in poetry, git & PyPI'
+    clean
+    poetry version $argv
+    poetry build
+    gpg --detach-sign -a dist/*.tar.gz
+    gpg --detach-sign -a dist/*.whl
+    set VERSION (poetry version | cut -d' ' -f2)
+    git commit -a -m "v$VERSION"
+    git tag -s "v$VERSION" -m "Release v$VERSION"
+    git push
+    git push --tags
+    set TOKEN (pass web/pypi/token)
+    poetry publish -u __token__ -p "$TOKEN"
+    set -e TOKEN
+    echo -n (grep github pyproject.toml | cut -d'"' -f2)"/releases/new"
+end
+
 # thx http://lewandowski.io/2016/10/fish-env/
 function posix-source -d "loads a POSIX environment file"
     for i in (cat $argv)
