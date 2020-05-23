@@ -419,23 +419,22 @@ set escdelay = 50
 # readmark:   text color of the "read mark" line in buffers
 # timestamp:  text color in the chat window for delayed timestamps
 #
-#set color_background   = black
 set color_background   = default
 #set color_general      = white
 #set color_info         = white
 #set color_msgin        = white
 #set color_msgout       = cyan
 #set color_msghl        = yellow
-#set color_bgstatus     = yellow
-#set color_status       = white
+set color_bgstatus     = 236
+set color_status       = 186
 #set color_log          = white
-#set color_roster       = green
-#set color_bgrostersel  = cyan
-#set color_rostersel    = blue
-#set color_rosterselmsg = red
+set color_roster       = 232
+set color_bgrostersel  = 232
+set color_rostersel    = 192
+set color_rosterselmsg = 153
 #set color_rosternewmsg = red
 #set color_readmark     = red
-#set color_timestamp    = brightblue
+set color_timestamp    = 240
 
 # You can color roster items by their status and JID.  For example, to have
 # all roster items white, just all contacts from jabber.org that are away,
@@ -463,7 +462,7 @@ color muc * on
 # Log window height (minimum 1, default 5)
 set log_win_height = 3
 # Buddylist window width (minimum 2, default 24)
-set roster_width=23
+set roster_width=13
 #
 # The options 'log_win_on_top' and 'roster_win_on_right' can change the
 # position of the log window (top/bottom) and the position of the roster
