@@ -35,7 +35,7 @@
 #     p   Redirect output to the pager
 #     w   Wait for an Enter-press when the process is done
 #     c   Run the current file only, instead of the selection
-#     r   Run application with root privilege 
+#     r   Run application with root privilege
 #     t   Run application in a new terminal window
 #
 # To implement flags in this file, you could do this:
@@ -171,7 +171,7 @@ class CustomApplications(Applications):
 	# ----------------------------------------- application definitions
 	# Note: Trivial application definitions are at the bottom
 	def app_pager(self, c):
-		return expanduser('~/scripts/vimpager/vimpager'), c
+		return os.environ.get('PAGER', 'less')
 
 	def app_editor(self, c):
 		try:
@@ -286,7 +286,7 @@ class CustomApplications(Applications):
 	def app_mimeopen(self, c):
 		if c.mode is 0:
 			return "mimeopen", c
-		if c.mode is 1: 
+		if c.mode is 1:
 			# Will ask user to select program
 			# aka "Open with..."
 			return "mimeopen", "--ask", c
