@@ -31,5 +31,4 @@ exec picom -b
 exec firefox-developer-edition
 exec riot-desktop
 exec pavucontrol
-exec kdeconnect-indicator
 exec zeal

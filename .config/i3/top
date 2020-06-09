@@ -110,7 +110,7 @@ bindsym $mod+d exec "mpc toggle"
 bindsym $mod+v exec "mpc previous"
 bindsym $mod+l exec "mpc next"
 
-bindsym XF86AudioPlayPause exec "~/scripts/spotify.py playpause"
+# bindsym XF86AudioPlayPause exec "~/scripts/spotify.py playpause"
 # Workaround headset, which only Plays…
 bindsym XF86AudioPlay      exec "~/scripts/spotify.py playpause"
 bindsym XF86AudioPause     exec "~/scripts/spotify.py pause"
