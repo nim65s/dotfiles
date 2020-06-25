@@ -170,6 +170,8 @@ bar {
     font pango:Source Code Pro 8
 }
 
+for_window [title="quakitty"] floating enable, move scratchpad, sticky enable, border pixel 10
+bindsym $mod+q scratchpad show
 
 for_window [class="(?i)qemu-pebble"] floating enable
 for_window [title="(?i)Blender Render"] floating enable
