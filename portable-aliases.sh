@@ -95,6 +95,7 @@ alias gitup='~/scripts/gitup.py'
 alias optimg='~/scripts/optimg.sh'
 alias max_brightness='sudo ~/scripts/max_brightness.sh'
 alias ti='~/scripts/tias.py'
+alias tid='~/scripts/tias.py -d'
 
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
 alias scan='scanimage --resolution 300 > image.pnm; gimp image.pnm; rm image.pnm'
