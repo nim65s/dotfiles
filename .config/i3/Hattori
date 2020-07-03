@@ -10,4 +10,7 @@ assign [class="(?i)riot"] 12
 exec picom -b
 exec firefox-developer-edition
 exec riot-desktop
+exec pavucontrol
+exec zeal
 exec nextcloud
+exec kitty -T quakitty
