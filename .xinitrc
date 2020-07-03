@@ -15,6 +15,7 @@ fi
 setxkbmap fr bepo
 hostname | grep -qi ashitaka || numlockx on
 wmname LG3D
+eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
 
 . /etc/profile
 

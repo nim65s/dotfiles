@@ -10,3 +10,4 @@ assign [class="(?i)riot"] 12
 exec picom -b
 exec firefox-developer-edition
 exec riot-desktop
+exec nextcloud
