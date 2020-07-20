@@ -40,6 +40,8 @@ set sort = threads
 set sort_aux = last-date-received
 set pager_index_lines = 10
 
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line"
 bind pager t next-line
 bind pager s previous-line
 bind index t next-undeleted
