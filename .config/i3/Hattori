@@ -4,12 +4,12 @@ assign [class="(?i)thunderbird"] 5
 assign [class="(?i)sylpheed"] 5
 assign [class="(?i)claws-mail"] 5
 assign [class="(?i)pavucontrol"] 10
-assign [class="(?i)riot"] 12
+assign [class="(?i)element"] 12
 # for_window [title="(?i)nimfloat"] floating enable
 
 exec picom -b
 exec firefox-developer-edition
-exec riot-desktop
+exec element-desktop
 exec pavucontrol
 exec zeal
 exec nextcloud
