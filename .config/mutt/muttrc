@@ -8,7 +8,7 @@ set sleep_time = 0
 set abort_noattach = ask-yes
 set attach_keyword = "\\<attach(|ed|ments|é|és|e|ons?)|join(|te|ts|tes|s?)\\>"
 set nm_default_uri = "notmuch:///home/nim/.mails
-virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
+#virtual-mailboxes "My INBOXes" "notmuch://?query=tag:inbox"
 virtual-mailboxes "large" "notmuch://?query=tag:large"
 auto_view text/html
 alternative_order text/plain text/html
