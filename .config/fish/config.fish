@@ -231,11 +231,11 @@ if test -f ~/.fish.local
 end
 
 function ros
-    set -x ROS_DIR /opt/ros/$argv[1]
-    set -x PATH $ROS_DIR/bin $PATH
-    set -x PYTHONPATH $ROS_DIR/lib/python2.7/site-packages $PYTHONPATH
-    set -x LD_LIBRARY_PATH $ROS_DIR/lib $LD_LIBRARY_PATH
-    . $ROS_DIR/share/rosbash/rosfish
+    echo "set -x ROS_DIR /opt/ros/$argv[1]"
+    echo "set -x PATH \$ROS_DIR/bin \$PATH"
+    echo "set -x PYTHONPATH \$ROS_DIR/lib/python2.7/dist-packages \$PYTHONPATH"
+    echo "set -x LD_LIBRARY_PATH \$ROS_DIR/lib \$LD_LIBRARY_PATH"
+    echo ". \$ROS_DIR/share/rosbash/rosfish"
 end
 
 function restash
