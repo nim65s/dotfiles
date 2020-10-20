@@ -95,6 +95,7 @@ alias optimg='~/scripts/optimg.sh'
 alias max_brightness='sudo ~/scripts/max_brightness.sh'
 alias ti='~/scripts/tias.py'
 alias tid='~/scripts/tias.py -d'
+alias tir='~/scripts/tias.py -r'
 alias rt='~/scripts/rtt.py -p ~/Nextcloud/rtt.json'
 
 alias virerdossiersvides='find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty'
