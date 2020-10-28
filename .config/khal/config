@@ -26,12 +26,16 @@ color = yellow
 
 [[Guilhem]]
 path = ~/.vdir/calendars/laas/Guilhem
-color = black
+color = dark magenta
 
 [[RIA]]
 path = ~/.vdir/calendars/laas_rob/RIA
-color = yellow
+color = brown
 readonly = True
+
+[[BBB]]
+path = ~/.vdir/calendars/laas_bbb/BBB
+color = dark blue
 
 [[PI2]]
 path = ~/.vdir/calendars/laas_pi2/PI2
