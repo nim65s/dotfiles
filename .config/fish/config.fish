@@ -344,7 +344,7 @@ function rptest
 end
 
 function rprelease
-    make clean && make mdi && make && make install && make print-PLIST && vd PLIST.guess PLIST && make install confirm
+    make clean && make mdi && make && make install && make print-PLIST && sed -i '/robotpkg_info/d' PLIST.guess && vd PLIST.guess PLIST && make install confirm
 end
 
 test -d /opt/esp-idf
