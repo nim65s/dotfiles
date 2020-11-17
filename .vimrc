@@ -286,6 +286,9 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd FileType markdown setlocal fo-=l
 
+"*.urdf: xml
+autocmd BufNewFile,BufRead *.urdf set filetype=xml
+
 " c++ completion
 autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 set nocp
