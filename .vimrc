@@ -327,7 +327,7 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'posva/vim-vue'
 Plug 'chrisbra/Colorizer'
 Plug 'rhysd/vim-clang-format'
