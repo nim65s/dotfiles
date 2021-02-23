@@ -44,7 +44,6 @@
 [profiles]
   [[default]]
     background_darkness = 0.74
-    background_type = transparent
     copy_on_selection = True
     cursor_color = "#dcdccc"
     font = source code pro 10

@@ -51,3 +51,4 @@ function cd {
 }
 
 check_for_virtual_env
+if [ -e /home/gsaurel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/gsaurel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
