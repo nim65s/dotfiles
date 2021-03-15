@@ -64,6 +64,7 @@ alias amux='tmux a'
 
 # Raccourcis
 alias y='yay'
+alias p='paru'
 alias ll='ls -lArthF'
 alias lll='ls -lArthF'
 alias psef='ps -ef | grep -v grep | grep'
