@@ -97,3 +97,4 @@ trap _exit EXIT
 [[ "$UID" != 0 ]] && . $HOME/dotfiles/bash-it/git.completion.bash
 
 . $HOME/dotfiles/aliases-exports.sh
+[[ -f "$HOME/.cargo/env"]] && source "$HOME/.cargo/env"
