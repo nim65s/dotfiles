@@ -109,7 +109,7 @@ function ii
         and echo fini
         or echo fail
         date
-        sleep 300
+        sleep 1800
     end
 end
 
