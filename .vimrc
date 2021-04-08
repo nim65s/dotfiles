@@ -288,6 +288,7 @@ autocmd FileType markdown setlocal fo-=l
 
 "*.urdf: xml
 autocmd BufNewFile,BufRead *.urdf set filetype=xml
+autocmd BufNewFile,BufRead *.srdf set filetype=xml
 
 "patch-*: diff
 autocmd BufNewFile,BufRead patch-* set filetype=diff
