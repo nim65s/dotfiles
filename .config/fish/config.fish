@@ -340,7 +340,12 @@ function geplint
 end
 
 function rptest
-    make -C (make show-var VARNAME=WRKSRC) test
+    set build (make show-var VARNAME=CONFIGURE_DIRS)
+    pushd (make show-var VARNAME=WRKSRC)
+    pushd $build
+    make test
+    popd
+    popd
 end
 
 function rprelease
