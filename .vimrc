@@ -336,6 +336,7 @@ Plug 'posva/vim-vue'
 Plug 'chrisbra/Colorizer'
 Plug 'rhysd/vim-clang-format'
 Plug 'bogado/file-line'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 let g:clang_format#command = 'clang-format-6.0'
@@ -351,3 +352,8 @@ let g:ale_fixers = {
             \'rust': ['rustfmt'],
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
             \}
+
+nmap <leader>a v<Plug>(coc-codeaction-selected)
+xmap <leader>a v<Plug>(coc-codeaction-selected)
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
