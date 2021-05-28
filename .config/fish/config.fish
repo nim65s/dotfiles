@@ -357,11 +357,11 @@ and set -x IDF_PATH /opt/esp-idf
 
 # vim: set filetype=fish:
 
-if test -d /local/users/gsaurel/miniconda3
+#if test -d /local/users/gsaurel/miniconda3
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /local/users/gsaurel/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+#eval /local/users/gsaurel/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
-end
+#end
