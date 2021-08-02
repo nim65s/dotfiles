@@ -6,3 +6,4 @@ exec numlockx on
 exec setxkbmap fr bepo
 exec kitty
 exec kitty -T quakitty
+exec pidgin
