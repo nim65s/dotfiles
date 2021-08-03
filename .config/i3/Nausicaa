@@ -19,6 +19,7 @@ assign [class="(?i)claws-mail"] 5
 assign [class="(?i)spotify"] 11
 assign [class="(?i)pavucontrol"] 11
 assign [class="(?i)element"] 12
+assign [class="(?i)pidgin"] 12
 assign [title="(?i)Figure 1"] 6
 assign [title="Gazebo"] 6
 assign [title="Zeal"] 11
