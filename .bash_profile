@@ -24,4 +24,4 @@ fi
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ -e /home/gsaurel/.nix-profile/etc/profile.d/nix.sh ]; then . /home/gsaurel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && . "$HOME/.cargo/env"
