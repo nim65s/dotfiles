@@ -98,4 +98,3 @@ trap _exit EXIT
 
 . $HOME/dotfiles/aliases-exports.sh
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-. "$HOME/.cargo/env"
