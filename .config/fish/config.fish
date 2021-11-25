@@ -190,6 +190,7 @@ set -x ORBInitRef NameService=corbaname::localhost
 set -x CC gcc
 set -x CXX g++
 set -x CXXFLAGS -fdiagnostics-color=always  # GCC
+set -x TWINE_USERNAME nim65s
 
 function cl
     set -x CC clang
