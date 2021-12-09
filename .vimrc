@@ -293,6 +293,9 @@ autocmd BufNewFile,BufRead *.srdf set filetype=xml
 "patch-*: diff
 autocmd BufNewFile,BufRead patch-* set filetype=diff
 
+" persistent undo
+set undofile
+
 " c++ completion
 autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 set nocp
