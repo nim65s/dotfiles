@@ -1,6 +1,6 @@
 #!/bin/bash
 # Options par défaut
-alias ls='ls -F --color=auto'
+alias ls='ls -F --color=auto --hyperlink=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
