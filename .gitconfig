@@ -44,5 +44,7 @@
   insteadOf = git://github.com/
 [url "git@github.com:"]
   insteadOf = https://github.com/
+[url "git@git.inpt.fr:"]
+  insteadOf = https://git.inpt.fr/
 [hub]
 	protocol = ssh
