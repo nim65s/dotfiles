@@ -9,7 +9,7 @@
     prompt = false
 [core]
     excludesfile = ~/dotfiles/gitignore
-    pager = delta --theme='zenburn'
+    pager = delta --syntax-theme='zenburn'
 [push]
     default = matching
 [merge]
