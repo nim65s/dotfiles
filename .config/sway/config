@@ -18,8 +18,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show
-set $passmenu ~/scripts/spassmenu.py
+set $menu yofi
+set $passmenu ~/scripts/spassmenu.py yofi dialog
 set $screenshot grim - | swappy -f -
 set $lock swaylock -eFtklc 000000
 
@@ -222,6 +222,7 @@ bindsym $mod+x mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
+    font Source Code Pro 9
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -237,6 +238,8 @@ bar {
 
 include /etc/sway/config.d/*
 
+font Source Sans 3 9
+
 for_window [title="quakitty"] move scratchpad, sticky enable, border pixel 10
 for_window [title="Firefox - Sharing Indicator"] floating enable;
 
@@ -249,5 +252,10 @@ bindsym --locked XF86RFKill exec rfkill unblock all
 bindsym --locked XF86MonBrightnessUp exec light -T 1.4
 bindsym --locked XF86MonBrightnessDown exec light -T 0.72
 
+assign [class="firefox"] 2
+assign [class="Element"] 12
+
 exec kitty
 exec kitty -T quakitty
+exec element-desktop
+exec firefox
