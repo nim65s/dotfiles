@@ -226,7 +226,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/scripts/swaybar.py -s; do sleep 2; done
+    status_command ~/scripts/swaybar.py
     pango_markup enabled
 
     colors {
