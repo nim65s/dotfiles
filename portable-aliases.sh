@@ -137,6 +137,8 @@ alias civ6='env LD_PRELOAD=/usr/lib/libfreetype.so.6 steam steam://rungameid/289
 #CMake
 alias bn='cmake -B build -G Ninja'
 alias bb='cmake --build build'
+alias bt='bb -t test'
+alias bi='cmake --install build'
 alias bnb='bn && bb'
 
 alias gepright='chown -R :gepetto . && chmod -R g+rwX .'
