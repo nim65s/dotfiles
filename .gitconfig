@@ -48,3 +48,5 @@
   insteadOf = https://git.inpt.fr/
 [hub]
 	protocol = ssh
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
