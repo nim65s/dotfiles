@@ -57,6 +57,7 @@ alias dhcpcd='sudo dhcpcd'
 alias salt='sudo salt'
 alias salt-key='sudo salt-key'
 alias netdiscover='sudo netdiscover'
+alias dmesg='sudo dmesg'
 
 # Lancer des programmes dans des Tmux
 alias nmux='tmux new -s'
