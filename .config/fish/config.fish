@@ -160,7 +160,7 @@ end
 
 function __check_env --on-variable PWD --description 'load .env'
     test -f .env
-    and posix-source .env
+    and bass source .env
 end
 
 . ~/dotfiles/portable-aliases.sh

@@ -13,3 +13,6 @@
 [submodule "backups"]
 	path = backups
 	url = ../backups.git
+[submodule "bass"]
+	path = bass
+	url = ../../edc/bass
