@@ -15,6 +15,7 @@
 *.out
 *.synctex.gz
 *.toc
+*.sif
 *~
 *.pyc
 *.ignore

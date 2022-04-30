@@ -370,3 +370,5 @@ and set -x IDF_PATH /opt/esp-idf
 # <<< conda initialize <<<
 
 #end
+
+function hg --wraps rg; kitty +kitten hyperlinked_grep $argv; end
