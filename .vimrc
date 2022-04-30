@@ -319,6 +319,11 @@ au BufRead /tmp/mutt-* set noexpandtab
 " Grammalecte-fr
 let g:grammalecte_cli_py='/usr/share/grammalecte-fr/cli.py'
 
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
 " vim-plug
 call plug#begin()
 Plug 'aliva/vim-fish', {'for': 'fish'}
@@ -330,7 +335,7 @@ Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
