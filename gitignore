@@ -59,3 +59,4 @@ PLIST.guess
 .ipynb_checkpoints
 .mypy_cache
 .cache
+.embuild
