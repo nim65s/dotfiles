@@ -4,6 +4,7 @@
     signingkey = 4653CF28
 [diff]
     tool = vimdiff
+    guitool = meld
 [difftool]
     cmd = vimdiff
     prompt = false
@@ -26,8 +27,6 @@
     diff = always
     interactive = always
     status = always
-[url "git@gepgitlab.laas.fr"]
-    insteadof = git@eur0c.laas.fr
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -41,11 +40,7 @@
 [init]
 	defaultBranch = main
 [url "git@github.com:"]
-  insteadOf = git://github.com/
-[url "git@github.com:"]
   insteadOf = https://github.com/
-[url "git@git.inpt.fr:"]
-  insteadOf = https://git.inpt.fr/
 [hub]
 	protocol = ssh
 [blame]
