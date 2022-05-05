@@ -60,6 +60,10 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
+  " For all python files set 'textwidth' to 88 characters.
+  autocmd FileType python setlocal textwidth=88
+  autocmd FileType python setlocal colorcolumn=88
+
   " tex files
   autocmd FileType tex setlocal wrap
   autocmd FileType tex setlocal linebreak
