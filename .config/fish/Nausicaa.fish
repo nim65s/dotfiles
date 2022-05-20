@@ -25,3 +25,6 @@ test -d /home/nim/misc/ESP/esp-idf
 and set -x IDF_PATH /home/nim/misc/ESP/esp-idf
 
 set -x DOCKER_BUILDKIT 1
+
+set -x QT_QPA_PLATFORMTHEME qt5ct
+set -x GTK_THEME Adwaita:dark
