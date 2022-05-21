@@ -340,7 +340,7 @@ Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer', 'for': 'cpp' }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
