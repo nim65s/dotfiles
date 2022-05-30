@@ -191,6 +191,8 @@ set -x CMAKE_CXX_COMPILER_LAUNCHER sccache
 set -x CTEST_OUTPUT_ON_FAILURE ON
 set -x CTEST_PARALLEL_LEVEL (nproc)
 set -x CTEST_PROGRESS_OUTPUT ON
+set -x DOCKER_BUILDKIT 1
+set -x COMPOSE_DOCKER_CLI_BUILD 1
 set -x ORBInitRef NameService=corbaname::localhost
 set -x CC gcc
 set -x CXX g++
