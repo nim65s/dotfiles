@@ -1,3 +1,4 @@
+.git-blame-ignore-revs
 .vim/.netrwhist
 .config/ranger/bookmarks
 .config/ranger/history
