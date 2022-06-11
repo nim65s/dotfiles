@@ -185,7 +185,7 @@ set -x PIP_USE_WHEEL true
 set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
 set -x CMAKE_EXPORT_COMPILE_COMMANDS ON
-set -x CMAKE_GENERATOR ninja
+set -x CMAKE_GENERATOR Ninja
 set -x CMAKE_C_COMPILER_LAUNCHER sccache
 set -x CMAKE_CXX_COMPILER_LAUNCHER sccache
 set -x CTEST_OUTPUT_ON_FAILURE ON
