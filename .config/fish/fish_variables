@@ -4,7 +4,7 @@ SETUVAR __fish_init_1_50_0:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:555\x1eyellow
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7\x1epurple

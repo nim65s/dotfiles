@@ -15,6 +15,9 @@
     default = matching
 [merge]
     tool = vimdiff
+    guitool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [flake8]
     max-line-length = 160
     ignore = E128,E123,E126

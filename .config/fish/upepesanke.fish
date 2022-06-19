@@ -6,6 +6,7 @@ function ii
         and echo fini
         or echo fail
         date
+        khal list today Sunday
         sleep 300
     end
 end
