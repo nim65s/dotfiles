@@ -43,3 +43,7 @@
 	protocol = ssh
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[submodule]
+	fetchJobs = 4
+[fetch]
+	parallel = 4
