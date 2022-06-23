@@ -50,7 +50,7 @@ fileext = ".ics"
 type = "caldav"
 url = "https://sogo.laas.fr/SOGo/dav/felix/Calendar/599A-4D590A80-55-539BFD80"
 username = "gsaurel"
-password.fetch = ["command", "pass", "laas/cloud/token"]
+password.fetch = ["command", "pass", "laas/main"]
 
 
 [pair laas_bbb]
@@ -68,7 +68,7 @@ fileext = ".ics"
 type = "caldav"
 url = "https://sogo.laas.fr/SOGo/dav/matthieu/Calendar/6967-5F76E800-29-55D5F500"
 username = "gsaurel"
-password.fetch = ["command", "pass", "laas/cloud/token"]
+password.fetch = ["command", "pass", "laas/main"]
 
 [pair laas_pi2]
 a = "laas_pi2_local"
@@ -85,7 +85,7 @@ fileext = ".ics"
 type = "caldav"
 url = "https://sogo.laas.fr/SOGo/dav/pfauret/Calendar/3F50-5B519380-F-16C79740"
 username = "gsaurel"
-password.fetch = ["command", "pass", "laas/cloud/token"]
+password.fetch = ["command", "pass", "laas/main"]
 
 [pair laas_idea]
 a = "laas_idea_local"
@@ -102,7 +102,7 @@ fileext = ".ics"
 type = "caldav"
 url = "https://sogo.laas.fr/SOGo/dav/blain/Calendar/personal"
 username = "gsaurel"
-password.fetch = ["command", "pass", "laas/cloud/token"]
+password.fetch = ["command", "pass", "laas/main"]
 
 [pair werome]
 a = "werome_local"
