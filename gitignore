@@ -61,3 +61,4 @@ PLIST.guess
 .mypy_cache
 .cache
 .embuild
+.rgignore
