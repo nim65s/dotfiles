@@ -140,8 +140,8 @@ input "type:keyboard" {
     bindsym $mod+Shift+quotedbl move container to workspace 1
     bindsym $mod+Shift+guillemotleft move container to workspace 2
     bindsym $mod+Shift+guillemotright move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+parenleft move container to workspace 4
+    bindsym $mod+Shift+parenright move container to workspace 5
     bindsym $mod+Shift+at move container to workspace 6
     bindsym $mod+Shift+plus move container to workspace 7
     bindsym $mod+Shift+minus move container to workspace 8
