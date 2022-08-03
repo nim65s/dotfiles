@@ -151,17 +151,17 @@ function pypoup --description 'increment version in poetry, git & PyPI'
 end
 
 # thx http://lewandowski.io/2016/10/fish-env/
-function posix-source -d "loads a POSIX environment file"
-    for i in (cat $argv)
-        set arr (string split -m1 = $i)
-        set -gx $arr[1] $arr[2]
-    end
-end
+#function posix-source -d "loads a POSIX environment file"
+    #for i in (cat $argv)
+        #set arr (string split -m1 = $i)
+        #set -gx $arr[1] $arr[2]
+    #end
+#end
 
-function __check_env --on-variable PWD --description 'load .env'
-    test -f .env
-    and bass source .env
-end
+#function __check_env --on-variable PWD --description 'load .env'
+    #test -f .env
+    #and bass source .env
+#end
 
 . ~/dotfiles/portable-aliases.sh
 
@@ -298,31 +298,31 @@ else
 end
 
 # https://github.com/fisherman/pipenv/blob/master/conf.d/pipenv.fish %s/pipenv/poetry
-if command -s poetry > /dev/null
-    function __poetry_shell_activate --on-variable PWD
-        if status --is-command-substitution
-            return
-        end
-       if not test -e "$PWD/pyproject.toml"
-            if not string match -q "$__poetry_fish_initial_pwd"/'*' "$PWD/"
-                set -U __poetry_fish_final_pwd "$PWD"
-                exit
-            end
-            return
-        end
-        if not test -n "$POETRY_ACTIVE"
-          if test (poetry env list | wc -l) -gt 0
-            set -x __poetry_fish_initial_pwd "$PWD"
-            poetry shell -q
-            set -e __poetry_fish_initial_pwd
-            if test -n "$__poetry_fish_final_pwd"
-                cd "$__poetry_fish_final_pwd"
-                set -e __poetry_fish_final_pwd
-            end
-          end
-        end
-    end
-end
+#if command -s poetry > /dev/null
+    #function __poetry_shell_activate --on-variable PWD
+        #if status --is-command-substitution
+            #return
+        #end
+       #if not test -e "$PWD/pyproject.toml"
+            #if not string match -q "$__poetry_fish_initial_pwd"/'*' "$PWD/"
+                #set -U __poetry_fish_final_pwd "$PWD"
+                #exit
+            #end
+            #return
+        #end
+        #if not test -n "$POETRY_ACTIVE"
+          #if test (poetry env list | wc -l) -gt 0
+            #set -x __poetry_fish_initial_pwd "$PWD"
+            #poetry shell -q
+            #set -e __poetry_fish_initial_pwd
+            #if test -n "$__poetry_fish_final_pwd"
+                #cd "$__poetry_fish_final_pwd"
+                #set -e __poetry_fish_final_pwd
+            #end
+          #end
+        #end
+    #end
+#end
 
 
 function fish_greeting
