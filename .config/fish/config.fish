@@ -379,3 +379,14 @@ and set -x IDF_PATH /opt/esp-idf
 #end
 
 function hg --wraps rg; kitty +kitten hyperlinked_grep $argv; end
+
+function gcoauth
+    # thanks https://hynek.me/til/easier-crediting-contributors-github/
+    set account $argv[1]
+
+    set data (curl -s https://api.github.com/users/$account)
+    set id  (echo $data | jq .id)
+    set name (echo $data | jq --raw-output '.name // .login')
+
+    printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
+end
