@@ -50,3 +50,5 @@
 	fetchJobs = 4
 [fetch]
 	parallel = 4
+[url "git@github.com:"]
+	insteadOf = https://github.com/
