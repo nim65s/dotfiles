@@ -184,11 +184,12 @@ set -x _JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndF
 set -x PIP_USE_WHEEL true
 set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
-set -x CMAKE_EXPORT_COMPILE_COMMANDS ON
-set -x CMAKE_GENERATOR Ninja
+set -x CMAKE_BUILD_TYPE RelWithDebInfo
 set -x CMAKE_C_COMPILER_LAUNCHER sccache
 set -x CMAKE_CXX_COMPILER_LAUNCHER sccache
 set -x CMAKE_COLOR_DIAGNOSTICS ON
+set -x CMAKE_EXPORT_COMPILE_COMMANDS ON
+set -x CMAKE_GENERATOR Ninja
 set -x CTEST_OUTPUT_ON_FAILURE ON
 set -x CTEST_PARALLEL_LEVEL (nproc)
 set -x CTEST_PROGRESS_OUTPUT ON
