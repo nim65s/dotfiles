@@ -392,3 +392,7 @@ function gcoauth
 
     printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
 end
+
+if which sccache >/dev/null
+    set -x RUSTC_WRAPPER (which sccache)
+end
