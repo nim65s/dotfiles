@@ -18,6 +18,23 @@ url = "https://cloud.baroustan.org/remote.php/dav/"
 username = "nim"
 password.fetch = ["command", "pass", "baroustan/cloud"]
 
+[pair agimus]
+a = "agimus_local"
+b = "agimus_remote"
+collections = [["agimus", "agimus", "agimus"]]
+conflict_resolution = ["command", "vimdiff"]
+
+[storage agimus_local]
+type = "filesystem"
+path = "~/.vdir/calendars/agimus/"
+fileext = ".ics"
+
+[storage agimus_remote]
+type = "caldav"
+url = "https://partage.laas.fr/remote.php/dav/calendars/21ce262e-1306-1034-9663-89cc25a67c47/"
+username = "gsaurel"
+password.fetch = ["command", "pass", "laas/partage/token"]
+
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
