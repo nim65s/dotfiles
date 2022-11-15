@@ -356,6 +356,7 @@ let g:clang_format#command = 'clang-format-6.0'
 let g:clang_format#auto_format = 1
 
 let g:ale_python_flake8_options = 'E24,E123,E704,W503,E226,E126,W504,E121,E203'
+let g:ale_rust_rustfmt_options = '--edition 2021'
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_linters = {
