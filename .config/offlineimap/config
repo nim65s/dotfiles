@@ -1,5 +1,5 @@
 [general]
-accounts = gandi, laas
+accounts = gandi, laas, cnrs
 pythonfile = ~/scripts/offlineimap.py
 
 [mbnames]
@@ -39,3 +39,18 @@ remotehost = imap.laas.fr
 remoteuser = gsaurel
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remotepasseval = get_pass("laas/main")
+
+[Account cnrs]
+localrepository = cnrs-local
+remoterepository = cnrs-remote
+
+[Repository cnrs-local]
+type = Maildir
+localfolders = ~/.mails/cnrs
+
+[Repository cnrs-remote]
+type = IMAP
+remotehost = imap.cnrs.fr
+remoteuser = guilhem.saurel@ods.services
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass("laas/cnrs/mail")

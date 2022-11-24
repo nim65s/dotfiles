@@ -96,5 +96,6 @@ mime_lookup application/x-download
 source "~/.config/mutt/gandi"
 folder-hook gandi source "~/.config/mutt/gandi"
 folder-hook laas source "~/.config/mutt/laas"
+folder-hook cnrs source "~/.config/mutt/cnrs"
 
 # vim: set syntax=muttrc:
