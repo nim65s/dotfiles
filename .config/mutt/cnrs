@@ -1,0 +1,8 @@
+set spoolfile=+cnrs/INBOX
+set record=+cnrs/Sent
+set postponed=+cnrs/Drafts
+set from="guilhem.saurel@cnrs.fr"
+set hostname="cnrs.fr"
+my_hdr Bcc: guilhem.saurel@cnrs.fr
+
+# vim: set syntax=muttrc:
