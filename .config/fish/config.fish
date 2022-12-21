@@ -12,6 +12,7 @@ if status --is-login
     gpgconf --launch gpg-agent
 end
 
+set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
 . ~/.config/fish/nim.fish  # fish_prompt, nim's theme
 
 function fairytail
