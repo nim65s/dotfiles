@@ -15,6 +15,8 @@ end
 set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
 . $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
 
+set -q DOTFILES || set -x DOTFILES ~/dotfiles
+
 function fairytail
     tail -n 100 -F $argv | ccze -A
 end
@@ -25,8 +27,8 @@ end
 
 function wol
     for host in $argv
-        if test -f ~/dotfiles/wol/$host
-            /usr/bin/wol (cat ~/dotfiles/wol/$host)
+        if test -f $DOTFILES/wol/$host
+            /usr/bin/wol (cat $DOTFILES/wol/$host)
         else
             /usr/bin/wol $argv
         end
@@ -164,7 +166,7 @@ end
     #and bass source .env
 #end
 
-. ~/dotfiles/portable-aliases.sh
+. $DOTFILES/portable-aliases.sh
 
 # exports
 
