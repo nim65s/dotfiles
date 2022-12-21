@@ -13,7 +13,7 @@ if status --is-login
 end
 
 set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
-. ~/.config/fish/nim.fish  # fish_prompt, nim's theme
+. $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
 
 function fairytail
     tail -n 100 -F $argv | ccze -A
