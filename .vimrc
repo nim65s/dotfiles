@@ -5,6 +5,12 @@ if v:progname =~? "evim"
   finish
 endif
 
+if empty($DOTFILES)
+    let DOTFILES = "~/dotfiles/.vim"
+else
+    let DOTFILES = $DOTFILES .. "/.vim"
+endif
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -330,22 +336,22 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_clangd_binary_path = exepath("clangd")
 
 " vim-plug
-call plug#begin()
+call plug#begin(DOTFILES .. "/plugged")
 Plug 'aliva/vim-fish', {'for': 'fish'}
-Plug 'bling/vim-airline'
-Plug 'dpelle/vim-Grammalecte'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'dpelle/vim-Grammalecte'
+"Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-signify'
-Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
+"Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer', 'for': 'cpp' }
-Plug 'vim-airline/vim-airline-themes'
-Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+"Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'dense-analysis/ale'
-Plug 'posva/vim-vue'
+"Plug 'posva/vim-vue'
 Plug 'chrisbra/Colorizer'
 Plug 'rhysd/vim-clang-format'
 Plug 'bogado/file-line'
