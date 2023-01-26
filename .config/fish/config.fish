@@ -399,3 +399,9 @@ end
 if which sccache >/dev/null
     set -x RUSTC_WRAPPER (which sccache)
 end
+
+function cmeel_release
+    git commit -a -m "Cmeel Release $argv"
+    git tag -s $argv -m "Cmeel Release $argv"
+    git push origin $argv
+end
