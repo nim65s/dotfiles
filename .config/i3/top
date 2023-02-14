@@ -110,12 +110,12 @@ bindsym $mod+d exec "mpc toggle"
 bindsym $mod+v exec "mpc previous"
 bindsym $mod+l exec "mpc next"
 
-bindsym XF86AudioPlayPause exec "mpc toggle"
-bindsym XF86AudioPlay      exec "mpc toggle"
-bindsym XF86AudioPause     exec "mpc toggle"
-bindsym XF86AudioPrev      exec "mpc previous"
-bindsym XF86AudioNext      exec "mpc next"
-bindsym XF86AudioStop      exec "mpc stop"
+#bindsym XF86AudioPlayPause exec "mpc toggle"
+#bindsym XF86AudioPlay      exec "mpc toggle"
+#bindsym XF86AudioPause     exec "mpc toggle"
+#bindsym XF86AudioPrev      exec "mpc previous"
+#bindsym XF86AudioNext      exec "mpc next"
+#bindsym XF86AudioStop      exec "mpc stop"
 
 # PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
