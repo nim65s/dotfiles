@@ -366,10 +366,10 @@ let g:ale_rust_rustfmt_options = '--edition 2021'
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_linters = {
-            \'python': ['flake8'],
+            \'python': ['flake8', 'ruff'],
             \}
 let g:ale_fixers = {
-            \'python': ['isort', 'black'],
+            \'python': ['isort', 'black', 'ruff'],
             \'rust': ['rustfmt'],
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
             \}
