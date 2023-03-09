@@ -211,6 +211,7 @@ set -x CC gcc
 set -x CXX g++
 set -x CXXFLAGS -fdiagnostics-color=always  # GCC
 set -x TWINE_USERNAME nim65s
+set -x POETRY_VIRTUALENVS_IN_PROJECT true
 
 function cl
     set -x CC clang
