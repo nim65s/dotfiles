@@ -4,7 +4,7 @@ if status --is-login
     end
     if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
         if [ "$TERM" = linux ]
-            if which unicode_start >/dev/null
+            if which unicode_start &> /dev/null
                 unicode_start
             end
         end
@@ -13,7 +13,7 @@ if status --is-login
 end
 
 set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
-if which starship > /dev/null
+if which starship &> /dev/null
     starship init fish | source
 else
     . $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
@@ -40,12 +40,12 @@ function wol
 end
 
 function df
-    which dfc > /dev/null
+    which dfc &> /dev/null
     and dfc -Tdsq name
     or /bin/df -h
 end
 
-if which bat > /dev/null
+if which bat &> /dev/null
     alias cat="bat -p"
 end
 
@@ -405,11 +405,11 @@ function gcoauth
     printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
 end
 
-if which sccache >/dev/null
+if which sccache &> /dev/null
     set -x RUSTC_WRAPPER (which sccache)
 end
 
-if which rtx >/dev/null
+if which rtx &> /dev/null
     rtx activate fish | source
 end
 
