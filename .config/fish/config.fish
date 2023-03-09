@@ -46,7 +46,7 @@ function df
 end
 
 if which bat > /dev/null
-    alias cat=bat
+    alias cat="bat -p"
 end
 
 function dvd
