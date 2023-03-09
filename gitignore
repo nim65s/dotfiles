@@ -63,3 +63,4 @@ PLIST.guess
 .embuild
 .rgignore
 coverage.xml
+.tool-versions
