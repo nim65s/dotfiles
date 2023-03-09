@@ -13,7 +13,11 @@ if status --is-login
 end
 
 set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
-. $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
+if which starship > /dev/null
+    starship init fish | source
+else
+    . $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
+end
 
 set -q DOTFILES || set -x DOTFILES ~/dotfiles
 
@@ -39,6 +43,10 @@ function df
     which dfc > /dev/null
     and dfc -Tdsq name
     or /bin/df -h
+end
+
+if which bat > /dev/null
+    alias cat=bat
 end
 
 function dvd
@@ -212,7 +220,7 @@ end
 
 
 set -x GOPATH ~/go
-for p in GOPATH ~/.local ~/.cabal-sandbox /usr/lib/ccache
+for p in GOPATH ~/.local ~/.cabal-sandbox
     if test -d $p
         mkdir -p $p/bin
         set -x PATH $p/bin $PATH
