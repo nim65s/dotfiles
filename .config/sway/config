@@ -167,6 +167,8 @@ input "type:keyboard" {
     # Switch the current container between different layout styles
     bindsym $mod+u layout stacking
     bindsym $mod+w layout tabbed
+    bindsym $mod+h layout toggle split
+    bindsym $mod+Shift+h layout toggle all
     #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
