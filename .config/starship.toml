@@ -131,3 +131,6 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
+
+[hostname]
+ssh_symbol = " "
