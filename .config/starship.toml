@@ -1,3 +1,14 @@
+format = "┬─ $all$time$line_break╰─ $jobs$battery$status$container$os$shell$character"
+
+[time]
+disabled = false
+
+[status]
+disabled = false
+
+[os]
+disabled = false
+
 [aws]
 symbol = "  "
 
@@ -30,6 +41,7 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+format = "on $symbol[$branch(:$remote_branch)]($style) "
 
 [golang]
 symbol = " "
@@ -116,6 +128,7 @@ symbol = "🪺 "
 
 [python]
 symbol = " "
+format = 'via ${symbol}[${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rlang]
 symbol = "ﳒ "
