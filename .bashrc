@@ -96,5 +96,16 @@ trap _exit EXIT
 
 [[ "$UID" != 0 ]] && . $HOME/dotfiles/bash-it/git.completion.bash
 
+for DIR in ~/.cargo ~/.local ~/.poetry
+do
+    if test -d "$DIR/bin" && grep -vq $DIR <<< $PATH
+    then
+        PATH="$DIR/bin:$PATH"
+    fi
+done
+
+export PATH
+
+
 . $HOME/dotfiles/aliases-exports.sh
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
