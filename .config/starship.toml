@@ -41,7 +41,6 @@ symbol = " "
 
 [git_branch]
 symbol = " "
-format = "on $symbol[$branch(:$remote_branch)]($style) "
 
 [golang]
 symbol = " "
@@ -128,7 +127,6 @@ symbol = "🪺 "
 
 [python]
 symbol = " "
-format = 'via ${symbol}[${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rlang]
 symbol = "ﳒ "
