@@ -412,5 +412,5 @@ end
 function cmeel_release
     git commit -a -m "Cmeel Release $argv"
     git tag -s $argv -m "Cmeel Release $argv"
-ch    git push origin $argv
+    git push origin $argv
 end
