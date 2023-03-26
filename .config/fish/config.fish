@@ -12,7 +12,14 @@ if status --is-login
     gpgconf --launch gpg-agent
 end
 
-for dir in ~/.cargo ~/.poetry ~/.local ~/go ~/.cabal-sandbox
+set paths ~/.cargo ~/.poetry ~/.local ~/go ~/.cabal-sandbox
+
+if which ruby &> /dev/null
+    set -x GEM_HOME (ruby -e 'puts Gem.user_dir')
+    set paths $paths $GEM_HOME
+end
+
+for dir in $paths
     if test -d "$dir/bin" && echo $PATH | grep -vq $dir
         set -x PATH "$dir/bin" $PATH
     end
