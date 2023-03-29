@@ -355,6 +355,7 @@ Plug 'dense-analysis/ale'
 Plug 'chrisbra/Colorizer'
 Plug 'rhysd/vim-clang-format'
 Plug 'bogado/file-line'
+Plug 'imsnif/kdl.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
