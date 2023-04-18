@@ -136,7 +136,7 @@ alias civ5='env LD_PRELOAD=/usr/lib32/libopenal.so.1 steam steam://rungameid/893
 alias civ6='env LD_PRELOAD=/usr/lib/libfreetype.so.6 steam steam://rungameid/289070'
 
 #CMake
-alias bn='cmake -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_COMPILER_LAUNCHER=sccache'
+alias bn='cmake -B build -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=1'
 alias bb='cmake --build build'
 alias bt='bb -t test'
 alias bi='bb -t install'
