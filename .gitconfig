@@ -54,3 +54,4 @@
         ;insteadOf = https://github.com/
 [safe]
 	directory = /opt/esp-idf/components/openthread/openthread
+	directory = /pfcalcul
