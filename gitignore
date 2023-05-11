@@ -64,3 +64,4 @@ PLIST.guess
 .rgignore
 coverage.xml
 .tool-versions
+.sass-cache

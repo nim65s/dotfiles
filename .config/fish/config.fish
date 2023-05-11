@@ -129,7 +129,7 @@ function ii
         and offlineimap
         and ~/scripts/nmnnn.sh
         and vdirsyncer sync
-        and ~/scripts/rtt.py -np ~/Nextcloud/rtt.json
+        #and ~/scripts/rtt.py -np ~/Nextcloud/rtt.json
         and echo fini
         or echo fail
         date
