@@ -245,6 +245,7 @@ font Source Sans 3 9
 
 for_window [title="quakitty"] move scratchpad, sticky enable, border pixel 10
 for_window [title="Firefox - Sharing Indicator"] floating enable;
+for_window [title="winit window"] floating enable;
 
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
