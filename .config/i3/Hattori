@@ -9,7 +9,7 @@ assign [class="(?i)element"] 12
 
 exec picom -b
 exec firefox-developer-edition
-exec element-desktop
+#exec element-desktop
 exec pavucontrol
 exec zeal
 exec nextcloud
