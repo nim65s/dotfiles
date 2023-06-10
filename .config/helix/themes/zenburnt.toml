@@ -1,0 +1,6 @@
+# zenburn, with a transparent background
+# ref. https://github.com/helix-editor/helix/discussions/4092#discussioncomment-3807475
+
+inherits = "zenburn"
+
+"ui.background" = {bg = "bg_transparent"}

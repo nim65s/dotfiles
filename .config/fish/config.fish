@@ -12,6 +12,14 @@ if status --is-login
     gpgconf --launch gpg-agent
 end
 
+if status is-interactive
+    if which atuin &> /dev/null
+        atuin init fish --disable-up-arrow | source
+    else
+        echo "Atuin is not available"
+    end
+end
+
 set paths ~/.cargo ~/.poetry ~/.local ~/go ~/.cabal-sandbox
 
 if which ruby &> /dev/null

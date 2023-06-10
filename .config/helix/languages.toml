@@ -1,0 +1,9 @@
+[[language]]
+name = "rust"
+
+[language.config]
+checkOnSave = { command = "clippy" }
+
+[[language]]
+name = "python"
+config = { pylsp.plugins.ruff.enabled = true , pylsp.plugins.pyls_isort.enabled = true, pylsp.plugins.black.enabled = true }

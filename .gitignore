@@ -27,3 +27,4 @@ xmonad-x86_64-linux
 .vim/plugged
 .config/gtk-3.0/bookmarks
 .config/fish/fish_variables
+.config/helix/runtime
