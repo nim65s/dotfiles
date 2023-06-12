@@ -23,7 +23,6 @@ if has("vms")
 else
   set backup
 endif
-set history=1000 " keep 50 lines of command line history
 set ruler
 set showcmd
 set incsearch
@@ -37,11 +36,6 @@ map Q gq
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -116,16 +110,11 @@ let g:zenburn_italic_Comment=1
 let g:zenburn_transparent=1
 colors zenburn
 hi Normal ctermbg=NONE
-set tabstop=8
-set expandtab
 set scrolloff=3
 set ai
 set showcmd
-set number
 set ruler
 set hlsearch
-set ignorecase
-set smartcase
 set visualbell
 set cursorline
 highlight CursorLine cterm=bold ctermbg=NONE
@@ -134,19 +123,15 @@ filetype indent on
 
 " http://items.sjbach.com/319/configuring-vim-right
 
-set hidden
 let mapleader = ","
 set wildmenu
 set title
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 "set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 runtime macros/matchit.vim
 runtime macros/shellmenu.vim
 set pastetoggle=<F5>
 
-set shiftwidth=4
 
 map <F10> :NERDTreeToggle<cr>
 nmap <F4> :TlistToggle<cr>
@@ -304,9 +289,6 @@ autocmd BufNewFile,BufRead *.sdf set filetype=xml
 "patch-*: diff
 autocmd BufNewFile,BufRead patch-* set filetype=diff
 
-" persistent undo
-set undofile
-
 " c++ completion
 autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 set nocp
@@ -336,29 +318,18 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_clangd_binary_path = exepath("clangd")
 
 " vim-plug
-call plug#begin(DOTFILES .. "/plugged")
-Plug 'aliva/vim-fish', {'for': 'fish'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"call plug#begin(DOTFILES .. "/plugged")
 "Plug 'dpelle/vim-Grammalecte'
 "Plug 'editorconfig/editorconfig-vim'
-Plug 'mhinz/vim-signify'
 "Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer', 'for': 'cpp' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer', 'for': 'cpp' }
 "Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'dense-analysis/ale'
+"Plug 'cespare/vim-toml', {'for': 'toml'}
 "Plug 'posva/vim-vue'
-Plug 'chrisbra/Colorizer'
-Plug 'rhysd/vim-clang-format'
-Plug 'bogado/file-line'
-Plug 'imsnif/kdl.vim'
-Plug 'LnL7/vim-nix'
+"Plug 'chrisbra/Colorizer'
+"Plug 'imsnif/kdl.vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
+"call plug#end()
 
 let g:clang_format#command = 'clang-format-6.0'
 let g:clang_format#auto_format = 1

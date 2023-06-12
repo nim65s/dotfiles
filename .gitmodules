@@ -1,18 +1,6 @@
-[submodule "Zenburn"]
-	path = Zenburn
-	url = ../../jnurmine/Zenburn.git
 [submodule "imapfilter"]
 	path = .imapfilter
 	url = ../imapfilter.git
-[submodule "vim-plug"]
-	path = vim-plug
-	url = ../../junegunn/vim-plug.git
-[submodule "submodules/docker-fish-completion"]
-	path = submodules/docker-fish-completion
-	url = ../../barnybug-archive/docker-fish-completion
 [submodule "backups"]
 	path = backups
 	url = ../backups.git
-[submodule "bass"]
-	path = bass
-	url = ../../edc/bass

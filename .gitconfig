@@ -1,26 +1,14 @@
-[user]
-    name = Guilhem Saurel
-    email = guilhem.saurel@laas.fr
-    signingkey = 4653CF28
 [diff]
     tool = vimdiff
     guitool = meld
 [difftool]
     cmd = vimdiff
     prompt = false
-[core]
-    excludesfile = ~/dotfiles/gitignore
-    pager = delta --syntax-theme='zenburn'
-[push]
-    default = matching
 [merge]
     tool = vimdiff
     guitool = meld
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-[flake8]
-    max-line-length = 160
-    ignore = E128,E123,E126
 [alias]
     lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
     git = !exec git
@@ -30,27 +18,9 @@
     diff = always
     interactive = always
     status = always
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
-[interactive]
-    diffFilter = delta --color-only
-[pull]
-	ff = only
-[init]
-	defaultBranch = main
-[hub]
-	protocol = ssh
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
-[submodule]
-	fetchJobs = 4
-[fetch]
-	parallel = 4
-;[url "git@github.com:"]
+;[blame]
+;	ignoreRevsFile = .git-blame-ignore-revs
+;[url "gh:"]
         ;insteadOf = https://github.com/
 [safe]
 	directory = /opt/esp-idf/components/openthread/openthread

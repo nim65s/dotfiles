@@ -1,63 +1,8 @@
-if status --is-login
-    if not set -q LANG
-        set -gx LANG fr_FR.UTF-8
-    end
-    if expr "$LANG" : ".*\.[Uu][Tt][Ff].*" >/dev/null
-        if [ "$TERM" = linux ]
-            if which unicode_start &> /dev/null
-                unicode_start
-            end
-        end
-    end
-    gpgconf --launch gpg-agent
-end
-
-if status is-interactive
-    if which atuin &> /dev/null
-        atuin init fish --disable-up-arrow | source
-    else
-        echo "Atuin is not available"
-    end
-end
-
-set paths ~/.cargo ~/.poetry ~/.local ~/go ~/.cabal-sandbox
-
-if which ruby &> /dev/null
-    set -x GEM_HOME (ruby -e 'puts Gem.user_dir')
-    set paths $paths $GEM_HOME
-end
-
-for dir in $paths
-    if test -d "$dir/bin" && echo $PATH | grep -vq $dir
-        set -x PATH "$dir/bin" $PATH
-    end
-end
-
 set -q XDG_CONFIG_HOME || set -x XDG_CONFIG_HOME ~/.config
-if which starship &> /dev/null
-    starship init fish | source
-else
-    . $XDG_CONFIG_HOME/fish/nim.fish  # fish_prompt, nim's theme
-end
-
 set -q DOTFILES || set -x DOTFILES ~/dotfiles
 
 function fairytail
     tail -n 100 -F $argv | ccze -A
-end
-
-function fs
-    printf '\33]50;%s%d%s\007' "xft:DejaVuSansMono-Oblique:pixelsize=" $1 ",xft:Code2000:antialias=false"
-end
-
-function wol
-    for host in $argv
-        if test -f $DOTFILES/wol/$host
-            /usr/bin/wol (cat $DOTFILES/wol/$host)
-        else
-            /usr/bin/wol $argv
-        end
-    end
 end
 
 function df
@@ -68,65 +13,6 @@ end
 
 if which bat &> /dev/null
     alias cat="bat -p"
-end
-
-function dvd
-    sudo mkdir -p /mnt/dvd
-    sudo mount /dev/sr0 /mnt/dvd
-    and cvlc -f dvd:///mnt/dvd/
-    and sudo umount /dev/sr0
-    and eject
-end
-
-function virus_show
-    sed '/OK$/d;/^$/d;/Empty file$/d;/Symbolic link$/d" /donnees/nim/scan.log'
-end
-
-function bd
-    cd (python $HOME/scripts/bd.py $argv)
-end
-
-function check_websites
-    for server in tind jiro yuppa
-        chromium (ssh $server "grep ServerName /etc/apache2/sites-enabled/*|cut -d: -f2|sort|uniq|sed 's/ServerName /http:\/\//'")
-    end
-end
-
-function fuck
-    thefuck $history[2] | source
-end
-
-function watchmakepdf
-    while inotifywait $argv.tex
-        sleep 0.5
-        make $argv.pdf
-        and cp $argv.pdf ok.pdf
-    end
-end
-
-function pipup
-    test -f requirements.in
-    or return
-
-    pip install -U pip
-    git status --porcelain
-    git pull --rebase
-    pip-compile > /dev/null
-    git diff requirements.txt | grep '^-\|^+'
-    pip-sync
-
-    test (git status --porcelain | wc -l) -gt 0
-    or return
-
-    git add requirements.txt
-    git commit -m "pip-update"
-    git push
-end
-
-function gepetto_commit
-    git diff -w --no-color | git apply --cached --ignore-whitespace
-    and git commit -m "$argv"
-    and git checkout -- .
 end
 
 function ii
@@ -154,60 +40,7 @@ function srihash
     end
 end
 
-function pypiup
-    set -x TWINE_PASSWORD (pass web/pypi)
-    clean
-    python setup.py sdist bdist_wheel
-    and gpg --detach-sign -a dist/*.tar.gz
-    and gpg --detach-sign -a dist/*.whl
-    and twine upload -s dist/*
-    rm -rf build *egg-info
-    set -e TWINE_PASSWORD
-end
-
-function pypoup --description 'increment version in poetry, git & PyPI'
-    clean
-    poetry version $argv
-    poetry build
-    gpg --detach-sign -a dist/*.tar.gz
-    gpg --detach-sign -a dist/*.whl
-    set VERSION (poetry version | cut -d' ' -f2)
-    git commit -a -m "v$VERSION"
-    git tag -s "v$VERSION" -m "Release v$VERSION"
-    git push
-    git push --tags
-    set TOKEN (pass web/pypi/token)
-    poetry publish -u __token__ -p "$TOKEN"
-    set -e TOKEN
-    echo -n (grep github pyproject.toml | cut -d'"' -f2)"/releases/new"
-end
-
-# thx http://lewandowski.io/2016/10/fish-env/
-#function posix-source -d "loads a POSIX environment file"
-    #for i in (cat $argv)
-        #set arr (string split -m1 = $i)
-        #set -gx $arr[1] $arr[2]
-    #end
-#end
-
-#function __check_env --on-variable PWD --description 'load .env'
-    #test -f .env
-    #and bass source .env
-#end
-
 . $DOTFILES/portable-aliases.sh
-
-# exports
-
-#if test -d "/usr/share/vim/vim80"
-#    set -x VIMRUNTIME /usr/share/vim/vim80
-#else if test -d "/usr/share/vim/vim74"
-#    set -x VIMRUNTIME /usr/share/vim/vim74
-#else if test -d "/usr/share/vim/vim73"
-#    set -x VIMRUNTIME /usr/share/vim/vim73
-#else
-#    set -x VIMRUNTIME /usr/share/vim/vim72
-#end
 
 set -x EDITOR vim
 set -x BROWSER firefox-developer-edition
@@ -229,11 +62,23 @@ set -x CTEST_PROGRESS_OUTPUT ON
 set -x DOCKER_BUILDKIT 1
 set -x COMPOSE_DOCKER_CLI_BUILD 1
 set -x ORBInitRef NameService=corbaname::localhost
-set -x CC gcc
-set -x CXX g++
-set -x CXXFLAGS -fdiagnostics-color=always  # GCC
+set -x CC clang
+set -x CXX clang++
+set -x CXXFLAGS -fdiagnostics-color
 set -x TWINE_USERNAME nim65s
 set -x POETRY_VIRTUALENVS_IN_PROJECT true
+
+function gnucc
+    set -x CC gcc
+    set -x CXX g++
+    set -x CXXFLAGS -fcolor-diagnostics=always
+end
+
+function cl
+    set -x CC clang
+    set -x CXX clang++
+    set -x CXXFLAGS -fcolor-diagnostics
+end
 
 function cl
     set -x CC clang
@@ -255,9 +100,6 @@ set -x GIT_SSH_COMMAND 'ssh -o ControlMaster=no -o ForwardAgent=no'
 set __fish_git_prompt_show_informative_status 'yes'
 set __fish_git_prompt_showcolorhints 'yes'
 
-__fish_complete_django django-admin.py
-__fish_complete_django manage.py
-
 if test -f ~/.config/fish/(hostname).fish
     . ~/.config/fish/(hostname).fish
 end
@@ -277,85 +119,6 @@ function ros
     echo ". $ROS_DIR/share/rosbash/rosfish"
 end
 
-function restash
-    git stash
-    and git rebase -i HEAD~$argv[1]
-    and git stash pop
-    and git commit -a --amend --no-edit
-    and git rebase --continue
-    and echo YEEEEAAAAAAAAHH
-end
-
-# https://github.com/fisherman/pipenv/blob/master/conf.d/pipenv.fish + --fancy
-if command -s pipenv > /dev/null
-
-    # complete --command pipenv --arguments "(env _PIPENV_COMPLETE=complete-fish COMMANDLINE=(commandline -cp) pipenv)" -f
-
-    function __pipenv_shell_activate --on-variable PWD
-        if status --is-command-substitution
-            return
-        end
-        if not test -e "$PWD/Pipfile"
-
-            if not string match -q "$__pipenv_fish_initial_pwd"/'*' "$PWD/"
-                set -U __pipenv_fish_final_pwd "$PWD"
-                exit
-            end
-            return
-        end
-
-        if not test -n "$PIPENV_ACTIVE"
-          if pipenv --venv >/dev/null 2>&1
-            set -x __pipenv_fish_initial_pwd "$PWD"
-            pipenv shell --fancy
-            set -e __pipenv_fish_initial_pwd
-            if test -n "$__pipenv_fish_final_pwd"
-                cd "$__pipenv_fish_final_pwd"
-                set -e __pipenv_fish_final_pwd
-            end
-          end
-        end
-    end
-else
-    function pipenv -d "http://docs.pipenv.org/en/latest/"
-        echo "Install http://docs.pipenv.org/en/latest/ to use this plugin." > /dev/stderr
-        return 1
-    end
-end
-
-# https://github.com/fisherman/pipenv/blob/master/conf.d/pipenv.fish %s/pipenv/poetry
-#if command -s poetry > /dev/null
-    #function __poetry_shell_activate --on-variable PWD
-        #if status --is-command-substitution
-            #return
-        #end
-       #if not test -e "$PWD/pyproject.toml"
-            #if not string match -q "$__poetry_fish_initial_pwd"/'*' "$PWD/"
-                #set -U __poetry_fish_final_pwd "$PWD"
-                #exit
-            #end
-            #return
-        #end
-        #if not test -n "$POETRY_ACTIVE"
-          #if test (poetry env list | wc -l) -gt 0
-            #set -x __poetry_fish_initial_pwd "$PWD"
-            #poetry shell -q
-            #set -e __poetry_fish_initial_pwd
-            #if test -n "$__poetry_fish_final_pwd"
-                #cd "$__poetry_fish_final_pwd"
-                #set -e __poetry_fish_final_pwd
-            #end
-          #end
-        #end
-    #end
-#end
-
-
-function fish_greeting
-    #command -qs ponysay
-    #and ponysay -o
-end
-
 function ``` --description 'no-op, to ease copy-paste from markdown'
     # ```
     return 0
@@ -373,10 +136,6 @@ function cxx_cov
     and gcovr -r .. --html --html-details -o /tmp/cov/index.html
 end
 
-function geplint
-    docker run --rm -v (pwd -P):/root/src -it gepetto/linters
-end
-
 function rptest
     set build (make show-var VARNAME=CONFIGURE_DIRS)
     pushd (make show-var VARNAME=WRKSRC)
@@ -392,19 +151,6 @@ end
 
 test -d /opt/esp-idf
 and set -x IDF_PATH /opt/esp-idf
-
-# vim: set filetype=fish:
-
-#if test -d /local/users/gsaurel/miniconda3
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-#if test -f /home/nim/miniconda3/bin/conda
-    #eval /home/nim/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-#end
-# <<< conda initialize <<<
-
-#end
 
 function hg --wraps rg; kitty +kitten hyperlinked_grep $argv; end
 
