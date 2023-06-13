@@ -13,7 +13,6 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     bacon
-    bat
     cargo-binstall
     cargo-release
     ccze
@@ -21,7 +20,6 @@
     cmake
     dfc
     docker-compose
-    dunst
     #eigen
     element-desktop
     evince
@@ -33,9 +31,6 @@
     htop
     inetutils
     just
-    khal
-    khard
-    kitty
     #llvmPackages_16.bintools
     mdbook
     ninja
@@ -53,7 +48,6 @@
     #python310Packages.pandocfilters
     #python310Packages.python
     ripgrep
-    rofi
     rustup
     sd
     sccache
@@ -63,19 +57,19 @@
     tree
     tig
     tinc
-    todoman
-    vdirsyncer
     vlc
     watchexec
-    zathura
     zellij
     zoom-us
   ];
 
   home.file = {
+    # Files
     ".config/home-manager/home.nix".source = ~/dotfiles/.config/home-manager/home.nix;
+    ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
     ".config/starship.toml".source = ~/dotfiles/.config/starship.toml;
     ".pypirc".source = ~/dotfiles/.pypirc;
+    ".latexmkrc".source = ~/dotfiles/.latexmkrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -89,6 +83,15 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "zenburn";
+      pager = "less";
+    };
+    extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+  };
 
   programs.fish = {
     enable = true;
@@ -108,8 +111,24 @@
     settings = { sync_address = "https://atuin.datcat.fr"; };
   };
 
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        follow = "keyboard";
+        geometry = "0x5-10+10";
+        indicate_hidden = true;
+        padding = 10;
+        horizontal_padding = 10;
+        sort = true;
+        format = "<b>%s</b>\n%b";
+      };
+    };
+  };
+
   programs.ssh = {
     enable = true;
+    controlMaster = "yes";
     includes = [ "local_config" ];
     matchBlocks = {
       "gh" = {
@@ -128,6 +147,14 @@
         hostname = "upepesanke";
         user = "gsaurel";
         proxyJump = "laas";
+      };
+      "totoro" = {
+        hostname = "totoro.saurel.me";
+        user = "nim";
+      };
+      "nausicaa" = {
+        hostname = "192.168.8.112";
+        proxyJump = "totoro";
       };
     };
   };
@@ -151,7 +178,7 @@
           hub = { protocol = "ssh"; };
           submodule = { fetchJobs = 4; };
           fetch = { parallel = 4; };
-          # blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
+          blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
         };
       }
       { path = "~/dotfiles/.gitconfig"; }
@@ -180,6 +207,7 @@
           }];
         };
       };
+      # toolkit.legacyUserProfileCustomizations.stylesheets
       userChrome = ''
         #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
           opacity: 0;
@@ -193,6 +221,51 @@
           display: none;
         }
       '';
+    };
+  };
+
+  programs.rofi = {
+    enable = true;
+    extraConfig = {
+      color-enabled = true;
+      matching = "fuzzy";
+      no-lazy-grab = true;
+    };
+  };
+
+  programs.kitty = {
+    enable = true;
+    keybindings = {
+      "kitty_mod+left" = "resize_window narrower";
+      "kitty_mod+right" = "resize_window wider";
+      "kitty_mod+up" = "resize_window taller";
+      "kitty_mod+down" = "resize_window shorter";
+      "alt+n" = "launch --location=split --cwd=current";
+      "alt+m" = "launch --location=hsplit --cwd=current";
+      "alt+z" = "launch --location=vsplit --cwd=current";
+      "kitty_mod+n" = "new_os_window_with_cwd";
+      "alt+t" = "next_window";
+      "alt+s" = "previous_window";
+      "alt+shift+t" = "move_window_forward";
+      "alt+shift+s" = "move_window_backward";
+      "alt+shift+d" = "detach_window";
+      "alt+l" = "next_tab";
+      "alt+v" = "previous_tab";
+      "alt+d" = "new_tab_with_cwd";
+      "alt+plus" = "layout_action increase_num_full_size_windows";
+      "alt+minus" = "layout_action decrease_num_full_size_windows";
+      "kitty_mod+plus" = "change_font_size all +1.0";
+      "kitty_mod+minus" = "change_font_size all -1.0";
+    };
+    settings = {
+      "touch_scroll_multiplier" = "10.0";
+      "focus_follows_mouse" = true;
+      "enable_audio_bell" = false;
+      "enabled_layouts" = "splits,fat,tall,grid,horizontal,vertical,stack";
+      "placement_strategy" = "top-left";
+      "tab_bar_style" = "powerline";
+      "tab_separator" = " | ";
+      "background_opacity" = "0.7";
     };
   };
 
@@ -244,10 +317,17 @@
     '';
   };
 
-  services.gpg-agent = {
+  programs.zathura = {
     enable = true;
-    enableExtraSocket = true;
-    enableSshSupport = true;
+    mappings = {
+      r = "reload";
+      t = "navigate next";
+      s = "navigate previous";
+      v = "zoom in";
+      l = "zoom out";
+      q = "quit";
+      n = "rotate";
+    };
   };
 
   gtk = {
