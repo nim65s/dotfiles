@@ -3,8 +3,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  home.username = "nim";
-  home.homeDirectory = "/home/nim";
+  home.username = "gsaurel";
+  home.homeDirectory = "/home/gsaurel";
 
   home.enableDebugInfo = true;
 
