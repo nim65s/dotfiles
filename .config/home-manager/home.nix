@@ -53,7 +53,6 @@
     #python310Packages.pandocfilters
     #python310Packages.python
     ripgrep
-    rofi
     rustup
     sd
     sccache
@@ -194,6 +193,10 @@
         }
       '';
     };
+  };
+
+  programs.rofi = {
+    enable = true;
   };
 
   programs.vim = {
