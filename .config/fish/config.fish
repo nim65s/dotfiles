@@ -66,8 +66,28 @@ function df
     or /bin/df -h
 end
 
-if which bat &> /dev/null
-    alias cat="bat -p"
+if which lsd &> /dev/null
+    alias ls='lsd -F --hyperlink=auto'
+    alias sl='lsd -F --hyperlink=auto'
+    alias lss='lsd -F --hyperlink=auto'
+    alias lt='lsd -F --hyperlink=auto --tree'
+    alias tree='lsd -F --hyperlink=auto --tree'
+    alias ll='lsd --hyperlink=auto -lArthF'
+    alias lll='lsd --hyperlink=auto -lArthF'
+    alias llt='lsd --hyperlink=auto -lArthF --tree -I .git'
+    alias ltl='lsd --hyperlink=auto -lArthF --tree -I .git'
+    alias treel='lsd --hyperlink=auto -lArthF --tree -I .git'
+else
+    alias ls='ls -F --color=auto --hyperlink=auto'
+    alias sl='ls -F --color=auto'
+    alias lss='ls -F --color=auto'
+    alias ll='ls -lArthF'
+    alias lll='ls -lArthF'
+    alias lt='tree -aC -I .git'
+    alias tree='tree -aC -I .git'
+    alias llt='tree -aphugDC -I .git'
+    alias ltl='tree -aphugDC -I .git'
+    alias treel='tree -aphugDC -I .git'
 end
 
 function dvd
