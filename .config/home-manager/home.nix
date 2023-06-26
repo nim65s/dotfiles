@@ -21,30 +21,41 @@
     cmake
     dfc
     docker-compose
+    du-dust
     dunst
     #eigen
-    element-desktop
+    element-desktop-wayland
     evince
+    eww-wayland
+    exa
     fd
     file
     fishPlugins.bass
     git
+    grim
     helix
     htop
+    hyprland
+    hyprpaper
+    hyprpicker
     inetutils
+    imv
     just
     khal
     khard
     kitty
     #llvmPackages_16.bintools
     mdbook
+    mpv
     ninja
     okular
     openssl
     pass
     pdfpc
+    #pipewire
     pkg-config
-    poetry
+    #poetry
+    #poetryPlugins.poetry-plugin-up
     #python310Packages.boost
     #python310Packages.django
     #python310Packages.i3ipc
@@ -57,8 +68,10 @@
     sd
     sccache
     shellcheck
+    spotify
     sqlite
     starship
+    swappy
     tree
     tig
     tinc
@@ -66,6 +79,9 @@
     vdirsyncer
     vlc
     watchexec
+    wev
+    #wireplumber
+    xdg-desktop-portal-hyprland
     zathura
     zellij
     zoom-us
@@ -87,74 +103,10 @@
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 
-  programs.home-manager.enable = true;
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      test -f ~/dotfiles/.config/fish/config.fish
-      and source ~/dotfiles/.config/fish/config.fish
-      if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-        set -e __HM_SESS_VARS_SOURCED
-        bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-      end
-      '';
-  };
-
   programs.atuin = {
     enable = true;
     flags = [ "--disable-up-arrow" ];
     settings = { sync_address = "https://atuin.datcat.fr"; };
-  };
-
-  programs.ssh = {
-    enable = true;
-    includes = [ "local_config" ];
-    matchBlocks = {
-      "gh" = {
-        hostname = "github.com";
-        user = "git";
-      };
-      "gl" = {
-        hostname = "gitlab.laas.fr";
-        user = "git";
-      };
-      "laas" = {
-        hostname = "ssh.laas.fr";
-        user = "gsaurel";
-      };
-      "upe" = {
-        hostname = "upepesanke";
-        user = "gsaurel";
-        proxyJump = "laas";
-      };
-    };
-  };
-
-  programs.starship.enable = true;
-
-  programs.git = {
-    enable = true;
-    delta.enable = true;
-    lfs.enable = true;
-    userName = "Guilhem Saurel";
-    userEmail = "guilhem.saurel@laas.fr";
-    includes = [
-      {
-        contents = {
-          core = { excludesfile = "~/dotfiles/gitignore"; };
-          push = { default = "simple"; };
-          user = { signingKey = "4653CF28"; };
-          pull = { ff = "only"; };
-          init = { defaultBranch = "main"; };
-          hub = { protocol = "ssh"; };
-          submodule = { fetchJobs = 4; };
-          fetch = { parallel = 4; };
-          # blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
-        };
-      }
-      { path = "~/dotfiles/.gitconfig"; }
-    ];
   };
 
   programs.firefox = {
@@ -195,8 +147,78 @@
     };
   };
 
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      test -f ~/dotfiles/.config/fish/config.fish
+      and source ~/dotfiles/.config/fish/config.fish
+      '';
+  };
+
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    lfs.enable = true;
+    userName = "Guilhem Saurel";
+    userEmail = "guilhem.saurel@laas.fr";
+    includes = [
+      {
+        contents = {
+          core = { excludesfile = "~/dotfiles/gitignore"; };
+          push = { default = "simple"; };
+          user = { signingKey = "4653CF28"; };
+          pull = { ff = "only"; };
+          init = { defaultBranch = "main"; };
+          hub = { protocol = "ssh"; };
+          submodule = { fetchJobs = 4; };
+          fetch = { parallel = 4; };
+          # blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
+        };
+      }
+      { path = "~/dotfiles/.gitconfig"; }
+    ];
+  };
+
+  programs.home-manager.enable = true;
+
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
+  };
+
+  programs.ssh = {
+    enable = true;
+    includes = [ "local_config" ];
+    matchBlocks = {
+      "gh" = {
+        hostname = "github.com";
+        user = "git";
+      };
+      "gl" = {
+        hostname = "gitlab.laas.fr";
+        user = "git";
+      };
+      "laas" = {
+        hostname = "ssh.laas.fr";
+        user = "gsaurel";
+      };
+      "upe" = {
+        hostname = "upepesanke";
+        user = "gsaurel";
+        proxyJump = "laas";
+      };
+    };
+  };
+
+  programs.starship.enable = true;
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+      show-failed-attempts = true;
+    };
   };
 
   programs.vim = {
@@ -216,6 +238,7 @@
       vimPlugins.vim-sensible
       vimPlugins.vim-signify
       vimPlugins.vim-toml
+      vimPlugins.yuck-vim
       vimPlugins.zenburn
     ];
     settings = {
