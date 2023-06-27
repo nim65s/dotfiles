@@ -80,10 +80,13 @@ function cl
     set -x CXXFLAGS -fcolor-diagnostics
 end
 
-function cl
-    set -x CC clang
-    set -x CXX clang++
-    set -x CXXFLAGS -fcolor-diagnostics
+function nonix
+    set -e CC
+    set -e CXX
+    set -e CXXFLAGS
+    set -e LD_LIBRARY_PATH
+    set -e PKG_CONFIG_PATH
+    env PATH=~/.local/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin bash
 end
 
 

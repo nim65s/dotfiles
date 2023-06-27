@@ -182,6 +182,8 @@
 
   programs.home-manager.enable = true;
 
+  programs.lsd.enable = true;
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
