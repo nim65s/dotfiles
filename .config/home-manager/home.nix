@@ -3,8 +3,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  home.username = "gsaurel";
-  home.homeDirectory = "/home/gsaurel";
+  home.username = import ~/.config/home-manager/local-username.nix;
+  home.homeDirectory = import ~/.config/home-manager/local-home-directory.nix;
 
   home.enableDebugInfo = true;
 
@@ -88,7 +88,6 @@
   ];
 
   home.file = {
-    ".config/home-manager/home.nix".source = ~/dotfiles/.config/home-manager/home.nix;
     ".config/starship.toml".source = ~/dotfiles/.config/starship.toml;
     ".pypirc".source = ~/dotfiles/.pypirc;
 
