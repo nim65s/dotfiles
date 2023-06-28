@@ -12,16 +12,13 @@ function df
 end
 
 if which lsd &> /dev/null
-    alias ls='lsd -F --hyperlink=auto'
-    alias sl='lsd -F --hyperlink=auto'
-    alias lss='lsd -F --hyperlink=auto'
-    alias lt='lsd -F --hyperlink=auto --tree'
-    alias tree='lsd -F --hyperlink=auto --tree'
-    alias ll='lsd --hyperlink=auto -lArthF'
-    alias lll='lsd --hyperlink=auto -lArthF'
-    alias llt='lsd --hyperlink=auto -lArthF --tree -I .git'
-    alias ltl='lsd --hyperlink=auto -lArthF --tree -I .git'
-    alias treel='lsd --hyperlink=auto -lArthF --tree -I .git'
+    alias sl='lsd'
+
+    # TODO: remove these 3 after
+    # https://github.com/nix-community/home-manager/pull/4173
+    alias la='lsd -A'
+    alias lla='lsd -lA'
+    alias llt='lsd -l --tree'
 else
     alias ls='ls -F --color=auto --hyperlink=auto'
     alias sl='ls -F --color=auto'

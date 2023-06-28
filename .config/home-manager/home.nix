@@ -182,7 +182,21 @@
 
   programs.home-manager.enable = true;
 
-  programs.lsd.enable = true;
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+    settings = {
+      header = true;
+      hyperlink = "auto";
+      indicators = true;
+      ignore-globs = [
+        ".git"
+        "*.orig"
+        "*~"
+      ];
+      total-size = true;
+    };
+  };
 
   programs.rofi = {
     enable = true;
