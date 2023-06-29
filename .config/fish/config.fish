@@ -446,9 +446,3 @@ end
 if which rtx &> /dev/null
     rtx activate fish | source
 end
-
-function cmeel_release
-    git commit -a -m "Cmeel Release $argv"
-    git tag -s $argv -m "Cmeel Release $argv"
-    git push origin $argv
-end
