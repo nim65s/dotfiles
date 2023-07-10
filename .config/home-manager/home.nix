@@ -386,4 +386,6 @@
       };
     };
   };
+
+  services.swayosd.enable = true;
 }
