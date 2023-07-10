@@ -99,6 +99,7 @@
 
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    SHELL = "fish";  # TODO: pkgs.fish.….path
   };
 
   programs.atuin = {
@@ -127,6 +128,8 @@
         horizontal_padding = 10;
         sort = true;
         format = "<b>%s</b>\n%b";
+        # browser = /usr/bin/firefox-developer -new-tab
+        # TODO browser = pkgs.firefox.….path -new-tab
       };
     };
   };
@@ -153,7 +156,9 @@
           }];
         };
       };
-      # toolkit.legacyUserProfileCustomizations.stylesheets
+      settings = {
+       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      };
       userChrome = ''
         #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
           opacity: 0;
@@ -176,12 +181,6 @@
       test -f ~/dotfiles/.config/fish/config.fish
       and source ~/dotfiles/.config/fish/config.fish
       '';
-      /*
-      if test -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-        set -e __HM_SESS_VARS_SOURCED
-        bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-      end
-      */
   };
 
   programs.git = {
@@ -212,6 +211,7 @@
 
   programs.kitty = {
     enable = true;
+    # TODO font.package = (pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; });
     keybindings = {
       "kitty_mod+left" = "resize_window narrower";
       "kitty_mod+right" = "resize_window wider";
@@ -243,6 +243,7 @@
       "tab_bar_style" = "powerline";
       "tab_separator" = " | ";
       "background_opacity" = "0.7";
+      "shell" = "fish";
     };
   };
 
@@ -307,7 +308,7 @@
 
   programs.starship.enable = true;
 
-  /*
+  /* TODO
   programs.swaylock = {
     enable = true;
     settings = {
@@ -328,7 +329,6 @@
       vimPlugins.vim-airline
       vimPlugins.vim-airline-themes
       vimPlugins.vim-clang-format
-      #vimPlugins.vim-fish
       vimPlugins.vim-fugitive
       vimPlugins.vim-nix
       vimPlugins.vim-sensible
