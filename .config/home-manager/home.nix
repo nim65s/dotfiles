@@ -30,9 +30,14 @@
     file
     fishPlugins.bass
     git
+    gtklock
+    gtklock-userinfo-module
+    gtklock-powerbar-module
+    gtklock-playerctl-module
     grim
     helix
     htop
+    httpie
     hyprland
     hyprpaper
     hyprpicker
