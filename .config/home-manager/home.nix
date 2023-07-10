@@ -102,6 +102,14 @@
     SHELL = "fish";  # TODO: pkgs.fish.….path
   };
 
+  gtk = {
+    enable = true;
+    # TODO cursorTheme
+    # TODO font
+    theme.package = pkgs.gnome.adwaita-icon-theme;
+    theme.name = "Adwaita";
+  };
+
   programs.atuin = {
     enable = true;
     flags = [ "--disable-up-arrow" ];
@@ -115,23 +123,6 @@
       pager = "less";
     };
     extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
-  };
-
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        follow = "keyboard";
-        geometry = "0x5-10+10";
-        indicate_hidden = true;
-        padding = 10;
-        horizontal_padding = 10;
-        sort = true;
-        format = "<b>%s</b>\n%b";
-        # browser = /usr/bin/firefox-developer -new-tab
-        # TODO browser = pkgs.firefox.….path -new-tab
-      };
-    };
   };
 
   programs.firefox = {
@@ -379,11 +370,20 @@
     };
   };
 
-  gtk = {
+  services.dunst = {
     enable = true;
-    # TODO cursorTheme
-    # TODO font
-    theme.package = pkgs.gnome.adwaita-icon-theme;
-    theme.name = "Adwaita";
+    settings = {
+      global = {
+        follow = "keyboard";
+        geometry = "0x5-10+10";
+        indicate_hidden = true;
+        padding = 10;
+        horizontal_padding = 10;
+        sort = true;
+        format = "<b>%s</b>\n%b";
+        # browser = /usr/bin/firefox-developer -new-tab
+        # TODO browser = pkgs.firefox.….path -new-tab
+      };
+    };
   };
 }
