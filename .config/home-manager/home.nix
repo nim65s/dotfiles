@@ -45,6 +45,7 @@
     mdbook
     mpv
     ninja
+    nixpkgs-review
     okular
     openssl
     pass
@@ -134,15 +135,80 @@
       path = "nim.dev-edition-default";
       isDefault = true;
       search.force = true;
+      search.default = "DuckDuckGo";
       search.engines = {
+        "Amazon.fr".metaData.hidden = true;
+        "Bing".metaData.hidden = true;
+        "Google".metaData.alias = ":g";
+        "Wikipedia (en)".metaData.alias = ":w";
+        "Arch Wiki" = {
+          iconUpdateURL = "https://wiki.archlinux.org/favicon.ico";
+          definedAliases = [ ":a" ];
+          urls = [{
+            template = "https://wiki.archlinux.org/index.php";
+            params = [
+              { name = "search"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
+        "Crates.io" = {
+          iconUpdateURL = "https://crates.io/assets/cargo.png";
+          definedAliases = [ ":c" ];
+          urls = [{
+            template = "https://crates.io/search";
+            params = [
+              { name = "q"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
+        "Github" = {
+          iconUpdateURL = "https://github.com/favicon.ico";
+          definedAliases = [ ":gh" ];
+          urls = [{
+            template = "https://github.com/search";
+            params = [
+              { name = "q"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
+        "Gitlab" = {
+          iconUpdateURL = "https://gitlab.laas.fr/favicon.ico";
+          definedAliases = [ ":gl" ];
+          urls = [{
+            template = "https://gitlab.laas.fr/search";
+            params = [
+              { name = "search"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
         "Nix Packages" = {
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@np" ];
+          definedAliases = [ ":n" ];
           urls = [{
             template = "https://search.nixos.org/packages";
             params = [
               { name = "type"; value = "packages"; }
               { name = "query"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
+        "Python" = {
+          iconUpdateURL = "https://www.python.org/images/favicon16x16.ico";
+          definedAliases = [ ":p" ];
+          urls = [{
+            template = "https://docs.python.org/3.11/search.html";
+            params = [
+              { name = "q"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
+        "Rust" = {
+          iconUpdateURL = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
+          definedAliases = [ ":r" ];
+          urls = [{
+            template = "https://doc.rust-lang.org/std/";
+            params = [
+              { name = "search"; value = "{searchTerms}"; }
             ];
           }];
         };
