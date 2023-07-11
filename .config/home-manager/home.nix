@@ -131,6 +131,12 @@
     extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
   };
 
+  programs.chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+    commandLineArgs = [ "--ozone-platform=wayland" ];
+  };
+
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
