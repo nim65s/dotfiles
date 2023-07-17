@@ -213,6 +213,16 @@
             ];
           }];
         };
+        "PyPI" = {
+          iconUpdateURL = "https://pypi.org/static/images/favicon.35549fe8.ico";
+          definedAliases = [ ":pp" ];
+          urls = [{
+            template = "https://pypi.org/search/";
+            params = [
+              { name = "q"; value = "{searchTerms}"; }
+            ];
+          }];
+        };
         "Rust" = {
           iconUpdateURL = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
           definedAliases = [ ":r" ];
