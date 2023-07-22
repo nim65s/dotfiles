@@ -50,7 +50,6 @@ in
     helix
     htop
     httpie
-    hyprland
     hyprpaper
     hyprpicker
     inetutils
@@ -405,4 +404,15 @@ in
   };
 
   services.swayosd.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      exec-once = local.hyprland.exec-once;
+      monitor = local.hyprland.monitor;
+      workspace = local.hyprland.workspace;
+      env = "PATH, ${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
+      source = "~/dotfiles/.config/hypr/hyprland.conf";
+    };
+  };
 }
