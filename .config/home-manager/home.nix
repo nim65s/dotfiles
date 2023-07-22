@@ -1,17 +1,28 @@
 { config, pkgs, ... }:
 
+let
+  gruppled-white-lite-cursors = pkgs.callPackage ~/dotfiles/nimxpkgs/gruppled-lite-cursors {
+    theme = "gruppled_white_lite";
+  };
+  sauce-code-pro = pkgs.nerdfonts.override {
+    fonts = [ "SourceCodePro" ];
+  };
+  homeDirectory = import ~/.config/home-manager/local-home-directory.nix;
+in
+
 {
   nixpkgs.config.allowUnfree = true;
 
+  fonts.fontconfig.enable = true;
+
   home.username = import ~/.config/home-manager/local-username.nix;
-  home.homeDirectory = import ~/.config/home-manager/local-home-directory.nix;
+  home.homeDirectory = homeDirectory;
 
   home.enableDebugInfo = true;
 
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     bacon
     cargo-binstall
     cargo-release
@@ -30,6 +41,7 @@
     file
     fishPlugins.bass
     git
+    gnupg
     gtklock
     gtklock-userinfo-module
     gtklock-powerbar-module
@@ -43,6 +55,7 @@
     hyprpicker
     inetutils
     imv
+    pinentry
     just
     khal
     khard
@@ -57,6 +70,7 @@
     pdfpc
     #pipewire
     pkg-config
+    playerctl
     #poetry
     #poetryPlugins.poetry-plugin-up
     #python310Packages.boost
@@ -68,17 +82,20 @@
     #python310Packages.python
     ripgrep
     rustup
+    sauce-code-pro
     sd
     sccache
     shellcheck
+    source-sans
     spotify
     sqlite
     starship
     swappy
-    tree
+    thunderbird
     tig
     tinc
     todoman
+    tree
     vdirsyncer
     vlc
     watchexec
@@ -90,11 +107,18 @@
     zoom-us
   ];
 
+  home.pointerCursor = {
+    package = gruppled-white-lite-cursors;
+    name = "gruppled_white_lite";
+    gtk.enable = true;
+  };
+
   home.file = {
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
     ".config/starship.toml".source = ~/dotfiles/.config/starship.toml;
     ".pypirc".source = ~/dotfiles/.pypirc;
     ".latexmkrc".source = ~/dotfiles/.latexmkrc;
+    ".icons".source = ~/.nix-profile/share/icons;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -105,13 +129,12 @@
 
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-    SHELL = "fish";  # TODO: pkgs.fish.….path
+    SHELL = "${pkgs.fish}/bin/fish";
   };
 
   gtk = {
     enable = true;
-    # TODO cursorTheme
-    # TODO font
+    font.name = "Source Sans";
     theme.package = pkgs.gnome.adwaita-icon-theme;
     theme.name = "Adwaita";
   };
@@ -233,6 +256,28 @@
             ];
           }];
         };
+        "WordReference - enfr" = {
+          iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+          definedAliases = [ ":enfr" ];
+          urls = [{
+            template = "https://www.wordreference.com/redirect/translation.aspx";
+            params = [
+              { name = "w"; value = "{searchTerms}"; }
+              { name = "dict"; value = "enfr"; }
+            ];
+          }];
+        };
+        "WordReference - fren" = {
+          iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+          definedAliases = [ ":fren" ];
+          urls = [{
+            template = "https://www.wordreference.com/redirect/translation.aspx";
+            params = [
+              { name = "w"; value = "{searchTerms}"; }
+              { name = "dict"; value = "fren"; }
+            ];
+          }];
+        };
       };
       settings = {
        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -289,7 +334,7 @@
 
   programs.kitty = {
     enable = true;
-    # TODO font.package = (pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; });
+    font.name = "Source Code Pro";
     keybindings = {
       "kitty_mod+left" = "resize_window narrower";
       "kitty_mod+right" = "resize_window wider";
@@ -341,9 +386,17 @@
     };
   };
 
+  programs.password-store = {
+    enable = true;
+    settings = {
+      PASSWORD_STORE_DIR = "${homeDirectory}/.password-store";
+    };
+  };
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    font = "Source Code Pro 12";
     extraConfig = {
       color-enabled = true;
       matching = "fuzzy";
@@ -468,8 +521,21 @@
         horizontal_padding = 10;
         sort = true;
         format = "<b>%s</b>\n%b";
-        # browser = /usr/bin/firefox-developer -new-tab
-        # TODO browser = pkgs.firefox.….path -new-tab
+        font = "Source Sans";
+        browser = "${pkgs.firefox-devedition}/bin/firefox -new-tab";
+      };
+    };
+  };
+
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "nim65s";
+        password_cmd = "pass hm/spotify";
+        device_name = "home-manager";
+        device_type = "computer";
+        backend = "pulseaudio";
       };
     };
   };
