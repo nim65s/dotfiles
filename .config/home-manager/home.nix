@@ -7,7 +7,7 @@ let
   sauce-code-pro = pkgs.nerdfonts.override {
     fonts = [ "SourceCodePro" ];
   };
-  homeDirectory = import ~/.config/home-manager/local-home-directory.nix;
+  local = import ~/.config/home-manager/local.nix;
 in
 
 {
@@ -15,8 +15,8 @@ in
 
   fonts.fontconfig.enable = true;
 
-  home.username = import ~/.config/home-manager/local-username.nix;
-  home.homeDirectory = homeDirectory;
+  home.username = local.username;
+  home.homeDirectory = local.homeDirectory;
 
   home.enableDebugInfo = true;
 
@@ -390,7 +390,7 @@ in
   programs.password-store = {
     enable = true;
     settings = {
-      PASSWORD_STORE_DIR = "${homeDirectory}/.password-store";
+      PASSWORD_STORE_DIR = "${local.homeDirectory}/.password-store";
     };
   };
 
