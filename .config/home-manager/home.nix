@@ -280,6 +280,7 @@ in
         };
       };
       settings = {
+       "browser.toolbars.bookmarks.visibility" = "never";
        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       userChrome = ''
