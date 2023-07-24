@@ -4,11 +4,7 @@ in {
   username = username;
   homeDirectory = "/home/${username}";
   hyprland = {
-    exec-once = [
-      "hyprpaper"
-      "nixGL firefox"
-      "element-desktop"
-    ];
+    exec-once = [];
     monitor = [
       "eDP-1, 1920x1080, 0x0, 1"
     ];

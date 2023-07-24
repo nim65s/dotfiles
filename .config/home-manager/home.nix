@@ -66,6 +66,7 @@ in
     okular
     openssl
     pass
+    pavucontrol
     pdfpc
     #pipewire
     pkg-config
@@ -360,6 +361,78 @@ in
     '';
   };
 
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 20;
+        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+        modules-center = [ ];
+        modules-right = [ "network" "pulseaudio" "memory" "cpu" "temperature" "battery" "clock" "tray"];
+
+        "tray" = { "spacing" = 10; };
+        "cpu" = { "format" = "{}% "; };
+        "memory" = { "format" = "{}% "; };
+        "battery" = {
+          "states" = {
+            "good" = 80;
+            "warning" = 30;
+            "critical" = 15;
+          };
+          "format" = "{capacity}% {icon}";
+          "format-charging" = "{capacity}% ";
+          "format-plugged" = "{capacity}% ";
+          "format-alt" = "{time} {icon}";
+          "format-good" = "";
+          "format-full" = "";
+          "format-icons" = ["" "" "" "" ""];
+        };
+        "clock" ={
+          #"timezone" = "Europe/Paris";
+          "tooltip-format" = "<tt>{calendar}</tt>";
+          "format-alt" = "{:%Y-%m-%d}";
+        };
+        "pulseaudio" = {
+          "scroll-step" = 1;
+          "format" = "{volume}% {icon} {format_source}";
+          "format-bluetooth" = "{volume}% {icon} {format_source}";
+          "format-bluetooth-muted" = " {icon} {format_source}";
+          "format-muted" = " {format_source}";
+          "format-source" = "{volume}% ";
+          "format-source-muted" = "";
+          "format-icons" = {
+            "headphone" = "";
+            "hands-free" = "";
+            "headset" = "";
+            "phone" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" "" ""];
+          };
+          "on-click" = "pavucontrol";
+        };
+        "network" = {
+            "format-wifi" = "{essid} ({signalStrength}%) ";
+            "format-ethernet" = "{ipaddr}/{cidr} ";
+            "tooltip-format" = "{ifname} via {gwaddr} ";
+            "format-linked" = "{ifname} (No IP) ";
+            "format-disconnected" = "Disconnected ⚠";
+            "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+        };
+        "hyprland/workspaces" = {
+          "format" = "{icon}";
+          "on-click" = "activate";
+          "on-scroll-up" = "hyprctl dispatch workspace e+1";
+          "on-scroll-down" = "hyprctl dispatch workspace e-1";
+        };
+      };
+    };
+    #style = {
+    #};
+  };
+
   programs.zathura = {
     enable = true;
     mappings = {
@@ -408,7 +481,12 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec-once = local.hyprland.exec-once;
+      exec-once = local.hyprland.exec-once ++ [
+        "hyprpaper"
+        "nixGL firefox"
+        "element-desktop"
+        "waybar"
+      ];
       monitor = local.hyprland.monitor;
       workspace = local.hyprland.workspace;
       env = "PATH, ${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
