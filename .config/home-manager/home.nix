@@ -368,9 +368,10 @@ in
         layer = "top";
         position = "top";
         height = 20;
+        output = local.waybar.output;
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ ];
-        modules-right = [ "network" "pulseaudio" "memory" "cpu" "temperature" "battery" "clock" "tray"];
+        modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "battery" "clock" "tray"];
 
         "tray" = { "spacing" = 10; };
         "cpu" = { "format" = "{}% "; };
@@ -415,10 +416,10 @@ in
         };
         "network" = {
             "format-wifi" = "{essid} ({signalStrength}%) ";
-            "format-ethernet" = "{ipaddr}/{cidr} ";
-            "tooltip-format" = "{ifname} via {gwaddr} ";
-            "format-linked" = "{ifname} (No IP) ";
-            "format-disconnected" = "Disconnected ⚠";
+            "format-ethernet" = "{ipaddr}/{cidr} 🌍";
+            "tooltip-format" = "{ifname} via {gwaddr} 🌍";
+            "format-linked" = "{ifname} (No IP) 🌍";
+            "format-disconnected" = "Disconnected 🌍";
             "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
         "hyprland/workspaces" = {
@@ -426,6 +427,18 @@ in
           "on-click" = "activate";
           "on-scroll-up" = "hyprctl dispatch workspace e+1";
           "on-scroll-down" = "hyprctl dispatch workspace e-1";
+        };
+        "custom/media" = {
+          "format" = "{icon}{}";
+          "return-type" = "json";
+          "format-icons" = {
+            "Playing" = " ";
+            "Paused" = " ";
+          };
+          "max-length" = 70;
+          "exec" = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{album}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+          "on-click" = "playerctl play-pause";
+          "on-click-right" = "playerctl next";
         };
       };
     };
@@ -483,9 +496,10 @@ in
     settings = {
       exec-once = local.hyprland.exec-once ++ [
         "hyprpaper"
+        "waybar"
+        "kitty"
         "nixGL firefox"
         "element-desktop"
-        "waybar"
       ];
       monitor = local.hyprland.monitor;
       workspace = local.hyprland.workspace;

@@ -23,4 +23,7 @@ in {
       "12, gapsin:0, gapsout:0, rounding:0, decorate:0"
     ];
   };
+  waybar = {
+    output = "eDP-1";
+  };
 }
