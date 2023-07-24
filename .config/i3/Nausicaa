@@ -30,7 +30,6 @@ for_window [class="(?i)Steam"] floating enable
 
 exec picom -b
 exec firefox-developer-edition
-exec element-desktop
 exec pavucontrol
 exec zeal
 exec nextcloud
