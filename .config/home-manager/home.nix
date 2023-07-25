@@ -87,7 +87,6 @@ in
     sccache
     shellcheck
     source-sans
-    spotify
     sqlite
     starship
     swappy
@@ -130,6 +129,7 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
+    LS_COLORS = import ~/dotfiles/.config/home-manager/vivid-zenburn.nix;
   };
 
   gtk = {
