@@ -24,6 +24,7 @@ in
 
   home.packages = with pkgs; [
     bacon
+    btop
     cargo-binstall
     cargo-release
     ccze
@@ -129,7 +130,6 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
-    LS_COLORS = import ~/dotfiles/.config/home-manager/vivid-zenburn.nix;
   };
 
   gtk = {
@@ -497,7 +497,6 @@ in
       exec-once = local.hyprland.exec-once ++ [
         "hyprpaper"
         "waybar"
-        "kitty"
         "nixGL firefox"
         "element-desktop"
       ];
