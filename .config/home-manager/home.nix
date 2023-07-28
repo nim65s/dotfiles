@@ -25,7 +25,6 @@ in
   home.packages = with pkgs; [
     bacon
     black
-    btop
     cargo-binstall
     cargo-release
     ccze
@@ -157,6 +156,13 @@ in
       pager = "less";
     };
     extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+  };
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      cpu_single_graph = true;
+    };
   };
 
   programs.chromium = {
