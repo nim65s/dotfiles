@@ -261,5 +261,5 @@ assign [class="Element"] 12
 
 exec kitty
 exec kitty -T quakitty
-exec element-desktop
+#exec element-desktop
 exec firefox
