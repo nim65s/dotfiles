@@ -24,6 +24,7 @@ in
 
   home.packages = with pkgs; [
     bacon
+    black
     btop
     cargo-binstall
     cargo-release
@@ -55,6 +56,7 @@ in
     hyprpicker
     inetutils
     imv
+    isort
     pinentry
     just
     khal
@@ -81,7 +83,10 @@ in
     #python310Packages.numpy
     #python310Packages.pandocfilters
     #python310Packages.python
+    #python310Packages.poetry-dynamic-versioning
+    pre-commit
     ripgrep
+    ruff
     rustup
     sauce-code-pro
     sd
@@ -199,6 +204,7 @@ in
   programs.kitty = {
     enable = true;
     font.name = "Source Code Pro";
+    font.size = 8;
     keybindings = {
       "kitty_mod+left" = "resize_window narrower";
       "kitty_mod+right" = "resize_window wider";
