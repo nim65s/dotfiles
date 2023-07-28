@@ -509,7 +509,7 @@ in
       exec-once = local.hyprland.exec-once ++ [
         "hyprpaper"
         "waybar"
-        "nixGL firefox"
+        "firefox"
         "element-desktop"
       ];
       monitor = local.hyprland.monitor;
