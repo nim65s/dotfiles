@@ -95,7 +95,6 @@ in
     shellcheck
     source-sans
     sqlite
-    starship
     swappy
     thunderbird
     tig
@@ -122,7 +121,6 @@ in
 
   home.file = {
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
-    ".config/starship.toml".source = ~/dotfiles/.config/starship.toml;
     ".pypirc".source = ~/dotfiles/.pypirc;
     ".latexmkrc".source = ~/dotfiles/.latexmkrc;
     ".icons".source = ~/.nix-profile/share/icons;
@@ -316,7 +314,89 @@ in
     };
   };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = {
+      format = "┬─ $all$time$line_break╰─ $jobs$battery$status$container$os$shell$character";
+      time.disabled = false;
+      status.disabled = false;
+      package.disabled = true;
+      os = {
+        disabled = false;
+        symbols = {
+          Alpine = " ";
+          Amazon = " ";
+          Android = " ";
+          Arch = " ";
+          CentOS = " ";
+          Debian = " ";
+          DragonFly = " ";
+          Emscripten = " ";
+          EndeavourOS = " ";
+          Fedora = " ";
+          FreeBSD = " ";
+          Garuda = "﯑ ";
+          Gentoo = " ";
+          HardenedBSD = "ﲊ ";
+          Illumos = " ";
+          Linux = " ";
+          Macos = " ";
+          Manjaro = " ";
+          Mariner = " ";
+          MidnightBSD = " ";
+          Mint = " ";
+          NetBSD = " ";
+          NixOS = " ";
+          OpenBSD = " ";
+          openSUSE = " ";
+          OracleLinux = " ";
+          Pop = " ";
+          Raspbian = " ";
+          Redhat = " ";
+          RedHatEnterprise = " ";
+          Redox = " ";
+          Solus = "ﴱ ";
+          SUSE = " ";
+          Ubuntu = " ";
+          Unknown = " ";
+          Windows = " ";
+        };
+      };
+      aws.symbol = "  ";
+      buf.symbol = " ";
+      c.symbol = " ";
+      conda.symbol = " ";
+      dart.symbol = " ";
+      directory.read_only = " ";
+      docker_context.symbol = " ";
+      elixir.symbol = " ";
+      elm.symbol = " ";
+      fossil_branch.symbol = " ";
+      git_branch.symbol = " ";
+      golang.symbol = " ";
+      guix_shell.symbol = " ";
+      haskell.symbol = " ";
+      haxe.symbol = "⌘ ";
+      hg_branch.symbol = " ";
+      java.symbol = " ";
+      julia.symbol = " ";
+      lua.symbol = " ";
+      memory_usage.symbol = " ";
+      meson.symbol = "喝 ";
+      nim.symbol = " ";
+      nix_shell.symbol = " ";
+      nodejs.symbol = " ";
+      pijul_channel.symbol = "🪺 ";
+      python.symbol = " ";
+      rlang.symbol = "ﳒ ";
+      ruby.symbol = " ";
+      rust.symbol = " ";
+      scala.symbol = " ";
+      spack.symbol = "🅢 ";
+      hostname.ssh_symbol = " ";
+
+    };
+  };
 
   /* TODO
   programs.swaylock = {
