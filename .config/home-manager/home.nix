@@ -34,7 +34,7 @@ in
     docker-compose
     du-dust
     #eigen
-    element-desktop-wayland
+    #element-desktop-wayland
     evince
     eww-wayland
     exa
@@ -63,6 +63,7 @@ in
     #llvmPackages_16.bintools
     mdbook
     mpv
+    nheko
     ninja
     nixpkgs-review
     okular
@@ -106,6 +107,7 @@ in
     wev
     #wireplumber
     xdg-desktop-portal-hyprland
+    xwayland
     zathura
     zellij
     zoom-us
@@ -510,7 +512,8 @@ in
         "hyprpaper"
         "waybar"
         "firefox"
-        "element-desktop"
+        #"element-desktop"
+        "nheko"
       ];
       monitor = local.hyprland.monitor;
       workspace = local.hyprland.workspace;
