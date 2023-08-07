@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   gruppled-white-lite-cursors = pkgs.callPackage ~/dotfiles/nimxpkgs/gruppled-lite-cursors {
@@ -11,7 +11,8 @@ let
 in
 
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = import ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
 
   fonts.fontconfig.enable = true;
 

@@ -7,6 +7,12 @@ pkgs:
     name = "dev-edition-default";
     path = "nim.dev-edition-default";
     isDefault = true;
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      bitwarden
+      switchyomega
+      tree-style-tab
+      ublock-origin
+    ];
     search.force = true;
     search.default = "DuckDuckGo";
     search.engines = {
