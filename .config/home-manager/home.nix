@@ -63,6 +63,7 @@ in
     #llvmPackages_16.bintools
     mdbook
     mpv
+    mypy
     nheko
     ninja
     nixpkgs-review
