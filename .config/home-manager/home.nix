@@ -31,6 +31,7 @@ in
     ccze
     clang_16
     cmake
+    cntr
     dfc
     docker-compose
     du-dust
@@ -70,7 +71,6 @@ in
     nixpkgs-review
     okular
     openssl
-    pass
     pavucontrol
     pdfpc
     #pipewire
@@ -122,9 +122,10 @@ in
 
   home.file = {
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
-    ".pypirc".source = ~/dotfiles/.pypirc;
-    ".latexmkrc".source = ~/dotfiles/.latexmkrc;
+    ".config/python_keyring/keyringrc.cfg".source = ~/dotfiles/.config/python_keyring/keyringrc.cfg;
     ".icons".source = ~/.nix-profile/share/icons;
+    ".latexmkrc".source = ~/dotfiles/.latexmkrc;
+    ".pypirc".source = ~/dotfiles/.pypirc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -264,16 +265,25 @@ in
     };
   };
 
-  programs.password-store = {
+  programs.rbw = {
     enable = true;
     settings = {
-      PASSWORD_STORE_DIR = "${local.homeDirectory}/.password-store";
+      email = lib.strings.concatStrings ["guilhem" "@" "saurel" "." "me"];
+      base_url = "https://safe.datcat.fr";
     };
   };
 
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    plugins = [
+      pkgs.rofi-rbw
+      pkgs.rofi-emoji
+      pkgs.rofi-systemd
+      pkgs.rofi-power-menu
+      pkgs.rofi-file-browser
+    ];
+    terminal = "${pkgs.kitty}/bin/kitty";
     font = "Source Code Pro 12";
     extraConfig = {
       color-enabled = true;
@@ -577,13 +587,14 @@ in
     settings = {
       global = {
         username = "nim65s";
-        password_cmd = "pass hm/spotify";
+        password_cmd = "rbw get spotify";
         device_name = "home-manager";
         device_type = "computer";
         backend = "pulseaudio";
       };
     };
   };
+  systemd.user.services.spotifyd.Service.Environment = ["PATH=${pkgs.rbw}/bin"];
 
   services.swayosd.enable = true;
 
