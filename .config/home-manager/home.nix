@@ -8,6 +8,7 @@ let
     fonts = [ "SourceCodePro" ];
   };
   local = import ~/.config/home-manager/local.nix;
+  atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
 in
 
 {
@@ -29,10 +30,11 @@ in
     cargo-binstall
     cargo-release
     ccze
+    dfc
+    chrpath
     clang_16
     cmake
     cntr
-    dfc
     docker-compose
     du-dust
     #eigen
@@ -88,6 +90,7 @@ in
     #python310Packages.poetry-dynamic-versioning
     pre-commit
     ripgrep
+    rofi-power-menu
     ruff
     rustup
     sauce-code-pro
@@ -97,7 +100,6 @@ in
     source-sans
     sqlite
     swappy
-    thunderbird
     tig
     tinc
     todoman
@@ -122,6 +124,7 @@ in
 
   home.file = {
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
+    ".config/kitty/open-actions.conf".source = ~/dotfiles/.config/kitty/open-actions.conf;
     ".config/python_keyring/keyringrc.cfg".source = ~/dotfiles/.config/python_keyring/keyringrc.cfg;
     ".icons".source = ~/.nix-profile/share/icons;
     ".latexmkrc".source = ~/dotfiles/.latexmkrc;
@@ -137,6 +140,27 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
+  };
+
+  accounts.email.accounts = {
+    laas = {
+      address = atjoin { name = "guilhem.saurel"; };
+      aliases = [
+        (atjoin { name = "gsaurel"; })
+        (atjoin { name = "saurel"; })
+      ];
+      imap.host = "imap.laas.fr";
+      imap.port = 993;
+      passwordCommand = "rbw get --folder laas main";
+      realName = "Guilhem Saurel";
+      smtp.host = "mail.laas.fr";
+      thunderbird = {
+        enable = true;
+        profiles = ["nim"];
+      };
+      userName = "gsaurel";
+      primary = true;
+    };
   };
 
   gtk = {
@@ -268,7 +292,7 @@ in
   programs.rbw = {
     enable = true;
     settings = {
-      email = lib.strings.concatStrings ["guilhem" "@" "saurel" "." "me"];
+      email = atjoin { name="guilhem"; host="saurel.me";};
       base_url = "https://safe.datcat.fr";
     };
   };
@@ -277,10 +301,8 @@ in
     enable = true;
     package = pkgs.rofi-wayland;
     plugins = [
-      pkgs.rofi-rbw
+      #pkgs.rofi-rbw
       pkgs.rofi-emoji
-      pkgs.rofi-systemd
-      pkgs.rofi-power-menu
       pkgs.rofi-file-browser
     ];
     terminal = "${pkgs.kitty}/bin/kitty";
@@ -406,6 +428,23 @@ in
       spack.symbol = "🅢 ";
       hostname.ssh_symbol = " ";
 
+    };
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    profiles.nim = {
+      isDefault = true;
+      settings = {
+        "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+        "mail.pane_config.dynamic" = 2;
+        "ldap_2.autoComplete.useDirectory" = true;
+        "ldap_2.servers.laas.description" = "Serveur LDAP LAAS";
+        "ldap_2.servers.laas.filename" = "ldap.sqlite";
+        "ldap_2.servers.laas.maxHits" = 100;
+        "ldap_2.servers.laas.uri" = "ldap://ldap2.laas.fr/dc=laas,dc=fr%20??sub?(objectClass=person)";
+        "ldap_2.servers.default.attrmap.PrimaryEmail" = "laas-mainMail";
+      };
     };
   };
 
@@ -597,6 +636,10 @@ in
   systemd.user.services.spotifyd.Service.Environment = ["PATH=${pkgs.rbw}/bin"];
 
   services.swayosd.enable = true;
+
+  xdg.mimeApps = {
+    enable = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
