@@ -438,6 +438,8 @@ in
       settings = {
         "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
         "mail.pane_config.dynamic" = 2;
+        "mail.uidensity" = 0;
+        "mail.uifontsize" = 10;
         "ldap_2.autoComplete.useDirectory" = true;
         "ldap_2.servers.laas.description" = "Serveur LDAP LAAS";
         "ldap_2.servers.laas.filename" = "ldap.sqlite";
