@@ -72,6 +72,7 @@ in
     ninja
     nixpkgs-review
     okular
+    openssh
     openssl
     pavucontrol
     pdfpc
@@ -140,6 +141,9 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
+    SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
+    SSH_ASKPASS_REQUIRE = "prefer";
+    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
   };
 
   accounts.email.accounts = {
