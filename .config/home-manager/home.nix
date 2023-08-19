@@ -64,6 +64,7 @@ in
     just
     khal
     khard
+    less
     #llvmPackages_16.bintools
     mdbook
     mpv
@@ -127,7 +128,6 @@ in
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
     ".config/kitty/open-actions.conf".source = ~/dotfiles/.config/kitty/open-actions.conf;
     ".config/python_keyring/keyringrc.cfg".source = ~/dotfiles/.config/python_keyring/keyringrc.cfg;
-    ".icons".source = ~/.nix-profile/share/icons;
     ".latexmkrc".source = ~/dotfiles/.latexmkrc;
     ".pypirc".source = ~/dotfiles/.pypirc;
 
@@ -143,7 +143,11 @@ in
     SHELL = "${pkgs.fish}/bin/fish";
     SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
-    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    PATH = "${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
+    PAGER = "vim -c PAGER -";
+    DELTA_PAGER = "less -FR";
+    MANPAGER = "vim -c ASMANPAGER -";
   };
 
   accounts.email.accounts = {
@@ -209,7 +213,14 @@ in
     interactiveShellInit = ''
       test -f ~/dotfiles/.config/fish/config.fish
       and source ~/dotfiles/.config/fish/config.fish
-      '';
+    '';
+    loginShellInit = ''
+      if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        date >> ~/.hypr.log
+        date >> ~/.hypr.err
+        ${local.homeDirectory}/.nix-profile/bin/nixGL ${pkgs.hyprland}/bin/Hyprland >> ~/.hypr.log 2>> ~/.hypr.err
+      end
+    '';
   };
 
   programs.git = {
@@ -230,6 +241,15 @@ in
           submodule = { fetchJobs = 4; };
           fetch = { parallel = 4; };
           blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
+          merge = { tool = "vimdiff"; guitool = "meld"; };
+          diff = { tool = "vimdiff"; guitool = "meld"; };
+          difftool = { cmd = "vimdiff"; prompt = false; };
+          color = {
+            ui = "always";
+            branch = "always";
+            interactive = "always";
+            status = "always";
+          };
         };
       }
       { path = "~/dotfiles/.gitconfig"; }
@@ -476,7 +496,9 @@ in
       vimPlugins.vim-airline-themes
       vimPlugins.vim-clang-format
       vimPlugins.vim-fugitive
+      vimPlugins.vim-manpager
       vimPlugins.vim-nix
+      vimPlugins.vim-pager
       vimPlugins.vim-sensible
       vimPlugins.vim-signify
       vimPlugins.vim-toml
@@ -518,7 +540,7 @@ in
       mainBar = {
         layer = "top";
         position = "top";
-        height = 20;
+        height = 24;
         output = local.waybar.output;
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ ];
@@ -534,10 +556,9 @@ in
             "critical" = 15;
           };
           "format" = "{capacity}% {icon}";
-          "format-charging" = "{capacity}% ";
+          "format-charging" = "{capacity}% ";
           "format-plugged" = "{capacity}% ";
           "format-alt" = "{time} {icon}";
-          "format-good" = "";
           "format-full" = "";
           "format-icons" = ["" "" "" "" ""];
         };
@@ -574,8 +595,6 @@ in
             "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
         "hyprland/workspaces" = {
-          "format" = "{icon}";
-          "on-click" = "activate";
           "on-scroll-up" = "hyprctl dispatch workspace e+1";
           "on-scroll-down" = "hyprctl dispatch workspace e-1";
         };
@@ -656,10 +675,10 @@ in
         "firefox"
         #"element-desktop"
         "nheko"
+        "rbw stop-agent"
       ];
       monitor = local.hyprland.monitor;
       workspace = local.hyprland.workspace;
-      env = "PATH, ${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
       source = "~/dotfiles/.config/hypr/hyprland.conf";
     };
   };
