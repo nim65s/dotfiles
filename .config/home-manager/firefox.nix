@@ -127,6 +127,7 @@ pkgs:
     };
     settings = {
      "browser.toolbars.bookmarks.visibility" = "never";
+     "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
     userChrome = ''
