@@ -150,24 +150,46 @@ in
     MANPAGER = "vim -c ASMANPAGER -";
   };
 
-  accounts.email.accounts = {
-    laas = {
-      address = atjoin { name = "guilhem.saurel"; };
-      aliases = [
-        (atjoin { name = "gsaurel"; })
-        (atjoin { name = "saurel"; })
-      ];
-      imap.host = "imap.laas.fr";
-      imap.port = 993;
-      passwordCommand = "rbw get --folder laas main";
-      realName = "Guilhem Saurel";
-      smtp.host = "mail.laas.fr";
-      thunderbird = {
-        enable = true;
-        profiles = ["nim"];
+  accounts.email = {
+    maildirBasePath = "${local.homeDirectory}/.mails";
+    accounts = {
+      laas = {
+        address = atjoin { name = "guilhem.saurel"; };
+        aliases = [
+          (atjoin { name = "gsaurel"; })
+          (atjoin { name = "saurel"; })
+        ];
+        imap.host = "imap.laas.fr";
+        msmtp.enable = true;
+        neomutt.enable = true;
+        notmuch.enable = true;
+        notmuch.neomutt.enable = true;
+        offlineimap.enable = true;
+        passwordCommand = "rbw get --folder laas main";
+        primary = true;
+        realName = "Guilhem Saurel";
+        smtp.host = "mail.laas.fr";
+        smtp.tls.enable = true;
+        thunderbird = {
+          enable = true;
+          profiles = ["nim"];
+        };
+        userName = "gsaurel";
       };
-      userName = "gsaurel";
-      primary = true;
+      perso = {
+        address = atjoin { name="guilhem"; host="saurel.me";};
+        imap.host = "mail.gandi.net";
+        msmtp.enable = true;
+        neomutt.enable = true;
+        notmuch.enable = true;
+        notmuch.neomutt.enable = true;
+        offlineimap.enable = true;
+        passwordCommand = "rbw get --folder mail perso";
+        realName = "Guilhem Saurel";
+        smtp.host = "mail.gandi.net";
+        smtp.tls.enable = true;
+        userName = atjoin { name="guilhem"; host="saurel.me";};
+      };
     };
   };
 
@@ -312,6 +334,11 @@ in
       total-size = true;
     };
   };
+
+  programs.msmtp.enable = true;
+  programs.neomutt.enable = true;
+  programs.notmuch.enable = true;
+  programs.offlineimap.enable = true;
 
   programs.rbw = {
     enable = true;
