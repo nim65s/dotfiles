@@ -93,6 +93,7 @@ in
     pre-commit
     ripgrep
     rofi-power-menu
+    rofi-rbw-wayland
     ruff
     rustup
     sauce-code-pro
