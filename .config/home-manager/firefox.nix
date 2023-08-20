@@ -126,6 +126,8 @@ pkgs:
       };
     };
     settings = {
+     "browser.theme.content-theme" = 0;
+     "browser.theme.toolbar-theme" = 0;
      "browser.toolbars.bookmarks.visibility" = "never";
      "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
