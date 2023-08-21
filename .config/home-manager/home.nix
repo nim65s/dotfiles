@@ -147,7 +147,7 @@ in
     SHELL = "${pkgs.fish}/bin/fish";
     SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
-    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     PATH = "${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
@@ -336,6 +336,8 @@ in
         "*.orig"
         "*~"
       ];
+      sorting.column = "time";
+      sorting.reverse = true;
       total-size = true;
     };
   };
