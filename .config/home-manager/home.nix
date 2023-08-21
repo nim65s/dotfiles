@@ -675,6 +675,8 @@ in
     };
   };
 
+  services.ssh-agent.enable = true;
+
   services.spotifyd = {
     enable = true;
     settings = {
