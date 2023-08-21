@@ -185,3 +185,7 @@ end
 if which rtx &> /dev/null
     rtx activate fish | source
 end
+
+for d in ~/.nix-profile/share/fish/vendor_completions.d
+test -d $d && set --prepend fish_complete_path $d
+end

@@ -25,6 +25,7 @@ in
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    adwaita-qt
     bacon
     black
     cargo-binstall
@@ -64,6 +65,7 @@ in
     just
     khal
     khard
+    kolourpaint
     less
     #llvmPackages_16.bintools
     mdbook
@@ -78,6 +80,7 @@ in
     pavucontrol
     pdfpc
     #pipewire
+    pipx
     pkg-config
     playerctl
     #poetry
@@ -144,7 +147,7 @@ in
     SHELL = "${pkgs.fish}/bin/fish";
     SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
-    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     PATH = "${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
@@ -161,6 +164,7 @@ in
           (atjoin { name = "saurel"; })
         ];
         imap.host = "imap.laas.fr";
+        imap.port = 993;
         msmtp.enable = true;
         neomutt.enable = true;
         notmuch.enable = true;
@@ -169,8 +173,8 @@ in
         passwordCommand = "rbw get --folder laas main";
         primary = true;
         realName = "Guilhem Saurel";
-        smtp.host = "mail.laas.fr";
-        smtp.tls.enable = true;
+        smtp.host = "smtp.laas.fr";
+        smtp.tls.useStartTls = true;
         thunderbird = {
           enable = true;
           profiles = ["nim"];
@@ -353,7 +357,6 @@ in
     enable = true;
     package = pkgs.rofi-wayland;
     plugins = [
-      #pkgs.rofi-rbw
       pkgs.rofi-emoji
       pkgs.rofi-file-browser
     ];
@@ -490,6 +493,7 @@ in
       settings = {
         "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
         "mail.pane_config.dynamic" = 2;
+        "mail.server.default.check_all_folders_for_new" = true;
         "mail.uidensity" = 0;
         "mail.uifontsize" = 10;
         "ldap_2.autoComplete.useDirectory" = true;
@@ -591,7 +595,6 @@ in
           "format-icons" = ["" "" "" "" ""];
         };
         "clock" ={
-          #"timezone" = "Europe/Paris";
           "tooltip-format" = "<tt>{calendar}</tt>";
           "format-alt" = "{:%Y-%m-%d}";
         };
@@ -640,8 +643,6 @@ in
         };
       };
     };
-    #style = {
-    #};
   };
 
   programs.zathura = {
