@@ -147,7 +147,8 @@ in
     SHELL = "${pkgs.fish}/bin/fish";
     SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
-    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
+    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     PATH = "${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
@@ -494,6 +495,7 @@ in
       isDefault = true;
       settings = {
         "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+        "mail.identity.default.compose_html" = 1;
         "mail.pane_config.dynamic" = 2;
         "mail.server.default.check_all_folders_for_new" = true;
         "mail.uidensity" = 0;
