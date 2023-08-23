@@ -249,6 +249,9 @@ in
         ${local.homeDirectory}/.nix-profile/bin/nixGL ${pkgs.hyprland}/bin/Hyprland >> ~/.hypr.log 2>> ~/.hypr.err
       end
     '';
+    shellAliases = {
+      ll = lib.mkForce "${pkgs.lsd}/bin/lsd -lrt";
+    };
   };
 
   programs.git = {
@@ -337,8 +340,6 @@ in
         "*.orig"
         "*~"
       ];
-      sorting.column = "time";
-      sorting.reverse = true;
       total-size = true;
     };
   };
