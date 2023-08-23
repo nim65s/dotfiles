@@ -21,6 +21,7 @@ in
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    acpi
     adwaita-qt
     bacon
     black
@@ -81,6 +82,7 @@ in
     playerctl
     #poetry
     #poetryPlugins.poetry-plugin-up
+    #python3
     #python310Packages.boost
     #python310Packages.django
     #python310Packages.i3ipc
