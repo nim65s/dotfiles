@@ -218,7 +218,6 @@ in
       theme = "zenburn";
       pager = "less";
     };
-    extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
   };
 
   programs.btop = {
