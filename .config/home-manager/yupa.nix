@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./common.nix ];
+  imports = [ ~/dotfiles/.config/home-manager/common.nix ];
 
   home.username = "nim";
   home.homeDirectory = "/home/nim";
