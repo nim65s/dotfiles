@@ -7,7 +7,6 @@ let
   sauce-code-pro = pkgs.nerdfonts.override {
     fonts = [ "SourceCodePro" ];
   };
-  local = import ~/.config/home-manager/local.nix;
   atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
 in
 
@@ -16,9 +15,6 @@ in
   xdg.configFile."nixpkgs/config.nix".source = ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
 
   fonts.fontconfig.enable = true;
-
-  home.username = local.username;
-  home.homeDirectory = local.homeDirectory;
 
   home.enableDebugInfo = true;
 
@@ -146,18 +142,18 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
-    SSH_ASKPASS = "${local.homeDirectory}/scripts/ask_rbw.py";
+    SSH_ASKPASS = "~/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
     SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
     LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-    PATH = "${local.homeDirectory}/.nix-profile/bin:${local.homeDirectory}/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
+    PATH = "~/.nix-profile/bin:~/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
     MANPAGER = "vim -c ASMANPAGER -";
   };
 
   accounts.email = {
-    maildirBasePath = "${local.homeDirectory}/.mails";
+    maildirBasePath = "~/.mails";
     accounts = {
       laas = {
         address = atjoin { name = "guilhem.saurel"; };
@@ -246,7 +242,7 @@ in
       if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
         date >> ~/.hypr.log
         date >> ~/.hypr.err
-        ${local.homeDirectory}/.nix-profile/bin/nixGL ${pkgs.hyprland}/bin/Hyprland >> ~/.hypr.log 2>> ~/.hypr.err
+        ~/.nix-profile/bin/nixGL ${pkgs.hyprland}/bin/Hyprland >> ~/.hypr.log 2>> ~/.hypr.err
       end
     '';
     shellAliases = {
@@ -578,7 +574,6 @@ in
         layer = "top";
         position = "top";
         height = 24;
-        output = local.waybar.output;
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ ];
         modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "battery" "clock" "tray"];
@@ -705,16 +700,6 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec-once = local.hyprland.exec-once ++ [
-        "hyprpaper"
-        "waybar"
-        "firefox"
-        #"element-desktop"
-        "nheko"
-        "rbw stop-agent"
-      ];
-      monitor = local.hyprland.monitor;
-      workspace = local.hyprland.workspace;
       source = "~/dotfiles/.config/hypr/hyprland.conf";
     };
   };
