@@ -132,6 +132,7 @@ in
     ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
     ".config/kitty/open-actions.conf".source = ~/dotfiles/.config/kitty/open-actions.conf;
     ".config/python_keyring/keyringrc.cfg".source = ~/dotfiles/.config/python_keyring/keyringrc.cfg;
+    ".config/rofi-rbw.rc".source = ~/dotfiles/.config/rofi-rbw.rc;
     ".latexmkrc".source = ~/dotfiles/.latexmkrc;
     ".pypirc".source = ~/dotfiles/.pypirc;
 
