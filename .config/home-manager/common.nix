@@ -142,18 +142,18 @@ in
   home.sessionVariables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     SHELL = "${pkgs.fish}/bin/fish";
-    SSH_ASKPASS = "~/scripts/ask_rbw.py";
+    SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
     SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
-    LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-    PATH = "~/.nix-profile/bin:~/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
+    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    PATH = "$HOME/.nix-profile/bin:$HOME/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
     MANPAGER = "vim -c ASMANPAGER -";
   };
 
   accounts.email = {
-    maildirBasePath = "~/.mails";
+    maildirBasePath = "$HOME/.mails";
     accounts = {
       laas = {
         address = atjoin { name = "guilhem.saurel"; };
