@@ -153,7 +153,7 @@ in
   };
 
   accounts.email = {
-    maildirBasePath = "$HOME/.mails";
+    maildirBasePath = ".mails";
     accounts = {
       laas = {
         address = atjoin { name = "guilhem.saurel"; };
