@@ -250,6 +250,14 @@ in
     };
   };
 
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+      prompt = "enabled";
+    };
+  };
+
   programs.git = {
     enable = true;
     delta.enable = true;
