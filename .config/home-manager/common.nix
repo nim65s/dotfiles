@@ -582,8 +582,8 @@ in
         layer = "top";
         position = "top";
         height = 24;
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-        modules-center = [ ];
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "hyprland/window" ];
         modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "battery" "clock" "tray"];
 
         "tray" = { "spacing" = 10; };
