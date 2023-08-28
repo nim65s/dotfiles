@@ -1,10 +1,12 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  username = "nim";
+in {
   imports = [ ~/dotfiles/.config/home-manager/common.nix ];
 
-  home.username = "nim";
-  home.homeDirectory = "/home/nim";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   programs.waybar.settings.mainBar.output = "eDP-1";
   wayland.windowManager.hyprland.settings = {
     exec-once = [

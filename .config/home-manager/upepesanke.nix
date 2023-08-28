@@ -1,11 +1,21 @@
+{ config, pkgs, lib, ... }:
+
 let
   username = "gsaurel";
 in {
-  username = username;
-  homeDirectory = "/home/${username}";
-  hyprland = {
+  imports = [ ~/dotfiles/.config/home-manager/common.nix ];
+
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
+  home.sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+  programs.waybar.settings.mainBar.output = "DP-2";
+  wayland.windowManager.hyprland.settings = {
     exec-once = [
+      "hyprpaper"
+      "waybar"
+      "firefox"
       "thunderbird"
+      "nheko"
     ];
     monitor = [
       "DP-2, 3840x2160, 0x0, 1.5"
@@ -25,8 +35,5 @@ in {
       "11, monitor:DP-1, gapsin:0, gapsout:0, rounding:0, decorate:0"
       "12, monitor:DP-1, gapsin:0, gapsout:0, rounding:0, decorate:0"
     ];
-  };
-  waybar = {
-    output = "DP-2";
   };
 }

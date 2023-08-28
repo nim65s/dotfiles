@@ -145,7 +145,6 @@ in
     SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
     SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
-    #LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     PATH = "$HOME/.nix-profile/bin:$HOME/.local/bin:/nix/var/nix/profiles/default/bin:/opt/openrobots/bin:/usr/local/bin:/usr/bin:/bin";
     PAGER = "vim -c PAGER -";
     DELTA_PAGER = "less -FR";
@@ -370,9 +369,10 @@ in
     ];
     terminal = "${pkgs.kitty}/bin/kitty";
     font = "Source Code Pro 12";
+    theme = "arthur";
     extraConfig = {
       color-enabled = true;
-      matching = "fuzzy";
+      matching = "prefix";
       no-lazy-grab = true;
     };
   };
