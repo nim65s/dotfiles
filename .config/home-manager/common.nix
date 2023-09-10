@@ -39,7 +39,7 @@ in
     #element-desktop-wayland
     evince
     eww-wayland
-    exa
+    eza
     fd
     file
     fishPlugins.bass
