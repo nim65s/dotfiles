@@ -12,7 +12,7 @@ in
 
 {
   nixpkgs.config = import ./nixpkgs-config.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
 
   fonts.fontconfig.enable = true;
 
@@ -127,12 +127,12 @@ in
   };
 
   home.file = {
-    ".config/dfc/dfcrc".source = ~/dotfiles/.config/dfc/dfcrc;
-    ".config/kitty/open-actions.conf".source = ~/dotfiles/.config/kitty/open-actions.conf;
-    ".config/python_keyring/keyringrc.cfg".source = ~/dotfiles/.config/python_keyring/keyringrc.cfg;
-    ".config/rofi-rbw.rc".source = ~/dotfiles/.config/rofi-rbw.rc;
-    ".latexmkrc".source = ~/dotfiles/.latexmkrc;
-    ".pypirc".source = ~/dotfiles/.pypirc;
+    ".config/dfc/dfcrc".source = ../dfc/dfcrc;
+    ".config/kitty/open-actions.conf".source = ../kitty/open-actions.conf;
+    ".config/python_keyring/keyringrc.cfg".source = ../python_keyring/keyringrc.cfg;
+    ".config/rofi-rbw.rc".source = ../rofi-rbw.rc;
+    ".latexmkrc".source = ../../.latexmkrc;
+    ".pypirc".source = ../../.pypirc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
