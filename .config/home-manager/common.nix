@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  gruppled-white-lite-cursors = pkgs.callPackage ~/dotfiles/nimxpkgs/gruppled-lite-cursors {
+  gruppled-white-lite-cursors = pkgs.callPackage ./gruppled-lite-cursors {
     theme = "gruppled_white_lite";
   };
   sauce-code-pro = pkgs.nerdfonts.override {
