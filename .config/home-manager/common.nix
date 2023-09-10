@@ -92,6 +92,8 @@ in
     #python310Packages.python
     #python310Packages.poetry-dynamic-versioning
     pre-commit
+    pulseaudio
+    pavucontrol
     ripgrep
     rofi-power-menu
     rofi-rbw-wayland
@@ -224,11 +226,11 @@ in
     };
   };
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-    commandLineArgs = [ "--ozone-platform=wayland" ];
-  };
+  #programs.chromium = {
+    #enable = true;
+    #package = pkgs.ungoogled-chromium;
+    #commandLineArgs = [ "--ozone-platform=wayland" ];
+  #};
 
   programs.firefox = import ./firefox.nix pkgs;
 

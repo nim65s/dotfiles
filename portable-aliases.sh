@@ -145,3 +145,5 @@ alias bnb='bn && bb'
 alias gepright='chown -R :gepetto . && chmod -R g+rwX .'
 
 alias glp="git push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds"
+
+alias zoome="QT_XCB_GL_INTEGRATION=xcb_egl nixGL zoom"
