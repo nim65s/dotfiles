@@ -11,7 +11,7 @@ let
 in
 
 {
-  nixpkgs.config = import ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
+  nixpkgs.config = import ./nixpkgs-config.nix;
   xdg.configFile."nixpkgs/config.nix".source = ~/dotfiles/.config/home-manager/nixpkgs-config.nix;
 
   fonts.fontconfig.enable = true;
@@ -230,7 +230,7 @@ in
     commandLineArgs = [ "--ozone-platform=wayland" ];
   };
 
-  programs.firefox = import ~/dotfiles/.config/home-manager/firefox.nix pkgs;
+  programs.firefox = import ./firefox.nix pkgs;
 
   programs.fish = {
     enable = true;

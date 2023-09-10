@@ -3,7 +3,7 @@
 let
   username = "gsaurel";
 in {
-  imports = [ ~/dotfiles/.config/home-manager/common.nix ];
+  imports = [ ./common.nix ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
