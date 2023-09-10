@@ -82,7 +82,7 @@ in
     playerctl
     #poetry
     #poetryPlugins.poetry-plugin-up
-    #python3
+    python3
     #python310Packages.boost
     #python310Packages.django
     #python310Packages.i3ipc
