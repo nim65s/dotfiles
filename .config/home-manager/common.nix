@@ -74,6 +74,7 @@ in
     okular
     openssh
     openssl
+    pandoc
     pavucontrol
     pdfpc
     #pipewire
