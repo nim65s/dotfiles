@@ -179,6 +179,9 @@ in
         thunderbird = {
           enable = true;
           profiles = ["nim"];
+          perIdentitySettings = id: {
+            "mail.identity.id_${id}.fcc_reply_follows_parent" = true;
+          };
         };
         userName = "gsaurel";
       };
