@@ -29,6 +29,7 @@ in
     cargo-release
     ccze
     dfc
+    dos2unix
     chrpath
     clang_16
     cmake
