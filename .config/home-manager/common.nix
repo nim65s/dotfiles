@@ -156,6 +156,16 @@ in
     MANPAGER = "vim -c ASMANPAGER -";
   };
 
+  accounts.calendar.accounts = [
+    {
+      name = "Perso";
+      khal.enable = true;
+      khal.color = "light blue";
+      local.type = "filesystem";
+      remote.passwordCommand = ["rbw" "get" "cloud.baroustan.org" ];
+    }
+  ];
+
   accounts.email = {
     maildirBasePath = ".mails";
     accounts = {
