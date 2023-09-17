@@ -66,6 +66,7 @@ in
     kolourpaint
     less
     #llvmPackages_16.bintools
+    mdcat
     mdbook
     mpv
     mypy
