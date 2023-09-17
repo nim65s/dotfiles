@@ -98,7 +98,7 @@ in
     pavucontrol
     ripgrep
     rofi-power-menu
-    rofi-rbw-wayland
+    rofi-rbw
     ruff
     rustup
     sauce-code-pro
@@ -117,6 +117,10 @@ in
     watchexec
     wev
     #wireplumber
+    wl-clipboard
+    wtype
+    xclip
+    xdotool
     xdg-desktop-portal-hyprland
     xwayland
     zathura
@@ -267,6 +271,8 @@ in
           mod = config.xsession.windowManager.i3.config.modifier;
         in lib.mkOptionDefault {
           "${mod}+Return" = "exec \"nixGL kitty\"";
+          "${mod}+i" = "exec \"rofi -show run\"";
+          "${mod}+e" = "exec \"rofi-rbw --typer xdotool --clipboarder xclip\"";
           "${mod}+Shift+b" = "kill";
           "${mod}+c" = "focus left";
           "${mod}+t" = "focus down";
