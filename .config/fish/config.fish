@@ -83,7 +83,7 @@ set -q BROWSER || set -x BROWSER firefox-developer-edition
 #set -x JAVA_HOME /opt/java
 set -x _JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dawt.useSystemAAFontSettings=lcd'
 set -x PIP_USE_WHEEL true
-set -x TERM xterm-256color
+#set -x TERM xterm-256color
 set -x MPD_HOST nimopidy
 set -x CMAKE_BUILD_TYPE RelWithDebInfo
 set -x CMAKE_C_COMPILER_LAUNCHER sccache
