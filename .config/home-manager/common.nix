@@ -141,11 +141,7 @@ in
     ".latexmkrc".source = ../../.latexmkrc;
     ".pypirc".source = ../../.pypirc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".xinitrc".text = "exec i3";
   };
 
   home.sessionVariables = {
