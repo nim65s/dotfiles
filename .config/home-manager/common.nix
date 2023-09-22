@@ -133,8 +133,11 @@ in
   home.file = {
     ".config/dfc/dfcrc".source = ../dfc/dfcrc;
     ".config/kitty/open-actions.conf".source = ../kitty/open-actions.conf;
+    ".config/khal/config".source = ../khal/config;
+    ".config/khard/khard.conf".source = ../khard/khard.conf;
     ".config/python_keyring/keyringrc.cfg".source = ../python_keyring/keyringrc.cfg;
     ".config/rofi-rbw.rc".source = ../rofi-rbw.rc;
+    ".config/vdirsyncer/config".source = ../vdirsyncer/config;
     ".latexmkrc".source = ../../.latexmkrc;
     ".pypirc".source = ../../.pypirc;
 
