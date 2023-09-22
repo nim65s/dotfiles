@@ -61,7 +61,6 @@ in
     isort
     pinentry
     just
-    khal
     khard
     kolourpaint
     less
@@ -159,10 +158,48 @@ in
   accounts.calendar.accounts = [
     {
       name = "Perso";
+      primary = true;
       khal.enable = true;
       khal.color = "light blue";
       local.type = "filesystem";
       remote.passwordCommand = ["rbw" "get" "cloud.baroustan.org" ];
+    }
+    {
+      name = "Fusion";
+      khal.enable = true;
+      khal.color = "light green";
+    }
+    {
+      name = "Anniversaires";
+      khal.enable = true;
+      khal.color = "black";
+    }
+    {
+      name = "LAAS";
+      khal.enable = true;
+      khal.color = "dark red";
+    }
+    {
+      name = "Gepetto";
+      khal.enable = true;
+      khal.color = "yellow";
+    }
+    {
+      name = "PI2";
+      khal.enable = true;
+      khal.color = "yellow";
+      khal.readOnly = true;
+    }
+    {
+      name = "IDEA";
+      khal.enable = true;
+      khal.color = "yellow";
+      khal.readOnly = true;
+    }
+    {
+      name = "GoogLAAS";
+      khal.enable = true;
+      khal.readOnly = true;
     }
   ];
 

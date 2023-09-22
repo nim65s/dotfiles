@@ -91,6 +91,23 @@
 
   home-manager.enable = true;
 
+  khal = {
+    enable = true;
+    locale = {
+      dateformat = "%d/%m";
+      datetimeformat = "%d/%s %H:%M";
+      longdateformat = "%d/%s/%Y";
+      timeformat = "%H:%M";
+    };
+    settings = {
+      default = {
+        default_calendar = "Perso";
+        print_new = "event";
+      };
+      view.agenda_event_format = "{calendar-color}{start-end-time-style} {title}{reset}";
+    };
+  };
+
   kitty = {
     enable = true;
     font.name = "Source Code Pro";
