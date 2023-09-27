@@ -7,6 +7,17 @@
     settings = { sync_address = "https://atuin.datcat.fr"; };
   };
 
+  bacon = {
+    enable = true;
+    settings = {
+      reverse = true;
+      keybindings = {
+        s = "scroll-lines(-1)";
+        t = "scroll-lines(1)";
+      };
+    };
+  };
+
   bat = {
     enable = true;
     config = {

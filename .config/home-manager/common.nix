@@ -23,7 +23,6 @@ in
   home.packages = with pkgs; [
     acpi
     adwaita-qt
-    bacon
     black
     cargo-binstall
     cargo-release
