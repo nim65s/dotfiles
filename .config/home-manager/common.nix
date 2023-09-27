@@ -60,6 +60,7 @@ in
     imv
     isort
     pinentry
+    plantuml
     just
     khal
     khard
