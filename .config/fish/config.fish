@@ -17,6 +17,7 @@ for bin in /bin \
            /etc/profiles/per-user/nim/bin \
            /opt/openrobots/bin \
            ~/.nix-profile/bin \
+           ~/.cargo/bin \
            ~/.local/bin \
            /run/wrappers/bin
     if test -d $bin
