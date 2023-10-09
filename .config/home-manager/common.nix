@@ -106,6 +106,7 @@ in
     sd
     sccache
     shellcheck
+    slurp
     source-sans
     sqlite
     swappy
