@@ -30,8 +30,8 @@ in
     dfc
     dos2unix
     chrpath
-    clang_16
-    cmake
+    #clang_16
+    #cmake
     cntr
     docker-compose
     du-dust
@@ -50,7 +50,7 @@ in
     gtklock-powerbar-module
     gtklock-playerctl-module
     grim
-    helix
+    #helix
     htop
     httpie
     hyprpaper
