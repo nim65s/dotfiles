@@ -73,6 +73,7 @@ in
     nheko
     ninja
     nixpkgs-review
+    nmap
     okular
     openssh
     openssl
@@ -120,6 +121,7 @@ in
     wev
     #wireplumber
     wl-clipboard
+    xorg.xinit
     wtype
     xclip
     xdotool
