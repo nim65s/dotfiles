@@ -97,18 +97,17 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.dconf.enable = true;
   programs.fish.enable = true;
-  programs.hyprland.enable = true;
+  services.getty.autologinUser = "nim";
+  #programs.hyprland.enable = true;
   # services.openssh.enable = true;
   services.printing.enable = true;
-  #services.getty.autologinUser = "nim";
 
   services.xserver = {
     #libinput.enable = true;
     displayManager = {
-      gdm.enable = true;
-      autoLogin.enable = true;
-      autoLogin.user = "nim";
+      startx.enable = true;
     };
     enable = true;
     layout = "fr";

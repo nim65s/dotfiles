@@ -121,7 +121,6 @@ in
     wev
     #wireplumber
     wl-clipboard
-    xorg.xinit
     wtype
     xclip
     xdotool
