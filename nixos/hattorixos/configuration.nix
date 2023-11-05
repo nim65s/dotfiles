@@ -69,7 +69,7 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
     packages = [];
   };
   home-manager.users.nim = import /home/nim/.config/home-manager/home.nix;
@@ -116,6 +116,8 @@
       xkbVariant = "bepo";
     };
   };
+
+  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
