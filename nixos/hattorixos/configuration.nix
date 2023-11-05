@@ -34,6 +34,7 @@
    vim
    wget
    git
+   stlink
   ];
 
   networking.hostName = "hattorixos"; # Define your hostname.
@@ -62,19 +63,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nim = {
@@ -99,19 +87,34 @@
 
   programs.dconf.enable = true;
   programs.fish.enable = true;
-  services.getty.autologinUser = "nim";
   #programs.hyprland.enable = true;
-  # services.openssh.enable = true;
-  services.printing.enable = true;
 
-  services.xserver = {
-    #libinput.enable = true;
-    displayManager = {
-      startx.enable = true;
+  services = {
+    getty.autologinUser = "nim";
+    # openssh.enable = true;
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
     };
-    enable = true;
-    layout = "fr";
-    xkbVariant = "bepo";
+    udev.packages = [ pkgs.stlink ];
+    xserver = {
+      #libinput.enable = true;
+      displayManager = {
+        startx.enable = true;
+      };
+      enable = true;
+      layout = "fr";
+      xkbVariant = "bepo";
+    };
   };
 
   # Open ports in the firewall.

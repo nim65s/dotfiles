@@ -115,6 +115,7 @@ in
     tinc
     todoman
     tree
+    usbutils
     vdirsyncer
     vlc
     watchexec
