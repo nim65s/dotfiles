@@ -26,6 +26,7 @@ in
     black
     cargo-binstall
     cargo-release
+    cava
     ccze
     dfc
     dos2unix
@@ -61,8 +62,8 @@ in
     pinentry
     plantuml
     just
-    khal
-    khard
+    #khal
+    #khard
     kolourpaint
     less
     #llvmPackages_16.bintools
@@ -86,7 +87,7 @@ in
     playerctl
     #poetry
     #poetryPlugins.poetry-plugin-up
-    python3
+    #python3
     #python310Packages.boost
     #python310Packages.django
     #python310Packages.i3ipc
@@ -104,6 +105,7 @@ in
     ruff
     rustup
     sauce-code-pro
+    signal-desktop
     sd
     sccache
     shellcheck

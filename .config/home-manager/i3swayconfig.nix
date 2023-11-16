@@ -5,11 +5,24 @@ in {
   fonts.names = ["Source Code Pro"];
   fonts.size = 8.0;
   modifier = mod;
+  window.hideEdgeBorders = "smart";
+  ${if sway then "up" else null} = "s";
+  ${if sway then "down" else null} = "t";
+  ${if sway then "left" else null} = "c";
+  ${if sway then "right" else null} = "r";
+  terminal = "nixGL kitty";
+  menu = "rofi -show run";
+  gaps.smartBorders = "on";
+  workspaceAutoBackAndForth = true;
   bars = [{
     fonts.names = ["Source Code Pro"];
     fonts.size = 8.0;
   }];
-  keybindings = lib.mkOptionDefault {
+  assigns = {
+    "10" =  [{ class = "^Firefox$"; }];
+  };
+  #extraConfig = "";
+  keybindings = {
     "${mod}+Return" = "exec \"nixGL kitty\"";
     "${mod}+i" = "exec \"rofi -show run\"";
     "${mod}+e" = "exec \"rofi-rbw --typer xdotool --clipboarder xclip\"";
@@ -22,13 +35,13 @@ in {
     "${mod}+Shift+t" = "move down";
     "${mod}+Shift+s" = "move up";
     "${mod}+Shift+r" = "move right";
-    "${mod}+Left" = "worspace prev";
-    "${mod}+Right" = "worspace next";
-    "${mod}+Shift+Up" = "move worspace to output up";
-    "${mod}+Shift+Down" = "move worspace to output down";
-    "${mod}+Shift+Left" = "move worspace to output left";
-    "${mod}+Shift+Right" = "move worspace to output right";
-    "${mod}+Escape" = "worspace back_and_forth";
+    "${mod}+Left" = "workspace prev";
+    "${mod}+Right" = "workspace next";
+    "${mod}+Shift+Up" = "move workspace to output up";
+    "${mod}+Shift+Down" = "move workspace to output down";
+    "${mod}+Shift+Left" = "move workspace to output left";
+    "${mod}+Shift+Right" = "move workspace to output right";
+    "${mod}+Escape" = "workspace back_and_forth";
     "${mod}+h" = "split h";
     "${mod}+Shift+h" = "split v";
     "${mod}+f" = "fullscreen";
@@ -86,7 +99,6 @@ in {
     "Return" = "mode default";
     "Escape" = "mode default";
   };
-  workspaceAutoBackAndForth = true;
   ${if sway then "input" else null} = {
     "type:keyboard" = {
       xkb_layout  = "fr";
