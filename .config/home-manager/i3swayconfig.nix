@@ -20,6 +20,7 @@ in {
   }];
   assigns = {
     "10" =  [{ class = "^Firefox$"; }];
+    "12" =  [{ class = "^Signal$"; }];
   };
   #extraConfig = "";
   keybindings = {
@@ -105,4 +106,8 @@ in {
       xkb_variant = "bepo";
     };
   } ;
+  startup = [
+    { command = "firefox"; }
+    { command = "signal-desktop"; }
+  ];
 }
