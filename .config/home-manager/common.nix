@@ -111,6 +111,7 @@ in
     shellcheck
     slurp
     source-sans
+    spotify
     sqlite
     swappy
     tig
