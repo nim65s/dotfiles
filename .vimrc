@@ -347,6 +347,8 @@ let g:ale_fixers = {
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
             \}
 
+let g:markdown_fenced_languages = ['python', 'rust', 'cpp']
+
 nmap <leader>a v<Plug>(coc-codeaction-selected)
 xmap <leader>a v<Plug>(coc-codeaction-selected)
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
