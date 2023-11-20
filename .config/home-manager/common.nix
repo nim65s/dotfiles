@@ -130,6 +130,7 @@ in
     xdotool
     xdg-desktop-portal-hyprland
     xwayland
+    yt-dlp
     zathura
     zellij
     zoom-us

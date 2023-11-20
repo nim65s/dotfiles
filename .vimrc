@@ -347,7 +347,7 @@ let g:ale_fixers = {
             \'*': ['remove_trailing_lines', 'trim_whitespace'],
             \}
 
-let g:markdown_fenced_languages = ['python', 'rust', 'cpp']
+let g:markdown_fenced_languages = ['python', 'rust', 'cpp', 'bash']
 
 nmap <leader>a v<Plug>(coc-codeaction-selected)
 xmap <leader>a v<Plug>(coc-codeaction-selected)
