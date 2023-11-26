@@ -149,6 +149,20 @@ fileext = ".ics"
 type = "http"
 url = "https://www.mozilla.org/media/caldata/FrenchHolidays.ics"
 
+[pair cours]
+a = "cours_local"
+b = "cours_remote"
+collections = null
+
+[storage cours_local]
+type = "filesystem"
+path = "~/.vdir/calendars/ro/cours"
+fileext = ".ics"
+
+[storage cours_remote]
+type = "http"
+url = "https://mergics.saurel.me/public/nim-cours.ics"
+
 [pair vacances]
 a = "vacances_local"
 b = "vacances_remote"
