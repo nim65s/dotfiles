@@ -161,7 +161,7 @@ fileext = ".ics"
 
 [storage vacances_remote]
 type = "http"
-url = "http://cache.media.education.gouv.fr/ics/Calendrier_Scolaire_Zone_C.ics"
+url = "https://fr.ftp.opendatasoft.com/openscol/fr-en-calendrier-scolaire/Zone-C.ics"
 
 [pair contacts]
 a = "contacts_local"
