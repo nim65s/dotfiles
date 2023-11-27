@@ -37,7 +37,7 @@ in
     docker-compose
     du-dust
     #eigen
-    #element-desktop-wayland
+    element-desktop-wayland
     evince
     eww-wayland
     eza

@@ -59,6 +59,7 @@
     '';
     shellAliases = {
       ll = lib.mkForce "${pkgs.lsd}/bin/lsd -lrt";
+      lat = "${pkgs.lsd}/bin/lsd -A --tree";
     };
   };
 
