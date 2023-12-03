@@ -61,8 +61,13 @@ path = ~/.vdir/calendars/ro/holiday
 color = light red
 readonly = True
 
-[[cours]]
-path = ~/.vdir/calendars/ro/cours
+[[sri]]
+path = ~/.vdir/calendars/ro/sri
+color = dark red
+readonly = True
+
+[[istr]]
+path = ~/.vdir/calendars/ro/istr
 color = dark red
 readonly = True
 
