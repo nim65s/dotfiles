@@ -149,19 +149,33 @@ fileext = ".ics"
 type = "http"
 url = "https://www.mozilla.org/media/caldata/FrenchHolidays.ics"
 
-[pair cours]
-a = "cours_local"
-b = "cours_remote"
+[pair sri]
+a = "sri_local"
+b = "sri_remote"
 collections = null
 
-[storage cours_local]
+[storage sri_local]
 type = "filesystem"
-path = "~/.vdir/calendars/ro/cours"
+path = "~/.vdir/calendars/ro/sri"
 fileext = ".ics"
 
-[storage cours_remote]
+[storage sri_remote]
 type = "http"
-url = "https://mergics.saurel.me/public/nim-cours.ics"
+url = "https://mergics.saurel.me/public/nim-sri.ics"
+
+[pair istr]
+a = "istr_local"
+b = "istr_remote"
+collections = null
+
+[storage istr_local]
+type = "filesystem"
+path = "~/.vdir/calendars/ro/istr"
+fileext = ".ics"
+
+[storage istr_remote]
+type = "http"
+url = "https://mergics.saurel.me/public/nim-istr.ics"
 
 [pair vacances]
 a = "vacances_local"
