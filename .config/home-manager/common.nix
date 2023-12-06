@@ -23,6 +23,7 @@ in
   home.packages = with pkgs; [
     acpi
     adwaita-qt
+    arandr
     black
     cargo-binstall
     cargo-release
