@@ -244,6 +244,15 @@ in
     };
   };
 
+  services.signaturepdf = {
+    enable = true;
+    port = 5165;
+    extraConfig = {
+      max_file_uploads = "201";
+      post_max_size = "24M";
+      upload_max_filesize = "24M";
+    };
+  };
   services.ssh-agent.enable = true;
 
   services.spotifyd = {
