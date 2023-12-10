@@ -15,7 +15,7 @@ in {
       "waybar"
       "firefox"
       "thunderbird"
-      "nheko"
+      "element-desktop"
     ];
     monitor = [
       "DP-2, 3840x2160, 0x0, 1.5"
