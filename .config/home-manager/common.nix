@@ -63,8 +63,8 @@ in
     pinentry
     plantuml
     just
-    #khal
-    #khard
+    khal
+    khard
     kolourpaint
     less
     #llvmPackages_16.bintools
@@ -86,17 +86,20 @@ in
     pipx
     pkg-config
     playerctl
-    #poetry
-    #poetryPlugins.poetry-plugin-up
-    #python3
-    #python310Packages.boost
-    #python310Packages.django
-    #python310Packages.i3ipc
-    #python310Packages.ipython
-    #python310Packages.numpy
-    #python310Packages.pandocfilters
-    #python310Packages.python
-    #python310Packages.poetry-dynamic-versioning
+    (poetry.withPlugins(ps: with ps; [
+      poetry-plugin-up
+    ]))
+    (python3.withPackages(ps: with ps; [
+      boost
+      django
+      httpx
+      i3ipc
+      ipython
+      numpy
+      pandocfilters
+      pip
+      wheel
+    ]))
     pre-commit
     pulseaudio
     pavucontrol
