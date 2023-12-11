@@ -30,6 +30,7 @@ in
     cava
     ccze
     dfc
+    dig
     dos2unix
     chrpath
     clang_16
@@ -124,6 +125,7 @@ in
     tree
     usbutils
     vdirsyncer
+    virtualbox
     vlc
     watchexec
     wev
