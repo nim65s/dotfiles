@@ -66,6 +66,7 @@ in
     just
     khal
     khard
+    killall
     kolourpaint
     less
     #llvmPackages_16.bintools
