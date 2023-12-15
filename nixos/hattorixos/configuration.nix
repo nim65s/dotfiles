@@ -105,6 +105,7 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+    sshd.enable = true;
     udev.packages = [ pkgs.stlink ];
     xserver = {
       #libinput.enable = true;
