@@ -33,12 +33,11 @@ in
     dig
     dos2unix
     chrpath
-    clang_16
+    clang_17
     cmake
     cntr
     docker-compose
     du-dust
-    #eigen
     element-desktop-wayland
     evince
     eww-wayland
@@ -69,7 +68,6 @@ in
     killall
     kolourpaint
     less
-    #llvmPackages_16.bintools
     mdcat
     mdbook
     mpv
@@ -92,7 +90,6 @@ in
       poetry-plugin-up
     ]))
     (python3.withPackages(ps: with ps; [
-      boost
       django
       httpx
       i3ipc
@@ -128,6 +125,7 @@ in
     vdirsyncer
     virtualbox
     vlc
+    vscode-fhs
     watchexec
     wev
     #wireplumber
