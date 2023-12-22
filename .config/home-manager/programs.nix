@@ -176,6 +176,7 @@
     settings = {
       email = atjoin { name="guilhem"; host="saurel.me";};
       base_url = "https://safe.datcat.fr";
+      pinentry = "qt";
     };
   };
 
