@@ -70,6 +70,7 @@ in
     less
     mdcat
     mdbook
+    mosh
     mpv
     mypy
     nheko
@@ -137,6 +138,7 @@ in
     xwayland
     yt-dlp
     zathura
+    zeal-qt6
     zellij
     zoom-us
   ];

@@ -33,11 +33,16 @@
     };
   };
 
-  #programs.chromium = {
+  #chromium = {
     #enable = true;
     #package = pkgs.ungoogled-chromium;
     #commandLineArgs = [ "--ozone-platform=wayland" ];
   #};
+
+  direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   firefox = import ./firefox.nix pkgs;
 

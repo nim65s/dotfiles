@@ -67,3 +67,5 @@ coverage.xml
 .sass-cache
 wh
 *.back
+.direnv
+.envrc
