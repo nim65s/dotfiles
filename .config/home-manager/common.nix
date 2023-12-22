@@ -186,7 +186,7 @@ in
         imap.host = "imap.laas.fr";
         imap.port = 993;
         msmtp.enable = true;
-        neomutt.enable = true;
+        neomutt.enable = false;
         notmuch.enable = true;
         notmuch.neomutt.enable = true;
         offlineimap.enable = true;
@@ -204,11 +204,18 @@ in
         };
         userName = "gsaurel";
       };
-      perso = {
-        address = atjoin { name="guilhem"; host="saurel.me";};
+      perso = let mail = atjoin { name = "guilhem"; host="saurel.me";}; in {
+        address = "${mail}";
+        folders.inbox = "INBOX";
         imap.host = "mail.gandi.net";
         msmtp.enable = true;
-        neomutt.enable = true;
+        neomutt = {
+          enable = true;
+          extraConfig = ''
+            set hostname="saurel.me"
+            my_hdr Bcc: ${mail}
+          '';
+        };
         notmuch.enable = true;
         notmuch.neomutt.enable = true;
         offlineimap.enable = true;
