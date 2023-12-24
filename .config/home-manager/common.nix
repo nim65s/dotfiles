@@ -20,6 +20,11 @@ in
 
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  home.keyboard = {
+    layout = "fr";
+    variant = "bepo";
+  };
+
   home.packages = with pkgs; [
     acpi
     arandr
@@ -140,7 +145,7 @@ in
     xwayland
     yt-dlp
     zathura
-    zeal-qt6
+    zeal
     zellij
     zoom-us
   ];
@@ -231,8 +236,7 @@ in
 
   qt = {
     enable = true;
-    style.package = pkgs.libsForQt5.breeze-gtk;
-    style.name = "Breeze-Dark";
+    platformTheme = "qtct";
   };
 
   gtk = {

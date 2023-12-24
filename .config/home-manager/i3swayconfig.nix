@@ -27,8 +27,8 @@ in {
     fonts.size = 8.0;
   }];
   assigns = {
-    "9" =  [{ class = "^Zeal$"; }];
-    "10" =  [{ class = "^Firefox$"; }] ++ lib.optionals sway [ {app_id = "firefox"; }];
+    "9" =  [{ class = "^Zeal$"; }] ++ lib.optionals sway [{ app_id = "org.zealdocs.zeal";}];
+    "10" =  [{ class = "^Firefox$"; }] ++ lib.optionals sway [{app_id = "firefox"; }];
     "11" =  [{ class = "^thunderbird$"; } ] ++ lib.optionals sway [{ app_id = "thunderbird"; }];
     "12" =  [{ class = "^Signal$"; } {class = "^Element$"; } ] ++ lib.optionals sway [{app_id = "Element";}];
   };
@@ -126,5 +126,7 @@ in {
     { command = "element-desktop"; }
     { command = "signal-desktop"; }
     { command = "zeal"; }
+  ] ++ lib.optionals (!sway) [
+    { command = "setxkbmap -synch"; }
   ];
 }
