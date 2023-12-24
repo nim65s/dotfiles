@@ -25,6 +25,7 @@ in
     adwaita-qt
     arandr
     black
+    brightnessctl
     cargo-binstall
     cargo-release
     cava
@@ -68,6 +69,7 @@ in
     killall
     kolourpaint
     less
+    lsof
     mdcat
     mdbook
     mosh
@@ -131,6 +133,7 @@ in
     wev
     #wireplumber
     wl-clipboard
+    xorg.xkill
     wtype
     xclip
     xdotool

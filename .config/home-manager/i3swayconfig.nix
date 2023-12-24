@@ -5,7 +5,15 @@ in {
   fonts.names = ["Source Code Pro"];
   fonts.size = 8.0;
   modifier = mod;
-  window.hideEdgeBorders = "smart";
+  window = {
+    commands = [
+      { command = "layout tabbed"; criteria = { class = "^Signal$"; }; }
+      { command = "layout tabbed"; criteria = { class = "^Element$"; }; }
+    ] ++ lib.optionals sway [
+      { command = "layout tabbed"; criteria = { app_id = "Element"; }; }
+    ] ;
+    hideEdgeBorders = "smart";
+  };
   ${if sway then "up" else null} = "s";
   ${if sway then "down" else null} = "t";
   ${if sway then "left" else null} = "c";
@@ -19,14 +27,16 @@ in {
     fonts.size = 8.0;
   }];
   assigns = {
-    "10" =  [{ class = "^Firefox$"; }];
-    "12" =  [{ class = "^Signal$"; }];
+    "9" =  [{ class = "^Zeal$"; }];
+    "10" =  [{ class = "^Firefox$"; }] ++ lib.optionals sway [ {app_id = "firefox"; }];
+    "11" =  [{ class = "^thunderbird$"; } ] ++ lib.optionals sway [{ app_id = "thunderbird"; }];
+    "12" =  [{ class = "^Signal$"; } {class = "^Element$"; } ] ++ lib.optionals sway [{app_id = "Element";}];
   };
   #extraConfig = "";
   keybindings = {
     "${mod}+Return" = "exec \"nixGL kitty\"";
     "${mod}+i" = "exec \"rofi -show run\"";
-    "${mod}+e" = "exec \"rofi-rbw --typer xdotool --clipboarder xclip\"";
+    "${mod}+e" = "exec \"rofi-rbw ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
     "${mod}+Shift+b" = "kill";
     "${mod}+c" = "focus left";
     "${mod}+t" = "focus down";
@@ -77,16 +87,20 @@ in {
     "${mod}+Shift+percent" = "move container to workspace 12";
     "${mod}+Shift+x" = "reload";
     "${mod}+Shift+o" = "restart";
-    "${mod}+Shift+p" = "exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'\"";
+    "${mod}+Shift+p" = "exec \"${if sway then "swaynag" else "i3-nagbar"} -t warning -m 'You pressed the exit shortcut. Do you really want to exit ${if sway then "sway" else "i3"}? ' -b 'Yes' '${if sway then "swaymsg" else "i3-msg"} exit'\"";
     "${mod}+o" = "mode resize";
     "${mod}+w" = "move workspace to output right";
     "${mod}+z" = "move workspace to output left";
-    "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
-    "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
-    "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
+    "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
+    "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
+    "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+    "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
     "XF86AudioPlay" = "exec \"playerctl play-pause\"";
     "XF86AudioPrev" = "exec \"playerctl previous\"";
     "XF86AudioNext" = "exec \"playerctl next\"";
+    "XF86Display" = "exec \"arandr\"";
+    "XF86MonBrightnessUp" = "exec \"brightnessctl s 10%+\"";
+    "XF86MonBrightnessDown" = "exec \"brightnessctl s 10%-\"";
   };
   modes.resize = {
     "t" = "resize shrink width 10 px or 10 ppt";
@@ -108,6 +122,9 @@ in {
   } ;
   startup = [
     { command = "firefox"; }
+    { command = "thunderbird"; }
+    { command = "element-desktop"; }
     { command = "signal-desktop"; }
+    { command = "zeal"; }
   ];
 }
