@@ -22,7 +22,6 @@ in
 
   home.packages = with pkgs; [
     acpi
-    adwaita-qt
     arandr
     black
     brightnessctl
@@ -167,8 +166,7 @@ in
   };
 
   home.sessionVariables = {
-    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-    SHELL = "${pkgs.fish}/bin/fish";
+    SHELL = lib.getExe pkgs.fish;
     SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
     SSH_ASKPASS_REQUIRE = "prefer";
     SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
@@ -231,11 +229,17 @@ in
     };
   };
 
+  qt = {
+    enable = true;
+    style.package = pkgs.libsForQt5.breeze-gtk;
+    style.name = "Breeze-Dark";
+  };
+
   gtk = {
     enable = true;
     font.name = "Source Sans";
-    theme.package = pkgs.gnome.adwaita-icon-theme;
-    theme.name = "Adwaita";
+    theme.package = pkgs.libsForQt5.breeze-gtk;
+    theme.name = "Breeze-Dark";
   };
 
   programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; };
@@ -252,7 +256,7 @@ in
         sort = true;
         format = "<b>%s</b>\n%b";
         font = "Source Sans";
-        browser = "${pkgs.firefox-devedition}/bin/firefox -new-tab";
+        browser = "${lib.getExe pkgs.firefox-devedition} -new-tab";
       };
     };
   };
