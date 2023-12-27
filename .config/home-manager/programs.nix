@@ -69,13 +69,13 @@
     };
   };
 
-  gh = {
-    enable = true;
-    settings = {
-      git_protocol = "ssh";
-      prompt = "enabled";
-    };
-  };
+  #gh = {
+    #enable = true;
+    #settings = {
+      #git_protocol = "ssh";
+      #prompt = "enabled";
+    #};
+  #};
 
   git = {
     enable = true;
