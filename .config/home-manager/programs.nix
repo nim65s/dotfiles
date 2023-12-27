@@ -59,13 +59,13 @@
       if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
         date >> ~/.sway.log
         date >> ~/.sway.err
-        #~/.nix-profile/bin/nixGL ${pkgs.hyprland}/bin/Hyprland >> ~/.hypr.log 2>> ~/.hypr.err
+        #~/.nix-profile/bin/nixGL ${lib.getExe pkgs.hyprland} >> ~/.hypr.log 2>> ~/.hypr.err
         sway >> ~/.sway.log 2>> ~/.sway.err
       end
     '';
     shellAliases = {
-      ll = lib.mkForce "${pkgs.lsd}/bin/lsd -lrt";
-      lat = "${pkgs.lsd}/bin/lsd -A --tree";
+      ll = lib.mkForce "${lib.getExe pkgs.lsd} -lrt";
+      lat = "${lib.getExe pkgs.lsd} -A --tree";
     };
   };
 
@@ -152,7 +152,7 @@
 
   kitty = {
     enable = true;
-    font.name = "Source Code Pro";
+    font.name = "SauceCodePro Nerd Font";
     font.size = 8;
     keybindings = {
       "kitty_mod+left" = "resize_window narrower";
@@ -360,6 +360,17 @@
     };
   };
 
+  swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+      show-failed-attempts = true;
+      ignore-empty-password = true;
+      font = "SauceCodePro Nerd Font";
+    };
+  };
+
+
   thunderbird = {
     enable = true;
     profiles.nim = {
@@ -380,16 +391,6 @@
       };
     };
   };
-
-  /* TODO
-  swaylock = {
-    enable = true;
-    settings = {
-      color = "000000";
-      show-failed-attempts = true;
-    };
-  };
-  */
 
   vim = {
     enable = true;

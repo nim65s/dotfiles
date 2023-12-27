@@ -89,6 +89,8 @@
   programs.fish.enable = true;
   #programs.hyprland.enable = true;
 
+  security.pam.services.swaylock = {};
+
   services = {
     getty.autologinUser = "nim";
     # openssh.enable = true;
