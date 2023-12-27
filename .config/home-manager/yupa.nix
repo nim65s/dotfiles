@@ -8,8 +8,10 @@ in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
   programs.waybar.settings.mainBar.output = "eDP-1";
-  xsession.windowManager.i3.config = import ./i3swayconfig.nix { lib=lib; sway=false; };
-  wayland.windowManager.sway.config = import ./i3swayconfig.nix { lib=lib; sway=true; };
+  xsession.windowManager.i3.config = import ./i3swayconfig.nix { lib=lib; sway=false; pkgs=pkgs; };
+  wayland.windowManager.sway.config = import ./i3swayconfig.nix { lib=lib; sway=true; pkgs=pkgs; } // {
+    output = { "*" = { bg = "${./bg/sleep.jpg} fill"; }; };
+  };
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "hyprpaper"

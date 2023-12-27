@@ -1,4 +1,4 @@
-{lib, sway}:
+{lib, sway, pkgs}:
 let
   mod = "Mod4";
 in {
@@ -22,9 +22,10 @@ in {
   menu = "rofi -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
-  bars = [{
+  bars = lib.optionals (!sway) [{
     fonts.names = ["Source Code Pro"];
     fonts.size = 8.0;
+    statusCommand = "${lib.getExe pkgs.i3status-rust} config-default.toml";
   }];
   assigns = {
     "9" =  [{ class = "^Zeal$"; }] ++ lib.optionals sway [{ app_id = "org.zealdocs.zeal";}];
@@ -37,7 +38,7 @@ in {
     "${mod}+Return" = "exec \"nixGL kitty\"";
     "${mod}+i" = "exec \"rofi -show run\"";
     "${mod}+e" = "exec \"rofi-rbw ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
-    "${mod}+Shift+b" = "kill";
+    "${mod}+Shift+x" = "kill";
     "${mod}+c" = "focus left";
     "${mod}+t" = "focus down";
     "${mod}+s" = "focus up";
@@ -85,7 +86,7 @@ in {
     "${mod}+Shift+asterisk" = "move container to workspace 10";
     "${mod}+Shift+equal" = "move container to workspace 11";
     "${mod}+Shift+percent" = "move container to workspace 12";
-    "${mod}+Shift+x" = "reload";
+    "${mod}+Shift+b" = "reload";
     "${mod}+Shift+o" = "restart";
     "${mod}+Shift+p" = "exec \"${if sway then "swaynag" else "i3-nagbar"} -t warning -m 'You pressed the exit shortcut. Do you really want to exit ${if sway then "sway" else "i3"}? ' -b 'Yes' '${if sway then "swaymsg" else "i3-msg"} exit'\"";
     "${mod}+o" = "mode resize";
@@ -119,14 +120,17 @@ in {
       xkb_layout  = "fr";
       xkb_variant = "bepo";
     };
-  } ;
+  };
   startup = [
     { command = "firefox"; }
     { command = "thunderbird"; }
     { command = "element-desktop"; }
     { command = "signal-desktop"; }
     { command = "zeal"; }
+  ] ++ lib.optionals sway [
+    { command = "waybar"; }
   ] ++ lib.optionals (!sway) [
     { command = "setxkbmap -synch"; }
+    { command = "nitrogen --restore"; }
   ];
 }

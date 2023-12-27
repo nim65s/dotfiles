@@ -112,6 +112,44 @@
 
   home-manager.enable = true;
 
+  i3status-rust = {
+    enable = true;
+    bars.default = {
+      icons = "awesome6";
+      theme = "gruvbox-dark";
+      blocks = [
+        { block = "music"; }
+        { block = "net"; }
+        {
+          alert = 10.0;
+          block = "disk_space";
+          format = " $icon root: $available.eng(w:2) ";
+          info_type = "available";
+          interval = 20;
+          path = "/";
+          warning = 20.0;
+        }
+        { block = "memory"; }
+        { block = "cpu"; }
+        {
+          block = "sound";
+          click = [
+            {
+              button = "left";
+              cmd = "pavucontrol";
+            }
+          ];
+        }
+        { block = "battery"; }
+        {
+          block = "time";
+          format = " $timestamp.datetime(f:'%Y-%m-%d %H:%M') ";
+          interval = 60;
+        }
+      ];
+    };
+  };
+
   kitty = {
     enable = true;
     font.name = "Source Code Pro";
@@ -188,9 +226,11 @@
       pkgs.rofi-emoji
       pkgs.rofi-file-browser
     ];
-    terminal = "${pkgs.kitty}/bin/kitty";
-    font = "Source Code Pro 12";
-    theme = "arthur";
+    terminal = lib.getExe pkgs.kitty;
+    theme = {
+      "@theme" = "arthur";
+      "*" = { font = "SauceCodePro Nerd Font 12"; };
+    };
     extraConfig = {
       color-enabled = true;
       matching = "prefix";
@@ -217,6 +257,11 @@
       };
       "upe" = {
         hostname = "upepesanke";
+        user = "gsaurel";
+        proxyJump = "laas";
+      };
+      "miya" = {
+        hostname = "miyanoura";
         user = "gsaurel";
         proxyJump = "laas";
       };
@@ -401,10 +446,10 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
+        position = "bottom";
         height = 24;
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
+        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-center = [ "sway/window" ];
         modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "battery" "clock" "tray"];
 
         "tray" = { "spacing" = 10; };
@@ -454,10 +499,6 @@
             "format-disconnected" = "Disconnected 🌍";
             "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
-        "hyprland/workspaces" = {
-          "on-scroll-up" = "hyprctl dispatch workspace e+1";
-          "on-scroll-down" = "hyprctl dispatch workspace e-1";
-        };
         "custom/media" = {
           "format" = "{icon}{}";
           "return-type" = "json";
@@ -472,6 +513,10 @@
         };
       };
     };
+    style = ''
+      * { font-family: SauceCodePro; }
+      window#waybar { background: rgba(0, 0, 0, 0.7); }
+    '';
   };
 
   zathura = {

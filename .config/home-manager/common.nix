@@ -50,6 +50,7 @@ in
     fd
     file
     fishPlugins.bass
+    font-awesome
     git
     gnupg
     gtklock
@@ -81,6 +82,7 @@ in
     mypy
     nheko
     ninja
+    nitrogen
     nixpkgs-review
     nmap
     okular
