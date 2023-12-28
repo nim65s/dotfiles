@@ -69,7 +69,7 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" "video" "input" ];
     packages = [];
   };
   home-manager.users.nim = import /home/nim/.config/home-manager/home.nix;
@@ -121,6 +121,13 @@
   };
 
   virtualisation.docker.enable = true;
+
+  xdg.portal = {
+    config.common.default = "gtk";
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

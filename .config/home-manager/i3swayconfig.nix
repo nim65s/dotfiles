@@ -38,7 +38,7 @@ in {
     "${mod}+Return" = "exec \"nixGL kitty\"";
     "${mod}+i" = "exec \"${lib.getExe pkgs.rofi} -show run\"";
     "${mod}+e" = "exec \"${lib.getExe pkgs.rofi-rbw} ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
-    "${mod}+x" = "exec \"${lib.getExe pkgs.swaylock}\"";
+    "${mod}+x" = "exec \"${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}\"";
     "${mod}+Shift+x" = "kill";
     "${mod}+c" = "focus left";
     "${mod}+t" = "focus down";

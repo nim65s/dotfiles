@@ -63,6 +63,7 @@ in
     httpie
     hyprpaper
     hyprpicker
+    i3lock
     inetutils
     imv
     isort

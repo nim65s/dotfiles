@@ -448,13 +448,13 @@
       mainBar = {
         layer = "top";
         position = "bottom";
-        height = 24;
-        modules-left = [ "sway/workspaces" "sway/mode" ];
+        height = 32;
+        modules-left = [ "sway/workspaces" "sway/mode" "sway/scratchpad" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "battery" "clock" "tray"];
+        modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "backlight" "battery" "clock" "tray"];
 
         "tray" = { "spacing" = 10; };
-        "cpu" = { "format" = "{}% "; };
+        "cpu" = { "format" = "{usage}% "; };
         "memory" = { "format" = "{}% "; };
         "battery" = {
           "states" = {
@@ -477,8 +477,8 @@
           "scroll-step" = 1;
           "format" = "{volume}% {icon} {format_source}";
           "format-bluetooth" = "{volume}% {icon} {format_source}";
-          "format-bluetooth-muted" = " {icon} {format_source}";
-          "format-muted" = " {format_source}";
+          "format-bluetooth-muted" = "󰝟 {icon} {format_source}";
+          "format-muted" = "󰝟 {format_source}";
           "format-source" = "{volume}% ";
           "format-source-muted" = "";
           "format-icons" = {
@@ -497,11 +497,11 @@
             "format-ethernet" = "{ipaddr}/{cidr} 🌍";
             "tooltip-format" = "{ifname} via {gwaddr} 🌍";
             "format-linked" = "{ifname} (No IP) 🌍";
-            "format-disconnected" = "Disconnected 🌍";
+            "format-disconnected" = "Disconnected ⚠";
             "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
         "custom/media" = {
-          "format" = "{icon}{}";
+          "format" = "{icon} {}";
           "return-type" = "json";
           "format-icons" = {
             "Playing" = " ";
@@ -514,10 +514,7 @@
         };
       };
     };
-    style = ''
-      * { font-family: SauceCodePro; }
-      window#waybar { background: rgba(0, 0, 0, 0.7); }
-    '';
+    style = ./waybar.css;
   };
 
   zathura = {
