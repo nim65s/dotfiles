@@ -57,10 +57,9 @@
       and source ~/dotfiles/.config/fish/path.fish
 
       if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-        date >> ~/.sway.log
-        date >> ~/.sway.err
-        #~/.nix-profile/bin/nixGL ${lib.getExe pkgs.hyprland} >> ~/.hypr.log 2>> ~/.hypr.err
-        sway >> ~/.sway.log 2>> ~/.sway.err
+        date >> ~/.wayland.log
+        date >> ~/.wayland.err
+        ~/.nix-profile/bin/nixGL ${lib.getExe pkgs.sway} >> ~/.wayland.log 2>> ~/.wayland.err
       end
     '';
     shellAliases = {

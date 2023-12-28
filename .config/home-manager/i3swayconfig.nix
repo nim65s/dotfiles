@@ -18,8 +18,8 @@ in {
   ${if sway then "down" else null} = "t";
   ${if sway then "left" else null} = "c";
   ${if sway then "right" else null} = "r";
-  terminal = "nixGL kitty";
-  menu = "rofi -show run";
+  terminal = "nixGL ${lib.getExe pkgs.kitty}";
+  menu = "${lib.getExe pkgs.rofi} -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
   bars = lib.optionals (!sway) [{
@@ -35,7 +35,7 @@ in {
   };
   #extraConfig = "";
   keybindings = {
-    "${mod}+Return" = "exec \"nixGL kitty\"";
+    "${mod}+Return" = "exec \"nixGL ${lib.getExe pkgs.kitty}\"";
     "${mod}+i" = "exec \"${lib.getExe pkgs.rofi} -show run\"";
     "${mod}+e" = "exec \"${lib.getExe pkgs.rofi-rbw} ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
     "${mod}+x" = "exec \"${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}\"";
@@ -97,12 +97,12 @@ in {
     "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
     "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
     "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
-    "XF86AudioPlay" = "exec \"playerctl play-pause\"";
-    "XF86AudioPrev" = "exec \"playerctl previous\"";
-    "XF86AudioNext" = "exec \"playerctl next\"";
-    "XF86Display" = "exec \"arandr\"";
-    "XF86MonBrightnessUp" = "exec \"brightnessctl s 10%+\"";
-    "XF86MonBrightnessDown" = "exec \"brightnessctl s 10%-\"";
+    "XF86AudioPlay" = "exec \"${lib.getExe pkgs.playerctl} play-pause\"";
+    "XF86AudioPrev" = "exec \"${lib.getExe pkgs.playerctl} previous\"";
+    "XF86AudioNext" = "exec \"${lib.getExe pkgs.playerctl} next\"";
+    "XF86Display" = "exec \"${lib.getExe pkgs.arandr}\"";
+    "XF86MonBrightnessUp" = "exec \"${lib.getExe pkgs.brightnessctl} s 10%+\"";
+    "XF86MonBrightnessDown" = "exec \"${lib.getExe pkgs.brightnessctl} s 10%-\"";
   };
   modes.resize = {
     "t" = "resize shrink width 10 px or 10 ppt";
@@ -123,15 +123,15 @@ in {
     };
   };
   startup = [
-    { command = "firefox"; }
-    { command = "thunderbird"; }
-    { command = "element-desktop"; }
-    { command = "signal-desktop"; }
-    { command = "zeal"; }
+    { command = "${lib.getExe pkgs.firefox-devedition}"; }
+    { command = "${lib.getExe pkgs.thunderbird}"; }
+    { command = "${lib.getExe pkgs.element-desktop}"; }
+    { command = "${lib.getExe pkgs.signal-desktop}"; }
+    { command = "${lib.getExe pkgs.zeal}"; }
   ] ++ lib.optionals sway [
-    { command = "waybar"; }
+    { command = "${lib.getExe pkgs.waybar}"; }
   ] ++ lib.optionals (!sway) [
     { command = "setxkbmap -synch"; }
-    { command = "nitrogen --restore"; }
+    { command = "${lib.getExe pkgs.nitrogen} --restore"; }
   ];
 }
