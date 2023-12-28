@@ -1,11 +1,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "SauceCodePro Nerd Font";
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
