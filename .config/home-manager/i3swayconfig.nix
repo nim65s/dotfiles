@@ -2,7 +2,7 @@
 let
   mod = "Mod4";
 in {
-  fonts.names = ["Source Code Pro"];
+  fonts.names = ["SauceCodePro Nerd Font"];
   fonts.size = 8.0;
   modifier = mod;
   window = {
@@ -23,7 +23,7 @@ in {
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
   bars = lib.optionals (!sway) [{
-    fonts.names = ["Source Code Pro"];
+    fonts.names = ["SauceCodePro Nerd Font"];
     fonts.size = 8.0;
     statusCommand = "${lib.getExe pkgs.i3status-rust} config-default.toml";
   }];
