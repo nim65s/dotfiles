@@ -19,7 +19,7 @@ in {
   ${if sway then "left" else null} = "c";
   ${if sway then "right" else null} = "r";
   terminal = "nixGL ${lib.getExe pkgs.kitty}";
-  menu = "${lib.getExe pkgs.rofi} -show run";
+  menu = "${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
   bars = lib.optionals (!sway) [{
@@ -36,7 +36,7 @@ in {
   #extraConfig = "";
   keybindings = {
     "${mod}+Return" = "exec \"nixGL ${lib.getExe pkgs.kitty}\"";
-    "${mod}+i" = "exec \"${lib.getExe pkgs.rofi} -show run\"";
+    "${mod}+i" = "exec \"${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run\"";
     "${mod}+e" = "exec \"${lib.getExe pkgs.rofi-rbw} ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
     "${mod}+x" = "exec \"${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}\"";
     "${mod}+Shift+x" = "kill";
@@ -97,12 +97,12 @@ in {
     "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
     "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
     "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
-    "XF86AudioPlay" = "exec \"${lib.getExe pkgs.playerctl} play-pause\"";
-    "XF86AudioPrev" = "exec \"${lib.getExe pkgs.playerctl} previous\"";
-    "XF86AudioNext" = "exec \"${lib.getExe pkgs.playerctl} next\"";
+    "XF86AudioPlay" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} play-pause\"";
+    "XF86AudioPrev" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} previous\"";
+    "XF86AudioNext" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} next\"";
     "XF86Display" = "exec \"${lib.getExe pkgs.arandr}\"";
-    "XF86MonBrightnessUp" = "exec \"${lib.getExe pkgs.brightnessctl} s 10%+\"";
-    "XF86MonBrightnessDown" = "exec \"${lib.getExe pkgs.brightnessctl} s 10%-\"";
+    "XF86MonBrightnessUp" = "exec --no-startup-id \"${lib.getExe pkgs.brightnessctl} s 10%+\"";
+    "XF86MonBrightnessDown" = "exec --no-startup-id \"${lib.getExe pkgs.brightnessctl} s 10%-\"";
   };
   modes.resize = {
     "t" = "resize shrink width 10 px or 10 ppt";
@@ -125,12 +125,13 @@ in {
   startup = [
     { command = "${lib.getExe pkgs.firefox-devedition}"; }
     { command = "${lib.getExe pkgs.thunderbird}"; }
-    { command = "${lib.getExe pkgs.element-desktop}"; }
     { command = "${lib.getExe pkgs.signal-desktop}"; }
     { command = "${lib.getExe pkgs.zeal}"; }
   ] ++ lib.optionals sway [
+    { command = "${lib.getExe pkgs.element-desktop-wayland}"; }
     { command = "${lib.getExe pkgs.waybar}"; }
   ] ++ lib.optionals (!sway) [
+    { command = "${lib.getExe pkgs.element-desktop}"; }
     { command = "setxkbmap -synch"; }
     { command = "${lib.getExe pkgs.nitrogen} --restore"; }
   ];

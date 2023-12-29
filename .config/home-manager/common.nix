@@ -49,6 +49,8 @@ in
     eza
     fd
     file
+    firefox-devedition
+    fish
     fishPlugins.bass
     font-awesome
     git
@@ -66,6 +68,9 @@ in
     i3lock
     inetutils
     imv
+    i3
+    i3lock
+    i3status-rust
     isort
     pinentry
     plantuml
@@ -73,8 +78,10 @@ in
     khal
     khard
     killall
+    kitty
     kolourpaint
     less
+    lsd
     lsof
     mdcat
     mdbook
@@ -113,6 +120,8 @@ in
     pulseaudio
     pavucontrol
     ripgrep
+    rofi-emoji
+    rofi-file-browser
     rofi-power-menu
     rofi-rbw
     ruff
@@ -127,8 +136,11 @@ in
     spotify
     sqlite
     swappy
+    sway
+    swaylock
     tig
     tinc
+    thunderbird
     todoman
     tree
     usbutils
@@ -141,6 +153,7 @@ in
     #wireplumber
     wl-clipboard
     xorg.xkill
+    waybar
     wtype
     xclip
     xdotool
@@ -170,7 +183,7 @@ in
     ".latexmkrc".source = ../../.latexmkrc;
     ".pypirc".source = ../../.pypirc;
 
-    ".xinitrc".text = "exec i3";
+    ".xinitrc".text = "exec ${lib.getExe pkgs.i3} > ~/.x.log 2> ~/.x.err";
   };
 
   home.sessionVariables = {

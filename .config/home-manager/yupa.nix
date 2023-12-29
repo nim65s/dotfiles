@@ -10,7 +10,7 @@ in {
   programs.waybar.settings.mainBar.output = "eDP-1";
   xsession.windowManager.i3.config = import ./i3swayconfig.nix { lib=lib; sway=false; pkgs=pkgs; };
   wayland.windowManager.sway.config = import ./i3swayconfig.nix { lib=lib; sway=true; pkgs=pkgs; } // {
-    output = { "*" = { bg = "${./bg/sleep.jpg} fill"; }; };
+    output = { "*" = { bg = "${./bg/yupa.jpg} fill"; }; };
   };
   wayland.windowManager.hyprland.settings = {
     exec-once = [
