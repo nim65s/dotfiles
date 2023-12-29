@@ -123,10 +123,10 @@
   virtualisation.docker.enable = true;
 
   xdg.portal = {
-    config.common.default = "gtk";
+    config.common.default = ["wlr" "gtk"];
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Open ports in the firewall.

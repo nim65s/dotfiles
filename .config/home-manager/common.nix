@@ -157,7 +157,10 @@ in
     wtype
     xclip
     xdotool
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
     xwayland
     yt-dlp
     zathura
