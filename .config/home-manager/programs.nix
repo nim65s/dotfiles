@@ -326,7 +326,7 @@
       c.symbol = " ";
       conda.symbol = " ";
       dart.symbol = " ";
-      directory.read_only = "󰌾";
+      directory.read_only = " 󰌾";
       docker_context.symbol = " ";
       elixir.symbol = " ";
       elm.symbol = " ";
