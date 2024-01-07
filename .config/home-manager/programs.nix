@@ -1,4 +1,4 @@
-{ pkgs, lib, atjoin }:
+{ pkgs, lib, atjoin, mySway }:
 
 {
   atuin = {
@@ -57,7 +57,7 @@
       and source ~/dotfiles/.config/fish/path.fish
 
       if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-        ~/.nix-profile/bin/nixGL ${lib.getExe pkgs.sway} > ~/.wayland.log 2> ~/.wayland.err
+        ~/.nix-profile/bin/nixGL ${lib.getExe mySway} > ~/.wayland.log 2> ~/.wayland.err
       end
     '';
     shellAliases = {

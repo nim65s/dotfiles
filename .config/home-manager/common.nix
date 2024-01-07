@@ -4,6 +4,29 @@ let
   gruppled-white-lite-cursors = pkgs.callPackage ./gruppled-lite-cursors {
     theme = "gruppled_white_lite";
   };
+  mySway = pkgs.sway.override {
+    sway-unwrapped = (pkgs.sway-unwrapped.overrideAttrs (finalAttrs: previousAttrs: {
+      patches = lib.lists.take 2 previousAttrs.patches ++ lib.lists.drop 3 previousAttrs.patches;
+      src = pkgs.fetchFromGitHub {
+        owner = "nim65s";
+        repo = "sway";
+        rev = "3378cbe24e04ab35c7cbde2ff68f18c200a066b2";
+        hash = "sha256-BmHPlV8XS1mMXIpQVD1oLk5chdV/9OgqdEcdW/Xxn1A=";
+      };
+    })).override {
+      wlroots_0_16 = pkgs.wlroots.overrideAttrs {
+        version = "0.18.0-dev";
+        src = pkgs.fetchFromGitLab {
+          domain = "gitlab.freedesktop.org";
+          owner = "wlroots";
+          repo = "wlroots";
+          rev = "48721bca656556606275a5e776066a2f00822e92";
+          hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
+        };
+        patches = [];
+      };
+    };
+  };
   sauce-code-pro = pkgs.nerdfonts.override {
     fonts = [ "SourceCodePro" ];
   };
@@ -138,7 +161,7 @@ in
     spotify
     sqlite
     swappy
-    sway
+    #sway
     swaylock
     tig
     tinc
@@ -267,7 +290,7 @@ in
     theme.name = "Breeze-Dark";
   };
 
-  programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; };
+  programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; mySway=mySway; };
 
   services.dunst = {
     enable = true;
@@ -324,6 +347,10 @@ in
   };
 
   wayland.windowManager.sway.enable = true;
+  wayland.windowManager.sway.package = mySway;
+  wayland.windowManager.sway.extraConfig = ''
+    hide_edge_borders --smart-titles smart
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
