@@ -310,8 +310,6 @@ in
     };
   };
 
-  services.picom.enable = true;
-
   services.signaturepdf = {
     enable = true;
     port = 5165;
