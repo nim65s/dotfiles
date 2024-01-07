@@ -149,6 +149,7 @@ in
     rofi-file-browser
     rofi-power-menu
     rofi-rbw
+    rpi-imager
     ruff
     rustup
     sauce-code-pro
