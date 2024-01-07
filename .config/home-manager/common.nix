@@ -30,11 +30,13 @@ in
     arandr
     black
     brightnessctl
+    broot
     cargo-binstall
     cargo-release
     cava
     ccze
     dfc
+    dfeet
     dig
     dos2unix
     chrpath

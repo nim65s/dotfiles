@@ -407,6 +407,7 @@
       vimPlugins.vim-sensible
       vimPlugins.vim-signify
       vimPlugins.vim-toml
+      vimPlugins.vimspector
       vimPlugins.yuck-vim
       vimPlugins.zenburn
     ];
