@@ -182,6 +182,7 @@ in
     waybar
     wtype
     xclip
+    wdisplays
     xdotool
     xdg-desktop-portal
     xdg-desktop-portal-gtk

@@ -1,7 +1,8 @@
-{lib, sway, pkgs}:
+{lib, sway, pkgs, workspaceOutputAssign }:
 let
   mod = "Mod4";
 in {
+  workspaceOutputAssign = workspaceOutputAssign;
   fonts.names = ["SauceCodePro Nerd Font"];
   fonts.size = 8.0;
   modifier = mod;
