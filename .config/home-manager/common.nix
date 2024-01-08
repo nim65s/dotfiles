@@ -10,8 +10,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "nim65s";
         repo = "sway";
-        rev = "3378cbe24e04ab35c7cbde2ff68f18c200a066b2";
-        hash = "sha256-BmHPlV8XS1mMXIpQVD1oLk5chdV/9OgqdEcdW/Xxn1A=";
+        rev = "fa4c1cdc50b1cf28acac4e599b750a65e788602e";
+        hash = "sha256-NbmjZKuu1c+m293Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
       };
     })).override {
       wlroots_0_16 = pkgs.wlroots.overrideAttrs {
