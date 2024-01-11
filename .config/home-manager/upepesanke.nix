@@ -10,7 +10,7 @@ let
     { "workspace" = "5";  "output" = "DP-1"; }
     { "workspace" = "6";  "output" = "DP-1"; }
     { "workspace" = "7";  "output" = "DP-1"; }
-    { "workspace" = "8";  "output" = "DP-1"; }
+    { "workspace" = "8";  "output" = "DP-2"; }
     { "workspace" = "9";  "output" = "DP-2"; }
     { "workspace" = "10"; "output" = "DP-2"; }
     { "workspace" = "11"; "output" = "DP-2"; }

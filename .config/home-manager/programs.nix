@@ -451,6 +451,11 @@
         modules-center = [ "sway/window" ];
         modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "backlight" "battery" "clock" "tray"];
 
+        "sway/workspaces" = {
+          "all-outputs" = true;
+          "disable-auto-back-and-forth" = true;
+          "disable-scroll-wraparound" = true;
+        };
         "tray" = { "spacing" = 10; };
         "cpu" = { "format" = "{usage}% "; };
         "memory" = { "format" = "{}% "; };
