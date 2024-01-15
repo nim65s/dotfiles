@@ -81,6 +81,9 @@ if has("autocmd")
   autocmd FileType mail setlocal spell
   autocmd FileType mail setlocal tw=80
 
+  " json
+  autocmd FileType json setlocal shiftwidth=2 tabstop=2
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -358,10 +361,12 @@ Plug 'bogado/file-line'
 Plug 'imsnif/kdl.vim'
 Plug 'LnL7/vim-nix'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'puremourning/vimspector'
 call plug#end()
 
-let g:clang_format#command = 'clang-format-6.0'
-let g:clang_format#auto_format = 1
+let g:vimspector_install_gadgets = [ 'debugpy', 'CodeLLDB' ]
+
+"let g:clang_format#auto_format = 1
 
 let g:ale_python_flake8_options = 'E24,E123,E704,W503,E226,E126,W504,E121,E203'
 let g:ale_rust_rustfmt_options = '--edition 2021'
