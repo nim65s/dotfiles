@@ -120,6 +120,7 @@ in {
   ${if sway then "input" else null} = {
     "type:keyboard" = {
       xkb_layout  = "fr";
+      xkb_numlock = "enabled";
       xkb_variant = "bepo";
     };
   };
