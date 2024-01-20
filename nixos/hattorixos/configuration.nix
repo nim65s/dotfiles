@@ -87,7 +87,6 @@
 
   programs.dconf.enable = true;
   programs.fish.enable = true;
-  #programs.hyprland.enable = true;
 
   security.pam.services.swaylock = {};
 

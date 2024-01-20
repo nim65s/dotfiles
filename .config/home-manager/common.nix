@@ -88,8 +88,6 @@ in
     helix
     htop
     httpie
-    hyprpaper
-    hyprpicker
     i3lock
     inetutils
     imv
@@ -113,7 +111,6 @@ in
     mosh
     mpv
     mypy
-    nheko
     ninja
     nitrogen
     nixpkgs-review
@@ -139,6 +136,7 @@ in
       numpy
       pandocfilters
       pip
+      tqdm
       wheel
     ]))
     pre-commit
@@ -171,7 +169,6 @@ in
     tree
     usbutils
     vdirsyncer
-    virtualbox
     vlc
     vscode-fhs
     watchexec
@@ -186,7 +183,6 @@ in
     xdotool
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
     xdg-desktop-portal-wlr
     xwayland
     yt-dlp
@@ -336,8 +332,6 @@ in
   };
   systemd.user.services.spotifyd.Service.Environment = ["PATH=${pkgs.rbw}/bin"];
 
-  services.swayosd.enable = true;
-
   xdg.mimeApps = {
     enable = true;
   };
@@ -348,15 +342,11 @@ in
     windowManager.i3.enable = true;
   };
 
-  wayland.windowManager.sway.enable = true;
-  wayland.windowManager.sway.package = mySway;
-  wayland.windowManager.sway.extraConfig = ''
-    hide_edge_borders --smart-titles smart
-  '';
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.sway = {
     enable = true;
-    settings = {
-      source = "~/dotfiles/.config/hypr/hyprland.conf";
-    };
+    package = mySway;
+    extraConfig = ''
+      hide_edge_borders --smart-titles smart
+    '';
   };
 }

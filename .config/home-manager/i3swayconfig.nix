@@ -125,15 +125,15 @@ in {
     };
   };
   startup = [
-    { command = "${lib.getExe pkgs.firefox-devedition}"; }
-    { command = "${lib.getExe pkgs.thunderbird}"; }
-    { command = "${lib.getExe pkgs.signal-desktop}"; }
-    { command = "${lib.getExe pkgs.zeal}"; }
+    { command = lib.getExe pkgs.firefox-devedition; }
+    { command = lib.getExe pkgs.thunderbird; }
+    { command = lib.getExe pkgs.signal-desktop; }
+    { command = lib.getExe pkgs.zeal; }
   ] ++ lib.optionals sway [
-    { command = "${lib.getExe pkgs.element-desktop-wayland}"; }
-    { command = "${lib.getExe pkgs.waybar}"; }
+    { command = lib.getExe pkgs.element-desktop-wayland; }
+    { command = lib.getExe pkgs.waybar; }
   ] ++ lib.optionals (!sway) [
-    { command = "${lib.getExe pkgs.element-desktop}"; }
+    { command = lib.getExe pkgs.element-desktop; }
     { command = "setxkbmap -synch"; }
     { command = "${lib.getExe pkgs.nitrogen} --restore"; }
   ];
