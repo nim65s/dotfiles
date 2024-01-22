@@ -9,7 +9,8 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+b kill
 bindsym $mod+i exec rofi -show run
-bindsym $mod+e exec ~/scripts/spassmenu.py rofi -dmenu -show
+# bindsym $mod+e exec ~/scripts/spassmenu.py rofi -dmenu -show
+bindsym $mod+e exec rofi-rbw -t password -a type --typer xdotool
 
 # change focus
 bindsym $mod+t focus left
