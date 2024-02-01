@@ -21,6 +21,7 @@ in {
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
+  xdg.systemDirs.data = [ "/home/${username}/.nix-profile/share" ];
   home.sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
   programs.waybar.settings.mainBar.output = "DP-1";
   xsession.windowManager.i3.config = import ./i3swayconfig.nix {
