@@ -168,6 +168,7 @@ in
     todoman
     tree
     usbutils
+    ventoy
     vdirsyncer
     vlc
     vscode-fhs
@@ -332,8 +333,11 @@ in
   };
   systemd.user.services.spotifyd.Service.Environment = ["PATH=${pkgs.rbw}/bin"];
 
-  xdg.mimeApps = {
+  xdg = {
     enable = true;
+    mimeApps = {
+      enable = true;
+    };
   };
 
   xsession = {
