@@ -249,6 +249,7 @@ in
           profiles = ["nim"];
           perIdentitySettings = id: {
             "mail.identity.id_${id}.fcc_reply_follows_parent" = true;
+            "layers.acceleration.disabled" = true;  # TODO
           };
         };
         userName = "gsaurel";

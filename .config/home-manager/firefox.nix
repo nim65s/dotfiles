@@ -131,6 +131,7 @@ pkgs:
      "browser.toolbars.bookmarks.visibility" = "never";
      "browser.urlbar.suggest.calculator" = true;
      "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+     "layers.acceleration.disabled" = true;  # TODO
      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
     userChrome = ''
