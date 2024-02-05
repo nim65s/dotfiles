@@ -116,6 +116,7 @@ in
     nixpkgs-review
     nmap
     okular
+    openldap
     openssh
     openssl
     pandoc
@@ -133,10 +134,12 @@ in
       httpx
       i3ipc
       ipython
+      ldap3
       numpy
       pandocfilters
       pip
       tqdm
+      wand
       wheel
     ]))
     pre-commit
