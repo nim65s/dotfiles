@@ -270,6 +270,20 @@
         hostname = "192.168.8.112";
         proxyJump = "totoro";
       };
+      "*.l" = {
+        hostname = "%haas.fr";
+        forwardAgent = true;
+        proxyJump = "laas";
+        user = "gsaurel";
+        setEnv.TERM = "xterm";
+      };
+      "*.L" = {
+        hostname = "%haas.fr";
+        forwardAgent = true;
+        proxyJump = "laas";
+        user = "root";
+        setEnv.TERM = "xterm";
+      };
     };
   };
 
