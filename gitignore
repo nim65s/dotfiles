@@ -35,6 +35,7 @@ History
 Project Logs for *
 Project Outputs for *
 *.sqlite3
+*.sqlite3-journal
 venv
 .venv
 static_dest/*
