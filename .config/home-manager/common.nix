@@ -339,8 +339,14 @@ in
 
   xdg = {
     enable = true;
-    mimeApps = {
+    portal = {
+      config.sway.default = ["wlr"  "gtk"];
       enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-wlr
+      ];
+      xdgOpenUsePortal = true;
     };
   };
 
