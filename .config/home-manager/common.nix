@@ -58,6 +58,7 @@ in
     cargo-release
     cava
     ccze
+    dcfldd
     dfc
     dfeet
     dig
