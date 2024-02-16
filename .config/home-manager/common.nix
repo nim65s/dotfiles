@@ -113,6 +113,7 @@ in
     mypy
     ninja
     nitrogen
+    nixfmt-rfc-style
     nixpkgs-review
     nmap
     okular
@@ -279,6 +280,11 @@ in
         userName = atjoin { name="guilhem"; host="saurel.me";};
       };
     };
+  };
+
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   qt = {
