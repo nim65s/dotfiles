@@ -66,6 +66,10 @@
     };
   };
 
+  fzf = {
+    enable = true;
+  };
+
   gh = {
     enable = true;
     settings = {
@@ -545,5 +549,10 @@
       q = "quit";
       n = "rotate";
     };
+  };
+
+  zoxide = {
+    enable = true;
+    options = [ "--cmd" "cd" ];
   };
 }
