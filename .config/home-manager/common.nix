@@ -91,7 +91,7 @@ in
     httpie
     i3lock
     inetutils
-    imv
+    #imv TODO: CVE freeimage
     i3
     i3lock
     i3status-rust
