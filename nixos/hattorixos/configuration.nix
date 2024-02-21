@@ -114,8 +114,10 @@
         startx.enable = true;
       };
       enable = true;
-      layout = "fr";
-      xkbVariant = "bepo";
+      xkb = {
+        layout = "fr";
+        variant = "bepo";
+      };
     };
   };
 
