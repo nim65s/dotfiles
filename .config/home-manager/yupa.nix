@@ -10,6 +10,7 @@ in {
   home.homeDirectory = "/home/${username}";
   xdg.systemDirs.data = [ "/home/${username}/.nix-profile/share" ];
   programs.waybar.settings.mainBar.output = "eDP-1";
+  nix.package = pkgs.nix;
   xsession.windowManager.i3.config = import ./i3swayconfig.nix {
     lib=lib;
     sway=false;
