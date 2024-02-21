@@ -24,6 +24,7 @@ in {
   xdg.systemDirs.data = [ "/home/${username}/.nix-profile/share" ];
   home.sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
   programs.waybar.settings.mainBar.output = "DP-1";
+  nix.package = pkgs.nix;
   xsession.windowManager.i3.config = import ./i3swayconfig.nix {
     lib=lib;
     sway=false;
