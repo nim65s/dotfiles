@@ -196,6 +196,7 @@ in
     zathura
     zeal
     zellij
+    zola
     zoom-us
   ];
 
