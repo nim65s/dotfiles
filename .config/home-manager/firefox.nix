@@ -61,6 +61,26 @@ pkgs:
           ];
         }];
       };
+      "LAAS Annuaire" = {
+        iconUpdateURL = "https://www.laas.fr/static/img/favicon.ico";
+        definedAliases = [ ":l" ];
+        urls = [{
+          template = "https://www.laas.fr/fr/annuaire/";
+          params = [
+            { name = "q"; value = "{searchTerms}"; }
+          ];
+        }];
+      };
+      "LAAS Search" = {
+        iconUpdateURL = "https://www.laas.fr/static/img/favicon.ico";
+        definedAliases = [ ":ls" ];
+        urls = [{
+          template = "https://www.laas.fr/fr/search/";
+          params = [
+            { name = "q"; value = "{searchTerms}"; }
+          ];
+        }];
+      };
       "Nix Packages" = {
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         definedAliases = [ ":n" ];
