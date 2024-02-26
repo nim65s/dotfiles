@@ -89,6 +89,7 @@ in
     helix
     htop
     httpie
+    hugo
     i3lock
     inetutils
     imv
