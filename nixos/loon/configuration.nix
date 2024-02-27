@@ -19,7 +19,7 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "loon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -48,13 +48,13 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "fr";
-    xkbVariant = "bepo";
-  };
+  #xserver.xkb = {
+  #  layout = "fr";
+  #  variant = "bepo";
+  #};
 
   # Configure console keymap
-  console.keyMap = "fr";
+  console.keyMap = "fr-bepo";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nim = {
@@ -67,11 +67,13 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "nim";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -85,13 +87,13 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
