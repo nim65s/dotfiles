@@ -17,7 +17,7 @@ let
     { "workspace" = "12"; "output" = "DP-2"; }
   ];
 in {
-  imports = [ ./common.nix ];
+  imports = [ ./../common.nix ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -25,13 +25,13 @@ in {
   home.sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
   programs.waybar.settings.mainBar.output = "DP-1";
   nix.package = pkgs.nix;
-  xsession.windowManager.i3.config = import ./i3swayconfig.nix {
+  xsession.windowManager.i3.config = import ./../i3swayconfig.nix {
     lib=lib;
     sway=false;
     pkgs=pkgs;
     workspaceOutputAssign=workspaceOutputAssign;
   };
-  wayland.windowManager.sway.config = import ./i3swayconfig.nix {
+  wayland.windowManager.sway.config = import ./../i3swayconfig.nix {
     lib=lib;
     sway=true;
     pkgs=pkgs;
@@ -39,11 +39,11 @@ in {
   } // {
     output = {
       "DP-1" = {
-        bg = "${./bg/gauche.jpg} fill";
+        bg = "${./../bg/gauche.jpg} fill";
         scale = "1.5";
       };
       "DP-2" = {
-        bg = "${./bg/droite.jpg} fill";
+        bg = "${./../bg/droite.jpg} fill";
       };
     };
   };
