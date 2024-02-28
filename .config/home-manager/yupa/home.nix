@@ -4,20 +4,20 @@ let
   username = "nim";
   workspaceOutputAssign = [];
 in {
-  imports = [ ./common.nix ];
+  imports = [ ./../common.nix ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
   xdg.systemDirs.data = [ "/home/${username}/.nix-profile/share" ];
   programs.waybar.settings.mainBar.output = "eDP-1";
   nix.package = pkgs.nix;
-  xsession.windowManager.i3.config = import ./i3swayconfig.nix {
+  xsession.windowManager.i3.config = import ./../i3swayconfig.nix {
     lib=lib;
     sway=false;
     pkgs=pkgs;
     workspaceOutputAssign=workspaceOutputAssign;
   };
-  wayland.windowManager.sway.config = import ./i3swayconfig.nix {
+  wayland.windowManager.sway.config = import ./../i3swayconfig.nix {
     lib=lib;
     sway=true;
     pkgs=pkgs;
@@ -25,7 +25,7 @@ in {
   } // {
     output = {
       "*" = {
-        bg = "${./bg/yupa.jpg} fill";
+        bg = "${./../bg/yupa.jpg} fill";
       };
     };
   };
