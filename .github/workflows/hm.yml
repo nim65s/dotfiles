@@ -3,11 +3,11 @@ name: "Build home-manager"
 on: push
 
 jobs:
-  tests:
+  hm:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
-      - run: nix run home-manager/master -- buid --flake .config/home-manager/upepesanke
+      - run: nix run home-manager/master -- build --flake .config/home-manager/upepesanke
