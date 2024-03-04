@@ -1,5 +1,6 @@
 {
   description = "Home Manager configuration of gsaurel";
+
   nixConfig = {
     extra-substituters = [
       "https://nim65s-dotfiles.cachix.org"
@@ -10,7 +11,6 @@
   };
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
     home-manager = {

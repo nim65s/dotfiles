@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+  nixGL = "";
   gruppled-white-lite-cursors = pkgs.callPackage ./gruppled-lite-cursors {
     theme = "gruppled_white_lite";
   };
@@ -56,6 +57,7 @@ in
     cava
     ccze
     dcfldd
+    dconf
     dfc
     dfeet
     dig
@@ -300,7 +302,7 @@ in
     theme.name = "Breeze-Dark";
   };
 
-  programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; mySway=mySway; };
+  programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; mySway=mySway; nixGL=nixGL; };
 
   services.dunst = {
     enable = true;

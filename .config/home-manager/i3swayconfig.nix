@@ -1,4 +1,4 @@
-{lib, sway, pkgs, workspaceOutputAssign }:
+{lib, sway, pkgs, workspaceOutputAssign, nixGL }:
 let
   mod = "Mod4";
 in {
@@ -19,7 +19,7 @@ in {
   ${if sway then "down" else null} = "t";
   ${if sway then "left" else null} = "c";
   ${if sway then "right" else null} = "r";
-  terminal = "nixGL ${lib.getExe pkgs.kitty}";
+  terminal = "${nixGL} ${lib.getExe pkgs.kitty}";
   menu = "${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
@@ -36,7 +36,7 @@ in {
   };
   #extraConfig = "";
   keybindings = {
-    "${mod}+Return" = "exec \"nixGL ${lib.getExe pkgs.kitty}\"";
+    "${mod}+Return" = "exec \"${nixGL} ${lib.getExe pkgs.kitty}\"";
     "${mod}+i" = "exec \"${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run\"";
     "${mod}+e" = "exec \"${lib.getExe pkgs.rofi-rbw} ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
     "${mod}+x" = "exec \"${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}\"";
