@@ -34,9 +34,6 @@ let
 in
 
 {
-  nixpkgs.config = import ./nixpkgs-config.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
-
   fonts.fontconfig.enable = true;
 
   home.enableDebugInfo = true;
@@ -71,7 +68,7 @@ in
     du-dust
     element-desktop-wayland
     evince
-    eww-wayland
+    #eww-wayland
     eza
     fd
     file
