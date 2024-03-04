@@ -1,5 +1,13 @@
 {
   description = "Home Manager configuration of nim";
+  nixConfig = {
+    extra-substituters = [
+      "https://nim65s-dotfiles.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
+    ];
+  };
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
