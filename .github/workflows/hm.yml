@@ -10,4 +10,4 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
-      - run: nix run home-manager/master -- build --flake .config/home-manager/upepesanke
+      - run: nix run home-manager/master -- build --flake .config/home-manager/upepesanke#gsaurel
