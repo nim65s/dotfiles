@@ -114,6 +114,7 @@ in
     nitrogen
     nixfmt-rfc-style
     nixpkgs-review
+    nix
     nmap
     okular
     openldap
