@@ -2,8 +2,12 @@
   description = "NixOS Flake for Loon";
 
   nixConfig = {
-    extra-substituters = [ "https://nim65s-dotfiles.cachix.org" ];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://nim65s-dotfiles.cachix.org"
+    ];
     extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
     ];
   };

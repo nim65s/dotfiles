@@ -14,5 +14,6 @@ jobs:
         with:
           name: nim65s-dotfiles
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: nix-community
       - run: nix run home-manager/master -- build --flake .config/home-manager/upepesanke#gsaurel
       - run: nix run home-manager/master -- build --flake .config/home-manager/yupa#nim
