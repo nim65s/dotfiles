@@ -243,6 +243,7 @@
     enable = true;
     controlMaster = "yes";
     includes = [ "local_config" ];
+    userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
     matchBlocks = {
       "gh" = {
         hostname = "github.com";
