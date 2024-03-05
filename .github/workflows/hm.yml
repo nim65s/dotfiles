@@ -17,4 +17,5 @@ jobs:
           extraPullNames: nix-community
       - run: nix build .config/home-manager/upepesanke#homeConfigurations.gsaurel.activationPackage
       - run: nix build .config/home-manager/yupa#homeConfigurations.nim.activationPackage
-      - run: nix build nixos/loon#nixosConfigurations.loon.config.system.build.toplevel
+      - run: nix build ./nixos/loon#nixosConfigurations.loon.config.system.build.toplevel
+      - run: nix build ./nixos/hattorixos#nixosConfigurations.hattorixos.config.system.build.toplevel
