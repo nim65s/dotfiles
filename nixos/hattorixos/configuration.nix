@@ -5,11 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # Bootloader.
   boot = {
@@ -20,7 +20,9 @@
 
     # Setup keyfile
     initrd = {
-      secrets = { "/crypto_keyfile.bin" = null; };
+      secrets = {
+        "/crypto_keyfile.bin" = null;
+      };
       luks.devices."luks-4ab47c02-8ffd-4e89-9a1f-1b6d1bdfc829" = {
         device = "/dev/disk/by-uuid/4ab47c02-8ffd-4e89-9a1f-1b6d1bdfc829";
         keyFile = "/crypto_keyfile.bin";
@@ -31,10 +33,10 @@
   console.keyMap = "fr-bepo";
 
   environment.systemPackages = with pkgs; [
-   vim
-   wget
-   git
-   stlink
+    vim
+    wget
+    git
+    stlink
   ];
 
   networking.hostName = "hattorixos"; # Define your hostname.
@@ -69,8 +71,15 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" "video" "input" ];
-    packages = [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "docker"
+      "video"
+      "input"
+    ];
+    packages = [ ];
   };
   home-manager.users.nim = import /home/nim/.config/home-manager/home.nix;
 
@@ -88,7 +97,7 @@
   programs.dconf.enable = true;
   programs.fish.enable = true;
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   services = {
     getty.autologinUser = "nim";
@@ -124,10 +133,16 @@
   virtualisation.docker.enable = true;
 
   xdg.portal = {
-    config.common.default = ["wlr" "gtk"];
+    config.common.default = [
+      "wlr"
+      "gtk"
+    ];
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # Open ports in the firewall.

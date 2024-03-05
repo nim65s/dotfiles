@@ -2,9 +2,7 @@
   description = "NixOS Flake for Loon";
 
   nixConfig = {
-    extra-substituters = [
-      "https://nim65s-dotfiles.cachix.org"
-    ];
+    extra-substituters = [ "https://nim65s-dotfiles.cachix.org" ];
     extra-trusted-public-keys = [
       "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
     ];
@@ -19,17 +17,29 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nur, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nur,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         localSystem = system;
         config.allowUnfree = true;
         overlays = [
-          (final: prev: { nur = import nur { nurpkgs = prev; pkgs = prev; }; })
+          (final: prev: {
+            nur = import nur {
+              nurpkgs = prev;
+              pkgs = prev;
+            };
+          })
         ];
       };
-    in {
+    in
+    {
       nixosConfigurations.loon = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         modules = [
@@ -37,7 +47,7 @@
           nur.nixosModules.nur
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;  # to get NUR
+            home-manager.useGlobalPkgs = true;
             home-manager.users.nim = import ./../../.config/home-manager/loon/home.nix;
           }
         ];
