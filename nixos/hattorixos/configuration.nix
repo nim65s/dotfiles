@@ -8,7 +8,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <home-manager/nixos>
   ];
 
   # Bootloader.
@@ -81,7 +80,6 @@
     ];
     packages = [ ];
   };
-  home-manager.users.nim = import /home/nim/.config/home-manager/home.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -149,7 +147,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
