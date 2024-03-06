@@ -109,6 +109,7 @@ in
     lsof
     mdcat
     mdbook
+    meld
     mosh
     mpv
     mypy
@@ -163,6 +164,7 @@ in
     shellcheck
     slurp
     source-sans
+    source-serif
     spotify
     sqlite
     swappy

@@ -20,7 +20,7 @@ pkgs:
       "Amazon.fr".metaData.hidden = true;
       "Bing".metaData.hidden = true;
       "Google".metaData.alias = ":g";
-      "Wikipedia (en)".metaData.alias = ":w";
+      "Wikipedia".metaData.alias = ":w";
       "Arch Wiki" = {
         iconUpdateURL = "https://wiki.archlinux.org/favicon.ico";
         definedAliases = [ ":a" ];
@@ -151,7 +151,11 @@ pkgs:
      "browser.toolbars.bookmarks.visibility" = "never";
      "browser.urlbar.suggest.calculator" = true;
      "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-     "layers.acceleration.disabled" = true;  # TODO
+     "font.name.monospace.x-western" = "SauceCodePro Nerd Font";
+     "font.name.sans-serif.x-western" = "Source Sans 3";
+     "font.name.serif.x-western" = "Source Serif 4";
+     "font.size.variable.x-western" = 12;
+     #"layers.acceleration.disabled" = true;  # TODO
      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
     userChrome = ''

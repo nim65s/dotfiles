@@ -52,7 +52,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.users.nim = import ./../../.config/home-manager/loon/home.nix;  # follow loon cfg
+            home-manager.users.nim = import ./../../.config/home-manager/loon/home.nix; # follow loon cfg
           }
         ];
       };

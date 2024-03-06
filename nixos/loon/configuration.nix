@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  sauce-code-pro = pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; };
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -92,6 +94,9 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     git
+    sauce-code-pro
+    source-sans
+    source-serif
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -120,4 +125,15 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  fonts = {
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Source Serif 4" ];
+        sansSerif = [ "Source Sans 3" ];
+        monospace = [ "SauceCodePro Nerd Font" ];
+      };
+    };
+  };
+  hardware.opengl.enable = true;
 }
