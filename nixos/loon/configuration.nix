@@ -60,6 +60,7 @@ in
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nim = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
     extraGroups = [
@@ -136,4 +137,7 @@ in
     };
   };
   hardware.opengl.enable = true;
+  programs.dconf.enable = true;
+  programs.fish.enable = true;
+  virtualisation.docker.enable = true;
 }
