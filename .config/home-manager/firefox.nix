@@ -157,6 +157,7 @@ pkgs:
      "font.size.variable.x-western" = 12;
      #"layers.acceleration.disabled" = true;  # TODO
      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+     "signon.rememberSignons" = false;
     };
     userChrome = ''
       #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
