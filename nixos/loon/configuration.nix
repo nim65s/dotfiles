@@ -66,6 +66,7 @@ in
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [ ];
   };
@@ -140,4 +141,15 @@ in
   programs.dconf.enable = true;
   programs.fish.enable = true;
   virtualisation.docker.enable = true;
+  sound.enable = false;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    audio.enable = true;
+    pulse.enable = true;
+  };
+  #xdg.portal.wlr.enable = true;
 }

@@ -163,6 +163,7 @@ in
     sccache
     shellcheck
     slurp
+    snapcast
     source-sans
     source-serif
     spotify
