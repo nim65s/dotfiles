@@ -119,6 +119,7 @@ in
     nixpkgs-review
     nix
     nmap
+    noto-fonts-emoji
     okular
     openldap
     openssh
