@@ -165,6 +165,9 @@ in
     shellcheck
     slurp
     snapcast
+    source-han-mono
+    source-han-sans
+    source-han-serif
     source-sans
     source-serif
     spotify
