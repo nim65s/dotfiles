@@ -143,8 +143,11 @@ in
       ipython
       ldap3
       numpy
+      pandas
       pandocfilters
       pip
+      pyarrow
+      tabulate
       tqdm
       wand
       wheel
