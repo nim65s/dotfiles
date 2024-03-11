@@ -90,8 +90,10 @@ in
     httpie
     hugo
     i3lock
+    iftop
     inetutils
     imv
+    iotop
     i3
     i3lock
     i3status-rust
