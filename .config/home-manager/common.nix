@@ -141,6 +141,7 @@ in
       httpx
       i3ipc
       ipython
+      jinja2
       ldap3
       numpy
       pandas
