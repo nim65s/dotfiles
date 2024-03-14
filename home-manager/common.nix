@@ -203,15 +203,15 @@ in
   };
 
   home.file = {
-    ".config/dfc/dfcrc".source = ../dfc/dfcrc;
-    ".config/kitty/open-actions.conf".source = ../kitty/open-actions.conf;
-    ".config/khal/config".source = ../khal/config;
-    ".config/khard/khard.conf".source = ../khard/khard.conf;
-    ".config/python_keyring/keyringrc.cfg".source = ../python_keyring/keyringrc.cfg;
-    ".config/rofi-rbw.rc".source = ../rofi-rbw.rc;
-    ".config/vdirsyncer/config".source = ../vdirsyncer/config;
-    ".latexmkrc".source = ../../.latexmkrc;
-    ".pypirc".source = ../../.pypirc;
+    ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
+    ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
+    ".config/khal/config".source = ../.config/khal/config;
+    ".config/khard/khard.conf".source = ../.config/khard/khard.conf;
+    ".config/python_keyring/keyringrc.cfg".source = ../.config/python_keyring/keyringrc.cfg;
+    ".config/rofi-rbw.rc".source = ../.config/rofi-rbw.rc;
+    ".config/vdirsyncer/config".source = ../.config/vdirsyncer/config;
+    ".latexmkrc".source = ../.latexmkrc;
+    ".pypirc".source = ../.pypirc;
 
     ".xinitrc".text = "exec ${lib.getExe pkgs.i3} > ~/.x.log 2> ~/.x.err";
   };
