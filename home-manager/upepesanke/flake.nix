@@ -21,7 +21,13 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nur, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nur,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -29,10 +35,16 @@
         config.allowUnfree = true;
         overlays = [
           (import ../overlays.nix)
-          (final: prev: { nur = import nur { nurpkgs = prev; pkgs = prev; }; })
+          (final: prev: {
+            nur = import nur {
+              nurpkgs = prev;
+              pkgs = prev;
+            };
+          })
         ];
       };
-    in {
+    in
+    {
       homeConfigurations."gsaurel" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

@@ -1,18 +1,42 @@
-{lib, sway, pkgs, workspaceOutputAssign, nixGL }:
+{
+  lib,
+  sway,
+  pkgs,
+  workspaceOutputAssign,
+  nixGL,
+}:
 let
   mod = "Mod4";
-in {
+in
+{
   workspaceOutputAssign = workspaceOutputAssign;
-  fonts.names = ["SauceCodePro Nerd Font"];
+  fonts.names = [ "SauceCodePro Nerd Font" ];
   fonts.size = 8.0;
   modifier = mod;
   window = {
-    commands = [
-      { command = "layout tabbed"; criteria = { class = "^Signal$"; }; }
-      { command = "layout tabbed"; criteria = { class = "^Element$"; }; }
-    ] ++ lib.optionals sway [
-      { command = "layout tabbed"; criteria = { app_id = "Element"; }; }
-    ] ;
+    commands =
+      [
+        {
+          command = "layout tabbed";
+          criteria = {
+            class = "^Signal$";
+          };
+        }
+        {
+          command = "layout tabbed";
+          criteria = {
+            class = "^Element$";
+          };
+        }
+      ]
+      ++ lib.optionals sway [
+        {
+          command = "layout tabbed";
+          criteria = {
+            app_id = "Element";
+          };
+        }
+      ];
     hideEdgeBorders = "smart";
   };
   ${if sway then "up" else null} = "s";
@@ -23,23 +47,32 @@ in {
   menu = "${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
-  bars = lib.optionals (!sway) [{
-    fonts.names = ["SauceCodePro Nerd Font"];
-    fonts.size = 8.0;
-    statusCommand = "${lib.getExe pkgs.i3status-rust} config-default.toml";
-  }];
+  bars = lib.optionals (!sway) [
+    {
+      fonts.names = [ "SauceCodePro Nerd Font" ];
+      fonts.size = 8.0;
+      statusCommand = "${lib.getExe pkgs.i3status-rust} config-default.toml";
+    }
+  ];
   assigns = {
-    "9" =  [{ class = "^Zeal$"; }] ++ lib.optionals sway [{ app_id = "org.zealdocs.zeal";}];
-    "10" =  [{ class = "^Firefox$"; }] ++ lib.optionals sway [{app_id = "firefox"; }];
-    "11" =  [{ class = "^thunderbird$"; } ] ++ lib.optionals sway [{ app_id = "thunderbird"; }];
-    "12" =  [{ class = "^Signal$"; } {class = "^Element$"; } ] ++ lib.optionals sway [{app_id = "Element";}];
+    "9" = [ { class = "^Zeal$"; } ] ++ lib.optionals sway [ { app_id = "org.zealdocs.zeal"; } ];
+    "10" = [ { class = "^Firefox$"; } ] ++ lib.optionals sway [ { app_id = "firefox"; } ];
+    "11" = [ { class = "^thunderbird$"; } ] ++ lib.optionals sway [ { app_id = "thunderbird"; } ];
+    "12" = [
+      { class = "^Signal$"; }
+      { class = "^Element$"; }
+    ] ++ lib.optionals sway [ { app_id = "Element"; } ];
   };
   #extraConfig = "";
   keybindings = {
-    "${mod}+Return" = "exec \"${nixGL} ${lib.getExe pkgs.kitty}\"";
-    "${mod}+i" = "exec \"${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run\"";
-    "${mod}+e" = "exec \"${lib.getExe pkgs.rofi-rbw} ${if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"}\"";
-    "${mod}+x" = "exec \"${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}\"";
+    "${mod}+Return" = ''exec "${nixGL} ${lib.getExe pkgs.kitty}"'';
+    "${mod}+i" = ''exec "${
+      if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi
+    } -show run"'';
+    "${mod}+e" = ''exec "${lib.getExe pkgs.rofi-rbw} ${
+      if sway then "--typer wtype --clipboarder wl-copy" else "--typer xdotool --clipboarder xclip"
+    }"'';
+    "${mod}+x" = ''exec "${if sway then lib.getExe pkgs.swaylock else lib.getExe pkgs.i3lock}"'';
     "${mod}+Shift+x" = "kill";
     "${mod}+c" = "focus left";
     "${mod}+t" = "focus down";
@@ -90,7 +123,11 @@ in {
     "${mod}+Shift+percent" = "move container to workspace 12";
     "${mod}+Shift+b" = "reload";
     "${mod}+Shift+o" = "restart";
-    "${mod}+Shift+p" = "exec \"${if sway then "swaynag" else "i3-nagbar"} -t warning -m 'You pressed the exit shortcut. Do you really want to exit ${if sway then "sway" else "i3"}? ' -b 'Yes' '${if sway then "swaymsg" else "i3-msg"} exit'\"";
+    "${mod}+Shift+p" = ''exec "${
+      if sway then "swaynag" else "i3-nagbar"
+    } -t warning -m 'You pressed the exit shortcut. Do you really want to exit ${if sway then "sway" else "i3"}? ' -b 'Yes' '${
+      if sway then "swaymsg" else "i3-msg"
+    } exit'"'';
     "${mod}+o" = "mode resize";
     "${mod}+w" = "move workspace to output right";
     "${mod}+z" = "move workspace to output left";
@@ -98,12 +135,12 @@ in {
     "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
     "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
     "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
-    "XF86AudioPlay" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} play-pause\"";
-    "XF86AudioPrev" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} previous\"";
-    "XF86AudioNext" = "exec --no-startup-id \"${lib.getExe pkgs.playerctl} next\"";
-    "XF86Display" = "exec \"${lib.getExe pkgs.arandr}\"";
-    "XF86MonBrightnessUp" = "exec --no-startup-id \"${lib.getExe pkgs.brightnessctl} s 10%+\"";
-    "XF86MonBrightnessDown" = "exec --no-startup-id \"${lib.getExe pkgs.brightnessctl} s 10%-\"";
+    "XF86AudioPlay" = ''exec --no-startup-id "${lib.getExe pkgs.playerctl} play-pause"'';
+    "XF86AudioPrev" = ''exec --no-startup-id "${lib.getExe pkgs.playerctl} previous"'';
+    "XF86AudioNext" = ''exec --no-startup-id "${lib.getExe pkgs.playerctl} next"'';
+    "XF86Display" = ''exec "${lib.getExe pkgs.arandr}"'';
+    "XF86MonBrightnessUp" = ''exec --no-startup-id "${lib.getExe pkgs.brightnessctl} s 10%+"'';
+    "XF86MonBrightnessDown" = ''exec --no-startup-id "${lib.getExe pkgs.brightnessctl} s 10%-"'';
   };
   modes.resize = {
     "t" = "resize shrink width 10 px or 10 ppt";
@@ -119,22 +156,25 @@ in {
   };
   ${if sway then "input" else null} = {
     "type:keyboard" = {
-      xkb_layout  = "fr";
+      xkb_layout = "fr";
       xkb_numlock = "enabled";
       xkb_variant = "bepo";
     };
   };
-  startup = [
-    { command = lib.getExe pkgs.firefox-devedition; }
-    { command = lib.getExe pkgs.thunderbird; }
-    { command = lib.getExe pkgs.signal-desktop; }
-    { command = lib.getExe pkgs.zeal; }
-  ] ++ lib.optionals sway [
-    { command = lib.getExe pkgs.element-desktop-wayland; }
-    { command = lib.getExe pkgs.waybar; }
-  ] ++ lib.optionals (!sway) [
-    { command = lib.getExe pkgs.element-desktop; }
-    { command = "setxkbmap -synch"; }
-    { command = "${lib.getExe pkgs.nitrogen} --restore"; }
-  ];
+  startup =
+    [
+      { command = lib.getExe pkgs.firefox-devedition; }
+      { command = lib.getExe pkgs.thunderbird; }
+      { command = lib.getExe pkgs.signal-desktop; }
+      { command = lib.getExe pkgs.zeal; }
+    ]
+    ++ lib.optionals sway [
+      { command = lib.getExe pkgs.element-desktop-wayland; }
+      { command = lib.getExe pkgs.waybar; }
+    ]
+    ++ lib.optionals (!sway) [
+      { command = lib.getExe pkgs.element-desktop; }
+      { command = "setxkbmap -synch"; }
+      { command = "${lib.getExe pkgs.nitrogen} --restore"; }
+    ];
 }

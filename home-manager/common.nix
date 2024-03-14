@@ -1,8 +1,19 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
-    atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
-in {
+  atjoin =
+    {
+      name,
+      host ? "laas.fr",
+    }:
+    "${name}@${host}";
+in
+{
   imports = [
     ./modules.nix
     ./programs.nix
@@ -105,26 +116,26 @@ in {
     pipx
     pkg-config
     playerctl
-    (poetry.withPlugins(ps: with ps; [
-      poetry-plugin-up
-    ]))
-    (python3.withPackages(ps: with ps; [
-      django
-      httpx
-      i3ipc
-      ipython
-      jinja2
-      ldap3
-      numpy
-      pandas
-      pandocfilters
-      pip
-      pyarrow
-      tabulate
-      tqdm
-      wand
-      wheel
-    ]))
+    (poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]))
+    (python3.withPackages (
+      ps: with ps; [
+        django
+        httpx
+        i3ipc
+        ipython
+        jinja2
+        ldap3
+        numpy
+        pandas
+        pandocfilters
+        pip
+        pyarrow
+        tabulate
+        tqdm
+        wand
+        wheel
+      ]
+    ))
     pre-commit
     pulseaudio
     pavucontrol
@@ -238,41 +249,54 @@ in {
         smtp.tls.useStartTls = true;
         thunderbird = {
           enable = true;
-          profiles = ["nim"];
+          profiles = [ "nim" ];
           perIdentitySettings = id: {
             "mail.identity.id_${id}.fcc_reply_follows_parent" = true;
-            "layers.acceleration.disabled" = true;  # TODO
+            "layers.acceleration.disabled" = true; # TODO
           };
         };
         userName = "gsaurel";
       };
-      perso = let mail = atjoin { name = "guilhem"; host="saurel.me";}; in {
-        address = "${mail}";
-        folders.inbox = "INBOX";
-        imap.host = "mail.gandi.net";
-        msmtp.enable = true;
-        neomutt = {
-          enable = true;
-          extraConfig = ''
-            set hostname="saurel.me"
-            my_hdr Bcc: ${mail}
-          '';
+      perso =
+        let
+          mail = atjoin {
+            name = "guilhem";
+            host = "saurel.me";
+          };
+        in
+        {
+          address = "${mail}";
+          folders.inbox = "INBOX";
+          imap.host = "mail.gandi.net";
+          msmtp.enable = true;
+          neomutt = {
+            enable = true;
+            extraConfig = ''
+              set hostname="saurel.me"
+              my_hdr Bcc: ${mail}
+            '';
+          };
+          notmuch.enable = true;
+          notmuch.neomutt.enable = true;
+          offlineimap.enable = true;
+          passwordCommand = "rbw get --folder mail perso";
+          realName = "Guilhem Saurel";
+          smtp.host = "mail.gandi.net";
+          smtp.tls.enable = true;
+          userName = atjoin {
+            name = "guilhem";
+            host = "saurel.me";
+          };
         };
-        notmuch.enable = true;
-        notmuch.neomutt.enable = true;
-        offlineimap.enable = true;
-        passwordCommand = "rbw get --folder mail perso";
-        realName = "Guilhem Saurel";
-        smtp.host = "mail.gandi.net";
-        smtp.tls.enable = true;
-        userName = atjoin { name="guilhem"; host="saurel.me";};
-      };
     };
   };
 
   nix = {
     #package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   qt = {
@@ -297,7 +321,9 @@ in {
         padding = 10;
         horizontal_padding = 10;
         sort = true;
-        format = "<b>%s</b>\n%b";
+        format = ''
+          <b>%s</b>
+          %b'';
         font = "Source Sans";
         browser = "${lib.getExe pkgs.firefox-devedition} -new-tab";
       };
@@ -327,12 +353,15 @@ in {
       };
     };
   };
-  systemd.user.services.spotifyd.Service.Environment = ["PATH=${pkgs.rbw}/bin"];
+  systemd.user.services.spotifyd.Service.Environment = [ "PATH=${pkgs.rbw}/bin" ];
 
   xdg = {
     enable = true;
     portal = {
-      config.sway.default = ["wlr"  "gtk"];
+      config.sway.default = [
+        "wlr"
+        "gtk"
+      ];
       enable = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk

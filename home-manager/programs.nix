@@ -1,36 +1,53 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
-  atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
-mySway = pkgs.sway.override {
-    sway-unwrapped = (pkgs.sway-unwrapped.overrideAttrs (finalAttrs: previousAttrs: {
-      patches = lib.lists.take 2 previousAttrs.patches ++ lib.lists.drop 3 previousAttrs.patches;
-      src = pkgs.fetchFromGitHub {
-        owner = "nim65s";
-        repo = "sway";
-        rev = "fa4c1cdc50b1cf28acac4e599b750a65e788602e";
-        hash = "sha256-NbmjZKuu1c+m293Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
-      };
-    })).override {
-      wlroots_0_16 = pkgs.wlroots.overrideAttrs {
-        version = "0.18.0-dev";
-        src = pkgs.fetchFromGitLab {
-          domain = "gitlab.freedesktop.org";
-          owner = "wlroots";
-          repo = "wlroots";
-          rev = "48721bca656556606275a5e776066a2f00822e92";
-          hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
+  atjoin =
+    {
+      name,
+      host ? "laas.fr",
+    }:
+    "${name}@${host}";
+  mySway = pkgs.sway.override {
+    sway-unwrapped =
+      (pkgs.sway-unwrapped.overrideAttrs (
+        finalAttrs: previousAttrs: {
+          patches = lib.lists.take 2 previousAttrs.patches ++ lib.lists.drop 3 previousAttrs.patches;
+          src = pkgs.fetchFromGitHub {
+            owner = "nim65s";
+            repo = "sway";
+            rev = "fa4c1cdc50b1cf28acac4e599b750a65e788602e";
+            hash = "sha256-NbmjZKuu1c+m293Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
+          };
+        }
+      )).override
+        {
+          wlroots_0_16 = pkgs.wlroots.overrideAttrs {
+            version = "0.18.0-dev";
+            src = pkgs.fetchFromGitLab {
+              domain = "gitlab.freedesktop.org";
+              owner = "wlroots";
+              repo = "wlroots";
+              rev = "48721bca656556606275a5e776066a2f00822e92";
+              hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
+            };
+            patches = [ ];
+          };
         };
-        patches = [];
-      };
-    };
   };
-in {
+in
+{
   programs = {
     atuin = {
       enable = true;
       flags = [ "--disable-up-arrow" ];
-      settings = { sync_address = "https://atuin.datcat.fr"; };
+      settings = {
+        sync_address = "https://atuin.datcat.fr";
+      };
     };
 
     bacon = {
@@ -60,9 +77,9 @@ in {
     };
 
     #chromium = {
-      #enable = true;
-      #package = pkgs.ungoogled-chromium;
-      #commandLineArgs = [ "--ozone-platform=wayland" ];
+    #enable = true;
+    #package = pkgs.ungoogled-chromium;
+    #commandLineArgs = [ "--ozone-platform=wayland" ];
     #};
 
     direnv = {
@@ -113,18 +130,45 @@ in {
       includes = [
         {
           contents = {
-            core = { excludesfile = "~/dotfiles/gitignore"; };
-            push = { default = "simple"; };
-            user = { signingKey = "4653CF28"; };
-            pull = { ff = "only"; };
-            init = { defaultBranch = "main"; };
-            hub = { protocol = "ssh"; };
-            submodule = { fetchJobs = 4; };
-            fetch = { parallel = 4; };
-            blame = { ignoreRevsFile = ".git-blame-ignore-revs"; };
-            merge = { tool = "vimdiff"; guitool = "meld"; };
-            diff = { tool = "vimdiff"; guitool = "meld"; };
-            difftool = { cmd = "vimdiff"; prompt = false; };
+            core = {
+              excludesfile = "~/dotfiles/gitignore";
+            };
+            push = {
+              default = "simple";
+            };
+            user = {
+              signingKey = "4653CF28";
+            };
+            pull = {
+              ff = "only";
+            };
+            init = {
+              defaultBranch = "main";
+            };
+            hub = {
+              protocol = "ssh";
+            };
+            submodule = {
+              fetchJobs = 4;
+            };
+            fetch = {
+              parallel = 4;
+            };
+            blame = {
+              ignoreRevsFile = ".git-blame-ignore-revs";
+            };
+            merge = {
+              tool = "vimdiff";
+              guitool = "meld";
+            };
+            diff = {
+              tool = "vimdiff";
+              guitool = "meld";
+            };
+            difftool = {
+              cmd = "vimdiff";
+              prompt = false;
+            };
             color = {
               ui = "always";
               branch = "always";
@@ -240,7 +284,10 @@ in {
     rbw = {
       enable = true;
       settings = {
-        email = atjoin { name="guilhem"; host="saurel.me";};
+        email = atjoin {
+          name = "guilhem";
+          host = "saurel.me";
+        };
         base_url = "https://safe.datcat.fr";
         pinentry = "qt";
       };
@@ -256,7 +303,9 @@ in {
       terminal = lib.getExe pkgs.kitty;
       theme = {
         "@theme" = "arthur";
-        "*" = { font = "SauceCodePro Nerd Font 12"; };
+        "*" = {
+          font = "SauceCodePro Nerd Font 12";
+        };
       };
       extraConfig = {
         color-enabled = true;
@@ -398,7 +447,6 @@ in {
         scala.symbol = " ";
         spack.symbol = "🅢 ";
         hostname.ssh_symbol = " ";
-
       };
     };
 
@@ -411,7 +459,6 @@ in {
         font = "SauceCodePro Nerd Font";
       };
     };
-
 
     thunderbird = {
       enable = true;
@@ -457,8 +504,20 @@ in {
         vimPlugins.zenburn
       ];
       settings = {
-        backupdir = [ "~/.vim/tmp" "~/.tmp" "~/tmp" "/var/tmp" "/tmp" ];
-        directory = [ "~/.vim/tmp" "~/.tmp" "~/tmp" "/var/tmp" "/tmp" ];
+        backupdir = [
+          "~/.vim/tmp"
+          "~/.tmp"
+          "~/tmp"
+          "/var/tmp"
+          "/tmp"
+        ];
+        directory = [
+          "~/.vim/tmp"
+          "~/.tmp"
+          "~/tmp"
+          "/var/tmp"
+          "/tmp"
+        ];
         copyindent = true;
         expandtab = true;
         hidden = true;
@@ -492,18 +551,39 @@ in {
           layer = "top";
           position = "bottom";
           height = 32;
-          modules-left = [ "sway/workspaces" "sway/mode" "sway/scratchpad" ];
+          modules-left = [
+            "sway/workspaces"
+            "sway/mode"
+            "sway/scratchpad"
+          ];
           modules-center = [ "sway/window" ];
-          modules-right = [ "custom/media" "pulseaudio" "network" "memory" "cpu" "temperature" "backlight" "battery" "clock" "tray"];
+          modules-right = [
+            "custom/media"
+            "pulseaudio"
+            "network"
+            "memory"
+            "cpu"
+            "temperature"
+            "backlight"
+            "battery"
+            "clock"
+            "tray"
+          ];
 
           "sway/workspaces" = {
             "all-outputs" = true;
             "disable-auto-back-and-forth" = true;
             "disable-scroll-wraparound" = true;
           };
-          "tray" = { "spacing" = 10; };
-          "cpu" = { "format" = "{usage}% "; };
-          "memory" = { "format" = "{}% "; };
+          "tray" = {
+            "spacing" = 10;
+          };
+          "cpu" = {
+            "format" = "{usage}% ";
+          };
+          "memory" = {
+            "format" = "{}% ";
+          };
           "battery" = {
             "states" = {
               "good" = 80;
@@ -515,9 +595,15 @@ in {
             "format-plugged" = "{capacity}% ";
             "format-alt" = "{time} {icon}";
             "format-full" = "";
-            "format-icons" = ["" "" "" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
-          "clock" ={
+          "clock" = {
             "tooltip-format" = "<tt>{calendar}</tt>";
             "format-alt" = "{:%Y-%m-%d}";
           };
@@ -536,17 +622,21 @@ in {
               "phone" = "";
               "portable" = "";
               "car" = "";
-              "default" = ["" "" ""];
+              "default" = [
+                ""
+                ""
+                ""
+              ];
             };
             "on-click" = "pavucontrol";
           };
           "network" = {
-              "format-wifi" = "{essid} ({signalStrength}%) ";
-              "format-ethernet" = "{ipaddr}/{cidr} 🌍";
-              "tooltip-format" = "{ifname} via {gwaddr} 🌍";
-              "format-linked" = "{ifname} (No IP) 🌍";
-              "format-disconnected" = "Disconnected ⚠";
-              "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+            "format-wifi" = "{essid} ({signalStrength}%) ";
+            "format-ethernet" = "{ipaddr}/{cidr} 🌍";
+            "tooltip-format" = "{ifname} via {gwaddr} 🌍";
+            "format-linked" = "{ifname} (No IP) 🌍";
+            "format-disconnected" = "Disconnected ⚠";
+            "format-alt" = "{ifname}: {ipaddr}/{cidr}";
           };
           "custom/media" = {
             "format" = "{icon} {}";
@@ -556,7 +646,7 @@ in {
               "Paused" = " ";
             };
             "max-length" = 70;
-            "exec" = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{album}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+            "exec" = ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{album}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
             "on-click" = "playerctl play-pause";
             "on-click-right" = "playerctl next";
           };
@@ -580,7 +670,10 @@ in {
 
     zoxide = {
       enable = true;
-      options = [ "--cmd" "cd" ];
+      options = [
+        "--cmd"
+        "cd"
+      ];
     };
-    };
-    }
+  };
+}

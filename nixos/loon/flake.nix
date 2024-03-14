@@ -34,6 +34,7 @@
         localSystem = system;
         config.allowUnfree = true;
         overlays = [
+          (import ../../home-manager/overlays.nix)
           (final: prev: {
             nur = import nur {
               nurpkgs = prev;
@@ -52,7 +53,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.users.nim = import ./../../.config/home-manager/loon/home.nix;
+            home-manager.users.nim = import ./../../home-manager/loon/home.nix;
           }
         ];
       };
