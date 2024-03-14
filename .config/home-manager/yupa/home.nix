@@ -6,6 +6,7 @@ let
   nixGL = "nixGL";
 in {
   imports = [ ./../common.nix ];
+  nixGL=nixGL;
 
   home.username = username;
   home.homeDirectory = "/home/${username}";

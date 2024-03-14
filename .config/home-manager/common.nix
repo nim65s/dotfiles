@@ -1,40 +1,12 @@
 { config, pkgs, lib, ... }:
 
 let
-  nixGL = "";
-  gruppled-white-lite-cursors = pkgs.callPackage ./gruppled-lite-cursors {
-    theme = "gruppled_white_lite";
-  };
-  mySway = pkgs.sway.override {
-    sway-unwrapped = (pkgs.sway-unwrapped.overrideAttrs (finalAttrs: previousAttrs: {
-      patches = lib.lists.take 2 previousAttrs.patches ++ lib.lists.drop 3 previousAttrs.patches;
-      src = pkgs.fetchFromGitHub {
-        owner = "nim65s";
-        repo = "sway";
-        rev = "fa4c1cdc50b1cf28acac4e599b750a65e788602e";
-        hash = "sha256-NbmjZKuu1c+m293Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
-      };
-    })).override {
-      wlroots_0_16 = pkgs.wlroots.overrideAttrs {
-        version = "0.18.0-dev";
-        src = pkgs.fetchFromGitLab {
-          domain = "gitlab.freedesktop.org";
-          owner = "wlroots";
-          repo = "wlroots";
-          rev = "48721bca656556606275a5e776066a2f00822e92";
-          hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
-        };
-        patches = [];
-      };
-    };
-  };
-  sauce-code-pro = pkgs.nerdfonts.override {
-    fonts = [ "SourceCodePro" ];
-  };
-  atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
-in
-
-{
+    atjoin = { name, host ? "laas.fr" }: "${name}@${host}";
+in {
+  imports = [
+    ./modules.nix
+    ./programs.nix
+  ];
   fonts.fontconfig.enable = true;
 
   home.enableDebugInfo = true;
@@ -214,7 +186,7 @@ in
   ];
 
   home.pointerCursor = {
-    package = gruppled-white-lite-cursors;
+    package = pkgs.gruppled-white-lite-cursors;
     name = "gruppled_white_lite";
     gtk.enable = true;
   };
@@ -315,8 +287,6 @@ in
     theme.name = "Breeze-Dark";
   };
 
-  programs = import ./programs.nix { pkgs=pkgs; lib=lib; atjoin=atjoin; mySway=mySway; nixGL=nixGL; };
-
   services.dunst = {
     enable = true;
     settings = {
@@ -380,7 +350,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = mySway;
+    package = pkgs.sway;
     extraConfig = ''
       hide_edge_borders --smart-titles smart
     '';

@@ -28,6 +28,7 @@
         localSystem = system;
         config.allowUnfree = true;
         overlays = [
+          (import ../overlays.nix)
           (final: prev: { nur = import nur { nurpkgs = prev; pkgs = prev; }; })
         ];
       };
