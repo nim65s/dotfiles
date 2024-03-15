@@ -262,7 +262,7 @@ in
           host = "saurel.me";
         };
         base_url = "https://safe.datcat.fr";
-        pinentry = "qt";
+        pinentry = pkgs.pinentry-qt;
       };
     };
 
