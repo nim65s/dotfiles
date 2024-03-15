@@ -42,7 +42,7 @@ in
     dcfldd
     dconf
     dfc
-    dfeet
+    d-spy
     dig
     dos2unix
     chrpath
