@@ -7,7 +7,7 @@ let
         owner = "nim65s";
         repo = "sway";
         rev = "1-9-smart";
-        hash = "sha256-NbmjZKuu1c+m294Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
+        hash = "sha256-yeXZ9+/qSWh1FYbiHst0PLr6B066kR5I0+evu3kRtwQ=";
       };
     }
   );
