@@ -46,6 +46,12 @@
     in
     {
       homeConfigurations = {
+        "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./nix/asahi/home.nix
+          ];
+        };
         "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
