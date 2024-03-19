@@ -46,13 +46,19 @@
     in
     {
       homeConfigurations = {
-        gsaurel = home-manager.lib.homeManagerConfiguration {
+        "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./nix/asahi/home.nix
+          ];
+        };
+        "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./nix/upepesanke/home.nix
           ];
         };
-        nim = home-manager.lib.homeManagerConfiguration {
+        "nim@yupa" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./nix/yupa/home.nix

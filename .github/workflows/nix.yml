@@ -15,7 +15,8 @@ jobs:
           name: nim65s-dotfiles
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
-      - run: nix build --accept-flake-config .#homeConfigurations.gsaurel.activationPackage
-      - run: nix build --accept-flake-config .#homeConfigurations.nim.activationPackage
+      - run: nix build --accept-flake-config .#homeConfigurations."gsaurel@asahi".activationPackage
+      - run: nix build --accept-flake-config .#homeConfigurations."gsaurel@upepesanke".activationPackage
+      - run: nix build --accept-flake-config .#homeConfigurations."nim@yupa".activationPackage
       - run: nix build --accept-flake-config .#nixosConfigurations.loon.config.system.build.toplevel
       - run: nix build --accept-flake-config .#nixosConfigurations.hattorixos.config.system.build.toplevel

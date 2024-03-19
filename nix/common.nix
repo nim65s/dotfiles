@@ -48,6 +48,7 @@ in
     chrpath
     clang_17
     cmake
+    cmake-format
     cntr
     docker-compose
     du-dust
