@@ -19,8 +19,8 @@ let
             domain = "gitlab.freedesktop.org";
             owner = "wlroots";
             repo = "wlroots";
-            rev = "48721bca656556606275a5e776066a2f00822e92";
-            hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
+            rev = "873e8e455892fbd6e85a8accd7e689e8e1a9c776";
+            hash = "sha256-5zX0ILonBFwAmx7NZYX9TgixDLt3wBVfgx6M24zcxMY=";
           };
           patches = [ ];
         };
