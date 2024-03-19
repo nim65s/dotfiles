@@ -48,21 +48,15 @@
       homeConfigurations = {
         "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./nix/asahi/home.nix
-          ];
+          modules = [ ./nix/asahi/home.nix ];
         };
         "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./nix/upepesanke/home.nix
-          ];
+          modules = [ ./nix/upepesanke/home.nix ];
         };
         "nim@yupa" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./nix/yupa/home.nix
-          ];
+          modules = [ ./nix/yupa/home.nix ];
         };
       };
       nixosConfigurations = {
@@ -86,7 +80,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
-              home-manager.users.nim = import ./nix/loon/home.nix;  # follow loon cfg
+              home-manager.users.nim = import ./nix/loon/home.nix; # follow loon cfg
             }
           ];
         };
