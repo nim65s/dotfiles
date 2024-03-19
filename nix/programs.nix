@@ -320,7 +320,7 @@ in
           user = "nim";
         };
         "nausicaa" = {
-          hostname = "192.168.8.112";
+          user = "nim";
           proxyJump = "totoro";
         };
         "*.l" = {
