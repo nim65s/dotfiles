@@ -70,19 +70,13 @@ in
   programs.waybar.settings.mainBar.output = "DP-1";
   nix.package = pkgs.nix;
   xsession.windowManager.i3.config = import ./../i3swayconfig.nix {
-    inherit lib;
+    inherit lib pkgs workspaceOutputAssign nixGL;
     sway = false;
-    inherit pkgs;
-    inherit workspaceOutputAssign;
-    inherit nixGL;
   };
   wayland.windowManager.sway.config =
     import ./../i3swayconfig.nix {
-      inherit lib;
+      inherit lib pkgs workspaceOutputAssign nixGL;
       sway = true;
-      inherit pkgs;
-      inherit workspaceOutputAssign;
-      inherit nixGL;
     }
     // {
       output = {

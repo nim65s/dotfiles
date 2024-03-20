@@ -1,6 +1,5 @@
 self: super:
 let
-  inherit (self) lib;
   sway-unwrapped =
     (super.sway-unwrapped.overrideAttrs (
       finalAttrs: previousAttrs: {
