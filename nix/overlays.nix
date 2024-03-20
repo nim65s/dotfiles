@@ -1,6 +1,6 @@
 self: super:
 let
-  lib = self.lib;
+  inherit (self) lib;
   sway-unwrapped =
     (super.sway-unwrapped.overrideAttrs (
       finalAttrs: previousAttrs: {
@@ -31,5 +31,5 @@ in
     theme = "gruppled_white_lite";
   };
   sauce-code-pro = self.nerdfonts.override { fonts = [ "SourceCodePro" ]; };
-  sway = super.sway.override { sway-unwrapped = sway-unwrapped; };
+  sway = super.sway.override { inherit sway-unwrapped; };
 }

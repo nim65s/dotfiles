@@ -61,7 +61,7 @@ let
 in
 {
   imports = [ ./../common.nix ];
-  nixGL = nixGL;
+  inherit nixGL;
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -70,19 +70,19 @@ in
   programs.waybar.settings.mainBar.output = "DP-1";
   nix.package = pkgs.nix;
   xsession.windowManager.i3.config = import ./../i3swayconfig.nix {
-    lib = lib;
+    inherit lib;
     sway = false;
-    pkgs = pkgs;
-    workspaceOutputAssign = workspaceOutputAssign;
-    nixGL = nixGL;
+    inherit pkgs;
+    inherit workspaceOutputAssign;
+    inherit nixGL;
   };
   wayland.windowManager.sway.config =
     import ./../i3swayconfig.nix {
-      lib = lib;
+      inherit lib;
       sway = true;
-      pkgs = pkgs;
-      workspaceOutputAssign = workspaceOutputAssign;
-      nixGL = nixGL;
+      inherit pkgs;
+      inherit workspaceOutputAssign;
+      inherit nixGL;
     }
     // {
       output = {

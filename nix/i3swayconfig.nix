@@ -9,7 +9,7 @@ let
   mod = "Mod4";
 in
 {
-  workspaceOutputAssign = workspaceOutputAssign;
+  inherit workspaceOutputAssign;
   fonts.names = [ "SauceCodePro Nerd Font" ];
   fonts.size = 8.0;
   modifier = mod;
