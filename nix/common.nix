@@ -162,6 +162,7 @@ in
     source-serif
     spotify
     sqlite
+    statix
     swappy
     #sway
     swaylock
