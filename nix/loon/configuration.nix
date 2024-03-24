@@ -64,6 +64,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "video"
     ];
     packages = with pkgs; [ ];
   };
