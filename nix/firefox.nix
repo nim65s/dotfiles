@@ -137,6 +137,10 @@ pkgs: {
             template = "https://wiki.nixos.org/w/index.php";
             params = [
               {
+                name = "title";
+                value = "Special:Search";
+              }
+              {
                 name = "search";
                 value = "{searchTerms}";
               }
