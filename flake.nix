@@ -35,6 +35,14 @@
       pkgs = import nixpkgs {
         localSystem = system;
         config.allowUnfree = true;
+        overlays = [
+          (final: prev: {
+            nur = import nur {
+              nurpkgs = prev;
+              pkgs = prev;
+            };
+          })
+        ];
       };
     in
     {
