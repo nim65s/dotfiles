@@ -5,10 +5,12 @@
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://nim65s-dotfiles.cachix.org"
+      "https://nim65s-nur.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
+      "nim65s-nur.cachix.org-1:V3uaUnDnkWYgPDZaXpoe/KIbX5913GWfkazhHVDYPoU="
     ];
   };
 
@@ -33,15 +35,6 @@
       pkgs = import nixpkgs {
         localSystem = system;
         config.allowUnfree = true;
-        overlays = [
-          (import ./nix/overlays.nix)
-          (final: prev: {
-            nur = import nur {
-              nurpkgs = prev;
-              pkgs = prev;
-            };
-          })
-        ];
       };
     in
     {

@@ -148,7 +148,7 @@ in
     rpi-imager
     ruff
     rustup
-    sauce-code-pro
+    nur.repos.nim65s.sauce-code-pro
     signal-desktop
     sd
     sccache
@@ -199,7 +199,7 @@ in
   ];
 
   home.pointerCursor = {
-    package = pkgs.gruppled-white-lite-cursors;
+    package = pkgs.nur.repos.nim65s.gruppled-white-lite-cursors;
     name = "gruppled_white_lite";
     gtk.enable = true;
   };
@@ -381,7 +381,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.sway;
+    package = pkgs.nur.repos.nim65s.sway-lone-titlebar;
     extraConfig = ''
       hide_edge_borders --smart-titles smart
     '';
