@@ -85,7 +85,7 @@ pkgs: {
         definedAliases = [ ":l" ];
         urls = [
           {
-            template = "https://www.laas.fr/fr/annuaire/";
+            template = "https://www.laas.fr/annuaire/";
             params = [
               {
                 name = "q";
