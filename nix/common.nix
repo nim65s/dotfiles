@@ -31,6 +31,7 @@ in
 
   home.packages = with pkgs; [
     acpi
+    age
     arandr
     black
     brightnessctl
@@ -155,6 +156,7 @@ in
     shellcheck
     slurp
     snapcast
+    sops
     source-han-mono
     source-han-sans
     source-han-serif
@@ -162,6 +164,7 @@ in
     source-serif
     spotify
     sqlite
+    ssh-to-age
     statix
     swappy
     #sway
@@ -171,6 +174,7 @@ in
     thunderbird
     todoman
     tree
+    unzip
     usbutils
     ventoy
     vdirsyncer
