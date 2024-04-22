@@ -200,7 +200,7 @@ in
   ];
 
   home.pointerCursor = {
-    package = pkgs.nur.repos.nim65s.gruppled-white-lite-cursors;
+    package = pkgs.gruppled-white-lite-cursors;
     name = "gruppled_white_lite";
     gtk.enable = true;
   };
