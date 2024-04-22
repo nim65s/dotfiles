@@ -254,6 +254,13 @@ in
     notmuch.enable = true;
     offlineimap.enable = true;
 
+    poetry = {
+      enable = true;
+      packages = pkgs.poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]);
+      keyring.enabled = false;
+      virtualenvs.in-project = true;
+    };
+
     rbw = {
       enable = true;
       settings = {

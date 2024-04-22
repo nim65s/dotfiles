@@ -118,7 +118,6 @@ in
     pipx
     pkg-config
     playerctl
-    (poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]))
     (python3.withPackages (
       ps: with ps; [
         django

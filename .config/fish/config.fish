@@ -85,7 +85,6 @@ set -q CC || set -x CC clang
 set -q CXX || set -x CXX clang++
 set -q CXXFLAGS || set -x CXXFLAGS -fdiagnostics-color
 set -x TWINE_USERNAME nim65s
-set -x POETRY_VIRTUALENVS_IN_PROJECT true
 
 function gnucc
     set -x CC gcc
