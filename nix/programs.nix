@@ -256,7 +256,7 @@ in
 
     poetry = {
       enable = true;
-      packages = pkgs.poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]);
+      package = pkgs.poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]);
       settings = {
         keyring.enabled = false;
         virtualenvs.in-project = true;
