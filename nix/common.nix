@@ -41,6 +41,7 @@ in
     ccze
     dcfldd
     dconf
+    deadnix
     dfc
     d-spy
     dig
