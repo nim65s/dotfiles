@@ -98,6 +98,7 @@ in
     mdcat
     mdbook
     meld
+    meshlab
     mosh
     mpv
     mypy
