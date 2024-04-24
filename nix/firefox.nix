@@ -35,6 +35,21 @@ pkgs: {
           }
         ];
       };
+      "AUR" = {
+        iconUpdateURL = "https://wiki.archlinux.org/favicon.ico";
+        definedAliases = [ ":aur" ];
+        urls = [
+          {
+            template = "https://aur.archlinux.org/packages";
+            params = [
+              {
+                name = "K";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+      };
       "Crates.io" = {
         iconUpdateURL = "https://crates.io/assets/cargo.png";
         definedAliases = [ ":c" ];

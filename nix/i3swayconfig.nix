@@ -18,23 +18,21 @@ in
       [
         {
           command = "layout tabbed";
-          criteria = {
-            class = "^Signal$";
-          };
+          criteria.class = "^Signal$";
         }
         {
           command = "layout tabbed";
-          criteria = {
-            class = "^Element$";
-          };
+          criteria.class = "^Element$";
         }
       ]
       ++ lib.optionals sway [
         {
           command = "layout tabbed";
-          criteria = {
-            app_id = "Element";
-          };
+          criteria.app_id = "Element";
+        }
+        {
+          command = "title_format \"[XWayland] %title\"";
+          criteria.shell = "xwayland";
         }
       ];
     hideEdgeBorders = "smart";

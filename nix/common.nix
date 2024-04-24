@@ -187,6 +187,7 @@ in
     wl-clipboard
     xorg.xkill
     waybar
+    wget
     wtype
     xclip
     wdisplays
