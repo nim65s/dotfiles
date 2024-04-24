@@ -102,6 +102,7 @@ in
     mosh
     mpv
     mypy
+    ncdu
     ninja
     nitrogen
     nixfmt-rfc-style
