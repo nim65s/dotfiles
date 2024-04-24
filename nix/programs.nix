@@ -587,7 +587,7 @@ in
           };
           "clock" = {
             "tooltip-format" = "<tt>{calendar}</tt>";
-            "format-alt" = "{:%Y-%m-%d}";
+            "format" = "{:%Y-%m-%d %H:%M}";
           };
           "pulseaudio" = {
             "scroll-step" = 1;
