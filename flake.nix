@@ -36,7 +36,7 @@
       nur,
       sops-nix,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -70,6 +70,7 @@
       nixosConfigurations = {
         loon = nixpkgs.lib.nixosSystem {
           inherit pkgs;
+          specialArgs = {inherit inputs;};
           modules = [
             ./nix/loon/configuration.nix
             nur.nixosModules.nur
