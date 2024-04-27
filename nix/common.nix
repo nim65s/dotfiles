@@ -84,7 +84,7 @@ in
     i3lock
     i3status-rust
     isort
-    pinentry
+    pinentry-qt
     plantuml
     just
     khal
