@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -14,7 +13,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # Setup keyfile
+  #boot.initrd.secrets = {
+    #"/crypto_keyfile.bin" = null;
+  #};
+
+  networking.hostName = "fix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -58,6 +62,56 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users = {
+    fil = {
+      isNormalUser = true;
+      description = "Philippe Saurel";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [
+        firefox
+        #  thunderbird
+      ];
+    };
+    nim = {
+      shell = pkgs.fish;
+      isNormalUser = true;
+      description = "Guilhem Saurel";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [ ];
+    };
+  };
+
+  nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://nix-community.cachix.org"
+        "https://nim65s-dotfiles.cachix.org"
+        "https://nim65s-nur.cachix.org"
+        "https://rycee.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
+        "nim65s-nur.cachix.org-1:V3uaUnDnkWYgPDZaXpoe/KIbX5913GWfkazhHVDYPoU="
+        "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -80,33 +134,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
-    fil = {
-      isNormalUser = true;
-      description = "Philippe Saurel";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = with pkgs; [
-        firefox
-        #  thunderbird
-      ];
-    };
-    nim = {
-      isNormalUser = true;
-      description = "Guilhem Saurel";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = [ ];
-    };
-  };
-
   # Enable automatic login for the user.
+
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "fil";
 

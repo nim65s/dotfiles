@@ -20,3 +20,4 @@ jobs:
       - run: nix build --accept-flake-config .#homeConfigurations."nim@yupa".activationPackage
       - run: nix build --accept-flake-config .#nixosConfigurations.loon.config.system.build.toplevel
       - run: nix build --accept-flake-config .#nixosConfigurations.hattorixos.config.system.build.toplevel
+      - run: nix build --accept-flake-config .#nixosConfigurations.fix.config.system.build.toplevel

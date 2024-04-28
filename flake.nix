@@ -68,6 +68,20 @@
         };
       };
       nixosConfigurations = {
+        fix = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./nix/fix/configuration.nix
+            nur.nixosModules.nur
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.users.nim = import ./nix/fix/home.nix;
+            }
+            sops-nix.nixosModules.sops
+          ];
+        };
         loon = nixpkgs.lib.nixosSystem {
           inherit pkgs;
           specialArgs = {inherit inputs;};
