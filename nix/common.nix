@@ -40,6 +40,7 @@ in
     cargo-release
     cava
     ccze
+    cntr
     dcfldd
     dconf
     deadnix
