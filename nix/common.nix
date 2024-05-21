@@ -96,6 +96,7 @@ in
     less
     lsd
     lsof
+    gnumake
     mdcat
     mdbook
     meld
