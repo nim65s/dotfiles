@@ -136,6 +136,7 @@ in
         pandocfilters
         pip
         pyarrow
+        pyyaml
         tabulate
         tqdm
         wand
