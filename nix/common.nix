@@ -65,6 +65,7 @@ in
     fish
     fishPlugins.bass
     font-awesome
+    ghostscript
     git
     gnupg
     gtklock
@@ -76,6 +77,7 @@ in
     htop
     httpie
     hugo
+    hwloc
     i3lock
     iftop
     inetutils
@@ -94,6 +96,7 @@ in
     kitty
     kolourpaint
     less
+    libreoffice
     lsd
     lsof
     gnumake
@@ -118,6 +121,7 @@ in
     openssl
     pandoc
     pavucontrol
+    pdfarranger
     pdfpc
     #pipewire
     pipx
@@ -146,6 +150,7 @@ in
     pre-commit
     pulseaudio
     pavucontrol
+    pwgen
     ripgrep
     rofi-emoji
     rofi-file-browser
