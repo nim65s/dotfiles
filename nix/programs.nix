@@ -346,6 +346,11 @@ in
           user = "root";
           setEnv.TERM = "xterm";
         };
+        "*.t" = {
+          hostname = "%hetaneutral.net";
+          user = "root";
+          port = 2222;
+        };
       };
     };
 
