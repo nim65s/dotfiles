@@ -60,6 +60,7 @@ in
     #eww-wayland
     eza
     fd
+    ffmpeg
     file
     firefox-devedition
     fish
@@ -113,8 +114,10 @@ in
     nixfmt-rfc-style
     nixpkgs-review
     nix
+    nix-init
     nmap
     noto-fonts-emoji
+    nurl
     okular
     openldap
     openssh
