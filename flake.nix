@@ -7,12 +7,14 @@
       "https://nim65s-dotfiles.cachix.org"
       "https://nim65s-nur.cachix.org"
       "https://rycee.cachix.org"
+      "https://cache.lix.systems"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
       "nim65s-nur.cachix.org-1:V3uaUnDnkWYgPDZaXpoe/KIbX5913GWfkazhHVDYPoU="
       "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
     ];
   };
 
@@ -27,6 +29,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
+      flake = false;
+    };
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module";
+      inputs.lix.follows = "lix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +46,7 @@
       home-manager,
       nur,
       sops-nix,
+      lix-module,
       ...
     }@inputs:
     let
@@ -86,6 +98,7 @@
           inherit pkgs;
           specialArgs = {inherit inputs;};
           modules = [
+            lix-module.nixosModules.default
             ./nix/loon/configuration.nix
             nur.nixosModules.nur
             home-manager.nixosModules.home-manager
