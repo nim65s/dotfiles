@@ -21,10 +21,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +41,6 @@
       nixpkgs,
       home-manager,
       nur,
-      sops-nix,
       lix-module,
       ...
     }@inputs:
@@ -91,7 +86,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.users.nim = import ./nix/fix/home.nix;
             }
-            sops-nix.nixosModules.sops
           ];
         };
         loon = nixpkgs.lib.nixosSystem {
@@ -106,7 +100,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.users.nim = import ./nix/loon/home.nix;
             }
-            sops-nix.nixosModules.sops
           ];
         };
         hattorixos = nixpkgs.lib.nixosSystem {
