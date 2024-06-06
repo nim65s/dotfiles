@@ -88,8 +88,7 @@ in
     i3lock
     i3status-rust
     isort
-    pinentry-qt
-    plantuml
+    jq
     just
     khal
     khard
@@ -127,7 +126,9 @@ in
     pdfarranger
     pdfpc
     #pipewire
+    pinentry-qt
     pipx
+    plantuml
     pkg-config
     playerctl
     (python3.withPackages (
