@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -15,7 +20,7 @@
 
   # Setup keyfile
   #boot.initrd.secrets = {
-    #"/crypto_keyfile.bin" = null;
+  #"/crypto_keyfile.bin" = null;
   #};
 
   networking.hostName = "fix"; # Define your hostname.
@@ -89,7 +94,7 @@
   };
 
   nix = {
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       substituters = [
         "https://cache.nixos.org/"

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -10,23 +10,22 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
+  boot = {
+    initrd.secrets = {
+      "/crypto_keyfile.bin" = null;
+    };
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
-  networking.hostName = "loon"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    firewall.enable = true;
+    hostName = "loon"; # Define your hostname.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -61,6 +60,7 @@
     isNormalUser = true;
     description = "Guilhem Saurel";
     extraGroups = [
+      "dialout"
       "networkmanager"
       "wheel"
       "docker"
@@ -69,11 +69,8 @@
     packages = with pkgs; [ ];
   };
 
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "nim";
-
   nix = {
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       substituters = [
         "https://cache.nixos.org/"
@@ -113,16 +110,12 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -148,12 +141,18 @@
   sound.enable = false;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    audio.enable = true;
-    pulse.enable = true;
+  services = {
+    getty.autologinUser = "nim";
+    openssh.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      audio.enable = true;
+      pulse.enable = true;
+    };
+    #xdg.portal.wlr.enable = true;
+
+    udev.packages = [ pkgs.stlink ];
   };
-  #xdg.portal.wlr.enable = true;
 }

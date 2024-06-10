@@ -77,7 +77,9 @@
       nixosConfigurations = {
         fix = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./nix/fix/configuration.nix
             nur.nixosModules.nur
@@ -90,7 +92,9 @@
         };
         loon = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             lix-module.nixosModules.default
             ./nix/loon/configuration.nix
