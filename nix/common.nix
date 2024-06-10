@@ -218,11 +218,11 @@ in
     zoom-us
   ];
 
-  home.pointerCursor = {
-    package = pkgs.gruppled-white-lite-cursors;
-    name = "gruppled_white_lite";
-    gtk.enable = true;
-  };
+  #home.pointerCursor = {
+    #package = pkgs.gruppled-white-lite-cursors;
+    #name = "gruppled_white_lite";
+    #gtk.enable = true;
+  #};
 
   home.file = {
     ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
@@ -323,7 +323,7 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
   };
 
   gtk = {
@@ -401,7 +401,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.nur.repos.nim65s.sway-lone-titlebar;
+    package = pkgs.sway-lone-titlebar;
     extraConfig = ''
       hide_edge_borders --smart-titles smart
     '';

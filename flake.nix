@@ -19,21 +19,18 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "lix/nixpkgs";
     nur.url = "github:nix-community/nur";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "lix/nixpkgs";
     };
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    lix.url = "git+https://git.lix.systems/lix-project/lix";
     lix-module = {
       url = "git+https://git.lix.systems/lix-project/nixos-module";
       inputs = {
         lix.follows = "lix";
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "lix/nixpkgs";
       };
     };
   };
@@ -61,6 +58,35 @@
           })
           (final: prev: {
             lix = lix.outputs.packages.${system}.nix;
+          })
+          (final: prev: {
+            sway-lone-titlebar = prev.sway.override {
+              sway-unwrapped =
+                (prev.sway-unwrapped.overrideAttrs (
+                  finalAttrs: previousAttrs: {
+                    patches = final.lib.lists.take 2 previousAttrs.patches ++ final.lib.lists.drop 3 previousAttrs.patches;
+                    src = final.fetchFromGitHub {
+                      owner = "nim65s";
+                      repo = "sway";
+                      rev = "fa4c1cdc50b1cf28acac4e599b750a65e788602e";
+                      hash = "sha256-NbmjZKuu1c+m293Vzi35EEjBEWaOfp0F0pz7rtKesJU=";
+                    };
+                  }
+                )).override
+                  {
+                    wlroots = prev.wlroots.overrideAttrs {
+                      version = "0.18.0-dev";
+                      src = final.fetchFromGitLab {
+                        domain = "gitlab.freedesktop.org";
+                        owner = "wlroots";
+                        repo = "wlroots";
+                        rev = "48721bca656556606275a5e776066a2f00822e92";
+                        hash = "sha256-PUx4RZiLbWineoAvZk7kuUBXRFI15vfxLna49LUR8+s=";
+                      };
+                      patches = [ ];
+                    };
+                  };
+                };
           })
         ];
       };

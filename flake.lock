@@ -52,19 +52,21 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "lix",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1717931644,
-        "narHash": "sha256-Sz8Wh9cAiD5FhL8UWvZxBfnvxETSCVZlqWSYWaCPyu0=",
+        "lastModified": 1717527182,
+        "narHash": "sha256-vWSkg6AMok1UUQiSYVdGMOXKD2cDFnajITiSi0Zjd1A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3d65009effd77cb0d6e7520b68b039836a7606cf",
+        "rev": "845a5c4c073f74105022533907703441e0464bc3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-24.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -72,18 +74,15 @@
     "lix": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "nixpkgs-regression": "nixpkgs-regression",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1717994892,
-        "narHash": "sha256-kFUKMwjGLbGBNkw0/prNnbKzc8tRayU0FuRpaUNnUx4=",
-        "ref": "refs/heads/main",
-        "rev": "a986a8dfa1c5896de8acfc603ff71a51f629bdc8",
-        "revCount": 15747,
+        "lastModified": 1717921732,
+        "narHash": "sha256-qmpmri4MQiP925Xyuy0+z7Qkygo3R6pLe5krHKti5H0=",
+        "rev": "7dfa2a761ef8856454d8f63eda27edb8984bdc98",
+        "revCount": 15745,
         "type": "git",
         "url": "https://git.lix.systems/lix-project/lix"
       },
@@ -100,6 +99,7 @@
           "lix"
         ],
         "nixpkgs": [
+          "lix",
           "nixpkgs"
         ]
       },
@@ -119,16 +119,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1717786204,
-        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
-        "owner": "nixos",
+        "lastModified": 1717796960,
+        "narHash": "sha256-BKjQ9tQdsuoROrojHZb7KTAv95WprqCkNFvuzatfEo0=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "rev": "8e0a5f16b7bf7f212be068dd302c49888c6ad68f",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "owner": "NixOS",
+        "ref": "nixos-24.05-small",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -185,7 +185,10 @@
         "home-manager": "home-manager",
         "lix": "lix",
         "lix-module": "lix-module",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "lix",
+          "nixpkgs"
+        ],
         "nur": "nur"
       }
     },
