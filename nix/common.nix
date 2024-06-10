@@ -323,7 +323,7 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme = "qtct";
   };
 
   gtk = {
