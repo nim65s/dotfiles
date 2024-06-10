@@ -40,6 +40,7 @@
       nixpkgs,
       home-manager,
       nur,
+      lix,
       lix-module,
       ...
     }@inputs:
@@ -54,6 +55,9 @@
               nurpkgs = prev;
               pkgs = prev;
             };
+          })
+          (final: prev: {
+            lix = lix.outputs.packages.${system}.nix;
           })
         ];
       };
