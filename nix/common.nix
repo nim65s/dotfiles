@@ -97,6 +97,7 @@ in
     kolourpaint
     less
     libreoffice
+    lix
     lsd
     lsof
     gnumake
@@ -112,7 +113,6 @@ in
     nitrogen
     nixfmt-rfc-style
     nixpkgs-review
-    nix
     nix-init
     nmap
     noto-fonts-emoji
