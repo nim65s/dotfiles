@@ -11,6 +11,7 @@
 
   # Bootloader.
   boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
     };
