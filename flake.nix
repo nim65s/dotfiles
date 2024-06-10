@@ -25,7 +25,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lix.url = "git+https://git.lix.systems/lix-project/lix";
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lix-module = {
       url = "git+https://git.lix.systems/lix-project/nixos-module";
       inputs = {
