@@ -5,7 +5,6 @@ for bin in /bin \
            /nix/var/nix/profiles/default/bin \
            /etc/profiles/per-user/nim/bin \
            /opt/openrobots/bin \
-           ~/.nix-profile/bin \
            ~/.cargo/bin \
            ~/.local/bin \
            /run/wrappers/bin
@@ -16,4 +15,7 @@ for bin in /bin \
     end
 end
 
-
+set bin ~/.nix-profile/bin
+if test -d $bin
+    set -pgx PATH $bin
+end
