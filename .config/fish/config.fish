@@ -443,6 +443,6 @@ if which sccache &> /dev/null
     set -x RUSTC_WRAPPER (which sccache)
 end
 
-if which rtx &> /dev/null
-    rtx activate fish | source
-end
+#if which rtx &> /dev/null
+    #rtx activate fish | source
+#end
