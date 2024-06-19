@@ -81,6 +81,7 @@
         "https://nim65s-nur.cachix.org"
         "https://rycee.cachix.org"
         "https://cache.lix.systems"
+        "https://ros.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -89,11 +90,13 @@
         "nim65s-nur.cachix.org-1:V3uaUnDnkWYgPDZaXpoe/KIbX5913GWfkazhHVDYPoU="
         "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
         "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+        "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
       ];
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+      trusted-users = [ "root" "nim" ];
     };
   };
   # List packages installed in system profile. To search, run:
