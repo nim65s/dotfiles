@@ -19,19 +19,11 @@
   };
 
   inputs = {
-    nixpkgs.follows = "lix/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "lix/nixpkgs";
-    };
-    lix.url = "git+https://git.lix.systems/lix-project/lix";
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
-      inputs = {
-        lix.follows = "lix";
-        nixpkgs.follows = "lix/nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -40,8 +32,6 @@
       nixpkgs,
       home-manager,
       nur,
-      lix,
-      lix-module,
       ...
     }@inputs:
     let
@@ -55,9 +45,6 @@
               nurpkgs = prev;
               pkgs = prev;
             };
-          })
-          (final: prev: {
-            lix = lix.outputs.packages.${system}.nix;
           })
           (final: prev: {
             sway-lone-titlebar = prev.sway.override {
@@ -128,7 +115,6 @@
             inherit inputs;
           };
           modules = [
-            lix-module.nixosModules.default
             ./nix/loon/configuration.nix
             nur.nixosModules.nur
             home-manager.nixosModules.home-manager
