@@ -36,6 +36,7 @@ in
     black
     brightnessctl
     broot
+    cachix
     cargo-binstall
     cargo-release
     cava
