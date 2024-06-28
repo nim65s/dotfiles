@@ -60,6 +60,21 @@ function srihash
 end
 
 . $DOTFILES/portable-aliases.sh
+abbr p paru
+abbr gc "git commit -am"
+abbr gd "git difftool"
+abbr gst "git status"
+abbr gp "git push"
+abbr gf "git fetch --all --prune"
+abbr gcr "git clone --recursive"
+abbr gch "git checkout"
+abbr .. "cd .."
+abbr ... "cd ../.."
+abbr .... "cd ../../.."
+abbr ..... "cd ../../../.."
+abbr vmi vim
+abbr vi vim
+abbr vd vimdiff
 
 set -q EDITOR || set -x EDITOR vim
 set -q BROWSER || set -x BROWSER firefox-developer-edition
