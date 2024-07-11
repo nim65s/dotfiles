@@ -115,6 +115,7 @@ in
     nixfmt-rfc-style
     nixpkgs-review
     nix-init
+    nix-update
     nmap
     noto-fonts-emoji
     nurl
