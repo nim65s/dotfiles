@@ -73,7 +73,7 @@ in
         and source ~/dotfiles/.config/fish/path.fish
 
         if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-          ${config.nixGL} ${lib.getExe pkgs.nur.repos.nim65s.sway-lone-titlebar} > ~/.wayland.log 2> ~/.wayland.err
+          ${config.nixGL} ${lib.getExe pkgs.sway} > ~/.wayland.log 2> ~/.wayland.err
         end
       '';
       shellAliases = {
