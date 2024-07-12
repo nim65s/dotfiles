@@ -7,14 +7,12 @@
       "https://nim65s-dotfiles.cachix.org"
       "https://nim65s-nur.cachix.org"
       "https://rycee.cachix.org"
-      "https://cache.lix.systems"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nim65s-dotfiles.cachix.org-1:6vuY5z8YGzfjrssfcxb3DuH50DC1l562U0BIGMxnClg="
       "nim65s-nur.cachix.org-1:V3uaUnDnkWYgPDZaXpoe/KIbX5913GWfkazhHVDYPoU="
       "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
-      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
     ];
   };
 
@@ -40,7 +38,7 @@
         localSystem = system;
         config.allowUnfree = true;
         overlays = [
-          (final: prev: {
+          (_final: prev: {
             nur = import nur {
               nurpkgs = prev;
               pkgs = prev;
