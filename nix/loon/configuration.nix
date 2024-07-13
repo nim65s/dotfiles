@@ -96,7 +96,6 @@
         "nix-command"
         "flakes"
       ];
-      trusted-users = [ "root" "nim" ];
     };
   };
   # List packages installed in system profile. To search, run:

@@ -67,6 +67,8 @@ in
     fish
     fishPlugins.bass
     font-awesome
+    gdb
+    gdbgui
     ghostscript
     git
     gnupg
@@ -322,7 +324,6 @@ in
         "nix-command"
         "flakes"
       ];
-      trusted-users = [ "root" "nim" ];
     };
   };
 
