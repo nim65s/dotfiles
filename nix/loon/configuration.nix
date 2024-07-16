@@ -142,7 +142,6 @@
   programs.dconf.enable = true;
   programs.fish.enable = true;
   virtualisation.docker.enable = true;
-  sound.enable = false;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services = {
