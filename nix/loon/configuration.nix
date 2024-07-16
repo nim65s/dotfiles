@@ -138,7 +138,7 @@
       };
     };
   };
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   programs.dconf.enable = true;
   programs.fish.enable = true;
   virtualisation.docker.enable = true;
