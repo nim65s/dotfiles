@@ -76,6 +76,7 @@ abbr ..... "cd ../../../.."
 abbr vmi vim
 abbr vi vim
 abbr vd vimdiff
+abbr z zellij
 
 set -q EDITOR || set -x EDITOR vim
 set -q BROWSER || set -x BROWSER firefox-developer-edition
