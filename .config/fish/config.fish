@@ -20,18 +20,18 @@ function df
 end
 
 if which lsd &> /dev/null
-    alias sl='lsd'
+    abbr sl 'lsd'
 else
-    alias ls='ls -F --color=auto --hyperlink=auto'
-    alias sl='ls -F --color=auto'
-    alias lss='ls -F --color=auto'
-    alias ll='ls -lArthF'
-    alias lll='ls -lArthF'
-    alias lt='tree -aC -I .git'
-    alias tree='tree -aC -I .git'
-    alias llt='tree -aphugDC -I .git'
-    alias ltl='tree -aphugDC -I .git'
-    alias treel='tree -aphugDC -I .git'
+    abbr ls 'ls -F --color=auto --hyperlink=auto'
+    abbr sl 'ls -F --color=auto'
+    abbr lss 'ls -F --color=auto'
+    abbr ll 'ls -lArthF'
+    abbr lll 'ls -lArthF'
+    abbr lt 'tree -aC -I .git'
+    abbr tree 'tree -aC -I .git'
+    abbr llt 'tree -aphugDC -I .git'
+    abbr ltl 'tree -aphugDC -I .git'
+    abbr treel 'tree -aphugDC -I .git'
 end
 
 function ii
