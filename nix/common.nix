@@ -116,6 +116,7 @@ in
     nitrogen
     nixfmt-rfc-style
     nixpkgs-review
+    nix-index
     nix-init
     nix-update
     nmap
