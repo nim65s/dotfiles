@@ -116,8 +116,10 @@ in
     nitrogen
     nixfmt-rfc-style
     nixpkgs-review
+    #nix-du
     nix-index
     nix-init
+    nix-tree
     nix-update
     nmap
     noto-fonts-emoji
