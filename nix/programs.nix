@@ -221,15 +221,16 @@ in
         "kitty_mod+minus" = "change_font_size all -1.0";
       };
       settings = {
-        "touch_scroll_multiplier" = "10.0";
-        "focus_follows_mouse" = true;
-        "enable_audio_bell" = false;
-        "enabled_layouts" = "splits,fat,tall,grid,horizontal,vertical,stack";
-        "placement_strategy" = "top-left";
-        "tab_bar_style" = "powerline";
-        "tab_separator" = " | ";
-        "background_opacity" = "0.7";
-        "shell" = "fish";
+        touch_scroll_multiplier = "10.0";
+        focus_follows_mouse = true;
+        enable_audio_bell = false;
+        enabled_layouts = "splits,fat,tall,grid,horizontal,vertical,stack";
+        placement_strategy = "top-left";
+        tab_bar_style = "powerline";
+        tab_separator = " | ";
+        background_opacity = "0.7";
+        shell = "fish";
+        scrollback_lines = 10000;
       };
     };
 
