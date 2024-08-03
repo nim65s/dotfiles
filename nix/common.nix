@@ -117,6 +117,7 @@ in
     nixfmt-rfc-style
     nixpkgs-review
     #nix-du
+    nix-diff
     nix-index
     nix-init
     nix-tree
