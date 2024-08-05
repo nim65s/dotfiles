@@ -349,14 +349,12 @@ in
           forwardAgent = true;
           proxyJump = "laas";
           user = "gsaurel";
-          setEnv.TERM = "xterm";
         };
         "*.L" = {
           hostname = "%haas.fr";
           forwardAgent = true;
           proxyJump = "laas";
           user = "root";
-          setEnv.TERM = "xterm";
         };
         "*.t" = {
           hostname = "%hetaneutral.net";
