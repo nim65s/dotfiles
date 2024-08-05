@@ -115,7 +115,7 @@ in
     ninja
     nitrogen
     nixfmt-rfc-style
-    nixpkgs-review
+    (nixpkgs-review.override { nix = lix; withNom = true; })
     #nix-du
     nix-diff
     nix-index
