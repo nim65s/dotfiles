@@ -253,6 +253,7 @@ in
     msmtp.enable = true;
     neomutt.enable = true;
     notmuch.enable = true;
+    nix-index.enable = true;
     offlineimap.enable = true;
 
     rbw = {

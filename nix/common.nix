@@ -118,8 +118,8 @@ in
     (nixpkgs-review.override { nix = lix; withNom = true; })
     #nix-du
     nix-diff
-    nix-index
     nix-init
+    nix-output-monitor
     nix-tree
     nix-update
     nmap
