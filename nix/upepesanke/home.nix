@@ -93,9 +93,13 @@ in
         "DP-1" = {
           bg = "${./../bg/gauche.jpg} fill";
           scale = "1.5";
+          mode = "3840x2160";
+          pos = "0 0";
         };
         "DP-2" = {
           bg = "${./../bg/droite.jpg} fill";
+          mode = "1920x1080";
+          pos = "2560 0";
         };
       };
     };
