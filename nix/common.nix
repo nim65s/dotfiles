@@ -414,7 +414,6 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.nur.repos.nim65s.sway-lone-titlebar;
     extraConfig = ''
       hide_edge_borders --smart-titles smart
     '';

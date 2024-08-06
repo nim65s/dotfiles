@@ -62,7 +62,7 @@
                   );
               };
             });
-
+            sway = final.nur.repos.nim65s.sway-lone-titlebar;
           })
         ];
       };
