@@ -28,25 +28,6 @@
               nurpkgs = prev;
               pkgs = prev;
             };
-            rbw = prev.rbw.override (super: {
-              rustPlatform = super.rustPlatform // {
-                buildRustPackage =
-                  args:
-                  super.rustPlatform.buildRustPackage (
-                    args
-                    // {
-                      version = "1.12.1";
-                      src = final.fetchFromGitHub {
-                        owner = "doy";
-                        repo = "rbw";
-                        rev = "1.12.1";
-                        hash = "sha256-+1kalFyhk2UL+iVzuFLDsSSTudrd4QpXw+3O4J+KsLc=";
-                      };
-                      cargoHash = "sha256-cKbbsDb449WANGT+x8APhzs+hf5SR3RBsCBWDNceRMA=";
-                    }
-                  );
-              };
-            });
             sway = final.nur.repos.nim65s.sway-lone-titlebar;
           })
         ];
