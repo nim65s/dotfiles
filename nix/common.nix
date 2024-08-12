@@ -51,6 +51,7 @@ in
     dos2unix
     chrpath
     clang_17
+    clang-tools
     cmake
     cmake-format
     cntr
