@@ -196,6 +196,7 @@ in
     sqlite
     ssh-to-age
     statix
+    strace
     swappy
     #sway
     swaylock
