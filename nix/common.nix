@@ -168,6 +168,7 @@ in
       ]
     ))
     pre-commit
+    pre-commit-sort
     pulseaudio
     pavucontrol
     pwgen

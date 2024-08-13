@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pre-commit-sort = {
+      url = "github:nim65s/pre-commit-sort";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -15,6 +19,7 @@
       nixpkgs,
       home-manager,
       nur,
+      pre-commit-sort,
       ...
     }@inputs:
     let
@@ -29,6 +34,7 @@
               pkgs = prev;
             };
             sway = final.nur.repos.nim65s.sway-lone-titlebar;
+            pre-commit-sort = pre-commit-sort.packages.${system}.default;
           })
         ];
       };
