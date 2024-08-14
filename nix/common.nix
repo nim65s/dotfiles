@@ -96,6 +96,7 @@ in
     isort
     jless
     jq
+    jless
     just
     khal
     khard
