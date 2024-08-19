@@ -163,6 +163,21 @@ pkgs: {
           }
         ];
       };
+      "Nixpkgs" = {
+        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = [ ":np" ];
+        urls = [
+          {
+            template = "https://github.com/search";
+            params = [
+              {
+                name = "q";
+                value = "repo:NixOS/nixpkgs {searchTerms}";
+              }
+            ];
+          }
+        ];
+      };
       "Python" = {
         iconUpdateURL = "https://www.python.org/images/favicon16x16.ico";
         definedAliases = [ ":p" ];
