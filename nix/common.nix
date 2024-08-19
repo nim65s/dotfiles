@@ -42,6 +42,7 @@ in
     cava
     ccze
     cntr
+    comma
     dcfldd
     dconf
     deadnix
