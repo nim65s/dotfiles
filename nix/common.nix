@@ -93,6 +93,7 @@ in
     i3lock
     i3status-rust
     isort
+    jless
     jq
     just
     khal
