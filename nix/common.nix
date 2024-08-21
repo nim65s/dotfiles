@@ -37,6 +37,7 @@ in
     brightnessctl
     broot
     cachix
+    cargo
     cargo-binstall
     cargo-release
     cava
@@ -177,7 +178,6 @@ in
     rofi-rbw
     rpi-imager
     ruff
-    rustup
     nur.repos.nim65s.sauce-code-pro
     signal-desktop
     sd
