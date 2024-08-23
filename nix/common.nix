@@ -178,6 +178,7 @@ in
     rofi-rbw
     rpi-imager
     ruff
+    rustc
     nur.repos.nim65s.sauce-code-pro
     signal-desktop
     sd
