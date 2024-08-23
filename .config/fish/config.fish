@@ -60,23 +60,27 @@ function srihash
 end
 
 . $DOTFILES/portable-aliases.sh
-abbr p paru
+abbr .. "cd .."
+abbr ... "cd ../.."
+abbr .... "cd ../../.."
+abbr ..... "cd ../../../.."
 abbr gc "git commit -am"
 abbr gd "git difftool"
 abbr gst "git status"
 abbr gp "git push"
 abbr gf "git fetch --all --prune"
+abbr gcan "git commit -a --amend --no-edit"
 abbr gcr "git clone --recursive"
 abbr gch "git checkout"
 abbr grhh "git reset --hard HEAD"
-abbr .. "cd .."
-abbr ... "cd ../.."
-abbr .... "cd ../../.."
-abbr ..... "cd ../../../.."
+abbr ipa "ip address"
+abbr ipr "ip route"
+abbr p paru
 abbr vmi vim
 abbr vi vim
 abbr vd vimdiff
 abbr z zellij
+abbr za zathura
 
 set -q EDITOR || set -x EDITOR vim
 set -q BROWSER || set -x BROWSER firefox-developer-edition
