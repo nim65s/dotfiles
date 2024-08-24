@@ -25,86 +25,96 @@
 
   outputs =
     {
+      clan-core,
+      flake-parts,
       home-manager,
       nixpkgs,
       nur,
+      pre-commit-sort,
       ...
     }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        localSystem = system;
-        config.allowUnfree = true;
-        overlays = [
-          (final: prev: {
-            nur = import nur {
-              nurpkgs = prev;
-              pkgs = prev;
-            };
-            sway = final.nur.repos.nim65s.sway-lone-titlebar;
-            pre-commit-sort = inputs.pre-commit-sort.packages.${system}.default;
-          })
-        ];
-      };
-    in
-    {
-      homeConfigurations = {
-        "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nix/asahi/home.nix ];
-        };
-        "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nix/upepesanke/home.nix ];
-        };
-        "nim@yupa" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nix/yupa/home.nix ];
-        };
-      };
-      nixosConfigurations = {
-        fix = nixpkgs.lib.nixosSystem {
-          inherit pkgs;
-          specialArgs = {
-            inherit inputs;
+    flake-parts.lib.mkFlake { inherit inputs; } ({ self, ... }: {
+      debug = true;
+      clan = {
+        machines = {
+          fix = {
+            imports = [
+              ./nix/fix/configuration.nix
+              nur.nixosModules.nur
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.users.nim = import ./nix/fix/home.nix;
+              }
+            ];
+            nixpkgs = { inherit (self.allSystems.x86_64-linux._module.args) pkgs; };
           };
-          modules = [
-            ./nix/fix/configuration.nix
-            nur.nixosModules.nur
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.nim = import ./nix/fix/home.nix;
-            }
-          ];
-        };
-        loon = nixpkgs.lib.nixosSystem {
-          inherit pkgs;
-          specialArgs = {
-            inherit inputs;
+          hattorian = {
+            imports = [
+              ./nix/hattorixos/configuration.nix
+              nur.nixosModules.nur
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.users.nim = import ./nix/loon/home.nix; # follow loon cfg
+              }
+            ];
           };
-          modules = [
-            ./nix/loon/configuration.nix
-            nur.nixosModules.nur
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.nim = import ./nix/loon/home.nix;
-            }
-          ];
+          loon = {
+            imports = [
+              ./nix/loon/configuration.nix
+              nur.nixosModules.nur
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.users.nim = import ./nix/loon/home.nix;
+              }
+            ];
+            nixpkgs = { inherit (self.allSystems.x86_64-linux._module.args) pkgs; };
+          };
         };
-        hattorixos = nixpkgs.lib.nixosSystem {
-          inherit pkgs;
-          modules = [
-            ./nix/hattorixos/configuration.nix
-            nur.nixosModules.nur
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.users.nim = import ./nix/loon/home.nix; # follow loon cfg
-            }
+        meta.name = "github.com/nim65s/dotfiles";
+        specialArgs = { inherit inputs; };
+      };
+      flake = {
+        homeConfigurations = {
+          "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
+            inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+            modules = [ ./nix/asahi/home.nix ];
+          };
+          "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
+            inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+            modules = [ ./nix/upepesanke/home.nix ];
+          };
+          "nim@yupa" = home-manager.lib.homeManagerConfiguration {
+            inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+            modules = [ ./nix/yupa/home.nix ];
+          };
+        };
+      };
+      imports = [
+        clan-core.flakeModules.default
+      ];
+      perSystem = { system, ... }: {
+        _module.args.pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            (final: prev: {
+              nur = import nur {
+                nurpkgs = prev;
+                pkgs = prev;
+              };
+              sway = final.nur.repos.nim65s.sway-lone-titlebar;
+              pre-commit-sort = pre-commit-sort.packages.${system}.default;
+            })
           ];
         };
       };
-    };
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+    });
 }
