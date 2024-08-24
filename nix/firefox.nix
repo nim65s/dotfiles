@@ -272,7 +272,7 @@ pkgs: {
       "font.name.sans-serif.x-western" = "Source Sans 3";
       "font.name.serif.x-western" = "Source Serif 4";
       "font.size.variable.x-western" = 12;
-      "layers.acceleration.disabled" = true;  # TODO
+      "layers.acceleration.disabled" = true; # TODO
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       "signon.rememberSignons" = false;
     };

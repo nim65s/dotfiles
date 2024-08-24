@@ -2,6 +2,10 @@
   description = "My dotfiles";
 
   inputs = {
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
     home-manager = {
@@ -16,10 +20,9 @@
 
   outputs =
     {
-      nixpkgs,
       home-manager,
+      nixpkgs,
       nur,
-      pre-commit-sort,
       ...
     }@inputs:
     let
@@ -34,7 +37,7 @@
               pkgs = prev;
             };
             sway = final.nur.repos.nim65s.sway-lone-titlebar;
-            pre-commit-sort = pre-commit-sort.packages.${system}.default;
+            pre-commit-sort = inputs.pre-commit-sort.packages.${system}.default;
           })
         ];
       };
