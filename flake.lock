@@ -193,7 +193,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
-        "pre-commit-sort": "pre-commit-sort"
+        "pre-commit-sort": "pre-commit-sort",
+        "treefmt-nix": "treefmt-nix_2"
       }
     },
     "sops-nix": {
@@ -252,6 +253,26 @@
       },
       "original": {
         "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724244085,
+        "narHash": "sha256-kKJtaiU5Ou+e/0Qs7SICXF22DLx4V/WhG1P6+k4yeOE=",
+        "owner": "nim65s",
+        "repo": "treefmt-nix",
+        "rev": "cdc34151a4715253f524ab7dbe1382f185a8b460",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nim65s",
         "repo": "treefmt-nix",
         "type": "github"
       }

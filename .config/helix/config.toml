@@ -1,30 +1,22 @@
 theme = "zenburnt"
 
 [editor]
-cursorline = true
-cursorcolumn = true
 auto-pairs = false
+cursorcolumn = true
+cursorline = true
+
+[keys.insert]
+# tab to esc
+tab = "normal_mode"
 
 [keys.normal]
 # hjkl → ctsr
 c = "move_char_left"
-t = "move_line_down"
-s = "move_line_up"
-r = "move_char_right"
-
 # ctsr → hjkl
 h = "change_selection"
 j = "find_till_char"
 k = "select_regex"
 l = "replace"
-
-# [keys.select]
-# # hjkl → ctsr
-# c = "move_char_left"
-# t = "move_line_down"
-# s = "move_line_up"
-# r = "move_char_right"
-
-[keys.insert]
-# tab to esc
-tab = "normal_mode"
+r = "move_char_right"
+s = "move_line_up"
+t = "move_line_down"

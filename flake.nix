@@ -21,6 +21,10 @@
       url = "github:nim65s/pre-commit-sort";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:nim65s/treefmt-nix"; # https://github.com/numtide/treefmt-nix/pull/224
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -84,6 +88,20 @@
                 })
               ];
             };
+            treefmt = {
+              projectRootFile = "flake.nix";
+              programs = {
+                deadnix.enable = true;
+                mdformat.enable = true;
+                nixfmt-rfc-style.enable = true;
+                ruff = {
+                  check = true;
+                  format = true;
+                };
+                rustfmt.enable = true;
+                yamlfmt.enable = true;
+              };
+            };
           };
         flake = {
           homeConfigurations = {
@@ -101,12 +119,11 @@
             };
           };
         };
-        imports = [ inputs.clan-core.flakeModules.default ];
-        systems = [
-          "aarch64-darwin"
-          "aarch64-linux"
-          "x86_64-linux"
+        imports = [
+          inputs.clan-core.flakeModules.default
+          inputs.treefmt-nix.flakeModule
         ];
+        systems = inputs.nixpkgs.lib.systems.flakeExposed;
       }
     );
 }
