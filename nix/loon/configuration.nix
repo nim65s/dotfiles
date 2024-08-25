@@ -158,4 +158,5 @@
 
     udev.packages = [ pkgs.stlink ];
   };
+  home-manager.useGlobalPkgs = true;
 }
