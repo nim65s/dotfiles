@@ -41,6 +41,7 @@ in
       cargo-release
       cava
       ccze
+      clan-cli
       cntr
       comma
       dcfldd

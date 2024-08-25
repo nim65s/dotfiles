@@ -83,8 +83,9 @@
                     nurpkgs = prev;
                     pkgs = prev;
                   };
+                  inherit (inputs.clan-core.packages.${system}) clan-cli;
+                  inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
-                  pre-commit-sort = inputs.pre-commit-sort.packages.${system}.default;
                 })
               ];
             };
