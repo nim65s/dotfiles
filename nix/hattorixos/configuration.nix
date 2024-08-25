@@ -1,22 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
     # Setup keyfile
     initrd = {
       secrets = {
@@ -40,25 +28,6 @@
 
   networking.hostName = "hattorixos"; # Define your hostname.
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Paris";
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "fr_FR.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "fr_FR.UTF-8";
-      LC_IDENTIFICATION = "fr_FR.UTF-8";
-      LC_MEASUREMENT = "fr_FR.UTF-8";
-      LC_MONETARY = "fr_FR.UTF-8";
-      LC_NAME = "fr_FR.UTF-8";
-      LC_NUMERIC = "fr_FR.UTF-8";
-      LC_PAPER = "fr_FR.UTF-8";
-      LC_TELEPHONE = "fr_FR.UTF-8";
-      LC_TIME = "fr_FR.UTF-8";
-    };
-  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -89,13 +58,11 @@
   # };
 
   programs.dconf.enable = true;
-  programs.fish.enable = true;
 
   security.pam.services.swaylock = { };
 
   services = {
     getty.autologinUser = "nim";
-    # openssh.enable = true;
     printing.enable = true;
     pipewire = {
       enable = true;
