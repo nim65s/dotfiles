@@ -37,9 +37,7 @@
                 ./nix/x86_64-linux.nix
                 ./nix/nixos.nix
                 home-manager.nixosModules.home-manager
-                {
-                  home-manager.users.nim = import ./nix/fix/home.nix;
-                }
+                { home-manager.users.nim = import ./nix/fix/home.nix; }
               ];
             };
             hattorian = {
@@ -59,9 +57,7 @@
                 ./nix/x86_64-linux.nix
                 ./nix/nixos.nix
                 home-manager.nixosModules.home-manager
-                {
-                  home-manager.users.nim = import ./nix/loon/home.nix;
-                }
+                { home-manager.users.nim = import ./nix/loon/home.nix; }
               ];
             };
           };
@@ -71,22 +67,24 @@
             inherit (self) allSystems;
           };
         };
-        perSystem = { system, ... }: {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              (final: prev: {
-                nur = import inputs.nur {
-                  nurpkgs = prev;
-                  pkgs = prev;
-                };
-                sway = final.nur.repos.nim65s.sway-lone-titlebar;
-                pre-commit-sort = inputs.pre-commit-sort.packages.${system}.default;
-              })
-            ];
+        perSystem =
+          { system, ... }:
+          {
+            _module.args.pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+              overlays = [
+                (final: prev: {
+                  nur = import inputs.nur {
+                    nurpkgs = prev;
+                    pkgs = prev;
+                  };
+                  sway = final.nur.repos.nim65s.sway-lone-titlebar;
+                  pre-commit-sort = inputs.pre-commit-sort.packages.${system}.default;
+                })
+              ];
+            };
           };
-        };
         flake = {
           homeConfigurations = {
             "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {

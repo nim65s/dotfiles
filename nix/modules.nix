@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}:
+{ lib, ... }:
 {
   options.nixGL = lib.mkOption {
     type = lib.types.str;
