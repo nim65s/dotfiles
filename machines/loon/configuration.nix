@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  my-username = "nim";
+in
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -27,7 +30,7 @@
   console.keyMap = "fr-bepo";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nim = {
+  users.users.${my-username} = {
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
@@ -87,7 +90,7 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services = {
-    getty.autologinUser = "nim";
+    getty.autologinUser = my-username;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -99,4 +102,6 @@
 
     udev.packages = [ pkgs.stlink ];
   };
+
+  home-manager.users.${my-username} = config.my-home my-username;
 }

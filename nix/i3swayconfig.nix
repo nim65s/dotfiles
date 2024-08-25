@@ -1,9 +1,9 @@
 {
+  config,
   lib,
   sway,
   pkgs,
   workspaceOutputAssign,
-  nixGL,
 }:
 let
   mod = "Mod4";
@@ -41,7 +41,7 @@ in
   ${if sway then "down" else null} = "t";
   ${if sway then "left" else null} = "c";
   ${if sway then "right" else null} = "r";
-  terminal = "${nixGL} ${lib.getExe pkgs.kitty}";
+  terminal = "${config.nixGL} ${lib.getExe pkgs.kitty}";
   menu = "${if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi} -show run";
   gaps.smartBorders = "on";
   workspaceAutoBackAndForth = true;
@@ -63,7 +63,7 @@ in
   };
   #extraConfig = "";
   keybindings = {
-    "${mod}+Return" = ''exec "${nixGL} ${lib.getExe pkgs.kitty}"'';
+    "${mod}+Return" = ''exec "${config.nixGL} ${lib.getExe pkgs.kitty}"'';
     "${mod}+i" = ''exec "${
       if sway then lib.getExe pkgs.rofi-wayland else lib.getExe pkgs.rofi
     } -show run"'';

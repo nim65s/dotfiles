@@ -37,31 +37,33 @@
           machines = {
             fix = {
               imports = [
-                ./nix/fix/configuration.nix
-                ./nix/x86_64-linux.nix
-                ./nix/nixos.nix
+                ./machines/fix/configuration.nix
+                ./common/x86_64-linux.nix
+                ./common/nixos.nix
                 home-manager.nixosModules.home-manager
-                { home-manager.users.nim = import ./nix/fix/home.nix; }
               ];
             };
             hattorian = {
               imports = [
-                ./nix/hattorixos/configuration.nix
-                ./nix/x86_64-linux.nix
-                ./nix/nixos.nix
+                ./machines/hattorixos/configuration.nix
+                ./common/x86_64-linux.nix
+                ./common/nixos.nix
                 home-manager.nixosModules.home-manager
-                {
-                  home-manager.users.nim = import ./nix/loon/home.nix; # follow loon cfg
-                }
               ];
             };
             loon = {
               imports = [
-                ./nix/loon/configuration.nix
-                ./nix/x86_64-linux.nix
-                ./nix/nixos.nix
                 home-manager.nixosModules.home-manager
-                { home-manager.users.nim = import ./nix/loon/home.nix; }
+                ./common/x86_64-linux.nix
+                ./common/nixos.nix
+                ./common/nixgl.nix
+                ./common/i3sway.nix
+                ./common/my-i3.nix
+                ./common/my-sway.nix
+                ./common/my-home.nix
+                ./common/my-programs.nix
+                ./common/my-firefox.nix
+                ./machines/loon/configuration.nix
               ];
             };
           };
@@ -112,7 +114,17 @@
             };
             "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
-              modules = [ ./nix/upepesanke/home.nix ];
+              modules = [
+                ./common/nixgl.nix
+                ./common/i3sway.nix
+                ./common/my-i3.nix
+                ./common/my-sway.nix
+                ./common/my-home.nix
+                ./common/my-programs.nix
+                ./common/my-firefox.nix
+                ./common/home-manager.nix
+                ./machines/upepesanke/home.nix
+              ];
             };
             "nim@yupa" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;

@@ -6,7 +6,6 @@
 }:
 
 let
-  username = "gsaurel";
   workspaceOutputAssign = [
     {
       "workspace" = "1";
@@ -57,50 +56,38 @@ let
       "output" = "DP-2";
     }
   ];
-  nixGL = "nixGL";
+  my-username = "gsaurel";
 in
-{
-  imports = [ ./../common.nix ];
-  inherit nixGL;
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
-  xdg.systemDirs.data = [ "/home/${username}/.nix-profile/share" ];
-  home.sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-  programs.waybar.settings.mainBar.output = "DP-1";
-  nix.package = pkgs.lix;
-  xsession.windowManager.i3.config = import ./../i3swayconfig.nix {
-    inherit
-      lib
-      pkgs
-      workspaceOutputAssign
-      nixGL
-      ;
-    sway = false;
-  };
-  wayland.windowManager.sway.config =
-    import ./../i3swayconfig.nix {
-      inherit
-        lib
-        pkgs
-        workspaceOutputAssign
-        nixGL
-        ;
-      sway = true;
-    }
-    // {
+#import ../../common/home.nix {inherit config lib pkgs; } "gsaurel" // {
+  {
+    nixGL = "nixGL";
+    home = {
+      sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+      username = my-username;
+      homeDirectory = "/home/${my-username}";
+    };
+    nix.package = pkgs.lix;
+    programs.waybar.settings.mainBar.output = "DP-1";
+    xdg.systemDirs.data = [ "/home/${my-username}/.nix-profile/share" ];
+    xsession.windowManager.i3.config = {
+      inherit workspaceOutputAssign;
+    };
+    wayland.windowManager.sway.config = {
+      inherit workspaceOutputAssign;
       output = {
         "DP-1" = {
-          bg = "${./../bg/gauche.jpg} fill";
+          bg = "${./../../bg/gauche.jpg} fill";
           scale = "1.5";
           mode = "3840x2160";
           pos = "0 0";
         };
         "DP-2" = {
-          bg = "${./../bg/droite.jpg} fill";
+          bg = "${./../../bg/droite.jpg} fill";
           mode = "1920x1080";
           pos = "2560 0";
         };
       };
     };
-}
+  }
+#}
