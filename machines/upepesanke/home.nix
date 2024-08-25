@@ -1,12 +1,38 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
-
-let
-  workspaceOutputAssign = [
+{
+  inherit (config.my-home)
+    accounts
+    fonts
+    gtk
+    programs
+    qt
+    services
+    systemd
+    wayland
+    xdg
+    xsession
+    ;
+  nixGL = "nixGL";
+  my-username = "gsaurel";
+  my-waybar-output = "DP-1";
+  my-sway-output = {
+    "DP-1" = {
+      bg = "${./../../bg/gauche.jpg} fill";
+      scale = "1.5";
+      mode = "3840x2160";
+      pos = "0 0";
+    };
+    "DP-2" = {
+      bg = "${./../../bg/droite.jpg} fill";
+      mode = "1920x1080";
+      pos = "2560 0";
+    };
+  };
+  my-workspaceOutputAssign = [
     {
       "workspace" = "1";
       "output" = "DP-1";
@@ -56,38 +82,12 @@ let
       "output" = "DP-2";
     }
   ];
-  my-username = "gsaurel";
-in
-
-#import ../../common/home.nix {inherit config lib pkgs; } "gsaurel" // {
-  {
-    nixGL = "nixGL";
-    home = {
-      sessionVariables.LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-      username = my-username;
-      homeDirectory = "/home/${my-username}";
+  home = config.my-home.home // {
+    sessionVariables = config.my-home.home.sessionVariables // {
+      LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     };
-    nix.package = pkgs.lix;
-    programs.waybar.settings.mainBar.output = "DP-1";
-    xdg.systemDirs.data = [ "/home/${my-username}/.nix-profile/share" ];
-    xsession.windowManager.i3.config = {
-      inherit workspaceOutputAssign;
-    };
-    wayland.windowManager.sway.config = {
-      inherit workspaceOutputAssign;
-      output = {
-        "DP-1" = {
-          bg = "${./../../bg/gauche.jpg} fill";
-          scale = "1.5";
-          mode = "3840x2160";
-          pos = "0 0";
-        };
-        "DP-2" = {
-          bg = "${./../../bg/droite.jpg} fill";
-          mode = "1920x1080";
-          pos = "2560 0";
-        };
-      };
-    };
-  }
-#}
+  };
+  nix = config.my-home.nix // {
+    package = pkgs.lix;
+  };
+}

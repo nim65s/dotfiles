@@ -5,6 +5,15 @@
   ...
 }:
 {
+  options.my-sway-output = lib.mkOption {
+    type = lib.types.attrs;
+    description = "my sway output";
+    default = {
+      "*" = {
+        bg = "${./../bg/sleep.jpg} fill";
+      };
+    };
+  };
   options.my-sway = lib.mkOption {
     type = lib.types.attrs;
     description = "my sway";
@@ -19,11 +28,7 @@
         left = "c";
         right = "r";
         menu = "${lib.getExe pkgs.rofi-wayland} -show run";
-        output = {
-          "*" = {
-            bg = "${./../bg/sleep.jpg} fill";
-          };
-        };
+        output = config.my-sway-output;
         window.commands = [
           {
             command = "layout tabbed";

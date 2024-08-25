@@ -122,7 +122,6 @@
                 ./common/my-home.nix
                 ./common/my-programs.nix
                 ./common/my-firefox.nix
-                ./common/home-manager.nix
                 ./machines/upepesanke/home.nix
               ];
             };

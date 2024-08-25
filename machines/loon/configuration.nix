@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  my-username = "nim";
-in
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -30,7 +27,7 @@ in
   console.keyMap = "fr-bepo";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${my-username} = {
+  users.users.${config.my-username} = {
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Guilhem Saurel";
@@ -90,7 +87,7 @@ in
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services = {
-    getty.autologinUser = my-username;
+    getty.autologinUser = config.my-username;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -103,5 +100,5 @@ in
     udev.packages = [ pkgs.stlink ];
   };
 
-  home-manager.users.${my-username} = config.my-home my-username;
+  home-manager.users.${config.my-username} = config.my-home;
 }

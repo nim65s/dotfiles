@@ -5,6 +5,11 @@
   ...
 }:
 {
+  options.my-waybar-output = lib.mkOption {
+    type = lib.types.str;
+    description = "my waybar main output";
+    default = "";
+  };
   options.my-programs = lib.mkOption {
     type = lib.types.attrs;
     description = "my programs";
@@ -530,6 +535,7 @@
           enable = true;
           settings = {
             mainBar = {
+              ${if config.my-waybar-output != "" then "output" else null} = config.my-waybar-output;
               layer = "top";
               position = "bottom";
               height = 32;

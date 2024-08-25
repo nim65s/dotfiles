@@ -8,10 +8,15 @@ let
   mod = "Mod4";
 in
 {
+  options.my-workspaceOutputAssign = lib.mkOption {
+    default = [];
+    description = "i3/sway workspace output assign";
+  };
   options.i3sway = lib.mkOption {
     type = lib.types.attrs;
     description = "common stuff for i3 & sway";
     default = {
+      workspaceOutputAssign = config.my-workspaceOutputAssign;
       fonts.names = [ "SauceCodePro Nerd Font" ];
       fonts.size = 8.0;
       modifier = mod;
