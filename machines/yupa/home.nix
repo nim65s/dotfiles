@@ -17,7 +17,7 @@
   my-waybar-output = "eDP-1";
   my-sway-output = {
     "*" = {
-      bg = "${./../bg/yupa.jpg} fill";
+      bg = "${./../../bg/yupa.jpg} fill";
     };
   };
   nix = config.my-home.nix // {
