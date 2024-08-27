@@ -9,7 +9,7 @@ let
 in
 {
   options.my-workspaceOutputAssign = lib.mkOption {
-    default = [];
+    default = [ ];
     description = "i3/sway workspace output assign";
   };
   options.i3sway = lib.mkOption {

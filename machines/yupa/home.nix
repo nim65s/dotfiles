@@ -1,4 +1,4 @@
-{ config, pkgs, ...  }:
+{ config, pkgs, ... }:
 {
   inherit (config.my-home)
     accounts
