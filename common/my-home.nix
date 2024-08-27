@@ -328,6 +328,7 @@
           ".config/python_keyring/keyringrc.cfg".source = ../.config/python_keyring/keyringrc.cfg;
           ".config/rofi-rbw.rc".source = ../.config/rofi-rbw.rc;
           ".config/vdirsyncer/config".source = ../.config/vdirsyncer/config;
+          ".ipython/profile_default/ipython_config.py".source = ../.ipython/profile_default/ipython_config.py;
           ".latexmkrc".source = ../.latexmkrc;
           ".pypirc".source = ../.pypirc;
 
