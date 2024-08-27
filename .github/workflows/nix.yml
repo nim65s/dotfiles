@@ -8,7 +8,7 @@ jobs:
       - uses: cachix/install-nix-action@v27
       - uses: cachix/cachix-action@v15
         with:
-          name: nim65s-dotfiles
+          name: nim65s
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community,nim65s-nur,rycee
       - run: nix build .#homeConfigurations."gsaurel@asahi".activationPackage
