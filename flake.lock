@@ -69,24 +69,29 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
+    "fork-manager": {
       "inputs": {
-        "nixpkgs-lib": [
-          "pre-commit-sort",
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
           "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "treefmt-nix"
         ]
       },
       "locked": {
-        "lastModified": 1722555600,
-        "narHash": "sha256-XOQkdLafnb/p9ij77byFQjDf5m5QYl9b2REiVClC+x4=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "8471fe90ad337a8074e957b69ca4d0089218391d",
+        "lastModified": 1724771244,
+        "narHash": "sha256-2frvuzpNxGSddVBjhQnyoGNmDoRYTsK0Qm7eQvzXsP8=",
+        "owner": "nim65s",
+        "repo": "fork-manager",
+        "rev": "7b5d0226f1006435f7ac10227f460c6f5d448a4f",
         "type": "github"
       },
       "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
+        "owner": "nim65s",
+        "repo": "fork-manager",
         "type": "github"
       }
     },
@@ -167,7 +172,9 @@
     },
     "pre-commit-sort": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
+        "flake-parts": [
+          "flake-parts"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -190,6 +197,7 @@
       "inputs": {
         "clan-core": "clan-core",
         "flake-parts": "flake-parts",
+        "fork-manager": "fork-manager",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
@@ -264,15 +272,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1724244085,
+        "lastModified": 1724338379,
         "narHash": "sha256-kKJtaiU5Ou+e/0Qs7SICXF22DLx4V/WhG1P6+k4yeOE=",
-        "owner": "nim65s",
+        "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "cdc34151a4715253f524ab7dbe1382f185a8b460",
+        "rev": "070f834771efa715f3e74cd8ab93ecc96fabc951",
         "type": "github"
       },
       "original": {
-        "owner": "nim65s",
+        "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
       }

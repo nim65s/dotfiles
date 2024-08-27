@@ -149,6 +149,7 @@
             fish
             fishPlugins.bass
             font-awesome
+            fork-manager
             gdb
             gdbgui
             ghostscript

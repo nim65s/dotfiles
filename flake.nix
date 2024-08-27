@@ -11,6 +11,14 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    fork-manager = {
+      url = "github:nim65s/fork-manager";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,10 +27,13 @@
     nur.url = "github:nix-community/nur";
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
     treefmt-nix = {
-      url = "github:nim65s/treefmt-nix"; # https://github.com/numtide/treefmt-nix/pull/224
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -86,6 +97,7 @@
                     pkgs = prev;
                   };
                   inherit (inputs.clan-core.packages.${system}) clan-cli;
+                  inherit (inputs.fork-manager.packages.${system}) fork-manager;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
                 })
