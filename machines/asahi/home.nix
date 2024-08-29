@@ -16,6 +16,7 @@
   home = config.my-home.home // {
     sessionVariables = config.my-home.home.sessionVariables // {
       LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+      SCCACHE_REDIS="redis://asahi";
     };
   };
   nix = config.my-home.nix // {
