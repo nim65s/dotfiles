@@ -483,6 +483,7 @@
             vimPlugins.vim-manpager
             vimPlugins.vim-nix
             vimPlugins.vim-pager
+            vimPlugins.vim-plugin-AnsiEsc
             vimPlugins.vim-sensible
             vimPlugins.vim-signify
             vimPlugins.vim-toml
