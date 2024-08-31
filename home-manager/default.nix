@@ -1,5 +1,12 @@
 _: {
   imports = [
+    ./accounts.nix
+    ./fonts.nix
+    ./gtk.nix
+    ./fonts.nix
+    ./home.nix
+    ./nix.nix
+
     ./nixgl.nix
     ./i3sway.nix
     ./my-i3.nix
