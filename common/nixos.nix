@@ -24,7 +24,7 @@
   };
   environment.systemPackages = with pkgs; [
     git
-    #vim
+    vim
   ];
   fonts = {
     fontconfig = {

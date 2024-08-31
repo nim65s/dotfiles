@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    #binfmt.emulatedSystems = [ "aarch64-linux" ];
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
     };
