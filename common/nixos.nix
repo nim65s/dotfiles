@@ -1,9 +1,8 @@
-{ config, inputs, pkgs, ... }:
+{ allSystems, config, inputs, pkgs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.clan-core.clanModules.iwd
-    ./x86_64-linux.nix
     ./nixgl.nix
     ./i3sway.nix
     ./my-i3.nix
@@ -78,6 +77,9 @@
         "flakes"
       ];
     };
+  };
+  nixpkgs = {
+    inherit (allSystems.${config.nixpkgs.hostPlatform.system}._module.args) pkgs;
   };
   programs = {
     dconf.enable = true;
