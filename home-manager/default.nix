@@ -1,5 +1,4 @@
-_:
-{
+_: {
   imports = [
     ./nixgl.nix
     ./i3sway.nix
