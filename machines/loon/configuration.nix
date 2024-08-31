@@ -1,4 +1,4 @@
-{ config, ... }:
+_:
 {
   imports = [ ./hardware-configuration.nix ];
   boot = {
@@ -9,6 +9,6 @@
   };
   clan.core.networking.targetHost = "root@loon";
   console.keyMap = "fr-bepo";
-  services.getty.autologinUser = config.my-username;
+  services.getty.autologinUser = "nim";
   system.stateVersion = "23.05"; # Did you read the comment?
 }
