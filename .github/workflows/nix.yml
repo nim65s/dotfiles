@@ -10,7 +10,7 @@ jobs:
         with:
           name: nim65s
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: nix-community,nim65s-nur,rycee
+          extraPullNames: nix-community,rycee
       - run: nix build .#homeConfigurations."gsaurel@asahi".activationPackage
       - run: nix build .#homeConfigurations."gsaurel@upepesanke".activationPackage
       - run: nix build .#homeConfigurations."nim@yupa".activationPackage
