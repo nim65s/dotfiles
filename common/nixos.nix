@@ -1,15 +1,8 @@
 { allSystems, config, inputs, pkgs, ... }:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     inputs.clan-core.clanModules.iwd
-    ./nixgl.nix
-    ./i3sway.nix
-    ./my-i3.nix
-    ./my-sway.nix
-    ./my-home.nix
-    ./my-programs.nix
-    ./my-firefox.nix
+    ./home-manager.nix
   ];
   boot = {
     loader = {

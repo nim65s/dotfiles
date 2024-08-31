@@ -48,15 +48,14 @@
           machines = {
             fix = {
               imports = [
-                ./machines/fix/configuration.nix
                 ./common/nixos.nix
-                home-manager.nixosModules.home-manager
+                ./machines/fix/configuration.nix
               ];
             };
             hattorian = {
               imports = [
-                ./machines/hattorian/configuration.nix
                 ./common/nixos.nix
+                ./machines/hattorian/configuration.nix
               ];
             };
             loon = {
@@ -111,39 +110,21 @@
             "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/nixgl.nix
-                ./common/i3sway.nix
-                ./common/my-i3.nix
-                ./common/my-sway.nix
-                ./common/my-home.nix
-                ./common/my-programs.nix
-                ./common/my-firefox.nix
+                ./common/home-manager.nix
                 ./machines/asahi/home.nix
               ];
             };
             "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/nixgl.nix
-                ./common/i3sway.nix
-                ./common/my-i3.nix
-                ./common/my-sway.nix
-                ./common/my-home.nix
-                ./common/my-programs.nix
-                ./common/my-firefox.nix
+                ./common/home-manager.nix
                 ./machines/upepesanke/home.nix
               ];
             };
             "nim@yupa" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/nixgl.nix
-                ./common/i3sway.nix
-                ./common/my-i3.nix
-                ./common/my-sway.nix
-                ./common/my-home.nix
-                ./common/my-programs.nix
-                ./common/my-firefox.nix
+                ./common/home-manager.nix
                 ./machines/yupa/home.nix
               ];
             };
