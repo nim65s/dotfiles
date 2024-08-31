@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -18,7 +18,31 @@
       efi.canTouchEfiVariables = true;
     };
   };
-  home-manager.useGlobalPkgs = true;
+  clan.iwd.networks = {
+    baron.ssid = "Baron";
+    sabliere.ssid = "Livebox-7730";
+  };
+  environment.systemPackages = with pkgs; [
+    git
+    #vim
+  ];
+  fonts = {
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Source Serif 4" ];
+        sansSerif = [ "Source Sans 3" ];
+        monospace = [ "SauceCodePro Nerd Font" ];
+      };
+    };
+  };
+  hardware = {
+    graphics.enable = true;
+    pulseaudio.enable = false;
+  };
+  home-manager = {
+    useGlobalPkgs = true;
+    users.${config.my-username} = config.my-home;
+  };
   i18n = {
     defaultLocale = "fr_FR.UTF-8";
     extraLocaleSettings = {
@@ -55,7 +79,35 @@
       ];
     };
   };
-  programs.fish.enable = true;
-  services.openssh.enable = true;
+  programs = {
+    dconf.enable = true;
+    fish.enable = true;
+  };
+  security.rtkit.enable = true;
+  services = {
+    openssh.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      audio.enable = true;
+      pulse.enable = true;
+    };
+    #xdg.portal.wlr.enable = true;
+    udev.packages = [ pkgs.stlink ];
+  };
   time.timeZone = "Europe/Paris";
+  users.users.${config.my-username} = {
+    shell = pkgs.fish;
+    isNormalUser = true;
+    description = "Guilhem Saurel";
+    extraGroups = [
+      "dialout"
+      "networkmanager"
+      "wheel"
+      "docker"
+      "video"
+    ];
+  };
+  virtualisation.docker.enable = true;
 }
