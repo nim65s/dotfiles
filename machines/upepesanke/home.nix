@@ -1,17 +1,6 @@
 { config, pkgs, ... }:
 {
-  inherit (config.my-home)
-    accounts
-    fonts
-    gtk
-    programs
-    qt
-    services
-    systemd
-    wayland
-    xdg
-    xsession
-    ;
+
   nixGL = "nixGL";
   my-username = "gsaurel";
   my-waybar-output = "DP-1";
@@ -78,13 +67,13 @@
       "output" = "DP-2";
     }
   ];
-  home = config.my-home.home // {
-    sessionVariables = config.my-home.home.sessionVariables // {
+  home = {
+    sessionVariables = {
       LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
       SCCACHE_REDIS="redis://asahi";
     };
   };
-  nix = config.my-home.nix // {
+  nix = {
     package = pkgs.lix;
   };
 }

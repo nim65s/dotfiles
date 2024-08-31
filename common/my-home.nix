@@ -5,15 +5,11 @@
   ...
 }:
 {
-  options.my-username = lib.mkOption {
-    type = lib.types.str;
-    default = "nim";
-    description = "my username";
-  };
-  options.my-home = lib.mkOption {
-    type = lib.types.attrs;
-    description = "my home";
-    default =
+  #options.my-home = lib.mkOption {
+    #type = lib.types.attrs;
+    #description = "my home";
+    #default =
+  config =
       let
         atjoin =
           {
@@ -444,5 +440,5 @@
           '';
         };
       };
-  };
+  #};
 }

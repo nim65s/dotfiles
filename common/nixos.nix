@@ -2,7 +2,9 @@
 {
   imports = [
     inputs.clan-core.clanModules.iwd
-    ./home-manager.nix
+    inputs.home-manager.nixosModules.home-manager
+    #./home-manager.nix
+    ./my-username.nix
   ];
   boot = {
     loader = {
@@ -33,7 +35,8 @@
   };
   home-manager = {
     useGlobalPkgs = true;
-    users.${config.my-username} = config.my-home;
+    #users.${config.my-username} = config.my-home;
+    users.${config.my-username} = import ./home-manager.nix;
   };
   i18n = {
     defaultLocale = "fr_FR.UTF-8";
