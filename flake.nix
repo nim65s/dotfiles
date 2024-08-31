@@ -57,25 +57,12 @@
             hattorian = {
               imports = [
                 ./machines/hattorian/configuration.nix
-                ./common/x86_64-linux.nix
                 ./common/nixos.nix
-                home-manager.nixosModules.home-manager
-                inputs.clan-core.clanModules.iwd
               ];
             };
             loon = {
               imports = [
-                home-manager.nixosModules.home-manager
-                inputs.clan-core.clanModules.iwd
-                ./common/x86_64-linux.nix
                 ./common/nixos.nix
-                ./common/nixgl.nix
-                ./common/i3sway.nix
-                ./common/my-i3.nix
-                ./common/my-sway.nix
-                ./common/my-home.nix
-                ./common/my-programs.nix
-                ./common/my-firefox.nix
                 ./machines/loon/configuration.nix
               ];
             };

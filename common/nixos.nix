@@ -1,5 +1,17 @@
 { inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.clan-core.clanModules.iwd
+    ./x86_64-linux.nix
+    ./nixgl.nix
+    ./i3sway.nix
+    ./my-i3.nix
+    ./my-sway.nix
+    ./my-home.nix
+    ./my-programs.nix
+    ./my-firefox.nix
+  ];
   boot = {
     loader = {
       systemd-boot.enable = true;
