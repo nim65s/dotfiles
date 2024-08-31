@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.clan-core.clanModules.iwd
+    inputs.clan-core.clanModules.sshd
     inputs.home-manager.nixosModules.home-manager
     #./home-manager.nix
     ./my-username.nix
