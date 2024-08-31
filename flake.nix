@@ -46,18 +46,18 @@
         debug = true;
         clan = {
           machines = {
-            fix = {
-              imports = [
-                ./common/nixos.nix
-                ./machines/fix/configuration.nix
-              ];
-            };
-            hattorian = {
-              imports = [
-                ./common/nixos.nix
-                ./machines/hattorian/configuration.nix
-              ];
-            };
+            #fix = {
+              #imports = [
+                #./common/nixos.nix
+                #./machines/fix/configuration.nix
+              #];
+            #};
+            #hattorian = {
+              #imports = [
+                #./common/nixos.nix
+                #./machines/hattorian/configuration.nix
+              #];
+            #};
             loon = {
               imports = [
                 ./common/nixos.nix
