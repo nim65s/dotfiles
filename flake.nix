@@ -60,6 +60,7 @@
                 ./common/x86_64-linux.nix
                 ./common/nixos.nix
                 home-manager.nixosModules.home-manager
+                inputs.clan-core.clanModules.iwd
               ];
             };
             loon = {

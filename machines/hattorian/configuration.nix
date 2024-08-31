@@ -3,6 +3,11 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  clan.iwd.networks = {
+    baron.ssid = "Baron";
+    sabliere.ssid = "Livebox-7730";
+  };
+
   # Bootloader.
   boot = {
     # Setup keyfile
