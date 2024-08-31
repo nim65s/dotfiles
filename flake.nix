@@ -60,7 +60,7 @@
             #};
             loon = {
               imports = [
-                ./common/nixos.nix
+                ./nixos
                 ./machines/loon/configuration.nix
               ];
             };
@@ -117,7 +117,7 @@
             "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/home-manager.nix
+                ./home-manager
                 ./machines/upepesanke/home.nix
               ];
             };
