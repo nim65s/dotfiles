@@ -13,6 +13,7 @@
     };
   };
   clan.iwd.networks = {
+    azv.ssid = "azv";
     baron.ssid = "Baron";
     sabliere.ssid = "Livebox-7730";
   };
