@@ -35,7 +35,6 @@
   };
   home-manager = {
     useGlobalPkgs = true;
-    #users.${config.my-username} = config.my-home;
     users.${config.my-username} = import ./home-manager.nix;
   };
   i18n = {

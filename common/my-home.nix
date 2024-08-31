@@ -5,10 +5,6 @@
   ...
 }:
 {
-  #options.my-home = lib.mkOption {
-    #type = lib.types.attrs;
-    #description = "my home";
-    #default =
   config =
       let
         atjoin =
