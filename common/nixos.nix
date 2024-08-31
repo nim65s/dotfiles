@@ -18,6 +18,7 @@
   };
   environment.systemPackages = with pkgs; [
     git
+    iwgtk
     vim
   ];
   fonts = {
