@@ -56,7 +56,7 @@
             };
             hattorian = {
               imports = [
-                ./machines/hattorixos/configuration.nix
+                ./machines/hattorian/configuration.nix
                 ./common/x86_64-linux.nix
                 ./common/nixos.nix
                 home-manager.nixosModules.home-manager
@@ -65,6 +65,7 @@
             loon = {
               imports = [
                 home-manager.nixosModules.home-manager
+                inputs.clan-core.clanModules.iwd
                 ./common/x86_64-linux.nix
                 ./common/nixos.nix
                 ./common/nixgl.nix

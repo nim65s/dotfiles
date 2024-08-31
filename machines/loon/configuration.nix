@@ -2,6 +2,10 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  clan.iwd.networks = {
+    sabliere.ssid = "Livebox-7730";
+  };
+
   # Bootloader.
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
