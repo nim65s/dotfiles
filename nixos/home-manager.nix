@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ../home-manager/my-username.nix
+    ../home-manager/my-options.nix
   ];
 
   home-manager = {

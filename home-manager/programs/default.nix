@@ -13,6 +13,10 @@ let
     "${name}@${host}";
 in
 {
+  imports = [
+    ./firefox.nix
+  ];
+
   programs = {
     atuin = {
       enable = true;
@@ -58,8 +62,6 @@ in
       enable = true;
       nix-direnv.enable = true;
     };
-
-    firefox = config.my-firefox;
 
     fish = {
       enable = true;

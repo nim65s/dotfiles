@@ -6,7 +6,7 @@ _: {
     ./fonts.nix
     ./home.nix
     ./nix.nix
-    ./programs.nix
+    ./programs
     ./qt.nix
     ./services.nix
     ./systemd.nix
@@ -14,12 +14,10 @@ _: {
     ./xdg.nix
     ./xsession.nix
 
-    ./nixgl.nix
     ./i3sway.nix
     ./my-i3.nix
     ./my-sway.nix
+
     ./my-options.nix
-    ./my-firefox.nix
-    ./my-username.nix
   ];
 }
