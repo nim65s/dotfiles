@@ -292,7 +292,7 @@ in
 
     ssh = {
       enable = true;
-      controlMaster = "yes";
+      controlMaster = "auto";
       includes = [ "local_config" ];
       userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
       matchBlocks = {
