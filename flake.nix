@@ -110,7 +110,7 @@
             "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/home-manager.nix
+                ./home-manager
                 ./machines/asahi/home.nix
               ];
             };
@@ -124,7 +124,7 @@
             "nim@yupa" = home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
-                ./common/home-manager.nix
+                ./home-manager
                 ./machines/yupa/home.nix
               ];
             };
