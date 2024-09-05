@@ -14,34 +14,34 @@
           format = ''
             <b>%s</b>
             %b'';
-            font = "Source Sans";
-            browser = "${lib.getExe pkgs.firefox-devedition} -new-tab";
-          };
-        };
-      };
-
-      signaturepdf = {
-        enable = true;
-        port = 5165;
-        extraConfig = {
-          max_file_uploads = "201";
-          post_max_size = "24M";
-          upload_max_filesize = "24M";
-        };
-      };
-      ssh-agent.enable = true;
-
-      spotifyd = {
-        enable = true;
-        settings = {
-          global = {
-            username = "nim65s";
-            password_cmd = "rbw get spotify";
-            device_name = "home-manager";
-            device_type = "computer";
-            backend = "pulseaudio";
-          };
+          font = "Source Sans";
+          browser = "${lib.getExe pkgs.firefox-devedition} -new-tab";
         };
       };
     };
-  }
+
+    signaturepdf = {
+      enable = true;
+      port = 5165;
+      extraConfig = {
+        max_file_uploads = "201";
+        post_max_size = "24M";
+        upload_max_filesize = "24M";
+      };
+    };
+    ssh-agent.enable = true;
+
+    spotifyd = {
+      enable = true;
+      settings = {
+        global = {
+          username = "nim65s";
+          password_cmd = "rbw get spotify";
+          device_name = "home-manager";
+          device_type = "computer";
+          backend = "pulseaudio";
+        };
+      };
+    };
+  };
+}

@@ -1,5 +1,4 @@
-_:
-{
+_: {
   qt = {
     enable = true;
     platformTheme.name = "qtct";

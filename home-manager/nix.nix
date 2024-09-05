@@ -1,5 +1,4 @@
-_:
-{
+_: {
   nix = {
     #package = pkgs.lix;
     settings = {

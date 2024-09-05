@@ -1,5 +1,8 @@
 _: {
   imports = [
+    ./i3sway.nix
+    ./my-options.nix
+
     ./accounts.nix
     ./fonts.nix
     ./gtk.nix
@@ -13,11 +16,5 @@ _: {
     ./wayland.nix
     ./xdg.nix
     ./xsession.nix
-
-    ./i3sway.nix
-    ./my-i3.nix
-    ./my-sway.nix
-
-    ./my-options.nix
   ];
 }

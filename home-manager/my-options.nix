@@ -1,4 +1,4 @@
-{ lib, ...  }:
+{ lib, ... }:
 {
   options = {
     my-waybar-output = lib.mkOption {
@@ -11,6 +11,16 @@
       type = lib.types.str;
       default = "nim";
       description = "my username";
+    };
+
+    my-sway-output = lib.mkOption {
+      type = lib.types.attrs;
+      description = "my sway output";
+      default = {
+        "*" = {
+          bg = "${./../bg/sleep.jpg} fill";
+        };
+      };
     };
 
     nixGL = lib.mkOption {
