@@ -73,7 +73,7 @@ in
         bnb = "cmake -B build && cmake --build build";
         bb = "cmake --build build";
         bt = "cmake --build build -t test";
-        bi = "cmake --build build -t install;
+        bi = "cmake --build build -t install";
         cp = "cp -r";
         demonte = "~/scripts/demonter.sh";
         dc = "cd";
