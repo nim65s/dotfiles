@@ -9,6 +9,7 @@
     iwd.networks = {
       azv.ssid = "azv";
       baron.ssid = "Baron";
+      kekeno.ssid = "Kekeno";
       sabliere.ssid = "Livebox-7730";
     };
   };

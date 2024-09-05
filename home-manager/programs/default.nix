@@ -63,6 +63,59 @@ in
 
     fish = {
       enable = true;
+      shellAbbrs = {
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        "....." = "cd ../../../..";
+        "......" = "cd ../../../../..";
+        bn = "cmake -B build";
+        bnb = "cmake -B build && cmake --build build";
+        bb = "cmake --build build";
+        bt = "cmake --build build -t test";
+        bi = "cmake --build build -t install;
+        cp = "cp -r";
+        demonte = "~/scripts/demonter.sh";
+        dc = "cd";
+        gc = {
+          expansion = "git commit -am '%'";
+          setCursor = true;
+        };
+        gd = "git difftool";
+        gst = "git status";
+        gp = "git push";
+        gf = "git fetch --all --prune";
+        gcan = "git commit -a --amend --no-edit";
+        gcl = "git clone";
+        gcr = "git clone --recursive";
+        gch = "git checkout";
+        glp = "git push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds";
+        grhh = "git reset --hard HEAD";
+        gsub = "git commit -am submodules; git push";
+        ipa = "ip address";
+        ipr = "ip route";
+        ls = "lsd";
+        ll = "lsd -l";
+        la = "lsd -A";
+        lt = "lsd --tree";
+        lla = "lsd -lA";
+        llt = "lsd -l --tree";
+        monte = "~/scripts/monter.sh";
+        mv = "mv -v";
+        mpv = "mpv --no-border";
+        psef = "ps -ef | grep -v grep | grep";
+        rm = "rm -Iv";
+        v = "vim";
+        vi = "vim";
+        vmi = "vim";
+        vd = "vimdiff";
+        watch = "watch --color -d";
+        z = "zellij";
+        za = "zathura";
+      };
+      shellAliases = {
+        "+" = "echo";
+      };
       interactiveShellInit = ''
         test -f ~/dotfiles/.config/fish/config.fish
         and source ~/dotfiles/.config/fish/config.fish
@@ -235,7 +288,7 @@ in
 
     lsd = {
       enable = true;
-      enableAliases = true;
+      enableAliases = false;  # use fish abbr instead
       settings = {
         header = true;
         hyperlink = "auto";
