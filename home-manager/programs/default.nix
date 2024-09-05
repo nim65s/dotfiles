@@ -13,9 +13,7 @@ let
     "${name}@${host}";
 in
 {
-  imports = [
-    ./firefox.nix
-  ];
+  imports = [ ./firefox.nix ];
 
   programs = {
     atuin = {
