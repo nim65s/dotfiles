@@ -85,6 +85,7 @@
       jless
       jq
       just
+      kcov
       khal
       khard
       killall
