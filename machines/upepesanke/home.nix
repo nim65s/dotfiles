@@ -4,6 +4,7 @@
   nixGL = "nixGL";
   my-username = "gsaurel";
   my-waybar-output = "DP-1";
+  my-sway-extraConfig = "";
   my-sway-output = {
     "DP-1" = {
       bg = "${./../../bg/gauche.jpg} fill";

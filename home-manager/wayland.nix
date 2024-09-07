@@ -11,9 +11,7 @@ in
   wayland = {
     windowManager.sway = {
       enable = true;
-      extraConfig = ''
-        hide_edge_borders --smart-titles smart
-      '';
+      extraConfig = config.my-sway-extraConfig;
       config = config.i3sway // {
         up = "s";
         down = "t";
