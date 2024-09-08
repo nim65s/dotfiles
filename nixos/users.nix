@@ -1,10 +1,16 @@
 { pkgs, ... }:
+let
+  keyFiles = [
+        ../pubkeys/hatto
+        ../pubkeys/loon
+        ../pubkeys/upe
+        ../pubkeys/yubi
+      ];
+in
 {
   users.users = {
     root = {
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH38Iwc5sA/6qbBRL+uot3yqkuACDDu1yQbk6bKxiPGP nim@loon"
-      ];
+      openssh.authorizedKeys.keyFiles = keyFiles;
     };
     nim = {
       shell = pkgs.fish;
@@ -17,6 +23,7 @@
         "docker"
         "video"
       ];
+      openssh.authorizedKeys.keyFiles = keyFiles;
     };
   };
 }
