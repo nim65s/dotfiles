@@ -59,10 +59,7 @@
             #];
             #};
             loon = {
-              imports = [
-                ./nixos
-                ./machines/loon/configuration.nix
-              ];
+              imports = [ ./nixos ];
             };
           };
           meta.name = "github.com/nim65s/dotfiles";
