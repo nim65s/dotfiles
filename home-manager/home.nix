@@ -220,6 +220,7 @@
       zathura
       zeal
       zellij
+      zfs
       zola
       zoom-us
     ];
@@ -246,6 +247,7 @@
     };
 
     sessionVariables = {
+      CLAN_DIR = "$HOME/dotfiles";
       SHELL = lib.getExe pkgs.fish;
       SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
       SSH_ASKPASS_REQUIRE = "prefer";
