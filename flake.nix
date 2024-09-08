@@ -58,9 +58,8 @@
             #./machines/hattorian/configuration.nix
             #];
             #};
-            loon = {
-              imports = [ ./nixos ];
-            };
+            hattori.imports = [ ./nixos ];
+            loon.imports = [ ./nixos ];
           };
           meta.name = "github.com/nim65s/dotfiles";
           specialArgs = {
