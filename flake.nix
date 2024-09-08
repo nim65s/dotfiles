@@ -58,7 +58,10 @@
             #./machines/hattorian/configuration.nix
             #];
             #};
-            hattori.imports = [ ./nixos ];
+            hattori.imports = [
+              ./nixos
+              ./nixos/disko.nix
+            ];
             loon.imports = [ ./nixos ];
           };
           meta.name = "github.com/nim65s/dotfiles";

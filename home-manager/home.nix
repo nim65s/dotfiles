@@ -127,6 +127,7 @@
       openssl
       pandoc
       pavucontrol
+      pciutils
       pdfarranger
       pdfpc
       #pipewire
