@@ -281,7 +281,7 @@ in
         tab_bar_style = "powerline";
         tab_separator = " | ";
         background_opacity = "0.7";
-        shell = "fish";
+        shell = "${lib.getExe pkgs.fish}";
         scrollback_lines = 10000;
       };
     };
