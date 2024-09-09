@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
 
-  nixGL = "nixGL";
+  nixGL = "/home/gsaurel/.nix-profile/bin/nixGL";
   my-username = "gsaurel";
   my-waybar-output = "DP-1";
   my-sway-extraConfig = "";
