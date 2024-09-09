@@ -83,11 +83,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725375580,
-        "narHash": "sha256-t7nGEz9HnJS3BRkAd4oongO/I1/6aCneWxWEfRM97GM=",
+        "lastModified": 1725888478,
+        "narHash": "sha256-IC0XXzE+LEYM1L39xGzhbk6L3onnTutGUZqZ8lK8H5Y=",
         "owner": "nim65s",
         "repo": "fork-manager",
-        "rev": "a073ac52bf980ecb14bce44ac98bbfd628360a5c",
+        "rev": "d2518a54cbffbe82d1c6b4f70e55b47e6dfff2bd",
         "type": "github"
       },
       "original": {
