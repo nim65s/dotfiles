@@ -74,7 +74,6 @@ in
         bb = "cmake --build build";
         bt = "cmake --build build -t test";
         bi = "cmake --build build -t install";
-        cp = "cp -r";
         demonte = "~/scripts/demonter.sh";
         dc = "cd";
         gc = {
@@ -94,27 +93,28 @@ in
         gsub = "git commit -am submodules; git push";
         ipa = "ip address";
         ipr = "ip route";
-        ls = "lsd";
-        ll = "lsd -l";
-        la = "lsd -A";
-        lt = "lsd --tree";
-        lla = "lsd -lA";
-        llt = "lsd -l --tree";
+        ll = "ls -l";
+        la = "ls -A";
+        lt = "ls --tree";
+        lla = "ls -lA";
+        llt = "ls -l --tree";
         monte = "~/scripts/monter.sh";
-        mv = "mv -v";
-        mpv = "mpv --no-border";
         psef = "ps -ef | grep -v grep | grep";
-        rm = "rm -Iv";
         v = "vim";
         vi = "vim";
         vmi = "vim";
         vd = "vimdiff";
-        watch = "watch --color -d";
         z = "zellij";
         za = "zathura";
       };
       shellAliases = {
         "+" = "echo";
+        cp = "cp -r";
+        ls = "lsd";
+        mpv = "mpv --no-border";
+        mv = "mv -v";
+        rm = "rm -Iv";
+        watch = "watch --color -d";
       };
       interactiveShellInit = ''
         test -f ~/dotfiles/.config/fish/config.fish
