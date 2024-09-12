@@ -248,14 +248,27 @@
     };
 
     sessionVariables = {
+      BROWSER = lib.getExe config.programs.firefox.package;
       CLAN_DIR = "$HOME/dotfiles";
+      CMAKE_BUILD_TYPE = "RelWithDebInfo";
+      CMAKE_C_COMPILER_LAUNCHER = "sccache";
+      CMAKE_CXX_COMPILER_LAUNCHER = "sccache";
+      CMAKE_COLOR_DIAGNOSTICS = "ON";
+      CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
+      CMAKE_GENERATOR = "Ninja";
+      CMEEL_LOG_LEVEL = "DEBUG";
+      CTEST_OUTPUT_ON_FAILURE = "ON";
+      CTEST_PROGRESS_OUTPUT = "ON";
+      DELTA_PAGER = "less -FR";
+      MANPAGER = "vim -c ASMANPAGER -";
+      PAGER = "vim -c PAGER -";
+      POETRY_VIRTUALENVS_IN_PROJECT = "true";
+      RUSTC_WRAPPER = lib.getExe pkgs.sccache;
       SHELL = lib.getExe pkgs.fish;
       SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
       SSH_ASKPASS_REQUIRE = "prefer";
       SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
-      PAGER = "vim -c PAGER -";
-      DELTA_PAGER = "less -FR";
-      MANPAGER = "vim -c ASMANPAGER -";
+      TWINE_USERNAME = "nim65s";
     };
   };
 }

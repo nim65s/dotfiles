@@ -93,11 +93,14 @@ in
         gsub = "git commit -am submodules; git push";
         ipa = "ip address";
         ipr = "ip route";
-        ll = "ls -l";
-        la = "ls -A";
-        lt = "ls --tree";
-        lla = "ls -lA";
-        llt = "ls -l --tree";
+        la = "lsd -A";
+        ll = "lsd -lrt";
+        ls = "lsd";
+        lt = "lsd --tree";
+        lla = "lsd -lA";
+        llt = "lsd -l --tree";
+        lat = "lsd -A --tree";
+        lta = "lsd -A --tree";
         monte = "~/scripts/monter.sh";
         psef = "ps -ef | grep -v grep | grep";
         v = "vim";
@@ -106,14 +109,6 @@ in
         vd = "vimdiff";
         z = "zellij";
         za = "zathura";
-      };
-      shellAliases = {
-        "+" = "echo";
-        cp = "cp -r";
-        mpv = "mpv --no-border";
-        mv = "mv -v";
-        rm = "rm -Iv";
-        watch = "watch --color -d";
       };
       interactiveShellInit = ''
         test -f ~/dotfiles/.config/fish/config.fish
@@ -128,8 +123,12 @@ in
         end
       '';
       shellAliases = {
-        ll = lib.mkForce "${lib.getExe pkgs.lsd} -lrt";
-        lat = "${lib.getExe pkgs.lsd} -A --tree";
+        "+" = "echo";
+        cp = "cp -r";
+        mpv = "mpv --no-border";
+        mv = "mv -v";
+        rm = "rm -Iv";
+        watch = "watch --color -d";
       };
     };
 
@@ -287,7 +286,6 @@ in
 
     lsd = {
       enable = true;
-      enableAliases = true;
       settings = {
         header = true;
         hyperlink = "auto";

@@ -46,31 +46,15 @@ end
 
 . $DOTFILES/portable-aliases.sh
 
-set -q EDITOR || set -x EDITOR vim
-set -q BROWSER || set -x BROWSER firefox-developer-edition
 #set -x JAVA_HOME /opt/java
 set -x _JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dawt.useSystemAAFontSettings=lcd'
-set -x PIP_USE_WHEEL true
 #set -x TERM xterm-256color
-set -x MPD_HOST nimopidy
-set -x CMAKE_BUILD_TYPE RelWithDebInfo
-set -x CMAKE_C_COMPILER_LAUNCHER sccache
-set -x CMAKE_CXX_COMPILER_LAUNCHER sccache
-set -x CMAKE_COLOR_DIAGNOSTICS ON
-set -x CMAKE_EXPORT_COMPILE_COMMANDS ON
-set -x CMAKE_GENERATOR Ninja
-set -x CMEEL_LOG_LEVEL DEBUG
-set -x CTEST_OUTPUT_ON_FAILURE ON
 set -x CTEST_PARALLEL_LEVEL (nproc)
-set -x CTEST_PROGRESS_OUTPUT ON
-set -x DOCKER_BUILDKIT 1
-set -x COMPOSE_DOCKER_CLI_BUILD 1
-set -x ORBInitRef NameService=corbaname::localhost
+#set -x ORBInitRef NameService=corbaname::localhost
+
 set -q CC || set -x CC clang
 set -q CXX || set -x CXX clang++
 set -q CXXFLAGS || set -x CXXFLAGS -fdiagnostics-color
-set -x TWINE_USERNAME nim65s
-set -x POETRY_VIRTUALENVS_IN_PROJECT true
 
 function gnucc
     set -x CC gcc
@@ -129,18 +113,6 @@ function ``` --description 'no-op, to ease copy-paste from markdown'
     return 0
 end
 
-function cxx_cov
-    cmake \
-        -DCMAKE_BUILD_TYPE=Debug \
-        -DCMAKE_CXX_FLAGS="--coverage" \
-        -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
-        -DCMAKE_MODULE_LINKER_FLAGS="--coverage" \
-        ..
-    and make -j8
-    and make test
-    and gcovr -r .. --html --html-details -o /tmp/cov/index.html
-end
-
 function rptest
     set build (make show-var VARNAME=CONFIGURE_DIRS)
     pushd (make show-var VARNAME=WRKSRC)
@@ -154,9 +126,6 @@ function rprelease
     make clean && make mdi && make && make install && make print-PLIST && sed -i '/robotpkg_info/d' PLIST.guess && vd PLIST.guess PLIST && make install confirm
 end
 
-test -d /opt/esp-idf
-and set -x IDF_PATH /opt/esp-idf
-
 function hg --wraps rg; kitty +kitten hyperlinked_grep $argv; end
 
 function gcoauth
@@ -168,12 +137,4 @@ function gcoauth
     set name (echo $data | jq --raw-output '.name // .login')
 
     printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
-end
-
-if which sccache &> /dev/null
-    set -x RUSTC_WRAPPER (which sccache)
-end
-
-if which rtx &> /dev/null
-    rtx activate fish | source
 end
