@@ -61,6 +61,21 @@ in
       nix-direnv.enable = true;
     };
 
+    eza = {
+      enable = true;
+      git = true;
+      icons = true;
+      extraOptions = [
+        "--classify"
+        "--color-scale=all"
+        "--git-ignore"
+        "--group"
+        "--header"
+        "--hyperlink"
+        "--ignore-glob=.git|*.orig|*~"
+      ];
+    };
+
     fish = {
       enable = true;
       shellAbbrs = {
@@ -93,14 +108,14 @@ in
         gsub = "git commit -am submodules; git push";
         ipa = "ip address";
         ipr = "ip route";
-        la = "lsd -A";
-        ll = "lsd -lrt";
-        ls = "lsd";
-        lt = "lsd --tree";
-        lla = "lsd -lA";
-        llt = "lsd -l --tree";
-        lat = "lsd -A --tree";
-        lta = "lsd -A --tree";
+        la = "eza -A";
+        ll = "eza -l --sort newest";
+        ls = "eza";
+        lt = "eza --tree";
+        lla = "eza -lA";
+        llt = "eza -l --tree";
+        lat = "eza -A --tree";
+        lta = "eza -A --tree";
         monte = "~/scripts/monter.sh";
         psef = "ps -ef | grep -v grep | grep";
         v = "vim";
