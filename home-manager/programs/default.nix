@@ -110,7 +110,6 @@ in
       shellAliases = {
         "+" = "echo";
         cp = "cp -r";
-        ls = "lsd";
         mpv = "mpv --no-border";
         mv = "mv -v";
         rm = "rm -Iv";
@@ -288,7 +287,7 @@ in
 
     lsd = {
       enable = true;
-      enableAliases = false;  # use fish abbr instead
+      enableAliases = true;
       settings = {
         header = true;
         hyperlink = "auto";
