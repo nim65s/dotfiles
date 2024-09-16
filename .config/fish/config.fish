@@ -153,6 +153,7 @@ function ii
     cd
     while true
         pass test
+        rbw unlock
         and imapfilter
         and offlineimap
         and ~/scripts/nmnnn.sh
