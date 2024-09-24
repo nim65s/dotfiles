@@ -529,6 +529,7 @@ in
         vimPlugins.colorizer
         vimPlugins.file-line
         vimPlugins.nerdcommenter
+        vimPlugins.plantuml-syntax
         vimPlugins.vim-airline
         vimPlugins.vim-airline-themes
         vimPlugins.vim-clang-format
