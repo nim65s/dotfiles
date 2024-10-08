@@ -447,3 +447,7 @@ end
 #if which rtx &> /dev/null
     #rtx activate fish | source
 #end
+
+if command -s direnv > /dev/null
+    direnv hook fish | source
+end
