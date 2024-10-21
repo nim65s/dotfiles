@@ -9,6 +9,7 @@
     iwd.networks = {
       azv.ssid = "azv";
       baron.ssid = "Baron";
+      comwell.ssid = "comwellhotels";
       human.ssid = "WNHC-Invite";
       kekeno.ssid = "Kekeno";
       kessica.ssid = "Livebox-CD00";

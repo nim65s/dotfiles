@@ -94,6 +94,7 @@
       less
       libreoffice
       lix
+      llvmPackages_17.openmp
       lsd
       lsof
       gnumake
