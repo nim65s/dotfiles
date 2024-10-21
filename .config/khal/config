@@ -1,20 +1,12 @@
 [calendars]
 
 [[Perso]]
-path = ~/.vdir/calendars/ananas/Perso
+path = ~/.vdir/calendars/datcat/personal
 color = light blue
 
 [[Fusion]]
-path = ~/.vdir/calendars/ananas/Fusion
+path = ~/.vdir/calendars/datcat/fusion_shared_by_keycloak-da7fc383-a103-40ef-84c7-315570024892
 color = light green
-
-[[Émilia]]
-path = ~/.vdir/calendars/ananas/milia_shared_by_doudou
-color = white
-
-[[Anniversaires]]
-path = ~/.vdir/calendars/ananas/anniversaires_shared_by_doudou
-color = black
 
 [[LAAS]]
 path = ~/.vdir/calendars/laas/LAAS
