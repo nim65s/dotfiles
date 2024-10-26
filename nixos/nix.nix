@@ -1,6 +1,9 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   nix = {
+    extraOptions = ''
+      !include ${config.sops.secrets.nix-access-tokens.path}
+    '';
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     package = pkgs.lix;
     settings = {
