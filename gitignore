@@ -1,4 +1,3 @@
-.git-blame-ignore-revs
 *.pdf
 *.aux
 *.pyg
@@ -73,4 +72,5 @@ wh
 notes
 result
 result-*
+results
 .hugo_build.lock
