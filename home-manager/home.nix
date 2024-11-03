@@ -18,6 +18,7 @@
     packages = with pkgs; [
       acpi
       age
+      alacritty
       arandr
       black
       brightnessctl
@@ -58,6 +59,7 @@
       fishPlugins.bass
       font-awesome
       fork-manager
+      fuzzel
       gdb
       gdbgui
       ghostscript
@@ -107,6 +109,7 @@
       mypy
       ncdu
       ninja
+      niri
       nitrogen
       nixfmt-rfc-style
       (nixpkgs-review.override {
@@ -235,6 +238,7 @@
 
     file = {
       ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
+      ".config/niri/config.kdl".source = ../.config/niri/config.kdl;
       ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
       ".config/khal/config".source = ../.config/khal/config;
       ".config/khard/khard.conf".source = ../.config/khard/khard.conf;
