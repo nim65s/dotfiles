@@ -29,7 +29,7 @@
       };
     };
 
-    nixGL = lib.mkOption {
+    my-nixGL = lib.mkOption {
       type = lib.types.str;
       default = "";
       description = ''

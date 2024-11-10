@@ -21,12 +21,12 @@ in
       fonts.size = 8.0;
       modifier = mod;
       window.hideEdgeBorders = "smart";
-      terminal = "${config.nixGL} ${lib.getExe pkgs.kitty}";
+      terminal = "${config.my-nixGL} ${lib.getExe pkgs.kitty}";
       gaps.smartBorders = "on";
       workspaceAutoBackAndForth = true;
       #extraConfig = "";
       keybindings = {
-        "${mod}+Return" = ''exec "${config.nixGL} ${lib.getExe pkgs.kitty}"'';
+        "${mod}+Return" = ''exec "${config.my-nixGL} ${lib.getExe pkgs.kitty}"'';
         "${mod}+Shift+x" = "kill";
         "${mod}+c" = "focus left";
         "${mod}+t" = "focus down";

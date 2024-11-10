@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  nixGL = "nixGL";
+  my-nixGL = "nixGL";
   my-waybar-output = "eDP-1";
   my-sway-extraConfig = "";
   my-sway-output = {

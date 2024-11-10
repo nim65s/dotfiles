@@ -8,11 +8,11 @@
 let
   username = "nim";
   workspaceOutputAssign = [ ];
-  nixGL = "";
+  my-nixGL = "";
 in
 {
   imports = [ ./../common.nix ];
-  inherit nixGL;
+  inherit my-nixGL;
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
@@ -23,7 +23,7 @@ in
       lib
       pkgs
       workspaceOutputAssign
-      nixGL
+      my-nixGL
       ;
     sway = false;
   };
@@ -33,7 +33,7 @@ in
         lib
         pkgs
         workspaceOutputAssign
-        nixGL
+        my-nixGL
         ;
       sway = true;
     }
