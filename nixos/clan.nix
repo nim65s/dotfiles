@@ -9,6 +9,7 @@
     iwd.networks = {
       azv.ssid = "azv";
       baron.ssid = "Baron";
+      baroustan.ssid = "baroustan";
       comwell.ssid = "comwellhotels";
       human.ssid = "WNHC-Invite";
       kekeno.ssid = "Kekeno";
