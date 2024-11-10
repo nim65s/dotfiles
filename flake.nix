@@ -71,7 +71,7 @@
           };
         };
         perSystem =
-          { system, ... }:
+          { pkgs, system, ... }:
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
@@ -88,6 +88,9 @@
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
                 })
               ];
+            };
+            devShells.default = pkgs.mkShell {
+              packages = [ pkgs.clan-cli ];
             };
             treefmt = {
               projectRootFile = "flake.nix";
