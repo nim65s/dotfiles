@@ -1,6 +1,6 @@
-{ config, allSystems, ... }:
+{ allSystems, ... }:
 {
   nixpkgs = {
-    inherit (allSystems.${config.nixpkgs.hostPlatform.system}._module.args) pkgs;
+    inherit (allSystems.x86_64-linux._module.args) pkgs;
   };
 }
