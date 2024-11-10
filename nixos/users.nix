@@ -22,6 +22,7 @@ in
         "wheel"
         "docker"
         "video"
+        "wireshark"
       ];
       openssh.authorizedKeys.keyFiles = keyFiles;
     };
