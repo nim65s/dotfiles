@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, ... }:
 {
   services = {
     dunst = {
@@ -15,7 +15,7 @@
             <b>%s</b>
             %b'';
           font = "Source Sans";
-          browser = "${lib.getExe pkgs.firefox-devedition} -new-tab";
+          browser = "${lib.getExe config.programs.firefox.finalPackage} -new-tab";
         };
       };
     };

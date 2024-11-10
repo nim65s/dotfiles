@@ -51,7 +51,7 @@ in
         };
 
         startup = [
-          { command = lib.getExe pkgs.firefox-devedition; }
+          { command = lib.getExe config.programs.firefox.finalPackage; }
           { command = lib.getExe pkgs.thunderbird; }
           { command = lib.getExe pkgs.signal-desktop; }
           { command = lib.getExe pkgs.zeal; }
