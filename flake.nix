@@ -39,7 +39,7 @@
   };
 
   outputs =
-    { home-manager, ... }@inputs:
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { self, ... }:
       {
@@ -89,15 +89,13 @@
                 })
               ];
             };
-            devShells.default = pkgs.mkShell {
-              packages = [ pkgs.clan-cli ];
-            };
+            devShells.default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
             treefmt = {
               projectRootFile = "flake.nix";
               programs = {
                 deadnix.enable = true;
                 mdformat.enable = true;
-                nixfmt-rfc-style.enable = true;
+                nixfmt.enable = true;
                 ruff = {
                   check = true;
                   format = true;
@@ -109,21 +107,21 @@
           };
         flake = {
           homeConfigurations = {
-            "gsaurel@asahi" = home-manager.lib.homeManagerConfiguration {
+            "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
                 ./home-manager
                 ./machines/asahi/home.nix
               ];
             };
-            "gsaurel@upepesanke" = home-manager.lib.homeManagerConfiguration {
+            "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
                 ./home-manager
                 ./machines/upepesanke/home.nix
               ];
             };
-            "nim@yupa" = home-manager.lib.homeManagerConfiguration {
+            "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
               modules = [
                 ./home-manager
