@@ -71,6 +71,7 @@
       gtklock-playerctl-module
       grim
       helix
+      himalaya
       htop
       httpie
       hugo
