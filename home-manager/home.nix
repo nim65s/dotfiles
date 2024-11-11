@@ -107,6 +107,7 @@
       mpv
       mypy
       ncdu
+      neverest
       ninja
       niri
       nitrogen

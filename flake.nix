@@ -23,6 +23,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neverest = {
+      url = "github:pimalaya/neverest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -90,6 +94,7 @@
                   inherit (inputs.fork-manager.packages.${system}) fork-manager;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
+                  neverest = inputs.neverest.packages.${system}.default;
                 })
               ];
             };
