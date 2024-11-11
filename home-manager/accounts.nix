@@ -22,14 +22,13 @@ in
               (atjoin { name = "gsaurel"; })
               (atjoin { name = "saurel"; })
             ];
-            himalaya.enable = true;
             imap.host = "imap.laas.fr";
             imap.port = 993;
             msmtp.enable = true;
             neomutt.enable = false;
             notmuch.enable = true;
             notmuch.neomutt.enable = true;
-            #offlineimap.enable = true;
+            offlineimap.enable = true;
             passwordCommand = "rbw get --folder laas main";
             primary = true;
             realName = "Guilhem Saurel";
@@ -55,7 +54,6 @@ in
           {
             address = "${mail}";
             folders.inbox = "INBOX";
-            himalaya.enable = true;
             imap.host = "mail.gandi.net";
             msmtp.enable = true;
             neomutt = {
@@ -67,7 +65,7 @@ in
             };
             notmuch.enable = true;
             notmuch.neomutt.enable = true;
-            #offlineimap.enable = true;
+            offlineimap.enable = true;
             passwordCommand = "rbw get --folder mail perso";
             realName = "Guilhem Saurel";
             smtp.host = "mail.gandi.net";

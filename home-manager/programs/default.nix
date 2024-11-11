@@ -219,7 +219,6 @@ in
       ];
     };
 
-    himalaya.enable = true;
     home-manager.enable = true;
 
     i3status-rust = {
@@ -320,7 +319,7 @@ in
     neomutt.enable = true;
     notmuch.enable = true;
     nix-index.enable = true;
-    #offlineimap.enable = true;
+    offlineimap.enable = true;
 
     rbw = {
       enable = true;
