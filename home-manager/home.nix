@@ -110,6 +110,7 @@
       ninja
       niri
       nitrogen
+      nixd
       nixfmt-rfc-style
       (nixpkgs-review.override {
         nix = lix;
