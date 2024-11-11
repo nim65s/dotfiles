@@ -134,7 +134,7 @@ in
         and source ~/dotfiles/.config/fish/path.fish
 
         if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-          ${config.my-nixGL} ${lib.getExe pkgs.sway} > ~/.wayland.log 2> ~/.wayland.err
+          ${lib.getExe config.wayland.windowManager.sway.package} > ~/.wayland.log 2> ~/.wayland.err
         end
       '';
       shellAliases = {
@@ -285,6 +285,7 @@ in
         "kitty_mod+plus" = "change_font_size all +1.0";
         "kitty_mod+minus" = "change_font_size all -1.0";
       };
+      package = config.lib.nixGL.wrap pkgs.kitty;
       settings = {
         touch_scroll_multiplier = "10.0";
         focus_follows_mouse = true;

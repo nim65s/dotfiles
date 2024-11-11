@@ -23,6 +23,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
     pre-commit-sort = {
@@ -109,6 +113,7 @@
           homeConfigurations = {
             "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+              extraSpecialArgs = { inherit (inputs) nixgl; };
               modules = [
                 ./home-manager
                 ./machines/asahi/home.nix
@@ -116,6 +121,7 @@
             };
             "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+              extraSpecialArgs = { inherit (inputs) nixgl; };
               modules = [
                 ./home-manager
                 ./machines/upepesanke/home.nix
@@ -123,6 +129,7 @@
             };
             "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
               inherit (self.allSystems.x86_64-linux._module.args) pkgs;
+              extraSpecialArgs = { inherit (inputs) nixgl; };
               modules = [
                 ./home-manager
                 ./machines/yupa/home.nix

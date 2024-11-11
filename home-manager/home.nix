@@ -90,7 +90,6 @@
       khal
       khard
       killall
-      kitty
       kolourpaint
       less
       libreoffice
