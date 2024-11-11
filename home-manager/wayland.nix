@@ -73,7 +73,8 @@ in
           "type:keyboard" = {
             xkb_layout = "fr";
             xkb_numlock = "enabled";
-            xkb_variant = "bepo";
+            #xkb_variant = "bepo";
+            xkb_variant = "ergol";
           };
         };
 

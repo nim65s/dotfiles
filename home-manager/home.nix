@@ -12,7 +12,8 @@
     stateVersion = "23.05"; # Please read the comment before changing.
     keyboard = {
       layout = "fr";
-      variant = "bepo";
+      #variant = "bepo";
+      variant = "ergol";
     };
 
     packages = with pkgs; [
@@ -65,6 +66,7 @@
       git
       git-extras
       gnupg
+      gparted
       gtklock
       gtklock-userinfo-module
       gtklock-powerbar-module
