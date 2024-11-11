@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
   keyFiles = [
-        ../pubkeys/hatto
-        ../pubkeys/loon
-        ../pubkeys/upe
-        ../pubkeys/yubi
-      ];
+    ../pubkeys/hatto
+    ../pubkeys/loon
+    ../pubkeys/upe
+    ../pubkeys/yubi
+  ];
 in
 {
   users.users = {
