@@ -72,7 +72,6 @@
       gtklock-powerbar-module
       gtklock-playerctl-module
       grim
-      helix
       himalaya
       htop
       httpie
@@ -127,7 +126,7 @@
       nix-tree
       nix-update
       nmap
-      noto-fonts-emoji
+      #noto-fonts-emoji
       nurl
       okular
       openldap
@@ -178,7 +177,7 @@
       rpi-imager
       ruff
       rustc
-      nur.repos.nim65s.sauce-code-pro
+      #nur.repos.nim65s.sauce-code-pro
       signal-desktop
       sd
       sccache
@@ -234,15 +233,15 @@
       zoom-us
     ];
 
-    pointerCursor = {
-      package = pkgs.gruppled-white-lite-cursors;
-      name = "gruppled_white_lite";
-      gtk.enable = true;
-    };
+    #pointerCursor = {
+    #package = pkgs.gruppled-white-lite-cursors;
+    #name = "gruppled_white_lite";
+    #gtk.enable = true;
+    #};
 
     file = {
       ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
-      ".config/niri/config.kdl".source = ../.config/niri/config.kdl;
+      #".config/niri/config.kdl".source = ../.config/niri/config.kdl;
       ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
       ".config/khal/config".source = ../.config/khal/config;
       ".config/khard/khard.conf".source = ../.config/khard/khard.conf;

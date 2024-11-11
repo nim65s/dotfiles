@@ -14,7 +14,7 @@
           format = ''
             <b>%s</b>
             %b'';
-          font = "Source Sans";
+          #font = "Source Sans";
           browser = "${lib.getExe config.programs.firefox.finalPackage} -new-tab";
         };
       };

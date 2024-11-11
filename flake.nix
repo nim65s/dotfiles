@@ -40,6 +40,13 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,7 +77,9 @@
               ./nixos
               ./nixos/disko.nix
             ];
-            loon.imports = [ ./nixos ];
+            loon.imports = [
+              ./nixos
+            ];
           };
           meta.name = "github.com/nim65s/dotfiles";
           specialArgs = {

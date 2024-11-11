@@ -38,7 +38,7 @@ in
     bat = {
       enable = true;
       config = {
-        theme = "zenburn";
+        #theme = "zenburn";
         pager = "less";
       };
     };
@@ -134,7 +134,8 @@ in
         and source ~/dotfiles/.config/fish/path.fish
 
         if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-          ${lib.getExe config.wayland.windowManager.sway.package} > ~/.wayland.log 2> ~/.wayland.err
+          #${lib.getExe config.wayland.windowManager.sway.package} > ~/.wayland.log 2> ~/.wayland.err
+          ${pkgs.niri}/bin/niri-session > ~/.wayland.log 2> ~/.wayland.err
         end
       '';
       shellAliases = {
@@ -219,13 +220,17 @@ in
       ];
     };
 
+    helix = {
+      defaultEditor = true;
+      enable = true;
+    };
     home-manager.enable = true;
 
     i3status-rust = {
       enable = true;
       bars.default = {
         icons = "awesome6";
-        theme = "gruvbox-dark";
+        #theme = "gruvbox-dark";
         blocks = [
           { block = "music"; }
           { block = "net"; }
@@ -261,8 +266,8 @@ in
 
     kitty = {
       enable = true;
-      font.name = "SauceCodePro Nerd Font";
-      font.size = 8;
+      #font.name = "SauceCodePro Nerd Font";
+      #font.size = 8;
       keybindings = {
         "kitty_mod+left" = "resize_window narrower";
         "kitty_mod+right" = "resize_window wider";
@@ -294,7 +299,7 @@ in
         placement_strategy = "top-left";
         tab_bar_style = "powerline";
         tab_separator = " | ";
-        background_opacity = "0.7";
+        #background_opacity = "0.7";
         shell = "${lib.getExe pkgs.fish}";
         scrollback_lines = 10000;
       };
@@ -341,12 +346,12 @@ in
         pkgs.rofi-file-browser
       ];
       terminal = lib.getExe pkgs.kitty;
-      theme = {
-        "@theme" = "arthur";
-        "*" = {
-          font = "SauceCodePro Nerd Font 12";
-        };
-      };
+      #theme = {
+      #"@theme" = "arthur";
+      #"*" = {
+      #font = "SauceCodePro Nerd Font 12";
+      #};
+      #};
       extraConfig = {
         color-enabled = true;
         matching = "prefix";
@@ -496,7 +501,7 @@ in
     swaylock = {
       enable = true;
       settings = {
-        color = "000000";
+        #color = "000000";
         show-failed-attempts = true;
         ignore-empty-password = true;
         font = "SauceCodePro Nerd Font";
@@ -526,7 +531,7 @@ in
 
     vim = {
       enable = true;
-      defaultEditor = true;
+      #defaultEditor = true;
       plugins = with pkgs; [
         vimPlugins.ale
         vimPlugins.colorizer
@@ -546,7 +551,7 @@ in
         vimPlugins.vim-toml
         vimPlugins.vimspector
         vimPlugins.yuck-vim
-        vimPlugins.zenburn
+        #vimPlugins.zenburn
       ];
       settings = {
         backupdir = [
@@ -698,7 +703,7 @@ in
           };
         };
       };
-      style = ./waybar.css;
+      #style = ./waybar.css;
     };
 
     zathura = {

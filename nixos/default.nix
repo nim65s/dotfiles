@@ -12,6 +12,7 @@ _: {
     ./programs.nix
     ./security.nix
     ./services.nix
+    ./stylix.nix
     ./time.nix
     ./users.nix
     ./virtualisation.nix

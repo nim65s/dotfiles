@@ -11,9 +11,9 @@ jobs:
           name: nim65s
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community,rycee
-      - run: nix build .#homeConfigurations."gsaurel@asahi".activationPackage
-      - run: nix build .#homeConfigurations."gsaurel@upepesanke".activationPackage
-      - run: nix build .#homeConfigurations."nim@yupa".activationPackage
-      - run: nix build .#nixosConfigurations.loon.config.system.build.toplevel
+          #- run: nix build .#homeConfigurations."gsaurel@asahi".activationPackage
+          #- run: nix build .#homeConfigurations."gsaurel@upepesanke".activationPackage
+          #- run: nix build .#homeConfigurations."nim@yupa".activationPackage
+          #- run: nix build .#nixosConfigurations.loon.config.system.build.toplevel
     #- run: nix build .#nixosConfigurations.hattorixos.config.system.build.toplevel
     #- run: nix build .#nixosConfigurations.fix.config.system.build.toplevel
