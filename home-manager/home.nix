@@ -63,6 +63,7 @@
       gdbgui
       ghostscript
       git
+      git-extras
       gnupg
       gtklock
       gtklock-userinfo-module
