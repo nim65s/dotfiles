@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./boot.nix
+    ./catppuccin.nix
     ./clan.nix
     ./environment.nix
     ./fonts.nix

@@ -2,6 +2,7 @@
   description = "My dotfiles";
 
   inputs = {
+    catppuccin.url = "github:catppuccin/nix";
     clan-core = {
       url = "git+https://git.clan.lol/clan/clan-core";
       inputs.nixpkgs.follows = "nixpkgs";

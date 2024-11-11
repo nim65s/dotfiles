@@ -4,6 +4,11 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    users.nim = import ../home-manager;
+    users.nim = {
+      imports = [
+        inputs.catppuccin.homeManagerModules.catppuccin
+        ../home-manager
+      ];
+    };
   };
 }

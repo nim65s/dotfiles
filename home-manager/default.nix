@@ -4,6 +4,7 @@ _: {
     ./my-options.nix
 
     ./accounts.nix
+    ./catppuccin.nix
     ./fonts.nix
     ./gtk.nix
     ./fonts.nix
@@ -12,6 +13,7 @@ _: {
     ./programs
     ./qt.nix
     ./services.nix
+    ./stylix.nix
     ./systemd.nix
     ./wayland.nix
     ./xdg.nix
