@@ -135,7 +135,7 @@ in
 
         if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
           #${lib.getExe config.wayland.windowManager.sway.package} > ~/.wayland.log 2> ~/.wayland.err
-          ${pkgs.niri}/bin/niri-session > ~/.wayland.log 2> ~/.wayland.err
+          #${pkgs.niri}/bin/niri-session > ~/.wayland.log 2> ~/.wayland.err
         end
       '';
       shellAliases = {
