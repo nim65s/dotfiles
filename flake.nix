@@ -82,7 +82,7 @@
               ./nixos
             ];
           };
-          meta.name = "github.com/nim65s/dotfiles";
+          meta.name = "nim65s";
           specialArgs = {
             inherit inputs;
             inherit (self) allSystems;
