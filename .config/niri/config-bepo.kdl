@@ -1,16 +1,35 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
 
-workspace "browser"
-workspace "mail"
 workspace "chat"
+workspace "mail"
+workspace "browser"
 workspace "doc"
 
 window-rule {
-    match at-startup=true app-id="firefox-devedition"
+    match at-startup=true app-id="firefox"
     open-on-workspace "browser"
     open-maximized true
 }
+
+window-rule {
+    match at-startup=true app-id="Element"
+    open-on-workspace "chat"
+    open-maximized true
+}
+
+window-rule {
+    match at-startup=true app-id="org.zealdocs.zeal"
+    open-on-workspace "doc"
+    open-maximized true
+}
+
+window-rule {
+    match at-startup=true app-id="wezterm"
+    open-on-workspace "mail"
+    open-maximized true
+}
+
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -486,3 +505,6 @@ binds {
 }
 
 spawn-at-startup "firefox-devedition"
+spawn-at-startup "element-desktop"
+spawn-at-startup "zeal"
+spawn-at-startup "kitty"
