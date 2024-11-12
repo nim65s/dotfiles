@@ -1,6 +1,7 @@
 _: {
-  #qt = {
-  #enable = true;
-  #platformTheme.name = "qtct";
-  #};
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+  };
 }
