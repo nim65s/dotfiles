@@ -34,6 +34,11 @@
       };
     };
     image = ../bg/sleep.jpg;
+    opacity = {
+      applications = 0.9;
+      popups = 0.7;
+      terminal = 0.8;
+    };
     polarity = "dark";
   };
 }
