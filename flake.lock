@@ -372,15 +372,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1730240500,
-        "narHash": "sha256-ZgiZEBVXGP3Ot8nAh4+g1VlXRR0PxZezbQKsqRucVdw=",
-        "owner": "pimalaya",
+        "lastModified": 1731519167,
+        "narHash": "sha256-qwRtePlCawUf/6bEJbW9GpQ/Mw0yyOt4mE4xh4n07yw=",
+        "owner": "nim65s",
         "repo": "neverest",
-        "rev": "ea9945a8e56af88f23e3ce79f48fd4877786771d",
+        "rev": "df8263820e75486cc5a3ba9dfb227d3cae2fdce1",
         "type": "github"
       },
       "original": {
-        "owner": "pimalaya",
+        "owner": "nim65s",
         "repo": "neverest",
         "type": "github"
       }

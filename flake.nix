@@ -25,7 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neverest = {
-      url = "github:pimalaya/neverest";
+      # ref. https://github.com/pimalaya/neverest/pull/13
+      url = "github:nim65s/neverest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl = {
@@ -105,6 +106,15 @@
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
                   neverest = inputs.neverest.packages.${system}.default;
+                  git-extras = prev.git-extras.overrideAttrs {
+                    patches = [
+                      # Allow use of GITHUB_TOKEN
+                      (final.fetchpatch {
+                        url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
+                        hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
+                      })
+                    ];
+                  };
                 })
               ];
             };

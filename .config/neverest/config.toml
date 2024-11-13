@@ -1,0 +1,24 @@
+[accounts.personal]
+default = true
+left.backend.type = "imap"
+left.backend.host = "mail.gandi.net"
+left.backend.port = 993
+left.backend.encryption = "tls"
+left.backend.login = "guilhem@saurel.me"
+left.backend.auth.type = "password"
+left.backend.auth.command = "rbw get --folder mail perso"
+right.backend.type = "maildir"
+right.backend.root-dir = "/home/nim/.mails-neverest/personal"
+right.backend.maildirpp = true
+
+[accounts.laas]
+left.backend.type = "imap"
+left.backend.host = "imap.laas.fr"
+left.backend.port = 993
+left.backend.encryption = "tls"
+left.backend.login = "gsaurel"
+left.backend.auth.type = "password"
+left.backend.auth.command = "rbw get --folder laas main"
+right.backend.type = "maildir"
+right.backend.root-dir = "/home/nim/.mails-neverest/laas"
+right.backend.maildirpp = true
