@@ -1,8 +1,11 @@
-{ config, ... }: {
+{ config, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
   clan.core.networking = {
     targetHost = "root@192.168.8.209";
-    zerotier.networkId = builtins.readFile (config.clan.core.clanDir + "/machines/loon/facts/zerotier-network-id");
+    zerotier.networkId = builtins.readFile (
+      config.clan.core.clanDir + "/machines/loon/facts/zerotier-network-id"
+    );
   };
   console.keyMap = "fr-bepo";
   networking.hostId = "0df1ec23";
