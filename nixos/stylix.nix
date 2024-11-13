@@ -36,6 +36,7 @@
     image = ../bg/sleep.jpg;
     opacity = {
       applications = 0.9;
+      desktop = 0.8;
       popups = 0.7;
       terminal = 0.8;
     };

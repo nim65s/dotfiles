@@ -197,6 +197,7 @@
       strace
       swappy
       #sway
+      swaybg
       swaylock
       tig
       tinc

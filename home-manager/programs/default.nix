@@ -703,7 +703,7 @@ in
           };
         };
       };
-      #style = ./waybar.css;
+      systemd.enable = true;
     };
 
     zathura = {
