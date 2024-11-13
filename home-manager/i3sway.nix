@@ -17,8 +17,6 @@ in
     description = "common stuff for i3 & sway";
     default = {
       workspaceOutputAssign = config.my-workspaceOutputAssign;
-      #fonts.names = [ "SauceCodePro Nerd Font" ];
-      #fonts.size = 8.0;
       modifier = mod;
       window.hideEdgeBorders = "smart";
       terminal = "${config.my-nixGL} ${lib.getExe config.programs.kitty.package}";

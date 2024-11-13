@@ -4,7 +4,6 @@ _: {
     ./catppuccin.nix
     ./clan.nix
     ./environment.nix
-    ./fonts.nix
     ./hardware.nix
     ./home-manager.nix
     ./i18n.nix

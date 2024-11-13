@@ -36,8 +36,6 @@ in
         };
         bars = [
           {
-            #fonts.names = [ "SauceCodePro Nerd Font" ];
-            #fonts.size = 8.0;
             statusCommand = "${lib.getExe pkgs.i3status-rust} config-default.toml";
           }
         ];

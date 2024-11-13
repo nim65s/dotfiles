@@ -275,9 +275,9 @@
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.urlbar.suggest.calculator" = true;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-        "font.name.monospace.x-western" = "SauceCodePro Nerd Font";
-        "font.name.sans-serif.x-western" = "Source Sans 3";
-        "font.name.serif.x-western" = "Source Serif 4";
+        "font.name.monospace.x-western" = "IosevkaTermNF";
+        "font.name.sans-serif.x-western" = "Iosevka-Aile";
+        "font.name.serif.x-western" = "Iosevka-Etoile";
         "font.size.variable.x-western" = 12;
         "layers.acceleration.disabled" = true; # TODO
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

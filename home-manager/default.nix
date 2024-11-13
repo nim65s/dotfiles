@@ -6,7 +6,6 @@ _: {
     ./accounts.nix
     ./catppuccin.nix
     ./fonts.nix
-    ./gtk.nix
     ./fonts.nix
     ./home.nix
     ./nix.nix

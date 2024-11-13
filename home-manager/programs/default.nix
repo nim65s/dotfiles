@@ -266,8 +266,6 @@ in
 
     kitty = {
       enable = true;
-      #font.name = "SauceCodePro Nerd Font";
-      #font.size = 8;
       keybindings = {
         "kitty_mod+left" = "resize_window narrower";
         "kitty_mod+right" = "resize_window wider";
@@ -346,12 +344,6 @@ in
         pkgs.rofi-file-browser
       ];
       terminal = lib.getExe pkgs.kitty;
-      #theme = {
-      #"@theme" = "arthur";
-      #"*" = {
-      #font = "SauceCodePro Nerd Font 12";
-      #};
-      #};
       extraConfig = {
         color-enabled = true;
         matching = "prefix";
@@ -504,7 +496,7 @@ in
         #color = "000000";
         show-failed-attempts = true;
         ignore-empty-password = true;
-        font = "SauceCodePro Nerd Font";
+        font = "IosevkaTermNF";
       };
     };
 
