@@ -135,7 +135,7 @@ in
 
         if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
           #${lib.getExe config.wayland.windowManager.sway.package} > ~/.wayland.log 2> ~/.wayland.err
-          #${pkgs.niri}/bin/niri-session > ~/.wayland.log 2> ~/.wayland.err
+          #${pkgs.niri}/bin/niri-session
         end
       '';
       shellAliases = {
@@ -603,11 +603,11 @@ in
           position = "bottom";
           height = 32;
           modules-left = [
-            "sway/workspaces"
-            "sway/mode"
-            "sway/scratchpad"
+            "niri/workspaces"
+            "niri/mode"
+            "niri/scratchpad"
           ];
-          modules-center = [ "sway/window" ];
+          modules-center = [ "niri/window" ];
           modules-right = [
             "custom/media"
             "pulseaudio"
@@ -621,7 +621,7 @@ in
             "tray"
           ];
 
-          "sway/workspaces" = {
+          "niri/workspaces" = {
             "all-outputs" = true;
             "disable-auto-back-and-forth" = true;
             "disable-scroll-wraparound" = true;
