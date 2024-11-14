@@ -235,7 +235,6 @@
       zellij
       zfs
       zola
-      zoom-us
     ];
 
     #pointerCursor = {
