@@ -16,7 +16,10 @@ in
   imports = [ ./firefox.nix ];
 
   programs = {
-    alacritty.enable = true;
+    alacritty = {
+      enable = true;
+      settings.window.opacity = config.stylix.opacity.terminal;
+    };
 
     atuin = {
       enable = true;
