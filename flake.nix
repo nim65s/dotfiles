@@ -90,7 +90,7 @@
           };
         };
         perSystem =
-          { pkgs, system, ... }:
+          { pkgs, self', system, ... }:
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
@@ -104,6 +104,7 @@
                   inherit (inputs.clan-core.packages.${system}) clan-cli;
                   inherit (inputs.fork-manager.packages.${system}) fork-manager;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
+                  inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
                   neverest = inputs.neverest.packages.${system}.default;
                   git-extras = prev.git-extras.overrideAttrs {
@@ -119,6 +120,11 @@
               ];
             };
             devShells.default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
+            packages = {
+              iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
+              iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
+              iosevka-term = pkgs.nerdfonts.override { fonts = [ "IosevkaTerm" ]; };
+            };
             treefmt = {
               projectRootFile = "flake.nix";
               programs = {

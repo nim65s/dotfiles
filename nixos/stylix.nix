@@ -13,17 +13,17 @@
     };
     fonts = {
       serif = {
-        package = pkgs.iosevka-bin.override { variant = "Etoile"; };
+        package = pkgs.iosevka-etoile;
         name = "Iosevka-Etoile";
       };
 
       sansSerif = {
-        package = pkgs.iosevka-bin.override { variant = "Aile"; };
+        package = pkgs.iosevka-aile;
         name = "Iosevka-Aile";
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "IosevkaTerm" ]; };
+        package = pkgs.iosevka-term;
         # NB: if this is not mono enough, switch to NFM
         name = "IosevkaTermNF";
       };

@@ -496,7 +496,7 @@ in
         #color = "000000";
         show-failed-attempts = true;
         ignore-empty-password = true;
-        font = "IosevkaTermNF";
+        font = "Iosevka";
       };
     };
 

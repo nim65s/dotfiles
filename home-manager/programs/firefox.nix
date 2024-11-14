@@ -275,7 +275,7 @@
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.urlbar.suggest.calculator" = true;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-        "font.name.monospace.x-western" = "IosevkaTermNF";
+        "font.name.monospace.x-western" = "Iosevka";
         "font.name.sans-serif.x-western" = "Iosevka-Aile";
         "font.name.serif.x-western" = "Iosevka-Etoile";
         "font.size.variable.x-western" = 12;

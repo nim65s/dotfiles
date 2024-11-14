@@ -82,6 +82,10 @@
       inetutils
       imv
       iotop
+      iosevka
+      iosevka-aile
+      iosevka-etoile
+      iosevka-term
       i3
       i3lock
       i3status-rust
