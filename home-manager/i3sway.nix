@@ -19,12 +19,12 @@ in
       workspaceOutputAssign = config.my-workspaceOutputAssign;
       modifier = mod;
       window.hideEdgeBorders = "smart";
-      terminal = "${config.my-nixGL} ${lib.getExe config.programs.kitty.package}";
+      terminal = lib.getExe config.programs.kitty.package;
       gaps.smartBorders = "on";
       workspaceAutoBackAndForth = true;
       #extraConfig = "";
       keybindings = {
-        "${mod}+Return" = ''exec "${config.my-nixGL} ${lib.getExe config.programs.kitty.package}"'';
+        "${mod}+Return" = "exec ${lib.getExe config.programs.kitty.package}";
         "${mod}+Shift+x" = "kill";
         "${mod}+c" = "focus left";
         "${mod}+t" = "focus down";
