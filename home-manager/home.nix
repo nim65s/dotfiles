@@ -57,7 +57,7 @@
       file
       fish
       fishPlugins.bass
-      font-awesome
+      #font-awesome
       fork-manager
       fuzzel
       gdb
@@ -189,11 +189,11 @@
       slurp
       snapcast
       sops
-      source-han-mono
-      source-han-sans
-      source-han-serif
-      source-sans
-      source-serif
+      #source-han-mono
+      #source-han-sans
+      #source-han-serif
+      #source-sans
+      #source-serif
       spotify
       sqlite
       ssh-to-age
