@@ -16,6 +16,8 @@ in
   imports = [ ./firefox.nix ];
 
   programs = {
+    alacritty.enable = true;
+
     atuin = {
       enable = true;
       flags = [ "--disable-up-arrow" ];

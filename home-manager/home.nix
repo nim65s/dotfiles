@@ -19,7 +19,6 @@
     packages = with pkgs; [
       acpi
       age
-      alacritty
       arandr
       black
       brightnessctl
