@@ -166,6 +166,8 @@
                 inherit (inputs) nixgl;
               };
               modules = [
+                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.stylix.homeManagerModules.stylix
                 ./home-manager
                 ./machines/upepesanke/home.nix
               ];
