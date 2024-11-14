@@ -341,6 +341,17 @@ in
       };
     };
 
+    /*
+    rio = {
+      enable = true;
+      settings = {
+        fonts.emoji.family = config.stylix.fonts.emoji.name;
+        fonts.family = config.stylix.fonts.monospace.name;
+        window.opacity = config.stylix.opacity.terminal;
+      };
+    };
+    */
+
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
