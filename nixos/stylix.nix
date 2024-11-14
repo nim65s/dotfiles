@@ -29,8 +29,8 @@
       };
 
       emoji = {
-        package = pkgs.openmoji-color;
-        name = "OpenMojiColor";
+        package = pkgs.noto-fonts-color-emoji;
+        name = "NotoColorEmoji";
       };
     };
     image = ../bg/sleep.jpg;
