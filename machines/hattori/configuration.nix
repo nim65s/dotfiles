@@ -2,7 +2,8 @@
 {
   imports = [ ./hardware-configuration.nix ];
   clan.core.networking = {
-    targetHost = "root@192.168.8.209";
+    #targetHost = "root@192.168.8.209";
+    targetHost = "[fd5d:45a2:494f:c62d:3b99:93b9:c2d5:ed9]";
     zerotier.networkId = builtins.readFile (
       config.clan.core.clanDir + "/machines/loon/facts/zerotier-network-id"
     );
