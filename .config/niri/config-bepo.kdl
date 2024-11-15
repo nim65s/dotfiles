@@ -301,7 +301,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "kitty"; }
-    Mod+U { spawn "fuzzel"; }
+    Mod+I { spawn "rofi" "-show" "run"; }
+    Mod+E { spawn "rofi-rbw" "--typer" "wtype" "--clipboarder" "wl-copy"; }
     Super+Alt+L { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
