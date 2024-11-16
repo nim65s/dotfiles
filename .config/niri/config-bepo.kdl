@@ -3,12 +3,12 @@
 
 workspace "chat"
 workspace "mail"
-workspace "browser"
+workspace "web"
 workspace "doc"
 
 window-rule {
     match at-startup=true app-id="firefox"
-    open-on-workspace "browser"
+    open-on-workspace "web"
     open-maximized true
 }
 
@@ -441,7 +441,7 @@ binds {
     Mod+plus { focus-workspace 11; }
     Mod+minus { focus-workspace 12; }
     Mod+slash { focus-workspace "doc"; }
-    Mod+asterisk { focus-workspace "browser"; }
+    Mod+asterisk { focus-workspace "web"; }
     Mod+equal { focus-workspace "mail"; }
     Mod+percent { focus-workspace "chat"; }
     Mod+Ctrl+quotedbl { move-column-to-workspace 5; }
@@ -453,7 +453,7 @@ binds {
     Mod+Ctrl+plus { move-column-to-workspace 11; }
     Mod+Ctrl+minus { move-column-to-workspace 12; }
     Mod+Ctrl+slash { move-column-to-workspace "doc"; }
-    Mod+Ctrl+asterisk { move-column-to-workspace "browser"; }
+    Mod+Ctrl+asterisk { move-column-to-workspace "web"; }
     Mod+Ctrl+equal { move-column-to-workspace "mail"; }
     Mod+Ctrl+percent { move-column-to-workspace "chat"; }
 
