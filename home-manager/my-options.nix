@@ -24,7 +24,7 @@
       description = "my sway output";
       default = {
         "*" = {
-          bg = "${./../bg/sleep.jpg} fill";
+          bg = lib.mkDefault "${./../bg/sleep.jpg} fill";
         };
       };
     };

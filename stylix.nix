@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -28,7 +28,7 @@
         name = "NotoColorEmoji";
       };
     };
-    image = ./bg/sleep.jpg;
+    image = lib.mkDefault ./bg/sleep.jpg;
     opacity = {
       applications = 0.9;
       desktop = 0.8;
