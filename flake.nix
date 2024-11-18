@@ -169,6 +169,7 @@
                 inputs.catppuccin.homeManagerModules.catppuccin
                 inputs.stylix.homeManagerModules.stylix
                 ./home-manager
+                ./home-manager/nixGL.nix
                 ./machines/upepesanke/home.nix
               ];
             };
@@ -179,6 +180,7 @@
               };
               modules = [
                 ./home-manager
+                ./home-manager/nixGL.nix
                 ./machines/yupa/home.nix
               ];
             };
