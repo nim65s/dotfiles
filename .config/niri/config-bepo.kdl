@@ -24,11 +24,13 @@ window-rule {
     open-maximized true
 }
 
+/*
 window-rule {
     match at-startup=true app-id="kitty"
     open-on-workspace "mail"
     open-maximized true
 }
+*/
 
 window-rule {
     match at-startup=true app-id="thunderbird"
