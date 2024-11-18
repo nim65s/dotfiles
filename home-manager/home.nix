@@ -208,6 +208,7 @@
       tree
       unzip
       usbutils
+      uv
       ventoy
       vdirsyncer
       vlc
@@ -229,7 +230,7 @@
       xwayland
       yt-dlp
       zathura
-      zeal
+      (config.lib.nixGL.wrap zeal)
       zellij
       zfs
       zola
