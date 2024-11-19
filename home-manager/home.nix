@@ -12,8 +12,8 @@
     stateVersion = "23.05"; # Please read the comment before changing.
     keyboard = {
       layout = "fr";
-      #variant = "bepo";
-      variant = "ergol";
+      variant = "bepo";
+      #variant = "ergol";
     };
 
     packages = with pkgs; [
@@ -114,7 +114,7 @@
       ncdu
       neverest
       ninja
-      niri
+      (config.lib.nixGL.wrap niri)
       nitrogen
       nixd
       nixfmt-rfc-style
@@ -136,7 +136,7 @@
       openssh
       openssl
       pandoc
-      pavucontrol
+      (config.lib.nixGL.wrap pavucontrol)
       pciutils
       pdfarranger
       pdfpc
@@ -170,7 +170,6 @@
       pre-commit
       pre-commit-sort
       pulseaudio
-      pavucontrol
       pwgen
       ripgrep
       rofi-emoji
