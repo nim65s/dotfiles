@@ -124,6 +124,11 @@ output "eDP-1" {
     // position x=1280 y=0
 }
 
+output "Samsung Electric Company U28D590 HTPFC05428" {
+    position x=0 y=0
+    scale 2
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
