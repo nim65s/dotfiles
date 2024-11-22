@@ -15,6 +15,8 @@
       isDefault = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
+        click-and-read
+        mergify
         switchyomega
         tree-style-tab
         ublock-origin
