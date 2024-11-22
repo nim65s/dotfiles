@@ -27,7 +27,7 @@
       cargo
       cargo-binstall
       cargo-release
-      cava
+      #cava
       ccze
       clan-cli
       cntr
