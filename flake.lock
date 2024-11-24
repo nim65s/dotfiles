@@ -452,6 +452,18 @@
         "type": "github"
       }
     },
+    "patch-rofi": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-1PkWpDgzksCVUMqlAxnnUh9oR+vTjuJ6w4Q3nFTdEts=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/356106.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/356106.patch"
+      }
+    },
     "patch-uv051": {
       "flake": false,
       "locked": {
@@ -522,6 +534,7 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "patch-rofi": "patch-rofi",
         "patch-uv051": "patch-uv051",
         "patch-uv052": "patch-uv052",
         "patch-uv054": "patch-uv054",

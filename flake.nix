@@ -35,6 +35,10 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
+    patch-rofi = {
+      url = "https://github.com/NixOS/nixpkgs/pull/356106.patch";
+      flake = false;
+    };
     patch-uv051 = {
       url = "https://github.com/NixOS/nixpkgs/pull/354450.patch";
       flake = false;
@@ -111,6 +115,7 @@
               name = "patched nixpkgs";
               src = inputs.nixpkgs;
               patches = [
+                inputs.patch-rofi
                 inputs.patch-uv051
                 inputs.patch-uv052
                 inputs.patch-uv054
@@ -136,14 +141,6 @@
                       (final.fetchpatch {
                         url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
                         hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
-                      })
-                    ];
-                  };
-                  rofi-wayland-unwrapped = prev.rofi-wayland-unwrapped.overrideAttrs {
-                    patches = [
-                      (final.fetchpatch {
-                        url = "https://github.com/lbonn/rofi/pull/130/commits/55425f72ff913eb72f5ba5f5d422b905d87577d0.patch";
-                        hash = "sha256-vTUxtJs4SuyPk0PgnGlDIe/GVm/w1qZirEhKdBp4bHI=";
                       })
                     ];
                   };
