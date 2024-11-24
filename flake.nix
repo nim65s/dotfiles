@@ -35,6 +35,18 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
+    patch-uv051 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/354450.patch";
+      flake = false;
+    };
+    patch-uv052 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/356205.patch";
+      flake = false;
+    };
+    patch-uv054 = {
+      url = "https://github.com/NixOS/nixpkgs/pull/357716.patch";
+      flake = false;
+    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -92,7 +104,18 @@
         perSystem =
           { pkgs, self', system, ... }:
           {
-            _module.args.pkgs = import inputs.nixpkgs {
+            _module.args.pkgs = let
+              supernix = import inputs.nixpkgs { inherit system; };
+            in
+            import (supernix.applyPatches {
+              name = "patched nixpkgs";
+              src = inputs.nixpkgs;
+              patches = [
+                inputs.patch-uv051
+                inputs.patch-uv052
+                inputs.patch-uv054
+              ];
+            }) {
               inherit system;
               config.allowUnfree = true;
               overlays = [
@@ -194,7 +217,8 @@
           inputs.clan-core.flakeModules.default
           inputs.treefmt-nix.flakeModule
         ];
-        systems = inputs.nixpkgs.lib.systems.flakeExposed;
+        #systems = inputs.nixpkgs.lib.systems.flakeExposed;
+        systems = [ "x86_64-linux" ];
       }
     );
 }
