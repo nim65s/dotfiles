@@ -24,11 +24,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neverest = {
-      # ref. https://github.com/pimalaya/neverest/pull/13
-      url = "github:nim65s/neverest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -134,7 +129,6 @@
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
                   sway = final.nur.repos.nim65s.sway-lone-titlebar;
-                  neverest = inputs.neverest.packages.${system}.default;
                   git-extras = prev.git-extras.overrideAttrs {
                     patches = [
                       # Allow use of GITHUB_TOKEN
