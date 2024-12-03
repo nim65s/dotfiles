@@ -351,7 +351,7 @@
     "patch-rofi": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-1PkWpDgzksCVUMqlAxnnUh9oR+vTjuJ6w4Q3nFTdEts=",
+        "narHash": "sha256-pOz9oiq80UFKQSFp4uVQ8HBvhIGiPJ+vZbMN7keInz0=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/356106.patch"
       },
