@@ -30,10 +30,6 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
-    patch-rofi = {
-      url = "https://github.com/NixOS/nixpkgs/pull/356106.patch";
-      flake = false;
-    };
     patch-uv051 = {
       url = "https://github.com/NixOS/nixpkgs/pull/354450.patch";
       flake = false;
@@ -110,7 +106,6 @@
               name = "patched nixpkgs";
               src = inputs.nixpkgs;
               patches = [
-                inputs.patch-rofi
                 inputs.patch-uv051
                 inputs.patch-uv052
                 inputs.patch-uv054
@@ -145,7 +140,7 @@
             packages = {
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
-              iosevka-term = pkgs.nerdfonts.override { fonts = [ "IosevkaTerm" ]; };
+              iosevka-term = pkgs.nerd-fonts.iosevka;
             };
             treefmt = {
               projectRootFile = "flake.nix";
