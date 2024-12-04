@@ -162,7 +162,6 @@
           pyyaml
           tabulate
           tqdm
-          uv
           wand
           wheel
         ]
