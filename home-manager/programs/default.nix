@@ -403,6 +403,12 @@ in
           user = "nim";
           proxyJump = "totoro";
         };
+        "datcat" = {
+          port = 2222;
+          user = "root";
+          hostname = "%h.fr";
+          forwardAgent = true;
+        };
         "*.l" = {
           hostname = "%haas.fr";
           forwardAgent = true;
