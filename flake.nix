@@ -123,7 +123,6 @@
                   inherit (inputs.fork-manager.packages.${system}) fork-manager;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
-                  sway = final.nur.repos.nim65s.sway-lone-titlebar;
                   git-extras = prev.git-extras.overrideAttrs {
                     patches = [
                       # Allow use of GITHUB_TOKEN
