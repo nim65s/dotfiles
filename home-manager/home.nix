@@ -57,7 +57,6 @@
       fish
       fishPlugins.bass
       #font-awesome
-      fork-manager
       fuzzel
       gdb
       gdbgui

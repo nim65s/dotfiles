@@ -12,14 +12,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    fork-manager = {
-      url = "github:nim65s/fork-manager";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -120,7 +112,6 @@
                     pkgs = prev;
                   };
                   inherit (inputs.clan-core.packages.${system}) clan-cli;
-                  inherit (inputs.fork-manager.packages.${system}) fork-manager;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
                   git-extras = prev.git-extras.overrideAttrs {

@@ -202,32 +202,6 @@
         "type": "github"
       }
     },
-    "fork-manager": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "treefmt-nix": [
-          "treefmt-nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1732558400,
-        "narHash": "sha256-U6zpJvB9GVC+ByyXsg225UOhkTPBgcwfh+yxm2xd2wI=",
-        "owner": "nim65s",
-        "repo": "fork-manager",
-        "rev": "38c710686a3e71aa7fddf21d19a4d77b7906a551",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nim65s",
-        "repo": "fork-manager",
-        "type": "github"
-      }
-    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -412,7 +386,6 @@
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
         "flake-parts": "flake-parts",
-        "fork-manager": "fork-manager",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs",
