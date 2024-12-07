@@ -16,7 +16,8 @@
     my-sway-extraConfig = lib.mkOption {
       type = lib.types.str;
       description = "my sway output";
-      default = "hide_edge_borders --smart-titles smart";
+      #default = "hide_edge_borders --smart-titles smart";
+      default = "";
     };
 
     my-sway-output = lib.mkOption {
