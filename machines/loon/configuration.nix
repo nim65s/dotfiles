@@ -14,14 +14,17 @@ _: {
     };
   };
   console.keyMap = "fr-bepo";
-  services.getty.autologinUser = "nim";
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = false;
-    desktopManager.gnome.enable = false;
-    xkb.layout = "fr";
-    xkb.variant = "bepo";
-    windowManager.i3.enable = true;
+  services = {
+    getty.autologinUser = "nim";
+    libinput.enable = true;
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = false;
+      desktopManager.gnome.enable = false;
+      xkb.layout = "fr";
+      xkb.variant = "bepo";
+      windowManager.i3.enable = true;
+    };
   };
   system.stateVersion = "23.05"; # Did you read the comment?
 }
