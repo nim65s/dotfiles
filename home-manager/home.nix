@@ -216,6 +216,8 @@
       wev
       #wireplumber
       wl-clipboard
+      xorg.xinit
+      xorg.xinput
       xorg.xkill
       waybar
       wget
