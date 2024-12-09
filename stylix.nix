@@ -19,8 +19,7 @@
 
       monospace = {
         package = pkgs.iosevka-term;
-        # NB: if this is not mono enough, switch to NFM
-        name = "IosevkaTermNF";
+        name = "IosevkaNerdFont";
       };
 
       emoji = {
