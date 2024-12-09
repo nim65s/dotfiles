@@ -364,42 +364,6 @@
         "type": "github"
       }
     },
-    "patch-uv051": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-VP2I4euUSU3wkop+VAyfe9DXaDF4qb+2AZFdBvq/tEs=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/354450.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/354450.patch"
-      }
-    },
-    "patch-uv052": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-gLLMhl8dAFvE0MDseZC1J0HfknJO0NhvdlFIYBYAKWw=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/356205.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/356205.patch"
-      }
-    },
-    "patch-uv054": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-ZFMIuWE0EfryPhbFrJ89YTgD6YOF0+erJTQ6bPhJUv4=",
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/357716.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/357716.patch"
-      }
-    },
     "pre-commit-sort": {
       "inputs": {
         "flake-parts": [
@@ -432,9 +396,6 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
-        "patch-uv051": "patch-uv051",
-        "patch-uv052": "patch-uv052",
-        "patch-uv054": "patch-uv054",
         "pre-commit-sort": "pre-commit-sort",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix_3"

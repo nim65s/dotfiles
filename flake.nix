@@ -22,6 +22,7 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/nur";
+    /*
     patch-uv051 = {
       url = "https://github.com/NixOS/nixpkgs/pull/354450.patch";
       flake = false;
@@ -34,6 +35,7 @@
       url = "https://github.com/NixOS/nixpkgs/pull/357716.patch";
       flake = false;
     };
+    */
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -98,9 +100,9 @@
               name = "patched nixpkgs";
               src = inputs.nixpkgs;
               patches = [
-                inputs.patch-uv051
-                inputs.patch-uv052
-                inputs.patch-uv054
+                #inputs.patch-uv051
+                #inputs.patch-uv052
+                #inputs.patch-uv054
               ];
             }) {
               inherit system;
