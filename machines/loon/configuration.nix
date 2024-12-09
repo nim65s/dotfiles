@@ -21,6 +21,7 @@ _: {
     desktopManager.gnome.enable = false;
     xkb.layout = "fr";
     xkb.variant = "bepo";
+    windowManager.i3.enable = true;
   };
   system.stateVersion = "23.05"; # Did you read the comment?
 }
