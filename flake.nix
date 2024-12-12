@@ -23,7 +23,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
     };
     nixgl = {
       url = "github:nix-community/nixGL";
