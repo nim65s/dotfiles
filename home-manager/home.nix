@@ -35,6 +35,7 @@
       dcfldd
       dconf
       deadnix
+      devenv
       dfc
       d-spy
       dig
