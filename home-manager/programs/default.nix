@@ -178,6 +178,7 @@ in
               excludesfile = "~/dotfiles/gitignore";
             };
             push = {
+              autoSetupRemote = true;
               default = "simple";
             };
             user = {
