@@ -38,20 +38,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    /*
-    patch-uv051 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/354450.patch";
-      flake = false;
-    };
-    patch-uv052 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/356205.patch";
-      flake = false;
-    };
-    patch-uv054 = {
-      url = "https://github.com/NixOS/nixpkgs/pull/357716.patch";
-      flake = false;
-    };
-    */
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
