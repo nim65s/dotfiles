@@ -358,7 +358,7 @@ in
       package = pkgs.rofi-wayland;
       plugins = [
         pkgs.rofi-emoji
-        pkgs.rofi-file-browser
+        #pkgs.rofi-file-browser
       ];
       terminal = lib.getExe pkgs.kitty;
       extraConfig = {

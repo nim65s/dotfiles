@@ -172,7 +172,7 @@
       pwgen
       ripgrep
       rofi-emoji
-      rofi-file-browser
+      #rofi-file-browser
       rofi-power-menu
       rofi-rbw
       rpi-imager
