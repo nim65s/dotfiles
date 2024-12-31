@@ -83,7 +83,7 @@ in
           { command = lib.getExe pkgs.thunderbird; }
           { command = lib.getExe pkgs.signal-desktop; }
           { command = lib.getExe pkgs.zeal; }
-          { command = lib.getExe pkgs.element-desktop-wayland; }
+          { command = lib.getExe pkgs.element-desktop; }
           { command = lib.getExe pkgs.waybar; }
         ];
 
