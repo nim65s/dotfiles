@@ -38,6 +38,10 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
+    patch-dcfldd = {
+      url = "https://github.com/NixOS/nixpkgs/pull/369697.patch";
+      flake = false;
+    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -105,9 +109,7 @@
               name = "patched nixpkgs";
               src = inputs.nixpkgs;
               patches = [
-                #inputs.patch-uv051
-                #inputs.patch-uv052
-                #inputs.patch-uv054
+                inputs.patch-dcfldd
               ];
             }) {
               inherit system;

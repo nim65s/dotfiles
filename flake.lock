@@ -504,6 +504,18 @@
         "type": "github"
       }
     },
+    "patch-dcfldd": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-dYFj7CUNU9AUNh5U5yp5cHLrbLln4IZeg5Mc87SqyoQ=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/369697.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/369697.patch"
+      }
+    },
     "pre-commit-sort": {
       "inputs": {
         "flake-parts": [
@@ -537,6 +549,7 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
+        "patch-dcfldd": "patch-dcfldd",
         "pre-commit-sort": "pre-commit-sort",
         "stylix": "stylix",
         "systems": "systems_2",
