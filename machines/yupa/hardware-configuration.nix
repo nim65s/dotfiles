@@ -15,6 +15,7 @@
   ];
 
   boot.initrd.availableKernelModules = [
+    "iwlwifi"
     "xhci_pci_renesas"
     "nvme"
     "xhci_pci"
