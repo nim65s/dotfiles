@@ -1,0 +1,25 @@
+{
+  "machines": {
+    "asahi": {
+      "name": "asahi"
+    },
+    "fix": {
+      "name": "fix"
+    },
+    "hattori": {
+      "name": "hattori"
+    },
+    "hattorian": {
+      "name": "hattorian"
+    },
+    "loon": {
+      "name": "loon"
+    },
+    "upepesanke": {
+      "name": "upepesanke"
+    },
+    "yupa": {
+      "name": "yupa"
+    }
+  }
+}
