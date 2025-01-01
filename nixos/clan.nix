@@ -11,7 +11,7 @@
       baron.ssid = "Baron";
       baroustan.ssid = "baroustan";
       comwell.ssid = "comwellhotels";
-      gofish.ssid = "><>°";
+      #gofish.ssid = "><>°";
       human.ssid = "WNHC-Invite";
       kekeno.ssid = "Kekeno";
       kessica.ssid = "Livebox-CD00";
