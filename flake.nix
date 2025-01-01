@@ -95,6 +95,10 @@
             loon.imports = [
               ./nixos
             ];
+            yupa.imports = [
+              ./nixos
+              ./nixos/disko.nix
+            ];
           };
           meta.name = "nim65s";
           specialArgs = {
