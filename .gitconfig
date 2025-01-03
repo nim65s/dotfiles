@@ -6,3 +6,7 @@
 [safe]
     directory = /opt/esp-idf/components/openthread/openthread
     directory = /pfcalcul
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+[url "git@gitlab.laas.fr:"]
+        insteadOf = https://gitlab.laas.fr/
