@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   services = {
+    gnome.gnome-keyring.enable = false;
     openssh.enable = true;
     pipewire = {
       enable = true;

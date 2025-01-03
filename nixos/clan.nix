@@ -10,6 +10,7 @@
       azv.ssid = "azv";
       baron.ssid = "Baron";
       baroustan.ssid = "baroustan";
+      bouys.ssid = "Livebox-F410";
       comwell.ssid = "comwellhotels";
       #gofish.ssid = "><>°";
       human.ssid = "WNHC-Invite";
