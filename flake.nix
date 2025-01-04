@@ -76,6 +76,10 @@
         debug = true;
         clan = {
           machines = {
+            ashitaka.imports = [
+              ./nixos
+              ./nixos/disko.nix
+            ];
             #fix = {
             #imports = [
             #./common/nixos.nix
