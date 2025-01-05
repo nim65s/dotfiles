@@ -33,7 +33,13 @@
   clan.core.networking.zerotier.controller.enable = true;
 
   # nvidia
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+    xkb.layout = "fr";
+    xkb.variant = "bepo";
+    windowManager.i3.enable = true;
+  };
   hardware.nvidia.open = true;
   nixpkgs.config.allowUnfree = true;
 
@@ -46,6 +52,9 @@
   # misc
   environment.systemPackages = with pkgs; [
     alacritty
+    kitty
+    zellij
+    tmux
     file
     pciutils
     iproute2
@@ -72,7 +81,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    autoLogin.relogin = true;
+    #autoLogin.relogin = true;
     #settings = {
       #Autologin = {
         #Session = "niri.desktop";
@@ -105,4 +114,6 @@
       interface = "enp3s0";
     };
   };
+
+  console.keyMap = "fr-bepo";
 }
