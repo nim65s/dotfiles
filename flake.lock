@@ -137,11 +137,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736511627,
         "narHash": "sha256-MLn1/R2ERMJiTbBAve+BPi0u0BK6QZbp0mo5RoCQzyI=",
         "ref": "refs/heads/main",
         "rev": "3dd4ff31dd7b7de16d03477f6e1c27311570db5a",
         "revCount": 5430,
+=======
+        "lastModified": 1735930566,
+        "narHash": "sha256-KD2mbQ+Z6SvHBTQvJzIPgMvrZ1iaXvcE1obfLREIaso=",
+        "ref": "refs/heads/main",
+        "rev": "2b1f6ef3746e955fbe7f75e9eafabb88910d9986",
+        "revCount": 5368,
+>>>>>>> 76020dd (nix flake update)
         "type": "git",
         "url": "https://git.clan.lol/clan/clan-core"
       },
@@ -210,11 +218,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736143030,
         "narHash": "sha256-+hu54pAoLDEZT9pjHlqL9DNzWz0NbUn8NEAHP7PQPzU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "b905f6fc23a9051a6e1b741e1438dbfc0634c6de",
+=======
+        "lastModified": 1735774679,
+        "narHash": "sha256-soePLBazJk0qQdDVhdbM98vYdssfs3WFedcq+raipRI=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f2f7418ce0ab4a5309a4596161d154cfc877af66",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
@@ -397,11 +413,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736508663,
         "narHash": "sha256-ZOaGwa+WnB7Zn3YXimqjmIugAnHePdXCmNu+AHkq808=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "2532b500c3ed2b8940e831039dcec5a5ea093afc",
+=======
+        "lastModified": 1736066484,
+        "narHash": "sha256-uTstP36WaFrw+TEHb8nLF14hFPzQBOhmIxzioHCDaL8=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "5ad12b6ea06b84e48f6b677957c74f32d47bdee0",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
@@ -507,11 +531,19 @@
     },
     "nixpkgs_2": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736344531,
         "narHash": "sha256-8YVQ9ZbSfuUk2bUf2KRj60NRraLPKPS0Q4QFTbc+c2c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "bffc22eb12172e6db3c5dde9e3e5628f8e3e7912",
+=======
+        "lastModified": 1735834308,
+        "narHash": "sha256-dklw3AXr3OGO4/XT1Tu3Xz9n/we8GctZZ75ZWVqAVhk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6df24922a1400241dae323af55f30e4318a6ca65",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
@@ -534,11 +566,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736514265,
         "narHash": "sha256-1TDMYBtAMg8A9gs1mIP16P5on6AL/rpfCJlMt59rnVI=",
         "owner": "nix-community",
         "repo": "nur",
         "rev": "950ec1270558b41a6dd2ee662daa052deee01086",
+=======
+        "lastModified": 1736102571,
+        "narHash": "sha256-kqwFSGjc51UwN83cJxU9+Ld9SoKMTWl7oM3efx7Ma2A=",
+        "owner": "nix-community",
+        "repo": "nur",
+        "rev": "b95b380c7800128a1dc9f286de3fb92868909645",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
@@ -672,11 +712,19 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736300059,
         "narHash": "sha256-z3mR+0gBN/iVM8UgfCSIxjgw4jm1bu1kjMKyQx9mGBc=",
         "owner": "danth",
         "repo": "stylix",
         "rev": "168306ce7f5d823ccee8b7d4e112ea20671c2b8f",
+=======
+        "lastModified": 1736011580,
+        "narHash": "sha256-8gmk/i9ZA5C6LGRnqHb5sZ8UKaqT5GnS6XxeSPMSz+s=",
+        "owner": "danth",
+        "repo": "stylix",
+        "rev": "7dfcdb410118dcd02ba1d85a2179a6f1c877403f",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
@@ -808,11 +856,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736154270,
         "narHash": "sha256-p2r8xhQZ3TYIEKBoiEhllKWQqWNJNoT9v64Vmg4q8Zw=",
         "owner": "numtide",
         "repo": "treefmt-nix",
         "rev": "13c913f5deb3a5c08bb810efd89dc8cb24dd968b",
+=======
+        "lastModified": 1736090846,
+        "narHash": "sha256-heFL48rpDWjX95ZTnan1mHQ8CA/ziSsF5fWBpf87FJc=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "94ae23570d1c5baf710989fa1736eaea537fec27",
+>>>>>>> 76020dd (nix flake update)
         "type": "github"
       },
       "original": {
