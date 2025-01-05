@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     # contains your disk format and partitioning configuration.
@@ -5,7 +6,7 @@
     # this file is shared among all machines
     ../../modules/shared.nix
     # enables GNOME desktop (optional)
-    ../../modules/gnome.nix
+    #../../modules/gnome.nix
   ];
 
   # This is your user login name.
@@ -30,4 +31,78 @@
   # Zerotier needs one controller to accept new nodes. Once accepted
   # the controller can be offline and routing still works.
   clan.core.networking.zerotier.controller.enable = true;
+
+  # nvidia
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+  nixpkgs.config.allowUnfree = true;
+
+  # autologin
+  #services.xserver.displayManager.gdm.settings.daemon = {
+    #AutomaticLoginEnable=true;
+    #AutomaticLogin="nim";
+  #};
+
+  # misc
+  environment.systemPackages = with pkgs; [
+    alacritty
+    file
+    pciutils
+    iproute2
+    coreutils
+    jq
+    nettools
+    htop
+    btop
+  ];
+
+  # systemd-boot
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 30;
+  };
+
+  # ease reinstall
+  system.nixos.variant_id = "installer";
+
+  #services.xserver.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    autoLogin.relogin = true;
+    #settings = {
+      #Autologin = {
+        #Session = "niri.desktop";
+        #User = "nim";
+      #};
+    #};
+  };
+
+  programs = {
+    niri.enable = true;
+    vim.enable = true;
+    waybar.enable = true;
+    xwayland.enable = true;
+  };
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "nim";
+  };
+
+  networking = {
+    interfaces.enp3s0 = {
+      ipv4.addresses = [{
+        address = "192.168.8.238";
+        prefixLength = 24;
+      }];
+    };
+    defaultGateway = {
+      address = "192.168.8.1";
+      interface = "enp3s0";
+    };
+  };
 }
