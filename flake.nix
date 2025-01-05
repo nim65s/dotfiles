@@ -11,7 +11,7 @@
       clan = clan-core.lib.buildClan {
         directory = self;
         # Ensure this is unique among all clans you want to use.
-        meta.name = "__CHANGE_ME__";
+        meta.name = "ashitakaclanim";
 
         # All machines in the ./machines will be imported.
 
