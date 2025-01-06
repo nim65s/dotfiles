@@ -1,4 +1,4 @@
-{ config, clan-core, ... }:
+{ config, clan-core, pkgs, ... }:
 {
   imports = [
     # Enables the OpenSSH server for remote access
@@ -9,21 +9,81 @@
     clan-core.clanModules.state-version
   ];
 
-  # Locale service discovery and mDNS
-  services.avahi.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 30;
+  };
 
-  # generate a random password for our user below
-  # can be read using `clan secrets get <machine-name>-user-password` command
   clan.user-password.user = "user";
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "input"
+
+  console.keyMap = "fr-bepo";
+
+  environment.systemPackages = with pkgs; [
+    alacritty
+    kitty
+    zellij
+    usbutils
+    tmux
+    file
+    pciutils
+    iproute2
+    coreutils
+    jq
+    nettools
+    htop
+    btop
+    psmisc
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    niri.enable = true;
+    vim.enable = true;
+    waybar.enable = true;
+    xwayland.enable = true;
+  };
+
+  services = {
+    avahi.enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "nim";
+      };
+      defaultSession = "niri";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        #autoLogin.relogin = true;
+        autoNumlock = true;
+      };
+    };
+    xserver = {
+      enable = true;
+      xkb.layout = "fr";
+      xkb.variant = "bepo";
+      windowManager.i3.enable = true;
+    };
+  };
+
+  system.nixos.variant_id = "installer";
+
+  users.users = {
+    root.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH38Iwc5sA/6qbBRL+uot3yqkuACDDu1yQbk6bKxiPGP nim@loon"
     ];
-    uid = 1000;
-    openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
+    user = {
+      name = "nim";
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "video"
+        "input"
+      ];
+      uid = 1000;
+      openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
+    };
   };
 }
