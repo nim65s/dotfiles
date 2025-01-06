@@ -1,4 +1,4 @@
-{ config, clan-core, pkgs, ... }:
+{ config, clan-core, lib, pkgs, ... }:
 {
   imports = [
     # Enables the OpenSSH server for remote access
@@ -35,7 +35,10 @@
     psmisc
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = lib.mkDefault "x86_64-linux";
+  };
 
   programs = {
     niri.enable = true;
