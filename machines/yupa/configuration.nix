@@ -2,6 +2,7 @@
   imports = [
     ../../modules/disko.nix
     ../../modules/shared.nix
+    ../../modules/wifi.nix
   ];
 
   clan.core.networking.targetHost = "root@192.168.8.104";

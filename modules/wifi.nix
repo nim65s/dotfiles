@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ clan-core, ... }:
 {
   imports = [
-    inputs.clan-core.clanModules.iwd
+    clan-core.clanModules.iwd
   ];
 
   clan = {
