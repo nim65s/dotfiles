@@ -5,7 +5,7 @@
   ];
 
   clan = {
-    iwd.networksss = {
+    iwd.networks = {
       azv.ssid = "azv";
     };
   };
