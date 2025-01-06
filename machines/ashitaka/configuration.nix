@@ -2,6 +2,8 @@
   imports = [
     ../../modules/disko.nix
     ../../modules/shared.nix
+    ../../modules/nim.nix
+    ../../modules/stylix.nix
     ../../modules/nvidia.nix
     ../../modules/steam.nix
   ];

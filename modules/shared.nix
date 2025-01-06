@@ -50,11 +50,6 @@
   services = {
     avahi.enable = true;
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "nim";
-      };
-      defaultSession = "niri";
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -65,7 +60,6 @@
     xserver = {
       enable = true;
       xkb.layout = "fr";
-      xkb.variant = "bepo";
       windowManager.i3.enable = true;
     };
   };
@@ -77,7 +71,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH38Iwc5sA/6qbBRL+uot3yqkuACDDu1yQbk6bKxiPGP nim@loon"
     ];
     user = {
-      name = "nim";
       isNormalUser = true;
       extraGroups = [
         "wheel"

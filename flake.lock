@@ -272,6 +272,27 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
+          "clan-core",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736204492,
+        "narHash": "sha256-CoBPRgkUex9Iz6qGSzi/BFVUQjndB0PmME2B6eEyeCs=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "20665c6efa83d71020c8730f26706258ba5c6b2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
           "stylix",
           "nixpkgs"
         ]
@@ -324,6 +345,7 @@
     "root": {
       "inputs": {
         "clan-core": "clan-core",
+        "home-manager": "home-manager",
         "nixpkgs": [
           "clan-core",
           "nixpkgs"
@@ -363,7 +385,7 @@
         "flake-utils": "flake-utils",
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
-        "home-manager": "home-manager",
+        "home-manager": "home-manager_2",
         "nixpkgs": [
           "clan-core",
           "nixpkgs"

@@ -4,6 +4,10 @@
   inputs = {
     clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     nixpkgs.follows = "clan-core/nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "clan-core/nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "clan-core/nixpkgs";
@@ -12,11 +16,11 @@
   };
 
   outputs =
-    { self, clan-core, stylix, ... }:
+    { clan-core, home-manager, self, stylix, ... }:
     let
       clan = clan-core.lib.buildClan {
         directory = self;
-        specialArgs = { inherit stylix; };
+        specialArgs = { inherit home-manager stylix; };
         meta.name = "ashitakaclanim";
       };
     in
