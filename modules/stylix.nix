@@ -6,6 +6,7 @@
 
   stylix = {
     enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/zenburn.yaml";
     cursor = {
       name = "gruppled_white_lite";
       package = pkgs.gruppled-white-lite-cursors;
@@ -28,7 +29,7 @@
         name = "NotoColorEmoji";
       };
     };
-    image = lib.mkDefault ./bg/sleep.jpg;
+    image = lib.mkDefault ../bg/sleep.jpg;
     opacity = {
       applications = 0.9;
       desktop = 0.8;

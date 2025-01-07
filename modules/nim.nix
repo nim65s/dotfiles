@@ -2,6 +2,7 @@
   imports = [ ./home-manager.nix ];
 
   home-manager.users.user = import ./nim-home.nix;
+
   services = {
     displayManager = {
       autoLogin = {
@@ -14,5 +15,6 @@
       xkb.variant = "bepo";
     };
   };
+
   users.users.user.name = "nim";
 }

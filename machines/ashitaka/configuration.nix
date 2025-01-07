@@ -9,8 +9,11 @@
   ];
 
   clan.core.networking.targetHost = "root@192.168.8.238";
-  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
   #clan.core.networking.zerotier.controller.enable = true;
+
+  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
+
+  home-manager.users.user.nim-home.niri = [ ./niri.kdl ];
 
   networking = {
     interfaces.enp3s0 = {
