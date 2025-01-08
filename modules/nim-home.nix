@@ -259,6 +259,7 @@
     };
 
     services = {
+      swaync.enable = true;
       swayidle = {
         enable = true;
         events = [
