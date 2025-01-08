@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [ ./home-manager.nix ];
 
@@ -16,5 +17,8 @@
     };
   };
 
-  users.users.user.name = "nim";
+  users.users.user = {
+    name = "nim";
+    shell = pkgs.fish;
+  };
 }
