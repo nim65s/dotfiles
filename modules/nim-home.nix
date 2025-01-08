@@ -138,6 +138,7 @@
           hostname.ssh_symbol = " ";
         };
       };
+      swaylock.enable = true;
       waybar = {
         enable = true;
         settings = {
@@ -253,6 +254,15 @@
         options = [
           "--cmd"
           "cd"
+        ];
+      };
+    };
+
+    services = {
+      swayidle = {
+        enable = true;
+        events = [
+          { event = "before-sleep"; command = lib.getExe pkgs.swaylock; }
         ];
       };
     };
