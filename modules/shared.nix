@@ -19,8 +19,6 @@
   console.keyMap = "fr-bepo";
 
   environment.systemPackages = with pkgs; [
-    alacritty
-    kitty
     zellij
     usbutils
     tmux
