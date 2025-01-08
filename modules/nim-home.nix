@@ -50,7 +50,15 @@
           "--ignore-glob=.git|*.orig|*~"
         ];
       };
-      fish.enable = true;
+      fish = {
+        enable = true;
+        interactiveShellInit = ''
+          set -U fish_color_autosuggestion cba6f7 #cba6f7
+          set -U fish_color_comment 94e2d5        #94e2d5
+          set -U fish_color_end cdd6f4            #cdd6f4
+          set -U fish_color_param 89b4fa          #89b4fa
+        '';
+      };
       helix = {
         enable = true;
         defaultEditor = true;
