@@ -135,7 +135,18 @@
                 })
               ];
             };
-            devShells.default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
+            devShells = {
+              default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
+              cpp = pkgs.mkShell {
+                packages = with pkgs; [
+                  clang_19
+                  clang-tools
+                  gdb
+                  gdbgui
+                  llvmPackages_17.openmp
+                ];
+              };
+            };
             packages = {
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };

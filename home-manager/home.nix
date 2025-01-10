@@ -41,8 +41,6 @@
       dig
       dos2unix
       chrpath
-      clang_17
-      clang-tools
       cmake
       cmake-format
       cntr
@@ -59,17 +57,11 @@
       fishPlugins.bass
       #font-awesome
       fuzzel
-      gdb
-      gdbgui
       ghostscript
       git
       git-extras
       gnupg
       gparted
-      gtklock
-      gtklock-userinfo-module
-      gtklock-powerbar-module
-      gtklock-playerctl-module
       grim
       himalaya
       htop
@@ -100,7 +92,6 @@
       less
       libreoffice
       lix
-      llvmPackages_17.openmp
       lsd
       lsof
       gnumake
@@ -175,9 +166,7 @@
       #rofi-file-browser
       rofi-power-menu
       rofi-rbw
-      rpi-imager
       ruff
-      rustc
       #nur.repos.nim65s.sauce-code-pro
       signal-desktop
       sd
