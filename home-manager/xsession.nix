@@ -52,7 +52,7 @@ in
           { command = lib.getExe config.programs.firefox.finalPackage; }
           { command = lib.getExe pkgs.thunderbird; }
           { command = lib.getExe pkgs.signal-desktop; }
-          { command = lib.getExe (config.lib.nixGL.wrap pkgs.zeal); }
+          { command = lib.getExe pkgs.zeal; }
           { command = lib.getExe pkgs.element-desktop; }
           { command = "setxkbmap -synch"; }
           { command = "${lib.getExe pkgs.nitrogen} --restore"; }

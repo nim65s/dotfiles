@@ -104,7 +104,7 @@
       mypy
       ncdu
       ninja
-      (config.lib.nixGL.wrap niri)
+      niri
       nitrogen
       nixd
       nixfmt-rfc-style
@@ -126,7 +126,7 @@
       openssh
       openssl
       pandoc
-      (config.lib.nixGL.wrap pavucontrol)
+      pavucontrol
       pciutils
       pdfarranger
       pdfpc
@@ -220,7 +220,7 @@
       xwayland
       yt-dlp
       zathura
-      (config.lib.nixGL.wrap zeal)
+      zeal
       zellij
       zfs
       zola

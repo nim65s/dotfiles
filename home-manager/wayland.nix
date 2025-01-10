@@ -11,7 +11,7 @@ in
   wayland = {
     windowManager.sway = {
       enable = true;
-      package = config.lib.nixGL.wrap pkgs.sway;
+      package = pkgs.sway;
       extraConfig = config.my-sway-extraConfig;
       config = config.i3sway // {
         up = "s";

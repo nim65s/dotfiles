@@ -294,7 +294,6 @@ in
         "kitty_mod+plus" = "change_font_size all +1.0";
         "kitty_mod+minus" = "change_font_size all -1.0";
       };
-      package = config.lib.nixGL.wrap pkgs.kitty;
       settings = {
         touch_scroll_multiplier = "10.0";
         focus_follows_mouse = true;

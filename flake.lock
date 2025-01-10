@@ -458,29 +458,6 @@
         "type": "github"
       }
     },
-    "nixgl": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713543440,
-        "narHash": "sha256-lnzZQYG0+EXl/6NkGpyIz+FEOc/DSEG57AP1VsdeNrM=",
-        "owner": "nix-community",
-        "repo": "nixGL",
-        "rev": "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixGL",
-        "type": "github"
-      }
-    },
     "nixos-facter-modules": {
       "locked": {
         "lastModified": 1734596637,
@@ -636,7 +613,6 @@
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager_2",
         "nix-system-graphics": "nix-system-graphics",
-        "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "patch-dcfldd": "patch-dcfldd",

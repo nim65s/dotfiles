@@ -28,11 +28,6 @@
       url = "github:soupglasses/nix-system-graphics";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur = {
       url = "github:nix-community/nur";
@@ -194,9 +189,6 @@
             homeConfigurations = {
               "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit (self.allSystems.${system}._module.args) pkgs;
-                extraSpecialArgs = {
-                  inherit (inputs) nixgl;
-                };
                 modules = [
                   inputs.catppuccin.homeManagerModules.catppuccin
                   inputs.stylix.homeManagerModules.stylix
@@ -206,27 +198,19 @@
               };
               "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit (self.allSystems.${system}._module.args) pkgs;
-                extraSpecialArgs = {
-                  inherit (inputs) nixgl;
-                };
                 modules = [
                   inputs.catppuccin.homeManagerModules.catppuccin
                   inputs.stylix.homeManagerModules.stylix
                   ./home-manager
-                  ./home-manager/nixGL.nix
                   ./machines/upepesanke/home.nix
                 ];
               };
               "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit (self.allSystems.${system}._module.args) pkgs;
-                extraSpecialArgs = {
-                  inherit (inputs) nixgl;
-                };
                 modules = [
                   inputs.catppuccin.homeManagerModules.catppuccin
                   inputs.stylix.homeManagerModules.stylix
                   ./home-manager
-                  ./home-manager/nixGL.nix
                   ./machines/yupa/home.nix
                 ];
               };
