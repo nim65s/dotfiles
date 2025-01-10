@@ -235,6 +235,7 @@
 
     file = {
       ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
+      ".config/distrobox/distrobox.conf".source = ../.config/distrobox/distrobox.conf;
       # TODO: wip bépo / ergol
       #".config/niri/config.kdl".source = ../.config/niri/config.kdl;
       ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
