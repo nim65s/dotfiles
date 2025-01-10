@@ -24,6 +24,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-system-graphics = {
+      url = "github:soupglasses/nix-system-graphics";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +61,10 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
+    };
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/default";
     treefmt-nix = {
@@ -100,41 +108,49 @@
           };
         };
         perSystem =
-          { pkgs, self', system, ... }:
           {
-            _module.args.pkgs = let
-              supernix = import inputs.nixpkgs { inherit system; };
-            in
-            import (supernix.applyPatches {
-              name = "patched nixpkgs";
-              src = inputs.nixpkgs;
-              patches = [
-                inputs.patch-dcfldd
-              ];
-            }) {
-              inherit system;
-              config.allowUnfree = true;
-              overlays = [
-                (final: prev: {
-                  nur = import inputs.nur {
-                    nurpkgs = prev;
-                    pkgs = prev;
-                  };
-                  inherit (inputs.clan-core.packages.${system}) clan-cli;
-                  inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
-                  inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
-                  git-extras = prev.git-extras.overrideAttrs {
-                    patches = [
-                      # Allow use of GITHUB_TOKEN
-                      (final.fetchpatch {
-                        url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
-                        hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
-                      })
-                    ];
-                  };
+            pkgs,
+            self',
+            system,
+            ...
+          }:
+          {
+            _module.args.pkgs =
+              let
+                supernix = import inputs.nixpkgs { inherit system; };
+              in
+              import
+                (supernix.applyPatches {
+                  name = "patched nixpkgs";
+                  src = inputs.nixpkgs;
+                  patches = [
+                    inputs.patch-dcfldd
+                  ];
                 })
-              ];
-            };
+                {
+                  inherit system;
+                  config.allowUnfree = true;
+                  overlays = [
+                    (final: prev: {
+                      nur = import inputs.nur {
+                        nurpkgs = prev;
+                        pkgs = prev;
+                      };
+                      inherit (inputs.clan-core.packages.${system}) clan-cli;
+                      inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
+                      inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
+                      git-extras = prev.git-extras.overrideAttrs {
+                        patches = [
+                          # Allow use of GITHUB_TOKEN
+                          (final.fetchpatch {
+                            url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
+                            hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
+                          })
+                        ];
+                      };
+                    })
+                  ];
+                };
             devShells = {
               default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
               cpp = pkgs.mkShell {
@@ -167,48 +183,63 @@
               };
             };
           };
-        flake = {
-          homeConfigurations = {
-            "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
-              inherit (self.allSystems.x86_64-linux._module.args) pkgs;
-              extraSpecialArgs = {
-                inherit (inputs) nixgl;
+        flake =
+          let
+            system = "x86_64-linux";
+          in
+          {
+            homeConfigurations = {
+              "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit (self.allSystems.${system}._module.args) pkgs;
+                extraSpecialArgs = {
+                  inherit (inputs) nixgl;
+                };
+                modules = [
+                  inputs.catppuccin.homeManagerModules.catppuccin
+                  inputs.stylix.homeManagerModules.stylix
+                  ./home-manager
+                  ./machines/asahi/home.nix
+                ];
               };
-              modules = [
-                inputs.catppuccin.homeManagerModules.catppuccin
-                inputs.stylix.homeManagerModules.stylix
-                ./home-manager
-                ./machines/asahi/home.nix
-              ];
+              "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit (self.allSystems.${system}._module.args) pkgs;
+                extraSpecialArgs = {
+                  inherit (inputs) nixgl;
+                };
+                modules = [
+                  inputs.catppuccin.homeManagerModules.catppuccin
+                  inputs.stylix.homeManagerModules.stylix
+                  ./home-manager
+                  ./home-manager/nixGL.nix
+                  ./machines/upepesanke/home.nix
+                ];
+              };
+              "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit (self.allSystems.${system}._module.args) pkgs;
+                extraSpecialArgs = {
+                  inherit (inputs) nixgl;
+                };
+                modules = [
+                  inputs.catppuccin.homeManagerModules.catppuccin
+                  inputs.stylix.homeManagerModules.stylix
+                  ./home-manager
+                  ./home-manager/nixGL.nix
+                  ./machines/yupa/home.nix
+                ];
+              };
             };
-            "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
-              inherit (self.allSystems.x86_64-linux._module.args) pkgs;
-              extraSpecialArgs = {
-                inherit (inputs) nixgl;
-              };
+            systemConfigs.default = inputs.system-manager.lib.makeSystemConfig {
               modules = [
-                inputs.catppuccin.homeManagerModules.catppuccin
-                inputs.stylix.homeManagerModules.stylix
-                ./home-manager
-                ./home-manager/nixGL.nix
-                ./machines/upepesanke/home.nix
-              ];
-            };
-            "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
-              inherit (self.allSystems.x86_64-linux._module.args) pkgs;
-              extraSpecialArgs = {
-                inherit (inputs) nixgl;
-              };
-              modules = [
-                inputs.catppuccin.homeManagerModules.catppuccin
-                inputs.stylix.homeManagerModules.stylix
-                ./home-manager
-                ./home-manager/nixGL.nix
-                ./machines/yupa/home.nix
+                inputs.nix-system-graphics.systemModules.default
+                {
+                  config = {
+                    nixpkgs.hostPlatform = system;
+                    system-graphics.enable = true;
+                  };
+                }
               ];
             };
           };
-        };
         imports = [
           inputs.clan-core.flakeModules.default
           inputs.treefmt-nix.flakeModule
