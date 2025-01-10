@@ -522,3 +522,13 @@ spawn-at-startup "firefox-devedition"
 spawn-at-startup "element-desktop"
 spawn-at-startup "zeal"
 spawn-at-startup "kitty"
+
+// upe
+output "Dell Inc. DELL P2417H CW6Y781G19DB" {
+    position x=2560 y=0
+    scale 1
+}
+output "Dell Inc. DELL P2721Q 6FFSLJ3" {
+    position x=0 y=0
+    scale 1.5
+}

@@ -24,6 +24,7 @@
       brightnessctl
       broot
       cachix
+      cage
       cargo
       cargo-binstall
       cargo-release
