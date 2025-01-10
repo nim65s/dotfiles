@@ -152,7 +152,10 @@
                   ];
                 };
             devShells = {
-              default = pkgs.mkShell { packages = [ inputs.clan-core.packages.${system}.clan-cli ]; };
+              default = pkgs.mkShell { packages = [
+                inputs.clan-core.packages.${system}.clan-cli
+                inputs.system-manager.packages.${system}.system-manager
+              ]; };
               cpp = pkgs.mkShell {
                 packages = with pkgs; [
                   clang_19
