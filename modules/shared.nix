@@ -9,9 +9,13 @@
     clan-core.clanModules.state-version
   ];
 
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 30;
+  boot = {
+    kernelModules = ["vhci-hcd" "usbip_host" ];
+    extraModulePackages = [ config.boot.kernelPackages.usbip ];
+    loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 30;
+    };
   };
 
   clan.user-password.user = "user";
@@ -19,6 +23,7 @@
   console.keyMap = "fr-bepo";
 
   environment.systemPackages = with pkgs; [
+    config.boot.kernelPackages.usbip
     zellij
     usbutils
     tmux
