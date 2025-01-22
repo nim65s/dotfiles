@@ -26,6 +26,8 @@ in
   # Note this might jump back and worth as kernel get added or removed.
   boot = {
     kernelPackages = latestKernelPackage;
+    kernelModules = ["vhci-hcd" "usbip_host" ];
+    extraModulePackages = [ config.boot.kernelPackages.usbip ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
