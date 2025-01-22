@@ -1,12 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
-    ../../modules/disko.nix
-    ../../modules/shared.nix
+    ../../modules/disko-zfs.nix
     ../../modules/nim.nix
-    ../../modules/stylix.nix
     ../../modules/nvidia.nix
+    ../../modules/remote-decrypt.nix
+    ../../modules/shared.nix
     ../../modules/steam.nix
+    ../../modules/stylix.nix
   ];
 
   clan.core.networking.targetHost = "root@192.168.8.238";
