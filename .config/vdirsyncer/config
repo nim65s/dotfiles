@@ -21,7 +21,7 @@ password.fetch = ["command", "rbw", "get", "vdirsyncer"]
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
-collections = [["gepetto", "Gepetto", "gepetto"], ["personnel", "LAAS", "personnel"], ["guilhem", "Guilhem", "guilhem"]]
+collections = [["Gepetto", "Gepetto", "Gepetto"], ["LAAS", "LAAS", "LAAS"], ["Guilhem", "Guilhem", "Guilhem"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
@@ -31,7 +31,7 @@ fileext = ".ics"
 
 [storage laas_remote]
 type = "caldav"
-url = "https://cloud.laas.fr/remote.php/caldav/calendars/gsaurel/"
+url = "https://partage.laas.fr/remote.php/caldav/calendars/gsaurel/"
 username = "gsaurel"
 password.fetch = ["command", "rbw", "get", "--folder", "laas", "cloud-token"]
 
@@ -68,20 +68,6 @@ type = "caldav"
 url = "https://sogo.laas.fr/SOGo/dav/blain/Calendar/personal"
 username = "gsaurel"
 password.fetch = ["command", "rbw", "get", "--folder", "laas", "main"]
-
-[pair werome]
-a = "werome_local"
-b = "werome_remote"
-collections = null
-
-[storage werome_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/werome"
-fileext = ".ics"
-
-[storage werome_remote]
-type = "http"
-url = "https://www.laas.fr/roboticsmeetings/calendar-node-field-date/ical/0/calendar.ics"
 
 [pair holiday]
 a = "holiday_local"

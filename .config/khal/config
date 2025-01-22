@@ -39,11 +39,6 @@ path = ~/.vdir/calendars/laas_idea/personal
 color = yellow
 readonly = True
 
-[[We-Rome]]
-path = ~/.vdir/calendars/ro/werome
-color = dark cyan
-readonly = True
-
 [[GoogLAAS]]
 path = ~/.vdir/calendars/ro/googlaas
 readonly = True
