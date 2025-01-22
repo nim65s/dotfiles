@@ -37,4 +37,6 @@
       interface = "enp3s0";
     };
   };
+
+  stylix.image = ../../bg/ashitaka-3.jpg;
 }

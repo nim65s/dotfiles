@@ -7,7 +7,6 @@
     kernelModules = [
       "r8169"
     ];
-    systemd.enable = true;
     network = {
       enable = true;
       ssh = {

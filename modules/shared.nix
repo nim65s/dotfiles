@@ -27,6 +27,7 @@
     iproute2
     coreutils
     jq
+    kitty
     nettools
     htop
     btop
@@ -65,8 +66,6 @@
       windowManager.i3.enable = true;
     };
   };
-
-  system.nixos.variant_id = "installer";
 
   users.users = {
     root.openssh.authorizedKeys.keys = [

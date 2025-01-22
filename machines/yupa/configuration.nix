@@ -1,8 +1,8 @@
 {
   imports = [
-    ../../modules/disko.nix
-    ../../modules/shared.nix
+    ../../modules/disko-zfs.nix
     ../../modules/nim.nix
+    ../../modules/shared.nix
     ../../modules/stylix.nix
     ../../modules/wifi.nix
   ];
