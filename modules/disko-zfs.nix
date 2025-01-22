@@ -1,5 +1,4 @@
 {
-  lib,
   clan-core,
   config,
   ...
@@ -11,6 +10,7 @@ in
 {
   imports = [
     clan-core.clanModules.disk-id
+    ./zfs-latest.nix
   ];
 
   disko.devices = {
@@ -80,7 +80,7 @@ in
             options.mountpoint = "/home";
             mountpoint = "/home";
           };
-          "/root/tmp" = {
+          "root/tmp" = {
             type = "zfs_fs";
             mountpoint = "/tmp";
             options = {
