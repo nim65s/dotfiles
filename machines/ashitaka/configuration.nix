@@ -10,8 +10,10 @@
     ../../modules/stylix.nix
   ];
 
-  clan.core.networking.targetHost = "root@192.168.8.238";
-  #clan.core.networking.zerotier.controller.enable = true;
+  clan.core.networking = {
+    targetHost = "root@192.168.8.238";
+    zerotier.controller.enable = true;
+  };
 
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
 

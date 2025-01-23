@@ -22,6 +22,18 @@
         directory = self;
         specialArgs = { inherit home-manager stylix; };
         meta.name = "ashitakaclanim";
+        inventory.services.mycelium.default = {
+          roles.peer.machines = [
+            "ashitaka"
+            "hattori"
+            "perseverance"
+            "yupa"
+          ];
+          config = {
+            topLevelDomain = "m";
+            openFirewall = true;
+          };
+        };
       };
     in
     {

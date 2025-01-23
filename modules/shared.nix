@@ -14,25 +14,33 @@
     configurationLimit = 30;
   };
 
-  clan.user-password.user = "user";
+  clan = {
+    user-password.user = "user";
+    core.networking.zerotier.networkId = builtins.readFile (config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id");
+  };
 
   console.keyMap = "fr-bepo";
 
   environment.systemPackages = with pkgs; [
-    zellij
-    usbutils
-    tmux
-    file
-    pciutils
-    iproute2
+    alacritty
+    btop
     coreutils
+    dfc
+    fd
+    file
+    htop
+    iproute2
     jq
     kitty
     nettools
-    htop
-    btop
+    ncdu
+    pciutils
     psmisc
+    ripgrep
     swaylock
+    tmux
+    usbutils
+    zellij
   ];
 
   nixpkgs = {
