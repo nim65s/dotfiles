@@ -10,7 +10,7 @@
 
   clan.core.networking.targetHost = "root@192.168.1.104";
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-LDLC_F8+M.2_120_09292220C0589";
-  stylix.image = ../../bg/perseverance.jpeg;
+  environment.sessionVariables.ROVER = "perseverance";
 
   networking = {
     firewall.allowedTCPPorts = [ 80 ];
@@ -24,4 +24,6 @@
       extraConfig = "autoindex on;";
     };
   };
+
+  stylix.image = ../../bg/perseverance.jpeg;
 }
