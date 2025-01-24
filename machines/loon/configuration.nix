@@ -17,8 +17,10 @@
   console.keyMap = "fr-bepo";
 
   networking = {
-    firewall.allowedUDPPorts = [ 655 ];
-    firewall.allowedTCPPorts = [ 655 ];
+    firewall = {
+      allowedTCPPorts = [ 655 ];
+      allowedUDPPorts = [ 655 ];
+    };
     interfaces."tinc.mars".ipv4.addresses = [
       {
         address = "10.0.55.204";
@@ -41,6 +43,9 @@
 
     tinc.networks.mars = {
       package = pkgs.tinc;
+      extraConfig   = ''
+        connectTo = mononoke
+      '';
       hostSettings = {
         ashitaka = {
           addresses = [
