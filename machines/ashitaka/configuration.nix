@@ -34,12 +34,19 @@
     };
     interfaces = {
       enp3s0 = {
-        ipv4.addresses = [{
-          address = "192.168.8.238";
-          prefixLength = 24;
-        }];
+        ipv4.addresses = [
+          {
+            address = "192.168.8.238";
+            prefixLength = 24;
+          }
+        ];
       };
-      "tinc.mars".ipv4.addresses = [ { address = "10.0.55.205"; prefixLength = 24; } ];
+      "tinc.mars".ipv4.addresses = [
+        {
+          address = "10.0.55.205";
+          prefixLength = 24;
+        }
+      ];
     };
   };
 

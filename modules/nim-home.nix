@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options = {
     nim-home = {
@@ -24,7 +29,9 @@
       stateVersion = "25.05";
 
       file = {
-        ".config/niri/config.kdl".source = pkgs.concatText "config.kdl" ([ ./niri.kdl ] ++ config.nim-home.niri);
+        ".config/niri/config.kdl".source = pkgs.concatText "config.kdl" (
+          [ ./niri.kdl ] ++ config.nim-home.niri
+        );
       };
     };
 
@@ -250,7 +257,8 @@
                 "Paused" = " ";
               };
               "max-length" = 70;
-              "exec" = ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{album}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
+              "exec" =
+                ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{album}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
               "on-click" = "playerctl play-pause";
               "on-click-right" = "playerctl next";
             };
@@ -271,7 +279,10 @@
       swayidle = {
         enable = true;
         events = [
-          { event = "before-sleep"; command = lib.getExe pkgs.swaylock; }
+          {
+            event = "before-sleep";
+            command = lib.getExe pkgs.swaylock;
+          }
         ];
       };
     };

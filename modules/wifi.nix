@@ -6,8 +6,8 @@
 
   clan = {
     iwd.networks = {
-      azv = {};
-      marsrovers = {};
+      azv = { };
+      marsrovers = { };
     };
   };
 }

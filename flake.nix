@@ -16,7 +16,13 @@
   };
 
   outputs =
-    { clan-core, home-manager, self, stylix, ... }:
+    {
+      clan-core,
+      home-manager,
+      self,
+      stylix,
+      ...
+    }:
     let
       clan = clan-core.lib.buildClan {
         directory = self;

@@ -14,7 +14,12 @@
 
   networking = {
     firewall.allowedTCPPorts = [ 80 ];
-    interfaces."tinc.mars".ipv4.addresses = [ { address = "10.0.55.10"; prefixLength = 24; } ];
+    interfaces."tinc.mars".ipv4.addresses = [
+      {
+        address = "10.0.55.10";
+        prefixLength = 24;
+      }
+    ];
   };
 
   services.nginx = {

@@ -1,4 +1,10 @@
-{ config, clan-core, lib, pkgs, ... }:
+{
+  config,
+  clan-core,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     # Enables the OpenSSH server for remote access
@@ -16,7 +22,9 @@
 
   clan = {
     user-password.user = "user";
-    core.networking.zerotier.networkId = builtins.readFile (config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id");
+    core.networking.zerotier.networkId = builtins.readFile (
+      config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
+    );
   };
 
   console.keyMap = "fr-bepo";
@@ -61,7 +69,7 @@
     xwayland.enable = true;
   };
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   services = {
     avahi.enable = true;
@@ -77,8 +85,18 @@
       package = pkgs.tinc;
       hostSettings = {
         ashitaka = {
-          addresses = [ { address = "192.168.8.238"; port = 655; } ];
-          subnets = [ { address = "10.0.55.205"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "192.168.8.238";
+              port = 655;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.205";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
             MIICCgKCAgEAo9i81Cm+Q2tt4HftW3GjR/GVAGewIL4/GsX8RjB2agJrerIOj1ys
@@ -96,29 +114,65 @@
           '';
         };
         hattori = {
-          addresses = [ { address = "192.168.1.200"; port = 655; } ];
-          subnets = [ { address = "10.0.55.200"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "192.168.1.200";
+              port = 655;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.200";
+              prefixLength = 32;
+            }
+          ];
         };
         loon = {
-          addresses = [ 
-            { address = "192.168.1.204"; port = 655; } 
-            { address = "192.168.8.240"; port = 655; } 
+          addresses = [
+            {
+              address = "192.168.1.204";
+              port = 655;
+            }
+            {
+              address = "192.168.8.240";
+              port = 655;
+            }
           ];
-          subnets = [ { address = "10.0.55.204"; prefixLength = 32; } ];
+          subnets = [
+            {
+              address = "10.0.55.204";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
-            MIIBCgKCAQEA59ewksOYFBl2b9LZpNunUYgIndpsA0txhdI10+LG9DjWgdJwvZEk
-            Ofj+vEz3f7q5jSTWWHe3OnHWHEVIFeRf8bvc2k62X3LrUSbBaflDzz/mARCrCYg3
-            y6+fmCCFrBKTPg8eE9FVawj0kC6Gr3OVOlLOZGK6QnqQDRFBDqGqp6DsLVQz9U0d
-            djF5I8oGiH6yPAWHys2ltb+H82JBSCXR5L5QwifFlz1sKFbIdVUt0pwm9iSuD9NG
-            mW4iaYgx/BdEez6BkjhhsQ4HQNRJdpDwVggJ7+sHaw6oZcYO9/Go8zvclfui0T7K
-            03l89MUl9w6XVd2ty0U3hIJiv9Y+WBcVpwIDAQAB
+            MIICCgKCAgEAl2gdD25WOuGSuSlM2Si9KgYS8Ync9PygggaQMAJhgDnLr4QsHFES
+            vLwekjawC7YNZ0K7wAq/OA49EA2MuLonRIZxezhRE4xHpS8N7SH3MF9mx3tyGvbY
+            +1FwKEM1/paSQ0OOszWVG43yhqpdXue2Q6kEl0nYLPnyDiCvzOimnDSu/MOj33q9
+            7o/r3gm8eL3wimu6TZRgG1/GaNq4/9HvKxGeEyIBa5LDtypmiFw4oORj575Ppk6n
+            JHCo7xeoYGyP/GVHLPCaxwZ0MZbmt5oOAdd6HN5JytwNc25ZU5FEKeNweyQN06IG
+            BO+ZM9IPUGpjsNalhtoFOXr2zFCyGROGjd11hUwNrG4J3rKz/HmMH5i+RXM6/Ya0
+            Tsn5I4aryzFff6kstf9B2YEFJA9//1Ta82uIsPzcdAXZLhF+ww4aBS6Xsav8Udrz
+            BxaTnynL+XJSVUZnlCkSK2HevBpd/0DWUqkjt3ixGlzpQenkwQ3hcwrfO/JgKEaZ
+            7l+lk/IGoGop3ZDknp10tnHJOiDI8FN99KbYOv/MN3pOoEWhk7igToY9utYUtoZu
+            eGPVSnB62opoGzV0lKYYmA4OiFBqh+RZ7+S/uy3V5TlbjhwZE0Dnic8EWaFNQA6q
+            nrB/t/frqSwj//EG3SjAUzIJvQnk0GTa2DvbTTz1F8eG46caljSYI5UCAwEAAQ==
             -----END RSA PUBLIC KEY-----
           '';
         };
         mononoke = {
-          addresses = [ { address = "mononoke.tetaneutral.net"; port = 53; } ];
-          subnets = [ { address = "10.0.55.50"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "mononoke.tetaneutral.net";
+              port = 53;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.50";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
             MIIBCgKCAQEA2qxK/9BExnz3Z9sO9GN36WEN+tdVCJ+9ipa80H/FEinkLUlIEwED
@@ -131,8 +185,18 @@
           '';
         };
         perseverance = {
-          addresses = [ { address = "192.168.1.10"; port = 655; } ];
-          subnets = [ { address = "10.0.55.10"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "192.168.1.10";
+              port = 655;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.10";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
             MIICCgKCAgEAzo1ChjEu0veHhxGKNT1GiizwBvrIUclgEI9iyYQMzLRMHXf11wKG
@@ -150,8 +214,18 @@
           '';
         };
         yupa = {
-          addresses = [ { address = "192.168.1.203"; port = 655; } ];
-          subnets = [ { address = "10.0.55.203"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "192.168.1.203";
+              port = 655;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.203";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
             MIICCgKCAgEApVjLzS8Wy/lPnGrFyrXjVoVm6SlE3aFoWhY+WS2jQ+0d2yTxdzqI
@@ -169,8 +243,18 @@
           '';
         };
         zhurong = {
-          addresses = [ { address = "192.168.1.20"; port = 655; } ];
-          subnets = [ { address = "10.0.55.10"; prefixLength = 32; } ];
+          addresses = [
+            {
+              address = "192.168.1.20";
+              port = 655;
+            }
+          ];
+          subnets = [
+            {
+              address = "10.0.55.10";
+              prefixLength = 32;
+            }
+          ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
             MIICCgKCAgEAxE5OHgRQayZxKJ0bpzCb5+YUTvRydMrAqlsGmONxZauAAlp9mJYR
