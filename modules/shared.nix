@@ -36,6 +36,7 @@
     dfc
     fd
     file
+    graphviz
     htop
     iproute2
     jq
@@ -81,10 +82,12 @@
         autoNumlock = true;
       };
     };
+
     tinc.networks.mars = {
       package = pkgs.tinc;
-      extraConfig   = ''
+      extraConfig = ''
         connectTo = mononoke
+        GraphDumpFile = |${lib.getExe' pkgs.graphviz "circo"} -Tsvg -o/tmp/tinc.mars.svg
       '';
       hostSettings = {
         ashitaka = {
@@ -254,7 +257,7 @@
           ];
           subnets = [
             {
-              address = "10.0.55.10";
+              address = "10.0.55.20";
               prefixLength = 32;
             }
           ];

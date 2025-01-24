@@ -55,7 +55,7 @@
         RestartSec = 5;
         WorkingDirectory = "/home/nim/roveros";
         User = "nim";
-        ExecStart = "./target/release/roveros-uia";
+        ExecStart = "/home/nim/roveros/target/release/roveros-uia";
         Environment = "RUST_BACKTRACE=1";
         TimeoutStopSec = 15;
       };
