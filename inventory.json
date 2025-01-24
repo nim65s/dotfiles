@@ -11,6 +11,19 @@
     },
     "hattori": {
       "name": "hattori"
+    },
+    "zhurong": {
+      "name": "zhurong"
+    }
+  },
+  "services": {
+    "mycelium": {
+      "default": {
+        "enabled": true,
+        "meta": {
+          "name": "default"
+        }
+      }
     }
   }
 }
