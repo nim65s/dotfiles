@@ -52,8 +52,8 @@
   ];
 
   networking.firewall = {
-    allowedUDPPorts = [ 655 ];
     allowedTCPPorts = [ 655 ];
+    allowedUDPPorts = [ 655 ];
   };
 
   nixpkgs = {
@@ -83,6 +83,9 @@
     };
     tinc.networks.mars = {
       package = pkgs.tinc;
+      extraConfig   = ''
+        connectTo = mononoke
+      '';
       hostSettings = {
         ashitaka = {
           addresses = [
