@@ -17,7 +17,11 @@
       address = "192.168.1.1";
       interface = "wlan0";
     };
-    firewall.allowedTCPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [
+      80
+      3000
+      8000
+    ];
     interfaces = {
       wlan0 = {
         ipv4.addresses = [
@@ -47,6 +51,20 @@
   stylix.image = ../../bg/perseverance.jpeg;
 
   systemd.services = {
+    calibration = {
+      description = "Rover calibration UI";
+      serviceConfig = {
+        Type = "simple";
+        Restart = "always";
+        RestartSec = 5;
+        WorkingDirectory = "/home/nim/roveros";
+        User = "nim";
+        ExecStart = "/run/current-system/sw/bin/nix develop --command ./manage.py runserver 0.0.0.0:8000";
+        Environment = "PYTHONUNBUFFERED=true";
+        TimeoutStopSec = 15;
+      };
+      wantedBy = [ "multi-user.target" ];
+    };
     perseverance = {
       description = "Rover Python AI";
       serviceConfig = {
@@ -55,7 +73,7 @@
         RestartSec = 5;
         WorkingDirectory = "/home/nim/roveros/perseverance";
         User = "nim";
-        ExecStart = "flask run";
+        ExecStart = "/run/current-system/sw/bin/nix develop --command flask run";
         Environment = "PYTHONUNBUFFERED=true";
         TimeoutStopSec = 15;
       };

@@ -47,6 +47,7 @@
     psmisc
     ripgrep
     swaylock
+    tig
     tmux
     usbutils
     zellij
