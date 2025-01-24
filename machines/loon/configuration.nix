@@ -60,7 +60,10 @@
           subnets = [ { address = "10.0.55.200"; prefixLength = 32; } ];
         };
         loon = {
-          addresses = [ { address = "192.168.1.204"; port = 655; } ];
+          addresses = [ 
+            { address = "192.168.1.204"; port = 655; } 
+            { address = "192.168.8.240"; port = 655; } 
+          ];
           subnets = [ { address = "10.0.55.204"; prefixLength = 32; } ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----

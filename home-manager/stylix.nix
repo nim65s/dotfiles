@@ -8,6 +8,7 @@
       fzf.enable = false;
       helix.enable = false;
       swaylock.enable = false;
+      vim.enable = false;  # TODO
     };
   } // import ../stylix.nix { inherit lib pkgs; };
 }

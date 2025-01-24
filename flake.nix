@@ -37,10 +37,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    patch-dcfldd = {
-      url = "https://github.com/NixOS/nixpkgs/pull/369697.patch";
-      flake = false;
-    };
     patch-jrk = {
       url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
@@ -131,7 +127,6 @@
                   name = "patched nixpkgs";
                   src = inputs.nixpkgs;
                   patches = [
-                    inputs.patch-dcfldd
                     inputs.patch-jrk
                   ];
                 })

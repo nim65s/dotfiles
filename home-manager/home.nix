@@ -174,7 +174,7 @@
       sccache
       shellcheck
       slurp
-      snapcast
+      #snapcast
       sops
       #source-han-mono
       #source-han-sans
