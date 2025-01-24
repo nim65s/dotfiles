@@ -41,6 +41,10 @@
       url = "https://github.com/NixOS/nixpkgs/pull/369697.patch";
       flake = false;
     };
+    patch-jrk = {
+      url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
+      flake = false;
+    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -128,6 +132,7 @@
                   src = inputs.nixpkgs;
                   patches = [
                     inputs.patch-dcfldd
+                    inputs.patch-jrk
                   ];
                 })
                 {

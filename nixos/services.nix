@@ -11,6 +11,9 @@
       pulse.enable = true;
     };
     #xdg.portal.wlr.enable = true;
-    udev.packages = [ pkgs.stlink ];
+    udev.packages = [
+      pkgs.pololu-jrk-g2-software 
+      pkgs.stlink 
+    ];
   };
 }
