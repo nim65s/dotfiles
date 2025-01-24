@@ -75,20 +75,35 @@
     };
     tinc.networks.mars = {
       package = pkgs.tinc;
-      extraConfig = ''
-        ConnectTo = mononoke
-      '';
       hostSettings = {
         ashitaka = {
-          addresses = [ { address = "192.168.1.205"; port = 655; } ];
+          addresses = [ { address = "192.168.8.238"; port = 655; } ];
           subnets = [ { address = "10.0.55.205"; prefixLength = 32; } ];
+          rsaPublicKey = ''
+            -----BEGIN RSA PUBLIC KEY-----
+            MIICCgKCAgEAo9i81Cm+Q2tt4HftW3GjR/GVAGewIL4/GsX8RjB2agJrerIOj1ys
+            UUnbNaYZXoErwYrt7pE9Qt38aD0raXQRyGqGrMim2e0xeJz2/ogpN4FFB4HB/bU+
+            lV2y45ZqYvV7jCUhduI70ro25vqoawBMvJx3ko/thTJRdwVniFnNp2wlyvcI01BA
+            hjhgqp27Wblo+ZJNJ6O13F8bsPzz+XzjRTMvizWG1Iv/5ZdAzMtj7HFUbg1KGD/x
+            ySkrX8OqTzKX5vnz2UhV1mfmZ3SrUNjr1De/iJxOQ59tLAFIdNAIpR7dWSh1WVCc
+            7zHpcaQ3uOqgHBhKz1Y4ti6vfRh3QUPW5CFXCPa+buePyPb4tNormkItWV4/RXtg
+            KPIhLjp/UWHQavVjRsfWi5GQ50CWv+yNTbOcM/MUjUOjVOLy5jawS9VVJ3rq6B8N
+            6Ip2+miYSffpPPZUFSOtc5QzkSIj8/5iKziTLIm1Ete/DaaRllgMw8AhPsU3Uxzr
+            KWTm58haJ5x9/Iwm7q1Ngj19U7l2/v3rG2dZLoQr/Y39YJDsPtTWaIOBfKrXM7gt
+            aeku1NEyJVpfVHeVE1WWelpkRboKKEY30BTGYX1ouoI8ws9ElE1m+YhZJgZLt2f+
+            R7jdAeugWutjR4QFiPNS6tyqMfP1O7WWui78whkgGcBRHy3ix9XnQa8CAwEAAQ==
+            -----END RSA PUBLIC KEY-----
+          '';
         };
         hattori = {
           addresses = [ { address = "192.168.1.200"; port = 655; } ];
           subnets = [ { address = "10.0.55.200"; prefixLength = 32; } ];
         };
         loon = {
-          addresses = [ { address = "192.168.1.204"; port = 655; } ];
+          addresses = [ 
+            { address = "192.168.1.204"; port = 655; } 
+            { address = "192.168.8.240"; port = 655; } 
+          ];
           subnets = [ { address = "10.0.55.204"; prefixLength = 32; } ];
           rsaPublicKey = ''
             -----BEGIN RSA PUBLIC KEY-----
@@ -150,6 +165,25 @@
             z3iWEbWL7CMiSI8kNlvsVEizbk8OAtKITVuBnOcP4UaUM/T2LiSkLNCR3Q34n4Cj
             nRqHGwNFubZwTuITLvtWxRAAqq9BS8i+uKqD0AmxEdsQ38RJOWKBTSH5Zo7H1Tde
             wdgpTYfQ1+5PV+6ipdI2GHYlxncLtMzeZtXDeeCAHmarNOkO32fasL8CAwEAAQ==
+            -----END RSA PUBLIC KEY-----
+          '';
+        };
+        zhurong = {
+          addresses = [ { address = "192.168.1.20"; port = 655; } ];
+          subnets = [ { address = "10.0.55.10"; prefixLength = 32; } ];
+          rsaPublicKey = ''
+            -----BEGIN RSA PUBLIC KEY-----
+            MIICCgKCAgEAxE5OHgRQayZxKJ0bpzCb5+YUTvRydMrAqlsGmONxZauAAlp9mJYR
+            9Od+DvFDlvMH+PdQ4Ih4uq2ODdDJvJh2j+h5VfBrzoSR7s4YLD4gAHDKpo6sexgc
+            zt9VNwg/MCETE8397/gZD+P2L5e++aK37wFgZxNE/T1zJKIPyyETF49/5/MOiUtE
+            gjoOiE1WjjPPb1ZuB+DScCVTIWtzKpbZ2SSBFiRX6rF+EHdOctjD0Lej0Nddaklo
+            uuW+qikHdeXKxyu6HwRzA4AqXDTUuhOsMnWAIBHXRGuS+Eu6R1lbmALXdttG704U
+            UUpYg105XIiNUqyv8PcCk7FDsBpMSxcnRbPZJSO9GiFKsDDNIoVonxkla04JIi6h
+            laZmuM2gHr0UdnzRu+w8mtZ5sqCk29awohnxQYcB4zgAaHXToWFsG/bhv07fKBHf
+            UswQ/y0eEjymoDv0CxO7Ue8sHlQ5uilb+bXUg8GwfMg2hy0hDKiAc3BCwGY+OxCT
+            D83ZFcx4HdPHm651OCFFubFj5tDWVxZqhld8XoEqVB6KzZH3/bIIDwMlS+fqqmkd
+            ZCCVXqe/Kmtee8vrd4N3AzsRmtCPFeZTpGBhsJoggqBDIAO3xZKxuevoNpmp1M7J
+            nFzPmaE6fsy+gEHAwfDveIIy5JmCx8N4U4ydrgJwZwaBJBLT0GLksekCAwEAAQ==
             -----END RSA PUBLIC KEY-----
           '';
         };
