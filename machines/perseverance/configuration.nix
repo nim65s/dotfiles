@@ -8,7 +8,7 @@
     ../../modules/wifi.nix
   ];
 
-  clan.core.networking.targetHost = "root@10.0.55.10";
+  clan.core.networking.targetHost = "root@192.168.1.10";
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-LDLC_F8+M.2_120_09292220C0589";
   environment.sessionVariables.ROVER = "perseverance";
 
