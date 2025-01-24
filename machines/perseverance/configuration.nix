@@ -40,7 +40,7 @@
         Environment = "PYTHONUNBUFFERED=true";
         TimeoutStopSec = 15;
       };
-      wantedBy = "multi-user.target";
+      wantedBy = [ "multi-user.target" ];
     };
     roveros = {
       description = "Rover Main AI";
@@ -54,7 +54,7 @@
         Environment = "RUST_BACKTRACE=1";
         TimeoutStopSec = 15;
       };
-      wantedBy = "multi-user.target";
+      wantedBy = [ "multi-user.target" ];
     };
   };
 }
