@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
   boot = {
@@ -43,8 +43,9 @@
 
     tinc.networks.mars = {
       package = pkgs.tinc;
-      extraConfig   = ''
+      extraConfig = ''
         connectTo = mononoke
+        GraphDumpFile = |${lib.getExe' pkgs.graphviz "circo"} -Tsvg -o/tmp/tinc.mars.svg
       '';
       hostSettings = {
         ashitaka = {
@@ -214,7 +215,7 @@
           ];
           subnets = [
             {
-              address = "10.0.55.10";
+              address = "10.0.55.20";
               prefixLength = 32;
             }
           ];
