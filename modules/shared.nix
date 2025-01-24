@@ -294,10 +294,11 @@
     user = {
       isNormalUser = true;
       extraGroups = [
-        "wheel"
+        "dialout"
+        "input"
         "networkmanager"
         "video"
-        "input"
+        "wheel"
       ];
       uid = 1000;
       openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
