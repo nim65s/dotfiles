@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   stylix = {
     # Those are handled by catppuccin-nix
     targets = {
@@ -8,7 +9,7 @@
       fzf.enable = false;
       helix.enable = false;
       swaylock.enable = false;
-      vim.enable = false;  # TODO
+      vim.enable = false; # TODO
     };
   } // import ../stylix.nix { inherit lib pkgs; };
 }

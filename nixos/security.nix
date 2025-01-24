@@ -1,6 +1,6 @@
 _: {
   security = {
-    pam.services.swaylock = {};
+    pam.services.swaylock = { };
     rtkit.enable = true;
   };
 }

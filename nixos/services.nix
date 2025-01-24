@@ -12,8 +12,8 @@
     };
     #xdg.portal.wlr.enable = true;
     udev.packages = [
-      pkgs.pololu-jrk-g2-software 
-      pkgs.stlink 
+      pkgs.pololu-jrk-g2-software
+      pkgs.stlink
     ];
   };
 }

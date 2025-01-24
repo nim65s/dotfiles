@@ -65,7 +65,8 @@ in
           "${mod}+e" = ''exec "${lib.getExe pkgs.rofi-rbw} --typer wtype --clipboarder wl-copy"'';
           "${mod}+x" = ''exec "${lib.getExe pkgs.swaylock}"'';
 
-          "${mod}+Shift+p" = ''exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? ' -b 'Yes' 'swaymsg exit'"'';
+          "${mod}+Shift+p" =
+            ''exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? ' -b 'Yes' 'swaymsg exit'"'';
         };
 
         bars = [ ];

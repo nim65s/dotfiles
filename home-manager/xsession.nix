@@ -45,7 +45,8 @@ in
           "${mod}+e" = ''exec "${lib.getExe pkgs.rofi-rbw} --typer xdotool --clipboarder xclip"'';
           "${mod}+x" = ''exec "${lib.getExe pkgs.i3lock}"'';
 
-          "${mod}+Shift+p" = ''exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? ' -b 'Yes' 'i3-msg exit'"'';
+          "${mod}+Shift+p" =
+            ''exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? ' -b 'Yes' 'i3-msg exit'"'';
         };
 
         startup = [

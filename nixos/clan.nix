@@ -18,7 +18,7 @@
       kessica.ssid = "Livebox-CD00";
       lacroix.ssid = "Freebox-866B60";
       lavelanet.ssid = "Freebox-34A964";
-      marsrovers = {};
+      marsrovers = { };
       sabliere.ssid = "Livebox-7730";
       toffan.ssid = "Shannon-WiFi";
     };

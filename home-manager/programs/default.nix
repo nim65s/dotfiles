@@ -342,14 +342,14 @@ in
     };
 
     /*
-    rio = {
-      enable = true;
-      settings = {
-        fonts.emoji.family = config.stylix.fonts.emoji.name;
-        fonts.family = config.stylix.fonts.monospace.name;
-        window.opacity = config.stylix.opacity.terminal;
+      rio = {
+        enable = true;
+        settings = {
+          fonts.emoji.family = config.stylix.fonts.emoji.name;
+          fonts.family = config.stylix.fonts.monospace.name;
+          window.opacity = config.stylix.opacity.terminal;
+        };
       };
-    };
     */
 
     rofi = {
@@ -712,7 +712,8 @@ in
               "Paused" = " ";
             };
             "max-length" = 70;
-            "exec" = ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{album}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
+            "exec" =
+              ''playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{album}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
             "on-click" = "playerctl play-pause";
             "on-click-right" = "playerctl next";
           };
