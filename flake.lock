@@ -53,16 +53,17 @@
     "base16-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1735953590,
-        "narHash": "sha256-YbQwaApLFJobn/0lbpMKcJ8N5axKlW2QIGkDS5+xoSU=",
+        "lastModified": 1732806396,
+        "narHash": "sha256-e0bpPySdJf0F68Ndanwm+KWHgQiZ0s7liLhvJSWDNsA=",
         "owner": "tinted-theming",
         "repo": "base16-vim",
-        "rev": "c2a1232aa2c0ed27dcbf005779bcfe0e0ab5e85d",
+        "rev": "577fe8125d74ff456cf942c733a85d769afe58b7",
         "type": "github"
       },
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-vim",
+        "rev": "577fe8125d74ff456cf942c733a85d769afe58b7",
         "type": "github"
       }
     },
@@ -103,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737936024,
-        "narHash": "sha256-srSSQgq4cf3YTTcjofVpXQomQ1KPUU5Gf68Q7NdjwDM=",
+        "lastModified": 1737974142,
+        "narHash": "sha256-Vo1u1VrwUIvO983aWrRhwCtsj1rk+pKZmrdIz+0QM9I=",
         "ref": "refs/heads/main",
-        "rev": "1ba8090188c61a76bfa4184c9e60a94f865bcd85",
-        "revCount": 5551,
+        "rev": "6e47f1ee965a89527fe7e9727829db2c729721f6",
+        "revCount": 5552,
         "type": "git",
         "url": "https://git.clan.lol/clan/clan-core"
       },
@@ -390,11 +391,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737972283,
-        "narHash": "sha256-9VJb0rcnNwF3N1emdGyP8wDLvAdfSRxU+s0VdzZJKUY=",
+        "lastModified": 1738057848,
+        "narHash": "sha256-6SFGWY1PMPqq7SiHdsYByle17bogHSIcTKypGE0HZAc=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "3b1edbe23bc27c298dda17bfa2283976083d80e3",
+        "rev": "5519cbe81ee306e404856a8974db940cb17d22da",
         "type": "github"
       },
       "original": {
@@ -506,11 +507,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1737930520,
-        "narHash": "sha256-CAgB9/o54SXzqWwypA+hL2ETxiHW92Y+Ou4fT581jdk=",
+        "lastModified": 1738025638,
+        "narHash": "sha256-nU3JpvIeEmcDHzQK4OTD1KXSoL/GOff6j9kuSO4X8eM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "6103431cd2f9d4352e5493a4063cf57e307d355c",
+        "rev": "55418e8fc8d4696af619176a22cefcfac56ad2ef",
         "type": "github"
       },
       "original": {
