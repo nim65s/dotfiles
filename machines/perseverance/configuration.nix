@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   imports = [
     ../../modules/disko.nix
