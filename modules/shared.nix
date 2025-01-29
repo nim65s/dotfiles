@@ -75,14 +75,6 @@
 
   services = {
     avahi.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        #autoLogin.relogin = true;
-        autoNumlock = true;
-      };
-    };
 
     tinc.networks.mars = {
       package = pkgs.tinc;
@@ -279,11 +271,6 @@
           '';
         };
       };
-    };
-    xserver = {
-      enable = true;
-      xkb.layout = "fr";
-      windowManager.i3.enable = true;
     };
   };
 
