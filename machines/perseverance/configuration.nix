@@ -40,11 +40,17 @@
     };
   };
 
-  services.nginx = {
-    enable = true;
-    virtualHosts."perseverance" = {
-      root = "/var/www/perseverance";
-      extraConfig = "autoindex on;";
+  services = {
+    logind = {
+      killUserProcesses = true;
+      powerKey = "poweroff";
+    };
+    nginx = {
+      enable = true;
+      virtualHosts."perseverance" = {
+        root = "/var/www/perseverance";
+        extraConfig = "autoindex on;";
+      };
     };
   };
 
@@ -60,7 +66,10 @@
         WorkingDirectory = "/home/nim/roveros";
         User = "nim";
         ExecStart = "/run/current-system/sw/bin/nix develop --command ./manage.py runserver 0.0.0.0:8000";
-        Environment = "PYTHONUNBUFFERED=true";
+        Environment = [
+          "PYTHONUNBUFFERED=true"
+          "ROVER=perseverance"
+        ];
         TimeoutStopSec = 15;
       };
       wantedBy = [ "multi-user.target" ];

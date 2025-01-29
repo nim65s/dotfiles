@@ -2,6 +2,7 @@
 {
   imports = [
     ../../modules/disko-zfs.nix
+    ../../modules/display.nix
     ../../modules/nim.nix
     ../../modules/nvidia.nix
     ../../modules/remote-decrypt.nix
