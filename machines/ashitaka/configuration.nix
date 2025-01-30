@@ -17,7 +17,10 @@
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
-  home-manager.users.user = import ./home.nix;
+  home-manager.users = {
+    user = import ./home.nix;
+    root = import ../../modules/root-home-minimal.nix;
+  };
 
   networking = {
     defaultGateway = {

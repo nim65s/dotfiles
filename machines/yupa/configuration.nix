@@ -10,7 +10,10 @@
 
   clan.core.networking.targetHost = "root@192.168.1.185";
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
-  home-manager.users.user = import ../../modules/nim-home.nix;
+  home-manager.users = {
+    user = import ../../modules/nim-home.nix;
+    root = import ../../modules/root-home-minimal.nix;
+  };
   networking.interfaces."tinc.mars".ipv4.addresses = [
     {
       address = "10.0.55.203";
