@@ -7,7 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      url = "git+https://git.clan.lol/clan/clan-core";
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -77,32 +77,8 @@
         debug = true;
         clan = {
           machines = {
-            ashitaka.imports = [
-              ./nixos
-              ./nixos/disko.nix
-            ];
-            #fix = {
-            #imports = [
-            #./common/nixos.nix
-            #./machines/fix/configuration.nix
-            #];
-            #};
-            #hattorian = {
-            #imports = [
-            #./common/nixos.nix
-            #./machines/hattorian/configuration.nix
-            #];
-            #};
-            hattori.imports = [
-              ./nixos
-              ./nixos/disko.nix
-            ];
             loon.imports = [
               ./nixos
-            ];
-            yupa.imports = [
-              ./nixos
-              ./nixos/disko.nix
             ];
           };
           meta.name = "nim65s";
@@ -238,7 +214,6 @@
               ];
             };
           };
-        #systems = inputs.nixpkgs.lib.systems.flakeExposed;
         systems = [ "x86_64-linux" ];
       }
     );
