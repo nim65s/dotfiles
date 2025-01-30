@@ -194,8 +194,8 @@
                 modules = [
                   inputs.catppuccin.homeManagerModules.catppuccin
                   inputs.stylix.homeManagerModules.stylix
+                  ./aliens/asahi/home.nix
                   ./home-manager
-                  ./machines/asahi/home.nix
                 ];
               };
               "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
@@ -203,17 +203,8 @@
                 modules = [
                   inputs.catppuccin.homeManagerModules.catppuccin
                   inputs.stylix.homeManagerModules.stylix
+                  ./aliens/upepesanke/home.nix
                   ./home-manager
-                  ./machines/upepesanke/home.nix
-                ];
-              };
-              "nim@yupa" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit (self.allSystems.${system}._module.args) pkgs;
-                modules = [
-                  inputs.catppuccin.homeManagerModules.catppuccin
-                  inputs.stylix.homeManagerModules.stylix
-                  ./home-manager
-                  ./machines/yupa/home.nix
                 ];
               };
             };

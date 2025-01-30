@@ -1,16 +1,10 @@
 {
   "machines": {
-    "asahi": {
-      "name": "asahi"
-    },
     "ashitaka": {
       "name": "ashitaka"
     },
     "loon": {
       "name": "loon"
-    },
-    "upepesanke": {
-      "name": "upepesanke"
     },
     "yupa": {
       "name": "yupa"
