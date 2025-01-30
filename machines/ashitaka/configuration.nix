@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ../../modules/disko-zfs.nix
