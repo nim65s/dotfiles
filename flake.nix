@@ -83,18 +83,6 @@
             ];
           };
           meta.name = "nim65s";
-          inventory.services.mycelium.default = {
-            roles.peer.machines = [
-              "ashitaka"
-              "hattori"
-              "perseverance"
-              "yupa"
-            ];
-            config = {
-              topLevelDomain = "m";
-              openFirewall = true;
-            };
-          };
           specialArgs = {
             inherit inputs;
             inherit (self) allSystems;

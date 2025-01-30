@@ -23,8 +23,22 @@
     "mycelium": {
       "default": {
         "enabled": true,
+        "config": {
+          "topLevelDomain": "m",
+          "openFirewall": true
+        },
         "meta": {
           "name": "default"
+        },
+        "roles": {
+          "peer": {
+            "machines": [
+              "ashitaka",
+              "hattori",
+              "perseverance",
+              "yupa"
+            ]
+          }
         }
       }
     }
