@@ -86,7 +86,6 @@
           specialArgs = {
             inherit inputs;
             inherit (self) allSystems;
-            inherit (inputs) home-manager stylix;
           };
         };
         perSystem =

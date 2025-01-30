@@ -1,12 +1,12 @@
 {
   lib,
   pkgs,
-  stylix,
+  inputs,
   ...
 }:
 {
   imports = [
-    stylix.nixosModules.stylix
+    inputs.stylix.nixosModules.stylix
   ];
 
   stylix = {
