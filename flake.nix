@@ -1,5 +1,5 @@
 {
-  description = "<Put your description here>";
+  description = "My dotfiles";
 
   inputs = {
     clan-core = {
@@ -14,16 +14,16 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "clan-core/systems";
       };
     };
