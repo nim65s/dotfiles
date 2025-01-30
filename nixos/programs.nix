@@ -4,6 +4,7 @@ _: {
     fish.enable = true;
     niri.enable = true;
     nix-ld.enable = true;
+    trippy.enable = true;
     wireshark.enable = true;
   };
 }
