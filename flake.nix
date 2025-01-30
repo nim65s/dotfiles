@@ -2,23 +2,21 @@
   description = "My dotfiles";
 
   inputs = {
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     clan-core = {
       url = "git+https://git.clan.lol/clan/clan-core";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
-        systems.follows = "systems";
       };
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,17 +49,15 @@
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
+        systems.follows = "clan-core/systems";
       };
     };
     system-manager = {
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems.url = "github:nix-systems/default";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +69,11 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { self, ... }:
       {
+        imports = [
+          inputs.clan-core.flakeModules.default
+          inputs.treefmt-nix.flakeModule
+        ];
+
         debug = true;
         clan = {
           machines = {
@@ -237,10 +238,6 @@
               ];
             };
           };
-        imports = [
-          inputs.clan-core.flakeModules.default
-          inputs.treefmt-nix.flakeModule
-        ];
         #systems = inputs.nixpkgs.lib.systems.flakeExposed;
         systems = [ "x86_64-linux" ];
       }
