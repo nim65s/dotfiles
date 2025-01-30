@@ -76,15 +76,29 @@
 
         debug = true;
         clan = {
+          directory = self;
           machines = {
             loon.imports = [
               ./nixos
             ];
           };
           meta.name = "nim65s";
+          inventory.services.mycelium.default = {
+            roles.peer.machines = [
+              "ashitaka"
+              "hattori"
+              "perseverance"
+              "yupa"
+            ];
+            config = {
+              topLevelDomain = "m";
+              openFirewall = true;
+            };
+          };
           specialArgs = {
             inherit inputs;
             inherit (self) allSystems;
+            inherit (inputs) home-manager stylix;
           };
         };
         perSystem =
@@ -137,6 +151,7 @@
                   inputs.clan-core.packages.${system}.clan-cli
                   inputs.system-manager.packages.${system}.system-manager
                 ];
+                CLAN_DIR = "/home/nim/dotfiles";
               };
               cpp = pkgs.mkShell {
                 packages = with pkgs; [
