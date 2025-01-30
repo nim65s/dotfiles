@@ -4,6 +4,5 @@
 
   users.users.user = {
     name = "nim";
-    shell = pkgs.fish;
   };
 }

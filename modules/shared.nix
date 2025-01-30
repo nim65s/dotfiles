@@ -274,22 +274,28 @@
     };
   };
 
-  users.users = {
-    root.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH38Iwc5sA/6qbBRL+uot3yqkuACDDu1yQbk6bKxiPGP nim@loon"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBbE5nRZpgFdZJgC+hTzdyYLxKUBY59WFYOQ/O1oxwc gsaurel@upepesanke"
-    ];
-    user = {
-      isNormalUser = true;
-      extraGroups = [
-        "dialout"
-        "input"
-        "networkmanager"
-        "video"
-        "wheel"
-      ];
-      uid = 1000;
-      openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
+  users.users =
+    let
+      common = {
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH38Iwc5sA/6qbBRL+uot3yqkuACDDu1yQbk6bKxiPGP nim@loon"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBbE5nRZpgFdZJgC+hTzdyYLxKUBY59WFYOQ/O1oxwc gsaurel@upepesanke"
+        ];
+        shell = pkgs.fish;
+      };
+    in
+    {
+      root = common;
+      user = common // {
+        isNormalUser = true;
+        extraGroups = [
+          "dialout"
+          "input"
+          "networkmanager"
+          "video"
+          "wheel"
+        ];
+        uid = 1000;
+      };
     };
-  };
 }
