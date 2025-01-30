@@ -3,14 +3,8 @@
     "asahi": {
       "name": "asahi"
     },
-    "fix": {
-      "name": "fix"
-    },
-    "hattori": {
-      "name": "hattori"
-    },
-    "hattorian": {
-      "name": "hattorian"
+    "ashitaka": {
+      "name": "ashitaka"
     },
     "loon": {
       "name": "loon"
@@ -19,16 +13,25 @@
       "name": "upepesanke"
     },
     "yupa": {
-      "name": "yupa",
-      "tags": [],
-      "deploy": {
-        "targetHost": "root@192.168.8.144"
-      }
+      "name": "yupa"
     },
-    "ashitaka": {
-      "name": "ashitaka",
-      "deploy": {
-        "targetHost": "root@192.168.8.238"
+    "perseverance": {
+      "name": "perseverance"
+    },
+    "hattori": {
+      "name": "hattori"
+    },
+    "zhurong": {
+      "name": "zhurong"
+    }
+  },
+  "services": {
+    "mycelium": {
+      "default": {
+        "enabled": true,
+        "meta": {
+          "name": "default"
+        }
       }
     }
   }
