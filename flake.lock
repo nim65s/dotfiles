@@ -297,11 +297,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738257949,
-        "narHash": "sha256-Q/xbvWHqCNcw+nDXgRaKH31fggZiA0Ciqs0t1H28fL8=",
+        "lastModified": 1738271283,
+        "narHash": "sha256-UmNQarPBQVH0jY0YAhx1FvFsu6MdQ4DRbcd/qmXqd0s=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7a457746847c9cb3a1e46e5bc86b205fbadf5da8",
+        "rev": "c90cd85b04ff3348978b05ba73ffc8e1b74b9fce",
         "type": "github"
       },
       "original": {
@@ -374,11 +374,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738256454,
-        "narHash": "sha256-vxU2VrAsmQ6XD6pOwIV63Yx7HXsliCybyrLG0D0XmB4=",
+        "lastModified": 1738271874,
+        "narHash": "sha256-VqpCds454pu14YaAGJJiCJh4R4CfJJQfVYMsZeHVfLk=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "5caeb6744cd9a201a82908f6deafac63b7ef234e",
+        "rev": "0ffa382489ca39af9aa08c8a0cc24e57da064875",
         "type": "github"
       },
       "original": {
@@ -390,7 +390,7 @@
     "patch-jrk": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-YrGpTOSKkr1ggRn/qpQucnq2CSJm5WgqyWJnHj7slNI=",
+        "narHash": "sha256-h6TpeYAcc29qpEEJJSAzEdZekvZWJE75e+B2pyFK3kY=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/362957.patch"
       },
