@@ -34,47 +34,41 @@
   };
 
   outputs =
-    {
-      clan-core,
-      home-manager,
-      self,
-      stylix,
-      ...
-    }:
-    let
-      clan = clan-core.lib.buildClan {
-        directory = self;
-        specialArgs = { inherit home-manager stylix; };
-        meta.name = "ashitakaclanim";
-        inventory.services.mycelium.default = {
-          roles.peer.machines = [
-            "ashitaka"
-            "hattori"
-            "perseverance"
-            "yupa"
-          ];
-          config = {
-            topLevelDomain = "m";
-            openFirewall = true;
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      { self, ... }:
+      {
+        imports = [
+          inputs.clan-core.flakeModules.default
+          inputs.treefmt-nix.flakeModule
+        ];
+
+        clan = {
+          directory = self;
+          specialArgs = { inherit (inputs) home-manager stylix; };
+          meta.name = "ashitakaclanim";
+          inventory.services.mycelium.default = {
+            roles.peer.machines = [
+              "ashitaka"
+              "hattori"
+              "perseverance"
+              "yupa"
+            ];
+            config = {
+              topLevelDomain = "m";
+              openFirewall = true;
+            };
           };
         };
-      };
-    in
-    {
-      inherit (clan) nixosConfigurations clanInternals;
-      devShells =
-        clan-core.inputs.nixpkgs.lib.genAttrs
-          [
-            "x86_64-linux"
-            #"aarch64-linux"
-            #"aarch64-darwin"
-            #"x86_64-darwin"
-          ]
-          (system: {
-            default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
+        perSystem =
+          { pkgs, system, ... }:
+          {
+            devShells.default = pkgs.mkShell {
               CLAN_DIR = "/home/nim/ashitaka";
-              packages = [ clan-core.packages.${system}.clan-cli ];
+              packages = [ inputs.clan-core.packages.${system}.clan-cli ];
             };
-          });
-    };
+          };
+        systems = [ "x86_64-linux" ];
+      }
+    );
 }
