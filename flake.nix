@@ -63,9 +63,13 @@
         perSystem =
           { pkgs, system, ... }:
           {
-            devShells.default = pkgs.mkShell {
-              CLAN_DIR = "/home/nim/ashitaka";
-              packages = [ inputs.clan-core.packages.${system}.clan-cli ];
+            devShells = {
+              default = pkgs.mkShell {
+                packages = [
+                  inputs.clan-core.packages.${system}.clan-cli
+                ];
+                CLAN_DIR = "/home/nim/ashitaka";
+              };
             };
           };
         systems = [ "x86_64-linux" ];
