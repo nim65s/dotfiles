@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ./nim-home-minimal.nix ];
+  imports = [ ./nim-home-minimal.nix ] ;
 
   options = {
     nim-home = {
