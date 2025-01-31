@@ -9,6 +9,7 @@
     ../../modules/shared.nix
     ../../modules/steam.nix
     ../../modules/stylix.nix
+    ../../modules/x86_64-linux.nix
   ];
 
   clan.core.networking = {

@@ -6,6 +6,7 @@
     ../../modules/shared.nix
     ../../modules/stylix.nix
     ../../modules/wifi.nix
+    ../../modules/x86_64-linux.nix
   ];
 
   clan.core.networking.targetHost = "root@192.168.8.185";
