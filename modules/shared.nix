@@ -312,6 +312,8 @@
     ];
   };
 
+  time.timeZone = "Europe/Paris";
+
   users.users =
     let
       common = {
