@@ -6,7 +6,10 @@
     xwayland.enable = true;
     wireshark.enable = true;
   };
-  security.pam.services.swaylock = { };
+  security = {
+    pam.services.swaylock = { };
+    rtkit.enable = true;
+  };
   services = {
     displayManager = {
       autoLogin = {
