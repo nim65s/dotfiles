@@ -7,7 +7,15 @@
   clan = {
     iwd.networks = {
       azv = { };
+      baroustan = { };
+      bouys = { };
+      kekeno = { };
+      kessica = { };
+      lacroix = { };
+      lavelanet = { };
       marsrovers = { };
+      sabliere = { };
+      toffan = { };
     };
   };
 }
