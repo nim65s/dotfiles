@@ -38,6 +38,7 @@
     alacritty
     btop
     coreutils
+    cntr
     dfc
     fd
     file
@@ -77,6 +78,10 @@
 
   programs = {
     fish.enable = true;
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
     niri.enable = true;
     vim.enable = true;
     waybar.enable = true;
