@@ -4,6 +4,7 @@
     niri.enable = true;
     waybar.enable = true;
     xwayland.enable = true;
+    wireshark.enable = true;
   };
   security.pam.services.swaylock = { };
   services = {

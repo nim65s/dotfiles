@@ -103,6 +103,8 @@
       enable = true;
       lfs.enable = true;
     };
+    nix-ld.enable = true;
+    trippy.enable = true;
     vim.enable = true;
   };
 
