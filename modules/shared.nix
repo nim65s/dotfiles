@@ -307,6 +307,9 @@
         };
       };
     };
+    udev.packages = [
+      pkgs.stlink
+    ];
   };
 
   users.users =

@@ -25,6 +25,11 @@
         wayland.enable = true;
       };
     };
+    gnome.gnome-keyring.enable = false;
+    udev.packages = [
+      pkgs.pololu-jrk-g2-software
+      pkgs.stlink
+    ];
     xserver = {
       enable = true;
       xkb.layout = "fr";
