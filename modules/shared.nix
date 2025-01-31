@@ -330,6 +330,7 @@
         isNormalUser = true;
         extraGroups = [
           "dialout"
+          "docker"
           "input"
           "networkmanager"
           "video"

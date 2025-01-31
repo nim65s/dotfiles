@@ -36,4 +36,7 @@
       windowManager.i3.enable = true;
     };
   };
+  users.users.user.extraGroups = [
+    "wireshark"
+  ];
 }
