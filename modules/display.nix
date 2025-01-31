@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services = {
     displayManager = {
@@ -8,9 +9,10 @@
       defaultSession = "niri";
       sddm = {
         enable = true;
-        wayland.enable = true;
         #autoLogin.relogin = true;
         autoNumlock = true;
+        package = pkgs.kdePackages.sddm;
+        wayland.enable = true;
       };
     };
     xserver = {

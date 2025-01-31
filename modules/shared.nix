@@ -1,6 +1,7 @@
 {
   config,
   clan-core,
+  inputs,
   lib,
   pkgs,
   ...
@@ -13,12 +14,16 @@
     clan-core.clanModules.root-password
     clan-core.clanModules.user-password
     clan-core.clanModules.state-version
+    inputs.home-manager.nixosModules.home-manager
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = 30;
   };
+
+  catppuccin.enable = true;
 
   clan = {
     user-password.user = "user";
@@ -52,6 +57,13 @@
     usbutils
     zellij
   ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.root = import ./root-home-minimal.nix;
+  };
 
   networking.firewall = {
     allowedTCPPorts = [ 655 ];

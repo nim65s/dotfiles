@@ -1,4 +1,10 @@
+{ inputs, ... }:
 {
+
+  imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
+  ];
+
   home = {
     stateVersion = "25.05";
   };
