@@ -94,10 +94,6 @@
         "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
         "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
       ];
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
     };
   };
 
