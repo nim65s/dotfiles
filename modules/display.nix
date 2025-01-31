@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  programs = {
+    niri.enable = true;
+    waybar.enable = true;
+    xwayland.enable = true;
+  };
+  security.pam.services.swaylock = { };
   services = {
     displayManager = {
       autoLogin = {
