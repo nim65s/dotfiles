@@ -66,6 +66,8 @@
     users.root = import ./root-home-minimal.nix;
   };
 
+  i18n.defaultLocale = "fr_FR.UTF-8";
+
   networking.firewall = {
     allowedTCPPorts = [ 655 ];
     allowedUDPPorts = [ 655 ];
