@@ -4,12 +4,13 @@
   pkgs,
   ...
 }:
-{
+let
+  atjoin = { name, host ? "laas.fr" }: lib.concatStringsSep "@" [ name host ];
+in {
   home = {
     packages = with pkgs; [
       acpi
       age
-      arandr
       black
       brightnessctl
       broot
@@ -18,13 +19,8 @@
       cargo
       cargo-binstall
       cargo-release
-      #cava
-      ccze
-      clan-cli
-      cntr
       comma
       dcfldd
-      dconf
       deadnix
       devenv
       dfc
@@ -40,16 +36,13 @@
       element-desktop
       evince
       #eww-wayland
-      eza
       fd
       ffmpeg
       file
-      fish
       fishPlugins.bass
       #font-awesome
       fuzzel
       ghostscript
-      git
       git-extras
       gnupg
       gparted
@@ -59,7 +52,6 @@
       httpie
       hugo
       hwloc
-      i3lock
       iftop
       inetutils
       imv
@@ -68,10 +60,6 @@
       iosevka-aile
       iosevka-etoile
       iosevka-term
-      i3
-      i3lock
-      i3status-rust
-      isort
       jless
       jq
       just
@@ -82,8 +70,6 @@
       kolourpaint
       less
       libreoffice
-      lix
-      lsd
       lsof
       gnumake
       mdcat
@@ -132,7 +118,6 @@
         ps: with ps; [
           django
           httpx
-          i3ipc
           ipython
           jinja2
           ldap3
@@ -153,12 +138,8 @@
       pulseaudio
       pwgen
       ripgrep
-      rofi-emoji
-      #rofi-file-browser
-      rofi-power-menu
       rofi-rbw
       ruff
-      #nur.repos.nim65s.sauce-code-pro
       signal-desktop
       sd
       sccache
@@ -166,24 +147,15 @@
       slurp
       #snapcast
       sops
-      #source-han-mono
-      #source-han-sans
-      #source-han-serif
-      #source-sans
-      #source-serif
       spotify
       sqlite
       ssh-to-age
       statix
       strace
-      swappy
       #sway
       swaybg
       swaylock
       tig
-      tinc
-      thunderbird
-      todoman
       tree
       unzip
       usbutils
@@ -196,25 +168,19 @@
       wev
       #wireplumber
       wl-clipboard
-      xorg.xinit
-      xorg.xinput
-      xorg.xkill
-      waybar
       wget
       wtype
-      xclip
       wdisplays
-      xdotool
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      #xdg-desktop-portal
+      #xdg-desktop-portal-gtk
+      #xdg-desktop-portal-wlr
       xwayland
       yt-dlp
       zathura
       zeal
       zellij
       zfs
-      zola
+      #zola
     ];
 
     file = {
@@ -249,15 +215,15 @@
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
       MANPAGER = "vim -c ASMANPAGER -";
-      NIXOS_OZONE_WL = 1;
+      #NIXOS_OZONE_WL = 1;
       PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";
       RUSTC_WRAPPER = lib.getExe pkgs.sccache;
       SHELL = lib.getExe pkgs.fish;
-      SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
-      SSH_ASKPASS_REQUIRE = "prefer";
-      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
-      TWINE_USERNAME = "nim65s";
+      #SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
+      #SSH_ASKPASS_REQUIRE = "prefer";
+      #SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
+      #TWINE_USERNAME = "nim65s";
     };
   };
 
@@ -267,7 +233,7 @@
       delta.enable = true;
       lfs.enable = true;
       userName = "Guilhem Saurel";
-      userEmail = "guilhem.saurel@laas.fr";
+      userEmail = atjoin { name = "guilhem.saurel"; };
       includes = [
         {
           contents = {
