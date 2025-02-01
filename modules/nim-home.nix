@@ -208,7 +208,11 @@
       zathura.enable = true;
     };
 
-    qt.enable = true;
+    qt = {
+      enable = true;
+      platformTheme.name = "kvantum";
+      style.name = "kvantum";
+    };
 
     services = {
       spotifyd = {
