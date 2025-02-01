@@ -6,8 +6,10 @@
 }:
 {
   imports = [
+    ./firefox.nix
     ./nim-home-minimal.nix
     ./nim-accounts.nix
+    ../home-manager/todo.nix
   ];
 
   options = {
@@ -34,14 +36,64 @@
           [ ./niri.kdl ] ++ config.nim-home.niri
         );
       };
+      keyboard = {
+        layout = "fr";
+        variant = "ergol";
+      };
     };
 
     programs = {
       alacritty.enable = true;
 
+      atuin = {
+        enable = true;
+        flags = [ "--disable-up-arrow" ];
+        settings.sync_address = "https://atuin.datcat.fr";
+      };
+
+      bacon = {
+        enable = true;
+        settings = {
+          reverse = true;
+        };
+      };
+
       kitty.enable = true;
 
-      swaylock.enable = true;
+      msmtp.enable = true;
+      neomutt.enable = true;
+      notmuch.enable = true;
+      nix-index.enable = true;
+      offlineimap.enable = true;
+
+      rbw = {
+        enable = true;
+        settings = {
+          email = { name = "guilhem"; host = "saurel.me"; };
+          base_url = "https://safe.datcat.fr";
+          pinentry = pkgs.pinentry-qt;
+        };
+      };
+
+      rofi = {
+        enable = true;
+        package = pkgs.rofi-wayland;
+        terminal = lib.getExe pkgs.kitty;
+        extraConfig = {
+          color-enabled = true;
+          matching = "prefix";
+          no-lazy-grab = true;
+        };
+      };
+
+      swaylock = {
+        enable = true;
+        settings = {
+          show-failed-attempts = true;
+          ignore-empty-password = true;
+          font = "Iosevdka";
+        };
+      };
       waybar = {
         enable = true;
         settings = {
@@ -153,10 +205,25 @@
           };
         };
       };
-
+      zathura.enable = true;
     };
 
+    qt.enable = true;
+
     services = {
+      spotifyd = {
+        enable = true;
+        settings = {
+          global = {
+            username = "nim65s";
+            password_cmd = "rbw get spotify";
+            device_name = "home-manager";
+            device_type = "computer";
+            backend = "pulseaudio";
+          };
+        };
+      };
+      ssh-agent.enable = true;
       swaync.enable = true;
       swayidle = {
         enable = true;
@@ -171,6 +238,7 @@
 
     systemd = {
       user.services = {
+        spotifyd.Service.Environment = [ "PATH=${pkgs.rbw}/bin" ];
         swaybgs = {
           Install.WantedBy = [ "graphical-session.target" ];
           Service.ExecStart = pkgs.writeShellScript "swaybgs" config.nim-home.swaybgs;

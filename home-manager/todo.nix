@@ -1,0 +1,472 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home = {
+    packages = with pkgs; [
+      acpi
+      age
+      arandr
+      black
+      brightnessctl
+      broot
+      cachix
+      cage
+      cargo
+      cargo-binstall
+      cargo-release
+      #cava
+      ccze
+      clan-cli
+      cntr
+      comma
+      dcfldd
+      dconf
+      deadnix
+      devenv
+      dfc
+      d-spy
+      dig
+      dos2unix
+      chrpath
+      cmake
+      cmake-format
+      cntr
+      docker-compose
+      du-dust
+      element-desktop
+      evince
+      #eww-wayland
+      eza
+      fd
+      ffmpeg
+      file
+      fish
+      fishPlugins.bass
+      #font-awesome
+      fuzzel
+      ghostscript
+      git
+      git-extras
+      gnupg
+      gparted
+      grim
+      himalaya
+      htop
+      httpie
+      hugo
+      hwloc
+      i3lock
+      iftop
+      inetutils
+      imv
+      iotop
+      iosevka
+      iosevka-aile
+      iosevka-etoile
+      iosevka-term
+      i3
+      i3lock
+      i3status-rust
+      isort
+      jless
+      jq
+      just
+      kcov
+      khal
+      khard
+      killall
+      kolourpaint
+      less
+      libreoffice
+      lix
+      lsd
+      lsof
+      gnumake
+      mdcat
+      mdbook
+      meld
+      meshlab
+      mosh
+      mpv
+      mypy
+      ncdu
+      ninja
+      niri
+      nitrogen
+      nixd
+      nixfmt-rfc-style
+      (nixpkgs-review.override {
+        nix = lix;
+        withNom = true;
+      })
+      #nix-du
+      nix-diff
+      nix-init
+      nix-output-monitor
+      nix-tree
+      nix-update
+      nmap
+      #noto-fonts-emoji
+      nurl
+      okular
+      openldap
+      openssh
+      openssl
+      pandoc
+      pavucontrol
+      pciutils
+      pdfarranger
+      pdfpc
+      #pipewire
+      pinentry-qt
+      pipx
+      plantuml
+      pkg-config
+      playerctl
+      #(poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]))
+      (python3.withPackages (
+        ps: with ps; [
+          django
+          httpx
+          i3ipc
+          ipython
+          jinja2
+          ldap3
+          numpy
+          pandas
+          pandocfilters
+          pip
+          pyarrow
+          pyyaml
+          tabulate
+          tqdm
+          wand
+          wheel
+        ]
+      ))
+      pre-commit
+      pre-commit-sort
+      pulseaudio
+      pwgen
+      ripgrep
+      rofi-emoji
+      #rofi-file-browser
+      rofi-power-menu
+      rofi-rbw
+      ruff
+      #nur.repos.nim65s.sauce-code-pro
+      signal-desktop
+      sd
+      sccache
+      shellcheck
+      slurp
+      #snapcast
+      sops
+      #source-han-mono
+      #source-han-sans
+      #source-han-serif
+      #source-sans
+      #source-serif
+      spotify
+      sqlite
+      ssh-to-age
+      statix
+      strace
+      swappy
+      #sway
+      swaybg
+      swaylock
+      tig
+      tinc
+      thunderbird
+      todoman
+      tree
+      unzip
+      usbutils
+      uv
+      ventoy
+      vdirsyncer
+      vlc
+      vscode-fhs
+      watchexec
+      wev
+      #wireplumber
+      wl-clipboard
+      xorg.xinit
+      xorg.xinput
+      xorg.xkill
+      waybar
+      wget
+      wtype
+      xclip
+      wdisplays
+      xdotool
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      xwayland
+      yt-dlp
+      zathura
+      zeal
+      zellij
+      zfs
+      zola
+    ];
+
+    file = {
+      ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
+      ".config/distrobox/distrobox.conf".source = ../.config/distrobox/distrobox.conf;
+      # TODO: wip bépo / ergol
+      #".config/niri/config.kdl".source = ../.config/niri/config.kdl;
+      ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
+      ".config/khal/config".source = ../.config/khal/config;
+      ".config/khard/khard.conf".source = ../.config/khard/khard.conf;
+      ".config/python_keyring/keyringrc.cfg".source = ../.config/python_keyring/keyringrc.cfg;
+      ".config/rofi-rbw.rc".source = ../.config/rofi-rbw.rc;
+      ".config/vdirsyncer/config".source = ../.config/vdirsyncer/config;
+      ".ipython/profile_default/ipython_config.py".source = ../.ipython/profile_default/ipython_config.py;
+      ".latexmkrc".source = ../.latexmkrc;
+      ".pypirc".source = ../.pypirc;
+
+      ".xinitrc".text = "exec ${lib.getExe pkgs.i3} > ~/.x.log 2> ~/.x.err";
+    };
+
+    sessionVariables = {
+      BROWSER = lib.getExe config.programs.firefox.finalPackage;
+      CLAN_DIR = "$HOME/dotfiles";
+      CMAKE_BUILD_TYPE = "RelWithDebInfo";
+      CMAKE_C_COMPILER_LAUNCHER = "sccache";
+      CMAKE_CXX_COMPILER_LAUNCHER = "sccache";
+      CMAKE_COLOR_DIAGNOSTICS = "ON";
+      CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
+      CMAKE_GENERATOR = "Ninja";
+      CMEEL_LOG_LEVEL = "DEBUG";
+      CTEST_OUTPUT_ON_FAILURE = "ON";
+      CTEST_PROGRESS_OUTPUT = "ON";
+      DELTA_PAGER = "less -FR";
+      MANPAGER = "vim -c ASMANPAGER -";
+      NIXOS_OZONE_WL = 1;
+      PAGER = "vim -c PAGER -";
+      POETRY_VIRTUALENVS_IN_PROJECT = "true";
+      RUSTC_WRAPPER = lib.getExe pkgs.sccache;
+      SHELL = lib.getExe pkgs.fish;
+      SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
+      SSH_ASKPASS_REQUIRE = "prefer";
+      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
+      TWINE_USERNAME = "nim65s";
+    };
+  };
+
+  programs = {
+    git = {
+      enable = true;
+      delta.enable = true;
+      lfs.enable = true;
+      userName = "Guilhem Saurel";
+      userEmail = "guilhem.saurel@laas.fr";
+      includes = [
+        {
+          contents = {
+            core = {
+              excludesfile = "~/dotfiles/gitignore";
+            };
+            push = {
+              autoSetupRemote = true;
+              default = "simple";
+            };
+            user = {
+              signingKey = "4653CF28";
+            };
+            pull = {
+              ff = "only";
+            };
+            init = {
+              defaultBranch = "main";
+            };
+            hub = {
+              protocol = "ssh";
+            };
+            submodule = {
+              fetchJobs = 4;
+            };
+            fetch = {
+              parallel = 4;
+            };
+            blame = {
+              ignoreRevsFile = ".git-blame-ignore-revs";
+            };
+            merge = {
+              tool = "vimdiff";
+              guitool = "meld";
+            };
+            diff = {
+              tool = "vimdiff";
+              guitool = "meld";
+            };
+            difftool = {
+              cmd = "vimdiff";
+              prompt = false;
+            };
+            color = {
+              ui = "always";
+              branch = "always";
+              interactive = "always";
+              status = "always";
+            };
+          };
+        }
+        { path = "~/dotfiles/.gitconfig"; }
+      ];
+    };
+    ssh = {
+      enable = true;
+      controlMaster = "auto";
+      includes = [ "local_config" ];
+      userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
+      matchBlocks = {
+        "gh" = {
+          hostname = "github.com";
+          user = "git";
+        };
+        "gl" = {
+          hostname = "gitlab.laas.fr";
+          user = "git";
+        };
+        "laas" = {
+          hostname = "ssh.laas.fr";
+          user = "gsaurel";
+        };
+        "upe" = {
+          hostname = "upepesanke";
+          user = "gsaurel";
+          proxyJump = "laas";
+        };
+        "miya" = {
+          hostname = "miyanoura";
+          user = "gsaurel";
+          proxyJump = "laas";
+        };
+        "totoro" = {
+          hostname = "totoro.saurel.me";
+          user = "nim";
+        };
+        "nausicaa" = {
+          user = "nim";
+          proxyJump = "totoro";
+        };
+        "datcat" = {
+          port = 2222;
+          user = "root";
+          hostname = "%h.fr";
+          forwardAgent = true;
+        };
+        "*.l" = {
+          hostname = "%haas.fr";
+          forwardAgent = true;
+          proxyJump = "laas";
+          user = "gsaurel";
+        };
+        "*.L" = {
+          hostname = "%haas.fr";
+          forwardAgent = true;
+          proxyJump = "laas";
+          user = "root";
+        };
+        "*.t" = {
+          hostname = "%hetaneutral.net";
+          user = "root";
+          port = 2222;
+        };
+      };
+    };
+    thunderbird = {
+      enable = true;
+      profiles.nim = {
+        isDefault = true;
+        settings = {
+          "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+          "mail.identity.default.compose_html" = 1;
+          "mail.pane_config.dynamic" = 2;
+          "mail.server.default.check_all_folders_for_new" = true;
+          "mail.uidensity" = 0;
+          "mail.uifontsize" = 10;
+          "ldap_2.autoComplete.useDirectory" = true;
+          "ldap_2.servers.laas.description" = "Serveur LDAP LAAS";
+          "ldap_2.servers.laas.filename" = "ldap.sqlite";
+          "ldap_2.servers.laas.maxHits" = 100;
+          "ldap_2.servers.laas.uri" = "ldap://ldap2.laas.fr/dc=laas,dc=fr%20??sub?(objectClass=person)";
+          "ldap_2.servers.default.attrmap.PrimaryEmail" = "laas-mainMail";
+        };
+      };
+    };
+    vim = {
+      enable = true;
+      #defaultEditor = true;
+      plugins = with pkgs; [
+        vimPlugins.ale
+        vimPlugins.colorizer
+        vimPlugins.file-line
+        vimPlugins.nerdcommenter
+        vimPlugins.plantuml-syntax
+        vimPlugins.vim-airline
+        vimPlugins.vim-airline-themes
+        vimPlugins.vim-clang-format
+        vimPlugins.vim-fugitive
+        vimPlugins.vim-jinja
+        vimPlugins.vim-manpager
+        vimPlugins.vim-nix
+        vimPlugins.vim-pager
+        vimPlugins.vim-plugin-AnsiEsc
+        vimPlugins.vim-sensible
+        vimPlugins.vim-signify
+        vimPlugins.vim-toml
+        vimPlugins.vimspector
+        vimPlugins.yuck-vim
+        #vimPlugins.zenburn
+      ];
+      settings = {
+        backupdir = [
+          "~/.vim/tmp"
+          "~/.tmp"
+          "~/tmp"
+          "/var/tmp"
+          "/tmp"
+        ];
+        directory = [
+          "~/.vim/tmp"
+          "~/.tmp"
+          "~/tmp"
+          "/var/tmp"
+          "/tmp"
+        ];
+        copyindent = true;
+        expandtab = true;
+        hidden = true;
+        history = 1001;
+        ignorecase = true;
+        modeline = true;
+        mouse = "a";
+        mousefocus = true;
+        mousehide = false;
+        number = true;
+        shiftwidth = 4;
+        smartcase = true;
+        tabstop = 8;
+        undofile = true;
+      };
+      extraConfig = ''
+        if empty($DOTFILES)
+          let $DOTFILES = expand("~/dotfiles")
+        endif
+        let $VIMRC = $DOTFILES .. "/.vimrc"
+        if filereadable($VIMRC)
+          source $VIMRC
+        endif
+      '';
+    };
+  };
+}

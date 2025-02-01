@@ -13,7 +13,10 @@
 
   programs = {
     bat.enable = true;
-    btop.enable = true;
+    btop = {
+      enable = true;
+      settings.cpu_single_graph = true;
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -40,10 +43,82 @@
         set -U fish_color_end cdd6f4            #cdd6f4
         set -U fish_color_param 89b4fa          #89b4fa
       '';
+      shellAbbrs = {
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        "....." = "cd ../../../..";
+        "......" = "cd ../../../../..";
+        bn = "cmake -B build";
+        bnb = "cmake -B build && cmake --build build";
+        bb = "cmake --build build";
+        bt = "cmake --build build -t test";
+        bi = "cmake --build build -t install";
+        demonte = "~/scripts/demonter.sh";
+        dc = "cd";
+        gc = {
+          expansion = "git commit -am '%'";
+          setCursor = true;
+        };
+        gd = "git difftool";
+        gst = "git status";
+        gp = "git push";
+        gf = "git fetch --all --prune";
+        gcan = "git commit -a --amend --no-edit";
+        gcl = "git clone";
+        gcr = "git clone --recursive";
+        gch = "git checkout";
+        glp = "git push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds";
+        grhh = "git reset --hard HEAD";
+        gsub = "git commit -am submodules; git push";
+        ipa = "ip address";
+        ipr = "ip route";
+        la = "eza -A";
+        ll = "eza -l --sort newest";
+        ls = "eza";
+        lt = "eza --tree";
+        lla = "eza -lA";
+        llt = "eza -l --tree";
+        lat = "eza -A --tree";
+        lta = "eza -A --tree";
+        monte = "~/scripts/monter.sh";
+        psef = "ps -ef | grep -v grep | grep";
+        v = "vim";
+        vi = "vim";
+        vmi = "vim";
+        vd = "vimdiff";
+        z = "zellij";
+        za = "zathura";
+      };
+      shellAliases = {
+        "+" = "echo";
+        cp = "cp -r";
+        mv = "mv -v";
+        rm = "rm -Iv";
+        watch = "watch --color -d";
+      };
+    };
+    fzf.enable = true;
+    gh = {
+      enable = true;
+      settings = {
+        git_protocol = "ssh";
+        prompt = "enabled";
+      };
     };
     helix = {
       enable = true;
       defaultEditor = true;
+    };
+    home-manager.enable = true;
+    lsd = {
+      enable = true;
+      settings = {
+        header = true;
+        hyperlink = "auto";
+        indicators = true;
+        #total-size = true;
+      };
     };
     starship = {
       enable = true;
