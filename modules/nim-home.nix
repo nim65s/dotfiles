@@ -4,7 +4,9 @@
   pkgs,
   ...
 }:
-{
+let
+  atjoin = { name, host ? "laas.fr" }: lib.concatStringsSep "@" [ name host ];
+in {
   imports = [
     ./firefox.nix
     ./nim-home-minimal.nix
@@ -69,7 +71,7 @@
       rbw = {
         enable = true;
         settings = {
-          email = { name = "guilhem"; host = "saurel.me"; };
+          email = atjoin { name = "guilhem"; host = "saurel.me"; };
           base_url = "https://safe.datcat.fr";
           pinentry = pkgs.pinentry-qt;
         };
