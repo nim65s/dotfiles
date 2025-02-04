@@ -60,7 +60,10 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit (config) sops;
+      inherit inputs;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
     users.root = import ./root-home-minimal.nix;
