@@ -43,5 +43,9 @@
     };
   };
 
+  services.udev.extraRules = ''
+    ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}=50
+  '';
+
   stylix.image = ../../bg/ashitaka-3.jpg;
 }

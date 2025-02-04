@@ -18,7 +18,7 @@ input {
 	    layout "fr"
 	    variant "ergol"
         }
-        repeat-delay 200
+        repeat-delay 300
         repeat-rate 50
     }
 
