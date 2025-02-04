@@ -215,7 +215,7 @@ in {
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
       MANPAGER = "vim -c ASMANPAGER -";
-      #NIXOS_OZONE_WL = 1;
+      NIXOS_OZONE_WL = 1;
       PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";
       RUSTC_WRAPPER = lib.getExe pkgs.sccache;
