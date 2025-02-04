@@ -26,7 +26,7 @@
   catppuccin.enable = true;
 
   clan = {
-    user-password.user = "user";
+    user-password.user = "nim";
     core.networking.zerotier.networkId = builtins.readFile (
       config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
     );
@@ -330,7 +330,7 @@
     in
     {
       root = common;
-      user = common // {
+      nim = common // {
         isNormalUser = true;
         extraGroups = [
           "dialout"

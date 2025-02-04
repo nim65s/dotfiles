@@ -3,7 +3,6 @@
   imports = [
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
-    ../../modules/nim.nix
     ../../modules/nvidia.nix
     ../../modules/remote-decrypt.nix
     ../../modules/shared.nix
@@ -18,7 +17,7 @@
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
-  home-manager.users.user = import ./home.nix;
+  home-manager.users.nim = import ./home.nix;
 
   networking = {
     defaultGateway = {

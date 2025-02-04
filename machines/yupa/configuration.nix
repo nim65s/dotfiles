@@ -2,7 +2,6 @@
   imports = [
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
-    ../../modules/nim.nix
     ../../modules/shared.nix
     ../../modules/stylix.nix
     ../../modules/wifi.nix

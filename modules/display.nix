@@ -37,7 +37,7 @@
     };
   };
   sops.secrets.ssh-sk1.owner = "nim";
-  users.users.user.extraGroups = [
+  users.users.nim.extraGroups = [
     "wireshark"
   ];
 }
