@@ -37,6 +37,7 @@ in {
         ".config/niri/config.kdl".source = pkgs.concatText "config.kdl" (
           [ ./niri.kdl ] ++ config.nim-home.niri
         );
+        ".ssh/id_ed25519_sk".source = config.sops.secrets.ssh-sk1.path;
       };
       keyboard = {
         layout = "fr";
