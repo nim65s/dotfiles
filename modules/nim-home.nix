@@ -38,7 +38,6 @@ in {
         ".config/niri/config.kdl".source = pkgs.concatText "config.kdl" (
           [ ./niri.kdl ] ++ config.nim-home.niri
         );
-        ".ssh/id_ed25519_sk".source = sops.secrets.ssh-sk1.path;
       };
       keyboard = {
         layout = "fr";
@@ -245,17 +244,22 @@ in {
     };
 
     systemd = {
-      user.services = {
-        spotifyd.Service.Environment = [ "PATH=${pkgs.rbw}/bin" ];
-        swaybgs = {
-          Install.WantedBy = [ "graphical-session.target" ];
-          Service.ExecStart = pkgs.writeShellScript "swaybgs" config.nim-home.swaybgs;
-          Unit = {
-            Description = "Set wallpaper(s)";
-            PartOf = "graphical-session.target";
-            After = "graphical-session.target";
+      user = {
+        services = {
+          spotifyd.Service.Environment = [ "PATH=${pkgs.rbw}/bin" ];
+          swaybgs = {
+            Install.WantedBy = [ "graphical-session.target" ];
+            Service.ExecStart = pkgs.writeShellScript "swaybgs" config.nim-home.swaybgs;
+            Unit = {
+              Description = "Set wallpaper(s)";
+              PartOf = "graphical-session.target";
+              After = "graphical-session.target";
+            };
           };
         };
+        tmpfiles.rules = [
+          "L ${config.home.homeDirectory}/.ssh/id_ed25519_sk - - - - ${sops.secrets.ssh-sk1.path}"
+        ];
       };
     };
   };

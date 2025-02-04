@@ -36,6 +36,7 @@
       windowManager.i3.enable = true;
     };
   };
+  sops.secrets.ssh-sk1.owner = "nim";
   users.users.user.extraGroups = [
     "wireshark"
   ];
