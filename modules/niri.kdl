@@ -291,8 +291,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T { spawn "alacritty"; }
-    Mod+D { spawn "fuzzel"; }
+    Mod+T { spawn "kitty"; }
+    Mod+D { spawn "rofi" "-show" "run"; }
     Super+Alt+L { spawn "systemctl" "suspend"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
