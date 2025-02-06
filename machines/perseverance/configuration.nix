@@ -7,8 +7,8 @@
     ../../modules/x86_64-linux.nix
   ];
 
-  clan.core.networking.targetHost = "root@192.168.1.10";
-  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-LDLC_F8+M.2_120_09292220C0589";
+  clan.core.networking.targetHost = "root@192.168.1.30";
+  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-LDLC_F8+M.2_120_09292220C0619";
   environment.sessionVariables.ROVER = "perseverance";
   home-manager.users.user = import ../../modules/nim-home-minimal.nix;
   networking = {
@@ -25,14 +25,14 @@
       wlan0 = {
         ipv4.addresses = [
           {
-            address = "192.168.1.10";
+            address = "192.168.1.30";
             prefixLength = 24;
           }
         ];
       };
       "tinc.mars".ipv4.addresses = [
         {
-          address = "10.0.55.10";
+          address = "10.0.55.30";
           prefixLength = 24;
         }
       ];
