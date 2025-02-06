@@ -19,6 +19,7 @@ in {
       cargo
       cargo-binstall
       cargo-release
+      clan-cli
       comma
       dcfldd
       deadnix
@@ -140,6 +141,7 @@ in {
       ripgrep
       rofi-rbw
       ruff
+      rustc  # nor pre-commit
       signal-desktop
       sd
       sccache
