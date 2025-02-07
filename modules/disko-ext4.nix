@@ -23,8 +23,6 @@ in
         # suffix is to prevent disk name collisions
         name = "main-" + suffix;
         type = "disk";
-        # Set the following in flake.nix for each maschine:
-        # device = <uuid>;
         content = {
           type = "gpt";
           partitions = {
@@ -48,8 +46,6 @@ in
               content = {
                 type = "filesystem";
                 format = "ext4";
-                # format = "btrfs";
-                # format = "bcachefs";
                 mountpoint = "/";
               };
             };

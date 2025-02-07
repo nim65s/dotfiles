@@ -2,7 +2,7 @@
 {
   imports = [
     clan-core.clanModules.iwd
-    ./disko.nix
+    ./disko-ext4.nix
     ./shared.nix
     ./stylix.nix
     ./x86_64-linux.nix
