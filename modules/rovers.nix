@@ -62,7 +62,10 @@
         WorkingDirectory = "/home/nim/roveros";
         User = "nim";
         ExecStart = "/home/nim/roveros/target/release/roveros-uia";
-        Environment = "RUST_BACKTRACE=1";
+        Environment = [
+          "PATH=/run/current-system/sw/bin"
+          "RUST_BACKTRACE=1"
+        ];
         TimeoutStopSec = 15;
       };
       wantedBy = [ "multi-user.target" ];

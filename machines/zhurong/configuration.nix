@@ -40,6 +40,7 @@
     calibration = {
       serviceConfig = {
         Environment = [
+          "PATH=/run/current-system/sw/bin"
           "PYTHONUNBUFFERED=true"
           "ROVER=zhurong"
         ];

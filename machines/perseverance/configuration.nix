@@ -40,6 +40,7 @@
     calibration = {
       serviceConfig = {
         Environment = [
+          "PATH=/run/current-system/sw/bin"
           "PYTHONUNBUFFERED=true"
           "ROVER=perseverance"
         ];
@@ -54,7 +55,10 @@
         WorkingDirectory = "/home/nim/roveros/perseverance";
         User = "nim";
         ExecStart = "/run/current-system/sw/bin/nix develop --command flask run";
-        Environment = "PYTHONUNBUFFERED=true";
+        Environment = [
+          "PATH=/run/current-system/sw/bin"
+          "PYTHONUNBUFFERED=true"
+        ];
         TimeoutStopSec = 15;
       };
       wantedBy = [ "multi-user.target" ];
