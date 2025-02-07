@@ -300,23 +300,7 @@ in
       ];
     };
     ssh = {
-      enable = true;
-      controlMaster = "auto";
-      includes = [ "local_config" ];
-      userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
       matchBlocks = {
-        "gh" = {
-          hostname = "github.com";
-          user = "git";
-        };
-        "gl" = {
-          hostname = "gitlab.laas.fr";
-          user = "git";
-        };
-        "laas" = {
-          hostname = "ssh.laas.fr";
-          user = "gsaurel";
-        };
         "upe" = {
           hostname = "upepesanke";
           user = "gsaurel";

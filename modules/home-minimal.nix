@@ -120,6 +120,37 @@
         #total-size = true;
       };
     };
+    ssh = {
+      enable = true;
+      controlMaster = "auto";
+      includes = [ "local_config" ];
+      userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
+      matchBlocks = {
+        "gh" = {
+          hostname = "github.com";
+          user = "git";
+        };
+        "gl" = {
+          hostname = "gitlab.laas.fr";
+          user = "git";
+        };
+        "laas" = {
+          hostname = "ssh.laas.fr";
+          user = "gsaurel";
+          forwardAgent = true;
+        };
+        "mononokem" = {
+          hostname = "10.0.55.50";
+          port = 2222;
+          forwardAgent = true;
+        };
+        ghm = {
+          hostname = "github.com";
+          user = "git";
+          proxyJump = "mononokem";
+        };
+      };
+    };
     starship = {
       enable = true;
       settings = {
