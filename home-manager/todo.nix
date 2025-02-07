@@ -5,8 +5,17 @@
   ...
 }:
 let
-  atjoin = { name, host ? "laas.fr" }: lib.concatStringsSep "@" [ name host ];
-in {
+  atjoin =
+    {
+      name,
+      host ? "laas.fr",
+    }:
+    lib.concatStringsSep "@" [
+      name
+      host
+    ];
+in
+{
   home = {
     packages = with pkgs; [
       acpi
@@ -141,7 +150,7 @@ in {
       ripgrep
       rofi-rbw
       ruff
-      rustc  # nor pre-commit
+      rustc # nor pre-commit
       signal-desktop
       sd
       sccache

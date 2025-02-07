@@ -78,11 +78,11 @@
         clan = {
           directory = self;
           /*
-          machines = {
-            loon.imports = [
-              ./nixos
-            ];
-            };
+            machines = {
+              loon.imports = [
+                ./nixos
+              ];
+              };
           */
           meta.name = "nim65s";
           specialArgs = {
