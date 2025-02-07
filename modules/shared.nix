@@ -224,18 +224,18 @@
         perseverance = {
           addresses = [
             {
-              address = "192.168.1.10";
+              address = "192.168.1.30";
               port = 655;
             }
           ];
           subnets = [
             {
-              address = "10.0.55.10";
+              address = "10.0.55.30";
               prefixLength = 32;
             }
           ];
           rsaPublicKey = ''
-            -----BEGIN RSA PUBLIC KEY-----
+            -----BEGIN OLD PUBLIC KEY-----
             MIICCgKCAgEAzo1ChjEu0veHhxGKNT1GiizwBvrIUclgEI9iyYQMzLRMHXf11wKG
             X/4OjJkHxRmSB9Q51JSGO7qhe/r6oMxKWBCZLVvqRJslMTSh0B51BZXmZcSwTPUF
             SjPWIMUEwnY6b4FwoleWEgLlEcgjUl5a25TiFjB59leTRmThekycmX6Vfy3gO2HD
@@ -247,6 +247,21 @@
             +JHXFaF/PPV8wAoE8Jm+HYZjan9Hvm9UcaUfuO+Hd3ZRrfqugG/H3bmOxsVyVoM0
             6mgmm6vxzVMHqVSUd0bLJAcl4cd36iyTOAujPDF15GYIDaKKalytA7/5bg7m6+N/
             mX00uD1wdMFmA1e9WA0w5UWEIQew1axJ7uQvQAjcRRu8Cl4Zo4/ef2sCAwEAAQ==
+            -----END OLD PUBLIC KEY-----
+
+
+            -----BEGIN RSA PUBLIC KEY-----
+            MIICCgKCAgEA0hpkIqtnCLDzbjotcNUztUh7nxgTmGJo0IDxkFlqnkiWs1VGT1y/
+            fntUwdUqITpaLyjFr+GxtZuoCGutIJl0x8anSpPhTTFz/tsZzKNFzXQpQ+WVvsYF
+            ThXdBBBihz9c3N9JtIJQ7z32onw8TCEzkw7t44kO2ZkxZnaDPITTJd4YM3+eOAtz
+            jQkZwJZO3rjjJ91r3C/CGV9xBuq0t+8dJFJR+AXx1FX4ZmfRft3gM5PSD9zLldKB
+            iGIGPhqFIaHq+gCLsfWcijonegnL/vfExJ1PHYURxea5ZyGQmlI3tge6sV39tBTh
+            wGycvc7rkPlnM4MpBl5Dfw95g9WDdx4m+mehMTLNAl6aL6gXWB8xH+BlnsKTMFw6
+            LTZZLnQ1gLdm8bYYxOE/R1wCImkzrR66AK9WeGxxnJqic931hh15FkmL6OwXT9Ja
+            vRSctByeSY45Tx1s66Nlt61OdWvfcaGRmfbCzlkpt5R8tc5IUL/7drxbrcn0l90y
+            YrBxMIDwOhN+lVrbFIjZYWfsN8auBDluFDUXq4HWHwwK4L00rjT9LB3df8eiTJ+B
+            F1kMIOr7rvGsJKOKQ7LSZx/SCSNLUaJuSGQDH8P0hL+s5StY2vLxsWRuuN5eEm6k
+            vmN2PKd7sBpZXDCtafvrCIRt5LDuOqtjv/E3sWloqwDDlG0InvSrtgkCAwEAAQ==
             -----END RSA PUBLIC KEY-----
           '';
         };
