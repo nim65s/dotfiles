@@ -42,6 +42,7 @@
     dfc
     fd
     file
+    git
     graphviz
     htop
     iproute2
