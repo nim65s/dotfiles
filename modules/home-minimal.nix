@@ -219,6 +219,7 @@
       btop.enable = false;
       fzf.enable = false;
       helix.enable = false;
+      qt.enable = false;
       swaylock.enable = false;
     };
   };
