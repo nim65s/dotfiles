@@ -6,6 +6,13 @@
 {
   imports = [ ../../modules/nim-home.nix ];
 
+  home = {
+    packages = with pkgs; [
+      deluge-gtk
+      filezilla
+    ];
+  };
+
   nim-home = {
     niri = [ ./niri.kdl ];
     swaybgs = ''
