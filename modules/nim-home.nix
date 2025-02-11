@@ -269,9 +269,9 @@ in
             };
           };
         };
-        tmpfiles.rules = [
-          "L ${config.home.homeDirectory}/.ssh/id_ed25519_sk - - - - ${sops.secrets.ssh-sk1.path}"
-        ];
+        #tmpfiles.rules = [
+        #  "L ${config.home.homeDirectory}/.ssh/id_ed25519_sk - - - - ${sops.secrets.ssh-sk1.path}"
+        #];
       };
     };
   };
