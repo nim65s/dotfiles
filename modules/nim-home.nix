@@ -59,6 +59,7 @@ in
 
       atuin = {
         enable = true;
+        daemon.enable = true;
         flags = [ "--disable-up-arrow" ];
         settings.sync_address = "https://atuin.datcat.fr";
       };
