@@ -47,4 +47,8 @@
   '';
 
   stylix.image = ../../bg/ashitaka-3.jpg;
+
+  users.users.nim.extraGroups = [ "docker" ];
+
+  virtualisation.docker.enable = true;
 }

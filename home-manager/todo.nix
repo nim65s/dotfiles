@@ -188,7 +188,7 @@ in
       xwayland
       yt-dlp
       zathura
-      zeal
+      zeal-qt6
       zellij
       zfs
       #zola
