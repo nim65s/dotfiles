@@ -29,6 +29,7 @@ in
       cargo-binstall
       cargo-release
       clan-cli
+      clang_19
       comma
       dcfldd
       deadnix
