@@ -14,6 +14,7 @@
       lacroix = { };
       lavelanet = { };
       marsrovers = { };
+      prades = { };
       sabliere = { };
       toffan = { };
     };
