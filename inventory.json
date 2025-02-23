@@ -21,7 +21,6 @@
       "default": {
         "enabled": true,
         "config": {
-          "topLevelDomain": "m",
           "openFirewall": true
         },
         "meta": {
