@@ -11,7 +11,7 @@
       name = "dev-edition-default";
       path = "nim.dev-edition-default";
       isDefault = true;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         click-and-read
         mergify
