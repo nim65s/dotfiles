@@ -104,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740322683,
-        "narHash": "sha256-QPF7ALfCmbWGoP7hTFkzL4NUYdMGpupxLWlmX1dwnis=",
-        "rev": "5ac629f549f7c40568643e12ff11d898f8af5521",
+        "lastModified": 1740368923,
+        "narHash": "sha256-Q7ZW4i9EipJ998Z4jRIm2BIXcGx2Vcew3z0s+yDClko=",
+        "rev": "347a5a5f76b8070d59c5c0805829c549a4d8e786",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/5ac629f549f7c40568643e12ff11d898f8af5521.tar.gz?rev=5ac629f549f7c40568643e12ff11d898f8af5521"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/347a5a5f76b8070d59c5c0805829c549a4d8e786.tar.gz?rev=347a5a5f76b8070d59c5c0805829c549a4d8e786"
       },
       "original": {
         "type": "tarball",
@@ -319,11 +319,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740318342,
-        "narHash": "sha256-fjr9+3Iru6O5qE+2oERQkabqAUXx4awm0+i2MBcta1U=",
+        "lastModified": 1740347597,
+        "narHash": "sha256-st5q9egkPGz8TUcVVlIQX7y6G3AzHob+6M963bwVq74=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b5ab2c7fdaa807cf425066ab7cd34b073946b1ca",
+        "rev": "12e26a74e5eb1a31e13daaa08858689e25ebd449",
         "type": "github"
       },
       "original": {
@@ -396,11 +396,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740324936,
-        "narHash": "sha256-kzhWrl9IU6ZJDbjrjpUGklLlitLUwOWsYTdkDSmAZZs=",
+        "lastModified": 1740401773,
+        "narHash": "sha256-/2rsd+o9nBueJ6C++YsADeQqjM9ssXwtKMWwJ/BjnkA=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "c459157201e0a37dbf123256065be3f9a06508b0",
+        "rev": "839b4fd5c3de6b8f97aca0dac60ce7ba9c678e25",
         "type": "github"
       },
       "original": {
@@ -534,11 +534,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1740325841,
-        "narHash": "sha256-+Bn9uAlDP+412lPvUmWzgSS2rtmwBavHcgeqNsbg/DI=",
+        "lastModified": 1740334679,
+        "narHash": "sha256-FP8ggvqzdHQ1+vr0H9r+PQbFos9CtlO8bYK0tMnJK4o=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "f403ca101e11d92332c028abefe35441ea5e403e",
+        "rev": "f121a142abde1b6aa9738e4c21a330c0ddd4eb70",
         "type": "github"
       },
       "original": {
