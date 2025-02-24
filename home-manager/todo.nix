@@ -75,10 +75,11 @@ in
       jq
       just
       kcov
+      kdePackages.kolourpaint
+      kdePackages.okular
       khal
       khard
       killall
-      kolourpaint
       less
       libreoffice
       lsof
@@ -109,7 +110,6 @@ in
       nmap
       #noto-fonts-emoji
       nurl
-      okular
       openldap
       openssh
       openssl

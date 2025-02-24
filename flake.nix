@@ -119,9 +119,13 @@
                         nurpkgs = prev;
                         pkgs = prev;
                       };
-                      inherit (inputs.clan-core.packages.${system}) clan-cli;
                       inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
-                      inherit (self'.packages) iosevka-aile iosevka-etoile iosevka-term;
+                      inherit (self'.packages)
+                        clan-cli
+                        iosevka-aile
+                        iosevka-etoile
+                        iosevka-term
+                        ;
                       git-extras = prev.git-extras.overrideAttrs {
                         patches = [
                           # Allow use of GITHUB_TOKEN
@@ -137,7 +141,7 @@
             devShells = {
               default = pkgs.mkShell {
                 packages = [
-                  inputs.clan-core.packages.${system}.clan-cli
+                  self'.packages.clan-cli
                   inputs.system-manager.packages.${system}.system-manager
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
@@ -153,6 +157,13 @@
               };
             };
             packages = {
+              clan-cli = inputs.clan-core.packages.${system}.clan-cli.override {
+                includedRuntimeDeps = [
+                  "age"
+                  "git"
+                  "nix"
+                ];
+              };
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
               iosevka-term = pkgs.nerd-fonts.iosevka;

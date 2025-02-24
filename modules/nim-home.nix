@@ -231,7 +231,7 @@ in
 
     services = {
       spotifyd = {
-        enable = true;
+        enable = false;
         settings = {
           global = {
             username = "nim65s";
