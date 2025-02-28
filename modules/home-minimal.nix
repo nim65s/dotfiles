@@ -95,7 +95,7 @@
         cp = "cp -r";
         mv = "mv -v";
         rm = "rm -Iv";
-        watch = "watch --color -d";        
+        watch = "watch --color -d";
         virerdossiersvides = "find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty";
         clean = "find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb|fls|fdb_latexmk|blg|bbl|un~)' -delete";
       };

@@ -122,11 +122,6 @@
     };
     avahi.enable = true;
 
-    # kanata = {
-    #   enable = true;
-    #   keyboards.main.configFile = "/home/nim/local/OneDeadKey/arsenik/kanata/kanata.kbd";
-    # };
-
     tinc.networks.mars = {
       package = pkgs.tinc;
       extraConfig = ''
