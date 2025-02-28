@@ -117,7 +117,7 @@
     arsenik = {
       enable = true;
       hold_timeout = 100;
-      base = "base_lt";
+      lt = true;
       vim = true;
     };
     avahi.enable = true;
