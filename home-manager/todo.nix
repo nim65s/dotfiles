@@ -226,7 +226,7 @@ in
       CTEST_OUTPUT_ON_FAILURE = "ON";
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
-      MANPAGER = "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'";
+      MANPAGER = "batman";
       NIXOS_OZONE_WL = 1;
       # PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";

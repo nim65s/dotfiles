@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
 
   imports = [
@@ -12,7 +12,10 @@
   };
 
   programs = {
-    bat.enable = true;
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+    };
     btop = {
       enable = true;
       settings.cpu_single_graph = true;
