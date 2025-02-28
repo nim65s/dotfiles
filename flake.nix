@@ -62,6 +62,13 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arsenik = {
+      url = "github:nim65s/arsenik";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs =
@@ -120,6 +127,7 @@
                         pkgs = prev;
                       };
                       inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
+                      inherit (inputs.arsenik.packages.${system}) arsenik;
                       inherit (self'.packages)
                         clan-cli
                         iosevka-aile

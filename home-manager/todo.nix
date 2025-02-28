@@ -226,9 +226,9 @@ in
       CTEST_OUTPUT_ON_FAILURE = "ON";
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
-      MANPAGER = "vim -c ASMANPAGER -";
+      MANPAGER = "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'";
       NIXOS_OZONE_WL = 1;
-      PAGER = "vim -c PAGER -";
+      # PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";
       RUSTC_WRAPPER = lib.getExe pkgs.sccache;
       SHELL = lib.getExe pkgs.fish;
@@ -369,25 +369,25 @@ in
       enable = true;
       #defaultEditor = true;
       plugins = with pkgs; [
-        vimPlugins.ale
-        vimPlugins.colorizer
-        vimPlugins.file-line
-        vimPlugins.nerdcommenter
+        # vimPlugins.ale
+        # vimPlugins.colorizer
+        # vimPlugins.file-line
+        # vimPlugins.nerdcommenter
         vimPlugins.plantuml-syntax
         vimPlugins.vim-airline
         vimPlugins.vim-airline-themes
-        vimPlugins.vim-clang-format
-        vimPlugins.vim-fugitive
-        vimPlugins.vim-jinja
-        vimPlugins.vim-manpager
-        vimPlugins.vim-nix
-        vimPlugins.vim-pager
-        vimPlugins.vim-plugin-AnsiEsc
-        vimPlugins.vim-sensible
-        vimPlugins.vim-signify
+        # vimPlugins.vim-clang-format
+        # vimPlugins.vim-fugitive
+        # vimPlugins.vim-jinja
+        # vimPlugins.vim-manpager
+        # vimPlugins.vim-nix
+        # vimPlugins.vim-pager
+        # vimPlugins.vim-plugin-AnsiEsc
+        # vimPlugins.vim-sensible
+        # vimPlugins.vim-signify
         vimPlugins.vim-toml
-        vimPlugins.vimspector
-        vimPlugins.yuck-vim
+        # vimPlugins.vimspector
+        # vimPlugins.yuck-vim
         #vimPlugins.zenburn
       ];
       settings = {

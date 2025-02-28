@@ -16,6 +16,7 @@
     clan-core.clanModules.state-version
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
+    inputs.arsenik.nixosModules.arsenik
   ];
 
   boot.loader.systemd-boot = {
@@ -113,7 +114,18 @@
   };
 
   services = {
+    arsenik = {
+      enable = true;
+      hold_timeout = 100;
+      base = "base_lt";
+      vim = true;
+    };
     avahi.enable = true;
+
+    # kanata = {
+    #   enable = true;
+    #   keyboards.main.configFile = "/home/nim/local/OneDeadKey/arsenik/kanata/kanata.kbd";
+    # };
 
     tinc.networks.mars = {
       package = pkgs.tinc;
