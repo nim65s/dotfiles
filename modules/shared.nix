@@ -33,7 +33,7 @@
     );
   };
 
-  console.keyMap = "fr-bepo";
+  console.useXkbConfig = true;
 
   environment.systemPackages = with pkgs; [
     alacritty

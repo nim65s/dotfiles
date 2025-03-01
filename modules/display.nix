@@ -32,7 +32,7 @@
     xserver = {
       enable = true;
       xkb.layout = "fr";
-      xkb.variant = "bepo";
+      xkb.variant = "ergol";
       windowManager.i3.enable = true;
     };
   };
