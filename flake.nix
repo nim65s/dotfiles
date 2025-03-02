@@ -35,6 +35,10 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
+    patch-arsenik = {
+      url = "https://github.com/NixOS/nixpkgs/pull/386205.patch";
+      flake = false;
+    };
     patch-jrk = {
       url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
@@ -62,17 +66,23 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    arsenik = {
-      url = "github:nim65s/arsenik";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   outputs =
     inputs:
+    let
+      pkgsForPatching = import inputs.nixpkgs { system = "x86_64-linux"; };
+      patchedNixpkgs = (
+        pkgsForPatching.applyPatches {
+          name = "patched nixpkgs";
+          src = inputs.nixpkgs;
+          patches = [
+            inputs.patch-arsenik
+            inputs.patch-jrk
+          ];
+        }
+      );
+    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { self, ... }:
       {
@@ -93,7 +103,7 @@
           */
           meta.name = "nim65s";
           specialArgs = {
-            inherit inputs;
+            inherit inputs patchedNixpkgs;
             inherit (self) allSystems;
           };
         };
@@ -105,47 +115,34 @@
             ...
           }:
           {
-            _module.args.pkgs =
-              let
-                supernix = import inputs.nixpkgs { inherit system; };
-              in
-              import
-                (supernix.applyPatches {
-                  name = "patched nixpkgs";
-                  src = inputs.nixpkgs;
-                  patches = [
-                    inputs.patch-jrk
-                  ];
+            _module.args.pkgs = import patchedNixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+              overlays = [
+                (final: prev: {
+                  nur = import inputs.nur {
+                    nurpkgs = prev;
+                    pkgs = prev;
+                  };
+                  inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
+                  inherit (self'.packages)
+                    clan-cli
+                    iosevka-aile
+                    iosevka-etoile
+                    iosevka-term
+                    ;
+                  git-extras = prev.git-extras.overrideAttrs {
+                    patches = [
+                      # Allow use of GITHUB_TOKEN
+                      (final.fetchpatch {
+                        url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
+                        hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
+                      })
+                    ];
+                  };
                 })
-                {
-                  inherit system;
-                  config.allowUnfree = true;
-                  overlays = [
-                    (final: prev: {
-                      nur = import inputs.nur {
-                        nurpkgs = prev;
-                        pkgs = prev;
-                      };
-                      inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
-                      inherit (inputs.arsenik.packages.${system}) arsenik;
-                      inherit (self'.packages)
-                        clan-cli
-                        iosevka-aile
-                        iosevka-etoile
-                        iosevka-term
-                        ;
-                      git-extras = prev.git-extras.overrideAttrs {
-                        patches = [
-                          # Allow use of GITHUB_TOKEN
-                          (final.fetchpatch {
-                            url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
-                            hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
-                          })
-                        ];
-                      };
-                    })
-                  ];
-                };
+              ];
+            };
             devShells = {
               default = pkgs.mkShell {
                 packages = [

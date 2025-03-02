@@ -3,6 +3,7 @@
   clan-core,
   inputs,
   lib,
+  patchedNixpkgs,
   pkgs,
   ...
 }:
@@ -16,7 +17,7 @@
     clan-core.clanModules.state-version
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
-    inputs.arsenik.nixosModules.arsenik
+    "${patchedNixpkgs}/nixos/modules/services/hardware/arsenik.nix"
   ];
 
   boot.loader.systemd-boot = {

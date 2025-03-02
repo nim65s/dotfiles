@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "arsenik": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1740779117,
-        "narHash": "sha256-8mzSexleUJwzNfTRjzKl2kL+d0IYIh9upuScY7MCOgs=",
-        "owner": "nim65s",
-        "repo": "arsenik",
-        "rev": "1f743c91a26d292fe8a5116ac1649871cdde7caf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nim65s",
-        "repo": "arsenik",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -454,6 +431,18 @@
         "type": "github"
       }
     },
+    "patch-arsenik": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-UPHgmoKGXJiynC+4lvEmn+lPS7UhzEaYEYi3ZaZ5Ne4=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
+      }
+    },
     "patch-jrk": {
       "flake": false,
       "locked": {
@@ -491,7 +480,6 @@
     },
     "root": {
       "inputs": {
-        "arsenik": "arsenik",
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
         "flake-parts": "flake-parts",
@@ -499,6 +487,7 @@
         "nix-system-graphics": "nix-system-graphics",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "patch-arsenik": "patch-arsenik",
         "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
         "stylix": "stylix",
