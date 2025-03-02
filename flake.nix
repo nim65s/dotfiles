@@ -50,6 +50,13 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "clan-core/systems";
+      };
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {

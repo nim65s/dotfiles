@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -16,6 +17,9 @@ let
     ];
 in
 {
+  imports = [
+    inputs.spicetify-nix.homeManagerModules.spicetify
+  ];
   home = {
     packages = with pkgs; [
       acpi
@@ -159,7 +163,7 @@ in
       slurp
       #snapcast
       sops
-      spotify
+      # spotify
       sqlite
       ssh-to-age
       statix
@@ -298,6 +302,15 @@ in
           };
         }
         { path = "~/dotfiles/.gitconfig"; }
+      ];
+    };
+    spicetify = {
+      enable = true;
+      enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
+        autoVolume
+        beautifulLyrics
+        powerBar
+        shuffle
       ];
     };
     ssh = {

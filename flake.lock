@@ -490,6 +490,7 @@
         "patch-arsenik": "patch-arsenik",
         "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
+        "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "system-manager": "system-manager",
         "treefmt-nix": "treefmt-nix_2"
@@ -514,6 +515,30 @@
         "owner": "pinpox",
         "ref": "lazy-assertions",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "spicetify-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "clan-core",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740889006,
+        "narHash": "sha256-A1iyKVvZrLdLwqWPC9OvPjC85ADQn2R1EGfCzJBl+wI=",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix",
+        "rev": "f8d3757d4ae3af2175a631fb9598a42d30ee75fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix",
         "type": "github"
       }
     },
