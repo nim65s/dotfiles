@@ -21,7 +21,7 @@
         user-agent-string-switcher
       ];
       search.force = true;
-      search.default = "DuckDuckGo";
+      search.default = "mojeek";
       search.engines = {
         "Amazon.fr".metaData.hidden = true;
         "Bing".metaData.hidden = true;
@@ -132,6 +132,29 @@
             }
           ];
         };
+        "mojeek" = {
+          iconUpdateURL = "https://www.mojeek.com/logos/icon_cc.svg";
+          definedAliases = [ ":m" ];
+          urls = [
+            {
+              template = "https://www.mojeek.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "theme";
+                  value = "dark";
+                }
+                {
+                  name = "qss";
+                  value = "Ecosia,Google";
+                }
+              ];
+            }
+          ];
+        };
         "Nix Packages" = {
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ ":n" ];
@@ -230,6 +253,32 @@
             }
           ];
         };
+        "Wikipedia" = {
+            definedAliases = [":wp"];
+            urls = [
+              {
+                template = "https://fr.wikipedia.org/w/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "title";
+                    value = "Special:Recherche";
+                  }
+                  {
+                    name = "fulltext";
+                    value = "1";
+                  }
+                  {
+                    name = "ns0";
+                    value = "1";
+                  }
+                ];
+              }
+            ];
+          };
         "WordReference - enfr" = {
           iconUpdateURL = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":enfr" ];
