@@ -14,6 +14,10 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
+    element-theme = {
+      url = "github:aaronraimist/element-themes";
+      flake = false;
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -138,6 +142,15 @@
                     iosevka-etoile
                     iosevka-term
                     ;
+                  element-web = prev.element-web.override {
+                    conf = {
+                      setting_defaults = {
+                        custom_themes = [
+                          (final.lib.importJSON "${inputs.element-theme}/Catppuccin/Mocha/Catppuccin-Mocha-Theme.json")
+                        ];
+                      };
+                    };
+                  };
                   git-extras = prev.git-extras.overrideAttrs {
                     patches = [
                       # Allow use of GITHUB_TOKEN
