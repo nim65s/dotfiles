@@ -13,8 +13,8 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
-      name = "gruppled_white_lite";
-      package = pkgs.gruppled-white-lite-cursors;
+      name = "catppuccin-mocha-blue-cursors";
+      package = pkgs.catppuccin-cursors.mochaBlue;
     };
     fonts = {
       serif = {
