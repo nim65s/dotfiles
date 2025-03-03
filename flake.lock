@@ -87,6 +87,22 @@
         "type": "github"
       }
     },
+    "catppuccin-thunderbird": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730465032,
+        "narHash": "sha256-07gT37m1+OhRTbUk51l0Nhx+I+tl1il5ayx2ow23APY=",
+        "owner": "catppuccin",
+        "repo": "thunderbird",
+        "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "thunderbird",
+        "type": "github"
+      }
+    },
     "clan-core": {
       "inputs": {
         "disko": "disko",
@@ -497,6 +513,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catppuccin-thunderbird": "catppuccin-thunderbird",
         "clan-core": "clan-core",
         "element-theme": "element-theme",
         "flake-parts": "flake-parts",

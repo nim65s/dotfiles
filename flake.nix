@@ -6,6 +6,10 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-thunderbird = {
+      url = "github:catppuccin/thunderbird";
+      flake = false;
+    };
     clan-core = {
       url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
