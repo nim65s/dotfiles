@@ -362,23 +362,28 @@ in
       enable = true;
       profiles.nim = {
         isDefault = true;
+        # Thanks https://github.com/Laurent2916/Infrastructure !
+        # and https://github.com/mozilla/extension-workshop/blob/master/src/content/documentation/publish/distribute-sideloading.md
         extensions = [
-          (
-            # Thanks https://github.com/Laurent2916/Infrastructure !
-            pkgs.stdenvNoCC.mkDerivation {
-              pname = "catppuccin-mocha-blue.thunderbird.theme";
-              version = "0-unstable-2024-11-01";
-              src = inputs.catppuccin-thunderbird.outPath;
-              # TODO: what are those uuid ?
-              # TODO: src does not work like that
-              buildCommand = ''
-                install -Dv ${inputs.catppuccin-thunderbird}/themes/mocha/mocha-blue.xpi $out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/{f6d05f0c-39a8-5c4d-96dd-4852202a8244}.xpi
-              '';
+          (with pkgs; runCommandWith
+            {
+              name = "catppuccin-mocha-blue.thunderbird.theme";
+              runLocal = true;
+              derivationArgs = {
+                buildInputs = [ catppuccin-mocha ];
+                nativeBuildInputs = [ jq unzip ];
+              };
             }
+            ''
+              xpi=${catppuccin-mocha}/thunderbird/mocha-blue.xpi
+              ext_id=$(unzip -qc $xpi manifest.json | jq -r .applications.gecko.id)
+              firefox_id={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+              install -Dv $xpi $out/share/mozilla/extensions/$firefox_id/$ext_id.xpi
+            ''
           )
         ];
         settings = {
-          "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+          "extensions.activeThemeID" = "{f6d05f0c-39a8-5c4d-96dd-4852202a8244}";
           "mail.identity.default.compose_html" = 1;
           "mail.pane_config.dynamic" = 2;
           "mail.server.default.check_all_folders_for_new" = true;

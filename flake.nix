@@ -6,10 +6,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin-thunderbird = {
-      url = "github:catppuccin/thunderbird";
-      flake = false;
-    };
     clan-core = {
       url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
@@ -141,6 +137,7 @@
                   };
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages)
+                    catppuccin-mocha
                     clan-cli
                     iosevka-aile
                     iosevka-etoile
@@ -186,6 +183,7 @@
               };
             };
             packages = {
+              catppuccin-mocha = pkgs.catppuccin.override { variant = "mocha"; };
               clan-cli = inputs.clan-core.packages.${system}.clan-cli.override {
                 includedRuntimeDeps = [
                   "age"
