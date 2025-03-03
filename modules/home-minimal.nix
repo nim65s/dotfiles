@@ -5,7 +5,11 @@
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  catppuccin.enable = true;
+  catppuccin = {
+    enable = true;
+    accent = "blue";
+    thunderbird.profile = "nim";
+  };
 
   home = {
     stateVersion = "25.05";

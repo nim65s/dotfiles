@@ -3,7 +3,7 @@
 
   inputs = {
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix/refs/pull/480/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {

@@ -362,26 +362,6 @@ in
       enable = true;
       profiles.nim = {
         isDefault = true;
-        # Thanks https://github.com/Laurent2916/Infrastructure !
-        # and https://github.com/mozilla/extension-workshop/blob/master/src/content/documentation/publish/distribute-sideloading.md
-        extensions = [
-          (with pkgs; runCommandWith
-            {
-              name = "catppuccin-mocha-blue.thunderbird.theme";
-              runLocal = true;
-              derivationArgs = {
-                buildInputs = [ catppuccin-mocha ];
-                nativeBuildInputs = [ jq unzip ];
-              };
-            }
-            ''
-              xpi=${catppuccin-mocha}/thunderbird/mocha-blue.xpi
-              ext_id=$(unzip -qc $xpi manifest.json | jq -r .applications.gecko.id)
-              firefox_id={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-              install -Dv $xpi $out/share/mozilla/extensions/$firefox_id/$ext_id.xpi
-            ''
-          )
-        ];
         settings = {
           "extensions.activeThemeID" = "{f6d05f0c-39a8-5c4d-96dd-4852202a8244}";
           "mail.identity.default.compose_html" = 1;
