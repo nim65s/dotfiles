@@ -25,7 +25,10 @@
     configurationLimit = 30;
   };
 
-  catppuccin.enable = true;
+  catppuccin = {
+    enable = true;
+    accent = "blue";
+  };
 
   clan = {
     user-password.user = "nim";
