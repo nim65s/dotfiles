@@ -362,6 +362,21 @@ in
       enable = true;
       profiles.nim = {
         isDefault = true;
+        extensions = [
+          (
+            # Thanks https://github.com/Laurent2916/Infrastructure !
+            pkgs.stdenvNoCC.mkDerivation {
+              pname = "catppuccin-mocha-blue.thunderbird.theme";
+              version = "0-unstable-2024-11-01";
+              src = inputs.catppuccin-thunderbird.outPath;
+              # TODO: what are those uuid ?
+              # TODO: src does not work like that
+              buildCommand = ''
+                install -Dv ${inputs.catppuccin-thunderbird}/themes/mocha/mocha-blue.xpi $out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/{f6d05f0c-39a8-5c4d-96dd-4852202a8244}.xpi
+              '';
+            }
+          )
+        ];
         settings = {
           "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
           "mail.identity.default.compose_html" = 1;
