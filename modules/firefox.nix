@@ -254,31 +254,31 @@
           ];
         };
         "Wikipedia" = {
-            definedAliases = [":wp"];
-            urls = [
-              {
-                template = "https://fr.wikipedia.org/w/index.php";
-                params = [
-                  {
-                    name = "search";
-                    value = "{searchTerms}";
-                  }
-                  {
-                    name = "title";
-                    value = "Special:Recherche";
-                  }
-                  {
-                    name = "fulltext";
-                    value = "1";
-                  }
-                  {
-                    name = "ns0";
-                    value = "1";
-                  }
-                ];
-              }
-            ];
-          };
+          definedAliases = [ ":wp" ];
+          urls = [
+            {
+              template = "https://fr.wikipedia.org/w/index.php";
+              params = [
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "title";
+                  value = "Special:Recherche";
+                }
+                {
+                  name = "fulltext";
+                  value = "1";
+                }
+                {
+                  name = "ns0";
+                  value = "1";
+                }
+              ];
+            }
+          ];
+        };
         "WordReference - enfr" = {
           iconUpdateURL = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":enfr" ];
