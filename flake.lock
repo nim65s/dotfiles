@@ -137,22 +137,6 @@
         "type": "github"
       }
     },
-    "element-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718859621,
-        "narHash": "sha256-ZOOm6UFGNSkGrdwbG5saLAYgAPYJ7E80ogA40CaW+E4=",
-        "owner": "aaronraimist",
-        "repo": "element-themes",
-        "rev": "3bc82abc3dd468dabc933f0f9d0b443ed97554a6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aaronraimist",
-        "repo": "element-themes",
-        "type": "github"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -460,6 +444,18 @@
         "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
       }
     },
+    "patch-catppuccin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-F7bTmYpdQwPQNkRRX6PWBfmTAbwzz0trauMn7BlLEhE=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/386893.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/386893.patch"
+      }
+    },
     "patch-jrk": {
       "flake": false,
       "locked": {
@@ -499,13 +495,13 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
-        "element-theme": "element-theme",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nix-system-graphics": "nix-system-graphics",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "patch-arsenik": "patch-arsenik",
+        "patch-catppuccin": "patch-catppuccin",
         "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",

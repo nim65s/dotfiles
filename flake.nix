@@ -14,10 +14,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    element-theme = {
-      url = "github:aaronraimist/element-themes";
-      flake = false;
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -41,6 +37,10 @@
     };
     patch-arsenik = {
       url = "https://github.com/NixOS/nixpkgs/pull/386205.patch";
+      flake = false;
+    };
+    patch-catppuccin = {
+      url = "https://github.com/NixOS/nixpkgs/pull/386893.patch";
       flake = false;
     };
     patch-jrk = {
@@ -89,6 +89,7 @@
           src = inputs.nixpkgs;
           patches = [
             inputs.patch-arsenik
+            inputs.patch-catppuccin
             inputs.patch-jrk
           ];
         }
@@ -137,7 +138,6 @@
                   };
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages)
-                    catppuccin-mocha
                     clan-cli
                     iosevka-aile
                     iosevka-etoile
@@ -147,7 +147,9 @@
                     conf = {
                       setting_defaults = {
                         custom_themes = [
-                          (final.lib.importJSON "${inputs.element-theme}/Catppuccin/Mocha/Catppuccin-Mocha-Theme.json")
+                          (final.lib.importJSON "${
+                            pkgs.catppuccin.override { variant = "mocha"; }
+                          }/element/Catppuccin-mocha.json")
                         ];
                       };
                     };
@@ -183,7 +185,6 @@
               };
             };
             packages = {
-              catppuccin-mocha = pkgs.catppuccin.override { variant = "mocha"; };
               clan-cli = inputs.clan-core.packages.${system}.clan-cli.override {
                 includedRuntimeDeps = [
                   "age"
