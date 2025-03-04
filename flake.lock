@@ -447,7 +447,7 @@
     "patch-catppuccin": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Y4xj1KC8x0YDCDDUo/hwmvrnNq0R16RtILtLFEGebL4=",
+        "narHash": "sha256-F7bTmYpdQwPQNkRRX6PWBfmTAbwzz0trauMn7BlLEhE=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/386893.patch"
       },
