@@ -1,0 +1,11 @@
+workspace "1"
+workspace "2"
+workspace "3"
+output "DP-1" {
+    position x=0 y=0
+    scale 1.5
+}
+output "DP-2" {
+    position x=2560 y=0
+    scale 1
+}

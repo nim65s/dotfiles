@@ -3,7 +3,7 @@
 
   inputs = {
     catppuccin = {
-      url = "github:catppuccin/nix/refs/pull/480/head";
+      url = "github:nim65s/catppuccin-nix/firefox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
@@ -77,7 +77,8 @@
       };
     };
     stylix = {
-      url = "github:danth/stylix";
+      # ref. https://github.com/danth/stylix/issues/835
+      url = "github:danth/stylix/b00c9f46ae6c27074d24d2db390f0ac5ebcc329f";
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
@@ -183,6 +184,7 @@
                       })
                     ];
                   };
+                  spicetify-extensions = inputs.spicetify-nix.legacyPackages.${system}.extensions;
                 })
               ];
             };
@@ -190,7 +192,9 @@
               default = pkgs.mkShell {
                 packages = [
                   self'.packages.clan-cli
-                  inputs.system-manager.packages.${system}.system-manager
+                  self'.packages.home-manager
+                  self'.packages.system-manager
+                  pkgs.lix
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
               };
@@ -205,6 +209,8 @@
               };
             };
             packages = {
+              inherit (inputs.home-manager.packages.${system}) home-manager;
+              inherit (inputs.system-manager.packages.${system}) system-manager;
               clan-cli = inputs.clan-core.packages.${system}.clan-cli.override {
                 includedRuntimeDeps = [
                   "age"
@@ -234,26 +240,23 @@
         flake =
           let
             system = "x86_64-linux";
+            pkgs = self.allSystems.${system}._module.args.pkgs;
           in
           {
             homeConfigurations = {
-              "gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit (self.allSystems.${system}._module.args) pkgs;
-                modules = [
-                  inputs.catppuccin.homeManagerModules.catppuccin
-                  inputs.stylix.homeManagerModules.stylix
-                  ./aliens/asahi/home.nix
-                  ./home-manager
-                ];
-              };
+              #"gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
+              #  inherit (self.allSystems.${system}._module.args) pkgs;
+              #  modules = [
+              #    inputs.catppuccin.homeManagerModules.catppuccin
+              #    inputs.stylix.homeManagerModules.stylix
+              #    ./aliens/asahi/home.nix
+              #    ./home-manager
+              #  ];
+              #};
               "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit (self.allSystems.${system}._module.args) pkgs;
-                modules = [
-                  inputs.catppuccin.homeManagerModules.catppuccin
-                  inputs.stylix.homeManagerModules.stylix
-                  ./aliens/upepesanke/home.nix
-                  ./home-manager
-                ];
+                inherit pkgs;
+                extraSpecialArgs = { inherit inputs; };
+                modules = [ ./homes/upepesanke/home.nix ];
               };
             };
             systemConfigs.default = inputs.system-manager.lib.makeSystemConfig {

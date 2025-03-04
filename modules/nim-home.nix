@@ -37,11 +37,20 @@ in
         type = lib.types.str;
         default = "";
       };
+      username = lib.mkOption {
+        type = lib.types.str;
+        default = "nim";
+      };
+      homeDirectory = lib.mkOption {
+        type = lib.types.str;
+        default = "/home/${config.nim-home.username}";
+      };
     };
   };
 
   config = {
     home = {
+      inherit (config.nim-home) homeDirectory username;
       file = {
         ".config/niri/config.kdl".source = pkgs.concatText "config.kdl" (
           [ ./niri.kdl ] ++ config.nim-home.niri
@@ -111,6 +120,7 @@ in
       };
       waybar = {
         enable = true;
+        systemd.enable = true;
         settings = {
           mainBar = {
             ${if config.nim-home.waybar-output != "" then "output" else null} = config.nim-home.waybar-output;

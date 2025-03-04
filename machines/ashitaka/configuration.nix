@@ -7,7 +7,7 @@
     ../../modules/remote-decrypt.nix
     ../../modules/shared.nix
     ../../modules/steam.nix
-    ../../modules/stylix.nix
+    ../../modules/nixos.nix
     ../../modules/x86_64-linux.nix
   ];
 
