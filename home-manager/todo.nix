@@ -34,6 +34,7 @@ in
       cargo-release
       clan-cli
       clang_19
+      cmeel
       comma
       dcfldd
       deadnix

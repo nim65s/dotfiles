@@ -116,6 +116,29 @@
         "url": "https://git.clan.lol/clan/clan-core/archive/main.tar.gz"
       }
     },
+    "cmeel": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741366382,
+        "narHash": "sha256-ptbODoOUNjHFXdPF1PZm4OeNbSBBCTP6qf0GfZ/rsk0=",
+        "owner": "cmake-wheel",
+        "repo": "cmeel",
+        "rev": "896b27b9cbeef25b4299645423cd11a038189ae6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cmake-wheel",
+        "repo": "cmeel",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -495,6 +518,7 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
+        "cmeel": "cmeel",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nix-system-graphics": "nix-system-graphics",

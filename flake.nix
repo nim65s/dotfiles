@@ -14,6 +14,13 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
+    cmeel = {
+      url = "github:cmake-wheel/cmeel";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -136,6 +143,7 @@
                     nurpkgs = prev;
                     pkgs = prev;
                   };
+                  inherit (inputs.cmeel.packages.${system}) cmeel;
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages)
                     clan-cli
