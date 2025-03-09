@@ -46,6 +46,10 @@
       url = "https://github.com/NixOS/nixpkgs/pull/386205.patch";
       flake = false;
     };
+    patch-arsenik-src = {
+      url = "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0";
+      flake = false;
+    };
     patch-jrk = {
       url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
@@ -146,6 +150,9 @@
                     iosevka-etoile
                     iosevka-term
                     ;
+                  arsenik = prev.arsenik.overrideAttrs {
+                    patches = [ inputs.patch-arsenik-src ];
+                  };
                   element-web = prev.element-web.override {
                     conf = {
                       setting_defaults = {

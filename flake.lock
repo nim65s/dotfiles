@@ -467,6 +467,18 @@
         "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
       }
     },
+    "patch-arsenik-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-gTWCtwpR7kUIH5JkckaShY3f4MB9JY2vnVjd+LK7N/E=",
+        "type": "file",
+        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0"
+      }
+    },
     "patch-jrk": {
       "flake": false,
       "locked": {
@@ -513,6 +525,7 @@
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "patch-arsenik": "patch-arsenik",
+        "patch-arsenik-src": "patch-arsenik-src",
         "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
