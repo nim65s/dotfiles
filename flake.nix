@@ -47,7 +47,11 @@
       flake = false;
     };
     patch-arsenik-src = {
-      url = "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0";
+      url = "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch";
+      flake = false;
+    };
+    patch-firefox = {
+      url = "https://github.com/NixOS/nixpkgs/pull/387931.patch";
       flake = false;
     };
     patch-jrk = {
@@ -96,6 +100,7 @@
           src = inputs.nixpkgs;
           patches = [
             inputs.patch-arsenik
+            inputs.patch-firefox
             inputs.patch-jrk
           ];
         }

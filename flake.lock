@@ -458,7 +458,7 @@
     "patch-arsenik": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-w6bYIdJZSHKxSvFCtxb8ZukH1zY9RzfWipu4gW7vVcU=",
+        "narHash": "sha256-PykPXOvk3MHykIDeZ+kNQdHM4OaqGHtn3jiqB8m8TeQ=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
       },
@@ -470,19 +470,31 @@
     "patch-arsenik-src": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-G9wuaG/1knUCV2K5LvicJF8xZJNrhAopEfad8fhKiys=",
+        "narHash": "sha256-0Jb/4yc7Es2Eb9uzGZMQcv3hrSIAvYfn1BWDSsSanys=",
         "type": "file",
-        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0"
+        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0"
+        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch"
+      }
+    },
+    "patch-firefox": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-E/ztZVl6Y2qWmADOId7q1PLJW/HjKJCIhLk2FeUSqfk=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/387931.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/387931.patch"
       }
     },
     "patch-jrk": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-3R6VKvdAEVNxY/RpACKdqiG3Tb03AMISpFDX5Rnbw10=",
+        "narHash": "sha256-h6TpeYAcc29qpEEJJSAzEdZekvZWJE75e+B2pyFK3kY=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/362957.patch"
       },
@@ -526,6 +538,7 @@
         "nur": "nur",
         "patch-arsenik": "patch-arsenik",
         "patch-arsenik-src": "patch-arsenik-src",
+        "patch-firefox": "patch-firefox",
         "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
