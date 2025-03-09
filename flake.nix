@@ -46,10 +46,6 @@
       url = "https://github.com/NixOS/nixpkgs/pull/386205.patch";
       flake = false;
     };
-    patch-catppuccin = {
-      url = "https://github.com/NixOS/nixpkgs/pull/386893.patch";
-      flake = false;
-    };
     patch-jrk = {
       url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
@@ -96,7 +92,6 @@
           src = inputs.nixpkgs;
           patches = [
             inputs.patch-arsenik
-            inputs.patch-catppuccin
             inputs.patch-jrk
           ];
         }
