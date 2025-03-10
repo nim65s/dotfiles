@@ -294,6 +294,7 @@ binds {
     Mod+T { spawn "kitty"; }
     Mod+D { spawn "rofi" "-show" "run"; }
     Mod+I { spawn "rofi-rbw"; }
+    Mod+M { spawn "rofimoji"; }
     Super+Alt+L { spawn "systemctl" "suspend"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

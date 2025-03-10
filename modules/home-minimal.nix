@@ -134,6 +134,12 @@
         #total-size = true;
       };
     };
+    ripgrep = {
+      enable = true;
+      arguments = [
+        "--hyperlink-format=kitty"
+      ];
+    };
     ssh = {
       enable = true;
       controlMaster = "auto";

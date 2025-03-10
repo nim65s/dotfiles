@@ -153,8 +153,8 @@ in
       pre-commit-sort
       pulseaudio
       pwgen
-      ripgrep
       rofi-rbw
+      rofimoji-wayland
       ruff
       rustc # nor pre-commit
       signal-desktop

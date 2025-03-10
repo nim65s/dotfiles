@@ -178,6 +178,9 @@
                       })
                     ];
                   };
+                  rofimoji-wayland = prev.rofimoji.override {
+                    rofi = prev.rofi-wayland;
+                  };
                 })
               ];
             };
