@@ -8,7 +8,6 @@
     ../../modules/x86_64-linux.nix
   ];
 
-  clan.core.networking.targetHost = "root@192.168.8.185";
   disko.devices.disk.main.device = "/dev/disk/by-id/wwn-0x500a0751210f7632";
   home-manager.users.nim = import ../../modules/nim-home.nix;
   networking = {

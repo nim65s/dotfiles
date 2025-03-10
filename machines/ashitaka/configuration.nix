@@ -12,7 +12,6 @@
   ];
 
   clan.core.networking = {
-    targetHost = "root@192.168.8.238";
     zerotier.controller.enable = true;
   };
 
