@@ -1,6 +1,37 @@
-workspace "1"
-workspace "2"
-workspace "3"
+workspace "music" {
+    open-on-output "DP-2"
+}
+workspace "mail" {
+    open-on-output "DP-2"
+}
+workspace "web" {
+    open-on-output "DP-2"
+}
+workspace "doc" {
+    open-on-output "DP-2"
+}
+
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "music"
+    open-maximized true
+}
+window-rule {
+    match app-id="thunderbird"
+    open-on-workspace "mail"
+    open-maximized true
+}
+window-rule {
+    match app-id="firefox-devedition"
+    open-on-workspace "web"
+    open-maximized true
+}
+window-rule {
+    match app-id="org.zealdocs.zeal"
+    open-on-workspace "doc"
+    open-maximized true
+}
+
 output "DP-1" {
     position x=0 y=0
     scale 1.5

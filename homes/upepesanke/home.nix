@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ../../modules/nim-home.nix
@@ -16,4 +16,11 @@
       wait
     '';
   };
+
+  xdg.autostart.entries = [
+    "${config.programs.spicetify.spicedSpotify}/share/spotify/spotify.desktop"
+    "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
+    "${config.programs.firefox.finalPackage}/share/applications/firefox-devedition.desktop"
+    "${pkgs.zeal-qt6}/share/applications/org.zealdocs.zeal.desktop"
+  ];
 }
