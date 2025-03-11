@@ -123,7 +123,7 @@ in
       pciutils
       pdfarranger
       pdfpc
-      #pipewire
+      pipewire
       pinentry-qt
       pipx
       plantuml
