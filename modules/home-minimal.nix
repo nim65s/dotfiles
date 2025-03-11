@@ -270,6 +270,7 @@
       btop.enable = false;
       fzf.enable = false;
       helix.enable = false;
+      kitty.enable = false;
       #qt.enable = false;
       swaylock.enable = false;
     };

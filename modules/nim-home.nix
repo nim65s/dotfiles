@@ -79,7 +79,18 @@ in
         };
       };
 
-      kitty.enable = true;
+      kitty = {
+        enable = true;
+        settings = {
+          background_opacity = config.stylix.opacity.terminal;
+          focus_follows_mouse = true;
+          font_family = config.stylix.fonts.monospace.name;
+          font_size = config.stylix.fonts.sizes.terminal;
+          scrollback_pager_history_size = 2;
+          shell = "fish";
+          tab_bar_style = "powerline";
+        };
+      };
 
       msmtp.enable = true;
       neomutt.enable = true;

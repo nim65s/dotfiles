@@ -105,11 +105,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741695839,
-        "narHash": "sha256-k0PFpyr4adPPXqvvjecGv4kyO0riZzdJVtPk9+LjXbs=",
-        "rev": "9ac8a45f1da095d7d9ad9c9175fd44e2d0b7ef28",
+        "lastModified": 1741707550,
+        "narHash": "sha256-4v9/zhktRCqjDbyllbqBpp0Sj6XlNu+lAj3AycVeLhw=",
+        "rev": "68e00ff613895a6d7d9011809bd971d41ff91bc8",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/9ac8a45f1da095d7d9ad9c9175fd44e2d0b7ef28.tar.gz?rev=9ac8a45f1da095d7d9ad9c9175fd44e2d0b7ef28"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/68e00ff613895a6d7d9011809bd971d41ff91bc8.tar.gz?rev=68e00ff613895a6d7d9011809bd971d41ff91bc8"
       },
       "original": {
         "type": "tarball",
@@ -438,7 +438,7 @@
     "patch-firefox": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-7rTj3i8iqAYYj4r/jhEFOJo/GPMVNYvBvv+rkUNd8bk=",
+        "narHash": "sha256-E/ztZVl6Y2qWmADOId7q1PLJW/HjKJCIhLk2FeUSqfk=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/387931.patch"
       },
