@@ -105,11 +105,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741707550,
-        "narHash": "sha256-4v9/zhktRCqjDbyllbqBpp0Sj6XlNu+lAj3AycVeLhw=",
-        "rev": "68e00ff613895a6d7d9011809bd971d41ff91bc8",
+        "lastModified": 1741712228,
+        "narHash": "sha256-WzbaAvabsD+apzTjCERlMLhx4BaK9lZUNxrfnkdTjIw=",
+        "rev": "178fff0618c6cd6630c45def448d91c540f92948",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/68e00ff613895a6d7d9011809bd971d41ff91bc8.tar.gz?rev=68e00ff613895a6d7d9011809bd971d41ff91bc8"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/178fff0618c6cd6630c45def448d91c540f92948.tar.gz?rev=178fff0618c6cd6630c45def448d91c540f92948"
       },
       "original": {
         "type": "tarball",
@@ -398,11 +398,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741703483,
-        "narHash": "sha256-YdbzCx1jVd55luFWYGJZR0K0WzUMwWgKyp8WK+F3IvE=",
+        "lastModified": 1741712032,
+        "narHash": "sha256-kgHc/JGNPXk6rOFuV4Td0wPORMOFaX44F1S3pfF0Wv0=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "2154142facaa23e5e4e5bfc865eef42c66886eec",
+        "rev": "585fafac07c32136039918d7ce45022dbed171f5",
         "type": "github"
       },
       "original": {
@@ -416,11 +416,11 @@
       "locked": {
         "narHash": "sha256-w6bYIdJZSHKxSvFCtxb8ZukH1zY9RzfWipu4gW7vVcU=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//386205.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/386205.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//386205.patch"
       }
     },
     "patch-arsenik-src": {
@@ -440,11 +440,11 @@
       "locked": {
         "narHash": "sha256-E/ztZVl6Y2qWmADOId7q1PLJW/HjKJCIhLk2FeUSqfk=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/387931.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//387931.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/387931.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//387931.patch"
       }
     },
     "patch-jrk": {
@@ -452,11 +452,11 @@
       "locked": {
         "narHash": "sha256-3R6VKvdAEVNxY/RpACKdqiG3Tb03AMISpFDX5Rnbw10=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/362957.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//362957.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/362957.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//362957.patch"
       }
     },
     "patch-rofimoji": {
@@ -464,11 +464,11 @@
       "locked": {
         "narHash": "sha256-ADonnskxwEHZdLHSPjUz2+X/CcENlRi8PC6q61L8lK4=",
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/388852.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//388852.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/NixOS/nixpkgs/pull/388852.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//388852.patch"
       }
     },
     "pre-commit-sort": {

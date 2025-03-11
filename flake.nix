@@ -42,24 +42,24 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    patch-arsenik = {
-      url = "https://github.com/NixOS/nixpkgs/pull/386205.patch";
-      flake = false;
-    };
     patch-arsenik-src = {
       url = "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch";
       flake = false;
     };
+    patch-arsenik = {
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//386205.patch";
+      flake = false;
+    };
     patch-firefox = {
-      url = "https://github.com/NixOS/nixpkgs/pull/387931.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//387931.patch";
       flake = false;
     };
     patch-jrk = {
-      url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//362957.patch";
       flake = false;
     };
     patch-rofimoji = {
-      url = "https://github.com/NixOS/nixpkgs/pull/388852.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//388852.patch";
       flake = false;
     };
     pre-commit-sort = {
