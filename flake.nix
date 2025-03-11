@@ -58,6 +58,10 @@
       url = "https://github.com/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
     };
+    patch-rofimoji = {
+      url = "https://github.com/NixOS/nixpkgs/pull/388852.patch";
+      flake = false;
+    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -102,6 +106,7 @@
             inputs.patch-arsenik
             inputs.patch-firefox
             inputs.patch-jrk
+            inputs.patch-rofimoji
           ];
         }
       );
@@ -177,9 +182,6 @@
                         hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
                       })
                     ];
-                  };
-                  rofimoji-wayland = prev.rofimoji.override {
-                    rofi = prev.rofi-wayland;
                   };
                 })
               ];

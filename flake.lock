@@ -504,6 +504,18 @@
         "url": "https://github.com/NixOS/nixpkgs/pull/362957.patch"
       }
     },
+    "patch-rofimoji": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-ADonnskxwEHZdLHSPjUz2+X/CcENlRi8PC6q61L8lK4=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/388852.patch"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/388852.patch"
+      }
+    },
     "pre-commit-sort": {
       "inputs": {
         "flake-parts": [
@@ -541,6 +553,7 @@
         "patch-arsenik-src": "patch-arsenik-src",
         "patch-firefox": "patch-firefox",
         "patch-jrk": "patch-jrk",
+        "patch-rofimoji": "patch-rofimoji",
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
