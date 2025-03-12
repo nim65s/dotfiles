@@ -211,13 +211,7 @@
             packages = {
               inherit (inputs.home-manager.packages.${system}) home-manager;
               inherit (inputs.system-manager.packages.${system}) system-manager;
-              clan-cli = inputs.clan-core.packages.${system}.clan-cli.override {
-                includedRuntimeDeps = [
-                  "age"
-                  "git"
-                  "nix"
-                ];
-              };
+              inherit (inputs.clan-core.packages.${system}) clan-cli;
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
               iosevka-term = pkgs.nerd-fonts.iosevka;
