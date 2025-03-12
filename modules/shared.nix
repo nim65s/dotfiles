@@ -133,6 +133,8 @@
     };
     avahi.enable = true;
 
+    locate.enable = true;
+
     tinc.networks.mars = {
       package = pkgs.tinc;
       extraConfig = ''
