@@ -31,13 +31,7 @@
   clan = {
     user-password.user = "nim";
     core.networking = {
-      targetHost = lib.mkDefault "root@[${
-        lib.removeSuffix "\n" (
-          builtins.readFile (
-            config.clan.core.settings.directory + "/vars/per-machine/${config.system.name}/mycelium/ip/value"
-          )
-        )
-      }]";
+      targetHost = lib.mkDefault "root@${config.system.name}.m";
       zerotier.networkId = builtins.readFile (
         config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
       );
@@ -84,9 +78,21 @@
 
   i18n.defaultLocale = "fr_FR.UTF-8";
 
-  networking.firewall = {
-    allowedTCPPorts = [ 655 ];
-    allowedUDPPorts = [ 655 ];
+  networking = {
+    firewall = {
+      allowedTCPPorts = [ 655 ];
+      allowedUDPPorts = [ 655 ];
+    };
+    # https://git.clan.lol/clan/clan-core/commit/122dbf42400ff313bab1b5dcaf6c140cec3704e8
+    hosts =
+      let
+        flake = config.clan.core.settings.directory;
+        allPeersWithIp = builtins.mapAttrs (
+          _: x: lib.removeSuffix "\n" x.config.clan.core.vars.generators.mycelium.files.ip.value
+        ) flake.nixosConfigurations;
+        myceliumHosts = lib.mapAttrs' (host: ip: lib.nameValuePair ip [ "${host}.m" ]) allPeersWithIp;
+      in
+      myceliumHosts;
   };
 
   nix = {
