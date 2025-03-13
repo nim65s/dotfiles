@@ -22,10 +22,26 @@
     '';
   };
 
-  xdg.autostart.entries = [
-    "${config.programs.spicetify.spicedSpotify}/share/spotify/spotify.desktop"
-    "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
-    "${config.programs.firefox.finalPackage}/share/applications/firefox-devedition.desktop"
-    "${pkgs.zeal-qt6}/share/applications/org.zealdocs.zeal.desktop"
-  ];
+  xdg.autostart = {
+    enable = true;
+    entries =
+      let
+        fixDesktop =
+          pkg: path:
+          pkgs.runCommandLocal "nix-${pkg.pname}.desktop"
+            {
+              buildInputs = [ pkg ];
+              nativeBuildInputs = [ pkgs.gnused ];
+            }
+            ''
+              sed 's|^Exec=.*|Exec=${lib.getExe pkg}|' ${pkg}${path} > $out
+            '';
+      in
+      [
+        (fixDesktop config.programs.spicetify.spicedSpotify "/share/spotify/spotify.desktop")
+        (fixDesktop config.programs.thunderbird.package "/share/applications/thunderbird.desktop")
+        (fixDesktop config.programs.firefox.finalPackage "/share/applications/firefox-devedition.desktop")
+        (fixDesktop pkgs.zeal-qt6 "/share/applications/org.zealdocs.zeal.desktop")
+      ];
+  };
 }
