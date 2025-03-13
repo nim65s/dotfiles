@@ -3,7 +3,7 @@
 
   inputs = {
     catppuccin = {
-      url = "github:nim65s/catppuccin-nix/firefox";
+      url = "github:catppuccin/nix/refs/pull/499/merge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {

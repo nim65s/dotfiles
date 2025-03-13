@@ -74,17 +74,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1741703856,
-        "narHash": "sha256-c4DUAuXs8pKTdA5Jv/P7hcbqXwICcZ0GkvVKa3z0BdI=",
-        "owner": "nim65s",
-        "repo": "catppuccin-nix",
-        "rev": "34c193695152168dc4bbc5a93734be226d9d4a23",
+        "lastModified": 1741895480,
+        "narHash": "sha256-++8zoyL0gxKuNrGv5jKKoh4P88e4+TTN1zgyd0SCrd0=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "cc25553e743e0f2ab11b9877e64518355ef52902",
         "type": "github"
       },
       "original": {
-        "owner": "nim65s",
-        "ref": "firefox",
-        "repo": "catppuccin-nix",
+        "owner": "catppuccin",
+        "ref": "refs/pull/499/merge",
+        "repo": "nix",
         "type": "github"
       }
     },
@@ -321,11 +321,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741879521,
-        "narHash": "sha256-GylyCwdUe2Kd69bC8txEX+A3H/DXBZl2a+GcmTcJw/g=",
+        "lastModified": 1741894454,
+        "narHash": "sha256-Mu2YXrGr/8Cid6W44AXci/YYnASoXjGrMV9Sjs66oyc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1b0efe3d335f452595512c7b275e5dddfbfb28a5",
+        "rev": "0b0baed7b2bf6a5e365d4cba042b580a2bc32e34",
         "type": "github"
       },
       "original": {
@@ -398,11 +398,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741887947,
-        "narHash": "sha256-QQojmc7+HVYEZq4Ksim7y8KYobkIhqZ/oivd5Gnr8sA=",
+        "lastModified": 1741893784,
+        "narHash": "sha256-lekfL4QKO63wUKiNGNGy4sbaeKRg8qRup/fBrRy7TZM=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "2ac2be6a5936459018f10608b723487468a13f56",
+        "rev": "f4a8aa6a770e06de61e20f2c067f5271b309e49e",
         "type": "github"
       },
       "original": {
