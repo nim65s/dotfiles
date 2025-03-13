@@ -50,10 +50,6 @@
       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//386205.patch";
       flake = false;
     };
-    patch-firefox = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//387931.patch";
-      flake = false;
-    };
     patch-jrk = {
       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//362957.patch";
       flake = false;
@@ -105,7 +101,6 @@
           src = inputs.nixpkgs;
           patches = [
             inputs.patch-arsenik
-            inputs.patch-firefox
             inputs.patch-jrk
             inputs.patch-rofimoji
           ];
