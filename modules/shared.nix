@@ -133,7 +133,7 @@
   services = {
     arsenik = {
       enable = true;
-      hold_timeout = 50;
+      hold_timeout = 20;
       lt = true;
       vim = true;
     };

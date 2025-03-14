@@ -47,15 +47,15 @@
       flake = false;
     };
     patch-arsenik = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//386205.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch";
       flake = false;
     };
     patch-jrk = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//362957.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
     };
     patch-rofimoji = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull//388852.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/389842.patch";
       flake = false;
     };
     pre-commit-sort = {

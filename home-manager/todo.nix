@@ -154,7 +154,7 @@ in
       pulseaudio
       pwgen
       rofi-rbw
-      rofimoji-wayland
+      rofimoji
       ruff
       rustc # nor pre-commit
       signal-desktop
