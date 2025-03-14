@@ -426,13 +426,13 @@
     "patch-arsenik-src": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-0Jb/4yc7Es2Eb9uzGZMQcv3hrSIAvYfn1BWDSsSanys=",
+        "narHash": "sha256-S856C95b8zy7r1xIal/1gEBibJOJQD9yv8eByayzkxs=",
         "type": "file",
-        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch"
+        "url": "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch"
       }
     },
     "patch-jrk": {

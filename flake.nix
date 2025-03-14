@@ -43,7 +43,7 @@
       };
     };
     patch-arsenik-src = {
-      url = "https://github.com/nim65s/arsenik/commit/20f0342339f151dc1dad55e48d79c8f5e46b01b0.patch";
+      url = "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch";
       flake = false;
     };
     patch-arsenik = {
