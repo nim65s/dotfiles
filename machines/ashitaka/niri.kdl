@@ -1,6 +1,51 @@
-workspace "1"
-workspace "2"
-workspace "3"
+workspace "doc" {
+    open-on-output "DP-1"
+}
+workspace "web" {
+    open-on-output "DP-2"
+}
+workspace "alt" {
+    open-on-output "DP-3"
+}
+
+window-rule {
+    match app-id="org.zealdocs.zeal"
+    open-on-workspace "doc"
+    default-column-width { proportion 0.5; }
+}
+window-rule {
+    match at-startup=true
+    match app-id="firefox-devedition"
+    open-on-workspace "web"
+    default-column-width { proportion 0.5; }
+}
+window-rule {
+    match at-startup=true
+    match app-id="kitty"
+    open-on-workspace "web"
+    default-column-width { proportion 0.5; }
+}
+window-rule {
+    match app-id="Element"
+    open-on-workspace "alt"
+    default-column-width { proportion 0.6; }
+}
+window-rule {
+    match app-id="thunderbird"
+    open-on-workspace "alt"
+    default-column-width { proportion 0.6; }
+}
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-on-workspace "alt"
+    default-column-width { proportion 0.4; }
+}
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "alt"
+    default-column-width { proportion 0.4; }
+}
+
 output "DP-1" {
     position x=0 y=0
     scale 1

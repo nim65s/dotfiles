@@ -1,4 +1,4 @@
-workspace "music" {
+workspace "doc" {
     open-on-output "DP-2"
 }
 workspace "mail" {
@@ -12,6 +12,7 @@ workspace "doc" {
 }
 
 window-rule {
+    match at-startup=true
     match app-id="spotify"
     open-on-workspace "music"
     open-maximized true
@@ -22,6 +23,7 @@ window-rule {
     open-maximized true
 }
 window-rule {
+    match at-startup=true
     match app-id="firefox-devedition"
     open-on-workspace "web"
     open-maximized true
