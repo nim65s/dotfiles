@@ -12,7 +12,7 @@
         bitwarden
         click-and-read
         mergify
-        switchyomega
+        #switchyomega
         tree-style-tab
         ublock-origin
         user-agent-string-switcher
