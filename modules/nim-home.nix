@@ -81,8 +81,19 @@ in
 
       kitty = {
         enable = true;
+        keybindings = {
+          "kitty_mod+u" = "launch --location=vsplit --cwd=current";
+          "kitty_mod+y" = "launch --location=hsplit --cwd=current";
+          "kitty_mod+r" = "previous_window";
+          "kitty_mod+t" = "next_window";
+          "kitty_mod+," = "new_tab_with_cwd";
+          "kitty_mod+h" = "previous_tab";
+          "kitty_mod+g" = "next_tab";
+        };
         settings = {
           background_opacity = config.stylix.opacity.terminal;
+          enable_audio_bell = false;
+          enabled_layouts = "splits,fat,tall,grid,horizontal,vertical,stack";
           focus_follows_mouse = true;
           font_family = config.stylix.fonts.monospace.name;
           font_size = config.stylix.fonts.sizes.terminal;
