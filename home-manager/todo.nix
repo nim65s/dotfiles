@@ -144,6 +144,7 @@ in
           pyarrow
           pyyaml
           tabulate
+          tomlkit
           tqdm
           wand
           wheel
