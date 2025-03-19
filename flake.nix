@@ -3,7 +3,7 @@
 
   inputs = {
     catppuccin = {
-      url = "github:catppuccin/nix/refs/pull/499/merge";
+      url = "github:nim65s/catppuccin-nix/firefox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
@@ -54,10 +54,6 @@
       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/362957.patch";
       flake = false;
     };
-    patch-rofimoji = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/389842.patch";
-      flake = false;
-    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -102,7 +98,6 @@
           patches = [
             inputs.patch-arsenik
             inputs.patch-jrk
-            inputs.patch-rofimoji
           ];
         }
       );
