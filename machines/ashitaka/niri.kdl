@@ -5,7 +5,7 @@ workspace "web" {
     open-on-output "DP-2"
 }
 workspace "alt" {
-    open-on-output "DP-3"
+    open-on-output "HDMI-A-1"
 }
 
 window-rule {
@@ -54,7 +54,7 @@ output "DP-2" {
     position x=3840 y=0
     scale 1
 }
-output "DP-3" {
+output "HDMI-A-1" {
     position x=7680 y=0
     scale 1
 }
