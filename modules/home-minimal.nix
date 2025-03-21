@@ -76,6 +76,7 @@
         gst = "git status";
         gp = "git push";
         gf = "git fetch --all --prune";
+        gcaf = "git commit -a --fixup";
         gcan = "git commit -a --amend --no-edit";
         gcl = "git clone";
         gcr = "git clone --recursive";
