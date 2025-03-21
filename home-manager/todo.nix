@@ -255,25 +255,44 @@ in
         blame = {
           ignoreRevsFile = ".git-blame-ignore-revs";
         };
+        branch = {
+          sort = "-committerdate";
+        };
         color = {
           ui = "always";
           branch = "always";
           interactive = "always";
           status = "always";
         };
+        column = {
+          ui = "auto";
+        };
+        commit = {
+          verbose = true;
+        };
         core = {
           excludesfile = "~/dotfiles/gitignore";
         };
         diff = {
-          tool = "vimdiff";
+          algorithm = "histogram";
+          colorMoved = true;
+          colorMovedWS = "allow-indentation-change";
           guitool = "meld";
+          tool = "vimdiff";
+          renames = "true";
         };
         difftool = {
           cmd = "vimdiff";
           prompt = false;
         };
         fetch = {
+          all = true;
           parallel = 4;
+          prune = true;
+          pruneTags = true;
+        };
+        help = {
+          autocorrect = "prompt";
         };
         hub = {
           protocol = "ssh";
@@ -282,6 +301,7 @@ in
           defaultBranch = "main";
         };
         merge = {
+          conflictstyle = "zdiff3";
           tool = "vimdiff";
           guitool = "meld";
         };
@@ -290,13 +310,25 @@ in
         };
         pull = {
           ff = "only";
+          rebase = true;
         };
         push = {
           autoSetupRemote = true;
           default = "simple";
         };
+        rebase = {
+          autosquash = true;
+          autostash = true;
+        };
+        rerere = {
+          autoupdate = true;
+          enabled = true;
+        };
         submodule = {
           fetchJobs = 4;
+        };
+        tag = {
+          sort = "version:refname";
         };
       };
       includes = [
