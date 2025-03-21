@@ -83,7 +83,7 @@ in
         enable = true;
         keybindings = {
           "kitty_mod+u" = "launch --location=vsplit --cwd=current";
-          "kitty_mod+y" = "launch --location=hsplit --cwd=current";
+          "kitty_mod+k" = "launch --location=hsplit --cwd=current";
           "kitty_mod+r" = "previous_window";
           "kitty_mod+t" = "next_window";
           "kitty_mod+," = "new_tab_with_cwd";
