@@ -89,6 +89,7 @@ in
           "kitty_mod+," = "new_tab_with_cwd";
           "kitty_mod+h" = "previous_tab";
           "kitty_mod+g" = "next_tab";
+          "kitty_mod+p" = "show_scrollback";
         };
         settings = {
           background_opacity = config.stylix.opacity.terminal;

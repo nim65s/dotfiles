@@ -251,57 +251,55 @@ in
       lfs.enable = true;
       userName = "Guilhem Saurel";
       userEmail = atjoin { name = "guilhem.saurel"; };
+      extraConfig = {
+        core = {
+          excludesfile = "~/dotfiles/gitignore";
+        };
+        push = {
+          autoSetupRemote = true;
+          default = "simple";
+        };
+        user = {
+          signingKey = "4653CF28";
+        };
+        pull = {
+          ff = "only";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        hub = {
+          protocol = "ssh";
+        };
+        submodule = {
+          fetchJobs = 4;
+        };
+        fetch = {
+          parallel = 4;
+        };
+        blame = {
+          ignoreRevsFile = ".git-blame-ignore-revs";
+        };
+        merge = {
+          tool = "vimdiff";
+          guitool = "meld";
+        };
+        diff = {
+          tool = "vimdiff";
+          guitool = "meld";
+        };
+        difftool = {
+          cmd = "vimdiff";
+          prompt = false;
+        };
+        color = {
+          ui = "always";
+          branch = "always";
+          interactive = "always";
+          status = "always";
+        };
+      };
       includes = [
-        {
-          contents = {
-            core = {
-              excludesfile = "~/dotfiles/gitignore";
-            };
-            push = {
-              autoSetupRemote = true;
-              default = "simple";
-            };
-            user = {
-              signingKey = "4653CF28";
-            };
-            pull = {
-              ff = "only";
-            };
-            init = {
-              defaultBranch = "main";
-            };
-            hub = {
-              protocol = "ssh";
-            };
-            submodule = {
-              fetchJobs = 4;
-            };
-            fetch = {
-              parallel = 4;
-            };
-            blame = {
-              ignoreRevsFile = ".git-blame-ignore-revs";
-            };
-            merge = {
-              tool = "vimdiff";
-              guitool = "meld";
-            };
-            diff = {
-              tool = "vimdiff";
-              guitool = "meld";
-            };
-            difftool = {
-              cmd = "vimdiff";
-              prompt = false;
-            };
-            color = {
-              ui = "always";
-              branch = "always";
-              interactive = "always";
-              status = "always";
-            };
-          };
-        }
         { path = "~/dotfiles/.gitconfig"; }
       ];
     };
