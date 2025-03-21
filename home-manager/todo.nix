@@ -252,37 +252,17 @@ in
       userName = "Guilhem Saurel";
       userEmail = atjoin { name = "guilhem.saurel"; };
       extraConfig = {
-        core = {
-          excludesfile = "~/dotfiles/gitignore";
-        };
-        push = {
-          autoSetupRemote = true;
-          default = "simple";
-        };
-        user = {
-          signingKey = "4653CF28";
-        };
-        pull = {
-          ff = "only";
-        };
-        init = {
-          defaultBranch = "main";
-        };
-        hub = {
-          protocol = "ssh";
-        };
-        submodule = {
-          fetchJobs = 4;
-        };
-        fetch = {
-          parallel = 4;
-        };
         blame = {
           ignoreRevsFile = ".git-blame-ignore-revs";
         };
-        merge = {
-          tool = "vimdiff";
-          guitool = "meld";
+        color = {
+          ui = "always";
+          branch = "always";
+          interactive = "always";
+          status = "always";
+        };
+        core = {
+          excludesfile = "~/dotfiles/gitignore";
         };
         diff = {
           tool = "vimdiff";
@@ -292,11 +272,31 @@ in
           cmd = "vimdiff";
           prompt = false;
         };
-        color = {
-          ui = "always";
-          branch = "always";
-          interactive = "always";
-          status = "always";
+        fetch = {
+          parallel = 4;
+        };
+        hub = {
+          protocol = "ssh";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        merge = {
+          tool = "vimdiff";
+          guitool = "meld";
+        };
+        user = {
+          signingKey = "4653CF28";
+        };
+        pull = {
+          ff = "only";
+        };
+        push = {
+          autoSetupRemote = true;
+          default = "simple";
+        };
+        submodule = {
+          fetchJobs = 4;
         };
       };
       includes = [
