@@ -2,59 +2,57 @@ workspace "doc" {
     open-on-output "HDMI-A-1"
 }
 workspace "web" {
-    open-on-output "DP-2"
+    open-on-output "DP-1"
 }
 workspace "alt" {
-    open-on-output "DP-1"
+    open-on-output "DP-2"
 }
 
 window-rule {
-    match app-id="org.zealdocs.zeal"
+    match at-startup=true app-id="org.zealdocs.zeal"
     open-on-workspace "doc"
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match at-startup=true
-    match app-id="firefox-devedition"
+    match at-startup=true app-id="firefox-devedition"
     open-on-workspace "web"
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match at-startup=true
-    match app-id="kitty"
+    match at-startup=true app-id="kitty"
     open-on-workspace "web"
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match app-id="Element"
+    match at-startup=true app-id="Element"
     open-on-workspace "alt"
-    default-column-width { proportion 0.6; }
+    default-column-width { proportion 0.65; }
 }
 window-rule {
-    match app-id="thunderbird"
+    match at-startup=true app-id="thunderbird"
     open-on-workspace "alt"
-    default-column-width { proportion 0.6; }
+    default-column-width { proportion 0.65; }
 }
 window-rule {
-    match app-id="org.pulseaudio.pavucontrol"
+    match at-startup=true app-id="org.pulseaudio.pavucontrol"
     open-on-workspace "alt"
-    default-column-width { proportion 0.4; }
+    default-column-width { proportion 0.35; }
 }
 window-rule {
-    match app-id="spotify"
+    match at-startup=true app-id="spotify"
     open-on-workspace "alt"
-    default-column-width { proportion 0.4; }
+    default-column-width { proportion 0.35; }
 }
 
-output "DP-1" {
-    position x=5760 y=0
+output "HDMI-A-1" {
+    position x=0 y=180
     scale 1
+}
+output "DP-1" {
+    position x=1920 y=0
+    scale 1.5
 }
 output "DP-2" {
-    position x=1920 y=0
-    scale 1
-}
-output "HDMI-A-1" {
-    position x=00 y=0
-    scale 1
+    position x=3840 y=0
+    scale 1.5
 }
