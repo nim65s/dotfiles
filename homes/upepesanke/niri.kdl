@@ -1,4 +1,4 @@
-workspace "doc" {
+workspace "zik" {
     open-on-output "DP-2"
 }
 workspace "mail" {
