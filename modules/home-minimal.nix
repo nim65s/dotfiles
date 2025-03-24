@@ -55,6 +55,19 @@
         set -U fish_color_end cdd6f4            #cdd6f4
         set -U fish_color_param 89b4fa          #89b4fa
       '';
+      functions = {
+        gcoauth = {
+          # thanks https://hynek.me/til/easier-crediting-contributors-github/
+          body = ''
+            set -x GITHUB_TOKEN (rbw get github-token)
+            set account $argv[1]
+            set data (curl -s --header "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/users/$account)
+            set id  (echo $data | jq .id)
+            set name (echo $data | jq --raw-output '.name // .login')
+            printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
+          '';
+        };
+      };
       shellAbbrs = {
         ".." = "cd ..";
         "..." = "cd ../..";

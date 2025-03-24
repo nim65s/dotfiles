@@ -14,7 +14,7 @@ function fairytail
 end
 
 function df
-    which dfc &> /dev/null
+    which dfc &>/dev/null
     and dfc -Tdsq name
     or /bin/df -h
 end
@@ -61,8 +61,8 @@ set -x UID (id -u $USER)
 
 set -x GIT_SSH_COMMAND 'ssh -o ControlMaster=no -o ForwardAgent=no'
 
-set __fish_git_prompt_show_informative_status 'yes'
-set __fish_git_prompt_showcolorhints 'yes'
+set __fish_git_prompt_show_informative_status yes
+set __fish_git_prompt_showcolorhints yes
 
 if test -f ~/.config/fish/(hostname).fish
     . ~/.config/fish/(hostname).fish
@@ -98,18 +98,9 @@ function rptest
 end
 
 function rprelease
-    make clean && make mdi && make && make install && make print-PLIST && sed -i '/robotpkg_info/d' PLIST.guess && vd PLIST.guess PLIST && make install confirm
+    make clean && make mdi && make && make install && make print-PLIST && sed -i /robotpkg_info/d PLIST.guess && vd PLIST.guess PLIST && make install confirm
 end
 
-function hg --wraps rg; kitty +kitten hyperlinked_grep $argv; end
-
-function gcoauth
-    # thanks https://hynek.me/til/easier-crediting-contributors-github/
-    set account $argv[1]
-
-    set data (curl -s https://api.github.com/users/$account)
-    set id  (echo $data | jq .id)
-    set name (echo $data | jq --raw-output '.name // .login')
-
-    printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
+function hg --wraps rg
+    kitty +kitten hyperlinked_grep $argv
 end
