@@ -30,6 +30,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     nur = {
       url = "github:nix-community/nur";
       inputs = {
@@ -148,6 +155,7 @@
                     iosevka-etoile
                     iosevka-term
                     nixook
+                    nixvim
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
                     patches = [ inputs.patch-arsenik-src ];
@@ -238,6 +246,7 @@
                   chmod +x hooks/pre-push
                 '';
               };
+              nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
             };
             treefmt = {
               projectRootFile = "flake.nix";

@@ -16,6 +16,7 @@
     clan-core.clanModules.state-version
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
+    inputs.nixvim.nixosModules.nixvim
     "${patchedNixpkgs}/nixos/modules/services/hardware/arsenik.nix"
   ];
 
@@ -125,6 +126,10 @@
     nix-ld.enable = true;
     trippy.enable = true;
     vim.enable = true;
+    nixvim = import ../modules/nixvim.nix // {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 
   services = {

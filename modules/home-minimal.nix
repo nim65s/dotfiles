@@ -111,10 +111,10 @@
         lta = "eza -A --tree";
         monte = "~/scripts/monter.sh";
         psef = "ps -ef | grep -v grep | grep";
-        v = "hx";
-        vi = "hx";
-        vmi = "hx";
-        vd = "vimdiff";
+        v = "nvim";
+        vi = "nvim";
+        vmi = "nvim";
+        vd = "nvim -d";
         z = "zellij";
         za = "zathura";
       };
@@ -138,7 +138,6 @@
     };
     helix = {
       enable = true;
-      defaultEditor = true;
     };
     home-manager.enable = true;
     lsd = {

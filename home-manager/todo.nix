@@ -18,6 +18,7 @@ let
 in
 {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];
   home = {
@@ -290,12 +291,12 @@ in
           colorMoved = true;
           colorMovedWS = "allow-indentation-change";
           guitool = "meld";
-          tool = "vimdiff";
+          tool = "nvimdiff";
           renames = "true";
           exif-diff.textconv = lib.getExe pkgs.exif-diff;
         };
         difftool = {
-          cmd = "vimdiff";
+          cmd = "nvimdiff";
           prompt = false;
           icat.cmd = "compare -background none $REMOTE $LOCAL png:- | montage -background none -geometry 200x -font Iosevka $LOCAL - $REMOTE png:- | kitten icat";
         };
@@ -316,7 +317,7 @@ in
         };
         merge = {
           conflictstyle = "zdiff3";
-          tool = "vimdiff";
+          tool = "nvimdiff";
           guitool = "meld";
         };
         mergetool = {
@@ -361,6 +362,10 @@ in
       includes = [
         { path = "~/dotfiles/.gitconfig"; }
       ];
+    };
+    nixvim = import ../modules/nixvim.nix // {
+      enable = true;
+      defaultEditor = true;
     };
     spicetify = {
       enable = true;
