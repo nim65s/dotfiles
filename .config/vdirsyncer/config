@@ -52,23 +52,6 @@ url = "https://sogo.laas.fr/SOGo/dav/pfauret/Calendar/3F50-5B519380-F-16C79740"
 username = "gsaurel"
 password.fetch = ["command", "rbw", "get", "--folder", "laas", "main"]
 
-[pair laas_idea]
-a = "laas_idea_local"
-b = "laas_idea_remote"
-collections = ["from b"]
-conflict_resolution = ["command", "vimdiff"]
-
-[storage laas_idea_local]
-type = "filesystem"
-path = "~/.vdir/calendars/laas_idea/"
-fileext = ".ics"
-
-[storage laas_idea_remote]
-type = "caldav"
-url = "https://sogo.laas.fr/SOGo/dav/blain/Calendar/personal"
-username = "gsaurel"
-password.fetch = ["command", "rbw", "get", "--folder", "laas", "main"]
-
 [pair holiday]
 a = "holiday_local"
 b = "holiday_remote"
