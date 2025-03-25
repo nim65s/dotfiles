@@ -12,24 +12,22 @@ workspace "doc" {
 }
 
 window-rule {
-    match at-startup=true
-    match app-id="spotify"
+    match at-startup=true app-id="spotify"
     open-on-workspace "music"
     open-maximized true
 }
 window-rule {
-    match app-id="thunderbird"
+    match at-startup=true app-id="thunderbird"
     open-on-workspace "mail"
     open-maximized true
 }
 window-rule {
-    match at-startup=true
-    match app-id="firefox-devedition"
+    match at-startup=true app-id="firefox-devedition"
     open-on-workspace "web"
     open-maximized true
 }
 window-rule {
-    match app-id="org.zealdocs.zeal"
+    match at-startup=true app-id="org.zealdocs.zeal"
     open-on-workspace "doc"
     open-maximized true
 }
