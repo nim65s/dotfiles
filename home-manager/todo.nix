@@ -82,6 +82,7 @@ in
       kcov
       kdePackages.kolourpaint
       kdePackages.okular
+      keep-sorted
       khal
       khard
       killall
