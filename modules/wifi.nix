@@ -9,6 +9,7 @@
       azv = { };
       baroustan = { };
       bouys = { };
+      bsc.ssid = "Freepro-KD0N6N";
       kekeno = { };
       kessica = { };
       lacroix = { };
