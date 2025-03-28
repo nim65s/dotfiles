@@ -17,4 +17,5 @@
     }
   ];
   stylix.image = ../../bg/yupa.jpg;
+  virtualisation.docker.enable = true;
 }
