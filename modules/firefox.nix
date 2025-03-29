@@ -29,7 +29,7 @@
         "Google".metaData.alias = ":g";
         "Wikipedia".metaData.alias = ":w";
         "Arch Wiki" = {
-          iconUpdateURL = "https://wiki.archlinux.org/favicon.ico";
+          icon = "https://wiki.archlinux.org/favicon.ico";
           definedAliases = [ ":a" ];
           urls = [
             {
@@ -44,7 +44,7 @@
           ];
         };
         "AUR" = {
-          iconUpdateURL = "https://wiki.archlinux.org/favicon.ico";
+          icon = "https://wiki.archlinux.org/favicon.ico";
           definedAliases = [ ":aur" ];
           urls = [
             {
@@ -59,7 +59,7 @@
           ];
         };
         "Crates.io" = {
-          iconUpdateURL = "https://crates.io/assets/cargo.png";
+          icon = "https://crates.io/assets/cargo.png";
           definedAliases = [ ":c" ];
           urls = [
             {
@@ -74,7 +74,7 @@
           ];
         };
         "Github" = {
-          iconUpdateURL = "https://github.com/favicon.ico";
+          icon = "https://github.com/favicon.ico";
           definedAliases = [ ":gh" ];
           urls = [
             {
@@ -89,7 +89,7 @@
           ];
         };
         "Gitlab" = {
-          iconUpdateURL = "https://gitlab.laas.fr/favicon.ico";
+          icon = "https://gitlab.laas.fr/favicon.ico";
           definedAliases = [ ":gl" ];
           urls = [
             {
@@ -104,7 +104,7 @@
           ];
         };
         "LAAS Annuaire" = {
-          iconUpdateURL = "https://www.laas.fr/static/img/favicon.ico";
+          icon = "https://www.laas.fr/static/img/favicon.ico";
           definedAliases = [ ":l" ];
           urls = [
             {
@@ -119,7 +119,7 @@
           ];
         };
         "LAAS Search" = {
-          iconUpdateURL = "https://www.laas.fr/static/img/favicon.ico";
+          icon = "https://www.laas.fr/static/img/favicon.ico";
           definedAliases = [ ":ls" ];
           urls = [
             {
@@ -134,7 +134,7 @@
           ];
         };
         "mojeek" = {
-          iconUpdateURL = "https://www.mojeek.com/logos/icon_cc.svg";
+          icon = "https://www.mojeek.com/logos/icon_cc.svg";
           definedAliases = [ ":m" ];
           urls = [
             {
@@ -210,7 +210,7 @@
           ];
         };
         "Python" = {
-          iconUpdateURL = "https://www.python.org/images/favicon16x16.ico";
+          icon = "https://www.python.org/images/favicon16x16.ico";
           definedAliases = [ ":p" ];
           urls = [
             {
@@ -225,7 +225,7 @@
           ];
         };
         "PyPI" = {
-          iconUpdateURL = "https://pypi.org/static/images/favicon.35549fe8.ico";
+          icon = "https://pypi.org/static/images/favicon.35549fe8.ico";
           definedAliases = [ ":pp" ];
           urls = [
             {
@@ -240,7 +240,7 @@
           ];
         };
         "Rust" = {
-          iconUpdateURL = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
+          icon = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
           definedAliases = [ ":r" ];
           urls = [
             {
@@ -281,7 +281,7 @@
           ];
         };
         "WordReference - enfr" = {
-          iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+          icon = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":enfr" ];
           urls = [
             {
@@ -300,7 +300,7 @@
           ];
         };
         "WordReference - fren" = {
-          iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+          icon = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":fren" ];
           urls = [
             {
