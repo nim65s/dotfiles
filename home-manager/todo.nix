@@ -291,7 +291,7 @@ in
           all = true;
           parallel = 4;
           prune = true;
-          pruneTags = true;
+          # pruneTags = true;
         };
         help = {
           autocorrect = "prompt";
