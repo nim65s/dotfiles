@@ -1,12 +1,3 @@
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-[alias]
-    lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
-    git = !exec git
 [safe]
     directory = /opt/esp-idf/components/openthread/openthread
     directory = /pfcalcul
-[url "git@github.com:"]
-        insteadOf = https://github.com/
-[url "git@gitlab.laas.fr:"]
-        insteadOf = https://gitlab.laas.fr/

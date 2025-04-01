@@ -249,11 +249,18 @@ in
   programs = {
     git = {
       enable = true;
+      attributes = [
+        "*.png diff=exif-diff"
+      ];
       delta.enable = true;
       lfs.enable = true;
       userName = "Guilhem Saurel";
       userEmail = atjoin { name = "guilhem.saurel"; };
       extraConfig = {
+        alias = {
+          git = "!exec git";
+          lg = "log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'";
+        };
         blame = {
           ignoreRevsFile = ".git-blame-ignore-revs";
         };
@@ -282,6 +289,7 @@ in
           guitool = "meld";
           tool = "vimdiff";
           renames = "true";
+          exif-diff.textconv = lib.getExe pkgs.exif-diff;
         };
         difftool = {
           cmd = "vimdiff";
@@ -307,6 +315,11 @@ in
           tool = "vimdiff";
           guitool = "meld";
         };
+        mergetool = {
+          meld.cmd = ''
+            meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+          '';
+        };
         user = {
           signingKey = "4653CF28";
         };
@@ -331,6 +344,14 @@ in
         };
         tag = {
           sort = "version:refname";
+        };
+        url = {
+          "git@github.com:" = {
+            insteadOf = "https://github.com/";
+          };
+          "git@gitlab.laas.fr:" = {
+            insteadOf = "https://gitlab.laas.fr/";
+          };
         };
       };
       includes = [

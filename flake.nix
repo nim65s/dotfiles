@@ -147,6 +147,7 @@
                   inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
                   inherit (self'.packages)
                     clan-cli
+                    exif-diff
                     iosevka-aile
                     iosevka-etoile
                     iosevka-term
@@ -202,6 +203,13 @@
               inherit (inputs.home-manager.packages.${system}) home-manager;
               inherit (inputs.system-manager.packages.${system}) system-manager;
               inherit (inputs.clan-core.packages.${system}) clan-cli;
+              exif-diff =  pkgs.writeShellApplication {
+                name = "exif-diff";
+                runtimeInputs = [ pkgs.exiftool pkgs.gnugrep ];
+                text = ''
+                  exiftool -sort "$1" | grep -v 'File Name\|Directory\|Date/Time\|Permissions'
+                '';
+              };
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
               iosevka-term = pkgs.nerd-fonts.iosevka;
