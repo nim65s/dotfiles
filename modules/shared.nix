@@ -25,7 +25,7 @@
 
   catppuccin = {
     enable = true;
-    accent = "blue";
+    accent = lib.mkDefault "blue";
   };
 
   clan = {
@@ -37,7 +37,7 @@
     };
   };
 
-  console.useXkbConfig = true;
+  console.useXkbConfig = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
     alacritty
@@ -135,6 +135,8 @@
       vim = true;
     };
     avahi.enable = true;
+
+    fwupd.enable = true;
 
     locate.enable = true;
 

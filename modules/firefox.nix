@@ -25,8 +25,8 @@
       search.default = "mojeek";
       search.engines = {
         "Amazon.fr".metaData.hidden = true;
-        "Bing".metaData.hidden = true;
-        "Google".metaData.alias = ":g";
+        bing.metaData.hidden = true;
+        google.metaData.alias = ":g";
         "Wikipedia".metaData.alias = ":w";
         "Arch Wiki" = {
           icon = "https://wiki.archlinux.org/favicon.ico";

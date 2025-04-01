@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs = {
     niri.enable = true;
-    waybar.enable = true;
+    waybar.enable = lib.mkDefault true;
     xwayland.enable = true;
     wireshark.enable = true;
   };
@@ -14,14 +14,14 @@
     displayManager = {
       autoLogin = {
         enable = true;
-        user = "nim";
+        user = lib.mkDefault "nim";
       };
-      defaultSession = "niri";
+      defaultSession = lib.mkDefault "niri";
       sddm = {
         enable = true;
         #autoLogin.relogin = true;
         autoNumlock = true;
-        package = pkgs.kdePackages.sddm;
+        package = lib.mkDefault pkgs.kdePackages.sddm;
         wayland.enable = true;
       };
     };
@@ -32,7 +32,7 @@
     xserver = {
       enable = true;
       xkb.layout = "fr";
-      xkb.variant = "ergol";
+      xkb.variant = lib.mkDefault "ergol";
       windowManager.i3.enable = true;
     };
   };
