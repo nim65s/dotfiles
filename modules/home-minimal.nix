@@ -86,6 +86,7 @@
           setCursor = true;
         };
         gd = "git difftool";
+        gdi = "git difftool -t icat";
         gst = "git status";
         gp = "git push";
         gf = "git fetch --all --prune";

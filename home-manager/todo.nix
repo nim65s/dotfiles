@@ -295,6 +295,7 @@ in
         difftool = {
           cmd = "vimdiff";
           prompt = false;
+          icat.cmd = "compare $REMOTE $LOCAL png:- | montage -geometry -font Iosevka 200x $LOCAL - $REMOTE png:- | kitten icat";
         };
         fetch = {
           all = true;
