@@ -203,9 +203,12 @@
               inherit (inputs.home-manager.packages.${system}) home-manager;
               inherit (inputs.system-manager.packages.${system}) system-manager;
               inherit (inputs.clan-core.packages.${system}) clan-cli;
-              exif-diff =  pkgs.writeShellApplication {
+              exif-diff = pkgs.writeShellApplication {
                 name = "exif-diff";
-                runtimeInputs = [ pkgs.exiftool pkgs.gnugrep ];
+                runtimeInputs = [
+                  pkgs.exiftool
+                  pkgs.gnugrep
+                ];
                 text = ''
                   exiftool -sort "$1" | grep -v 'File Name\|Directory\|Date/Time\|Permissions'
                 '';
