@@ -151,6 +151,7 @@
                     iosevka-aile
                     iosevka-etoile
                     iosevka-term
+                    nix-flake-check-hook
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
                     patches = [ inputs.patch-arsenik-src ];
@@ -216,6 +217,15 @@
               iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
               iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
               iosevka-term = pkgs.nerd-fonts.iosevka;
+              nix-flake-check-hook = pkgs.writeShellApplication {
+                name = "nix-flake-hook";
+                text = ''
+                  cd "$(git rev-parse --git-dir)"
+                  echo '#! ${pkgs.runtimeShell}' > hooks/pre-commit
+                  echo 'nix flake check' >> hooks/pre-commit
+                  chmod +x hooks/pre-commit
+                '';
+              };
             };
             treefmt = {
               projectRootFile = "flake.nix";

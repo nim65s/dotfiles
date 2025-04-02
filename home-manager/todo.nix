@@ -101,6 +101,7 @@ in
       ninja
       niri
       nitrogen
+      nix-flake-check-hook
       nixd
       nixfmt-rfc-style
       (nixpkgs-review.override {
