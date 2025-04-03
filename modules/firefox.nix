@@ -318,6 +318,14 @@
             }
           ];
         };
+        xkcd = {
+          definedAliases = [ ":xkcd" ];
+          urls = [
+            {
+              template = "https://xkcd.com/{searchTerms}";
+            }
+          ];
+        };
       };
       settings = {
         "browser.theme.content-theme" = 0;
