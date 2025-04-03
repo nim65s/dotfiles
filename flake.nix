@@ -90,7 +90,7 @@
   outputs =
     inputs:
     let
-      pkgsForPatching = import inputs.nixpkgs { system = "x86_64-linux"; };
+      pkgsForPatching = inputs.nixpkgs.legacyPackages.x86_64-linux;
       patchedNixpkgs = (
         pkgsForPatching.applyPatches {
           name = "patched nixpkgs";
