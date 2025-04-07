@@ -304,7 +304,7 @@ in
           # pruneTags = true;
         };
         help = {
-          autocorrect = 5;
+          autocorrect = 10;
         };
         hub = {
           protocol = "ssh";
