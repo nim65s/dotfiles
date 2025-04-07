@@ -130,7 +130,7 @@
   services = {
     arsenik = {
       enable = true;
-      long_hold_timeout = 200;
+      long_hold_timeout = 150;
       lt = true;
       vim = true;
     };
