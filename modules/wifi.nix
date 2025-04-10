@@ -15,6 +15,7 @@
       lacroix = { };
       lavelanet = { };
       marsrovers = { };
+      picto-cne.ssid = "Tetaneutral_CNE_5G";
       prades = { };
       sabliere = { };
       toffan = { };
