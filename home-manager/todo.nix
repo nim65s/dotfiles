@@ -385,6 +385,10 @@ in
           hostname = "totoro.saurel.me";
           user = "nim";
         };
+        "ashitaka" = {
+          user = "nim";
+          proxyJump = "totoro";
+        };
         "nausicaa" = {
           user = "nim";
           proxyJump = "totoro";
