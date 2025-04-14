@@ -6,6 +6,7 @@
 
   clan = {
     iwd.networks = {
+      antagnac.ssid = "Livebox-DD9E";
       azv = { };
       baroustan = { };
       bouys = { };
