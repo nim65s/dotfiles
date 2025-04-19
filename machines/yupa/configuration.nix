@@ -8,14 +8,25 @@
     ../../modules/x86_64-linux.nix
   ];
 
+  # fix wifi disconnects
+  # thx https://bbs.archlinux.org/viewtopic.php?id=287947
+  boot.kernelParams = [
+    "rtw89_core.disable_ps_mode=Y"
+    "rtw89_pci.disable_aspm_l1=Y"
+    "rtw89_pci.disable_aspm_l1ss=Y"
+    "rtw89_pci.disable_clkreq=Y"
+  ];
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
   home-manager.users.nim = import ../../modules/nim-home.nix;
-  networking.interfaces."tinc.mars".ipv4.addresses = [
-    {
-      address = "10.0.55.203";
-      prefixLength = 24;
-    }
-  ];
+  networking = {
+    interfaces."tinc.mars".ipv4.addresses = [
+      {
+        address = "10.0.55.203";
+        prefixLength = 24;
+      }
+    ];
+    wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
+  };
   stylix.image = ../../bg/yupa.jpg;
   virtualisation.docker.enable = true;
 }
