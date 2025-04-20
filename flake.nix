@@ -237,12 +237,19 @@
                 name = "nixook";
                 text = ''
                   cd "$(git rev-parse --git-dir)"
-                  echo '#! ${pkgs.runtimeShell}' > hooks/pre-commit
-                  echo 'nix fmt' >> hooks/pre-commit
-                  echo 'git diff --quiet' >> hooks/pre-commit
+                  (
+                    echo '#! ${pkgs.runtimeShell}'
+                    echo 'set -eux'
+                    echo 'nix fmt'
+                    echo 'git diff --quiet'
+                    echo 'test -f .pre-commit-config.yaml && pre-commit run -a'
+                  ) > hooks/pre-commit
                   chmod +x hooks/pre-commit
-                  echo '#! ${pkgs.runtimeShell}' > hooks/pre-push
-                  echo 'nix flake check -L' >> hooks/pre-push
+                  (
+                    echo '#! ${pkgs.runtimeShell}'
+                    echo 'set -eux'
+                    echo 'nix flake check -L'
+                  ) > hooks/pre-push
                   chmod +x hooks/pre-push
                 '';
               };
