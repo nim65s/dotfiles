@@ -276,6 +276,7 @@ in
     };
 
     services = {
+      home-manager.autoExpire.enable = true;
       spotifyd = {
         enable = false;
         settings = {
