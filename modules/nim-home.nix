@@ -108,6 +108,19 @@ in
       neomutt.enable = true;
       notmuch.enable = true;
       nix-index.enable = true;
+
+      nix-init = {
+        enable = true;
+        settings = {
+          maintainers = ["nim65s"];
+          access-tokens = {
+            github.com = {
+              command = ["rbw" "get" "github-token"];
+            };
+          };
+        };
+      };
+      
       offlineimap.enable = true;
 
       rbw = {
