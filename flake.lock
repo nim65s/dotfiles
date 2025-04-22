@@ -390,26 +390,6 @@
         "type": "github"
       }
     },
-    "nix-system-graphics": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1737457219,
-        "narHash": "sha256-nX9dxoATDCSQgWw/iv6BngXDJEyHVYYEvHEVQ7Ig3fI=",
-        "owner": "soupglasses",
-        "repo": "nix-system-graphics",
-        "rev": "9c875e0c56cf2eb272b9102a4f3e24e4e31629fd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "soupglasses",
-        "repo": "nix-system-graphics",
-        "type": "github"
-      }
-    },
     "nixos-facter-modules": {
       "locked": {
         "lastModified": 1743671943,
@@ -533,7 +513,6 @@
         "cmeel": "cmeel",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
-        "nix-system-graphics": "nix-system-graphics",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "patch-arsenik": "patch-arsenik",
@@ -542,7 +521,6 @@
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "system-manager": "system-manager",
         "treefmt-nix": "treefmt-nix"
       }
     },
@@ -629,26 +607,6 @@
         "owner": "danth",
         "repo": "stylix",
         "rev": "b00c9f46ae6c27074d24d2db390f0ac5ebcc329f",
-        "type": "github"
-      }
-    },
-    "system-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1744139528,
-        "narHash": "sha256-ABIcmxzf8399pJzXqHzShXtzw7iC+zxjhOxp/qS0fQk=",
-        "owner": "numtide",
-        "repo": "system-manager",
-        "rev": "803322102ed51f29c250d4bff2973625adc4a521",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "system-manager",
         "type": "github"
       }
     },

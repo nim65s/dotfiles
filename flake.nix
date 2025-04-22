@@ -29,10 +29,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-system-graphics = {
-      url = "github:soupglasses/nix-system-graphics";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur = {
       url = "github:nix-community/nur";
@@ -76,10 +72,6 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "clan-core/systems";
       };
-    };
-    system-manager = {
-      url = "github:numtide/system-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -185,7 +177,6 @@
                 packages = [
                   self'.packages.clan-cli
                   # self'.packages.home-manager
-                  # self'.packages.system-manager
                   pkgs.lix
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
@@ -202,7 +193,6 @@
             };
             packages = {
               inherit (inputs.home-manager.packages.${system}) home-manager;
-              inherit (inputs.system-manager.packages.${system}) system-manager;
               inherit (inputs.clan-core.packages.${system}) clan-cli;
               exif-diff = pkgs.writeShellApplication {
                 name = "exif-diff";
@@ -267,17 +257,6 @@
                 extraSpecialArgs = { inherit inputs; };
                 modules = [ ./homes/upepesanke/home.nix ];
               };
-            };
-            systemConfigs.default = inputs.system-manager.lib.makeSystemConfig {
-              modules = [
-                inputs.nix-system-graphics.systemModules.default
-                {
-                  config = {
-                    nixpkgs.hostPlatform = system;
-                    system-graphics.enable = true;
-                  };
-                }
-              ];
             };
           };
         systems = [ "x86_64-linux" ];

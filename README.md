@@ -6,4 +6,3 @@ Everything else is probably outdated.
 ## pense-bete
 
 nix run .#home-manager -- switch --flake .
-sudo (which nix) run .#system-manager -- switch --flake .
