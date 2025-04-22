@@ -184,8 +184,8 @@
               default = pkgs.mkShell {
                 packages = [
                   self'.packages.clan-cli
-                  self'.packages.home-manager
-                  self'.packages.system-manager
+                  # self'.packages.home-manager
+                  # self'.packages.system-manager
                   pkgs.lix
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
