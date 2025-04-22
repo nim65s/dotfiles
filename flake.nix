@@ -120,6 +120,7 @@
         };
         perSystem =
           {
+            inputs',
             pkgs,
             self',
             system,
@@ -135,8 +136,8 @@
                     nurpkgs = prev;
                     pkgs = prev;
                   };
-                  inherit (inputs.cmeel.packages.${system}) cmeel;
-                  inherit (inputs.pre-commit-sort.packages.${system}) pre-commit-sort;
+                  inherit (inputs'.cmeel.packages) cmeel;
+                  inherit (inputs'.pre-commit-sort.packages) pre-commit-sort;
                   inherit (self'.packages)
                     clan-cli
                     exif-diff
@@ -168,7 +169,7 @@
                       })
                     ];
                   };
-                  spicetify-extensions = inputs.spicetify-nix.legacyPackages.${system}.extensions;
+                  spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
                 })
               ];
             };
@@ -192,8 +193,8 @@
               };
             };
             packages = {
-              inherit (inputs.home-manager.packages.${system}) home-manager;
-              inherit (inputs.clan-core.packages.${system}) clan-cli;
+              inherit (inputs'.home-manager.packages) home-manager;
+              inherit (inputs'.clan-core.packages) clan-cli;
               exif-diff = pkgs.writeShellApplication {
                 name = "exif-diff";
                 runtimeInputs = [

@@ -112,15 +112,19 @@ in
       nix-init = {
         enable = true;
         settings = {
-          maintainers = ["nim65s"];
+          maintainers = [ "nim65s" ];
           access-tokens = {
             github.com = {
-              command = ["rbw" "get" "github-token"];
+              command = [
+                "rbw"
+                "get"
+                "github-token"
+              ];
             };
           };
         };
       };
-      
+
       offlineimap.enable = true;
 
       rbw = {
