@@ -114,7 +114,7 @@ in
         settings = {
           maintainers = [ "nim65s" ];
           access-tokens = {
-            github.com = {
+            "github.com" = {
               command = [
                 "rbw"
                 "get"
