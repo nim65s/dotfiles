@@ -105,7 +105,6 @@
 
         debug = true;
         clan = {
-          directory = self;
           /*
             machines = {
               loon.imports = [
@@ -117,6 +116,7 @@
           specialArgs = {
             inherit inputs patchedNixpkgs;
             inherit (self) allSystems;
+            flake = self;
           };
         };
         perSystem =

@@ -1,6 +1,7 @@
 {
   config,
   clan-core,
+  flake,
   inputs,
   lib,
   patchedNixpkgs,
@@ -86,7 +87,6 @@
     # https://git.clan.lol/clan/clan-core/commit/122dbf42400ff313bab1b5dcaf6c140cec3704e8
     hosts =
       let
-        flake = config.clan.core.settings.directory;
         allPeersWithIp = builtins.mapAttrs (
           _: x: lib.removeSuffix "\n" x.config.clan.core.vars.generators.mycelium.files.ip.value
         ) flake.nixosConfigurations;
