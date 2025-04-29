@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/disko-zfs.nix
@@ -14,6 +14,8 @@
   clan.core.networking = {
     zerotier.controller.enable = true;
   };
+
+  environment.systemPackages = [ pkgs.factorio-space-age ];
 
   disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
   home-manager.users.nim = import ./home.nix;
