@@ -234,6 +234,8 @@ in
       CTEST_OUTPUT_ON_FAILURE = "ON";
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
+      GITHUB_URL = "gh:";
+      GITHUB_TOKEN_CMD = "rbw get github-token";
       MANPAGER = "batman";
       NIXOS_OZONE_WL = 1;
       # PAGER = "vim -c PAGER -";
