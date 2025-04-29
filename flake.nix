@@ -7,7 +7,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      # url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "/home/nim/local/clan/clan-core";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
