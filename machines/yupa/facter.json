@@ -1527,7 +1527,7 @@
           "[13]",
           "[14]"
         ],
-        "bogo": 3792.92,
+        "bogo": 3792.96,
         "cache": 512,
         "units": 16,
         "physical_id": 0,
@@ -1604,7 +1604,6 @@
           "range": 0
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/1",
           "/dev/disk/by-id/nvme-SAMSUNG_MZVLB1T0HBLR-000H1_S4GRNX0RB38565",
           "/dev/disk/by-id/nvme-SAMSUNG_MZVLB1T0HBLR-000H1_S4GRNX0RB38565_1",
           "/dev/disk/by-id/nvme-eui.0025388b11b2bd16",
@@ -1705,7 +1704,7 @@
           },
           {
             "type": "irq",
-            "base": 48,
+            "base": 66,
             "triggered": 0,
             "enabled": true
           },
@@ -1739,7 +1738,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 48,
+          "irq": 66,
           "prog_if": 0
         },
         "driver": "amdgpu",
@@ -1778,7 +1777,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1792,7 +1791,7 @@
           "value": 0
         },
         "serial": "0000:02:00.0",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.2/0000:02:00.0/usb6/6-0:1.0",
         "sysfs_bus_id": "6-0:1.0",
         "detail": {
@@ -1851,7 +1850,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1865,7 +1864,7 @@
           "value": 0
         },
         "serial": "0000:04:00.4",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:04:00.4/usb3/3-0:1.0",
         "sysfs_bus_id": "3-0:1.0",
         "resources": [
@@ -1934,7 +1933,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1948,7 +1947,7 @@
           "value": 0
         },
         "serial": "0000:04:00.4",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:04:00.4/usb4/4-0:1.0",
         "sysfs_bus_id": "4-0:1.0",
         "detail": {
@@ -2007,7 +2006,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2021,7 +2020,7 @@
           "value": 0
         },
         "serial": "0000:04:00.3",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:04:00.3/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -2090,7 +2089,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2104,7 +2103,7 @@
           "value": 0
         },
         "serial": "0000:02:00.0",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.2/0000:02:00.0/usb5/5-0:1.0",
         "sysfs_bus_id": "5-0:1.0",
         "resources": [
@@ -2173,7 +2172,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.13.9 xhci-hcd",
+          "name": "Linux 6.13.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2187,7 +2186,7 @@
           "value": 0
         },
         "serial": "0000:04:00.3",
-        "model": "Linux 6.13.9 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.13.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:04:00.3/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -2246,7 +2245,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 32925347840,
+            "range": 32925343744,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -2364,7 +2363,7 @@
         },
         "sysfs_id": "/devices/platform/AMDI0010:00/i2c-0/i2c-SYNA30D1:00/0018:06CB:CE07.0001/input/input12",
         "unix_device_names": [
-          "/dev/input/event8",
+          "/dev/input/event9",
           "/dev/input/ + handler"
         ]
       }
@@ -2435,7 +2434,7 @@
           },
           {
             "type": "irq",
-            "base": 90,
+            "base": 91,
             "triggered": 0,
             "enabled": true
           },
@@ -2467,6 +2466,7 @@
               "11",
               "12",
               "13",
+              "14",
               "36",
               "40",
               "44",
@@ -2484,8 +2484,7 @@
               "124",
               "128",
               "132",
-              "136",
-              "140"
+              "136"
             ],
             "frequencies": [
               "2.412",
@@ -2501,6 +2500,7 @@
               "2.462",
               "2.467",
               "2.472",
+              "2.484",
               "5.18",
               "5.2",
               "5.22",
@@ -2518,8 +2518,7 @@
               "5.62",
               "5.64",
               "5.66",
-              "5.68",
-              "5.7"
+              "5.68"
             ],
             "auth_modes": [
               "open",
@@ -2540,7 +2539,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 90,
+          "irq": 91,
           "prog_if": 0
         },
         "driver": "rtw89_8852be",
@@ -2556,30 +2555,7 @@
     ],
     "network_interface": [
       {
-        "index": 61,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": [
-          "lo"
-        ]
-      },
-      {
-        "index": 65,
+        "index": 63,
         "attached_to": 30,
         "class_list": [
           "network_interface"
@@ -2618,6 +2594,29 @@
         ],
         "driver_modules": [
           "rtw89_8852be"
+        ]
+      },
+      {
+        "index": 65,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
         ]
       }
     ],
@@ -2676,7 +2675,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 86,
+            "base": 87,
             "triggered": 0,
             "enabled": true
           },
@@ -2694,7 +2693,7 @@
           "command": 2,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 86,
+          "irq": 87,
           "prog_if": 0
         },
         "module_alias": "pci:v00001022d000015E2sv0000103Csd00008895bc04sc80i00"
@@ -2814,7 +2813,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 57,
+            "base": 40,
             "triggered": 0,
             "enabled": true
           },
@@ -2840,7 +2839,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 57,
+          "irq": 40,
           "prog_if": 0
         },
         "driver": "ccp",
@@ -2966,7 +2965,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 87,
+            "base": 88,
             "triggered": 0,
             "enabled": true
           },
@@ -2984,7 +2983,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 87,
+          "irq": 88,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -3046,7 +3045,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 88,
+            "base": 89,
             "triggered": 0,
             "enabled": true
           },
@@ -3064,7 +3063,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 88,
+          "irq": 89,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -3131,7 +3130,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 57,
+            "base": 40,
             "triggered": 0,
             "enabled": true
           },
@@ -3149,7 +3148,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 57,
+          "irq": 40,
           "prog_if": 2
         },
         "driver": "nvme",
@@ -3224,7 +3223,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 57,
+            "base": 40,
             "triggered": 0,
             "enabled": true
           },
@@ -3242,7 +3241,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 57,
+          "irq": 40,
           "prog_if": 48
         },
         "driver": "xhci-pci-renesas",
@@ -3394,7 +3393,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 48,
+            "base": 66,
             "triggered": 0,
             "enabled": true
           },
@@ -3412,7 +3411,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 48,
+          "irq": 66,
           "prog_if": 48
         },
         "driver": "xhci_hcd",
