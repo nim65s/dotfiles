@@ -60,6 +60,7 @@
   sops.secrets = {
     "${config.clan.core.settings.machine.name}-mimi-password-hash".neededForUsers = true;
   };
+  stylix.image = ../../bg/hattori.jpg;
   users.users.mimi = {
     isNormalUser = true;
     hashedPasswordFile = config.clan.core.facts.services.mimi-password.secret.mimi-password-hash.path;

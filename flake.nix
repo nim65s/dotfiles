@@ -7,8 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      # url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
-      url = "/home/nim/local/clan/clan-core";
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -196,7 +195,14 @@
             };
             packages = {
               inherit (inputs'.home-manager.packages) home-manager;
-              inherit (inputs'.clan-core.packages) clan-cli;
+              # inherit (inputs'.clan-core.packages) clan-cli;
+              clan-cli = inputs'.clan-core.packages.clan-cli.override {
+                includedRuntimeDeps = [
+                  "age"
+                  "git"
+                  "nix"
+                ];
+              };
               git-fork-clone = pkgs.writeShellApplication {
                 name = "git-fork-clone";
                 runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.PyGithub ])) ];
