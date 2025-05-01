@@ -1,0 +1,36 @@
+From be8e123520bf74c2dfb20b44112633aa87542577 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Thu, 1 May 2025 05:07:50 +0200
+Subject: [PATCH 1/2] gcompris: add extra-cmake-modules
+
+This was removed in #401292, and since then the shortcut disappeared
+from the launcher, because `share/applications/org.kde.gcompris.desktop`
+installation is conditioned to ECM:
+https://invent.kde.org/education/gcompris/-/blob/master/CMakeLists.txt?ref_type=heads#L142
+---
+ pkgs/games/gcompris/default.nix | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/pkgs/games/gcompris/default.nix b/pkgs/games/gcompris/default.nix
+index 3d533b702114..60d87033272f 100644
+--- a/pkgs/games/gcompris/default.nix
++++ b/pkgs/games/gcompris/default.nix
+@@ -15,6 +15,7 @@
+   qtmultimedia,
+   qtsensors,
+   qttools,
++  extra-cmake-modules,
+ }:
+ 
+ stdenv.mkDerivation (finalAttrs: {
+@@ -33,6 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
+ 
+   nativeBuildInputs = [
+     cmake
++    extra-cmake-modules
+     gettext
+     ninja
+     qttools
+-- 
+2.49.0
+

@@ -90,6 +90,8 @@
           patches = [
             inputs.patch-arsenik
             inputs.patch-jrk
+            ./patches/0001-gcompris-add-extra-cmake-modules.patch
+            ./patches/0002-gcompris-fix-absolute-path.patch
           ];
         }
       );

@@ -18,9 +18,37 @@
       homeDirectory = "/home/mimi";
       username = "mimi";
       keyboard.layout = "fr";
-      packages = with pkgs; [
-        gcompris
-      ];
+      packages =
+        with pkgs;
+        [
+          gcompris
+          klavaro
+          libsForQt5.ktouch # TODO: broken on qt6
+          superTuxKart
+          teeworlds
+        ]
+        ++ (with kdePackages; [
+          # keep-sorted start
+          bomber
+          granatier
+          kapman
+          kblocks
+          kbounce
+          kbreakout
+          kfourinline
+          kmahjongg
+          kpat
+          blinken
+          kanagram
+          khangman
+          ksudoku
+          kmines
+          kgeography
+          kturtle
+          kstars
+          minuet
+          # keep-sorted end
+        ]);
       stateVersion = "25.05";
     };
 
