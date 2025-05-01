@@ -141,6 +141,7 @@
                   inherit (inputs'.pre-commit-sort.packages) pre-commit-sort;
                   inherit (self'.packages)
                     clan-cli
+                    git-fork-clone
                     exif-diff
                     iosevka-aile
                     iosevka-etoile
@@ -196,6 +197,13 @@
             packages = {
               inherit (inputs'.home-manager.packages) home-manager;
               inherit (inputs'.clan-core.packages) clan-cli;
+              git-fork-clone = pkgs.writeShellApplication {
+                name = "git-fork-clone";
+                runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.PyGithub ])) ];
+                text = ''
+                  python ${./bin/git-fork-clone} "$@"
+                '';
+              };
               exif-diff = pkgs.writeShellApplication {
                 name = "exif-diff";
                 runtimeInputs = [

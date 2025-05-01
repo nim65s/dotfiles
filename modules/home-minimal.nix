@@ -95,6 +95,7 @@
         gcl = "git clone";
         gcr = "git clone --recursive";
         gch = "git checkout";
+        gfc = "git fork-clone";
         glp = "git push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds";
         grhh = "git reset --hard HEAD";
         gsub = "git commit -am submodules; git push";

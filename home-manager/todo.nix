@@ -60,6 +60,7 @@ in
       fuzzel
       ghostscript
       git-extras
+      git-fork-clone
       gnupg
       gparted
       grim
