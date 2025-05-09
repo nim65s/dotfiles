@@ -245,10 +245,16 @@ class Fork:
         if not branch:
             logger.debug("Get current branch")
             branch = check_output([*git, "branch", "--show-current"], text=True).strip()
-        logger.info("Configure %s to be pulled from upstream", branch)
-        vrun(
-            [*git, "branch", f"--set-upstream-to=upstream/{branch}", branch], check=True
-        )
+        if f"remotes/upstream/{branch}" in check_output(
+            [*git, "branch", "-a"], text=True
+        ):
+            logger.info("Configure %s to be pulled from upstream", branch)
+            vrun(
+                [*git, "branch", f"--set-upstream-to=upstream/{branch}", branch],
+                check=True,
+            )
+        else:
+            logger.info("%s is not available  upstream", branch)
         for b in check_output([*git, "branch", "-a"], text=True).split("\n"):
             if "remotes/upstream/HEAD" not in b:
                 continue
