@@ -209,7 +209,7 @@
                 name = "git-fork-clone";
                 runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.PyGithub ])) ];
                 text = ''
-                  python ${./bin/git-fork-clone} "$@"
+                  python ${./bin/git-fork-clone.py} "$@"
                 '';
               };
               exif-diff = pkgs.writeShellApplication {
