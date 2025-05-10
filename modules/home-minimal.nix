@@ -287,8 +287,10 @@
       fzf.enable = false;
       helix.enable = false;
       kitty.enable = false;
+      mako.enable = false; # silence a HM assert in unused module
       #qt.enable = false;
       swaylock.enable = false;
+      swaync.enable = false;
     };
   };
 }
