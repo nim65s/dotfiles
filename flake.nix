@@ -25,6 +25,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "clan-core/systems";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +39,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+        nuschtosSearch.follows = "nuschtosSearch";
       };
     };
     nur = {
@@ -43,6 +48,13 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
+      };
+    };
+    nuschtosSearch = {
+      url = "github:NuschtOS/search";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
       };
     };
     patch-arsenik-src = {
@@ -78,6 +90,7 @@
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "clan-core/systems";
+        flake-utils.follows = "flake-utils";
       };
     };
     treefmt-nix = {
@@ -97,8 +110,6 @@
           patches = [
             inputs.patch-arsenik
             inputs.patch-jrk
-            ./patches/0001-gcompris-add-extra-cmake-modules.patch
-            ./patches/0002-gcompris-fix-absolute-path.patch
           ];
         }
       );
