@@ -73,9 +73,12 @@
       style.name = "kvantum";
     };
 
-    stylix.cursor = {
-      name = "catppuccin-mocha-red-cursors";
-      package = pkgs.catppuccin-cursors.mochaRed;
+    stylix = {
+      cursor = {
+        name = "catppuccin-mocha-red-cursors";
+        package = pkgs.catppuccin-cursors.mochaRed;
+      };
+      targets.mako.enable = false; # silence a HM assert
     };
   };
 }
