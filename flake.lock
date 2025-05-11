@@ -355,11 +355,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746892839,
-        "narHash": "sha256-0b9us0bIOgA1j/s/6zlxVyP3m97yAh0U+YwKayJ6mmU=",
+        "lastModified": 1746950680,
+        "narHash": "sha256-tSEJ/8Tjtoy4yKbfMhIgKcSR/UJ4GjYlM4BT84+YKW8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "12e67385964d9c9304daa81d0ad5ba3b01fdd35e",
+        "rev": "6991569cb7cdde9891f52b43abe9916779df45b0",
         "type": "github"
       },
       "original": {
@@ -498,11 +498,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746891953,
-        "narHash": "sha256-b6HsBJE89zHycJsySw9+OBU0poOKHZa5Cx5eTBK0PMs=",
+        "lastModified": 1746953510,
+        "narHash": "sha256-r6O3VtvSTJySkv0E+KGiWkOLjaLFcYRE/SZAxSjHCWo=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "446ac67ac64b09be155b53a203dd0051755b48a6",
+        "rev": "4e81ff87d302e9b6b39398a1398d1b743a52e4e4",
         "type": "github"
       },
       "original": {
@@ -533,42 +533,6 @@
         "owner": "NuschtOS",
         "repo": "search",
         "type": "github"
-      }
-    },
-    "patch-arsenik": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-EqD6R/QbKb+x481gGKrap8eiiWEoCddZu9biNaX2Nac=",
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch"
-      }
-    },
-    "patch-arsenik-src": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-S856C95b8zy7r1xIal/1gEBibJOJQD9yv8eByayzkxs=",
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch"
-      }
-    },
-    "patch-jrk": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-3R6VKvdAEVNxY/RpACKdqiG3Tb03AMISpFDX5Rnbw10=",
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/362957.patch"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/362957.patch"
       }
     },
     "pre-commit-sort": {
@@ -606,9 +570,6 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "nuschtosSearch": "nuschtosSearch",
-        "patch-arsenik": "patch-arsenik",
-        "patch-arsenik-src": "patch-arsenik-src",
-        "patch-jrk": "patch-jrk",
         "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
@@ -647,11 +608,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746738008,
-        "narHash": "sha256-bIMysaVhNyjuFgt8QpnGZv0T4YMao26Vz5R/xfYAJO0=",
+        "lastModified": 1746937129,
+        "narHash": "sha256-Dx/YpnRridWnxF0Xpz9FUP3kl/m2QAOM2BM3KNls3sk=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "a43fae27f33f8d3e793a6ca2946190cb24a00b03",
+        "rev": "8f1c5c34cf5f99e1d7197d6d9fa7dd44f00966f0",
         "type": "github"
       },
       "original": {

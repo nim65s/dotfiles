@@ -1,0 +1,50 @@
+From 329773bf25f379e2f427f0cbc5ec9f21b9797173 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Sun, 9 Mar 2025 12:56:46 +0100
+Subject: [PATCH 1/2] kanata numpad: add operators
+
+---
+ kanata/deflayer/navigation_vim.kbd | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kanata/deflayer/navigation_vim.kbd b/kanata/deflayer/navigation_vim.kbd
+index dfc8742..2b9a329 100644
+--- a/kanata/deflayer/navigation_vim.kbd
++++ b/kanata/deflayer/navigation_vim.kbd
+@@ -19,7 +19,7 @@
+   _    _    _    _    _     _   _    _    _    _    _
+   XX   home up   end  pgup      @/   @7   @8   @9   XX
+   XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+-  XX   XX   XX   XX   XX    _   @,   @1   @2   @3   @.
++  @/   @*   @-   @+   @=    _   @,   @1   @2   @3   @.
+             @std           @nbs           @std
+ )
+ 
+
+From f498c7b9a03e2d277d6be8ec0857bdc347e50241 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Fri, 14 Mar 2025 15:58:10 +0100
+Subject: [PATCH 2/2] numpad: move operators
+
+Co-authored-by: fnuttens <8812165+fnuttens@users.noreply.github.com>
+---
+ kanata/deflayer/navigation_vim.kbd | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/kanata/deflayer/navigation_vim.kbd b/kanata/deflayer/navigation_vim.kbd
+index 2b9a329..bbfb39c 100644
+--- a/kanata/deflayer/navigation_vim.kbd
++++ b/kanata/deflayer/navigation_vim.kbd
+@@ -17,9 +17,9 @@
+ ;; NumPad
+ (deflayer numpad
+   _    _    _    _    _     _   _    _    _    _    _
+-  XX   home up   end  pgup      @/   @7   @8   @9   XX
+-  XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+-  @/   @*   @-   @+   @=    _   @,   @1   @2   @3   @.
++  XX   home up   end  pgup      @/   @7   @8   @9   @:
++  bspc lft  down rght pgdn      @-   @4   @5   @6   @0
++  XX   @%   @*   @+   @=    _   @,   @1   @2   @3   @.
+             @std           @nbs           @std
+ )
+ 

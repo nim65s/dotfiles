@@ -57,18 +57,6 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    patch-arsenik-src = {
-      url = "https://patch-diff.githubusercontent.com/raw/OneDeadKey/arsenik/pull/77.patch";
-      flake = false;
-    };
-    patch-arsenik = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch";
-      flake = false;
-    };
-    patch-jrk = {
-      url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/362957.patch";
-      flake = false;
-    };
     pre-commit-sort = {
       url = "github:nim65s/pre-commit-sort";
       inputs = {
@@ -108,8 +96,8 @@
           name = "patched nixpkgs";
           src = inputs.nixpkgs;
           patches = [
-            inputs.patch-arsenik
-            inputs.patch-jrk
+            ./patches/nixpkgs-pr-362957-pololu.patch
+            ./patches/nixpkgs-pr-386205-arsenik.patch
           ];
         }
       );
@@ -169,7 +157,7 @@
                     nixvim
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
-                    patches = [ inputs.patch-arsenik-src ];
+                    patches = [ ./patches/arsenik-pr-77-numpad.patch ];
                   };
                   element-web = prev.element-web.override {
                     conf = {
