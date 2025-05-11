@@ -272,7 +272,7 @@
               #"gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
               #  inherit (self.allSystems.${system}._module.args) pkgs;
               #  modules = [
-              #    inputs.catppuccin.homeManagerModules.catppuccin
+              #    inputs.catppuccin.homeModules.catppuccin
               #    inputs.stylix.homeManagerModules.stylix
               #    ./aliens/asahi/home.nix
               #    ./home-manager
