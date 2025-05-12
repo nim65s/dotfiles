@@ -27,7 +27,7 @@ from asyncio import run, gather
 from logging import basicConfig, getLogger
 from argparse import ArgumentParser
 from pathlib import Path
-from os import environ
+from os import chdir, environ
 from re import search, sub
 from subprocess import check_output
 
@@ -45,6 +45,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "--only", action="store_true", help="when adding a PR, don't update the others"
+)
+parser.add_argument(
+    "--here", action="store_true", help="don't cd into toplevel dir first"
 )
 parser.add_argument(
     "-v",
@@ -95,6 +98,7 @@ async def main(token: str, pr: str | None, only: bool, **kwargs):
         m = search(PATTERN, pr)
         patches.append((m["owner"], m["repo"], m["pr"]))
     if not only:
+        PATCHES.mkdir(exist_ok=True)
         for owner in PATCHES.iterdir():
             if not owner.is_dir():
                 continue
@@ -129,5 +133,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     basicConfig(level=50 - 10 * args.verbose)
+
+    if args.here:
+        logger.info("Staying in %s", Path())
+    else:
+        toplevel = check_output(
+            ["git", "rev-parse", "--show-toplevel"], text=True
+        ).strip()
+        logger.info("Updating patches in %s", toplevel)
+        chdir(toplevel)
 
     run(main(token, **vars(args)))
