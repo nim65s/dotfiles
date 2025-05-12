@@ -57,17 +57,30 @@ def slugify(text: str) -> str:
 
 
 async def dl(client: AsyncClient, owner: str, repo: str, pr: int):
+    logger.info("processing: %s/%s/pull/%s", owner, repo, pr)
     dir = PATCHES / owner / repo
     dir.mkdir(parents=True, exist_ok=True)
     url = f"https://api.github.com/repos/{owner}/{repo}/pulls/{pr}"
 
-    title = await client.get(url)
-    title.raise_for_status()
-    title = slugify(title.json()["title"])
+    data = await client.get(url)
+    data.raise_for_status()
+    data = data.json()
+    if data.get("merged"):
+        logger.warning(
+            "Already merged: %s/%s/pull/%s (%s)", owner, repo, pr, data["title"]
+        )
+    else:
+        logger.debug(
+            "Not yet merged: %s/%s/pull/%s (%s)", owner, repo, pr, data["title"]
+        )
+    title = slugify(data["title"])
+
     patch = await client.get(url, headers={"Accept": "application/vnd.github.v3.patch"})
     patch.raise_for_status()
 
-    (dir / f"{pr}_{title}.patch").write_text(patch.text)
+    file = dir / f"{pr}_{title}.patch"
+    logger.debug("writing %s", file)
+    file.write_text(patch.text)
 
 
 async def main(token: str, pr: str | None, only: bool, **kwargs):
@@ -90,8 +103,10 @@ async def main(token: str, pr: str | None, only: bool, **kwargs):
                             int(pr.name.split("_")[0]),
                         )
                     )
+                    logger.debug("removing %s", pr)
                     pr.unlink()
 
+    logger.debug("patches: %s", str(patches))
     async with AsyncClient(headers={"Authorization": f"token {token}"}) as client:
         await gather(*[dl(client, *patch) for patch in patches])
 
