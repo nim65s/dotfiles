@@ -3,17 +3,23 @@
 # dependencies = ["httpx"]
 # ///
 
-"""
-I used to include patches in flake inputs, like:
-```nix
-  inputs.patch-arsenik = {
-    url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch";
-    flake = false;
-  };
-```
-but github rate limits this way too much now, because IA.
+# I used to include patches in flake inputs, like:
+# ```nix
+#   inputs.patch-arsenik = {
+#     url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/386205.patch";
+#     flake = false;
+#   };
+# ```
+# but github rate limits this way too much now, because IA.
+#
+# So now we have this.
 
-So now we have this.
+"""
+This will accept a PR url to download as patch, and/or update the current patches
+as `patches/<owner>/<repo>/<pr>_<slug>.patch`
+
+NB: updates involve a removal first and a download afterwards.
+Use at your own risk, and preferably with a VCS.
 """
 
 from unicodedata import normalize
