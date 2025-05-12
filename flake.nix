@@ -96,8 +96,8 @@
           name = "patched nixpkgs";
           src = inputs.nixpkgs;
           patches = [
-            ./patches/nixpkgs-pr-362957-pololu.patch
-            ./patches/nixpkgs-pr-386205-arsenik.patch
+            ./patches/NixOS/nixpkgs/386205_arsenik-init-at-020.patch
+            ./patches/NixOS/nixpkgs/362957_pololu-jrk-g2-software-init-at-141.patch
           ];
         }
       );
@@ -155,9 +155,10 @@
                     iosevka-term
                     nixook
                     nixvim
+                    pratches
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
-                    patches = [ ./patches/arsenik-pr-77-numpad.patch ];
+                    patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
                   };
                   element-web = prev.element-web.override {
                     conf = {
@@ -246,6 +247,13 @@
                 '';
               };
               nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
+              pratches = pkgs.writeShellApplication {
+                name = "pratches";
+                runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.httpx ])) ];
+                text = ''
+                  python ${./bin/pratches.py} "$@"
+                '';
+              };
             };
             treefmt = {
               projectRootFile = "flake.nix";

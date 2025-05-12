@@ -154,6 +154,7 @@ in
           wheel
         ]
       ))
+      pratches
       pre-commit
       pre-commit-sort
       pulseaudio
