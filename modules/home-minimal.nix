@@ -136,9 +136,9 @@
         prompt = "enabled";
       };
     };
-    helix = {
-      enable = true;
-    };
+    # helix = {
+    #   enable = true;
+    # };
     home-manager.enable = true;
     lsd = {
       enable = true;
