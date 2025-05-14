@@ -50,6 +50,14 @@ parser.add_argument(
     "--here", action="store_true", help="don't cd into toplevel dir first"
 )
 parser.add_argument(
+    "-q",
+    "--quiet",
+    action="count",
+    default=int(environ.get("QUIET", 0)),
+    help="decrement verbosity level",
+)
+
+parser.add_argument(
     "-v",
     "--verbose",
     action="count",
@@ -132,7 +140,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    basicConfig(level=50 - 10 * args.verbose)
+    basicConfig(level=30 - 10 * args.verbose + 10 * args.quiet)
 
     if args.here:
         logger.info("Staying in %s", Path())
