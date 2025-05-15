@@ -287,6 +287,8 @@
       helix.enable = false;
       kitty.enable = false;
       mako.enable = false; # silence a HM assert in unused module
+      neovim.enable = false;
+      nixvim.enable = false;
       #qt.enable = false;
       swaylock.enable = false;
       swaync.enable = false;
