@@ -134,7 +134,10 @@
           {
             _module.args.pkgs = import patchedNixpkgs {
               inherit system;
-              config.allowUnfree = true;
+              config = {
+                allowUnfree = true;
+                permittedInsecurePackages = [ "squid-7.0.1" ]; # TODO
+              };
               overlays = [
                 (final: prev: {
                   nur = import inputs.nur {

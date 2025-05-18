@@ -7,6 +7,7 @@
     ../../modules/nixos.nix
     ../../modules/wifi.nix
     ../../modules/x86_64-linux.nix
+    ../../modules/parental-control.nix
   ];
 
   # TODO: this is a bad copypasta from
@@ -65,5 +66,6 @@
     isNormalUser = true;
     hashedPasswordFile = config.clan.core.facts.services.mimi-password.secret.mimi-password-hash.path;
     shell = pkgs.fish;
+    group = "kids";
   };
 }
