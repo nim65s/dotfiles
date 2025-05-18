@@ -209,6 +209,8 @@ layout {
         // top 64
         // bottom 64
     }
+
+    background-color "transparent"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -510,4 +512,17 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+layer-rule {
+    match namespace="^swaync-control-center$"
+    block-out-from "screencast"
+}
+layer-rule {
+    match namespace="^swaync-notification-window$"
+    block-out-from "screencast"
+}
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
