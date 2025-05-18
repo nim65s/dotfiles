@@ -95,10 +95,7 @@
         pkgsForPatching.applyPatches {
           name = "patched nixpkgs";
           src = inputs.nixpkgs;
-          patches = [
-            ./patches/NixOS/nixpkgs/386205_arsenik-init-at-020.patch
-            ./patches/NixOS/nixpkgs/362957_pololu-jrk-g2-software-init-at-141.patch
-          ];
+          patches = pkgsForPatching.lib.fileset.toList ./patches/NixOS/nixpkgs;
         }
       );
     in
