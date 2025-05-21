@@ -199,6 +199,7 @@ in
       #xdg-desktop-portal-gtk
       #xdg-desktop-portal-wlr
       xwayland
+      yq
       yt-dlp
       zathura
       zeal-qt6
