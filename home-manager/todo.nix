@@ -179,6 +179,7 @@ in
       swaybg
       swaylock
       tig
+      toml-sort
       tree
       unzip
       usbutils
