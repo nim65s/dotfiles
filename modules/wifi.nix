@@ -13,7 +13,7 @@
       bsc.ssid = "Freepro-KD0N6N";
       kekeno = { };
       kessica = { };
-      lacroix = { };
+      lacroix.ssid = "Freebox-866B60";
       lavelanet = { };
       marsrovers = { };
       picto-cne.ssid = "Tetaneutral_CNE_5G";
