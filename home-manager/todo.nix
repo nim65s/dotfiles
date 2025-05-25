@@ -183,7 +183,7 @@ in
       unzip
       usbutils
       uv
-      ventoy
+      #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       vdirsyncer
       vlc
       vscode-fhs
