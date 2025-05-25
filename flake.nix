@@ -165,8 +165,11 @@
                       setting_defaults = {
                         custom_themes = [
                           (final.lib.importJSON "${
-                            pkgs.catppuccin.override { variant = "mocha"; }
-                          }/element/Catppuccin-mocha.json")
+                            pkgs.catppuccin.override {
+                              variant = "mocha";
+                              accent = "blue";
+                            }
+                          }/element/blue.json")
                         ];
                       };
                     };
