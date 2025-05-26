@@ -23,6 +23,9 @@
       wait
     '';
   };
+
+  programs.btop.package = pkgs.btop-cuda;
+
   xdg.autostart = {
     enable = true;
     entries = [
