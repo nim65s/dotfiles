@@ -226,6 +226,30 @@
         "type": "github"
       }
     },
+    "flake-input-patcher": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "clan-core",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747999323,
+        "narHash": "sha256-jYD9WTGW6pgrZ7wsAG72oXSAOkAdSPvAQY/sAhVUTa0=",
+        "owner": "jfly",
+        "repo": "flake-input-patcher",
+        "rev": "522f80e99b43cb74b1696259f3704f6ff4895720",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jfly",
+        "repo": "flake-input-patcher",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -564,6 +588,7 @@
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
         "cmeel": "cmeel",
+        "flake-input-patcher": "flake-input-patcher",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",

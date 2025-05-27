@@ -4,7 +4,6 @@
   flake,
   inputs,
   lib,
-  patchedNixpkgs,
   pkgs,
   ...
 }:
@@ -17,7 +16,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
     inputs.nixvim.nixosModules.nixvim
-    "${patchedNixpkgs}/nixos/modules/services/hardware/arsenik.nix"
+    "${inputs.nixpkgs}/nixos/modules/services/hardware/arsenik.nix"
   ];
 
   boot.loader.systemd-boot = {

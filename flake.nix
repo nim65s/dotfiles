@@ -21,6 +21,14 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    flake-input-patcher = {
+      url = "github:jfly/flake-input-patcher";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "clan-core/systems";
+      };
+    };
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -88,16 +96,12 @@
   };
 
   outputs =
-    inputs:
+    unpatchedInputs:
     let
-      pkgsForPatching = inputs.nixpkgs.legacyPackages.x86_64-linux;
-      patchedNixpkgs = (
-        pkgsForPatching.applyPatches {
-          name = "patched nixpkgs";
-          src = inputs.nixpkgs;
-          patches = pkgsForPatching.lib.fileset.toList ./patches/NixOS/nixpkgs;
-        }
-      );
+      patcher = unpatchedInputs.flake-input-patcher.lib.x86_64-linux;
+      inputs = patcher.patch unpatchedInputs {
+        nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
+      };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { self, ... }:
@@ -118,7 +122,7 @@
           */
           meta.name = "nim65s";
           specialArgs = {
-            inherit inputs patchedNixpkgs;
+            inherit inputs;
             inherit (self) allSystems;
             flake = self;
           };
@@ -132,7 +136,7 @@
             ...
           }:
           {
-            _module.args.pkgs = import patchedNixpkgs {
+            _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
               config = {
                 allowUnfree = true;
