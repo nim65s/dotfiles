@@ -173,11 +173,7 @@
                   };
                   git-extras = prev.git-extras.overrideAttrs {
                     patches = [
-                      # Allow use of GITHUB_TOKEN
-                      (final.fetchpatch {
-                        url = "https://github.com/nim65s/git-extras/commit/efbf3e5ba94cfd385c9ec7ad8ff5b1ad69925e3f.patch";
-                        hash = "sha256-ZkgCx7ChwoBzvnOWaR9Q4soHfAGObxrbmeUC6XZnUCA=";
-                      })
+                      ./patches/tj/git-extras/1177_support-github_token-var-for-git-fork-and-git-pull-request.patch
                     ];
                   };
                   spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
