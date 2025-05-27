@@ -34,7 +34,7 @@ window-rule {
 
 output "DP-1" {
     position x=0 y=0
-    scale 1.5
+    scale 1
 }
 output "DP-2" {
     position x=2560 y=0
