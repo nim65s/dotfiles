@@ -370,6 +370,7 @@ in
       enable = true;
       defaultEditor = true;
     };
+    numbat.enable = true;
     spicetify = {
       enable = true;
       enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
@@ -513,5 +514,6 @@ in
         endif
       '';
     };
+    visidata.enable = true;
   };
 }

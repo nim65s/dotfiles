@@ -74,6 +74,10 @@
         "...." = "cd ../../..";
         "....." = "cd ../../../..";
         "......" = "cd ../../../../..";
+        "=" = {
+          expansion = "numbat -e '%'";
+          setCursor = true;
+        };
         bn = "cmake -B build";
         bnb = "cmake -B build && cmake --build build";
         bb = "cmake --build build";
