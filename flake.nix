@@ -113,13 +113,6 @@
 
         debug = true;
         clan = {
-          /*
-            machines = {
-              loon.imports = [
-                ./nixos
-              ];
-              };
-          */
           meta.name = "nim65s";
           specialArgs = {
             inherit inputs;
