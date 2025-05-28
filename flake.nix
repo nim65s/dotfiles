@@ -153,6 +153,7 @@
                     iosevka-term
                     nixook
                     nixvim
+                    pmapnitor
                     pratches
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
@@ -251,6 +252,13 @@
                 '';
               };
               nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
+              pmapnitor = pkgs.writeShellApplication {
+                name = "pmapnitor";
+                runtimeInputs = [ pkgs.python3 ];
+                text = ''
+                  python ${./bin/pmapnitor.py} "$@"
+                '';
+              };
               pratches = pkgs.writeShellApplication {
                 name = "pratches";
                 runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.httpx ])) ];
