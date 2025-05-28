@@ -39,8 +39,14 @@
 
   keymaps = [
     {
-      key = "<Tab>";
-      action = "<Esc>";
+      mode = "ca";
+      key = "^";
+      action = "q";
+    }
+    {
+      mode = "ca";
+      key = "%";
+      action = "w";
     }
   ];
 
@@ -64,7 +70,14 @@
 
   plugins = {
     airline.enable = true;
-    barbar.enable = true;
+    barbar = {
+      enable = true;
+      keymaps = {
+        next.key = "<TAB>";
+        previous.key = "<S-TAB>";
+        close.key = "<C-w>";
+      };
+    };
     comment.enable = true;
     cmp = {
       enable = true;
@@ -74,6 +87,18 @@
         { name = "path"; }
         { name = "buffer"; }
       ];
+    };
+    conform-nvim = {
+      enable = true;
+      settings = {
+        format_on_save = {
+          lsp_format = "fallback";
+          timeout_ms = 500;
+        };
+        formatters_by_ft = {
+          nix = [ "nixfmt" ];
+        };
+      };
     };
     lsp = {
       enable = true;
@@ -85,7 +110,10 @@
         ruff.enable = true;
       };
     };
-    lsp-format.enable = true;
+    lsp-format = {
+      enable = true;
+      lspServersToEnable = "all";
+    };
     lsp-status.enable = true;
     lsp-signature.enable = true;
     lz-n.enable = true;
