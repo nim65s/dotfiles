@@ -240,7 +240,9 @@
                     echo 'set -eux'
                     echo 'nix fmt'
                     echo 'git diff --quiet'
-                    test -f ../.pre-commit-config.yaml && echo 'pre-commit run -a'
+                    if test -f ../.pre-commit-config.yaml
+                    then echo 'pre-commit run -a'
+                    fi
                   ) > hooks/pre-commit
                   chmod +x hooks/pre-commit
                   (
