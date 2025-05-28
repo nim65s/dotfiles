@@ -1,0 +1,148 @@
+From c60f431af856b7bf259628702ddd7778eb706fb4 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Tue, 11 Mar 2025 15:16:17 +0100
+Subject: [PATCH] feat(home-manager): add support for firefox
+
+---
+ modules/home-manager/all-modules.nix |  1 +
+ modules/home-manager/firefox.nix     | 52 ++++++++++++++++++++++++++++
+ modules/tests/darwin.nix             |  1 +
+ modules/tests/home.nix               |  1 +
+ pkgs/firefox.nix                     |  9 +++++
+ pkgs/sources.json                    |  7 +++-
+ 6 files changed, 70 insertions(+), 1 deletion(-)
+ create mode 100644 modules/home-manager/firefox.nix
+ create mode 100644 pkgs/firefox.nix
+
+diff --git a/modules/home-manager/all-modules.nix b/modules/home-manager/all-modules.nix
+index 4d5240fc..605320c9 100644
+--- a/modules/home-manager/all-modules.nix
++++ b/modules/home-manager/all-modules.nix
+@@ -11,6 +11,7 @@
+   ./dunst.nix
+   ./fcitx5.nix
+   ./fish.nix
++  ./firefox.nix
+   ./foot.nix
+   ./freetube.nix
+   ./fuzzel.nix
+diff --git a/modules/home-manager/firefox.nix b/modules/home-manager/firefox.nix
+new file mode 100644
+index 00000000..b32c05be
+--- /dev/null
++++ b/modules/home-manager/firefox.nix
+@@ -0,0 +1,52 @@
++
++{ catppuccinLib }:
++{
++  config,
++  lib,
++  pkgs,
++  ...
++}:
++
++let
++  inherit (config.catppuccin) sources;
++  cfg = config.catppuccin.firefox;
++  enable = cfg.enable && config.programs.firefox.enable;
++in
++
++{
++  options.catppuccin.firefox =
++    catppuccinLib.mkCatppuccinOption {
++      name = "firefox";
++      accentSupport = true;
++    }
++    // {
++      profile = lib.mkOption {
++        type = lib.types.str;
++        default = "catppuccin-${cfg.flavor}-${cfg.accent}";
++        description = "The profile name";
++      };
++    };
++
++  config = lib.mkIf enable {
++    programs.firefox = {
++      profiles."${cfg.profile}".extensions = [
++        (pkgs.runCommandLocal "catppuccin-${cfg.flavor}-${cfg.accent}.firefox.theme"
++          {
++            buildInputs = [ sources.firefox ];
++            nativeBuildInputs = with pkgs; [
++              jq
++              unzip
++            ];
++          }
++          ''
++            xpi=${sources.firefox}/catppuccin_${cfg.flavor}_${cfg.accent}.xpi
++            extId=$(unzip -qc $xpi manifest.json | jq -r .browser_specific_settings.gecko.id)
++            # The extensions path shared by all profiles.
++            extensionPath="extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
++            install -Dv $xpi $out/share/mozilla/$extensionPath/$extId.xpi
++          ''
++        )
++      ];
++    };
++  };
++}
+diff --git a/modules/tests/darwin.nix b/modules/tests/darwin.nix
+index 807fafe9..722327e4 100644
+--- a/modules/tests/darwin.nix
++++ b/modules/tests/darwin.nix
+@@ -23,6 +23,7 @@
+         programs = {
+           cava.enable = lib.mkVMOverride false; # NOTE: this may actually work on darwin, but the package is currently not supported
+           chromium.enable = lib.mkVMOverride false;
++          firefox.enable = lib.mkVMOverride false;
+           foot.enable = lib.mkVMOverride false;
+           freetube.enable = lib.mkVMOverride false; # NOTE: currently fails to build
+           fuzzel.enable = lib.mkVMOverride false;
+diff --git a/modules/tests/home.nix b/modules/tests/home.nix
+index dc42a335..3d5ecd90 100644
+--- a/modules/tests/home.nix
++++ b/modules/tests/home.nix
+@@ -27,6 +27,7 @@
+     cava.enable = true;
+     chromium.enable = true;
+     fish.enable = true;
++    firefox.enable = true;
+     foot.enable = true;
+     freetube.enable = true;
+     fuzzel.enable = true;
+diff --git a/pkgs/firefox.nix b/pkgs/firefox.nix
+new file mode 100644
+index 00000000..dc7246a8
+--- /dev/null
++++ b/pkgs/firefox.nix
+@@ -0,0 +1,9 @@
++{ buildCatppuccinPort }:
++
++buildCatppuccinPort {
++  port = "firefox";
++
++  dontBuild = true;
++
++  installTargets = [ "releases/old" ];
++}
+diff --git a/pkgs/sources.json b/pkgs/sources.json
+index 9d353704..89005c94 100644
+--- a/pkgs/sources.json
++++ b/pkgs/sources.json
+@@ -54,6 +54,11 @@
+     "lastModified": "2025-03-01",
+     "rev": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed"
+   },
++  "firefox": {
++    "hash": "sha256-ZIK0LX8OJOBr20diRDQRrNc1X+q3DtHNcc/dRZU2QfM=",
++    "lastModified": "2022-08-22",
++    "rev": "a8751f7d2260ac75f709e785e8f2e7ee903e45ec"
++  },
+   "foot": {
+     "hash": "sha256-eVH3BY2fZe0/OjqucM/IZthV8PMsM9XeIijOg8cNE1Y=",
+     "lastModified": "2024-09-25",
+@@ -249,4 +254,4 @@
+     "lastModified": "2024-07-21",
+     "rev": "7926c3d3e17d26b3779851a2255b95ee650bd928"
+   }
+-}
+\ No newline at end of file
++}

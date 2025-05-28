@@ -74,17 +74,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1746652623,
-        "narHash": "sha256-Ao1RMnUqLP1spv1wQsmKHhfhU6Q7XYtz1hE2a+MsDmk=",
-        "owner": "nim65s",
-        "repo": "catppuccin-nix",
-        "rev": "e992ff1e9ad115de811cb6fb2802868cd0d81e2b",
+        "lastModified": 1748080874,
+        "narHash": "sha256-sUebEzAkrY8Aq5G0GHFyRddmRNGP/a2iTtV7ISNvi/c=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "0ba11b12be81f0849a89ed17ab635164ea8f0112",
         "type": "github"
       },
       "original": {
-        "owner": "nim65s",
-        "ref": "firefox",
-        "repo": "catppuccin-nix",
+        "owner": "catppuccin",
+        "repo": "nix",
         "type": "github"
       }
     },

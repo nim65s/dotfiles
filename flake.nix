@@ -3,7 +3,7 @@
 
   inputs = {
     catppuccin = {
-      url = "github:nim65s/catppuccin-nix/firefox";
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
@@ -101,6 +101,7 @@
       patcher = unpatchedInputs.flake-input-patcher.lib.x86_64-linux;
       inputs = patcher.patch unpatchedInputs {
         nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
+        catppuccin.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/catppuccin/nix;
       };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
