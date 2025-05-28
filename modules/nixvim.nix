@@ -55,7 +55,6 @@
     termguicolors = true;
     ignorecase = true;
     smartcase = true;
-    copyindent = true;
     expandtab = true;
     foldlevel = 10;
     splitbelow = true;
@@ -95,7 +94,6 @@
       folding = true;
       settings = {
         highlight.enable = true;
-        indent.enable = true;
       };
     };
     hmts.enable = true;
