@@ -37,6 +37,6 @@ output "DP-1" {
     scale 1
 }
 output "DP-2" {
-    position x=2560 y=0
+    position x=3840 y=0
     scale 1
 }
