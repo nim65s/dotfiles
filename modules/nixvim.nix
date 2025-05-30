@@ -45,8 +45,18 @@
     }
     {
       mode = "ca";
+      key = "^a";
+      action = "qa";
+    }
+    {
+      mode = "ca";
       key = "%";
       action = "w";
+    }
+    {
+      mode = "ca";
+      key = "%a";
+      action = "wa";
     }
   ];
 
