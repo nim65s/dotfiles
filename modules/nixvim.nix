@@ -75,7 +75,6 @@
       keymaps = {
         next.key = "<TAB>";
         previous.key = "<S-TAB>";
-        close.key = "<C-w>";
       };
     };
     comment.enable = true;
