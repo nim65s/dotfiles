@@ -383,15 +383,13 @@ in
     };
     ssh = {
       matchBlocks = {
-        "upe" = {
+        "upe" = config.laasProxy.value // {
           hostname = "upepesanke";
           user = "gsaurel";
-          proxyJump = "laas";
         };
-        "miya" = {
+        "miya" = config.laasProxy.value // {
           hostname = "miyanoura";
           user = "gsaurel";
-          proxyJump = "laas";
         };
         "totoro" = {
           hostname = "totoro.saurel.me";
@@ -411,16 +409,14 @@ in
           hostname = "%h.fr";
           forwardAgent = true;
         };
-        "*.l" = {
+        "*.l" = config.laasProxy.value // {
           hostname = "%haas.fr";
           forwardAgent = true;
-          proxyJump = "laas";
           user = "gsaurel";
         };
-        "*.L" = {
+        "*.L" = config.laasProxy.value // {
           hostname = "%haas.fr";
           forwardAgent = true;
-          proxyJump = "laas";
           user = "root";
         };
         "*.t" = {

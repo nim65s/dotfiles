@@ -20,6 +20,7 @@ in
     ./firefox.nix
     ./nim-home-minimal.nix
     ./nim-accounts.nix
+    ./ssh.nix
     ../home-manager/todo.nix
   ];
 
@@ -45,6 +46,12 @@ in
         type = lib.types.str;
         default = "/home/${config.nim-home.username}";
       };
+      laasProxy = {
+        enable = lib.mkEnableOption "ProxyJump to laas";
+        value = lib.mkOption {
+          default = { };
+        };
+      };
     };
   };
 
@@ -61,6 +68,8 @@ in
         variant = "ergol";
       };
     };
+
+    laasProxy.enable = lib.mkDefault true;
 
     programs = {
       alacritty.enable = true;

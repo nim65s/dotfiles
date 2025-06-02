@@ -13,6 +13,8 @@
 
   stylix.image = ../../bg/gauche.jpg;
 
+  laasProxy.enable = false;
+
   nim-home = {
     niri = [ ./niri.kdl ];
     swaybgs = ''
