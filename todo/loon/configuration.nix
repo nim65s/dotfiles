@@ -32,10 +32,10 @@
   services = {
     getty.autologinUser = "nim";
     libinput.enable = true;
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
     xserver = {
       enable = true;
-      displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = false;
       xkb.layout = "fr";
       xkb.variant = "bepo";
       windowManager.i3.enable = true;
