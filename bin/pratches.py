@@ -16,7 +16,7 @@
 
 """
 This will accept a PR url to download as patch, and/or update the current patches
-as `patches/<owner>/<repo>/<pr>_<slug>.patch`
+as `patches/<owner>/<repo>/<pr>_<slug>.patch` (or only <pr>_<slug>.patch if --alone)
 
 NB: updates involve a removal first and a download afterwards.
 Use at your own risk, and preferably with a VCS.
@@ -50,6 +50,9 @@ parser.add_argument(
     "--here", action="store_true", help="don't cd into toplevel dir first"
 )
 parser.add_argument(
+    "--alone", action="store_true", help="don't use patches/<owner>/<repo> structure"
+)
+parser.add_argument(
     "-q",
     "--quiet",
     action="count",
@@ -73,9 +76,9 @@ def slugify(text: str) -> str:
     return sub(r"[-\s]+", "-", text).strip("-").lower()
 
 
-async def dl(client: AsyncClient, owner: str, repo: str, pr: int):
+async def dl(client: AsyncClient, owner: str, repo: str, pr: int, alone: bool):
     logger.info("processing: %s/%s/pull/%s", owner, repo, pr)
-    dir = PATCHES / owner / repo
+    dir = Path() if alone else PATCHES / owner / repo
     dir.mkdir(parents=True, exist_ok=True)
     url = f"https://api.github.com/repos/{owner}/{repo}/pulls/{pr}"
 
@@ -100,12 +103,12 @@ async def dl(client: AsyncClient, owner: str, repo: str, pr: int):
     file.write_text(patch.text)
 
 
-async def main(token: str, pr: str | None, only: bool, **kwargs):
+async def main(token: str, pr: str | None, only: bool, alone: bool, **kwargs):
     patches = []
     if pr:
         m = search(PATTERN, pr)
         patches.append((m["owner"], m["repo"], m["pr"]))
-    if not only:
+    if not only and not alone:
         PATCHES.mkdir(exist_ok=True)
         for owner in PATCHES.iterdir():
             if not owner.is_dir():
@@ -126,7 +129,7 @@ async def main(token: str, pr: str | None, only: bool, **kwargs):
 
     logger.debug("patches: %s", str(patches))
     async with AsyncClient(headers={"Authorization": f"token {token}"}) as client:
-        await gather(*[dl(client, *patch) for patch in patches])
+        await gather(*[dl(client, *patch, alone) for patch in patches])
 
 
 if __name__ == "__main__":
@@ -142,7 +145,7 @@ if __name__ == "__main__":
 
     basicConfig(level=30 - 10 * args.verbose + 10 * args.quiet)
 
-    if args.here:
+    if args.here or args.alone:
         logger.info("Staying in %s", Path())
     else:
         toplevel = check_output(
