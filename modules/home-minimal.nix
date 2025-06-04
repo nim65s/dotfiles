@@ -69,8 +69,7 @@
         };
         cnake = {
           body = ''
-            set -l flags (string split " " -- $cmakeFlags)
-            cmake $flags $argv
+            cmake (string split " " -- $cmakeFlags) $argv
           '';
         };
       };
