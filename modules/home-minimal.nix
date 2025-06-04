@@ -84,8 +84,8 @@
           expansion = "numbat -e '%'";
           setCursor = true;
         };
-        bn = "cmake -B build";
-        bnb = "cmake -B build && cmake --build build";
+        bn = "cnake -B build";
+        bnb = "cnake -B build && cmake --build build";
         bb = "cmake --build build";
         bt = "cmake --build build -t test";
         bi = "cmake --build build -t install";
