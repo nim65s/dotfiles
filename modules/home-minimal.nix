@@ -67,6 +67,12 @@
             printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
           '';
         };
+        cnake = {
+          body = ''
+            set -l flags (string split " " -- $cmakeFlags)
+            cmake $flags $argv
+          '';
+        };
       };
       shellAbbrs = {
         ".." = "cd ..";
