@@ -106,10 +106,7 @@ in
       nixook
       nixd
       nixfmt-rfc-style
-      (nixpkgs-review.override {
-        nix = lix;
-        withNom = true;
-      })
+      nixpkgs-review
       #nix-du
       nix-diff
       nix-init
