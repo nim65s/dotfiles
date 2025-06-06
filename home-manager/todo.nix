@@ -364,6 +364,7 @@ in
         { path = "~/dotfiles/.gitconfig"; }
       ];
     };
+    hwatch.enable = true;
     nixvim = import ../modules/nixvim.nix // {
       enable = true;
       defaultEditor = true;
