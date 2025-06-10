@@ -1,24 +1,24 @@
-workspace "zik" {
-    open-on-output "DP-2"
-}
-workspace "mail" {
-    open-on-output "DP-2"
-}
 workspace "web" {
+    open-on-output "DP-2"
+}
+workspace "mel" {
     open-on-output "DP-2"
 }
 workspace "doc" {
     open-on-output "DP-2"
 }
+workspace "zik" {
+    open-on-output "DP-2"
+}
 
 window-rule {
     match at-startup=true app-id="spotify"
-    open-on-workspace "music"
+    open-on-workspace "zik"
     open-maximized true
 }
 window-rule {
     match at-startup=true app-id="thunderbird"
-    open-on-workspace "mail"
+    open-on-workspace "mel"
     open-maximized true
 }
 window-rule {
