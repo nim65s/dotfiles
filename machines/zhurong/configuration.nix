@@ -13,7 +13,7 @@ in
   environment.sessionVariables.ROVER = config.system.name;
   networking = {
     interfaces = {
-      wlan0 = {
+      wlan_tplink = {
         ipv4.addresses = [
           {
             address = "192.168.1.${ip}";
@@ -37,6 +37,9 @@ in
         extraConfig = "autoindex on;";
       };
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="net", ACTION=="add", ENV{ID_VENDOR_FROM_DATABASE}=="TP-Link", NAME="wlan_tplink"
+    '';
   };
 
   stylix.image = ../../bg/zhurong.jpg;
