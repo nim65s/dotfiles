@@ -13,6 +13,14 @@ in
   environment.sessionVariables.ROVER = config.system.name;
   networking = {
     interfaces = {
+      eno1 = {
+        ipv4.addresses = [
+          {
+            address = "192.168.2.${ip}";
+            prefixLength = 24;
+          }
+        ];
+      };
       wlan_tplink = {
         ipv4.addresses = [
           {
