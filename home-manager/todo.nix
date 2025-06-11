@@ -431,6 +431,14 @@ in
           hostname = "%h.fr";
           forwardAgent = true;
         };
+        "marsbase" = {
+          user = "root";
+          hostname = "192.168.1.1";
+          extraOptions = {
+            HostKeyAlgorithms = "+ssh-rsa";
+            PubkeyAcceptedKeyTypes = "+ssh-rsa";
+          };
+        };
         "*.l" = config.laasProxy.value // {
           hostname = "%haas.fr";
           forwardAgent = true;
