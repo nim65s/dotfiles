@@ -1,0 +1,182 @@
+From e074f6e6fdb89fcc7ced4d6ca357ac9620f40473 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Thu, 12 Jun 2025 15:40:45 +0200
+Subject: [PATCH 1/3] element-desktop: combine configs
+
+---
+ modules/programs/element-desktop.nix | 57 +++++++++++++++++++++++-----
+ 1 file changed, 47 insertions(+), 10 deletions(-)
+
+diff --git a/modules/programs/element-desktop.nix b/modules/programs/element-desktop.nix
+index ab7a4c16d465..316919a0dc1a 100644
+--- a/modules/programs/element-desktop.nix
++++ b/modules/programs/element-desktop.nix
+@@ -26,6 +26,20 @@ in
+   options.programs.element-desktop = {
+     enable = mkEnableOption "element-desktop";
+     package = mkPackageOption pkgs "element-desktop" { nullable = true; };
++    combineDefaultSettings = mkOption {
++      type = lib.types.bool;
++      default = false; # true would be better, but a breaking change
++      description = ''
++        Use element-web default configuration as a basis for settings and profiles.
++      '';
++    };
++    combineSettingsProfiles = mkOption {
++      type = lib.types.bool;
++      default = false; # true would be better, but a breaking change
++      description = ''
++        Use settings as a basis for profiles.
++      '';
++    };
+     settings = mkOption {
+       type = formatter.type;
+       default = { };
+@@ -52,9 +66,7 @@ in
+       '';
+       description = ''
+         Configuration settings for Element's default profiles.
+-        WARNING: Element doesn't combine this config with the defaults,
+-        so make sure to configure most options. For details about this
+-        behavior and available configuration options see:
++        For details about this behavior and available configuration options see:
+         <https://github.com/element-hq/element-web/blob/develop/docs/config.md>
+       '';
+     };
+@@ -90,8 +102,7 @@ in
+       '';
+       description = ''
+         Extra profiles for Element. Those can be accessed using the
+-        "--profile $NAME" flag. The same warning and options apply
+-        here.
++        "--profile $NAME" flag. The same options apply here.
+       '';
+     };
+   };
+@@ -100,12 +111,22 @@ in
+     home.packages = mkIf (cfg.package != null) [ cfg.package ];
+     home.file =
+       let
++        settings =
++          if cfg.combineDefaultSettings then
++            (pkgs.runCommandLocal "element-desktop-default"
++              {
++                nativeBuildInputs = [ pkgs.jq ];
++              }
++              ''
++                jq -s '.[0] * $conf' "${cfg.package}/share/element/webapp/config.json" --argjson "conf" ${lib.escapeShellArg (builtins.toJSON cfg.settings)} > $out
++              ''
++            )
++          else
++            (formatter.generate "element-desktop-default" cfg.settings);
+         defaultConfig =
+-          if (cfg.settings != { }) then
++          if (settings != { }) then
+             {
+-              "${prefix}/Element/config.json".source = (
+-                formatter.generate "element-desktop-default" cfg.settings
+-              );
++              "${prefix}/Element/config.json".source = settings;
+             }
+           else
+             { };
+@@ -113,8 +134,24 @@ in
+       defaultConfig
+       // (lib.mapAttrs' (
+         name: value:
++        let
++          profile =
++            if cfg.combineSettingsProfiles then
++              (pkgs.runCommandLocal "element-desktop-${name}"
++                {
++                  nativeBuildInputs = [ pkgs.jq ];
++                }
++                ''
++                  jq -s '.[0] * $conf' "${settings}" --argjson "conf" ${
++                    lib.escapeShellArg (builtins.toJSON cfg.profiles."${name}")
++                  } > $out
++                ''
++              )
++            else
++              (formatter.generate "element-desktop-${name}" cfg.profiles."${name}");
++        in
+         lib.nameValuePair "${prefix}/Element-${name}/config.json" {
+-          source = (formatter.generate "element-desktop-${name}" cfg.profiles."${name}");
++          source = profile;
+         }
+       ) cfg.profiles);
+   };
+
+From 25dadfa0a44b1c7ac7f8150c1a4109a6b728b179 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Thu, 12 Jun 2025 17:18:51 +0200
+Subject: [PATCH 2/3] element-desktop: add config extension in store
+
+---
+ modules/programs/element-desktop.nix | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/modules/programs/element-desktop.nix b/modules/programs/element-desktop.nix
+index 316919a0dc1a..d7e63086cee2 100644
+--- a/modules/programs/element-desktop.nix
++++ b/modules/programs/element-desktop.nix
+@@ -113,7 +113,7 @@ in
+       let
+         settings =
+           if cfg.combineDefaultSettings then
+-            (pkgs.runCommandLocal "element-desktop-default"
++            (pkgs.runCommandLocal "element-desktop-default.json"
+               {
+                 nativeBuildInputs = [ pkgs.jq ];
+               }
+@@ -122,7 +122,7 @@ in
+               ''
+             )
+           else
+-            (formatter.generate "element-desktop-default" cfg.settings);
++            (formatter.generate "element-desktop-default.json" cfg.settings);
+         defaultConfig =
+           if (settings != { }) then
+             {
+@@ -137,7 +137,7 @@ in
+         let
+           profile =
+             if cfg.combineSettingsProfiles then
+-              (pkgs.runCommandLocal "element-desktop-${name}"
++              (pkgs.runCommandLocal "element-desktop-${name}.json"
+                 {
+                   nativeBuildInputs = [ pkgs.jq ];
+                 }
+@@ -148,7 +148,7 @@ in
+                 ''
+               )
+             else
+-              (formatter.generate "element-desktop-${name}" cfg.profiles."${name}");
++              (formatter.generate "element-desktop-${name}.json" cfg.profiles."${name}");
+         in
+         lib.nameValuePair "${prefix}/Element-${name}/config.json" {
+           source = profile;
+
+From 32400e27aea132cb3632ea06710b6107019213de Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Thu, 12 Jun 2025 17:26:49 +0200
+Subject: [PATCH 3/3] element-desktop: dont generate empty file on empty
+ settings
+
+---
+ modules/programs/element-desktop.nix | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/programs/element-desktop.nix b/modules/programs/element-desktop.nix
+index d7e63086cee2..8d4df9de39b5 100644
+--- a/modules/programs/element-desktop.nix
++++ b/modules/programs/element-desktop.nix
+@@ -124,7 +124,7 @@ in
+           else
+             (formatter.generate "element-desktop-default.json" cfg.settings);
+         defaultConfig =
+-          if (settings != { }) then
++          if (cfg.settings != { } || cfg.combineDefaultSettings) then
+             {
+               "${prefix}/Element/config.json".source = settings;
+             }

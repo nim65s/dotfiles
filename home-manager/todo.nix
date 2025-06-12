@@ -50,7 +50,6 @@ in
       cntr
       docker-compose
       du-dust
-      element-desktop
       evince
       #eww-wayland
       fd
@@ -252,6 +251,41 @@ in
   };
 
   programs = {
+    element-desktop = {
+      enable = true;
+      combineDefaultSettings = true;
+      combineSettingsProfiles = true;
+      package = pkgs.element-desktop.overrideAttrs {
+        # ref. https://github.com/fabiospampinato/atomically/issues/13
+        postFixup = ''
+          substituteInPlace \
+            $out/share/element/electron/node_modules/atomically/dist/constants.js \
+            --replace-fail "os.userInfo().uid;" "process.geteuid();" \
+            --replace-fail "os.userInfo().gid;" "process.getegid();"
+        '';
+      };
+      settings =
+        let
+          theme = lib.importJSON "${
+            pkgs.catppuccin.override {
+              variant = "mocha";
+              accent = "blue";
+            }
+          }/element/blue.json";
+        in
+        {
+          default_server_config."m.homeserver" = {
+            base_url = "https://matrix.laas.fr";
+            server_name = "laas.fr";
+          };
+          default_theme = theme.name;
+          setting_defaults.custom_themes = [ theme ];
+        };
+      profiles.ttnn.default_server_config."m.homeserver" = {
+        base_url = "https://matrix.tetaneutral.net";
+        server_name = "tetaneutral.net";
+      };
+    };
     git = {
       enable = true;
       attributes = [

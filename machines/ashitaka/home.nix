@@ -32,7 +32,7 @@
       "${pkgs.zeal-qt6}/share/applications/org.zealdocs.zeal.desktop"
       "${config.programs.firefox.finalPackage}/share/applications/firefox-devedition.desktop"
       "${config.programs.kitty.package}/share/applications/kitty.desktop"
-      "${pkgs.element-desktop.desktopItem}/share/applications/element-desktop.desktop"
+      "${config.programs.element-desktop.package.desktopItem}/share/applications/element-desktop.desktop"
       "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
       "${config.programs.spicetify.spicedSpotify}/share/spotify/spotify.desktop"
       "${pkgs.pavucontrol}/share/applications/org.pulseaudio.pavucontrol.desktop"

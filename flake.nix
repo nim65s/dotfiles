@@ -102,6 +102,7 @@
       inputs = patcher.patch unpatchedInputs {
         nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
         catppuccin.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/catppuccin/nix;
+        home-manager.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/home-manager;
       };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
@@ -137,7 +138,7 @@
                 permittedInsecurePackages = [ "squid-7.0.1" ]; # TODO
               };
               overlays = [
-                (final: prev: {
+                (_final: prev: {
                   nur = import inputs.nur {
                     nurpkgs = prev;
                     pkgs = prev;
@@ -158,20 +159,6 @@
                     ;
                   arsenik = prev.arsenik.overrideAttrs {
                     patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
-                  };
-                  element-web = prev.element-web.override {
-                    conf = {
-                      setting_defaults = {
-                        custom_themes = [
-                          (final.lib.importJSON "${
-                            pkgs.catppuccin.override {
-                              variant = "mocha";
-                              accent = "blue";
-                            }
-                          }/element/blue.json")
-                        ];
-                      };
-                    };
                   };
                   git-extras = prev.git-extras.overrideAttrs {
                     patches = [
