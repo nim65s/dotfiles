@@ -101,6 +101,7 @@
     '';
     package = pkgs.lix;
     settings = {
+      accept-flake-config = false;
       extra-substituters = [
         "https://gepetto.cachix.org"
         "https://nix-community.cachix.org"
