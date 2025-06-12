@@ -260,8 +260,8 @@ in
         postFixup = ''
           substituteInPlace \
             $out/share/element/electron/node_modules/atomically/dist/constants.js \
-            --replace-fail "os.userInfo().uid;" "process.geteuid();" \
-            --replace-fail "os.userInfo().gid;" "process.getegid();"
+            --replace-fail "os.userInfo().uid;" "process.geteuid ? process.geteuid() : -1;" \
+            --replace-fail "os.userInfo().gid;" "process.getegid ? process.getegid() : -1;"
         '';
       };
       settings = {
