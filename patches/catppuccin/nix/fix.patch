@@ -1,0 +1,24 @@
+--- a/modules/home-manager/element-desktop.nix	1970-01-01 01:00:01.000000000 +0100
++++ b/modules/home-manager/element-desktop.nix	2025-06-12 18:16:13.240111780 +0200
+@@ -16,14 +16,13 @@
+   config = lib.mkIf cfg.enable {
+     assertions = [ (catppuccinLib.assertMinimumVersion "25.05") ];
+     programs.element-desktop = {
+-      settings = {
+-        default_theme =
+-          "custom-Catppuccin "
+-          + (if cfg.flavor == "frappe" then "Frappé" else catppuccinLib.mkUpper cfg.flavor)
+-          + " (${catppuccinLib.mkUpper cfg.accent})";
+-        setting_defaults.custom_themes = [
+-          (lib.importJSON "${sources.element}/${cfg.flavor}/${cfg.accent}.json")
+-        ];
++      settings =
++        let
++          custom-theme = lib.importJSON "${sources.element}/${cfg.flavor}/${cfg.accent}.json";
++        in
++        {
++          default_theme = custom-theme.name;
++          setting_defaults.custom_themes = [ custom-theme ];
+       };
+     };
+   };

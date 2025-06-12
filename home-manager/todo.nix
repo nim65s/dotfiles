@@ -264,23 +264,12 @@ in
             --replace-fail "os.userInfo().gid;" "process.getegid();"
         '';
       };
-      settings =
-        let
-          theme = lib.importJSON "${
-            pkgs.catppuccin.override {
-              variant = "mocha";
-              accent = "blue";
-            }
-          }/element/blue.json";
-        in
-        {
-          default_server_config."m.homeserver" = {
-            base_url = "https://matrix.laas.fr";
-            server_name = "laas.fr";
-          };
-          default_theme = theme.name;
-          setting_defaults.custom_themes = [ theme ];
+      settings = {
+        default_server_config."m.homeserver" = {
+          base_url = "https://matrix.laas.fr";
+          server_name = "laas.fr";
         };
+      };
       profiles.ttnn.default_server_config."m.homeserver" = {
         base_url = "https://matrix.tetaneutral.net";
         server_name = "tetaneutral.net";
