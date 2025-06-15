@@ -175,6 +175,7 @@ in
       #sway
       swaybg
       swaylock
+      tdf
       tig
       toml-sort
       tree
