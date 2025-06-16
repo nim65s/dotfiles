@@ -280,7 +280,18 @@ in
           };
         };
       };
-      zathura.enable = true;
+      zathura = {
+        enable = true;
+        mappings = {
+          s = "reload";
+          r = "navigate next";
+          t = "navigate previous";
+          h = "zoom in";
+          g = "zoom out";
+          q = "quit";
+          n = "rotate";
+        };
+      };
     };
 
     qt = {

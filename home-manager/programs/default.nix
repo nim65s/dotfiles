@@ -107,11 +107,11 @@
 
     zathura = {
       mappings = {
-        r = "reload";
-        t = "navigate next";
-        s = "navigate previous";
-        v = "zoom in";
-        l = "zoom out";
+        s = "reload";
+        r = "navigate next";
+        t = "navigate previous";
+        h = "zoom in";
+        g = "zoom out";
         q = "quit";
         n = "rotate";
       };
