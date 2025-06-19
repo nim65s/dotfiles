@@ -165,11 +165,6 @@
                       ./patches/tj/git-extras/1177_support-github_token-var-for-git-fork-and-git-pull-request.patch
                     ];
                   };
-                  nixpkgs-review = prev.nixpkgs-review.overrideAttrs {
-                    patches = [
-                      ./patches/Mic92/nixpkgs-review/501_add-github_token_cmd.patch
-                    ];
-                  };
                   spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
                 })
               ];
