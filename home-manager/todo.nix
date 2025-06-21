@@ -281,7 +281,12 @@ in
       attributes = [
         "*.png diff=exif-diff"
       ];
-      delta.enable = true;
+      delta = {
+        enable = true;
+        options = {
+          hyperlinks = true;
+        };
+      };
       lfs.enable = true;
       userName = "Guilhem Saurel";
       userEmail = atjoin { name = "guilhem.saurel"; };
