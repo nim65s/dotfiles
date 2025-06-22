@@ -238,7 +238,6 @@ in
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
       GITHUB_TOKEN_CMD = "rbw get github-token";
-      MANPAGER = "batman";
       NIXOS_OZONE_WL = 1;
       # PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";

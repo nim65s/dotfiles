@@ -19,10 +19,7 @@
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
-        batdiff
         batman
-        batgrep
-        batwatch
       ];
     };
     btop = {
@@ -120,6 +117,7 @@
         llt = "eza -l --tree";
         lat = "eza -A --tree";
         lta = "eza -A --tree";
+        man = "batman";
         monte = "~/scripts/monter.sh";
         psef = "ps -ef | grep -v grep | grep";
         v = "nvim";
