@@ -46,7 +46,6 @@
     coreutils
     cntr
     dfc
-    fd
     file
     git
     graphviz

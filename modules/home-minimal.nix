@@ -44,6 +44,12 @@
         "--ignore-glob=.git|*.orig|*~"
       ];
     };
+    fd = {
+      enable = true;
+      extraOptions = [
+        "--hyperlink"
+      ];
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''

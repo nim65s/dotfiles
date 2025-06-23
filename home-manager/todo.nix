@@ -52,7 +52,6 @@ in
       du-dust
       evince
       #eww-wayland
-      fd
       ffmpeg
       file
       fishPlugins.bass
