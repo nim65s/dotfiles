@@ -18,6 +18,9 @@
   programs = {
     bat = {
       enable = true;
+      config = {
+        style = "plain";
+      };
       extraPackages = with pkgs.bat-extras; [
         batman
       ];
