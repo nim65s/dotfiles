@@ -160,11 +160,6 @@
                   arsenik = prev.arsenik.overrideAttrs {
                     patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
                   };
-                  git-extras = prev.git-extras.overrideAttrs {
-                    patches = [
-                      ./patches/tj/git-extras/1177_support-github_token-var-for-git-fork-and-git-pull-request.patch
-                    ];
-                  };
                   spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
                 })
               ];
