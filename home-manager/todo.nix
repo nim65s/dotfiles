@@ -39,7 +39,7 @@ in
       comma
       dcfldd
       deadnix
-      devenv
+      # devenv
       dfc
       d-spy
       dig
