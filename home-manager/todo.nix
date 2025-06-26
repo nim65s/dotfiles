@@ -46,7 +46,7 @@ in
       dos2unix
       chrpath
       cmake
-      cmake-format
+      # cmake-format
       cntr
       docker-compose
       du-dust
@@ -57,6 +57,7 @@ in
       fishPlugins.bass
       #font-awesome
       fuzzel
+      gersemi
       ghostscript
       git-extras
       git-fork-clone
