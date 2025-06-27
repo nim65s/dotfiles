@@ -28,5 +28,6 @@
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
   };
   stylix.image = ../../bg/yupa.jpg;
+  services.flatpak.enable = true;
   virtualisation.docker.enable = true;
 }
