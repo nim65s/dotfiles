@@ -109,6 +109,7 @@
         };
       };
     };
+    kitty-scrollback.enable = true;
     lsp = {
       enable = true;
       servers = {

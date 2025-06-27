@@ -1,0 +1,42 @@
+From beec557a74411dc49da067ae024056b55e31e552 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Fri, 27 Jun 2025 13:51:12 +0200
+Subject: [PATCH] plugins/kitty-scrollback: init
+
+---
+ plugins/by-name/kitty-scrollback/default.nix          |  7 +++++++
+ .../plugins/by-name/kitty-scrollback/default.nix      | 11 +++++++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 plugins/by-name/kitty-scrollback/default.nix
+ create mode 100644 tests/test-sources/plugins/by-name/kitty-scrollback/default.nix
+
+diff --git a/plugins/by-name/kitty-scrollback/default.nix b/plugins/by-name/kitty-scrollback/default.nix
+new file mode 100644
+index 0000000000..1f45542d44
+--- /dev/null
++++ b/plugins/by-name/kitty-scrollback/default.nix
+@@ -0,0 +1,7 @@
++{ lib, ... }:
++lib.nixvim.plugins.mkNeovimPlugin {
++  name = "kitty-scrollback";
++  package = "kitty-scrollback-nvim";
++
++  maintainers = [ lib.maintainers.nim65s ];
++}
+diff --git a/tests/test-sources/plugins/by-name/kitty-scrollback/default.nix b/tests/test-sources/plugins/by-name/kitty-scrollback/default.nix
+new file mode 100644
+index 0000000000..3a374cb9c2
+--- /dev/null
++++ b/tests/test-sources/plugins/by-name/kitty-scrollback/default.nix
+@@ -0,0 +1,11 @@
++{
++  empty = {
++    plugins.kitty-scrollback.enable = true;
++  };
++
++  defaults = {
++    plugins.kitty-scrollback = {
++      enable = true;
++    };
++  };
++}
