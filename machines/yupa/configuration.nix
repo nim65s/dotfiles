@@ -3,6 +3,7 @@
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
+    ../../modules/steam.nix
     ../../modules/nixos.nix
     ../../modules/wifi.nix
     ../../modules/x86_64-linux.nix
