@@ -3,7 +3,8 @@
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
-    ../../modules/steam.nix
+    # ../../modules/steam.nix
+    # ../../modules/teeworlds.nix
     ../../modules/nixos.nix
     ../../modules/wifi.nix
     ../../modules/x86_64-linux.nix
@@ -29,6 +30,6 @@
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
   };
   stylix.image = ../../bg/yupa.jpg;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
   virtualisation.docker.enable = true;
 }
