@@ -49,6 +49,8 @@
 
   stylix.image = ../../bg/ashitaka-3.jpg;
 
+  system.extraDependencies = [ pkgs.factorio-space-age.src ];
+
   users.users.nim.extraGroups = [ "docker" ];
 
   virtualisation.docker.enable = true;
