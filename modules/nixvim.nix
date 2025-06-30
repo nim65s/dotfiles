@@ -58,6 +58,16 @@
       key = "%a";
       action = "wa";
     }
+    {
+      mode = "ca";
+      key = "[";
+      action = "x";
+    }
+    {
+      mode = "ca";
+      key = "[a";
+      action = "xa";
+    }
   ];
 
   opts = {
