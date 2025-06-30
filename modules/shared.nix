@@ -360,6 +360,11 @@
     ];
   };
 
+  system.autoUpgrade = {
+    enable = lib.mkDefault true;
+    flake = "github:nim65s/dotfiles";
+  };
+
   time.timeZone = "Europe/Paris";
 
   users.users =

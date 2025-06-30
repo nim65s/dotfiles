@@ -39,6 +39,8 @@
     };
   };
 
+  system.autoUpgrade.enable = false;
+
   systemd.services = {
     calibration = {
       description = "Rover calibration UI";
