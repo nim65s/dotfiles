@@ -73,3 +73,4 @@ result
 result-*
 results
 .hugo_build.lock
+.yarn
