@@ -185,11 +185,9 @@ in
             ${if config.nim-home.waybar-output != "" then "output" else null} = config.nim-home.waybar-output;
             layer = "top";
             position = "bottom";
-            height = 32;
+            height = 36;
             modules-left = [
               "niri/workspaces"
-              "niri/mode"
-              "niri/scratchpad"
             ];
             modules-center = [ "niri/window" ];
             modules-right = [
