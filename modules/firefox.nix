@@ -3,7 +3,7 @@
   ...
 }:
 {
-  catppuccin.firefox.profile = "nim";
+  catppuccin.firefox.profiles.nim.enable = true;
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
@@ -12,6 +12,7 @@
       name = "dev-edition-default";
       path = "nim.dev-edition-default";
       isDefault = true;
+      extensions.force = true;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         click-and-read

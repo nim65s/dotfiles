@@ -102,7 +102,6 @@
       inputs = patcher.patch unpatchedInputs {
         nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
         nixvim.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/nixvim;
-        catppuccin.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/catppuccin/nix;
         home-manager.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/home-manager;
       };
     in
