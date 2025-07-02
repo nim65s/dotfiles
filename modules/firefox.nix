@@ -3,7 +3,10 @@
   ...
 }:
 {
-  catppuccin.firefox.profiles.nim.enable = true;
+  catppuccin.firefox.profiles.nim = {
+    enable = true;
+    force = true;
+  };
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
@@ -16,7 +19,9 @@
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         click-and-read
+        firefox-color
         mergify
+        stylus
         #switchyomega
         tree-style-tab
         ublock-origin
