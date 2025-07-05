@@ -8,8 +8,6 @@
     ../../modules/x86_64-linux.nix
   ];
 
-  console = {
-  };
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-WD_BLACK_SN770_500GB_23313J803792";
     name = "main-cb1244c6-395c-44db-89db-709173ba9b44";
