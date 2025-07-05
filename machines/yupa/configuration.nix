@@ -18,7 +18,10 @@
     "rtw89_pci.disable_aspm_l1ss=Y"
     "rtw89_pci.disable_clkreq=Y"
   ];
-  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
+  disko.devices.disk.main = {
+    device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
+    name = "main-a855f7621e7c4f468b3e94c4ed4ade19";
+  };
   home-manager.users.nim = import ../../modules/nim-home.nix;
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [

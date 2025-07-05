@@ -1,23 +1,15 @@
 {
-  clan-core,
-  config,
   ...
 }:
 
-let
-  suffix = config.clan.core.vars.generators.disk-id.files.diskId.value;
-in
 {
   imports = [
-    clan-core.clanModules.disk-id
     ./zfs-latest.nix
   ];
 
   disko.devices = {
     disk = {
-      "main" = {
-        # suffix is to prevent disk name collisions
-        name = "main-" + suffix;
+      main = {
         type = "disk";
         # Set the following in flake.nix for each maschine:
         # device = <uuid>;

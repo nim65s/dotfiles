@@ -77,8 +77,13 @@
       cursor = {
         name = "catppuccin-mocha-red-cursors";
         package = pkgs.catppuccin-cursors.mochaRed;
+        size = 16;
       };
-      targets.mako.enable = false; # silence a HM assert
+      targets = {
+        mako.enable = false; # silence a HM assert
+        qt.enable = false;
+        starship.enable = false;
+      };
     };
   };
 }

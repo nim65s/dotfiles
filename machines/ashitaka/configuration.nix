@@ -17,7 +17,10 @@
 
   environment.systemPackages = [ pkgs.factorio-space-age ];
 
-  disko.devices.disk.main.device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
+  disko.devices.disk.main = {
+    device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
+    name = "main-ab41b1b291c142a29d99aaf8f398f575";
+  };
   home-manager.users.nim = import ./home.nix;
 
   networking = {

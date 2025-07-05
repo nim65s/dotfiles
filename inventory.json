@@ -27,29 +27,5 @@
     "zhurong": {
       "name": "zhurong"
     }
-  },
-  "services": {
-    "mycelium": {
-      "default": {
-        "enabled": true,
-        "config": {
-          "openFirewall": true
-        },
-        "meta": {
-          "name": "default"
-        },
-        "roles": {
-          "peer": {
-            "machines": [
-              "ashitaka",
-              "hattori",
-              "perseverance",
-              "yupa",
-              "zhurong"
-            ]
-          }
-        }
-      }
-    }
   }
 }

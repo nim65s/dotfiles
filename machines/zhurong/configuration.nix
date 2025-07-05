@@ -2,6 +2,7 @@
 let
   ip = "20";
   disk = "nvme-LDLC_F8+M.2_120_09292220C0868";
+  name = "main-9a85e7cff1e9472f81f1bdd94431815c";
 in
 {
   imports = [
@@ -9,7 +10,10 @@ in
   ];
 
   clan.core.networking.targetHost = "root@192.168.1.${ip}";
-  disko.devices.disk.main.device = "/dev/disk/by-id/${disk}";
+  disko.devices.disk.main = {
+    inherit name;
+    device = "/dev/disk/by-id/${disk}";
+  };
   environment.sessionVariables.ROVER = config.system.name;
   networking = {
     interfaces = {
