@@ -10,6 +10,7 @@
     cursor = lib.mkDefault {
       name = "catppuccin-mocha-blue-cursors";
       package = pkgs.catppuccin-cursors.mochaBlue;
+      size = 16;
     };
     fonts = {
       serif = {
