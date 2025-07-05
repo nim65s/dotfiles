@@ -301,6 +301,7 @@
       alacritty.enable = false;
       bat.enable = false;
       btop.enable = false;
+      firefox.enable = false;
       fzf.enable = false;
       helix.enable = false;
       kitty.enable = false;
