@@ -11,10 +11,6 @@
     ../../modules/x86_64-linux.nix
   ];
 
-  clan.core.networking = {
-    zerotier.controller.enable = true;
-  };
-
   environment.systemPackages = [ pkgs.factorio-space-age ];
 
   disko.devices.disk.main = {

@@ -24,16 +24,6 @@
     accent = lib.mkDefault "blue";
   };
 
-  clan = {
-    core = {
-      networking = {
-        zerotier.networkId = builtins.readFile (
-          config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
-        );
-      };
-    };
-  };
-
   console.useXkbConfig = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [

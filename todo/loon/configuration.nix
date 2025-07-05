@@ -7,13 +7,6 @@
       "/crypto_keyfile.bin" = null;
     };
   };
-  clan.core.networking = {
-    targetHost = "root@loon";
-    zerotier.controller = {
-      enable = true;
-      public = true;
-    };
-  };
   console.keyMap = "fr-bepo";
 
   networking = {
