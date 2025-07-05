@@ -168,6 +168,7 @@
               };
               wifi = {
                 roles.default = {
+                  machines.fix = { };
                   machines.hattori = { };
                   machines.yupa = { };
                   settings.networks = {
