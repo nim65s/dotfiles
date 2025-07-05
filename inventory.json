@@ -1,15 +1,27 @@
 {
   "machines": {
     "ashitaka": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "localhost"
+      },
       "name": "ashitaka"
     },
     "yupa": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "localhost"
+      },
       "name": "yupa"
     },
     "perseverance": {
       "name": "perseverance"
     },
     "hattori": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "localhost"
+      },
       "name": "hattori"
     },
     "zhurong": {
