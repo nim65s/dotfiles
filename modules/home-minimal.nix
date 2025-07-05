@@ -307,7 +307,8 @@
       mako.enable = false; # silence a HM assert in unused module
       neovim.enable = false;
       nixvim.enable = false;
-      #qt.enable = false;
+      qt.enable = false;
+      starship.enable = false;
       swaylock.enable = false;
       swaync.enable = false;
     };
