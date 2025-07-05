@@ -12,7 +12,6 @@
     clan-core.clanModules.sshd
     clan-core.clanModules.root-password
     clan-core.clanModules.user-password
-    clan-core.clanModules.state-version
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
     inputs.nixvim.nixosModules.nixvim
@@ -31,10 +30,13 @@
 
   clan = {
     user-password.user = "nim";
-    core.networking = {
-      zerotier.networkId = builtins.readFile (
-        config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
-      );
+    core = {
+      networking = {
+        zerotier.networkId = builtins.readFile (
+          config.clan.core.settings.directory + "/machines/ashitaka/facts/zerotier-network-id"
+        );
+      };
+      settings.state-version.enable = true;
     };
   };
 
