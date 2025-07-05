@@ -3,14 +3,14 @@
     "ashitaka": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "localhost"
+        "targetHost": "ashitaka.m"
       },
       "name": "ashitaka"
     },
     "yupa": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "localhost"
+        "targetHost": "yupa.m"
       },
       "name": "yupa"
     },
@@ -20,7 +20,7 @@
     "hattori": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "localhost"
+        "targetHost": "hattori.m"
       },
       "name": "hattori"
     },
