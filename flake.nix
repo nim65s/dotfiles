@@ -10,7 +10,9 @@
       url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
+        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
+        nuschtos.follows = "nuschtosSearch";
         treefmt-nix.follows = "treefmt-nix";
       };
     };
@@ -48,6 +50,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         nuschtosSearch.follows = "nuschtosSearch";
+        systems.follows = "clan-core/systems";
       };
     };
     nur = {
@@ -80,13 +83,13 @@
       };
     };
     stylix = {
-      # ref. https://github.com/danth/stylix/issues/835
-      url = "github:danth/stylix/b00c9f46ae6c27074d24d2db390f0ac5ebcc329f";
+      url = "github:danth/stylix";
       inputs = {
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
+        nur.follows = "nur";
         systems.follows = "clan-core/systems";
-        flake-utils.follows = "flake-utils";
+        flake-parts.follows = "flake-parts";
       };
     };
     treefmt-nix = {
