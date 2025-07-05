@@ -7,6 +7,13 @@
       },
       "name": "ashitaka"
     },
+    "fix": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "fix.m"
+      },
+      "name": "fix"
+    },
     "yupa": {
       "deploy": {
         "buildHost": "localhost",
