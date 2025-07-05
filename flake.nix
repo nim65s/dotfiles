@@ -155,7 +155,33 @@
                 };
               };
               state-version = {
-                roles.default.tags.all = { };
+                roles.default = {
+                  tags.all = { };
+                };
+              };
+              wifi = {
+                roles.default = {
+                  machines.hattori = { };
+                  machines.yupa = { };
+                  settings.networks = {
+                    antagnac = { };
+                    azv = { };
+                    baroustan = { };
+                    bouys = { };
+                    bsc = { };
+                    kekeno = { };
+                    kessica = { };
+                    laas_welcome.autoConnect = false;
+                    lacroix = { };
+                    lavelanet = { };
+                    marsrovers = { };
+                    picto_cne = { };
+                    prades = { };
+                    sabliere = { };
+                    share_fil = { };
+                    toffan = { };
+                  };
+                };
               };
             };
           };
