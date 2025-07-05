@@ -142,6 +142,13 @@
                   settings.user = "nim";
                 };
               };
+              users-fil = {
+                module.name = "users";
+                roles.default = {
+                  machines.fix = { };
+                  settings.user = "fil";
+                };
+              };
               users-mimi = {
                 module.name = "users";
                 roles.default = {
