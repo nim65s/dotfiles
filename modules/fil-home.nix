@@ -27,7 +27,6 @@
 
     programs = {
       element-desktop.enable = true;
-      fish.enable = true;
       firefox = {
         enable = true;
         languagePacks = [
@@ -35,6 +34,7 @@
           "en"
         ];
       };
+      fish.enable = true;
       kitty = {
         enable = true;
         settings = {
@@ -46,6 +46,7 @@
         };
       };
       starship.enable = true;
+      # thunderbird.enable = true;
     };
 
     qt = {
