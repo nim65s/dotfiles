@@ -11,7 +11,8 @@
   config = {
     catppuccin = {
       enable = true;
-      accent = "yellow";
+      accent = "blue";
+      flavor = "latte";
     };
 
     home = {
@@ -55,8 +56,8 @@
 
     stylix = {
       cursor = {
-        name = "catppuccin-mocha-yellow-cursors";
-        package = pkgs.catppuccin-cursors.mochaYellow;
+        name = "catppuccin-latte-blue-cursors";
+        package = pkgs.catppuccin-cursors.latteBlue;
         size = 24;
       };
       targets = {
