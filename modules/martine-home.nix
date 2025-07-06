@@ -25,7 +25,9 @@
     };
 
     programs = {
+      element-desktop.enable = true;
       fish.enable = true;
+      firefox.enable = true;
       kitty = {
         enable = true;
         settings = {
