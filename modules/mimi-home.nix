@@ -77,7 +77,7 @@
       cursor = {
         name = "catppuccin-mocha-red-cursors";
         package = pkgs.catppuccin-cursors.mochaRed;
-        size = 16;
+        size = 24;
       };
       targets = {
         mako.enable = false; # silence a HM assert
