@@ -19,6 +19,7 @@
       username = "martine";
       keyboard.layout = "fr";
       packages = [
+        pkgs.five-or-more
       ];
       stateVersion = "25.05";
     };
