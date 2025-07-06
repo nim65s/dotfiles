@@ -10,6 +10,10 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
+    languagePacks = [
+      "fr"
+      "en"
+    ];
     profiles.nim = {
       id = 0;
       name = "dev-edition-default";
