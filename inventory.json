@@ -31,6 +31,14 @@
       },
       "name": "hattori"
     },
+    "tipunch": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "tipunch.m"
+      },
+      "name": "tipunch"
+    },
+
     "zhurong": {
       "name": "zhurong"
     }

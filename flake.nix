@@ -143,6 +143,13 @@
                   settings.user = "fil";
                 };
               };
+              users-martine = {
+                module.name = "users";
+                roles.default = {
+                  machines.tipunch = { };
+                  settings.user = "martine";
+                };
+              };
               users-mimi = {
                 module.name = "users";
                 roles.default = {
@@ -164,6 +171,7 @@
                 roles.default = {
                   machines.fix = { };
                   machines.hattori = { };
+                  machines.tipunch = { };
                   machines.yupa = { };
                   settings.networks = {
                     antagnac = { };
