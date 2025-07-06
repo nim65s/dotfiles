@@ -20,7 +20,7 @@ ssh-copy-id root@$remote
 ssh root@$remote
 vim /tmp/secret.key
 exit
-clan machines install $machine --target-host root@$remote --phases kexec,disko,install
+clan machines install $machine --target-host root@$remote --phases disko,install
 ssh root@$remote
 umount /mnt/boot
 zfs set keylocation=prompt zroot/root
