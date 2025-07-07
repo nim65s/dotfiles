@@ -11,7 +11,7 @@ nix run .#home-manager -- switch --flake .
 
 ```
 set machine fix
-set remote 192.168.8.231
+set remote $machine.m
 ssh-keygen -f ~/.ssh/known_hosts -R $remote
 ssh-keyscan $remote >> ~/.ssh/known_hosts
 ssh root@localhost "ssh-keygen -f ~/.ssh/known_hosts -R $remote"
