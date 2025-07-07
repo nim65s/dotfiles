@@ -21,6 +21,7 @@
       keyboard.layout = "fr";
       packages = [
         pkgs.thunderbird
+        pkgs.vlc
       ];
       stateVersion = "25.05";
     };

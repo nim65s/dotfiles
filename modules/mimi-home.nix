@@ -26,6 +26,7 @@
           libsForQt5.ktouch # TODO: broken on qt6
           superTuxKart
           teeworlds
+          vlc
         ]
         ++ (with kdePackages; [
           # keep-sorted start

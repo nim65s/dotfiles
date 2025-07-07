@@ -20,6 +20,7 @@
       keyboard.layout = "fr";
       packages = [
         pkgs.five-or-more
+        pkgs.vlc
       ];
       stateVersion = "25.05";
     };
