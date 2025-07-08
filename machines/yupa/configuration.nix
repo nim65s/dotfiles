@@ -6,6 +6,7 @@
     # ../../modules/steam.nix
     # ../../modules/teeworlds.nix
     ../../modules/nixos.nix
+    ../../modules/wifi-laas.nix
     ../../modules/x86_64-linux.nix
   ];
 

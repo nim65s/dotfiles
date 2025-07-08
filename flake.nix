@@ -7,12 +7,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "https://git.clan.lol/nim65s/clan-core/archive/multi-wifi.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
-        flake-utils.follows = "flake-utils";
+        # flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
-        nuschtos.follows = "nuschtosSearch";
+        # nuschtos.follows = "nuschtosSearch";
         treefmt-nix.follows = "treefmt-nix";
       };
     };
@@ -190,6 +190,16 @@
                     sabliere = { };
                     share_fil = { };
                     toffan = { };
+                  };
+                };
+              };
+              wifi-laas = {
+                module.name = "wifi";
+                roles.default = {
+                  machines.yupa = { };
+                  settings.networks = {
+                    eduroam_gsaurel.autoConnect = false;
+                    laas_secure_gsaurel = { };
                   };
                 };
               };
