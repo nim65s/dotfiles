@@ -179,6 +179,7 @@
                     baroustan = { };
                     bouys = { };
                     bsc = { };
+                    healoria = { };
                     kekeno = { };
                     kessica = { };
                     laas_welcome.autoConnect = false;
@@ -189,6 +190,7 @@
                     prades = { };
                     sabliere = { };
                     share_fil = { };
+                    share_nim = { };
                     toffan = { };
                   };
                 };
