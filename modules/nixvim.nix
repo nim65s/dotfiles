@@ -124,7 +124,7 @@
       enable = true;
       servers = {
         clangd.enable = true;
-        cmake.enable = true;
+        # cmake.enable = true;
         nil_ls.enable = true;
         rls.enable = true;
         ruff.enable = true;
