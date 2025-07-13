@@ -31,6 +31,13 @@
       },
       "name": "hattori"
     },
+    "spare": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "spare.m"
+      },
+      "name": "spare"
+    },
     "tipunch": {
       "deploy": {
         "buildHost": "localhost",
@@ -38,7 +45,6 @@
       },
       "name": "tipunch"
     },
-
     "zhurong": {
       "name": "zhurong"
     }

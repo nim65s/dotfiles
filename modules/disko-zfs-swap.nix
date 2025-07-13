@@ -38,7 +38,7 @@
                 pool = "zroot";
               };
             };
-            swap = {
+            "swap" = {
               size = "16G";
               content = {
                 type = "swap";
