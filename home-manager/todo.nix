@@ -455,6 +455,13 @@ in
           forwardAgent = true;
           user = "root";
         };
+        "*.m" = {
+          forwardAgent = true;
+        };
+        "*.M" = {
+          forwardAgent = true;
+          user = "root";
+        };
         "*.t" = {
           hostname = "%hetaneutral.net";
           user = "root";
