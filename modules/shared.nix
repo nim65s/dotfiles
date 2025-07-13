@@ -12,6 +12,7 @@
     inputs.catppuccin.nixosModules.catppuccin
     inputs.nixvim.nixosModules.nixvim
     "${inputs.nixpkgs}/nixos/modules/services/hardware/arsenik.nix"
+    ./access-tokens.nix
   ];
 
   boot.loader.systemd-boot = {
@@ -81,9 +82,6 @@
   };
 
   nix = {
-    extraOptions = ''
-      !include ${config.sops.secrets.nix-access-tokens.path}
-    '';
     package = pkgs.lix;
     settings = {
       accept-flake-config = false;
