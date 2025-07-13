@@ -32,6 +32,28 @@
     ];
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
   };
+
+  networking.firewall.allowedUDPPorts = [ 46000 ];
+  services.pipewire.extraConfig.pipewire = {
+    "20-rtp-source" = {
+      "context.modules" = [
+        {
+          name = "libpipewire-module-rtp-source";
+          args = {
+            "source.ip" = "::";
+            "source.port" = 46000;
+            "sess.ignore-ssrc" = true; # so that we can restart the sender
+            "stream.props" = {
+              "media.class" = "Audio/Source";
+              "node.name" = "rtp-source";
+              "node.description" = "RTP from hattori";
+            };
+          };
+        }
+      ];
+    };
+  };
+
   stylix.image = ../../bg/yupa.jpg;
   # services.flatpak.enable = true;
   virtualisation.docker.enable = true;

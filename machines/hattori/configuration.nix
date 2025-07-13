@@ -36,6 +36,25 @@
       defaultSession = null;
     };
     desktopManager.plasma6.enable = true;
+    pipewire.extraConfig.pipewire = {
+      "20-rtp-sink" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-rtp-sink";
+            args = {
+              "destination.ip" = "yupa.m";
+              "destination.port" = 46000;
+              "stream.props" = {
+                "media.class" = "Audio/Sink";
+                "node.name" = "rtp-sink";
+                "node.description" = "RTP to yupa.m";
+              };
+            };
+          }
+        ];
+
+      };
+    };
     xserver.xkb.variant = "";
   };
   stylix.image = ../../bg/hattori.jpg;
