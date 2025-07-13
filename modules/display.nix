@@ -1,5 +1,8 @@
 { lib, pkgs, ... }:
 {
+  imports = [
+    ./ssh-sk1.nix
+  ];
   programs = {
     niri.enable = true;
     waybar.enable = lib.mkDefault true;
@@ -35,7 +38,6 @@
       windowManager.i3.enable = true;
     };
   };
-  sops.secrets.ssh-sk1.owner = "nim";
   users.users.nim.extraGroups = [
     "wireshark"
   ];
