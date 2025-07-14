@@ -1,5 +1,10 @@
 {
+  inputs,
+  ...
+}:
+{
   imports = [
+    inputs.alloria.nixosModules.control
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
@@ -31,6 +36,13 @@
       }
     ];
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
+  };
+  services = {
+    alloria-control = {
+      enable = true;
+      openFirewall = true;
+      rtp-ip = "hattori.m";
+    };
   };
   stylix.image = ../../bg/yupa.jpg;
   # services.flatpak.enable = true;

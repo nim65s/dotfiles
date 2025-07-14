@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
+    inputs.alloria.nixosModules.escape
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
@@ -31,6 +36,11 @@
   };
   programs.waybar.enable = false;
   services = {
+    alloria-escape = {
+      enable = true;
+      openFirewall = true;
+      rtp-ip = "yupa.m";
+    };
     displayManager = {
       autoLogin.user = "mimi";
       defaultSession = null;

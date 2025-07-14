@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "alloria": {
+      "locked": {
+        "lastModified": 1752516277,
+        "narHash": "sha256-qBolLq/MbTuKtlwrO8EwLNmNj42W1WV7ueb6lel/etY=",
+        "owner": "nim65s",
+        "repo": "alloria",
+        "rev": "d8108c69e636600ec391087c2178381e51be0622",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nim65s",
+        "repo": "alloria",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -587,6 +602,7 @@
     },
     "root": {
       "inputs": {
+        "alloria": "alloria",
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
         "cmeel": "cmeel",
