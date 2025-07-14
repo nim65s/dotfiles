@@ -50,7 +50,6 @@ in
       cntr
       docker-compose
       du-dust
-      easyeffects
       evince
       #eww-wayland
       ffmpeg
@@ -65,7 +64,6 @@ in
       gnupg
       gparted
       grim
-      helvum
       himalaya
       htop
       httpie
