@@ -22,7 +22,7 @@
     fd
     file
     libreoffice
-    pavucontrol
+    pwvucontrol
     spotify
     tig
     ripgrep

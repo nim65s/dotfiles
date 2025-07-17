@@ -35,7 +35,7 @@
       "${config.programs.element-desktop.package.desktopItem}/share/applications/element-desktop.desktop"
       "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
       "${config.programs.spicetify.spicedSpotify}/share/spotify/spotify.desktop"
-      "${pkgs.pavucontrol}/share/applications/org.pulseaudio.pavucontrol.desktop"
+      "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
     ];
   };
 }

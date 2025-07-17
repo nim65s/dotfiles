@@ -17,7 +17,7 @@
     fd
     file
     libreoffice
-    pavucontrol
+    pwvucontrol
     tig
     ripgrep
     vim

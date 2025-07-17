@@ -34,7 +34,7 @@ window-rule {
     default-column-width { proportion 0.65; }
 }
 window-rule {
-    match at-startup=true app-id="org.pulseaudio.pavucontrol"
+    match at-startup=true app-id="com.saivert.pwvucontrol"
     open-on-workspace "alt"
     default-column-width { proportion 0.35; }
 }

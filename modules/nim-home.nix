@@ -261,7 +261,7 @@ in
                   ""
                 ];
               };
-              "on-click" = "pavucontrol";
+              "on-click" = "pwvucontrol";
             };
             "network" = {
               "format-wifi" = "{essid} ({signalStrength}%) ";

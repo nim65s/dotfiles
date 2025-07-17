@@ -53,7 +53,7 @@
             click = [
               {
                 button = "left";
-                cmd = "pavucontrol";
+                cmd = "pwvucontrol";
               }
             ];
           }

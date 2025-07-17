@@ -119,7 +119,7 @@ in
       openssh
       openssl
       pandoc
-      pavucontrol
+      pwvucontrol
       pciutils
       pdfarranger
       pdfpc
