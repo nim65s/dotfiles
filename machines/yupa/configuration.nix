@@ -4,7 +4,8 @@
 }:
 {
   imports = [
-    inputs.alloria.nixosModules.control
+    inputs.alloria.nixosModules.escape
+    ../../modules/alloria-escape-dev.nix
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
@@ -38,10 +39,10 @@
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
   };
   services = {
-    alloria-control = {
-      enable = true;
+    alloria-escape-dev = {
+      # enable = true;
       openFirewall = true;
-      rtp-ip = "hattori.m";
+      ifname = "enp4s0f4u1u3c2";
     };
   };
   stylix.image = ../../bg/yupa.jpg;

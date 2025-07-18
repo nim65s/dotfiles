@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
+    inputs.alloria.nixosModules.control
+    ../../modules/alloria-control-dev.nix
     ../../modules/disko-zfs.nix
     ../../modules/display.nix
     ../../modules/nvidia.nix
@@ -42,9 +48,16 @@
     };
   };
 
-  services.udev.extraRules = ''
-    ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
-  '';
+  services = {
+    alloria-control-dev = {
+      # enable = true;
+      openFirewall = true;
+      ifname = "enp3s0";
+    };
+    udev.extraRules = ''
+      ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
+    '';
+  };
 
   stylix.image = ../../bg/ashitaka-3.jpg;
 

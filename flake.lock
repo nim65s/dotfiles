@@ -1,12 +1,25 @@
 {
   "nodes": {
     "alloria": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "gepetto-lib": "gepetto-lib",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "clan-core",
+          "systems"
+        ]
+      },
       "locked": {
-        "lastModified": 1752516277,
-        "narHash": "sha256-qBolLq/MbTuKtlwrO8EwLNmNj42W1WV7ueb6lel/etY=",
+        "lastModified": 1752796119,
+        "narHash": "sha256-kLLNG3/0biiv5mH5NeYPCF0TkK3ShZ9lcaOVd8reFqU=",
         "owner": "nim65s",
         "repo": "alloria",
-        "rev": "d8108c69e636600ec391087c2178381e51be0622",
+        "rev": "5cdac3d3daf41566022e267238ca6d3d4ca61679",
         "type": "github"
       },
       "original": {
@@ -318,6 +331,21 @@
       "original": {
         "owner": "SenchoPens",
         "repo": "fromYaml",
+        "type": "github"
+      }
+    },
+    "gepetto-lib": {
+      "locked": {
+        "lastModified": 1752760911,
+        "narHash": "sha256-kcnVNzWEuqzFvRr0A0usf4A5MzHvjbTv3Qv9TRDwqgg=",
+        "owner": "Gepetto",
+        "repo": "nix-lib",
+        "rev": "b3ce838e192f5ed3249b58105a4ccf77b56a3393",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gepetto",
+        "repo": "nix-lib",
         "type": "github"
       }
     },
