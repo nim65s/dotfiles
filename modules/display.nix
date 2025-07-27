@@ -3,6 +3,9 @@
   imports = [
     ./ssh-sk1.nix
   ];
+  environment.systemPackages = [
+    pkgs.nautilus
+  ];
   programs = {
     niri.enable = true;
     waybar.enable = lib.mkDefault true;
