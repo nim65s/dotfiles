@@ -1,0 +1,84 @@
+From 934684ab88dd362d6084321c9da8b5b3b2d80f6c Mon Sep 17 00:00:00 2001
+From: Dan Sully <dsully@users.noreply.github.com>
+Date: Sat, 31 May 2025 08:33:42 -0700
+Subject: [PATCH 1/2] feat: Use a GitHub token for authorization if it exists.
+
+---
+ src/fetcher/github.rs | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/src/fetcher/github.rs b/src/fetcher/github.rs
+index 9c596c3..49b3a1f 100644
+--- a/src/fetcher/github.rs
++++ b/src/fetcher/github.rs
+@@ -14,6 +14,12 @@ struct Commit {
+     sha: String,
+ }
+ 
++fn token() -> Option<String> {
++    ["GH_TOKEN", "GITHUB_TOKEN", "GITHUB_API_TOKEN"]
++        .iter()
++        .find_map(|key| std::env::var(key).ok())
++}
++
+ impl SimpleFetcher<'_, 2> for FetchFromGitHub<'_> {
+     const HOST_KEY: &'static str = "githubBase";
+     const KEYS: [&'static str; 2] = ["owner", "repo"];
+@@ -28,7 +34,16 @@ impl SimpleFetcher<'_, 2> for FetchFromGitHub<'_> {
+         let host = self.0.unwrap_or("github.com");
+         let url = format!("https://api.{host}/repos/{owner}/{repo}/commits?per_page=1");
+ 
+-        let [Commit { sha }] = ureq::get(&url)
++        // https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api
++        let mut request = ureq::get(&url)
++            .set("Accept", "application/vnd.github+json")
++            .set("X-GitHub-Api-Version", "2022-11-28");
++
++        if let Some(token) = token() {
++            request = request.set("Authorization", &format!("Bearer {token}"));
++        }
++
++        let [Commit { sha }] = request
+             .call()?
+             .into_json::<[_; 1]>()
+             .with_context(|| format!("no commits found for https://{host}/{owner}/{repo}"))?;
+
+From dfdd8596cd6ea0d98d95660eabbdd043468f26ba Mon Sep 17 00:00:00 2001
+From: Dan Sully <dsully@users.noreply.github.com>
+Date: Sat, 31 May 2025 09:21:32 -0700
+Subject: [PATCH 2/2] fix CI issues
+
+---
+ src/fetcher/git.rs | 4 ++--
+ src/simple.rs      | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/fetcher/git.rs b/src/fetcher/git.rs
+index a210a8b..7d5a80d 100644
+--- a/src/fetcher/git.rs
++++ b/src/fetcher/git.rs
+@@ -20,9 +20,9 @@ impl<'a> SimpleFetcher<'a, 1> for Fetchgit {
+     }
+ }
+ 
+-impl<'a> Fetchgit {
++impl Fetchgit {
+     fn fetch(
+-        &'a self,
++        &self,
+         values @ [url]: &[&str; 1],
+         rev: &str,
+         submodules: bool,
+diff --git a/src/simple.rs b/src/simple.rs
+index fef0290..79ca70d 100644
+--- a/src/simple.rs
++++ b/src/simple.rs
+@@ -41,7 +41,7 @@ pub trait SimpleFetcher<'a, const N: usize> {
+     }
+ 
+     fn resolve_submodules(&self, submodules: Option<bool>) -> bool {
+-        submodules.map_or(false, |submodules| submodules ^ Self::SUBMODULES_DEFAULT)
++        submodules.is_some_and(|submodules| submodules ^ Self::SUBMODULES_DEFAULT)
+     }
+ 
+     fn fetch_rev(&self, _: &[&str; N]) -> Result<String> {

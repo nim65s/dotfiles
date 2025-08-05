@@ -253,6 +253,11 @@
                   arsenik = prev.arsenik.overrideAttrs {
                     patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
                   };
+                  nurl = prev.nurl.overrideAttrs {
+                    patches = [
+                      ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
+                    ];
+                  };
                   spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
                 })
               ];
@@ -277,6 +282,7 @@
               };
             };
             packages = {
+              inherit (pkgs) nurl;
               inherit (inputs'.home-manager.packages) home-manager;
               # inherit (inputs'.clan-core.packages) clan-cli;
               clan-cli = inputs'.clan-core.packages.clan-cli.override {
