@@ -96,6 +96,7 @@
         bb = "cmake --build build";
         bt = "cmake --build build -t test";
         bi = "cmake --build build -t install";
+        cdp = "cd (pwd -P)";
         demonte = "~/scripts/demonter.sh";
         dc = "cd";
         gc = {
