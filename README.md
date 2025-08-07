@@ -5,8 +5,11 @@ Everything else is probably outdated.
 
 ## pense-bete
 
+```
 nix run .#home-manager -- switch --flake .
+# or
 nix run github:nim65s/dotfiles#home-manager -- switch --flake github:nim65s/dotfiles
+```
 
 ## zfs encrypt install
 
