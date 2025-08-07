@@ -381,7 +381,7 @@
               #    ./home-manager
               #  ];
               #};
-              "gsaurel@hako" = inputs.home-manager.lib.homeManagerConfiguration {
+              "gsaurel" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 extraSpecialArgs = { inherit inputs; };
                 modules = [
