@@ -381,6 +381,14 @@
               #    ./home-manager
               #  ];
               #};
+              "gsaurel@hako" = inputs.home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                extraSpecialArgs = { inherit inputs; };
+                modules = [
+                  ./modules/nim-home.nix
+                  ./modules/lab.nix
+                ];
+              };
               "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 extraSpecialArgs = { inherit inputs; };
