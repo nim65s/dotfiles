@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/disko-zfs-swap.nix
+    ../../modules/disko-ext4-swap-tmpfs.nix
     ../../modules/display.nix
     ../../modules/shared.nix
     ../../modules/nixos.nix
@@ -9,8 +9,8 @@
   ];
 
   disko.devices.disk.main = {
-    device = "/dev/disk/by-id/wwn-0x50004cf20e36a7b7";
-    name = "main-80bb289a-6988-4863-aad9-9fd308eacd58";
+    device = "/dev/disk/by-id/wwn-0x5002538f55509f41";
+    name = "main-c0fc6b32-a1ef-4428-96fa-96ae7a428510";
   };
   environment.systemPackages = with pkgs; [
     evince
@@ -26,6 +26,7 @@
     martine = import ../../modules/martine-home.nix;
     nim = import ../../modules/nim-home.nix;
   };
+  nim-disko.tmpfsSize = "300M";
   programs.waybar.enable = false;
   services = {
     displayManager = {
