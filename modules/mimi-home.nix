@@ -23,7 +23,7 @@
         [
           gcompris
           klavaro
-          libsForQt5.ktouch # TODO: broken on qt6
+          # libsForQt5.ktouch # TODO: broken on qt6
           superTuxKart
           teeworlds
           vlc
