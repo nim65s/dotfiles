@@ -161,11 +161,6 @@
                   tags.all = { };
                 };
               };
-              state-version = {
-                roles.default = {
-                  tags.all = { };
-                };
-              };
               wifi = {
                 roles.default = {
                   machines.fix = { };

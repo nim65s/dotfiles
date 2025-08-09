@@ -25,6 +25,8 @@
     accent = lib.mkDefault "blue";
   };
 
+  clan.core.settings.state-version.enable = true;
+
   console.useXkbConfig = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
