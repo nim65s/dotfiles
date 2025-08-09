@@ -57,7 +57,6 @@
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
       };
     };
     nuschtosSearch = {
@@ -84,7 +83,6 @@
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
         nur.follows = "nur";
         systems.follows = "clan-core/systems";
