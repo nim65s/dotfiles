@@ -1,7 +1,5 @@
 {
-  config,
   inputs,
-  lib,
   ...
 }:
 {
@@ -44,12 +42,6 @@
       enable = true;
       openFirewall = true;
       rtp-ip = "hattori.m";
-    };
-    cage = {
-      enable = true;
-      extraArguments = [ "-s" ];
-      program = lib.getExe config.home-manager.users.nim.programs.spicetify.spicedSpotify;
-      user = "nim";
     };
   };
   stylix.image = ../../bg/yupa.jpg;
