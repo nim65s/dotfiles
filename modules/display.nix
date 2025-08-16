@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./ssh-sk1.nix
@@ -19,12 +24,12 @@
   services = {
     displayManager = {
       autoLogin = {
-        enable = true;
+        enable = !config.services.cage.enable;
         user = lib.mkDefault "nim";
       };
       defaultSession = lib.mkDefault "niri";
       sddm = {
-        enable = true;
+        enable = !config.services.cage.enable;
         autoNumlock = true;
         package = lib.mkDefault pkgs.kdePackages.sddm;
         wayland.enable = true;
