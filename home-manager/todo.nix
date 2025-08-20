@@ -196,7 +196,7 @@ in
       #xdg-desktop-portal
       #xdg-desktop-portal-gtk
       #xdg-desktop-portal-wlr
-      xwayland
+      xwayland-satellite
       yq
       yt-dlp
       zathura
