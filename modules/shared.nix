@@ -81,6 +81,7 @@
         myceliumHosts = lib.mapAttrs' (host: ip: lib.nameValuePair ip [ "${host}.m" ]) allPeersWithIp;
       in
       myceliumHosts;
+    useNetworkd = true;
   };
 
   nix = {
