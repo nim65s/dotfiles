@@ -1,19 +1,10 @@
-{ clan-core, ... }:
 {
   imports = [
-    clan-core.clanModules.iwd
     ./disko-ext4.nix
     ./shared.nix
     ./nixos.nix
     ./x86_64-linux.nix
   ];
-
-  clan = {
-    iwd.networks = {
-      azv = { };
-      marsrovers = { };
-    };
-  };
 
   home-manager.users.nim = import ./nim-home-minimal.nix;
 

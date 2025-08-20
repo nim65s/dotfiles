@@ -187,6 +187,17 @@
                   };
                 };
               };
+              wifi-rovers = {
+                module.name = "wifi";
+                roles.default = {
+                  machines.perseverance = { };
+                  machines.zhurong = { };
+                  settings.networks = {
+                    azv = { };
+                    marsrovers = { };
+                  };
+                };
+              };
               wifi-laas = {
                 module.name = "wifi";
                 roles.default = {
