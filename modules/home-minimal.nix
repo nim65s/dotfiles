@@ -63,6 +63,11 @@
         for viewer in evince okular tdf zathura
             complete -c $viewer -a '(__fish_complete_pdf)' -f
         end
+        for d in /run/system-manager/sw/bin ~/.nix-profile/bin ~/.local/bin
+            if path is -dq $d and not contains $d $PATH
+                set PATH $d $PATH
+            end
+        end
       '';
       functions = {
         __fish_complete_pdf = ''
