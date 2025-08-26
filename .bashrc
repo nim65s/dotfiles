@@ -1,7 +1,8 @@
-#if test -z "$NO_FISH"
-#then
-    #for fish in /home/gsaurel/.nix-profile/bin/fish /usr/bin/fish
-    #do
-        #test -x $fish && exec $fish
-    #done
-#fi
+for d in /run/system-manager/sw/bin ~/.nix-profile/bin ~/.local/bin
+do
+  if [[ -d $d && ":$PATH:" != *":$d:"* ]]
+  then
+    export PATH="$d:$PATH"
+  fi
+done
+command direnv > /dev/null && eval "$(direnv hook bash)"
