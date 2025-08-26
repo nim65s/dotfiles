@@ -117,7 +117,7 @@ in
           font_size = config.stylix.fonts.sizes.terminal;
           listen_on = "unix:\${HOME}/.kitty-remote";
           scrollback_pager_history_size = 2;
-          shell = "fish";
+          shell = lib.getExe pkgs.fish;
           tab_bar_style = "powerline";
         };
         shellIntegration.mode = "enabled";
