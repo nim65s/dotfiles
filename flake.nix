@@ -269,7 +269,6 @@
                 packages = [
                   self'.packages.clan-cli
                   # self'.packages.home-manager
-                  pkgs.lix
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
               };

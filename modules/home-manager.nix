@@ -5,9 +5,8 @@
     ./stylix.nix
   ];
 
-  nix.package = pkgs.lix;
   home = {
-    packages = [ pkgs.lix ];
+    packages = [ pkgs.nix ];
   };
   xdg.portal = {
     enable = true;
