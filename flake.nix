@@ -2,7 +2,7 @@
   description = "My dotfiles";
 
   inputs = {
-    alloria.url = "github:nim65s/alloria";
+    # alloria.url = "github:nim65s/alloria";
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
