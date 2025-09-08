@@ -229,10 +229,13 @@
                 homes = lib.mapAttrs' (
                   n: v: lib.nameValuePair "hm-${n}" v.activationPackage
                 ) self'.legacyPackages.homeConfigurations;
+                nixos = lib.mapAttrs' (n: v: lib.nameValuePair "nixos-${n}" v.config.system.build.toplevel) (
+                  lib.filterAttrs (n: _v: n != "ashitaka") self.nixosConfigurations
+                );
                 packages = lib.mapAttrs' (n: lib.nameValuePair "package-${n}") self'.packages;
-                shells = lib.mapAttrs' (n: lib.nameValuePair "devShell-${n}") self'.devShells;
+                shells = lib.mapAttrs' (n: lib.nameValuePair "shell-${n}") self'.devShells;
               in
-              lib.filterAttrs (_n: v: v.meta.available && !v.meta.broken) (shells // homes // packages);
+              lib.filterAttrs (_n: v: v.meta.available && !v.meta.broken) (shells // homes // nixos // packages);
             devShells = {
               default = pkgs.mkShell {
                 packages = [
