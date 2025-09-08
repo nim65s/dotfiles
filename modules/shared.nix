@@ -1,17 +1,22 @@
 {
+  catppuccin,
   config,
   flake,
-  inputs,
+  home-manager,
   lib,
+  nixpkgs,
+  nixvim,
   pkgs,
+  spicetify-nix,
+  stylix,
   ...
 }:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-    inputs.catppuccin.nixosModules.catppuccin
-    inputs.nixvim.nixosModules.nixvim
-    "${inputs.nixpkgs}/nixos/modules/services/hardware/arsenik.nix"
+    home-manager.nixosModules.home-manager
+    catppuccin.nixosModules.catppuccin
+    nixvim.nixosModules.nixvim
+    "${nixpkgs}/nixos/modules/services/hardware/arsenik.nix"
     ./access-tokens.nix
   ];
 
@@ -57,7 +62,12 @@
   home-manager = {
     extraSpecialArgs = {
       inherit (config) sops;
-      inherit inputs;
+      inherit
+        catppuccin
+        nixvim
+        spicetify-nix
+        stylix
+        ;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

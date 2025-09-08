@@ -1,7 +1,10 @@
-{ inputs, ... }:
+{
+  stylix,
+  ...
+}:
 {
   imports = [
-    inputs.stylix.nixosModules.stylix
+    stylix.nixosModules.stylix
     ./stylix.nix
   ];
 }

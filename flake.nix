@@ -197,7 +197,14 @@
           };
           meta.name = "nim65s";
           specialArgs = {
-            inherit inputs;
+            inherit (inputs)
+              catppuccin
+              home-manager
+              nixpkgs
+              nixvim
+              spicetify-nix
+              stylix
+              ;
             flake = self;
           };
         };
@@ -219,10 +226,13 @@
             };
             checks =
               let
-                devShells = lib.mapAttrs' (n: lib.nameValuePair "devShell-${n}") self'.devShells;
+                homes = lib.mapAttrs' (
+                  n: v: lib.nameValuePair "hm-${n}" v.activationPackage
+                ) self'.legacyPackages.homeConfigurations;
                 packages = lib.mapAttrs' (n: lib.nameValuePair "package-${n}") self'.packages;
+                shells = lib.mapAttrs' (n: lib.nameValuePair "devShell-${n}") self'.devShells;
               in
-              lib.filterAttrs (_n: v: v.meta.available && !v.meta.broken) (devShells // packages);
+              lib.filterAttrs (_n: v: v.meta.available && !v.meta.broken) (shells // homes // packages);
             devShells = {
               default = pkgs.mkShell {
                 packages = [
@@ -243,6 +253,33 @@
                 };
               */
             };
+            legacyPackages.homeConfigurations =
+              let
+                homeConfiguration =
+                  modules:
+                  inputs.home-manager.lib.homeManagerConfiguration {
+                    inherit pkgs;
+                    extraSpecialArgs = {
+                      inherit (inputs)
+                        catppuccin
+                        nixvim
+                        spicetify-nix
+                        stylix
+                        ;
+                    };
+                    modules = [ ({ nixpkgs.overlays = lib.attrValues self.overlays; }) ] ++ modules;
+                  };
+              in
+              {
+                "gsaurel" = homeConfiguration [
+                  ./modules/nim-home.nix
+                  ./modules/lab.nix
+                ];
+                "gsaurel@upepesanke" = homeConfiguration [
+                  ./homes/upepesanke/home.nix
+                ];
+              };
+
             packages = {
               inherit (pkgs)
                 cmeel
@@ -279,24 +316,14 @@
         flake = {
           overlays = {
             default = import ./overlay.nix {
-              inherit (inputs) spicetify-nix;
+              inherit (inputs)
+                catppuccin
+                nixvim
+                spicetify-nix
+                stylix
+                ;
             };
             nur = inputs.nur.overlays.default;
-          };
-          homeConfigurations = {
-            "gsaurel" = inputs.home-manager.lib.homeManagerConfiguration {
-              modules = [
-                ({ nixpkgs.overlays = lib.attrValues self.overlays; })
-                ./modules/nim-home.nix
-                ./modules/lab.nix
-              ];
-            };
-            "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
-              modules = [
-                ({ nixpkgs.overlays = lib.attrValues self.overlays; })
-                ./homes/upepesanke/home.nix
-              ];
-            };
           };
         };
         systems = [ "x86_64-linux" ];

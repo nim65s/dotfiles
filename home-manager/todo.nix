@@ -1,8 +1,9 @@
 {
   config,
-  inputs,
   lib,
+  nixvim,
   pkgs,
+  spicetify-nix,
   ...
 }:
 let
@@ -18,8 +19,8 @@ let
 in
 {
   imports = [
-    inputs.nixvim.homeModules.nixvim
-    inputs.spicetify-nix.homeManagerModules.spicetify
+    nixvim.homeModules.nixvim
+    spicetify-nix.homeManagerModules.spicetify
   ];
   home = {
     packages = with pkgs; [
@@ -398,7 +399,7 @@ in
     numbat.enable = true;
     spicetify = {
       enable = true;
-      enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
+      enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
         autoVolume
         beautifulLyrics
         powerBar

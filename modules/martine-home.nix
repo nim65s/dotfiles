@@ -1,11 +1,11 @@
 {
-  inputs,
+  catppuccin,
   pkgs,
   ...
 }:
 {
   imports = [
-    inputs.catppuccin.homeModules.catppuccin
+    catppuccin.homeModules.catppuccin
   ];
 
   config = {
