@@ -216,19 +216,16 @@
               inherit system;
               config = {
                 allowUnfree = true;
-                # permittedInsecurePackages = [ "squid-7.0.1" ]; # TODO
               };
               overlays = [
                 inputs.nur.overlays.default
                 self.overlays.default
-
               ];
             };
             devShells = {
               default = pkgs.mkShell {
                 packages = [
                   self'.packages.clan-cli
-                  # self'.packages.home-manager
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
               };
@@ -283,15 +280,6 @@
           {
             overlays.default = import ./overlay.nix { inherit (inputs) spicetify-nix; };
             homeConfigurations = {
-              #"gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
-              #  inherit (self.allSystems.${system}._module.args) pkgs;
-              #  modules = [
-              #    inputs.catppuccin.homeModules.catppuccin
-              #    inputs.stylix.homeManagerModules.stylix
-              #    ./aliens/asahi/home.nix
-              #    ./home-manager
-              #  ];
-              #};
               "gsaurel" = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 extraSpecialArgs = { inherit inputs; };
