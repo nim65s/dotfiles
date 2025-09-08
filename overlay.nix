@@ -4,20 +4,6 @@
 }:
 final: prev:
 {
-  /*
-    inherit (self'.packages)
-      clan-cli
-      git-fork-clone
-      exif-diff
-      iosevka-aile
-      iosevka-etoile
-      iosevka-term
-      nixook
-      nixvim
-      pmapnitor
-      pratches
-      ;
-  */
   arsenik = prev.arsenik.overrideAttrs {
     patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
   };
