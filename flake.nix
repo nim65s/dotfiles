@@ -92,14 +92,13 @@
       };
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { self, ... }:
+      { lib, self, ... }:
       {
         imports = [
           inputs.clan-core.flakeModules.default
           inputs.treefmt-nix.flakeModule
         ];
 
-        debug = true;
         clan = {
           inventory = {
             instances = {
@@ -199,7 +198,6 @@
           meta.name = "nim65s";
           specialArgs = {
             inherit inputs;
-            inherit (self) allSystems;
             flake = self;
           };
         };
@@ -217,27 +215,33 @@
               config = {
                 allowUnfree = true;
               };
-              overlays = [
-                inputs.nur.overlays.default
-                self.overlays.default
-              ];
+              overlays = lib.attrValues self.overlays;
             };
+            checks =
+              let
+                devShells = lib.mapAttrs' (n: lib.nameValuePair "devShell-${n}") self'.devShells;
+                packages = lib.mapAttrs' (n: lib.nameValuePair "package-${n}") self'.packages;
+              in
+              lib.filterAttrs (_n: v: v.meta.available && !v.meta.broken) (devShells // packages);
             devShells = {
               default = pkgs.mkShell {
                 packages = [
                   self'.packages.clan-cli
+                  pkgs.nix-fast-build
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
               };
-              cpp = pkgs.mkShell {
-                packages = with pkgs; [
-                  clang_19
-                  clang-tools
-                  gdb
-                  gdbgui
-                  llvmPackages_17.openmp
-                ];
-              };
+              /*
+                cpp = pkgs.mkShell {
+                  packages = with pkgs; [
+                    clang_19
+                    clang-tools
+                    gdb
+                    gdbgui
+                    llvmPackages_17.openmp
+                  ];
+                };
+              */
             };
             packages = {
               inherit (pkgs)
@@ -272,29 +276,29 @@
               };
             };
           };
-        flake =
-          let
-            system = "x86_64-linux";
-            pkgs = self.allSystems.${system}._module.args.pkgs;
-          in
-          {
-            overlays.default = import ./overlay.nix { inherit (inputs) spicetify-nix; };
-            homeConfigurations = {
-              "gsaurel" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                extraSpecialArgs = { inherit inputs; };
-                modules = [
-                  ./modules/nim-home.nix
-                  ./modules/lab.nix
-                ];
-              };
-              "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                extraSpecialArgs = { inherit inputs; };
-                modules = [ ./homes/upepesanke/home.nix ];
-              };
+        flake = {
+          overlays = {
+            default = import ./overlay.nix {
+              inherit (inputs) spicetify-nix;
+            };
+            nur = inputs.nur.overlays.default;
+          };
+          homeConfigurations = {
+            "gsaurel" = inputs.home-manager.lib.homeManagerConfiguration {
+              modules = [
+                ({ nixpkgs.overlays = lib.attrValues self.overlays; })
+                ./modules/nim-home.nix
+                ./modules/lab.nix
+              ];
+            };
+            "gsaurel@upepesanke" = inputs.home-manager.lib.homeManagerConfiguration {
+              modules = [
+                ({ nixpkgs.overlays = lib.attrValues self.overlays; })
+                ./homes/upepesanke/home.nix
+              ];
             };
           };
+        };
         systems = [ "x86_64-linux" ];
       }
     );

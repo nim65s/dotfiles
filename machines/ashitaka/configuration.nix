@@ -8,7 +8,6 @@
     ../../modules/shared.nix
     ../../modules/steam.nix
     ../../modules/nixos.nix
-    ../../modules/x86_64-linux.nix
   ];
 
   environment.systemPackages = [ pkgs.factorio-space-age ];

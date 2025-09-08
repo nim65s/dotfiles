@@ -102,6 +102,13 @@
     };
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = lib.attrValues flake.overlays;
+  };
+
   programs = {
     fish.enable = true;
     git = {

@@ -5,7 +5,6 @@
     ../../modules/display.nix
     ../../modules/shared.nix
     ../../modules/nixos.nix
-    ../../modules/x86_64-linux.nix
   ];
 
   catppuccin = {

@@ -3,7 +3,6 @@
     ./disko-ext4.nix
     ./shared.nix
     ./nixos.nix
-    ./x86_64-linux.nix
   ];
 
   home-manager.users.nim = import ./nim-home-minimal.nix;
