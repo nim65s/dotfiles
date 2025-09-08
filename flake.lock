@@ -139,29 +139,6 @@
         "url": "https://git.clan.lol/clan/clan-core/archive/main.tar.gz"
       }
     },
-    "cmeel": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1754091720,
-        "narHash": "sha256-zF4Wb9rU1442JP51ObqeMHza+Gt8CqEFKcjPIA9lMIs=",
-        "owner": "cmake-wheel",
-        "repo": "cmeel",
-        "rev": "3d4e2d25fc436bdd1e67f1f14f736c7319ae7bdf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cmake-wheel",
-        "repo": "cmeel",
-        "type": "github"
-      }
-    },
     "data-mesher": {
       "inputs": {
         "flake-parts": [
@@ -576,35 +553,11 @@
         "type": "github"
       }
     },
-    "pre-commit-sort": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1750109486,
-        "narHash": "sha256-r6gVIVAGFG2CjoIDggoAYtXzPM2yqM35bMQNzvo6cDY=",
-        "owner": "nim65s",
-        "repo": "pre-commit-sort",
-        "rev": "4f59459d13212a6bb53eb95d713ca1a9284483d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nim65s",
-        "repo": "pre-commit-sort",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "alloria": "alloria",
         "catppuccin": "catppuccin",
         "clan-core": "clan-core",
-        "cmeel": "cmeel",
         "flake-input-patcher": "flake-input-patcher",
         "flake-parts": "flake-parts_2",
         "flake-utils": "flake-utils",
@@ -613,7 +566,6 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "nuschtosSearch": "nuschtosSearch",
-        "pre-commit-sort": "pre-commit-sort",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix"

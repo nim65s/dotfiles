@@ -15,13 +15,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    cmeel = {
-      url = "github:cmake-wheel/cmeel";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     flake-input-patcher = {
       url = "github:jfly/flake-input-patcher";
       inputs = {
@@ -64,13 +57,6 @@
       inputs = {
         flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
-      };
-    };
-    pre-commit-sort = {
-      url = "github:nim65s/pre-commit-sort";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
       };
     };
     spicetify-nix = {
@@ -233,35 +219,50 @@
                 # permittedInsecurePackages = [ "squid-7.0.1" ]; # TODO
               };
               overlays = [
-                (_final: prev: {
-                  nur = import inputs.nur {
-                    nurpkgs = prev;
-                    pkgs = prev;
-                  };
-                  inherit (inputs'.cmeel.packages) cmeel;
-                  inherit (inputs'.pre-commit-sort.packages) pre-commit-sort;
-                  inherit (self'.packages)
-                    clan-cli
-                    git-fork-clone
-                    exif-diff
-                    iosevka-aile
-                    iosevka-etoile
-                    iosevka-term
-                    nixook
-                    nixvim
-                    pmapnitor
-                    pratches
-                    ;
-                  arsenik = prev.arsenik.overrideAttrs {
-                    patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
-                  };
-                  nurl = prev.nurl.overrideAttrs {
-                    patches = [
-                      ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
+                (
+                  final: prev:
+                  {
+                    nur = import inputs.nur {
+                      nurpkgs = prev;
+                      pkgs = prev;
+                    };
+                    pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+                      (
+                        python-final: _python-prev:
+                        final.lib.filesystem.packagesFromDirectoryRecursive {
+                          inherit (python-final) callPackage;
+                          directory = ./py-pkgs;
+                        }
+
+                      )
                     ];
-                  };
-                  spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
-                })
+                    inherit (self'.packages)
+                      clan-cli
+                      git-fork-clone
+                      exif-diff
+                      iosevka-aile
+                      iosevka-etoile
+                      iosevka-term
+                      nixook
+                      nixvim
+                      pmapnitor
+                      pratches
+                      ;
+                    arsenik = prev.arsenik.overrideAttrs {
+                      patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
+                    };
+                    nurl = prev.nurl.overrideAttrs {
+                      patches = [
+                        ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
+                      ];
+                    };
+                    spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
+                  }
+                  // prev.lib.filesystem.packagesFromDirectoryRecursive {
+                    inherit (final) callPackage;
+                    directory = ./pkgs;
+                  }
+                )
               ];
             };
             devShells = {
@@ -283,7 +284,8 @@
               };
             };
             packages = {
-              inherit (pkgs) nurl;
+              inherit (pkgs) nurl pre-commit-sort;
+              inherit (pkgs.python3Packages) cmeel;
               inherit (inputs'.home-manager.packages) home-manager;
               # inherit (inputs'.clan-core.packages) clan-cli;
               clan-cli = inputs'.clan-core.packages.clan-cli.override {
