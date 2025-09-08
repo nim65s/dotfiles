@@ -220,46 +220,8 @@
               };
               overlays = [
                 inputs.nur.overlays.default
-                (
-                  final: prev:
-                  {
-                    pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-                      (
-                        python-final: _python-prev:
-                        final.lib.filesystem.packagesFromDirectoryRecursive {
-                          inherit (python-final) callPackage;
-                          directory = ./py-pkgs;
-                        }
+                self.overlays.default
 
-                      )
-                    ];
-                    inherit (self'.packages)
-                      clan-cli
-                      git-fork-clone
-                      exif-diff
-                      iosevka-aile
-                      iosevka-etoile
-                      iosevka-term
-                      nixook
-                      nixvim
-                      pmapnitor
-                      pratches
-                      ;
-                    arsenik = prev.arsenik.overrideAttrs {
-                      patches = [ ./patches/OneDeadKey/arsenik/77_kanata-numpad-add-operators.patch ];
-                    };
-                    nurl = prev.nurl.overrideAttrs {
-                      patches = [
-                        ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
-                      ];
-                    };
-                    spicetify-extensions = inputs'.spicetify-nix.legacyPackages.extensions;
-                  }
-                  // prev.lib.filesystem.packagesFromDirectoryRecursive {
-                    inherit (final) callPackage;
-                    directory = ./pkgs;
-                  }
-                )
               ];
             };
             devShells = {
@@ -281,74 +243,22 @@
               };
             };
             packages = {
-              inherit (pkgs) nurl pre-commit-sort;
+              inherit (pkgs)
+                exif-diff
+                git-fork-clone
+                iosevka-aile
+                iosevka-etoile
+                iosevka-term
+                nixook
+                nurl
+                pmapnitor
+                pratches
+                pre-commit-sort
+                ;
               inherit (pkgs.python3Packages) cmeel;
               inherit (inputs'.home-manager.packages) home-manager;
-              # inherit (inputs'.clan-core.packages) clan-cli;
-              clan-cli = inputs'.clan-core.packages.clan-cli.override {
-                includedRuntimeDeps = [
-                  "age"
-                  "git"
-                  "nix"
-                ];
-              };
-              git-fork-clone = pkgs.writeShellApplication {
-                name = "git-fork-clone";
-                runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.PyGithub ])) ];
-                text = ''
-                  python ${./bin/git-fork-clone.py} "$@"
-                '';
-              };
-              exif-diff = pkgs.writeShellApplication {
-                name = "exif-diff";
-                runtimeInputs = [
-                  pkgs.exiftool
-                  pkgs.gnugrep
-                ];
-                text = ''
-                  exiftool -sort "$1" | grep -v 'File Name\|Directory\|Date/Time\|Permissions'
-                '';
-              };
-              iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
-              iosevka-etoile = pkgs.iosevka-bin.override { variant = "Etoile"; };
-              iosevka-term = pkgs.nerd-fonts.iosevka;
-              nixook = pkgs.writeShellApplication {
-                name = "nixook";
-                text = ''
-                  cd "$(git rev-parse --git-dir)"
-                  (
-                    echo '#! ${pkgs.runtimeShell}'
-                    echo 'set -eux'
-                    echo 'nix fmt'
-                    echo 'git diff --quiet'
-                    if test -f ../.pre-commit-config.yaml
-                    then echo 'pre-commit run -a'
-                    fi
-                  ) > hooks/pre-commit
-                  chmod +x hooks/pre-commit
-                  (
-                    echo '#! ${pkgs.runtimeShell}'
-                    echo 'set -eux'
-                    echo 'nix flake check -L'
-                  ) > hooks/pre-push
-                  chmod +x hooks/pre-push
-                '';
-              };
+              inherit (inputs'.clan-core.packages) clan-cli;
               nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
-              pmapnitor = pkgs.writeShellApplication {
-                name = "pmapnitor";
-                runtimeInputs = [ pkgs.python3 ];
-                text = ''
-                  python ${./bin/pmapnitor.py} "$@"
-                '';
-              };
-              pratches = pkgs.writeShellApplication {
-                name = "pratches";
-                runtimeInputs = [ (pkgs.python3.withPackages (p: [ p.httpx ])) ];
-                text = ''
-                  python ${./bin/pratches.py} "$@"
-                '';
-              };
             };
             treefmt = {
               projectRootFile = "flake.nix";
@@ -371,6 +281,7 @@
             pkgs = self.allSystems.${system}._module.args.pkgs;
           in
           {
+            overlays.default = import ./overlay.nix { inherit (inputs) spicetify-nix; };
             homeConfigurations = {
               #"gsaurel@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
               #  inherit (self.allSystems.${system}._module.args) pkgs;
