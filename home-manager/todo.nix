@@ -33,7 +33,6 @@ in
       cargo
       cargo-binstall
       cargo-release
-      clan-cli
       clang_19
       comma
       dcfldd
@@ -226,7 +225,6 @@ in
 
     sessionVariables = {
       BROWSER = lib.getExe config.programs.firefox.finalPackage;
-      CLAN_DIR = "$HOME/dotfiles";
       CMAKE_BUILD_TYPE = "RelWithDebInfo";
       CMAKE_C_COMPILER_LAUNCHER = "sccache";
       CMAKE_CXX_COMPILER_LAUNCHER = "sccache";
