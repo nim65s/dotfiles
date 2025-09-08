@@ -219,13 +219,10 @@
                 # permittedInsecurePackages = [ "squid-7.0.1" ]; # TODO
               };
               overlays = [
+                inputs.nur.overlays.default
                 (
                   final: prev:
                   {
-                    nur = import inputs.nur {
-                      nurpkgs = prev;
-                      pkgs = prev;
-                    };
                     pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
                       (
                         python-final: _python-prev:
