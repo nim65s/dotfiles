@@ -61,6 +61,7 @@
         size = 24;
       };
       targets = {
+        firefox.enable = false;
         mako.enable = false; # silence a HM assert
         qt.enable = false;
         starship.enable = false;
