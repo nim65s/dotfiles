@@ -4,16 +4,6 @@
 }:
 final: prev:
 {
-  pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-    (
-      python-final: _python-prev:
-      final.lib.filesystem.packagesFromDirectoryRecursive {
-        inherit (python-final) callPackage;
-        directory = ./py-pkgs;
-      }
-
-    )
-  ];
   /*
     inherit (self'.packages)
       clan-cli

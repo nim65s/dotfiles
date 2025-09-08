@@ -1,18 +1,14 @@
 {
   lib,
 
-  buildPythonApplication,
+  python3Packages,
   fetchFromGitHub,
 
   cmake,
   git-archive-all,
-  hatchling,
-  packaging,
-  tomli,
-  wheel,
 }:
 
-buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "cmeel";
   version = "0.57.3";
   pyproject = true;
@@ -25,19 +21,19 @@ buildPythonApplication rec {
   };
 
   build-system = [
-    hatchling
+    python3Packages.hatchling
   ];
 
   dependencies = [
-    tomli
+    python3Packages.tomli
   ];
 
   optional-dependencies = {
     build = [
       cmake
       git-archive-all
-      packaging
-      wheel
+      python3Packages.packaging
+      python3Packages.wheel
     ];
   };
 

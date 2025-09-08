@@ -244,6 +244,7 @@
             };
             packages = {
               inherit (pkgs)
+                cmeel
                 exif-diff
                 git-fork-clone
                 iosevka-aile
@@ -255,7 +256,6 @@
                 pratches
                 pre-commit-sort
                 ;
-              inherit (pkgs.python3Packages) cmeel;
               inherit (inputs'.home-manager.packages) home-manager;
               inherit (inputs'.clan-core.packages) clan-cli;
               nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
