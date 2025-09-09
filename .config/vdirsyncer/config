@@ -111,7 +111,7 @@ url = "https://fr.ftp.opendatasoft.com/openscol/fr-en-calendrier-scolaire/Zone-C
 [pair datcat_contacts]
 a = "datcat_contacts_local"
 b = "datcat_contacts_remote"
-collections = ["from b"]
+collections = [["contacts", "contacts", "contacts"], ["nous", "nous", "nous"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage datcat_contacts_local]
