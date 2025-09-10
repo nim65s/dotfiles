@@ -3,6 +3,7 @@
     ./disko-ext4.nix
     ./shared.nix
     ./nixos.nix
+    ./roversap.nix
   ];
 
   home-manager.users.nim = import ./nim-home-minimal.nix;
@@ -10,7 +11,6 @@
   networking = {
     defaultGateway = {
       address = "192.168.1.1";
-      interface = "wlan0";
     };
     firewall.allowedTCPPorts = [
       80

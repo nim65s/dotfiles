@@ -24,8 +24,9 @@ in
             prefixLength = 24;
           }
         ];
+        useDHCP = false;
       };
-      wlan_tplink = {
+      wlp0s20f3 = {
         ipv4.addresses = [
           {
             address = "192.168.1.${ip}";
@@ -49,9 +50,11 @@ in
         extraConfig = "autoindex on;";
       };
     };
-    udev.extraRules = ''
-      SUBSYSTEM=="net", ACTION=="add", ENV{ID_VENDOR_FROM_DATABASE}=="TP-Link", NAME="wlan_tplink"
-    '';
+    roversap = {
+      enable = true;
+      subnet = 20;
+      upstream = "wlp0s20f3";
+    };
   };
 
   stylix.image = ../../bg/zhurong.jpg;
