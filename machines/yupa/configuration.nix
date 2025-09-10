@@ -34,6 +34,7 @@
       }
     ];
     wireless.iwd.settings.DriverQuirks.PowerSaveDisable = "*";
+    networkmanager.wifi.powersave = false;
   };
   services = {
     # alloria-control = {
