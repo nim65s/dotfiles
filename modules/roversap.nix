@@ -67,6 +67,7 @@ in
             marsrovers.connection.interface-name = cfg.upstream;
           };
           unmanaged = [ "interface-name:${cfg.interface}" ];
+          wifi.powersave = false;
         };
       };
 
