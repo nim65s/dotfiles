@@ -244,18 +244,27 @@
                 ];
                 CLAN_DIR = "/home/nim/dotfiles";
               };
-              /*
-                cpp = pkgs.mkShell {
-                  packages = with pkgs; [
-                    clang_19
-                    clang-tools
-                    gdb
-                    gdbgui
-                    llvmPackages_17.openmp
-                  ];
+            }
+            // (
+              let
+                llvm = pkgs.llvmPackages_21;
+                gcc = {
+                  stdenv = pkgs.gcc15Stdenv;
                 };
-              */
-            };
+              in
+              lib.mapAttrs (
+                _n: v:
+                (pkgs.mkShell.override { inherit (v) stdenv; }) {
+                  packages = [
+                    llvm.clang-tools
+                    pkgs.cmake
+                    pkgs.gdb
+                    pkgs.gdbgui
+                  ]
+                  ++ lib.optionals v.stdenv.cc.isClang [ llvm.openmp ];
+                }
+              ) { inherit gcc llvm; }
+            );
             legacyPackages.homeConfigurations =
               let
                 homeConfiguration =
