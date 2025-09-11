@@ -86,6 +86,12 @@
           set name (echo $data | jq --raw-output '.name // .login')
           printf "Co-authored-by: %s <%d+%s@users.noreply.github.com>\n" $name $id $account
         '';
+        git-remote-add = ''
+          echo + git remote add $argv[1] git@github.com:$argv[1]/(basename $PWD)
+          git remote add $argv[1] git@github.com:$argv[1]/(basename $PWD)
+          echo + git fetch $argv[1]
+          git fetch $argv[1]
+        '';
         cnake = ''
           cmake (string split " " -- $cmakeFlags) $argv
         '';
@@ -124,6 +130,7 @@
         gch = "git checkout";
         gfc = "git fork-clone";
         glp = "git push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds";
+        gra = "git-remote-add";
         grhh = "git reset --hard HEAD";
         gsub = "git commit -am submodules; git push";
         ipa = "ip address";
