@@ -101,6 +101,16 @@ in
           SUBSYSTEM=="net", ACTION=="add", ENV{ID_VENDOR_FROM_DATABASE}=="TP-Link", NAME="${cfg.interface}"
         '';
       };
+
+      systemd.services.dnsmasq = {
+        after = [ "sys-subsystem-net-devices-${cfg.interface}.device" ];
+        requires = [ "sys-subsystem-net-devices-${cfg.interface}.device" ];
+        startLimitBurst = 30;
+        serviceConfig = {
+          RestartSec = 2;
+          StartLimitIntervalSec = 0;
+        };
+      };
     }
   );
 }
