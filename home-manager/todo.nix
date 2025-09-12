@@ -35,6 +35,7 @@ in
       cargo-binstall
       cargo-release
       clang_19
+      cmeel
       comma
       dcfldd
       deadnix
@@ -132,7 +133,6 @@ in
       #(poetry.withPlugins (ps: with ps; [ poetry-plugin-up ]))
       (python3.withPackages (
         ps: with ps; [
-          cmeel
           django
           httpx
           ipython
