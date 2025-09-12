@@ -160,6 +160,7 @@ in
       rofimoji
       ruff
       rustc # nor pre-commit
+      rustscan
       signal-desktop
       sd
       sccache
