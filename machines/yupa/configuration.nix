@@ -10,6 +10,7 @@
     # ../../modules/steam.nix
     # ../../modules/teeworlds.nix
     ../../modules/nixos.nix
+    ../../modules/wifi.nix
     ../../modules/wifi-laas.nix
   ];
 

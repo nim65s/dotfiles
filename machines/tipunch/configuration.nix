@@ -5,6 +5,7 @@
     ../../modules/display.nix
     ../../modules/shared.nix
     ../../modules/nixos.nix
+    ../../modules/wifi.nix
   ];
 
   disko.devices.disk.main = {
