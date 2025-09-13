@@ -22,12 +22,26 @@
     file
     libreoffice
     pwvucontrol
+    simple-scan
     spotify
     tig
     ripgrep
     vim
   ];
-  hardware.sane.enable = true;
+  hardware = {
+    sane = {
+      enable = true;
+      brscan5 = {
+        enable = true;
+        netDevices = {
+          baroustan = {
+            model = "MFC-9140CDN";
+            ip = "192.168.1.100";
+          };
+        };
+      };
+    };
+  };
   home-manager.users = {
     fil = import ../../modules/fil-home.nix;
     nim = import ../../modules/nim-home.nix;
@@ -48,6 +62,9 @@
       defaultSession = null;
     };
     desktopManager.plasma6.enable = true;
+    saned = {
+      enable = true;
+    };
     vsftpd = {
       enable = true;
       localUsers = true;
