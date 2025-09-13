@@ -33,7 +33,13 @@
     nim = import ../../modules/nim-home.nix;
   };
   networking = {
-    interfaces.wlp170s0.mtu = 1400;
+    firewall.allowedTCPPorts = [ 21 ];
+    firewall.allowedTCPPortRanges = [
+      {
+        from = 40000;
+        to = 40100;
+      }
+    ];
   };
   programs.waybar.enable = false;
   services = {
@@ -44,11 +50,15 @@
     desktopManager.plasma6.enable = true;
     vsftpd = {
       enable = true;
-      userlistDeny = false;
       localUsers = true;
-      userlist = [ "ftp-test-user" ];
+      chrootlocalUser = true;
+      allowWriteableChroot = true;
       writeEnable = true;
-      localRoot = "/home/$USERS/scans";
+      extraConfig = ''
+        pasv_enable=YES
+        pasv_min_port=40000
+        pasv_max_port=40100
+      '';
     };
     xserver.xkb.variant = "";
   };
