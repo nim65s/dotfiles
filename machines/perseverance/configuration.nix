@@ -41,6 +41,11 @@ in
         extraConfig = "autoindex on;";
       };
     };
+    roversap = {
+      enable = true;
+      subnet = 30;
+      upstream = "TODO";
+    };
   };
 
   stylix.image = ../../bg/perseverance.jpeg;
