@@ -55,13 +55,19 @@
       }
     ];
   };
-  programs.waybar.enable = false;
+  programs = {
+    waybar.enable = false;
+    system-config-printer.enable = true;
+  };
   services = {
     displayManager = {
       autoLogin.user = "fil";
       defaultSession = null;
     };
     desktopManager.plasma6.enable = true;
+    printing = {
+      enable = true;
+    };
     saned = {
       enable = true;
     };
