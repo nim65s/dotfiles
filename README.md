@@ -35,3 +35,14 @@ zfs set -u mountpoint=/home zroot/root/home
 zpool export zroot
 reboot
 ```
+
+## RPi
+
+```
+nix build .#nixosConfigurations.healoriaspi.config.system.build.sdImage
+caligula burn result/sd-image/nixos-image-sd-card-25.11.20250908.b599843-aarch64-linux.img.zst
+
+or
+
+nixos-rebuild --target-host root@192.168.8.126 --flake . switch
+```
