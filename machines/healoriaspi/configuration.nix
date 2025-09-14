@@ -9,8 +9,6 @@
     (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
   ];
 
-  facter.reportPath = ./facter.json;
-
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "fr_FR.UTF-8";
   console.keyMap = "fr";
@@ -85,7 +83,6 @@
     nim = {
       inherit (config.users.users.root) openssh;
       isNormalUser = true;
-      initialPassword = "dd";
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
     };
