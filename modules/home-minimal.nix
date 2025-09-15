@@ -192,10 +192,13 @@
     };
     ssh = {
       enable = true;
-      controlMaster = "auto";
+      enableDefaultConfig = false;
       includes = [ "local_config" ];
-      userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
       matchBlocks = {
+        "*" = {
+          controlMaster = "auto";
+          userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
+        };
         "gh" = {
           hostname = "github.com";
           user = "git";
