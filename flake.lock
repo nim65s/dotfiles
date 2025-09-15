@@ -107,15 +107,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1757912940,
-        "narHash": "sha256-Xypz7pxa1L09GooMueosv0CRW4Cx5/gdtvSPBrnXf6M=",
-        "rev": "93280a9f987bbe689c74f1ea21d0c2fa4645c359",
+        "lastModified": 1757931639,
+        "narHash": "sha256-tW1tvYAF6GqjYPsE8P1Ag4U78WbOJWBfcYs9e0WbDtI=",
+        "rev": "1a1492cce0bbf0dcd58f19cfe2f40aebca9d71db",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/93280a9f987bbe689c74f1ea21d0c2fa4645c359.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/nim65s/clan-core/archive/1a1492cce0bbf0dcd58f19cfe2f40aebca9d71db.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://git.clan.lol/clan/clan-core/archive/main.tar.gz"
+        "url": "https://git.clan.lol/nim65s/clan-core/archive/wpa3.tar.gz"
       }
     },
     "data-mesher": {

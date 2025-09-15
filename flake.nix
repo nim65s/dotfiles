@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "https://git.clan.lol/nim65s/clan-core/archive/wpa3.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -153,7 +153,7 @@
                   settings.networks = {
                     antagnac = { };
                     azv = { };
-                    baroustan = { };
+                    baroustan.keyMgmt = "sae";
                     bouys = { };
                     bsc = { };
                     healoria = { };
