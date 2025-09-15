@@ -92,6 +92,7 @@
       in
       myceliumHosts;
     useNetworkd = true;
+    networkmanager.ensureProfiles.profiles.baroustan.wifi-security.key-mgmt = lib.mkForce "sae";
   };
 
   nix = {

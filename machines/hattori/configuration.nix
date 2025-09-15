@@ -10,7 +10,6 @@
     ../../modules/shared.nix
     ../../modules/nixos.nix
     # ../../modules/parental-control.nix
-    ../../modules/wifi.nix
   ];
 
   console = {
