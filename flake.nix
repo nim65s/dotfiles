@@ -288,7 +288,7 @@
                   ./modules/lab.nix
                 ];
                 "gsaurel@upepesanke" = homeConfiguration [
-                  ./homes/upepesanke/home.nix
+                  ./aliens/upepesanke/home.nix
                 ];
               };
 

@@ -1,78 +1,47 @@
-{ pkgs, ... }:
 {
-  my-username = "gsaurel";
-  my-waybar-output = "DP-1";
-  my-sway-extraConfig = "";
-  my-sway-output = {
-    "DP-1" = {
-      bg = "${./../../bg/gauche.jpg} fill";
-      scale = "1.5";
-      mode = "3840x2160";
-      pos = "0 0";
-    };
-    "DP-2" = {
-      bg = "${./../../bg/droite.jpg} fill";
-      mode = "1920x1080";
-      pos = "2560 0";
-    };
-  };
-  my-workspaceOutputAssign = [
-    {
-      "workspace" = "1";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "2";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "3";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "4";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "5";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "6";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "7";
-      "output" = "DP-1";
-    }
-    {
-      "workspace" = "8";
-      "output" = "DP-2";
-    }
-    {
-      "workspace" = "9";
-      "output" = "DP-2";
-    }
-    {
-      "workspace" = "10";
-      "output" = "DP-2";
-    }
-    {
-      "workspace" = "11";
-      "output" = "DP-2";
-    }
-    {
-      "workspace" = "12";
-      "output" = "DP-2";
-    }
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ../../modules/nim-home.nix
+    ../../modules/lab.nix
+    #../aliens/upepesanke/home.nix
   ];
-  home = {
-    sessionVariables = {
-      LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-      SCCACHE_REDIS = "redis://asahi";
-    };
+
+  stylix.image = ../../bg/gauche.jpg;
+
+  nim-home = {
+    niri = [ ./niri.kdl ];
+    swaybgs = ''
+      ${lib.getExe pkgs.swaybg} -m fill -o DP-1 -i ${../../bg/gauche.jpg} &
+      ${lib.getExe pkgs.swaybg} -m fill -o DP-2 -i ${../../bg/droite.jpg} &
+      wait
+    '';
   };
-  nix = {
-    package = pkgs.lix;
+
+  xdg.autostart = {
+    enable = true;
+    entries =
+      let
+        fixDesktop =
+          pkg: path:
+          pkgs.runCommandLocal "nix-${pkg.pname}.desktop"
+            {
+              buildInputs = [ pkg ];
+              nativeBuildInputs = [ pkgs.gnused ];
+            }
+            ''
+              sed 's|^Exec=.*|Exec=${lib.getExe pkg}|' ${pkg}${path} > $out
+            '';
+      in
+      [
+        (fixDesktop config.programs.spicetify.spicedSpotify "/share/spotify/spotify.desktop")
+        (fixDesktop config.programs.thunderbird.package "/share/applications/thunderbird.desktop")
+        (fixDesktop config.programs.firefox.finalPackage "/share/applications/firefox-devedition.desktop")
+        (fixDesktop pkgs.zeal-qt6 "/share/applications/org.zealdocs.zeal.desktop")
+      ];
   };
 }
