@@ -160,7 +160,6 @@ in
 
       rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
         terminal = lib.getExe pkgs.kitty;
         extraConfig = {
           color-enabled = true;

@@ -18,7 +18,7 @@ in
         down = "t";
         left = "c";
         right = "r";
-        menu = "${lib.getExe pkgs.rofi-wayland} -show run";
+        menu = "${lib.getExe pkgs.rofi} -show run";
         output = config.my-sway-output;
         window.commands = [
           {
@@ -60,7 +60,7 @@ in
 
         keybindings = config.i3sway.keybindings // {
 
-          "${mod}+i" = ''exec "${lib.getExe pkgs.rofi-wayland} -show run"'';
+          "${mod}+i" = ''exec "${lib.getExe pkgs.rofi} -show run"'';
 
           "${mod}+e" = ''exec "${lib.getExe pkgs.rofi-rbw} --typer wtype --clipboarder wl-copy"'';
           "${mod}+x" = ''exec "${lib.getExe pkgs.swaylock}"'';
