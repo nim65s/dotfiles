@@ -201,7 +201,7 @@ in
       yq
       yt-dlp
       zathura
-      zeal-qt6
+      zeal
       zellij
       zfs
       #zola

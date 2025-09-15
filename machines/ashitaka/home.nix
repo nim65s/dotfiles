@@ -29,7 +29,7 @@
   xdg.autostart = {
     enable = true;
     entries = [
-      "${pkgs.zeal-qt6}/share/applications/org.zealdocs.zeal.desktop"
+      "${pkgs.zeal}/share/applications/org.zealdocs.zeal.desktop"
       "${config.programs.firefox.finalPackage}/share/applications/firefox-devedition.desktop"
       "${config.programs.kitty.package}/share/applications/kitty.desktop"
       "${config.programs.element-desktop.package.desktopItem}/share/applications/element-desktop.desktop"
