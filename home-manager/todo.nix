@@ -61,6 +61,7 @@ in
       ghostscript
       git-extras
       git-fork-clone
+      git-statuses
       gnupg
       gparted
       grim
