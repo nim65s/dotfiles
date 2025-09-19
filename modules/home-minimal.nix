@@ -121,6 +121,7 @@
         gd = "git difftool";
         gdi = "git difftool -t icat";
         gst = "git status";
+        gsts = "git statuses";
         gp = "git push";
         gf = "git fetch --all --prune";
         gcaf = "git commit -a --fixup";
