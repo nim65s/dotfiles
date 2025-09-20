@@ -10,7 +10,7 @@
     ../../modules/nixos.nix
   ];
 
-  environment.systemPackages = [ pkgs.factorio-space-age ];
+  # environment.systemPackages = [ pkgs.factorio-space-age ];
 
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
@@ -47,7 +47,7 @@
 
   stylix.image = ../../bg/ashitaka-3.jpg;
 
-  system.extraDependencies = [ pkgs.factorio-space-age.src ];
+  # system.extraDependencies = [ pkgs.factorio-space-age.src ];
 
   users.users.nim.extraGroups = [ "docker" ];
 
