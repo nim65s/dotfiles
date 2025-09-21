@@ -56,6 +56,3 @@ output "DP-2" {
     position x=3840 y=0
     scale 1.5
 }
-debug {
-    wait-for-frame-completion-in-pipewire
-}
