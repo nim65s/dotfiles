@@ -82,7 +82,7 @@
     ignorecase = true;
     smartcase = true;
     expandtab = true;
-    foldlevel = 10;
+    foldlevel = 20;
     splitbelow = true;
     splitright = true;
     scrolloff = 3;
