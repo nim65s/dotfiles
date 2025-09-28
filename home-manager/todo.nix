@@ -99,6 +99,7 @@ in
       mosh
       mpv
       mypy
+      nb
       ncdu
       ninja
       niri
