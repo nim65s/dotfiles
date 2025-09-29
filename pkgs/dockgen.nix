@@ -6,14 +6,14 @@
 
 python3.pkgs.buildPythonApplication rec {
   pname = "dockgen";
-  version = "0.3.0";
+  version = "0.4.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "nim65s";
     repo = "dockgen";
     rev = "v${version}";
-    hash = "sha256-OndnUh9pD3gK4OQ1h/phzjeNIMC7tw1O8whuKPi1qKU=";
+    hash = "sha256-AQKrAzOYgiqFuspv48i3Oqv7AJnjeEtfYhOveJctS1w=";
   };
 
   build-system = [

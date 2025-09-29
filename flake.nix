@@ -295,6 +295,7 @@
             packages = {
               inherit (pkgs)
                 cmeel
+                dockgen
                 exif-diff
                 git-fork-clone
                 iosevka-aile
