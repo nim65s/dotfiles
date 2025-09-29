@@ -43,6 +43,7 @@ in
       dfc
       d-spy
       dig
+      dockgen
       dos2unix
       chrpath
       cmake
