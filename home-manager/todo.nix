@@ -316,7 +316,7 @@ in
           verbose = true;
         };
         core = {
-          excludesfile = "~/dotfiles/gitignore";
+          excludesfile = "${../gitignore}";
         };
         diff = {
           algorithm = "histogram";
