@@ -8,9 +8,10 @@
   ];
   programs = {
     niri.enable = true;
+    sniffnet.enable = true;
     waybar.enable = lib.mkDefault true;
-    xwayland.enable = true;
     wireshark.enable = true;
+    xwayland.enable = true;
   };
   security = {
     pam.services.swaylock = { };
