@@ -324,6 +324,7 @@
       btop.enable = false;
       firefox.enable = false;
       fzf.enable = false;
+      halloy.enable = false;
       helix.enable = false;
       kitty.enable = false;
       mako.enable = false; # silence a HM assert in unused module
