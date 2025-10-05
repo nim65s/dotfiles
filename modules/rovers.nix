@@ -21,8 +21,10 @@
 
   services = {
     logind = {
-      killUserProcesses = true;
-      powerKey = "poweroff";
+      settings.Login = {
+        KillUserProcesses = true;
+        HandlePowerKey = "poweroff";
+      };
     };
     nginx = {
       enable = true;
