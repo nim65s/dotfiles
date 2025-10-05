@@ -130,7 +130,7 @@
         clangd.enable = true;
         # cmake.enable = true;
         nil_ls.enable = true;
-        rls.enable = true;
+        rust_analyzer.enable = true;
         ruff.enable = true;
       };
     };
