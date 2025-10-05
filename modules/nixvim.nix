@@ -130,7 +130,12 @@
         clangd.enable = true;
         # cmake.enable = true;
         nil_ls.enable = true;
-        rust_analyzer.enable = true;
+        rust_analyzer = {
+          enable = true;
+          # I prefer rustc from rust-overlay in devShells
+          installCargo = false;
+          installRustc = false;
+        };
         ruff.enable = true;
       };
     };
