@@ -87,7 +87,6 @@
       patcher = unpatchedInputs.flake-input-patcher.lib.x86_64-linux;
       inputs = patcher.patch unpatchedInputs {
         nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
-        nixvim.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/nixvim;
         home-manager.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/home-manager;
       };
     in
