@@ -1,0 +1,84 @@
+From 01e1256074e8b8f95b7ead0b96bcdeb7ab4c9327 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Wed, 8 Oct 2025 12:09:22 +0200
+Subject: [PATCH 1/2] dfc: fix for CMake v4
+
+---
+ pkgs/by-name/df/dfc/package.nix | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/pkgs/by-name/df/dfc/package.nix b/pkgs/by-name/df/dfc/package.nix
+index 53cf879438b977..e7f82e23e77fbe 100644
+--- a/pkgs/by-name/df/dfc/package.nix
++++ b/pkgs/by-name/df/dfc/package.nix
+@@ -15,6 +15,14 @@ stdenv.mkDerivation rec {
+     sha256 = "0m1fd7l85ckb7bq4c5c3g257bkjglm8gq7x42pkmpp87fkknc94n";
+   };
+ 
++  # Fix for CMake v4
++  # ref. https://github.com/rolinh/dfc/pull/35
++  postPatch = ''
++    substituteInPlace CMakeLists.txt --replace-fail \
++      "cmake_minimum_required(VERSION 2.8.4)" \
++      "cmake_minimum_required(VERSION 3.10)"
++  '';
++
+   nativeBuildInputs = [
+     cmake
+     gettext
+
+From e736fba66f9dbc02a0302e330c6d9e2e6423c36b Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Wed, 8 Oct 2025 12:11:18 +0200
+Subject: [PATCH 2/2] dfc: switch upstream to github
+
+ref. https://github.com/rolinh/dfc/issues/34#issuecomment-1432005989
+---
+ pkgs/by-name/df/dfc/package.nix | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
+
+diff --git a/pkgs/by-name/df/dfc/package.nix b/pkgs/by-name/df/dfc/package.nix
+index e7f82e23e77fbe..481c59d61da9ae 100644
+--- a/pkgs/by-name/df/dfc/package.nix
++++ b/pkgs/by-name/df/dfc/package.nix
+@@ -1,18 +1,20 @@
+ {
+   lib,
+   stdenv,
+-  fetchurl,
++  fetchFromGitHub,
+   cmake,
+   gettext,
+ }:
+ 
+-stdenv.mkDerivation rec {
++stdenv.mkDerivation (finalAttrs: {
+   pname = "dfc";
+   version = "3.1.1";
+ 
+-  src = fetchurl {
+-    url = "https://projects.gw-computing.net/attachments/download/615/${pname}-${version}.tar.gz";
+-    sha256 = "0m1fd7l85ckb7bq4c5c3g257bkjglm8gq7x42pkmpp87fkknc94n";
++  src = fetchFromGitHub {
++    owner = "rolinh";
++    repo = "dfc";
++    tag = "v${finalAttrs.version}";
++    hash = "sha256-k15q04dNWmHVeUabaCogkESQ+k63ZV7Xph2SMNpV/N8=";
+   };
+ 
+   # Fix for CMake v4
+@@ -29,11 +31,12 @@ stdenv.mkDerivation rec {
+   ];
+ 
+   meta = {
+-    homepage = "https://projects.gw-computing.net/projects/dfc";
++    homepage = "https://github.com/rolinh/dfc";
++    changelog = "https://github.com/rolinh/dfc/releases/tag/${finalAttrs.src.tag}";
+     description = "Displays file system space usage using graphs and colors";
+     license = lib.licenses.bsd3;
+     maintainers = with lib.maintainers; [ qknight ];
+     platforms = lib.platforms.all;
+     mainProgram = "dfc";
+   };
+-}
++})
