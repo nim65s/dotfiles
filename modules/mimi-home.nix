@@ -46,7 +46,7 @@
           kmines
           kgeography
           kturtle
-          kstars
+          # kstars  # TODO: build broken
           minuet
           # keep-sorted end
         ]);
