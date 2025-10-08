@@ -1,0 +1,26 @@
+From 9c0832b5d52afc97a6b26241ff99fbd666449273 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Wed, 8 Oct 2025 14:28:52 +0200
+Subject: [PATCH] teeworlds: fix for CMake v4
+
+---
+ pkgs/by-name/te/teeworlds/package.nix | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/pkgs/by-name/te/teeworlds/package.nix b/pkgs/by-name/te/teeworlds/package.nix
+index 2ed6cf0fb744e5..8e19e85d56124b 100644
+--- a/pkgs/by-name/te/teeworlds/package.nix
++++ b/pkgs/by-name/te/teeworlds/package.nix
+@@ -43,6 +43,12 @@ stdenv.mkDerivation rec {
+   ];
+ 
+   postPatch = ''
++    # Fix for CMake v4
++    # ref. https://github.com/teeworlds/teeworlds/pull/2821 merged upstream
++    substituteInPlace CMakeLists.txt --replace-fail \
++      "cmake_minimum_required(VERSION 2.8)" \
++      "cmake_minimum_required(VERSION 2.8.12...3.19.1)"
++
+     # set compiled-in DATA_DIR so resources can be found
+     substituteInPlace src/engine/shared/storage.cpp \
+       --replace '#define DATA_DIR "data"' \
