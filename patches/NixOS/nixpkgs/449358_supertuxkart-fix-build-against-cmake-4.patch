@@ -1,0 +1,42 @@
+From 4b510660e6901bce35be64ba2463d333ab4535fc Mon Sep 17 00:00:00 2001
+From: Colin <colin@uninsane.org>
+Date: Tue, 7 Oct 2025 05:09:05 +0000
+Subject: [PATCH] superTuxKart: fix build against cmake 4
+
+---
+ pkgs/by-name/su/superTuxKart/package.nix | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/pkgs/by-name/su/superTuxKart/package.nix b/pkgs/by-name/su/superTuxKart/package.nix
+index 7d6763bde47735..3c929b1137f576 100644
+--- a/pkgs/by-name/su/superTuxKart/package.nix
++++ b/pkgs/by-name/su/superTuxKart/package.nix
+@@ -3,6 +3,7 @@
+   stdenv,
+   fetchFromGitHub,
+   fetchsvn,
++  fetchpatch2,
+   cmake,
+   pkg-config,
+   makeWrapper,
+@@ -76,6 +77,20 @@ stdenv.mkDerivation rec {
+     hash = "sha256-gqdaVvgNfCN40ZO/9y8+vTeIJPSq6udKxYZ/MAi4ZMM=";
+   };
+ 
++  patches = [
++    # upstreamed patches required to build against cmake 4.0; remove with next release update.
++    (fetchpatch2 {
++      name = "Require-Cmake-3.6-or-higher";
++      url = "https://github.com/supertuxkart/stk-code/commit/7d4e8433c124c08c62f5335e2a884aeea71cf184.patch?full_index=1";
++      hash = "sha256-Pg4sok3bATyl6xFqdzL45Utsq3sFCxxnVAOVxw3Liqo=";
++    })
++    (fetchpatch2 {
++      name = "Fixed-cmake-4.0-warnings";
++      url = "https://github.com/supertuxkart/stk-code/commit/184c80138faf5232c33ff99ffe7706e821be70c2.patch?full_index=1";
++      hash = "sha256-BBYVBqCgH/JIAgqP+1j6dWi+KUQfZMa6/bZtUrK/t4Q=";
++    })
++  ];
++
+   postPatch = ''
+     # Deletes all bundled libs in stk-code/lib except those
+     # That couldn't be replaced with system packages
