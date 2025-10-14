@@ -1,4 +1,4 @@
-From c48cc7074236b6183958e3502bb3140d9b0b4c7f Mon Sep 17 00:00:00 2001
+From fe734a100f44bb212ea1bbe82b283b78481f9429 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:59:02 +0200
 Subject: [PATCH 01/22] levmar: adopt
@@ -21,7 +21,7 @@ index ac7879f7408745..d6e974f7064e6b 100644
    };
  })
 
-From 7ed565a2e57ee172dad31ed7402b9f95872c328d Mon Sep 17 00:00:00 2001
+From 66b15326caeecc6026f2a69f85ac2d9f7b3d8ab8 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:38:15 +0200
 Subject: [PATCH 02/22] levmar: install new header
@@ -45,7 +45,7 @@ index d6e974f7064e6b..a52760b3736807 100644
    '';
  
 
-From 1d8b2d4763b0fbb9e8d377e57a51ed90c5619ddf Mon Sep 17 00:00:00 2001
+From 6aec23d24c0a5bcfdaf12922a041fb9344d2821e Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:22:08 +0200
 Subject: [PATCH 03/22] lib3mf: adopt
@@ -68,7 +68,7 @@ index 813138971444b7..0434368b5698f4 100644
    };
  })
 
-From 40e989cf4566e315941c5b894f9ff45a85f52ce6 Mon Sep 17 00:00:00 2001
+From f68fcc908b20edebe08c19dde3a13c17a248a43a Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:42:31 +0200
 Subject: [PATCH 04/22] lib3mf: fix CMake export
@@ -94,7 +94,7 @@ index 0434368b5698f4..2b29e533a5b5ea 100644
  
    doCheck = true;
 
-From c871af96157c42a017e70d7bc6a42e056fb0a449 Mon Sep 17 00:00:00 2001
+From 0470ed4dc14b531973627a67c880426eb4c8aebe Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 22:39:40 +0200
 Subject: [PATCH 05/22] lib3mf: replace-warn -> replace-fail
@@ -122,7 +122,7 @@ index 2b29e533a5b5ea..78bd8735007131 100644
      # Fix CMake export
      substituteInPlace cmake/lib3mfConfig.cmake \
 
-From cf3da26d52357091daf87e785530fdb9fc8ed3c8 Mon Sep 17 00:00:00 2001
+From e57fcf4510ece36f10aae615186a9f07188f06bf Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Fri, 19 Sep 2025 12:16:00 +0200
 Subject: [PATCH 06/22] tinygltf: init at 2.9.6
@@ -169,7 +169,7 @@ index 00000000000000..56411424445685
 +  };
 +})
 
-From 3c03b2123a74932513a3c3425c2e526e1a36b76f Mon Sep 17 00:00:00 2001
+From 2af9a5e4292411c239c3b58cee20e815d54447d3 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 22:52:56 +0200
 Subject: [PATCH 07/22] libigl: dont install opengl headers
@@ -206,7 +206,7 @@ index 1fc21b8f63d4d3..1ef1a6d7332441 100644
  
    meta = with lib; {
 
-From 3eadebc7b5efd1a9e2699b8a6ec9fe14dc1fc47b Mon Sep 17 00:00:00 2001
+From a45166c60f7817e9070936b2dee6aa1a7080f840 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:02:03 +0200
 Subject: [PATCH 08/22] vcg: adopt
@@ -228,7 +228,7 @@ index 487b4510263eac..2a2e43e061ed36 100644
    };
  }
 
-From 2964820a945af779b5c6df0e7999b4d0c5f4c2cf Mon Sep 17 00:00:00 2001
+From 991c0c92571160c38ef19548ad2ebb525a750c51 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:03:24 +0200
 Subject: [PATCH 09/22] vcg: clean
@@ -284,7 +284,7 @@ index 2a2e43e061ed36..bf3f4a7ff8e588 100644
 -}
 +})
 
-From 1baafefac8a5ee85fb1dc1779cfc4f7a1ac56a4c Mon Sep 17 00:00:00 2001
+From aa7e5d9b9c88a8df79f1456f304a1c138d0ec90c Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 12:32:22 +0200
 Subject: [PATCH 10/22] vcg: switch to CMake
@@ -345,7 +345,7 @@ index bf3f4a7ff8e588..8db97500a18fe6 100644
    meta = {
      homepage = "https://vcg.isti.cnr.it/vcglib/install.html";
 
-From 1680a6747855aec4a0787689a065c1cd5d06f523 Mon Sep 17 00:00:00 2001
+From 2da171bbbf9243ee0f113d5dc974dff38f97dc49 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 15:59:03 +0200
 Subject: [PATCH 11/22] corto: 0-unstable-2024-04-05 -> v2025.07
@@ -410,7 +410,7 @@ index acf0517e0c10a3..5efe16c864c442 100644
 -}
 +})
 
-From d1ee1ad455de1d8b1ff6c6ef9c5406941bbc1f1f Mon Sep 17 00:00:00 2001
+From 809a3e1646f4e62173006ceb8d368f4edcdad9a0 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:00:26 +0200
 Subject: [PATCH 12/22] vclab-nexus: init at 2025.05
@@ -513,7 +513,7 @@ index 00000000000000..2bdfe17547b6ba
 +  };
 +})
 
-From e30f949fac49ebbd33f6b9fd4e0a9552a3d257bd Mon Sep 17 00:00:00 2001
+From bcc05af427fdb926be0949983c463b93197baa7b Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:03:57 +0200
 Subject: [PATCH 13/22] meshlab: adopt
@@ -539,7 +539,7 @@ index dedae59c8c345e..d86aea7157db1e 100644
    };
  })
 
-From cc02ff8ee0218c7657260b69883c3d3cc87ead68 Mon Sep 17 00:00:00 2001
+From 367183761ccc22a5aefd7ec4e5705b2d39f5de9b Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:10:18 +0200
 Subject: [PATCH 14/22] meshlab: 2023.12 -> 2025.07 + use system dependencies
@@ -976,7 +976,7 @@ index d86aea7157db1e..5cc3917cd7414a 100644
      + lib.optionalString stdenv.hostPlatform.isDarwin ''
        wrapQtApp "$out/Applications/meshlab.app/Contents/MacOS/meshlab"
 
-From fda7a1509c615003efe1ea58385933b4dd86c5bc Mon Sep 17 00:00:00 2001
+From bb51486b5ea68122c9db298fa1262614b7ce7ef8 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 23:35:44 +0200
 Subject: [PATCH 15/22] meshlab: darwin updates
@@ -1009,10 +1009,10 @@ index 5cc3917cd7414a..0be074cf79e1e9 100644
  
    # The hook will wrap all the plugin binaries, make they are not a
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 1cf07ca6e30b8b..8559eb33869d97 100644
+index 1e4951cd2d36fb..0169564efc071f 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11970,7 +11970,6 @@ with pkgs;
+@@ -11844,7 +11844,6 @@ with pkgs;
  
    meshlab = callPackage ../by-name/me/meshlab/package.nix {
      stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
@@ -1021,7 +1021,7 @@ index 1cf07ca6e30b8b..8559eb33869d97 100644
  
    meshlab-unstable = callPackage ../by-name/me/meshlab-unstable/package.nix {
 
-From cf2cfac34f3e8a3bb90a5893cca9653523817a13 Mon Sep 17 00:00:00 2001
+From ecffbb550ddd67ece1050fcda7257165019fee35 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 17:10:16 +0200
 Subject: [PATCH 16/22] meshlab-unstable: drop
@@ -1221,22 +1221,22 @@ index 00468e6a080118..00000000000000
 -  };
 -}
 diff --git a/pkgs/top-level/aliases.nix b/pkgs/top-level/aliases.nix
-index 6fa74f0f033d7f..41193ea2b0273d 100644
+index fea2ea4000c87e..fb7c4f9ae957d8 100644
 --- a/pkgs/top-level/aliases.nix
 +++ b/pkgs/top-level/aliases.nix
-@@ -1697,6 +1697,7 @@ mapAliases {
+@@ -1735,6 +1735,7 @@ mapAliases {
    memorymappingHook = throw "memorymapping has been removed, as it was only useful on old macOS versions that are no longer supported"; # Added 2024-10-05
    memstream = throw "memstream has been removed, as it was only useful on old macOS versions that are no longer supported"; # Added 2024-10-05
    memstreamHook = throw "memstream has been removed, as it was only useful on old macOS versions that are no longer supported"; # Added 2024-10-05
 +  meshlab-unstable = throw "meshlab-unstable has been removed, as it was behind meshlab"; # Added 2025-09-21
+   meteo = throw "'meteo' has been removed as it was unmaintained and depends on deprecated webkitgtk_4_0"; # Added 2025-10-09
    mhwaveedit = throw "'mkwaveedit' has been removed due to lack of maintenance upstream. Consider using 'audacity' or 'tenacity' instead"; # Added 2024-09-15
    microcodeAmd = microcode-amd; # Added 2024-09-08
-   microcodeIntel = microcode-intel; # Added 2024-09-08
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 8559eb33869d97..7cee16d5106f1b 100644
+index 0169564efc071f..7e9d612fcd2cac 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11972,11 +11972,6 @@ with pkgs;
+@@ -11846,11 +11846,6 @@ with pkgs;
      stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
    };
  
@@ -1249,7 +1249,7 @@ index 8559eb33869d97..7cee16d5106f1b 100644
  
    michabo = libsForQt5.callPackage ../applications/misc/michabo { };
 
-From a851aeeffe61128cba45f80a905d342f9d7fd4bd Mon Sep 17 00:00:00 2001
+From eff5a63a486dfe95fe1798a398ec7443184caa4b Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Thu, 25 Sep 2025 08:52:10 +0200
 Subject: [PATCH 17/22] meshlab: remove from all-packages, use by-name
@@ -1259,10 +1259,10 @@ Subject: [PATCH 17/22] meshlab: remove from all-packages, use by-name
  1 file changed, 4 deletions(-)
 
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 7cee16d5106f1b..016876e0c45c49 100644
+index 7e9d612fcd2cac..bbb86d44242d52 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11968,10 +11968,6 @@ with pkgs;
+@@ -11842,10 +11842,6 @@ with pkgs;
  
    mercurialFull = mercurial.override { fullBuild = true; };
  
@@ -1274,7 +1274,7 @@ index 7cee16d5106f1b..016876e0c45c49 100644
  
    michabo = libsForQt5.callPackage ../applications/misc/michabo { };
 
-From 176bb070de73debf562c0c8572a0d9f23e3f0897 Mon Sep 17 00:00:00 2001
+From cda2fb73f78bb5794f401db3352cf647c6fb8cef Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 23:09:22 +0200
 Subject: [PATCH 18/22] meshlab: darwin plist: substitute -> patch
@@ -1335,7 +1335,7 @@ index 0be074cf79e1e9..9e431b24d75de3 100644
    cmakeFlags = cmakeFlagsDisallowDownload;
  
 
-From d57949002195782b4a4903744273574a69be58db Mon Sep 17 00:00:00 2001
+From 6767472f5e30ea1795760881ff4d44fc6422eea0 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Fri, 19 Sep 2025 12:14:46 +0200
 Subject: [PATCH 19/22] python3Packages.pymeshlab: 2023.12 -> 2025.7 + use
@@ -1506,7 +1506,7 @@ index b6d37dfc564908..60c7132365eef4 100644
    };
  })
 
-From 2ba7d440531cdc34e21d45a066bb6304138b2bcf Mon Sep 17 00:00:00 2001
+From 6ef7223f5c69a1e321a6646fdc4d6f2f0bac5309 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 23:27:12 +0200
 Subject: [PATCH 20/22] python3Packages.pymeshlab: fix on darwin
@@ -1568,7 +1568,7 @@ index 60c7132365eef4..b6e0619e1c2372 100644
        --add-needed ${meshlab}/lib/meshlab/libmeshlab-common.so \
        $out/${python3Packages.python.sitePackages}/pymeshlab/pmeshlab.*.so
 
-From 3293b64dca95a2a3b12d651b6de43d29b7f5fc1f Mon Sep 17 00:00:00 2001
+From 23c91fb46c37ace04b49688f733b9671a589dac5 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 23:10:44 +0200
 Subject: [PATCH 21/22] python3Packages.pymeshlab: dont propagate hook
@@ -1598,7 +1598,7 @@ index b6e0619e1c2372..ec6edb230aff14 100644
  
    buildInputs = [
 
-From bdfaddb895e8bb20923f79aa705a1938931aba0d Mon Sep 17 00:00:00 2001
+From 9bee005cf3ba366dd0617cf63ae92cce58eead52 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Mon, 6 Oct 2025 01:34:14 +0200
 Subject: [PATCH 22/22] openscad: fix on darwin
