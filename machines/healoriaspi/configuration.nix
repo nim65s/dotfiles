@@ -26,11 +26,6 @@
     # };
   };
 
-  nixpkgs = {
-    hostPlatform = "aarch64-linux";
-    buildPlatform = "x86_64-linux";
-  };
-
   ## formated SD card as:
   # [nixos@nixos:~]$ sudo parted /dev/mmcblk1 -- p
   # Model: SD NCard (sd/mmc)

@@ -13,14 +13,17 @@
     ../../modules/wifi-laas.nix
   ];
 
-  # fix wifi disconnects
-  # thx https://bbs.archlinux.org/viewtopic.php?id=287947
-  boot.kernelParams = [
-    "rtw89_core.disable_ps_mode=Y"
-    "rtw89_pci.disable_aspm_l1=Y"
-    "rtw89_pci.disable_aspm_l1ss=Y"
-    "rtw89_pci.disable_clkreq=Y"
-  ];
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    # fix wifi disconnects
+    # thx https://bbs.archlinux.org/viewtopic.php?id=287947
+    kernelParams = [
+      "rtw89_core.disable_ps_mode=Y"
+      "rtw89_pci.disable_aspm_l1=Y"
+      "rtw89_pci.disable_aspm_l1ss=Y"
+      "rtw89_pci.disable_clkreq=Y"
+    ];
+  };
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
     name = "main-a855f7621e7c4f468b3e94c4ed4ade19";

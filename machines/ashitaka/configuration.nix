@@ -10,12 +10,15 @@
     ../../modules/nixos.nix
   ];
 
-  # environment.systemPackages = [ pkgs.factorio-space-age ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
     name = "main-ab41b1b291c142a29d99aaf8f398f575";
   };
+
+  # environment.systemPackages = [ pkgs.factorio-space-age ];
+
   home-manager.users.nim = import ./home.nix;
 
   networking = {
