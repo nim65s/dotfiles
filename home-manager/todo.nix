@@ -279,6 +279,7 @@ in
         server_name = "tetaneutral.net";
       };
     };
+    ghostty.enable = true;
     git = {
       enable = true;
       attributes = [
