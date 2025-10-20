@@ -254,7 +254,10 @@ in
   };
 
   programs = {
-    asciinema.enable = true;
+    asciinema = {
+      enable = true;
+      package = pkgs.asciinema_3;
+    };
     element-desktop = {
       enable = true;
       combineDefaultSettings = true;
