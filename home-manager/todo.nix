@@ -254,6 +254,7 @@ in
   };
 
   programs = {
+    asciinema.enable = true;
     element-desktop = {
       enable = true;
       combineDefaultSettings = true;
