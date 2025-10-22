@@ -283,21 +283,20 @@ in
       };
     };
     ghostty.enable = true;
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        hyperlinks = true;
+      };
+    };
     git = {
       enable = true;
       attributes = [
         "*.png diff=exif-diff"
       ];
-      delta = {
-        enable = true;
-        options = {
-          hyperlinks = true;
-        };
-      };
       lfs.enable = true;
-      userName = "Guilhem Saurel";
-      userEmail = atjoin { name = "guilhem.saurel"; };
-      extraConfig = {
+      settings = {
         alias = {
           git = "!exec git";
           lg = "log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'";
@@ -363,6 +362,8 @@ in
           '';
         };
         user = {
+          email = atjoin { name = "guilhem.saurel"; };
+          name = "Guilhem Saurel";
           signingKey = "4653CF28";
         };
         pull = {
