@@ -81,6 +81,18 @@
       key = "<leader>p";
       action = "\"+p";
     }
+    # get diagnostic
+    {
+      mode = "n";
+      key = "<leader>d";
+      action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+    }
+    # get corrections
+    {
+      mode = "n";
+      key = "<leader>c";
+      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+    }
   ];
 
   opts = {
