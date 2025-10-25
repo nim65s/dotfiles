@@ -183,6 +183,7 @@ in
       tig
       toml-sort
       tree
+      tree-sitter
       unzip
       usbutils
       uv

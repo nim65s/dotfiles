@@ -35,9 +35,11 @@
     loaded_ruby_provider = 0;
     loaded_perl_provider = 0;
     loaded_python_provider = 0; # Python 2
+    mapleader = " ";
   };
 
   keymaps = [
+    # Ergo-L too slow release of AltGr for :
     {
       mode = "ca";
       key = "^";
@@ -67,6 +69,17 @@
       mode = "ca";
       key = "[a";
       action = "xa";
+    }
+    # faster copy/paste
+    {
+      mode = "v";
+      key = "<leader>y";
+      action = "\"+y";
+    }
+    {
+      mode = "n";
+      key = "<leader>p";
+      action = "\"+p";
     }
   ];
 
@@ -103,11 +116,20 @@
     cmp = {
       enable = true;
       autoEnableSources = true;
-      settings.sources = [
-        { name = "nvim_lsp"; }
-        { name = "path"; }
-        { name = "buffer"; }
-      ];
+      settings = {
+        mapping = {
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+        };
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          {
+            name = "buffer";
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          }
+        ];
+      };
     };
     conform-nvim = {
       enable = true;
@@ -132,6 +154,7 @@
         clangd.enable = true;
         # cmake.enable = true;
         nil_ls.enable = true;
+        pyright.enable = true;
         rust_analyzer = {
           enable = true;
           # I prefer rustc from rust-overlay in devShells
