@@ -31,6 +31,12 @@
     };
   };
 
+  filetype = {
+    pattern = {
+      "patch-.*" = "diff";
+    };
+  };
+
   globals = {
     loaded_ruby_provider = 0;
     loaded_perl_provider = 0;
