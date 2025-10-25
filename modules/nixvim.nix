@@ -86,6 +86,8 @@
     splitbelow = true;
     splitright = true;
     scrolloff = 3;
+    list = true;
+    listchars = "nbsp:¤,tab:▷·,trail:¤,extends:>,precedes:<";
   };
 
   plugins = {
