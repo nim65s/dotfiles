@@ -111,7 +111,6 @@ in
       nixpkgs-review
       #nix-du
       nix-diff
-      nix-init
       nix-output-monitor
       nix-tree
       nix-update

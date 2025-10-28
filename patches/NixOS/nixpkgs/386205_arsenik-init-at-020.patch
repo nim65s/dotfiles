@@ -13,7 +13,7 @@ Co-authored-by: Yohann Boniface <edhyjox@gmail.com>
  create mode 100644 pkgs/by-name/ar/arsenik/package.nix
 
 diff --git a/nixos/modules/module-list.nix b/nixos/modules/module-list.nix
-index 2b4e3f5bddbd26..44bc55c9187486 100644
+index 2b4e3f5bddbd2..44bc55c918748 100644
 --- a/nixos/modules/module-list.nix
 +++ b/nixos/modules/module-list.nix
 @@ -607,6 +607,7 @@
@@ -26,7 +26,7 @@ index 2b4e3f5bddbd26..44bc55c9187486 100644
    ./services/hardware/auto-epp.nix
 diff --git a/nixos/modules/services/hardware/arsenik.nix b/nixos/modules/services/hardware/arsenik.nix
 new file mode 100644
-index 00000000000000..915c54a9e408e2
+index 0000000000000..915c54a9e408e
 --- /dev/null
 +++ b/nixos/modules/services/hardware/arsenik.nix
 @@ -0,0 +1,130 @@
@@ -162,7 +162,7 @@ index 00000000000000..915c54a9e408e2
 +}
 diff --git a/pkgs/by-name/ar/arsenik/package.nix b/pkgs/by-name/ar/arsenik/package.nix
 new file mode 100644
-index 00000000000000..216d1e3504821e
+index 0000000000000..216d1e3504821
 --- /dev/null
 +++ b/pkgs/by-name/ar/arsenik/package.nix
 @@ -0,0 +1,37 @@

@@ -1,14 +1,14 @@
-From fe734a100f44bb212ea1bbe82b283b78481f9429 Mon Sep 17 00:00:00 2001
+From c50995148e61a51992d128027c9203c6b5b16ea2 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:59:02 +0200
-Subject: [PATCH 01/22] levmar: adopt
+Subject: [PATCH 01/26] levmar: adopt
 
 ---
  pkgs/by-name/le/levmar/package.nix | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pkgs/by-name/le/levmar/package.nix b/pkgs/by-name/le/levmar/package.nix
-index ac7879f7408745..d6e974f7064e6b 100644
+index ac7879f740874..d6e974f7064e6 100644
 --- a/pkgs/by-name/le/levmar/package.nix
 +++ b/pkgs/by-name/le/levmar/package.nix
 @@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
@@ -21,10 +21,10 @@ index ac7879f7408745..d6e974f7064e6b 100644
    };
  })
 
-From 66b15326caeecc6026f2a69f85ac2d9f7b3d8ab8 Mon Sep 17 00:00:00 2001
+From 9b97fe4cd772d8b4c2004d809c651075dca8d559 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:38:15 +0200
-Subject: [PATCH 02/22] levmar: install new header
+Subject: [PATCH 02/26] levmar: install new header
 
 lm.h only contains a deprecation warning now
 ---
@@ -32,30 +32,30 @@ lm.h only contains a deprecation warning now
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pkgs/by-name/le/levmar/package.nix b/pkgs/by-name/le/levmar/package.nix
-index d6e974f7064e6b..a52760b3736807 100644
+index d6e974f7064e6..a52760b373680 100644
 --- a/pkgs/by-name/le/levmar/package.nix
 +++ b/pkgs/by-name/le/levmar/package.nix
 @@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
- 
+
    installPhase = ''
      mkdir -p $out/include $out/lib
 -    cp lm.h $out/include
 +    cp levmar.h lm.h $out/include
      cp liblevmar.a $out/lib
    '';
- 
 
-From 6aec23d24c0a5bcfdaf12922a041fb9344d2821e Mon Sep 17 00:00:00 2001
+
+From bdada82a9f9ac694b2c2859d29477704bbe0a804 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:22:08 +0200
-Subject: [PATCH 03/22] lib3mf: adopt
+Subject: [PATCH 03/26] lib3mf: adopt
 
 ---
  pkgs/by-name/li/lib3mf/package.nix | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
-index 813138971444b7..0434368b5698f4 100644
+index 813138971444b..0434368b5698f 100644
 --- a/pkgs/by-name/li/lib3mf/package.nix
 +++ b/pkgs/by-name/li/lib3mf/package.nix
 @@ -109,7 +109,7 @@ stdenv.mkDerivation (finalAttrs: {
@@ -68,17 +68,17 @@ index 813138971444b7..0434368b5698f4 100644
    };
  })
 
-From f68fcc908b20edebe08c19dde3a13c17a248a43a Mon Sep 17 00:00:00 2001
+From e2491bc1f1892b864408b8efbd4377f149699fe3 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 09:42:31 +0200
-Subject: [PATCH 04/22] lib3mf: fix CMake export
+Subject: [PATCH 04/26] lib3mf: fix CMake export
 
 ---
  pkgs/by-name/li/lib3mf/package.nix | 5 +++++
  1 file changed, 5 insertions(+)
 
 diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
-index 0434368b5698f4..2b29e533a5b5ea 100644
+index 0434368b5698f..2b29e533a5b5e 100644
 --- a/pkgs/by-name/li/lib3mf/package.nix
 +++ b/pkgs/by-name/li/lib3mf/package.nix
 @@ -98,6 +98,11 @@ stdenv.mkDerivation (finalAttrs: {
@@ -91,13 +91,13 @@ index 0434368b5698f4..2b29e533a5b5ea 100644
 +      --replace-fail "$""{LIB3MF_ROOT_DIR}/include" "$""{LIB3MF_ROOT_DIR}/include/lib3mf" \
 +      --replace-fail "$""{LIB3MF_ROOT_DIR}/lib" "$out/lib"
    '';
- 
+
    doCheck = true;
 
-From 0470ed4dc14b531973627a67c880426eb4c8aebe Mon Sep 17 00:00:00 2001
+From 237ea7f5a592e4f4dc747370fe3dae144e307b1f Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 22:39:40 +0200
-Subject: [PATCH 05/22] lib3mf: replace-warn -> replace-fail
+Subject: [PATCH 05/26] lib3mf: replace-warn -> replace-fail
 
 Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
 ---
@@ -105,11 +105,11 @@ Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
-index 2b29e533a5b5ea..78bd8735007131 100644
+index 2b29e533a5b5e..78bd873500713 100644
 --- a/pkgs/by-name/li/lib3mf/package.nix
 +++ b/pkgs/by-name/li/lib3mf/package.nix
 @@ -95,9 +95,9 @@ stdenv.mkDerivation (finalAttrs: {
- 
+
      # functions are no longer in openssl, remove them from test cleanup function
      substituteInPlace Tests/CPP_Bindings/Source/UnitTest_EncryptionUtils.cpp \
 -      --replace-warn "RAND_cleanup();" "" \
@@ -118,14 +118,14 @@ index 2b29e533a5b5ea..78bd8735007131 100644
 +      --replace-fail "RAND_cleanup();" "" \
 +      --replace-fail "EVP_cleanup();" "" \
 +      --replace-fail "CRYPTO_cleanup_all_ex_data();" ""
- 
+
      # Fix CMake export
      substituteInPlace cmake/lib3mfConfig.cmake \
 
-From e57fcf4510ece36f10aae615186a9f07188f06bf Mon Sep 17 00:00:00 2001
+From a62ff050ac1fcf7671d5974bf94e7464621def65 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Fri, 19 Sep 2025 12:16:00 +0200
-Subject: [PATCH 06/22] tinygltf: init at 2.9.6
+Subject: [PATCH 06/26] tinygltf: init at 2.9.6
 
 ---
  pkgs/by-name/ti/tinygltf/package.nix | 30 ++++++++++++++++++++++++++++
@@ -134,7 +134,7 @@ Subject: [PATCH 06/22] tinygltf: init at 2.9.6
 
 diff --git a/pkgs/by-name/ti/tinygltf/package.nix b/pkgs/by-name/ti/tinygltf/package.nix
 new file mode 100644
-index 00000000000000..56411424445685
+index 0000000000000..5641142444568
 --- /dev/null
 +++ b/pkgs/by-name/ti/tinygltf/package.nix
 @@ -0,0 +1,30 @@
@@ -169,10 +169,10 @@ index 00000000000000..56411424445685
 +  };
 +})
 
-From 2af9a5e4292411c239c3b58cee20e815d54447d3 Mon Sep 17 00:00:00 2001
+From d69ebd3d3a8ebfa50f38ea34630a236fcc18dac2 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 22:52:56 +0200
-Subject: [PATCH 07/22] libigl: dont install opengl headers
+Subject: [PATCH 07/26] libigl: dont install opengl headers
 
 fix meshlab on darwin:
 ```
@@ -194,7 +194,7 @@ In file included from /nix/store/rhlyld20zdzdi5wghb4b12gw52s9whr9-apple-sdk-11.3
  1 file changed, 1 insertion(+)
 
 diff --git a/pkgs/by-name/li/libigl/package.nix b/pkgs/by-name/li/libigl/package.nix
-index 1fc21b8f63d4d3..1ef1a6d7332441 100644
+index 1fc21b8f63d4d..1ef1a6d733244 100644
 --- a/pkgs/by-name/li/libigl/package.nix
 +++ b/pkgs/by-name/li/libigl/package.nix
 @@ -20,6 +20,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
@@ -203,20 +203,20 @@ index 1fc21b8f63d4d3..1ef1a6d7332441 100644
      cp -r include/igl $out/include
 +    rm -rf $out/include/igl/opengl
    '';
- 
+
    meta = with lib; {
 
-From a45166c60f7817e9070936b2dee6aa1a7080f840 Mon Sep 17 00:00:00 2001
+From 4edc52da94d018d4cfea9e05a650dc785dcad0e6 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:02:03 +0200
-Subject: [PATCH 08/22] vcg: adopt
+Subject: [PATCH 08/26] vcg: adopt
 
 ---
  pkgs/by-name/vc/vcg/package.nix | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pkgs/by-name/vc/vcg/package.nix b/pkgs/by-name/vc/vcg/package.nix
-index 487b4510263eac..2a2e43e061ed36 100644
+index 487b4510263ea..2a2e43e061ed3 100644
 --- a/pkgs/by-name/vc/vcg/package.nix
 +++ b/pkgs/by-name/vc/vcg/package.nix
 @@ -29,6 +29,6 @@ stdenv.mkDerivation rec {
@@ -228,17 +228,17 @@ index 487b4510263eac..2a2e43e061ed36 100644
    };
  }
 
-From 991c0c92571160c38ef19548ad2ebb525a750c51 Mon Sep 17 00:00:00 2001
+From 8ebed1ec6fe78e9e01eff59a365700b872d8db7c Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:03:24 +0200
-Subject: [PATCH 09/22] vcg: clean
+Subject: [PATCH 09/26] vcg: clean
 
 ---
  pkgs/by-name/vc/vcg/package.nix | 17 ++++++++++-------
  1 file changed, 10 insertions(+), 7 deletions(-)
 
 diff --git a/pkgs/by-name/vc/vcg/package.nix b/pkgs/by-name/vc/vcg/package.nix
-index 2a2e43e061ed36..bf3f4a7ff8e588 100644
+index 2a2e43e061ed3..bf3f4a7ff8e58 100644
 --- a/pkgs/by-name/vc/vcg/package.nix
 +++ b/pkgs/by-name/vc/vcg/package.nix
 @@ -1,19 +1,22 @@
@@ -251,12 +251,12 @@ index 2a2e43e061ed36..bf3f4a7ff8e588 100644
 +  # propagatedBuildInputs
    eigen,
  }:
- 
+
 -stdenv.mkDerivation rec {
 +stdenv.mkDerivation (finalAttrs: {
    pname = "vcg";
    version = "2025.07";
- 
+
    src = fetchFromGitHub {
      owner = "cnr-isti-vclab";
      repo = "vcglib";
@@ -265,12 +265,12 @@ index 2a2e43e061ed36..bf3f4a7ff8e588 100644
 +    tag = finalAttrs.version;
 +    hash = "sha256-OZnqFnHGXC9fS7JCLTiHNCeA//JBAZGLB5SP/rGzaA8=";
    };
- 
+
    propagatedBuildInputs = [ eigen ];
 @@ -24,11 +27,11 @@ stdenv.mkDerivation rec {
      find $out -name \*.h -exec sed -i 's,<eigenlib/,<eigen3/,g' {} \;
    '';
- 
+
 -  meta = with lib; {
 +  meta = {
      homepage = "https://vcg.isti.cnr.it/vcglib/install.html";
@@ -284,34 +284,34 @@ index 2a2e43e061ed36..bf3f4a7ff8e588 100644
 -}
 +})
 
-From aa7e5d9b9c88a8df79f1456f304a1c138d0ec90c Mon Sep 17 00:00:00 2001
+From 087552f60bce420313f94e05007b2e19bfaf67b5 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 12:32:22 +0200
-Subject: [PATCH 10/22] vcg: switch to CMake
+Subject: [PATCH 10/26] vcg: switch to CMake
 
 ---
  pkgs/by-name/vc/vcg/package.nix | 32 ++++++++++++++++++++++++++------
  1 file changed, 26 insertions(+), 6 deletions(-)
 
 diff --git a/pkgs/by-name/vc/vcg/package.nix b/pkgs/by-name/vc/vcg/package.nix
-index bf3f4a7ff8e588..8db97500a18fe6 100644
+index bf3f4a7ff8e58..8db97500a18fe 100644
 --- a/pkgs/by-name/vc/vcg/package.nix
 +++ b/pkgs/by-name/vc/vcg/package.nix
 @@ -3,6 +3,10 @@
- 
+
    stdenv,
    fetchFromGitHub,
 +  fetchpatch,
 +
 +  # nativeBuildInputs
 +  cmake,
- 
+
    # propagatedBuildInputs
    eigen,
 @@ -19,13 +23,29 @@ stdenv.mkDerivation (finalAttrs: {
      hash = "sha256-OZnqFnHGXC9fS7JCLTiHNCeA//JBAZGLB5SP/rGzaA8=";
    };
- 
+
 -  propagatedBuildInputs = [ eigen ];
 +  patches = [
 +    # CMake: install lib and exports
@@ -331,7 +331,7 @@ index bf3f4a7ff8e588..8db97500a18fe6 100644
 +  propagatedBuildInputs = [
 +    eigen
 +  ];
- 
+
 -  installPhase = ''
 -    mkdir -p $out/include
 -    cp -r vcg wrap $out/include
@@ -341,21 +341,21 @@ index bf3f4a7ff8e588..8db97500a18fe6 100644
 +    (lib.cmakeBool "VCG_ALLOW_BUNDLED_EIGEN" false)
 +    (lib.cmakeBool "VCG_BUILD_EXAMPLES" false)
 +  ];
- 
+
    meta = {
      homepage = "https://vcg.isti.cnr.it/vcglib/install.html";
 
-From 2da171bbbf9243ee0f113d5dc974dff38f97dc49 Mon Sep 17 00:00:00 2001
+From 8871948c17524d204d7e613454de5dc3f4ac83ed Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 15:59:03 +0200
-Subject: [PATCH 11/22] corto: 0-unstable-2024-04-05 -> v2025.07
+Subject: [PATCH 11/26] corto: 0-unstable-2024-04-05 -> v2025.07
 
 ---
  pkgs/by-name/co/corto/package.nix | 32 +++++++++++++++++++++++--------
  1 file changed, 24 insertions(+), 8 deletions(-)
 
 diff --git a/pkgs/by-name/co/corto/package.nix b/pkgs/by-name/co/corto/package.nix
-index acf0517e0c10a3..5efe16c864c442 100644
+index acf0517e0c10a..5efe16c864c44 100644
 --- a/pkgs/by-name/co/corto/package.nix
 +++ b/pkgs/by-name/co/corto/package.nix
 @@ -2,26 +2,42 @@
@@ -366,13 +366,13 @@ index acf0517e0c10a3..5efe16c864c442 100644
    cmake,
 +  nix-update-script,
  }:
- 
+
 -stdenv.mkDerivation {
 +stdenv.mkDerivation (finalAttrs: {
    pname = "corto";
 -  version = "0-unstable-2024-04-05";
 +  version = "2025.07";
- 
+
    src = fetchFromGitHub {
      owner = "cnr-isti-vclab";
      repo = "corto";
@@ -381,7 +381,7 @@ index acf0517e0c10a3..5efe16c864c442 100644
 +    tag = "v${finalAttrs.version}";
 +    hash = "sha256-wfIZQdypBTfUZJgPE4DetSt1SUNSyZihmL1Uzapqh1o=";
    };
- 
+
 +  patches = [
 +    # CMake: exports
 +    # ref. https://github.com/cnr-isti-vclab/corto/pull/47
@@ -394,7 +394,7 @@ index acf0517e0c10a3..5efe16c864c442 100644
 +  ];
 +
    nativeBuildInputs = [ cmake ];
- 
+
 -  meta = with lib; {
 +  updateScript = nix-update-script { };
 +
@@ -410,10 +410,10 @@ index acf0517e0c10a3..5efe16c864c442 100644
 -}
 +})
 
-From 809a3e1646f4e62173006ceb8d368f4edcdad9a0 Mon Sep 17 00:00:00 2001
+From 3c7eb12a16a53351e9bc69aa454ae2d75c3af14a Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Wed, 17 Sep 2025 11:00:26 +0200
-Subject: [PATCH 12/22] vclab-nexus: init at 2025.05
+Subject: [PATCH 12/26] vclab-nexus: init at 2025.05
 
 Co-authored-by: Sandro <sandro.jaeckel@gmail.com>
 ---
@@ -423,12 +423,12 @@ Co-authored-by: Sandro <sandro.jaeckel@gmail.com>
  create mode 100644 pkgs/by-name/vc/vclab-nexus/package.nix
 
 diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
-index 78bd8735007131..289fcaf48d7595 100644
+index 78bd873500713..289fcaf48d759 100644
 --- a/pkgs/by-name/li/lib3mf/package.nix
 +++ b/pkgs/by-name/li/lib3mf/package.nix
 @@ -100,6 +100,7 @@ stdenv.mkDerivation (finalAttrs: {
        --replace-fail "CRYPTO_cleanup_all_ex_data();" ""
- 
+
      # Fix CMake export
 +    # ref https://github.com/3MFConsortium/lib3mf/pull/434
      substituteInPlace cmake/lib3mfConfig.cmake \
@@ -436,7 +436,7 @@ index 78bd8735007131..289fcaf48d7595 100644
        --replace-fail "$""{LIB3MF_ROOT_DIR}/lib" "$out/lib"
 diff --git a/pkgs/by-name/vc/vclab-nexus/package.nix b/pkgs/by-name/vc/vclab-nexus/package.nix
 new file mode 100644
-index 00000000000000..2bdfe17547b6ba
+index 0000000000000..2bdfe17547b6b
 --- /dev/null
 +++ b/pkgs/by-name/vc/vclab-nexus/package.nix
 @@ -0,0 +1,72 @@
@@ -513,17 +513,17 @@ index 00000000000000..2bdfe17547b6ba
 +  };
 +})
 
-From bcc05af427fdb926be0949983c463b93197baa7b Mon Sep 17 00:00:00 2001
+From 7165f4427840a54cd8ac06dbfef6b523058493e7 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:03:57 +0200
-Subject: [PATCH 13/22] meshlab: adopt
+Subject: [PATCH 13/26] meshlab: adopt
 
 ---
  pkgs/by-name/me/meshlab/package.nix | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/pkgs/by-name/me/meshlab/package.nix b/pkgs/by-name/me/meshlab/package.nix
-index dedae59c8c345e..d86aea7157db1e 100644
+index dedae59c8c345..d86aea7157db1 100644
 --- a/pkgs/by-name/me/meshlab/package.nix
 +++ b/pkgs/by-name/me/meshlab/package.nix
 @@ -163,7 +163,10 @@ stdenv.mkDerivation (finalAttrs: {
@@ -539,10 +539,10 @@ index dedae59c8c345e..d86aea7157db1e 100644
    };
  })
 
-From 367183761ccc22a5aefd7ec4e5705b2d39f5de9b Mon Sep 17 00:00:00 2001
+From 8cc8cf8defeb5ff07d591caea03836b49bee4649 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 16 Sep 2025 12:10:18 +0200
-Subject: [PATCH 14/22] meshlab: 2023.12 -> 2025.07 + use system dependencies
+Subject: [PATCH 14/26] meshlab: 2023.12 -> 2025.07 + use system dependencies
 
 ---
  ...-system-dependencies-install-exports.patch | 279 ++++++++++++++++++
@@ -552,7 +552,7 @@ Subject: [PATCH 14/22] meshlab: 2023.12 -> 2025.07 + use system dependencies
 
 diff --git a/pkgs/by-name/me/meshlab/1617_cmake-use-system-dependencies-install-exports.patch b/pkgs/by-name/me/meshlab/1617_cmake-use-system-dependencies-install-exports.patch
 new file mode 100644
-index 00000000000000..83e6a21ea509ee
+index 0000000000000..83e6a21ea509e
 --- /dev/null
 +++ b/pkgs/by-name/me/meshlab/1617_cmake-use-system-dependencies-install-exports.patch
 @@ -0,0 +1,279 @@
@@ -571,7 +571,7 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/CMakeLists.txt
 +@@ -75,7 +75,12 @@ endif()
 + ### Enter subdirectories
-+ 
++
 + # VCGLib -- required
 +-if (VCGDIR) # VCGDIR exists - using custom user vcglib path
 ++find_package(vcglib CONFIG)
@@ -599,10 +599,10 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/external/levmar.cmake
 +@@ -3,8 +3,25 @@
 + # SPDX-License-Identifier: BSL-1.0
-+ 
++
 + option(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LEVMAR "Allow download and use of levmar source" ON)
 ++option(MESHLAB_ALLOW_SYSTEM_LEVMAR "Allow use of system-provided levmar" ON)
-+ 
++
 +-if(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LEVMAR)
 ++find_path(levmar_INCLUDE_DIR NAMES levmar.h PATHS ${levmar_PREFIX})
 ++find_library(levmar_LIBRARY NAMES levmar PATHS ${levmar_PREFIX})
@@ -622,7 +622,7 @@ index 00000000000000..83e6a21ea509ee
 ++	target_include_directories(external-levmar INTERFACE ${levmar_INCLUDE_DIR})
 ++elseif(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LEVMAR)
 + 	set(LEVMAR_VERSION "2.6.1")
-+ 
++
 + 	set(LEVMAR_DIR "${MESHLAB_EXTERNAL_DOWNLOAD_DIR}/levmar-${LEVMAR_VERSION}")
 +
 +From 161d5dabad4cfdc3ec08d9e5dd2ee6c94b057c5c Mon Sep 17 00:00:00 2001
@@ -640,10 +640,10 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/external/lib3mf.cmake
 +@@ -22,8 +22,15 @@
 + #############################################################################
-+ 
++
 + option(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF "Allow download and use of lib3MF source" ON)
 ++option(MESHLAB_ALLOW_SYSTEM_LIB3MF "Allow use of system-provided lib3MF" ON)
-+ 
++
 +-if(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF)
 ++find_package(lib3mf)
 ++
@@ -653,7 +653,7 @@ index 00000000000000..83e6a21ea509ee
 ++  target_link_libraries(external-lib3mf INTERFACE lib3mf::lib3mf)
 ++elseif(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF)
 +   set(LIB3MF_VERSION "2.4.1")
-+ 
++
 +   set(LIB3MF_DIR ${MESHLAB_EXTERNAL_DOWNLOAD_DIR}/lib3mf-${LIB3MF_VERSION})
 +
 +From c6662d486c1f8e5c9c89389abd630d8218b0fcb9 Mon Sep 17 00:00:00 2001
@@ -671,12 +671,12 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/external/libigl.cmake
 +@@ -3,10 +3,17 @@
 + # SPDX-License-Identifier: BSL-1.0
-+ 
++
 + option(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL "Allow download and use of LibIGL source" ON)
 ++option(MESHLAB_ALLOW_SYSTEM_LIBIGL "Allow use of system-provided LibIGL" ON)
-+ 
++
 + set(LIBIGL_VER 2.4.0)
-+ 
++
 +-if(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL)
 ++find_path(libigl_INCLUDE_DIR NAMES igl_inline.h PATH_SUFFIXES igl PATHS ${libigl_PREFIX})
 ++
@@ -687,7 +687,7 @@ index 00000000000000..83e6a21ea509ee
 ++elseif(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL)
 + 	set(LIBIGL_DIR "${MESHLAB_EXTERNAL_DOWNLOAD_DIR}/libigl-${LIBIGL_VER}")
 + 	set(LIBIGL_CHECK "${LIBIGL_DIR}/include/igl/igl_inline.h")
-+ 
++
 +
 +From a26427e32af672d2554d662376f3f258c64941ca Mon Sep 17 00:00:00 2001
 +From: Guilhem Saurel <guilhem.saurel@laas.fr>
@@ -704,13 +704,13 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/external/nexus.cmake
 +@@ -3,11 +3,18 @@
 + # SPDX-License-Identifier: BSL-1.0
-+ 
++
 + option(MESHLAB_ALLOW_DOWNLOAD_SOURCE_NEXUS "Allow download and use of nexus source" ON)
 ++option(MESHLAB_ALLOW_SYSTEM_NEXUS "Allow use of system-provided nexus and corto" ON)
-+ 
++
 + set(CORTO_VER 2025.07)
 + set(NEXUS_VER 2025.05)
-+ 
++
 +-if(MESHLAB_ALLOW_DOWNLOAD_SOURCE_NEXUS)
 ++find_package(nexus CONFIG)
 ++
@@ -742,7 +742,7 @@ index 00000000000000..83e6a21ea509ee
 ++++ b/src/CMakeLists.txt
 +@@ -229,6 +229,27 @@ endforeach()
 + set(COPIED_FILES)
-+ 
++
 + if (NOT MESHLAB_BUILD_ONLY_LIBRARIES)
 ++	# headers
 ++	install(DIRECTORY common DESTINATION include FILES_MATCHING PATTERN "*.h")
@@ -788,13 +788,13 @@ index 00000000000000..83e6a21ea509ee
 +--- a/src/common/CMakeLists.txt
 ++++ b/src/common/CMakeLists.txt
 +@@ -198,7 +198,8 @@ endif()
-+ 
++
 + target_include_directories(meshlab-common
 + 	PUBLIC
 +-		${CMAKE_CURRENT_SOURCE_DIR}/..)
 ++		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
 ++		$<INSTALL_INTERFACE:include>)
-+ 
++
 + target_link_libraries(
 + 	meshlab-common
 +@@ -208,10 +209,19 @@ target_link_libraries(
@@ -816,13 +816,13 @@ index 00000000000000..83e6a21ea509ee
 ++else()
 ++	target_link_libraries(meshlab-common PUBLIC external-glew)
 ++endif()
-+ 
++
 + set_property(TARGET meshlab-common PROPERTY FOLDER Core)
-+ 
++
 +@@ -234,4 +244,4 @@ endif()
 + set_target_properties(meshlab-common PROPERTIES
 + 	INSTALL_RPATH "$ORIGIN")
-+ 
++
 +-install(TARGETS meshlab-common DESTINATION ${MESHLAB_LIB_INSTALL_DIR})
 ++install(TARGETS meshlab-common EXPORT meshlabTargets DESTINATION ${MESHLAB_LIB_INSTALL_DIR})
 +diff --git a/src/meshlabplugins/io_base/CMakeLists.txt b/src/meshlabplugins/io_base/CMakeLists.txt
@@ -830,13 +830,13 @@ index 00000000000000..83e6a21ea509ee
 +--- a/src/meshlabplugins/io_base/CMakeLists.txt
 ++++ b/src/meshlabplugins/io_base/CMakeLists.txt
 +@@ -27,4 +27,4 @@ set(SOURCES
-+ 
++
 + add_meshlab_plugin(io_base ${SOURCES} ${HEADERS})
-+ 
++
 +-target_link_libraries(io_base PRIVATE OpenGL::GLU)
 ++target_link_libraries(io_base PRIVATE OpenGL::GLU external-easyexif)
 diff --git a/pkgs/by-name/me/meshlab/package.nix b/pkgs/by-name/me/meshlab/package.nix
-index d86aea7157db1e..5cc3917cd7414a 100644
+index d86aea7157db1..5cc3917cd7414 100644
 --- a/pkgs/by-name/me/meshlab/package.nix
 +++ b/pkgs/by-name/me/meshlab/package.nix
 @@ -6,6 +6,7 @@
@@ -853,7 +853,7 @@ index d86aea7157db1e..5cc3917cd7414a 100644
    structuresynth,
 +  vclab-nexus,
  }:
- 
+
  let
 -  tinygltf-src = fetchFromGitHub {
 -    owner = "syoyo";
@@ -871,7 +871,7 @@ index d86aea7157db1e..5cc3917cd7414a 100644
    pname = "meshlab";
 -  version = "2023.12";
 +  version = "2025.07";
- 
+
    src = fetchFromGitHub {
      owner = "cnr-isti-vclab";
      repo = "meshlab";
@@ -879,13 +879,13 @@ index d86aea7157db1e..5cc3917cd7414a 100644
 -    hash = "sha256-AdUAWS741RQclYaSE3Tz1/I0YSinNAnfSaqef+Tib8Y=";
 +    hash = "sha256-6BozYzPCbBZ+btL4FCdzKlwKqTsvFWDfOXizzJSYo9s=";
    };
- 
+
    nativeBuildInputs = [
      cmake
      libsForQt5.wrapQtAppsHook
 -    vcg # templated library
    ];
- 
+
    buildInputs = [
 @@ -78,6 +72,7 @@ stdenv.mkDerivation (finalAttrs: {
      libsForQt5.qtscript
@@ -909,7 +909,7 @@ index d86aea7157db1e..5cc3917cd7414a 100644
    ++ lib.optionals stdenv.cc.isClang [
      llvmPackages.openmp
    ];
- 
+
 -  postPatch = ''
 -    substituteInPlace src/external/tinygltf.cmake \
 -      --replace-fail '$'{MESHLAB_EXTERNAL_DOWNLOAD_DIR}/tinygltf-2.6.3 ${tinygltf-src}
@@ -942,7 +942,7 @@ index d86aea7157db1e..5cc3917cd7414a 100644
 +    # merged upstream
 +    ./1617_cmake-use-system-dependencies-install-exports.patch
 +  ];
- 
+
 -  cmakeFlags = [
 -    "-DVCGDIR=${vcg.src}"
 -  ]
@@ -960,11 +960,11 @@ index d86aea7157db1e..5cc3917cd7414a 100644
 +    '';
 +
 +  cmakeFlags = cmakeFlagsDisallowDownload;
- 
+
    postInstall = lib.optionalString stdenv.hostPlatform.isDarwin ''
      mkdir -p $out/{Applications,bin,lib}
 @@ -150,7 +136,10 @@ stdenv.mkDerivation (finalAttrs: {
- 
+
    postFixup =
      lib.optionalString stdenv.hostPlatform.isLinux ''
 -      patchelf --add-needed $out/lib/meshlab/libmeshlab-common.so $out/bin/.meshlab-wrapped
@@ -976,10 +976,10 @@ index d86aea7157db1e..5cc3917cd7414a 100644
      + lib.optionalString stdenv.hostPlatform.isDarwin ''
        wrapQtApp "$out/Applications/meshlab.app/Contents/MacOS/meshlab"
 
-From bb51486b5ea68122c9db298fa1262614b7ce7ef8 Mon Sep 17 00:00:00 2001
+From 58c217ffad3c38a47ab0a337579898987a2f1609 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 23:35:44 +0200
-Subject: [PATCH 15/22] meshlab: darwin updates
+Subject: [PATCH 15/26] meshlab: darwin updates
 
 - fix CMake exports
 - add missing library
@@ -992,7 +992,7 @@ Co-authored-by: Zexin Yuan <gh@yzx9.xyz>
  2 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/pkgs/by-name/me/meshlab/package.nix b/pkgs/by-name/me/meshlab/package.nix
-index 5cc3917cd7414a..0be074cf79e1e9 100644
+index 5cc3917cd7414..0be074cf79e1e 100644
 --- a/pkgs/by-name/me/meshlab/package.nix
 +++ b/pkgs/by-name/me/meshlab/package.nix
 @@ -121,8 +121,11 @@ stdenv.mkDerivation (finalAttrs: {
@@ -1006,25 +1006,25 @@ index 5cc3917cd7414a..0be074cf79e1e9 100644
 +      "{_IMPORT_PREFIX}/meshlab.app" \
 +      "{_IMPORT_PREFIX}/Applications/meshlab.app"
    '';
- 
+
    # The hook will wrap all the plugin binaries, make they are not a
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 1e4951cd2d36fb..0169564efc071f 100644
+index 5b0edba6ed601..e38570c4d5683 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11844,7 +11844,6 @@ with pkgs;
- 
+@@ -11732,7 +11732,6 @@ with pkgs;
+
    meshlab = callPackage ../by-name/me/meshlab/package.nix {
      stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
 -    llvmPackages = llvmPackages_18;
    };
- 
+
    meshlab-unstable = callPackage ../by-name/me/meshlab-unstable/package.nix {
 
-From ecffbb550ddd67ece1050fcda7257165019fee35 Mon Sep 17 00:00:00 2001
+From 88cf76c58b4386109da1fcbbc1d647d6676e12d9 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 17:10:16 +0200
-Subject: [PATCH 16/22] meshlab-unstable: drop
+Subject: [PATCH 16/26] meshlab-unstable: drop
 
 ---
  .../me/meshlab-unstable/meshlab.desktop       |  14 --
@@ -1037,7 +1037,7 @@ Subject: [PATCH 16/22] meshlab-unstable: drop
 
 diff --git a/pkgs/by-name/me/meshlab-unstable/meshlab.desktop b/pkgs/by-name/me/meshlab-unstable/meshlab.desktop
 deleted file mode 100644
-index aa8de186440d5d..00000000000000
+index aa8de186440d5..0000000000000
 --- a/pkgs/by-name/me/meshlab-unstable/meshlab.desktop
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -1057,7 +1057,7 @@ index aa8de186440d5d..00000000000000
 -Categories=Graphics;3DGraphics;Viewer;Qt;
 diff --git a/pkgs/by-name/me/meshlab-unstable/package.nix b/pkgs/by-name/me/meshlab-unstable/package.nix
 deleted file mode 100644
-index 00468e6a080118..00000000000000
+index 00468e6a08011..0000000000000
 --- a/pkgs/by-name/me/meshlab-unstable/package.nix
 +++ /dev/null
 @@ -1,159 +0,0 @@
@@ -1221,7 +1221,7 @@ index 00468e6a080118..00000000000000
 -  };
 -}
 diff --git a/pkgs/top-level/aliases.nix b/pkgs/top-level/aliases.nix
-index fea2ea4000c87e..fb7c4f9ae957d8 100644
+index d5e3665b289d8..4cd89e2fda502 100644
 --- a/pkgs/top-level/aliases.nix
 +++ b/pkgs/top-level/aliases.nix
 @@ -1735,6 +1735,7 @@ mapAliases {
@@ -1233,51 +1233,51 @@ index fea2ea4000c87e..fb7c4f9ae957d8 100644
    mhwaveedit = throw "'mkwaveedit' has been removed due to lack of maintenance upstream. Consider using 'audacity' or 'tenacity' instead"; # Added 2024-09-15
    microcodeAmd = microcode-amd; # Added 2024-09-08
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 0169564efc071f..7e9d612fcd2cac 100644
+index e38570c4d5683..666eeca451182 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11846,11 +11846,6 @@ with pkgs;
+@@ -11734,11 +11734,6 @@ with pkgs;
      stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
    };
- 
+
 -  meshlab-unstable = callPackage ../by-name/me/meshlab-unstable/package.nix {
 -    stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
 -    llvmPackages = llvmPackages_18;
 -  };
 -
    meshcentral = callPackage ../tools/admin/meshcentral { };
- 
+
    michabo = libsForQt5.callPackage ../applications/misc/michabo { };
 
-From eff5a63a486dfe95fe1798a398ec7443184caa4b Mon Sep 17 00:00:00 2001
+From a52aab05eec4953b2ffd55c57f074a5bfef42eca Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Thu, 25 Sep 2025 08:52:10 +0200
-Subject: [PATCH 17/22] meshlab: remove from all-packages, use by-name
+Subject: [PATCH 17/26] meshlab: remove from all-packages, use by-name
 
 ---
  pkgs/top-level/all-packages.nix | 4 ----
  1 file changed, 4 deletions(-)
 
 diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
-index 7e9d612fcd2cac..bbb86d44242d52 100644
+index 666eeca451182..3176391c8e46f 100644
 --- a/pkgs/top-level/all-packages.nix
 +++ b/pkgs/top-level/all-packages.nix
-@@ -11842,10 +11842,6 @@ with pkgs;
- 
+@@ -11730,10 +11730,6 @@ with pkgs;
+
    mercurialFull = mercurial.override { fullBuild = true; };
- 
+
 -  meshlab = callPackage ../by-name/me/meshlab/package.nix {
 -    stdenv = if stdenv.hostPlatform.isDarwin then llvmPackages_18.stdenv else stdenv;
 -  };
 -
    meshcentral = callPackage ../tools/admin/meshcentral { };
- 
+
    michabo = libsForQt5.callPackage ../applications/misc/michabo { };
 
-From cda2fb73f78bb5794f401db3352cf647c6fb8cef Mon Sep 17 00:00:00 2001
+From 3e35288157d37cad46a292c4606ffe9d22e02dcb Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 23:09:22 +0200
-Subject: [PATCH 18/22] meshlab: darwin plist: substitute -> patch
+Subject: [PATCH 18/26] meshlab: darwin plist: substitute -> patch
 
 Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
 ---
@@ -1288,7 +1288,7 @@ Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
 
 diff --git a/pkgs/by-name/me/meshlab/no-plist.patch b/pkgs/by-name/me/meshlab/no-plist.patch
 new file mode 100644
-index 00000000000000..7c8d753190a8ec
+index 0000000000000..7c8d753190a8e
 --- /dev/null
 +++ b/pkgs/by-name/me/meshlab/no-plist.patch
 @@ -0,0 +1,12 @@
@@ -1297,15 +1297,15 @@ index 00000000000000..7c8d753190a8ec
 +@@ -92,9 +92,6 @@
 + 		MACOSX_BUNDLE_COPYRIGHT "Copyright VCG-ISTI-CNR © 2005-2021. All rights reserved."
 + 		)
-+ 	
++
 +-	set_additional_settings_info_plist(
 +-		TARGET meshlab
 +-		FILE ${MESHLAB_BUILD_DISTRIB_DIR}/meshlab.app/Contents/Info.plist)
 + endif()
-+ 
++
 + install(
 diff --git a/pkgs/by-name/me/meshlab/package.nix b/pkgs/by-name/me/meshlab/package.nix
-index 0be074cf79e1e9..9e431b24d75de3 100644
+index 0be074cf79e1e..9e431b24d75de 100644
 --- a/pkgs/by-name/me/meshlab/package.nix
 +++ b/pkgs/by-name/me/meshlab/package.nix
 @@ -102,19 +102,14 @@ stdenv.mkDerivation (finalAttrs: {
@@ -1316,7 +1316,7 @@ index 0be074cf79e1e9..9e431b24d75de3 100644
 +  ++ lib.optionals stdenv.hostPlatform.isDarwin [
 +    ./no-plist.patch
    ];
- 
+
 -  postPatch =
 -    lib.optionalString stdenv.hostPlatform.isLinux ''
 -      substituteAll ${./meshlab.desktop} resources/linux/meshlab.desktop
@@ -1331,14 +1331,14 @@ index 0be074cf79e1e9..9e431b24d75de3 100644
 +  postPatch = lib.optionalString stdenv.hostPlatform.isLinux ''
 +    substituteAll ${./meshlab.desktop} resources/linux/meshlab.desktop
 +  '';
- 
-   cmakeFlags = cmakeFlagsDisallowDownload;
- 
 
-From 6767472f5e30ea1795760881ff4d44fc6422eea0 Mon Sep 17 00:00:00 2001
+   cmakeFlags = cmakeFlagsDisallowDownload;
+
+
+From 81e9336a7fd0a424ab23e201b19de885872ad147 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Fri, 19 Sep 2025 12:14:46 +0200
-Subject: [PATCH 19/22] python3Packages.pymeshlab: 2023.12 -> 2025.7 + use
+Subject: [PATCH 19/26] python3Packages.pymeshlab: 2023.12 -> 2025.7 + use
  system dependencies
 
 ---
@@ -1346,7 +1346,7 @@ Subject: [PATCH 19/22] python3Packages.pymeshlab: 2023.12 -> 2025.7 + use
  1 file changed, 49 insertions(+), 68 deletions(-)
 
 diff --git a/pkgs/applications/graphics/pymeshlab/default.nix b/pkgs/applications/graphics/pymeshlab/default.nix
-index b6d37dfc564908..60c7132365eef4 100644
+index b6d37dfc56490..60c7132365eef 100644
 --- a/pkgs/applications/graphics/pymeshlab/default.nix
 +++ b/pkgs/applications/graphics/pymeshlab/default.nix
 @@ -1,106 +1,87 @@
@@ -1394,12 +1394,12 @@ index b6d37dfc564908..60c7132365eef4 100644
 +  glew,
 +  vcg,
  }:
- 
+
  stdenv.mkDerivation (finalAttrs: {
    pname = "pymeshlab";
 -  version = "2023.12";
 +  version = "2025.7";
- 
+
    src = fetchFromGitHub {
      owner = "cnr-isti-vclab";
      repo = "pymeshlab";
@@ -1409,7 +1409,7 @@ index b6d37dfc564908..60c7132365eef4 100644
 +    tag = "v${finalAttrs.version}";
 +    hash = "sha256-LCR2/AyX9uVX4xhZareUL6YlpUsCFiGDMBB5nFp+H6k=";
    };
- 
+
 -  buildInputs = [
 -    libGLU
 -    qtbase
@@ -1443,19 +1443,19 @@ index b6d37dfc564908..60c7132365eef4 100644
 +      hash = "sha256-euKfOx/T0qdeMx79dpEalzmdWsr4nbDFJfKdksvULBw=";
 +    })
    ];
- 
+
    nativeBuildInputs = [
      cmake
 -    wrapQtAppsHook
      python3Packages.pybind11
    ];
- 
+
    propagatedBuildInputs = [
 +    meshlab
      python3Packages.numpy
 +    python3Packages.pythonImportsCheckHook
    ];
- 
+
 -  preConfigure = ''
 -    substituteInPlace src/meshlab/src/external/libigl.cmake \
 -      --replace-fail '$'{MESHLAB_EXTERNAL_DOWNLOAD_DIR}/libigl-2.4.0 ${libigl}
@@ -1475,12 +1475,12 @@ index b6d37dfc564908..60c7132365eef4 100644
 +  ];
 +
 +  dontWrapQtApps = true;
- 
+
    cmakeFlags = [
      "-DCMAKE_INSTALL_PREFIX=${placeholder "out"}/${python3Packages.python.sitePackages}/pymeshlab"
 -    "-DVCGDIR=${vcg.src}"
    ];
- 
+
 +  # Get io & filter plugins from meshlab, to avoild render, decorate & edit ones
 +  postInstall = ''
 +    install -D -t $out/${python3Packages.python.sitePackages}/pymeshlab/lib/plugins \
@@ -1506,21 +1506,21 @@ index b6d37dfc564908..60c7132365eef4 100644
    };
  })
 
-From 6ef7223f5c69a1e321a6646fdc4d6f2f0bac5309 Mon Sep 17 00:00:00 2001
+From 5ea111a4baabd21d4f8e7c154bd4542423cdcb56 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 21 Sep 2025 23:27:12 +0200
-Subject: [PATCH 20/22] python3Packages.pymeshlab: fix on darwin
+Subject: [PATCH 20/26] python3Packages.pymeshlab: fix on darwin
 
 ---
  .../graphics/pymeshlab/default.nix            | 27 ++++++++++++++-----
  1 file changed, 20 insertions(+), 7 deletions(-)
 
 diff --git a/pkgs/applications/graphics/pymeshlab/default.nix b/pkgs/applications/graphics/pymeshlab/default.nix
-index 60c7132365eef4..b6e0619e1c2372 100644
+index 60c7132365eef..b6e0619e1c237 100644
 --- a/pkgs/applications/graphics/pymeshlab/default.nix
 +++ b/pkgs/applications/graphics/pymeshlab/default.nix
 @@ -14,6 +14,7 @@
- 
+
    # buildInputs
    libsForQt5,
 +  llvmPackages,
@@ -1535,11 +1535,11 @@ index 60c7132365eef4..b6e0619e1c2372 100644
 +  ++ lib.optionals stdenv.cc.isClang [
 +    llvmPackages.openmp
    ];
- 
+
    dontWrapQtApps = true;
 @@ -63,13 +67,22 @@ stdenv.mkDerivation (finalAttrs: {
    ];
- 
+
    # Get io & filter plugins from meshlab, to avoild render, decorate & edit ones
 -  postInstall = ''
 -    install -D -t $out/${python3Packages.python.sitePackages}/pymeshlab/lib/plugins \
@@ -1568,10 +1568,10 @@ index 60c7132365eef4..b6e0619e1c2372 100644
        --add-needed ${meshlab}/lib/meshlab/libmeshlab-common.so \
        $out/${python3Packages.python.sitePackages}/pymeshlab/pmeshlab.*.so
 
-From 23c91fb46c37ace04b49688f733b9671a589dac5 Mon Sep 17 00:00:00 2001
+From 0ae08be8b7b9c6584c224ab25854298b4a9d60b4 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Sun, 5 Oct 2025 23:10:44 +0200
-Subject: [PATCH 21/22] python3Packages.pymeshlab: dont propagate hook
+Subject: [PATCH 21/26] python3Packages.pymeshlab: dont propagate hook
 
 Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
 ---
@@ -1579,13 +1579,13 @@ Co-authored-by: Sandro <7258858+SuperSandro2000@users.noreply.github.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/pkgs/applications/graphics/pymeshlab/default.nix b/pkgs/applications/graphics/pymeshlab/default.nix
-index b6e0619e1c2372..ec6edb230aff14 100644
+index b6e0619e1c237..ec6edb230aff1 100644
 --- a/pkgs/applications/graphics/pymeshlab/default.nix
 +++ b/pkgs/applications/graphics/pymeshlab/default.nix
 @@ -45,10 +45,13 @@ stdenv.mkDerivation (finalAttrs: {
      python3Packages.pybind11
    ];
- 
+
 +  nativeCheckInputs = [
 +    python3Packages.pythonImportsCheckHook
 +  ];
@@ -1595,20 +1595,20 @@ index b6e0619e1c2372..ec6edb230aff14 100644
      python3Packages.numpy
 -    python3Packages.pythonImportsCheckHook
    ];
- 
+
    buildInputs = [
 
-From 9bee005cf3ba366dd0617cf63ae92cce58eead52 Mon Sep 17 00:00:00 2001
+From 4481106b0a01d0095472ca0a05d1becededd34a2 Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Mon, 6 Oct 2025 01:34:14 +0200
-Subject: [PATCH 22/22] openscad: fix on darwin
+Subject: [PATCH 22/26] openscad: fix on darwin
 
 ---
  pkgs/by-name/op/openscad/package.nix | 14 ++++++++++++++
  1 file changed, 14 insertions(+)
 
 diff --git a/pkgs/by-name/op/openscad/package.nix b/pkgs/by-name/op/openscad/package.nix
-index a4256d03506120..e914d3043f8364 100644
+index a4256d0350612..e914d3043f836 100644
 --- a/pkgs/by-name/op/openscad/package.nix
 +++ b/pkgs/by-name/op/openscad/package.nix
 @@ -84,6 +84,15 @@ stdenv.mkDerivation rec {
@@ -1625,10 +1625,10 @@ index a4256d03506120..e914d3043f8364 100644
 +    })
 +
    ];
- 
+
    postPatch = ''
 @@ -92,6 +101,11 @@ stdenv.mkDerivation rec {
- 
+
      substituteInPlace src/openscad.cc \
        --replace-fail 'boost::join' 'boost::algorithm::join'
 +  ''
@@ -1637,5 +1637,158 @@ index a4256d03506120..e914d3043f8364 100644
 +    substituteInPlace src/FreetypeRenderer.h \
 +      --replace-fail ": public std::unary_function<const GlyphData *, void>" ""
    '';
- 
+
    nativeBuildInputs = [
+
+From 136e6977e7e99d88f716ab5ab9563dc24ef696c3 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Tue, 14 Oct 2025 11:39:26 +0200
+Subject: [PATCH 23/26] tinygltf: unvendor json & stb
+
+Co-authored-by: jopejoe1 <34899572+jopejoe1@users.noreply.github.com>
+---
+ pkgs/by-name/ti/tinygltf/package.nix | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/pkgs/by-name/ti/tinygltf/package.nix b/pkgs/by-name/ti/tinygltf/package.nix
+index 5641142444568..c9bf9ad7ec824 100644
+--- a/pkgs/by-name/ti/tinygltf/package.nix
++++ b/pkgs/by-name/ti/tinygltf/package.nix
+@@ -1,8 +1,16 @@
+ {
+   lib,
++
+   stdenv,
+   fetchFromGitHub,
++  nix-update-script,
++
++  # nativeBuildInputs
+   cmake,
++
++  # propagatedBuildInputs
++  nlohmann_json,
++  stb,
+ }:
+
+ stdenv.mkDerivation (finalAttrs: {
+@@ -20,6 +28,17 @@ stdenv.mkDerivation (finalAttrs: {
+     cmake
+   ];
+
++  propagatedBuildInputs = [
++    nlohmann_json
++    stb
++  ];
++
++  cmakeFlags = [
++    (lib.cmakeBool "TINYGLTF_INSTALL_VENDOR" false)
++  ];
++
++  passthru.updateScript = nix-update-script { };
++
+   meta = {
+     description = "Header only C++11 tiny glTF 2.0 library";
+     homepage = "https://github.com/syoyo/tinygltf";
+
+From 95faa2bf51a445ff31919fe17a02b547b318c93e Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Fri, 24 Oct 2025 00:06:00 +0200
+Subject: [PATCH 24/26] lib3mf: fix header install
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Somehow this was working before, but around 2025-10-23, something
+changed on master, and nixpkgs-review would stop working on
+https://github.com/NixOS/nixpkgs/pull/445078:
+
+```
+$ nix build -L github:NixOS/nixpkgs/pull/445078/head#lib3mf.dev
+$ eza result-dev/include/
+ lib3mf/
+$ nix build -L github:NixOS/nixpkgs/pull/445078/merge#lib3mf.dev
+$ eza result-dev/include/
+"result-dev/include/": No such file or directory (os error 2)
+```
+
+The headers are now installed in the build tree:
+```
+-- Installing: /nix/store/i7qd0hcky65i557fqjl5qq3xrp30hwhz-lib3mf-2.4.1/lib/lib3mf.so.2
+-- Installing: /nix/store/i7qd0hcky65i557fqjl5qq3xrp30hwhz-lib3mf-2.4.1/lib/lib3mf.so
+-- Installing: /build/source/build/include/lib3mf/Bindings
+-- Installing: /build/source/build/include/lib3mf/Bindings/NodeJS
+-- Installing: /build/source/build/include/lib3mf/Bindings/NodeJS/lib3mf_nodeaddon.cc
+-- Installing: /build/source/build/include/lib3mf/Bindings/NodeJS/lib3mf_nodewrapper.cc
+```
+
+Maybe CMake 4.1.1 -> 4.1.2 changed something.
+---
+ pkgs/by-name/li/lib3mf/package.nix | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
+index 289fcaf48d759..6424ac5b2c9c8 100644
+--- a/pkgs/by-name/li/lib3mf/package.nix
++++ b/pkgs/by-name/li/lib3mf/package.nix
+@@ -59,7 +59,7 @@ stdenv.mkDerivation (finalAttrs: {
+   ];
+
+   cmakeFlags = [
+-    "-DCMAKE_INSTALL_INCLUDEDIR=include/lib3mf"
++    "-DCMAKE_INSTALL_INCLUDEDIR=${placeholder "dev"}/include/lib3mf"
+     "-DUSE_INCLUDED_ZLIB=OFF"
+     "-DUSE_INCLUDED_LIBZIP=OFF"
+     "-DUSE_INCLUDED_GTEST=OFF"
+
+From 95261d558c1856a2c1249a37d91469ae6f759a01 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Fri, 24 Oct 2025 19:43:32 +0200
+Subject: [PATCH 25/26] openscad-unstable: fix use of our lib3mf cmake export
+
+---
+ pkgs/by-name/op/openscad-unstable/package.nix | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/pkgs/by-name/op/openscad-unstable/package.nix b/pkgs/by-name/op/openscad-unstable/package.nix
+index b5d73abc4b0ec..7f64438b80781 100644
+--- a/pkgs/by-name/op/openscad-unstable/package.nix
++++ b/pkgs/by-name/op/openscad-unstable/package.nix
+@@ -57,6 +57,13 @@ clangStdenv.mkDerivation rec {
+
+   patches = [ ./test.diff ];
+
++  # fix use of our lib3mf cmake export instead of finder
++  postPatch = ''
++    substituteInPlace CMakeLists.txt --replace-fail \
++      "Lib3MF" \
++      "lib3mf"
++  '';
++
+   nativeBuildInputs = [
+     (python3.withPackages (
+       ps: with ps; [
+
+From 69074dcbcc67aedc023d2b65f52f6ae00a4259f0 Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Mon, 27 Oct 2025 10:59:41 +0100
+Subject: [PATCH 26/26] lib3mf: fix lib3mf.pc
+
+---
+ pkgs/by-name/li/lib3mf/package.nix | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/pkgs/by-name/li/lib3mf/package.nix b/pkgs/by-name/li/lib3mf/package.nix
+index 6424ac5b2c9c8..8038e0f5b0db0 100644
+--- a/pkgs/by-name/li/lib3mf/package.nix
++++ b/pkgs/by-name/li/lib3mf/package.nix
+@@ -104,6 +104,10 @@ stdenv.mkDerivation (finalAttrs: {
+     substituteInPlace cmake/lib3mfConfig.cmake \
+       --replace-fail "$""{LIB3MF_ROOT_DIR}/include" "$""{LIB3MF_ROOT_DIR}/include/lib3mf" \
+       --replace-fail "$""{LIB3MF_ROOT_DIR}/lib" "$out/lib"
++
++    # Use absolute CMAKE_INSTALL_INCLUDEDIR
++    substituteInPlace lib3mf.pc.in \
++      --replace-fail "includedir=$""{prefix}/@CMAKE_INSTALL_INCLUDEDIR@" "includedir=@CMAKE_INSTALL_INCLUDEDIR@"
+   '';
+
+   doCheck = true;
