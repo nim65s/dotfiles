@@ -185,6 +185,7 @@
     lsp-status.enable = true;
     lsp-signature.enable = true;
     lz-n.enable = true;
+    plantuml-syntax.enable = true;
     treesitter = {
       enable = true;
       folding = true;

@@ -150,7 +150,9 @@
         v = "nvim";
         vi = "nvim";
         vmi = "nvim";
+        vim = "nvim";
         vd = "nvim -d";
+        vimdiff = "nvim -d";
         z = "zellij";
         za = "zathura";
       };
