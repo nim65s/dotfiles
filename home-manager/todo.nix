@@ -417,11 +417,13 @@ in
       };
     };
     hwatch.enable = true;
+    jujutsu.enable = true;
     nixvim = import ../modules/nixvim.nix // {
       enable = true;
       defaultEditor = true;
     };
     numbat.enable = true;
+    nushell.enable = true;
     spicetify = {
       enable = true;
       enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
