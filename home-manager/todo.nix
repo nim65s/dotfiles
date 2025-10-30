@@ -417,7 +417,15 @@ in
       };
     };
     hwatch.enable = true;
-    jujutsu.enable = true;
+    jjui.enable = true;
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          inherit (config.programs.git.settings.user) name email;
+        };
+      };
+    };
     nixvim = import ../modules/nixvim.nix // {
       enable = true;
       defaultEditor = true;
