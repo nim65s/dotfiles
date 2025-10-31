@@ -183,6 +183,7 @@ in
       toml-sort
       tree
       tree-sitter
+      typst
       unzip
       usbutils
       uv
