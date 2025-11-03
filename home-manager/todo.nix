@@ -192,6 +192,7 @@ in
       vlc
       vscode-fhs
       watchexec
+      weechat
       wev
       #wireplumber
       wl-clipboard
