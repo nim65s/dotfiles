@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/disko-zfs.nix
@@ -11,6 +11,7 @@
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.kernelModules = [ "hid_nintendo" ];
 
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
@@ -19,6 +20,7 @@
 
   # environment.systemPackages = [ pkgs.factorio-space-age ];
 
+  hardware.uinput.enable = true;
   home-manager.users.nim = import ./home.nix;
 
   networking = {
@@ -47,12 +49,17 @@
   services.udev.extraRules = ''
     ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
   '';
+  services.udev.packages = [ pkgs.steam ];
+  services.joycond.enable = true;
 
   stylix.image = ../../bg/ashitaka-3.jpg;
 
   # system.extraDependencies = [ pkgs.factorio-space-age.src ];
 
-  users.users.nim.extraGroups = [ "docker" ];
+  users.users.nim.extraGroups = [
+    "docker"
+    "uinput"
+  ];
 
   virtualisation.docker.enable = true;
 }
