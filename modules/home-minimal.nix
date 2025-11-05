@@ -205,10 +205,12 @@
         "gh" = {
           hostname = "github.com";
           user = "git";
+          forwardAgent = false;
         };
         "gl" = {
           hostname = "gitlab.laas.fr";
           user = "git";
+          forwardAgent = false;
         };
         "laas" = {
           hostname = "ssh.laas.fr";
