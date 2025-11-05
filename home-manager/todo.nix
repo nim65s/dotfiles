@@ -250,7 +250,6 @@ in
       SHELL = lib.getExe pkgs.fish;
       SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
       SSH_ASKPASS_REQUIRE = "prefer";
-      #SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
       #TWINE_USERNAME = "nim65s";
     };
   };
