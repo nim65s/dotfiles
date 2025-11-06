@@ -21,6 +21,7 @@
       packages =
         with pkgs;
         [
+          firefox
           gcompris
           klavaro
           # libsForQt5.ktouch # TODO: broken on qt6
