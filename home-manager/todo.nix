@@ -50,7 +50,7 @@ in
       # cmake-format
       cntr
       docker-compose
-      du-dust
+      dust
       evince
       #eww-wayland
       ffmpeg

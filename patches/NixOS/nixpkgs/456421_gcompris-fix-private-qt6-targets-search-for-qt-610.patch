@@ -1,7 +1,7 @@
-From 3d4a9cbfa44c013215b9342392c2a07dd97ca228 Mon Sep 17 00:00:00 2001
+From e9cd95786544873c69db3b31f40e29b628ebe7ea Mon Sep 17 00:00:00 2001
 From: Guilhem Saurel <guilhem.saurel@laas.fr>
 Date: Tue, 28 Oct 2025 11:30:04 +0100
-Subject: [PATCH] gcompris: stop linking to Qt6 private targets
+Subject: [PATCH] gcompris: fix private Qt6 targets search for Qt 6.10
 
 fix https://hydra.nixos.org/build/311320100/log/tail
 ```
@@ -17,14 +17,14 @@ CMake Error at src/core/CMakeLists.txt:112 (target_link_libraries):
     * An ALIAS target is missing.
 ```
 ---
- pkgs/by-name/gc/gcompris/package.nix | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ pkgs/by-name/gc/gcompris/package.nix | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/pkgs/by-name/gc/gcompris/package.nix b/pkgs/by-name/gc/gcompris/package.nix
-index df8f4c6e90f1f..5019329041c07 100644
+index df8f4c6e90f1f1..438f28ca1425d0 100644
 --- a/pkgs/by-name/gc/gcompris/package.nix
 +++ b/pkgs/by-name/gc/gcompris/package.nix
-@@ -18,11 +18,17 @@ stdenv.mkDerivation (finalAttrs: {
+@@ -18,11 +18,16 @@ stdenv.mkDerivation (finalAttrs: {
      hash = "sha256-Y23pFov1/WKPrwYYRfGI8sOF0tp/ksSwRJE5zmxtoSo=";
    };
  
@@ -36,11 +36,10 @@ index df8f4c6e90f1f..5019329041c07 100644
      substituteInPlace src/core/config.h.in  --replace-fail \
        "../@_data_dest_dir@" "../share/gcompris-qt"
 +
-+    # Don't link to private targets, which are not exposed ad
-+    substituteInPlace src/core/CMakeLists.txt \
-+      --replace-fail "$""{QT_MAJOR}::CorePrivate" "" \
-+      --replace-fail "$""{QT_MAJOR}::QuickControls2BasicPrivate" "" \
-+      --replace-fail "$""{QT_MAJOR}::WaylandClientPrivate" ""
++    # Fix private Qt6 targets search for Qt 6.10
++    substituteInPlace CMakeLists.txt --replace-fail \
++      "set(QT_COMPONENTS Qml Quick Gui Multimedia Core Svg Network LinguistTools Sensors QuickControls2 QuickTemplates2 Charts Widgets QmlWorkerScript)" \
++      "set(QT_COMPONENTS Qml Quick Gui Multimedia Core Svg Network LinguistTools Sensors QuickControls2 QuickTemplates2 Charts Widgets QmlWorkerScript CorePrivate QuickControls2BasicPrivate WaylandClientPrivate)"
    '';
  
    cmakeFlags = [
