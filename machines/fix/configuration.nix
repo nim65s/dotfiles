@@ -83,7 +83,10 @@
         pasv_max_port=40100
       '';
     };
-    xserver.xkb.variant = "";
+    xserver.xkb = {
+      variant = "";
+      options = "caps:digits_row";
+    };
   };
   # stylix.image = ../../bg/hattori.jpg;
   users.users.fil = {
