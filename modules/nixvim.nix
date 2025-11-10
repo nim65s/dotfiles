@@ -165,6 +165,7 @@
         };
       };
     };
+    fileline.enable = true;
     kitty-scrollback.enable = true;
     lsp = {
       enable = true;
