@@ -31,6 +31,7 @@ in
       broot
       cachix
       cage
+      caligula
       cargo
       cargo-binstall
       cargo-release
