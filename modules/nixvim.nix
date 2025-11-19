@@ -170,6 +170,7 @@
           nix = [ "nixfmt" ];
           json = [ "jq" ];
           json5 = [ "formatjson5" ];
+          typst = [ "typstyle" ];
         };
       };
     };

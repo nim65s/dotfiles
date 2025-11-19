@@ -185,6 +185,7 @@ in
       tree
       tree-sitter
       typst
+      typstyle
       unzip
       usbutils
       uv
