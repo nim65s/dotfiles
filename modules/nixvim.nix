@@ -160,8 +160,16 @@
             return { timeout_ms = 500, lsp_format = "fallback" }
           end
         '';
+        formatters = {
+          formatjson5 = {
+            command = "formatjson5";
+            args = [ "-" ];
+          };
+        };
         formatters_by_ft = {
           nix = [ "nixfmt" ];
+          json = [ "jq" ];
+          json5 = [ "formatjson5" ];
         };
       };
     };

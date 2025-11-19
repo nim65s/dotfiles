@@ -56,6 +56,7 @@ in
       ffmpeg
       file
       fishPlugins.bass
+      formatjson5
       #font-awesome
       fuzzel
       gersemi
