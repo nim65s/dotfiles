@@ -64,7 +64,7 @@ fileext = ".ics"
 
 [storage holiday_remote]
 type = "http"
-url = "https://www.mozilla.org/media/caldata/FrenchHolidays.ics"
+url = "https://fr.ftp.opendatasoft.com/openscol/fr-en-calendrier-scolaire/Zone-C.ics"
 
 [pair sri]
 a = "sri_local"
