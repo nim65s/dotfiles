@@ -16,7 +16,6 @@
     home-manager.nixosModules.home-manager
     catppuccin.nixosModules.catppuccin
     nixvim.nixosModules.nixvim
-    "${nixpkgs}/nixos/modules/services/hardware/arsenik.nix"
     ./access-tokens.nix
   ];
 
@@ -137,6 +136,15 @@
   services = {
     arsenik = {
       enable = true;
+      package = pkgs.arsenik.overrideAttrs {
+        patches = [
+          (pkgs.fetchpatch {
+            name = "kanata-numpad-add-operators.patch";
+            url = "https://github.com/OneDeadKey/arsenik/pull/77.patch";
+            hash = "sha256-fIGp9IZ19gUq5tsnuX4I2KOLBA7HaF6u1berDleSnKg=";
+          })
+        ];
+      };
       long_hold_timeout = 180;
       lt = true;
       vim = true;
