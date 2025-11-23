@@ -67,6 +67,10 @@
     desktopManager.plasma6.enable = true;
     printing = {
       enable = true;
+      drivers = [
+        pkgs.mfc9140cdnlpr
+        pkgs.mfc9140cdncupswrapper
+      ];
     };
     saned = {
       enable = true;
