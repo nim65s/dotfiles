@@ -6,6 +6,9 @@
   environment.systemPackages = [
     pkgs.nautilus
   ];
+  fonts.packages = [
+    pkgs.peppercarrot-fonts
+  ];
   programs = {
     niri.enable = true;
     sniffnet.enable = true;
