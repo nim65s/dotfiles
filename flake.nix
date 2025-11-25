@@ -152,6 +152,7 @@
                   settings.networks = {
                     antagnac = { };
                     azv = { };
+                    azvfp = { };
                     baroustan.keyMgmt = "sae";
                     bouys = { };
                     bsc = { };
