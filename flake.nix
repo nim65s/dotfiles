@@ -163,6 +163,7 @@
                     lacroix = { };
                     lavelanet = { };
                     marsrovers = { };
+                    neofarm = { };
                     picto_cne = { };
                     prades = { };
                     sabliere = { };
