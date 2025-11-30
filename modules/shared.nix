@@ -4,7 +4,6 @@
   flake,
   home-manager,
   lib,
-  nixpkgs,
   nixvim,
   pkgs,
   spicetify-nix,
