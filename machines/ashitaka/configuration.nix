@@ -6,7 +6,6 @@
     ../../modules/nvidia.nix
     ../../modules/remote-decrypt.nix
     ../../modules/shared.nix
-    ../../modules/steam.nix
     ../../modules/nixos.nix
   ];
 
@@ -43,6 +42,21 @@
           prefixLength = 24;
         }
       ];
+    };
+  };
+
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession = {
+        enable = true;
+        args = [
+          "-W"
+          "3840"
+          "-H"
+          "2160"
+        ];
+      };
     };
   };
 
