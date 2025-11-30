@@ -35,7 +35,6 @@ in
       cargo
       cargo-binstall
       cargo-release
-      clang_19
       cmeel
       comma
       dcfldd
