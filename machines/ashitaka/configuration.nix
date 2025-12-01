@@ -76,4 +76,12 @@
   ];
 
   virtualisation.docker.enable = true;
+
+  # clan dev tests
+  nix.settings.auto-allocate-uids = true;
+  nix.settings.experimental-features = [
+    "auto-allocate-uids"
+    "cgroups"
+  ];
+  nix.settings.system-features = [ "uid-range" ];
 }

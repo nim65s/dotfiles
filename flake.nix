@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     clan-core = {
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "https://git.clan.lol/nim65s/clan-core/archive/harmonia.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -109,6 +109,15 @@
               mycelium = {
                 roles.peer = {
                   tags.all = { };
+                };
+              };
+              harmonia = {
+                roles.server = {
+                  machines.ashitaka = { };
+                };
+                roles.client = {
+                  tags.all = { };
+                  settings.domain = ".m";
                 };
               };
               users = {
