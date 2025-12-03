@@ -93,6 +93,7 @@
   };
 
   nix = {
+    gc.automatic = true;
     settings = {
       accept-flake-config = false;
       extra-substituters = [
