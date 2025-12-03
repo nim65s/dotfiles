@@ -6,7 +6,7 @@
 {
   imports = [
     stylix.homeModules.stylix
-    ./stylix.nix
+    ../../shared/stylix.nix
   ];
 
   home = {

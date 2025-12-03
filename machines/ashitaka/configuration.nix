@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/disko-zfs.nix
-    ../../modules/display.nix
-    ../../modules/nvidia.nix
-    ../../modules/remote-decrypt.nix
-    ../../modules/shared.nix
-    ../../modules/nixos.nix
+    ../../nixos/disko-zfs.nix
+    ../../nixos/display.nix
+    ../../nixos/nvidia.nix
+    ../../nixos/remote-decrypt.nix
+    ../../nixos/shared.nix
+    ../../nixos/nixos.nix
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

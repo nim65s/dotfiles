@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/disko-ext4-swap-tmpfs.nix
-    ../../modules/display.nix
-    ../../modules/shared.nix
-    ../../modules/nixos.nix
+    ../../nixos/disko-ext4-swap-tmpfs.nix
+    ../../nixos/display.nix
+    ../../nixos/shared.nix
+    ../../nixos/nixos.nix
   ];
 
   disko.devices.disk.main = {
@@ -22,8 +22,8 @@
     vim
   ];
   home-manager.users = {
-    martine = import ../../modules/martine-home.nix;
-    nim = import ../../modules/nim-home.nix;
+    martine = import ../../home/martine.nix;
+    nim = import ../../home/nim/main.nix;
   };
   nim-disko.tmpfsSize = "300M";
   programs.waybar.enable = false;

@@ -18,10 +18,10 @@ in
 {
   imports = [
     ./firefox.nix
-    ./nim-home-minimal.nix
-    ./nim-accounts.nix
+    ./minimal.nix
+    ./accounts.nix
     ./ssh.nix
-    ../home-manager/todo.nix
+    ./todo.nix
   ];
 
   options = {

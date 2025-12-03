@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ../../modules/nim-home.nix ];
+  imports = [ ../../home/nim/main.nix ];
 
   home = {
     packages = with pkgs; [

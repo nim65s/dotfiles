@@ -215,19 +215,20 @@ in
     ];
 
     file = {
-      ".config/dfc/dfcrc".source = ../.config/dfc/dfcrc;
-      ".config/distrobox/distrobox.conf".source = ../.config/distrobox/distrobox.conf;
+      ".config/dfc/dfcrc".source = ../../.config/dfc/dfcrc;
+      ".config/distrobox/distrobox.conf".source = ../../.config/distrobox/distrobox.conf;
       # TODO: wip bépo / ergol
       #".config/niri/config.kdl".source = ../.config/niri/config.kdl;
-      ".config/kitty/open-actions.conf".source = ../.config/kitty/open-actions.conf;
-      ".config/khal/config".source = ../.config/khal/config;
-      ".config/khard/khard.conf".source = ../.config/khard/khard.conf;
-      ".config/python_keyring/keyringrc.cfg".source = ../.config/python_keyring/keyringrc.cfg;
-      ".config/rofi-rbw.rc".source = ../.config/rofi-rbw.rc;
-      ".config/vdirsyncer/config".source = ../.config/vdirsyncer/config;
-      ".ipython/profile_default/ipython_config.py".source = ../.ipython/profile_default/ipython_config.py;
-      ".latexmkrc".source = ../.latexmkrc;
-      ".pypirc".source = ../.pypirc;
+      ".config/kitty/open-actions.conf".source = ../../.config/kitty/open-actions.conf;
+      ".config/khal/config".source = ../../.config/khal/config;
+      ".config/khard/khard.conf".source = ../../.config/khard/khard.conf;
+      ".config/python_keyring/keyringrc.cfg".source = ../../.config/python_keyring/keyringrc.cfg;
+      ".config/rofi-rbw.rc".source = ../../.config/rofi-rbw.rc;
+      ".config/vdirsyncer/config".source = ../../.config/vdirsyncer/config;
+      ".ipython/profile_default/ipython_config.py".source =
+        ../../.ipython/profile_default/ipython_config.py;
+      ".latexmkrc".source = ../../.latexmkrc;
+      ".pypirc".source = ../../.pypirc;
 
       ".xinitrc".text = "exec ${lib.getExe pkgs.i3} > ~/.x.log 2> ~/.x.err";
     };
@@ -323,7 +324,7 @@ in
           verbose = true;
         };
         core = {
-          excludesfile = "${../gitignore}";
+          excludesfile = "${../../gitignore}";
         };
         diff = {
           algorithm = "histogram";
@@ -429,7 +430,7 @@ in
         };
       };
     };
-    nixvim = import ../modules/nixvim.nix // {
+    nixvim = import ../../shared/nixvim.nix // {
       enable = true;
       defaultEditor = true;
     };

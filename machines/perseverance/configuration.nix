@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ../../modules/rovers.nix
+    ../../nixos/rovers.nix
   ];
 
   clan.core.networking.targetHost = "root@192.168.1.${ip}";

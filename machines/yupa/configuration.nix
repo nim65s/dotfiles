@@ -4,13 +4,13 @@
 {
   imports = [
     # inputs.alloria.nixosModules.control
-    ../../modules/disko-zfs.nix
-    ../../modules/display.nix
-    ../../modules/shared.nix
-    # ../../modules/steam.nix
-    # ../../modules/teeworlds.nix
-    ../../modules/nixos.nix
-    ../../modules/wifi-laas.nix
+    ../../nixos/disko-zfs.nix
+    ../../nixos/display.nix
+    ../../nixos/shared.nix
+    # ../../nixos/steam.nix
+    # ../../nixos/teeworlds.nix
+    ../../nixos/nixos.nix
+    ../../nixos/wifi-laas.nix
   ];
 
   boot = {
@@ -28,7 +28,7 @@
     device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
     name = "main-a855f7621e7c4f468b3e94c4ed4ade19";
   };
-  home-manager.users.nim = import ../../modules/nim-home.nix;
+  home-manager.users.nim = import ../../home/nim/main.nix;
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [
       {

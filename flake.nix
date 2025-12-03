@@ -117,7 +117,6 @@
                 };
                 roles.client = {
                   tags.all = { };
-                  settings.domain = ".m";
                 };
               };
               users = {
@@ -294,11 +293,11 @@
               in
               {
                 "gsaurel" = homeConfiguration [
-                  ./modules/nim-home.nix
-                  ./modules/lab.nix
+                  ./home/nim/main.nix
+                  ./home/nim/lab.nix
                 ];
                 "gsaurel@upepesanke" = homeConfiguration [
-                  ./aliens/upepesanke/home.nix
+                  ./home/nim/upepesanke
                 ];
               };
 
@@ -319,7 +318,7 @@
                 ;
               inherit (inputs'.home-manager.packages) home-manager;
               inherit (inputs'.clan-core.packages) clan-cli;
-              nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import modules/nixvim.nix);
+              nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import shared/nixvim.nix);
             };
             treefmt = {
               projectRootFile = "flake.nix";

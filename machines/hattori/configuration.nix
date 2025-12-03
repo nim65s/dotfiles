@@ -5,11 +5,11 @@
 {
   imports = [
     # inputs.alloria.nixosModules.escape
-    ../../modules/disko-zfs.nix
-    ../../modules/display.nix
-    ../../modules/shared.nix
-    ../../modules/nixos.nix
-    # ../../modules/parental-control.nix
+    ../../nixos/disko-zfs.nix
+    ../../nixos/display.nix
+    ../../nixos/shared.nix
+    ../../nixos/nixos.nix
+    # ../../nixos/parental-control.nix
   ];
 
   console = {
@@ -21,8 +21,8 @@
     name = "main-5960c9984f2d43c8b5158243d19fb2fc";
   };
   home-manager.users = {
-    nim = import ../../modules/nim-home.nix;
-    mimi = import ../../modules/mimi-home.nix;
+    nim = import ../../home/nim/main.nix;
+    mimi = import ../../home/mimi.nix;
   };
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [

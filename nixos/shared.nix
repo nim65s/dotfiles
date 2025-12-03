@@ -69,7 +69,7 @@
     };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.root = import ./root-home-minimal.nix;
+    users.root = import ../home/nim/minimal.nix;
   };
 
   i18n.defaultLocale = "fr_FR.UTF-8";
@@ -127,7 +127,7 @@
     nix-ld.enable = true;
     trippy.enable = true;
     vim.enable = true;
-    nixvim = import ../modules/nixvim.nix // {
+    nixvim = import ../shared/nixvim.nix // {
       enable = true;
       defaultEditor = true;
     };

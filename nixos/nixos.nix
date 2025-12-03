@@ -5,6 +5,6 @@
 {
   imports = [
     stylix.nixosModules.stylix
-    ./stylix.nix
+    ../shared/stylix.nix
   ];
 }

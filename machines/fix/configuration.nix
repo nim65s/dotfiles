@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/disko-zfs-swap.nix
-    ../../modules/display.nix
-    ../../modules/shared.nix
-    ../../modules/nixos.nix
+    ../../nixos/disko-zfs-swap.nix
+    ../../nixos/display.nix
+    ../../nixos/shared.nix
+    ../../nixos/nixos.nix
   ];
 
   catppuccin = {
@@ -43,8 +43,8 @@
     };
   };
   home-manager.users = {
-    fil = import ../../modules/fil-home.nix;
-    nim = import ../../modules/nim-home.nix;
+    fil = import ../../home/fil.nix;
+    nim = import ../../home/nim/main.nix;
   };
   networking = {
     firewall.allowedTCPPorts = [ 21 ];

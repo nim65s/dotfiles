@@ -6,7 +6,7 @@
     ./roversap.nix
   ];
 
-  home-manager.users.nim = import ./nim-home-minimal.nix;
+  home-manager.users.nim = import ../home/nim/minimal.nix;
 
   networking = {
     defaultGateway = {
