@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../nixos/disko-zfs-swap.nix
+    ../../nixos/disko/zfs-swap.nix
     ../../nixos/display.nix
     ../../nixos/shared.nix
     ../../nixos/nixos.nix

@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../nixos/disko-ext4-swap.nix
+    ../../nixos/disko/ext4-swap.nix
     ../../nixos/display.nix
     ../../nixos/shared.nix
     ../../nixos/nixos.nix

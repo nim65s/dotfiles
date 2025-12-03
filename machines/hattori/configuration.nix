@@ -5,7 +5,7 @@
 {
   imports = [
     # inputs.alloria.nixosModules.escape
-    ../../nixos/disko-zfs.nix
+    ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     ../../nixos/shared.nix
     ../../nixos/nixos.nix

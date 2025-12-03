@@ -1,6 +1,6 @@
 {
   imports = [
-    ./disko-ext4.nix
+    ../nixos/disko/ext4.nix
     ./shared.nix
     ./nixos.nix
     ./roversap.nix

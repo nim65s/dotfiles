@@ -4,7 +4,7 @@
 
 {
   imports = [
-    ./zfs-latest.nix
+    ../zfs-latest.nix
   ];
 
   disko.devices = {
@@ -36,6 +36,13 @@
               content = {
                 type = "zfs";
                 pool = "zroot";
+              };
+            };
+            "swap" = {
+              size = "16G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
               };
             };
           };

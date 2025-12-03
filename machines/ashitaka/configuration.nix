@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../nixos/disko-zfs.nix
+    ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
