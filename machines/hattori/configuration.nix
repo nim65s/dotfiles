@@ -7,6 +7,7 @@
     # inputs.alloria.nixosModules.escape
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
+    ../../nixos/monitored.nix
     ../../nixos/shared.nix
     ../../nixos/nixos.nix
     # ../../nixos/parental-control.nix

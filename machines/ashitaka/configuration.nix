@@ -3,6 +3,8 @@
   imports = [
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
+    ../../nixos/monitor.nix
+    ../../nixos/monitored.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
     ../../nixos/shared.nix
