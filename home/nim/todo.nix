@@ -27,6 +27,7 @@ in
       acpi
       age
       black
+      bloom
       brightnessctl
       broot
       cachix
@@ -161,6 +162,7 @@ in
       pwgen
       rofi-rbw
       rofimoji
+      rosdep
       ruff
       rustc # nor pre-commit
       rustscan

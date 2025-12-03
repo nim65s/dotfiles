@@ -36,6 +36,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-ros.follows = "nix-ros-overlay/nixpkgs";
+    nix-ros-overlay = {
+      url = "github:lopsided98/nix-ros-overlay/develop";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+      };
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
@@ -339,10 +346,9 @@
           overlays = {
             default = import ./overlay.nix {
               inherit (inputs)
-                catppuccin
-                nixvim
+                nixpkgs-ros
+                nix-ros-overlay
                 spicetify-nix
-                stylix
                 ;
             };
             nur = inputs.nur.overlays.default;
