@@ -99,6 +99,7 @@ in
       mdcat
       mdbook
       meld
+      mesa-demos
       meshlab
       mosh
       mpv
