@@ -26,6 +26,7 @@ in
     packages = with pkgs; [
       acpi
       age
+      binutils
       black
       bloom
       brightnessctl
