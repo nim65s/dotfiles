@@ -51,10 +51,6 @@ in
   services = {
     grafana = {
       enable = true;
-      settings.server = {
-        root_url = "%(protocol)s://%(domain)s:%(http_port)s/grafana/";
-        serve_from_sub_path = true;
-      };
       provision = {
         enable = true;
         dashboards.settings.providers = [
@@ -78,36 +74,12 @@ in
           }
         ];
       };
+      # TODO: grafana dont like my .m ?
+      # settings.server.http_addr = "grafana.m";
     };
     loki = {
       enable = true;
       configFile = "/etc/${lokiConfigFile}";
-    };
-    nginx = {
-      enable = true;
-      virtualHosts."${logsServerAddr}" = {
-        default = true;
-        locations =
-          let
-            grafanaHost = config.services.grafana.settings.server.http_addr;
-            grafanaPort = config.services.grafana.settings.server.http_port;
-            proxy = proxyPass: {
-              proxyPass = proxyPass;
-              extraConfig = ''
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-
-                proxy_set_header Host $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Real-IP $remote_addr;
-              '';
-            };
-          in
-          {
-            "/grafana" = proxy "http://${grafanaHost}:${toString grafanaPort}";
-          };
-      };
     };
     prometheus = {
       enable = true;

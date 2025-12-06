@@ -84,10 +84,18 @@
     # https://git.clan.lol/clan/clan-core/commit/122dbf42400ff313bab1b5dcaf6c140cec3704e8
     hosts =
       let
+        aliases = {
+          "ashitaka.m" = [
+            "grafana.m"
+            "home-assistant.m"
+          ];
+        };
         allPeersWithIp = builtins.mapAttrs (
           _: x: lib.removeSuffix "\n" x.config.clan.core.vars.generators.mycelium.files.ip.value
         ) flake.nixosConfigurations;
-        myceliumHosts = lib.mapAttrs' (host: ip: lib.nameValuePair ip [ "${host}.m" ]) allPeersWithIp;
+        myceliumHosts = lib.mapAttrs' (
+          host: ip: lib.nameValuePair ip ([ "${host}.m" ] ++ (aliases."${host}.m" or [ ]))
+        ) allPeersWithIp;
       in
       myceliumHosts;
     useNetworkd = true;
