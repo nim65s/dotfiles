@@ -322,6 +322,7 @@
                 pmapnitor
                 pratches
                 pre-commit-sort
+                tailstamp
                 ;
               inherit (inputs'.home-manager.packages) home-manager;
               inherit (inputs'.clan-core.packages) clan-cli;

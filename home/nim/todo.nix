@@ -183,6 +183,7 @@ in
       #sway
       swaybg
       swaylock
+      tailstamp
       tdf
       tig
       toml-sort
