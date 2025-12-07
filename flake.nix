@@ -48,7 +48,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
-        nuschtosSearch.follows = "nuschtosSearch";
         systems.follows = "clan-core/systems";
       };
     };
