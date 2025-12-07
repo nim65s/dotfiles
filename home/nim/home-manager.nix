@@ -26,6 +26,7 @@
     autoUpgrade = {
       enable = true;
       flakeDir = "${config.nim-home.homeDirectory}/dotfiles";
+      frequency = "weekly";
       useFlake = true;
     };
   };
