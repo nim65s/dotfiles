@@ -42,6 +42,7 @@
     git
     graphviz
     htop
+    inetutils
     iproute2
     jq
     kitty
