@@ -95,7 +95,8 @@
   nix = {
     gc = {
       automatic = true;
-      options = "--delete-older-than 30d";
+      dates = "monthly";
+      options = "--delete-older-than 60d";
     };
     settings = {
       accept-flake-config = false;

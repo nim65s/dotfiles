@@ -1,0 +1,3 @@
+{
+  system.autoUpgrade.dates = "weekly";
+}
