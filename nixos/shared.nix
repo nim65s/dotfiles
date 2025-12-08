@@ -106,6 +106,7 @@
       automatic = true;
       dates = "monthly";
       options = "--delete-older-than 60d";
+      persistent = false;
     };
     settings = {
       accept-flake-config = false;
