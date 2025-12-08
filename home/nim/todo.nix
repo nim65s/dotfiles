@@ -96,6 +96,7 @@ in
       libreoffice
       lsof
       gnumake
+      md5cron
       mdcat
       mdbook
       meld
