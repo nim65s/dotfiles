@@ -95,7 +95,12 @@ async def dl(client: AsyncClient, owner: str, repo: str, pr: int, alone: bool):
         )
     title = slugify(data["title"])
 
-    patch = await client.get(url, headers={"Accept": "application/vnd.github.v3.patch"})
+    pull = await client.get(url)
+    pull.raise_for_status()
+    patch_url = pull.json()["patch_url"]
+    patch = await client.get(
+        patch_url, params={"full_index": "1"}, follow_redirects=True
+    )
     patch.raise_for_status()
 
     file = dir / f"{pr}_{title}.patch"
