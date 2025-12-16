@@ -76,7 +76,7 @@ def slugify(text: str) -> str:
     return sub(r"[-\s]+", "-", text).strip("-").lower()
 
 
-async def dl(client: AsyncClient, owner: str, repo: str, pr: int, alone: bool):
+async def dl(client: AsyncClient, owner: str, repo: str, pr: int, /, alone: bool):
     logger.info("processing: %s/%s/pull/%s", owner, repo, pr)
     dir = Path() if alone else PATCHES / owner / repo
     dir.mkdir(parents=True, exist_ok=True)
@@ -109,10 +109,11 @@ async def dl(client: AsyncClient, owner: str, repo: str, pr: int, alone: bool):
 
 
 async def main(token: str, pr: str | None, only: bool, alone: bool, **kwargs):
-    patches = []
+    patches: list[tuple[str, str, int]] = []
     if pr:
         m = search(PATTERN, pr)
-        patches.append((m["owner"], m["repo"], m["pr"]))
+        if m:
+            patches.append((m["owner"], m["repo"], int(m["pr"])))
     if not only and not alone:
         PATCHES.mkdir(exist_ok=True)
         for owner in PATCHES.iterdir():
@@ -121,20 +122,20 @@ async def main(token: str, pr: str | None, only: bool, alone: bool, **kwargs):
             for repo in owner.iterdir():
                 if not repo.is_dir():
                     continue
-                for pr in repo.glob("*_*.patch"):
+                for prm in repo.glob("*_*.patch"):
                     patches.append(
                         (
                             owner.name,
                             repo.name,
-                            int(pr.name.split("_")[0]),
+                            int(prm.name.split("_")[0]),
                         )
                     )
-                    logger.debug("removing %s", pr)
-                    pr.unlink()
+                    logger.debug("removing %s", prm)
+                    prm.unlink()
 
     logger.debug("patches: %s", str(patches))
     async with AsyncClient(headers={"Authorization": f"token {token}"}) as client:
-        await gather(*[dl(client, *patch, alone) for patch in patches])
+        await gather(*[dl(client, *patch, alone=alone) for patch in patches])
 
 
 if __name__ == "__main__":

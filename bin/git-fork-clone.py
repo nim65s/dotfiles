@@ -79,7 +79,7 @@ class Fork:
     ):
         if origin is None:
             origin = gh.get_user()
-        origin_owner = origin.login if hasattr(origin, "login") else origin
+        origin_owner = str(origin.login if hasattr(origin, "login") else origin)
         logger.debug("origin_owner: %s", origin_owner)
 
         if "/" in repo:

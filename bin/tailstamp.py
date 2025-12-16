@@ -8,7 +8,7 @@ def tailstamp():
     try:
         for line in stdin:
             now = datetime.now()
-            print(f"{now:%X} {line.strip('\n')}")
+            print(f"{now:%X} {line}", end="")
     except KeyboardInterrupt:
         pass
 
