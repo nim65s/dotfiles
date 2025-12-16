@@ -182,7 +182,6 @@
         clangd.enable = true;
         # cmake.enable = true;
         nil_ls.enable = true;
-        pyright.enable = true;
         rust_analyzer = {
           enable = true;
           # I prefer rustc from rust-overlay in devShells
@@ -190,6 +189,7 @@
           installRustc = false;
         };
         ruff.enable = true;
+        ty.enable = true;
       };
     };
     lsp-status.enable = true;
