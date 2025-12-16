@@ -6,7 +6,7 @@
         key-mgmt = lib.mkForce "wpa-eap";
       };
       "802-1x" = {
-        ca-cert = "/etc/ssl/certs/wifi-laas.crt";
+        ca-cert = "${./wifi-laas.crt}";
         eap = "ttls";
         identity = "gsaurel";
         password = "$pw_laas_secure_gsaurel";
@@ -19,7 +19,7 @@
       };
       "802-1x" = {
         anonymous-identity = "gsaurel-anonymous@laas.fr";
-        ca-cert = "/etc/ssl/certs/wifi-laas.crt";
+        ca-cert = "${./wifi-laas.crt}";
         eap = "ttls";
         identity = "gsaurel@laas.fr";
         password = "$pw_eduroam_gsaurel";
