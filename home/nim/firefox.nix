@@ -30,6 +30,7 @@
         tree-style-tab
         ublock-origin
         user-agent-string-switcher
+        violentmonkey
       ];
       search.force = true;
       search.default = "mojeek";
