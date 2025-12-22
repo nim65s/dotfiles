@@ -12,6 +12,10 @@
     catppuccin = {
       enable = true;
       accent = "red";
+      firefox.profiles.mimi = {
+        enable = true;
+        force = true;
+      };
     };
 
     home = {
@@ -21,7 +25,6 @@
       packages =
         with pkgs;
         [
-          firefox
           gcompris
           klavaro
           # libsForQt5.ktouch # TODO: broken on qt6
@@ -56,6 +59,22 @@
 
     programs = {
       fish.enable = true;
+      firefox = {
+        enable = true;
+        package = pkgs.firefox-devedition;
+        languagePacks = [ "fr" ];
+        profiles.mimi = {
+          id = 0;
+          name = "dev-edition-default";
+          path = "nim.dev-edition-default";
+          isDefault = true;
+          extensions.force = true;
+          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            firefox-color
+            ublock-origin
+          ];
+        };
+      };
       kitty = {
         enable = true;
         settings = {
