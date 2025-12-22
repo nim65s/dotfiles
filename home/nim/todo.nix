@@ -45,14 +45,17 @@ in
       dfc
       d-spy
       dig
+      dogdns
       dockgen
       dos2unix
+      dua
       chrpath
       cmake
       # cmake-format
       cntr
       docker-compose
       dust
+      erdtree
       evince
       #eww-wayland
       ffmpeg
@@ -95,6 +98,7 @@ in
       less
       libreoffice
       lsof
+      lurk
       gnumake
       md5cron
       mdcat
