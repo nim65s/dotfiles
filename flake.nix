@@ -78,6 +78,14 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    uboot-bpi-r4 = {
+      url = "github:K900/u-boot/bpi-r4";
+      flake = false;
+    };
+    linux-bpi-r4 = {
+      url = "github:K900/linux/bpi-r4-618";
+      flake = false;
+    };
   };
 
   outputs =
@@ -211,7 +219,17 @@
               nixpkgs
               nixvim
               stylix
+              linux-bpi-r4
+              uboot-bpi-r4
               ;
+            pkgsHost = import inputs.nixpkgs {
+              # system = builtins.hostSystem;
+              system = "x86_64-linux";
+              config = {
+                allowUnfree = true;
+              };
+              overlays = lib.attrValues self.overlays;
+            };
             flake = self;
           };
         };
@@ -344,7 +362,10 @@
             nur = inputs.nur.overlays.default;
           };
         };
-        systems = [ "x86_64-linux" ];
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
       }
     );
 }

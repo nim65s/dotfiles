@@ -329,6 +329,23 @@
         "type": "github"
       }
     },
+    "linux-bpi-r4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766066727,
+        "narHash": "sha256-MYKtOkNkzDn1xDuOsuBtQ0A/wnoxs+CxYUIIQPHGF1E=",
+        "owner": "K900",
+        "repo": "linux",
+        "rev": "459c6b87a1fc9277632599de42861c983254be41",
+        "type": "github"
+      },
+      "original": {
+        "owner": "K900",
+        "ref": "bpi-r4-618",
+        "repo": "linux",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -514,6 +531,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "linux-bpi-r4": "linux-bpi-r4",
         "nix-ros-overlay": "nix-ros-overlay",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-ros": [
@@ -524,7 +542,8 @@
         "nur": "nur",
         "nuschtosSearch": "nuschtosSearch",
         "stylix": "stylix",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "uboot-bpi-r4": "uboot-bpi-r4"
       }
     },
     "sops-nix": {
@@ -702,6 +721,23 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "uboot-bpi-r4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751975713,
+        "narHash": "sha256-TXMmXBo+0jOQClrcjBPiXh8cWV2c47EDQdwBslmUDro=",
+        "owner": "K900",
+        "repo": "u-boot",
+        "rev": "edf28fba63af6a97222f57551ae6d5b7a8e75527",
+        "type": "github"
+      },
+      "original": {
+        "owner": "K900",
+        "ref": "bpi-r4",
+        "repo": "u-boot",
         "type": "github"
       }
     }
