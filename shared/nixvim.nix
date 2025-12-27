@@ -25,7 +25,7 @@
       integrations = {
         cmp = true;
         gitsigns = true;
-        treesitter = true;
+        treesitter.enable = true;
       };
       transparent_background = true;
     };
@@ -198,7 +198,7 @@
     plantuml-syntax.enable = true;
     treesitter = {
       enable = true;
-      folding = true;
+      folding.enable = true;
       settings = {
         highlight.enable = true;
       };

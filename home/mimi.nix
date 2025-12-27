@@ -101,6 +101,7 @@
         size = 24;
       };
       targets = {
+        firefox.profileNames = [ "mimi" ];
         mako.enable = false; # silence a HM assert
         qt.enable = false;
         starship.enable = false;
