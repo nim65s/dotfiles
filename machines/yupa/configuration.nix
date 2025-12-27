@@ -52,4 +52,11 @@
   # services.flatpak.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
+
+  # thermostasvenoh
+  boot.blacklistedKernelModules = [ "rtw88_8822bu" ];
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0138", \
+      MODE="0660", GROUP="wheel"
+  '';
 }
