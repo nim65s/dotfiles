@@ -56,4 +56,5 @@ in
       };
     };
   };
+  systemd.services.alloy.serviceConfig.TimeoutStopSec = 2;
 }
