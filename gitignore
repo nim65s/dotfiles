@@ -74,3 +74,4 @@ result-*
 results
 .hugo_build.lock
 .yarn
+*.qcow2
