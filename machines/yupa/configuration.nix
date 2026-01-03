@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 {
@@ -55,8 +56,11 @@
 
   # thermostasvenoh
   boot.blacklistedKernelModules = [ "rtw88_8822bu" ];
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0138", \
-      MODE="0660", GROUP="wheel"
-  '';
+  services.udev = {
+    extraRules = ''
+      SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0138", \
+        MODE="0660", GROUP="wheel"
+    '';
+    packages = [ pkgs.probe-rs-tools ];
+  };
 }

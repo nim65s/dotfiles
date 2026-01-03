@@ -1,0 +1,41 @@
+From 00b6bdc1e02a60ff86ab8577ad48512c7de3632f Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Sun, 4 Jan 2026 00:11:16 +0100
+Subject: [PATCH] probe-rs-tools: add udev rules
+
+---
+ pkgs/by-name/pr/probe-rs-tools/package.nix | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/pkgs/by-name/pr/probe-rs-tools/package.nix b/pkgs/by-name/pr/probe-rs-tools/package.nix
+index 5f4f74aabfdeee7e7238a23eb2fcadffb11b7e1c..415a7c90cbaabfa31d667c5fe18889b32c9284b9 100644
+--- a/pkgs/by-name/pr/probe-rs-tools/package.nix
++++ b/pkgs/by-name/pr/probe-rs-tools/package.nix
+@@ -8,6 +8,15 @@
+   openssl,
+ }:
+ 
++let
++  # udev rules are in another unversioned repo
++  webpage = fetchFromGitHub {
++    owner = "probe-rs";
++    repo = "webpage";
++    rev = "054a0b16831593091a8a5624d0e2305573e860ee";
++    hash = "sha256-2bUXqimnwbEhglLQvJBEvjQgmrZUi6pnFw/4J0GwGek=";
++  };
++in
+ rustPlatform.buildRustPackage rec {
+   pname = "probe-rs-tools";
+   version = "0.30.0";
+@@ -35,6 +44,11 @@ rustPlatform.buildRustPackage rec {
+     openssl
+   ];
+ 
++  postInstall = ''
++    install -D -m 444 -t $out/etc/udev/rules.d ${webpage}/public/files/69-probe-rs.rules
++    substituteInPlace $out/etc/udev/rules.d/69-probe-rs.rules --replace-fail plugdev dialout
++  '';
++
+   checkFlags = [
+     # require a physical probe
+     "--skip=cmd::dap_server::server::debugger::test::attach_request"
