@@ -45,7 +45,7 @@ in
       dfc
       d-spy
       dig
-      dogdns
+      doggo
       dockgen
       dos2unix
       dua
