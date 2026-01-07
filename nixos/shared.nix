@@ -413,6 +413,7 @@
           "docker"
           "input"
           "networkmanager"
+          "plugdev"
           "video"
           "wheel"
         ];
