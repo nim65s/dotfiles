@@ -104,6 +104,7 @@ in
       meld
       mesa-demos
       meshlab
+      minicom
       mosh
       mpv
       mypy
