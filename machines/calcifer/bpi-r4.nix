@@ -1,12 +1,10 @@
 # Thanks https://gitlab.com/K900/nix/-/blob/master/shared/platform/bpi-r4.nix
 {
-  config,
   lib,
   pkgs,
   pkgsHost,
   uboot-bpi-r4,
   linux-bpi-r4,
-  nixpkgs,
   ...
 }:
 let
@@ -142,20 +140,7 @@ in
     ];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
-  };
-
   system.build = {
-    sdImage = import "${nixpkgs}/nixos/lib/make-disk-image.nix" {
-      name = "bpi-r4-sd-image";
-      copyChannel = false;
-      inherit config lib pkgs;
-    };
     uboot = uboot-combined;
   };
 }

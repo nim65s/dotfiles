@@ -1,12 +1,15 @@
 {
+  modulesPath,
   pkgs,
   ...
 }:
 {
   imports = [
+    (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
     ./bpi-r4.nix
-
   ];
+
+  boot.supportedFilesystems.zfs = false;
 
   networking.useDHCP = false;
   systemd.network.enable = true;
