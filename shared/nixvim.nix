@@ -45,6 +45,64 @@
   };
 
   keymaps = [
+    # Kazé protips
+    ## swap next/prev f/t-search
+    {
+      mode = "";
+      key = ",";
+      action = ";";
+    }
+    {
+      mode = "";
+      key = ";";
+      action = ",";
+    }
+    ## ergol up/down on j/k without going back to line start
+    {
+      mode = "";
+      key = "+";
+      action = "gj";
+    }
+    {
+      mode = "";
+      key = "-";
+      action = "gk";
+    }
+    ## Nobody wants U. Everybody need CTRL-R
+    {
+      mode = "";
+      key = "U";
+      action = "<C-r>";
+    }
+    ## Learn ergo-L the hard way
+    {
+      mode = "i";
+      key = "<BS>";
+      action = "<C-w>";
+    }
+    ## back and forth in jump stack with CTRL-I/O -> C/O in ergo-L
+    {
+      mode = "";
+      key = "<C-c>";
+      action = "<C-o>";
+    }
+    ## leap
+    {
+      mode = "";
+      key = "s";
+      action = "<Plug>(leap)";
+    }
+    {
+      mode = "";
+      key = "S";
+      action = "<Plug>(leap-from-window)";
+    }
+    ## yazi
+    {
+      mode = "";
+      key = "<leader>-";
+      action = "<cmd>Yazi toggle<cr>";
+    }
     # Ergo-L too slow release of AltGr for :
     {
       mode = "ca";
@@ -76,6 +134,7 @@
       key = "[a";
       action = "xa";
     }
+
     # faster copy/paste
     {
       mode = "v";
@@ -87,12 +146,14 @@
       key = "<leader>p";
       action = "\"+p";
     }
+
     # get diagnostic
     {
       mode = "n";
       key = "<leader>d";
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
     }
+
     # get corrections
     {
       mode = "n";
@@ -176,6 +237,7 @@
     };
     fileline.enable = true;
     kitty-scrollback.enable = true;
+    leap.enable = true;
     lsp = {
       enable = true;
       servers = {
@@ -195,6 +257,7 @@
     lsp-status.enable = true;
     lsp-signature.enable = true;
     lz-n.enable = true;
+    nvim-surround.enable = true;
     plantuml-syntax.enable = true;
     treesitter = {
       enable = true;
@@ -205,5 +268,6 @@
     };
     hmts.enable = true;
     web-devicons.enable = true;
+    yazi.enable = true;
   };
 }

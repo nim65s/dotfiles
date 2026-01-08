@@ -153,6 +153,7 @@
         vim = "nvim";
         vd = "nvim -d";
         vimdiff = "nvim -d";
+        y = "yazi";
         z = "zellij";
         za = "zathura";
       };
@@ -338,6 +339,7 @@
       starship.enable = false;
       swaylock.enable = false;
       swaync.enable = false;
+      yazi.enable = false;
     };
   };
 }
