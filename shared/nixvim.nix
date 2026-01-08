@@ -103,6 +103,7 @@
       key = "<leader>-";
       action = "<cmd>Yazi toggle<cr>";
     }
+
     # Ergo-L too slow release of AltGr for :
     {
       mode = "ca";
@@ -236,6 +237,7 @@
       };
     };
     fileline.enable = true;
+    gitsigns.enable = true;
     kitty-scrollback.enable = true;
     leap.enable = true;
     lsp = {
@@ -259,6 +261,16 @@
     lz-n.enable = true;
     nvim-surround.enable = true;
     plantuml-syntax.enable = true;
+    telescope = {
+      enable = true;
+      extensions.fzf-native.enable = true;
+      keymaps = {
+        "<leader>ff" = "find_files";
+        "<leader>fg" = "live_grep";
+        "<leader>fb" = "buffers";
+        "<leader>fh" = "help_tags";
+      };
+    };
     treesitter = {
       enable = true;
       folding.enable = true;
