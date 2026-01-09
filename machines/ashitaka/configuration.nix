@@ -6,6 +6,7 @@
     ../../nixos/home-assistant.nix
     ../../nixos/monitor.nix
     ../../nixos/monitored.nix
+    ../../nixos/mopidy.nix
     ../../nixos/nginx.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
