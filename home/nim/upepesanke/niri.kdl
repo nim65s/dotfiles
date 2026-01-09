@@ -7,15 +7,7 @@ workspace "mel" {
 workspace "doc" {
     open-on-output "DP-2"
 }
-workspace "zik" {
-    open-on-output "DP-2"
-}
 
-window-rule {
-    match at-startup=true app-id="spotify"
-    open-on-workspace "zik"
-    open-maximized true
-}
 window-rule {
     match at-startup=true app-id="thunderbird"
     open-on-workspace "mel"

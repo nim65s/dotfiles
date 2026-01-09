@@ -6,7 +6,6 @@
   lib,
   nixvim,
   pkgs,
-  spicetify-nix,
   stylix,
   ...
 }:
@@ -64,7 +63,6 @@
       inherit
         catppuccin
         nixvim
-        spicetify-nix
         stylix
         ;
     };

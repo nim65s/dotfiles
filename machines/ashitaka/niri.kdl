@@ -38,11 +38,6 @@ window-rule {
     open-on-workspace "alt"
     default-column-width { proportion 0.35; }
 }
-window-rule {
-    match at-startup=true app-id="spotify"
-    open-on-workspace "alt"
-    default-column-width { proportion 0.35; }
-}
 
 output "HDMI-A-1" {
     position x=0 y=180

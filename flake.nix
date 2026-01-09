@@ -65,13 +65,6 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "clan-core/systems";
-      };
-    };
     stylix = {
       url = "github:danth/stylix";
       inputs = {
@@ -217,7 +210,6 @@
               home-manager
               nixpkgs
               nixvim
-              spicetify-nix
               stylix
               ;
             flake = self;
@@ -290,7 +282,6 @@
                       inherit (inputs)
                         catppuccin
                         nixvim
-                        spicetify-nix
                         stylix
                         ;
                     };
@@ -348,7 +339,6 @@
               inherit (inputs)
                 nixpkgs-ros
                 nix-ros-overlay
-                spicetify-nix
                 ;
             };
             nur = inputs.nur.overlays.default;

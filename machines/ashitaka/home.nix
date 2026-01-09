@@ -34,7 +34,6 @@
       "${config.programs.kitty.package}/share/applications/kitty.desktop"
       "${config.programs.element-desktop.package.desktopItem}/share/applications/element-desktop.desktop"
       "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
-      "${config.programs.spicetify.spicedSpotify}/share/spotify/spotify.desktop"
       "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
     ];
   };

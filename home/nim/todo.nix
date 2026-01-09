@@ -3,7 +3,6 @@
   lib,
   nixvim,
   pkgs,
-  spicetify-nix,
   ...
 }:
 let
@@ -20,7 +19,6 @@ in
 {
   imports = [
     nixvim.homeModules.nixvim
-    spicetify-nix.homeManagerModules.spicetify
   ];
   home = {
     packages = with pkgs; [
@@ -180,7 +178,6 @@ in
       slurp
       #snapcast
       sops
-      # spotify
       sqlite
       ssh-to-age
       statix
@@ -447,15 +444,6 @@ in
     };
     numbat.enable = true;
     nushell.enable = true;
-    spicetify = {
-      enable = true;
-      enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.stdenv.system}.extensions; [
-        autoVolume
-        beautifulLyrics
-        powerBar
-        shuffle
-      ];
-    };
     ssh = {
       matchBlocks = {
         "upe" = config.laasProxy.value // {

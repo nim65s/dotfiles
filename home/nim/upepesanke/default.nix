@@ -44,7 +44,6 @@
             '';
       in
       [
-        (fixDesktop config.programs.spicetify.spicedSpotify "/share/spotify/spotify.desktop")
         (fixDesktop config.programs.thunderbird.package "/share/applications/thunderbird.desktop")
         (fixDesktop config.programs.firefox.finalPackage "/share/applications/firefox-devedition.desktop")
         (fixDesktop pkgs.zeal "/share/applications/org.zealdocs.zeal.desktop")

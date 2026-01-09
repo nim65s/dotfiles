@@ -308,18 +308,6 @@ in
 
     services = {
       home-manager.autoExpire.enable = true;
-      spotifyd = {
-        enable = false;
-        settings = {
-          global = {
-            username = "nim65s";
-            password_cmd = "rbw get spotify";
-            device_name = "home-manager";
-            device_type = "computer";
-            backend = "pulseaudio";
-          };
-        };
-      };
       ssh-agent.enable = true;
       swaync.enable = true;
       swayidle = {
@@ -333,7 +321,6 @@ in
     systemd = {
       user = {
         services = {
-          spotifyd.Service.Environment = [ "PATH=${pkgs.rbw}/bin" ];
           swaybgs = {
             Install.WantedBy = [ "graphical-session.target" ];
             Service.ExecStart = pkgs.writeShellScript "swaybgs" config.nim-home.swaybgs;
