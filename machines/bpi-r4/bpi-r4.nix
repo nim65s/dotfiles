@@ -149,9 +149,4 @@ in
   system.build = {
     uboot = uboot-combined;
   };
-
-  # make uboot-combined available on sdImage / to allow easy dd
-  sdImage.populateRootCommands = ''
-    cp ${uboot-combined}/uboot.img ./files/u-boot-bpi-r4-nand.img
-  '';
 }
