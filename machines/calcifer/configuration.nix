@@ -17,6 +17,7 @@
   powerManagement.cpuFreqGovernor = "ondemand";
 
   services.irqbalance.enable = true;
+  services.getty.autologinUser = "root";
 
   environment.systemPackages = [
     pkgs.conntrack-tools
