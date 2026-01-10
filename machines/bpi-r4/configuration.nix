@@ -1,7 +1,11 @@
 {
+  modulesPath,
+  ...
+}:
+{
   imports = [
-
+    "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
+    ./bpi-r4.nix
   ];
-
-  # New machine!
+  services.getty.autologinUser = "root";
 }

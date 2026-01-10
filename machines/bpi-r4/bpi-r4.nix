@@ -140,7 +140,18 @@ in
     ];
   };
 
+  boot.supportedFilesystems.zfs = false;
+  systemd.network.enable = true;
+  services.irqbalance.enable = true;
+  nixpkgs.hostPlatform = "aarch64-linux";
+  powerManagement.cpuFreqGovernor = "ondemand";
+
   system.build = {
     uboot = uboot-combined;
   };
+
+  # make uboot-combined available on sdImage / to allow easy dd
+  sdImage.populateRootCommands = ''
+    cp ${uboot-combined}/uboot.img ./files/u-boot-bpi-r4-nand.img
+  '';
 }
