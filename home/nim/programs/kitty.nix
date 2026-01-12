@@ -5,7 +5,7 @@
   ...
 }:
 {
-  home.programs.kitty = {
+  programs.kitty = {
     enable = true;
     actionAliases = {
       "kitty_scrollback_nvim" =

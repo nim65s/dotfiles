@@ -3,7 +3,7 @@
   ...
 }:
 {
-  home.programs.yazi = {
+  programs.yazi = {
     enable = true;
     initLua = ''
       require("git"):setup()

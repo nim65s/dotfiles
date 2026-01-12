@@ -3,7 +3,7 @@
   ...
 }:
 {
-  home.programs.ssh = {
+  programs.ssh = {
     matchBlocks = {
       "upe" = config.laasProxy.value // {
         hostname = "upepesanke";

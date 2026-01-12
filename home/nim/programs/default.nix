@@ -25,7 +25,7 @@ in
     ./yazi.nix
   ];
 
-  home.programs = {
+  programs = {
     alacritty.enable = true;
 
     asciinema = {
@@ -133,7 +133,7 @@ in
       };
     };
 
-    nixvim = import ../../shared/nixvim.nix // {
+    nixvim = import ../../../shared/nixvim.nix // {
       enable = true;
       defaultEditor = true;
     };
