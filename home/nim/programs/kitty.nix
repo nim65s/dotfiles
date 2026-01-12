@@ -7,10 +7,12 @@
 {
   programs.kitty = {
     enable = true;
+
     actionAliases = {
       "kitty_scrollback_nvim" =
         "kitten ${pkgs.vimPlugins.kitty-scrollback-nvim}/python/kitty_scrollback_nvim.py";
     };
+
     keybindings = {
       "kitty_mod+a" = "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
       "kitty_mod+u" = "launch --location=vsplit --cwd=current";
@@ -23,6 +25,7 @@
       # "kitty_mod+p" = "show_scrollback";
       "kitty_mod+p" = "kitty_scrollback_nvim";
     };
+
     settings = {
       allow_remote_control = "socket-only";
       background_opacity = config.stylix.opacity.terminal;
@@ -37,6 +40,7 @@
       shell = lib.getExe pkgs.fish;
       tab_bar_style = "powerline";
     };
+
     shellIntegration.mode = "enabled";
   };
 
