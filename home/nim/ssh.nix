@@ -7,6 +7,7 @@
       default = { };
     };
   };
+
   config = lib.mkIf config.laasProxy.enable {
     laasProxy.value = {
       proxyJump = "laas";

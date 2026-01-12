@@ -9,7 +9,7 @@
   imports = [
     nixvim.homeModules.nixvim
     ./packages.nix
-    ./programs.nix
+    ./programs
   ];
   home = {
     file = {

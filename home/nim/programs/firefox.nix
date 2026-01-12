@@ -4,6 +4,7 @@
 }:
 {
   imports = [ ./firefox-search.nix ];
+
   catppuccin.firefox.profiles.nim = {
     enable = true;
     force = true;
