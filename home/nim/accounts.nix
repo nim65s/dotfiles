@@ -12,6 +12,36 @@ in
     email = {
       maildirBasePath = ".mails";
       accounts = {
+        cnrs = {
+          address = atjoin {
+            name = "guilhem.saurel";
+            host = "cnrs.fr";
+          };
+          imap.host = "imap.cnrs.fr";
+          imap.port = 993;
+          smtp.host = "smtp.cnrs.fr";
+          smtp.port = 587;
+          smtp.tls.useStartTls = true;
+          neomutt.enable = false;
+          notmuch.enable = true;
+          notmuch.neomutt.enable = true;
+          offlineimap.enable = true;
+          passwordCommand = "rbw get webmail.cnrs.fr";
+          realName = "Guilhem Saurel";
+          thunderbird = {
+            enable = true;
+            profiles = [ "nim" ];
+            perIdentitySettings = id: {
+              "mail.identity.id_${id}.fcc_reply_follows_parent" = true;
+              "layers.acceleration.disabled" = true; # TODO
+            };
+          };
+          userName = atjoin {
+            name = "guilhem.saurel";
+            host = "ods.services";
+          };
+        };
+
         laas =
           let
             mail = atjoin { name = "guilhem.saurel"; };
@@ -44,6 +74,7 @@ in
             };
             userName = "gsaurel";
           };
+
         perso =
           let
             mail = atjoin {
