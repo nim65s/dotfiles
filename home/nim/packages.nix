@@ -96,7 +96,7 @@
     nitrogen
     nixook
     nixd
-    nixfmt-rfc-style
+    nixfmt
     nixpkgs-review
     #nix-du
     nix-diff
