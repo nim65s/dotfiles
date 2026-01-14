@@ -34,6 +34,7 @@ in
       };
 
       branch = {
+        autoSetupRebase = "always";
         sort = "-committerdate";
       };
 
