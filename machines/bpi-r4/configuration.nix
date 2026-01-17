@@ -1,6 +1,7 @@
 {
   config,
   modulesPath,
+  pkgs,
   ...
 }:
 {
@@ -9,6 +10,8 @@
     ./bpi-r4.nix
     ../../nixos/minimal.nix
   ];
+
+  environment.systemPackages = [ pkgs.disko ];
   services.getty.autologinUser = "root";
 
   # make uboot-combined available on sdImage / to allow easy dd
