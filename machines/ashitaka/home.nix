@@ -32,7 +32,7 @@
       "${pkgs.zeal}/share/applications/org.zealdocs.zeal.desktop"
       "${config.programs.firefox.finalPackage}/share/applications/firefox-devedition.desktop"
       "${config.programs.kitty.package}/share/applications/kitty.desktop"
-      "${config.programs.element-desktop.package.desktopItem}/share/applications/element-desktop.desktop"
+      "${lib.head config.programs.element-desktop.package.desktopItems}/share/applications/element-desktop.desktop"
       "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
       "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
     ];

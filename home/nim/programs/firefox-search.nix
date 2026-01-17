@@ -3,42 +3,15 @@
   ...
 }:
 {
-  catppuccin.firefox.profiles.nim = {
-    enable = true;
-    force = true;
-  };
   programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition;
-    languagePacks = [
-      "fr"
-      "en"
-    ];
     profiles.nim = {
-      id = 0;
-      name = "dev-edition-default";
-      path = "nim.dev-edition-default";
-      isDefault = true;
-      extensions.force = true;
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        click-and-read
-        firefox-color
-        mergify
-        stylus
-        #switchyomega
-        tree-style-tab
-        ublock-origin
-        user-agent-string-switcher
-        violentmonkey
-      ];
-      search.force = true;
-      search.default = "mojeek";
       search.engines = {
         "Amazon.fr".metaData.hidden = true;
         bing.metaData.hidden = true;
         google.metaData.alias = ":g";
+
         "Wikipedia".metaData.alias = ":w";
+
         "Arch Wiki" = {
           icon = "https://wiki.archlinux.org/favicon.ico";
           definedAliases = [ ":a" ];
@@ -54,6 +27,7 @@
             }
           ];
         };
+
         "AUR" = {
           icon = "https://wiki.archlinux.org/favicon.ico";
           definedAliases = [ ":aur" ];
@@ -69,6 +43,7 @@
             }
           ];
         };
+
         "Crates.io" = {
           icon = "https://crates.io/assets/cargo.png";
           definedAliases = [ ":c" ];
@@ -84,6 +59,7 @@
             }
           ];
         };
+
         "Github" = {
           icon = "https://github.com/favicon.ico";
           definedAliases = [ ":gh" ];
@@ -99,6 +75,7 @@
             }
           ];
         };
+
         "Gitlab" = {
           icon = "https://gitlab.laas.fr/favicon.ico";
           definedAliases = [ ":gl" ];
@@ -114,6 +91,7 @@
             }
           ];
         };
+
         "LAAS Annuaire" = {
           icon = "https://www.laas.fr/static/img/favicon.ico";
           definedAliases = [ ":l" ];
@@ -129,6 +107,7 @@
             }
           ];
         };
+
         "LAAS Search" = {
           icon = "https://www.laas.fr/static/img/favicon.ico";
           definedAliases = [ ":ls" ];
@@ -144,6 +123,7 @@
             }
           ];
         };
+
         "mojeek" = {
           icon = "https://www.mojeek.com/logos/icon_cc.svg";
           definedAliases = [ ":m" ];
@@ -167,6 +147,7 @@
             }
           ];
         };
+
         "Nix Packages" = {
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ ":n" ];
@@ -186,6 +167,7 @@
             }
           ];
         };
+
         "Nix Wiki" = {
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ ":nw" ];
@@ -205,6 +187,7 @@
             }
           ];
         };
+
         "Nixpkgs" = {
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ ":np" ];
@@ -220,6 +203,7 @@
             }
           ];
         };
+
         "Python" = {
           icon = "https://www.python.org/images/favicon16x16.ico";
           definedAliases = [ ":p" ];
@@ -235,6 +219,7 @@
             }
           ];
         };
+
         "PyPI" = {
           icon = "https://pypi.org/static/images/favicon.35549fe8.ico";
           definedAliases = [ ":pp" ];
@@ -250,6 +235,7 @@
             }
           ];
         };
+
         "Rust" = {
           icon = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
           definedAliases = [ ":r" ];
@@ -265,6 +251,7 @@
             }
           ];
         };
+
         "Wikipedia" = {
           definedAliases = [ ":wp" ];
           urls = [
@@ -291,6 +278,7 @@
             }
           ];
         };
+
         "WordReference - enfr" = {
           icon = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":enfr" ];
@@ -310,6 +298,7 @@
             }
           ];
         };
+
         "WordReference - fren" = {
           icon = "https://www.wordreference.com/favicon.ico";
           definedAliases = [ ":fren" ];
@@ -329,6 +318,7 @@
             }
           ];
         };
+
         xkcd = {
           definedAliases = [ ":xkcd" ];
           urls = [
@@ -338,32 +328,6 @@
           ];
         };
       };
-      settings = {
-        "browser.theme.content-theme" = 0;
-        "browser.theme.toolbar-theme" = 0;
-        "browser.toolbars.bookmarks.visibility" = "never";
-        "browser.urlbar.suggest.calculator" = true;
-        "font.name.monospace.x-western" = "Iosevka";
-        "font.name.sans-serif.x-western" = "Iosevka-Aile";
-        "font.name.serif.x-western" = "Iosevka-Etoile";
-        "font.size.variable.x-western" = 12;
-        "layers.acceleration.disabled" = true; # TODO
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "signon.rememberSignons" = false;
-      };
-      userChrome = ''
-        #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
-            opacity: 0;
-            pointer-events: none;
-            margin-bottom: -44px !important;
-            }
-        #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-            visibility: collapse !important;
-            }
-        #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-            display: none;
-            }
-      '';
     };
   };
 }

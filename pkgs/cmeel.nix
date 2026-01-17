@@ -10,14 +10,14 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "cmeel";
-  version = "0.57.3";
+  version = "0.58.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "cmake-wheel";
     repo = "cmeel";
     tag = "v${version}";
-    hash = "sha256-fiIymwdv3Ojv3t4upM03GRO80YQoGu/BXjKhdLTX+rw=";
+    hash = "sha256-wTM4xn/+YKQ++5bageOb+FX9qiDxo8JJNzGlIWIYOAE=";
   };
 
   build-system = [

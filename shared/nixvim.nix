@@ -184,7 +184,9 @@
   };
 
   plugins = {
+
     airline.enable = true;
+
     barbar = {
       enable = true;
       keymaps = {
@@ -192,7 +194,9 @@
         previous.key = "<S-TAB>";
       };
     };
+
     comment.enable = true;
+
     cmp = {
       enable = true;
       autoEnableSources = true;
@@ -211,6 +215,7 @@
         ];
       };
     };
+
     conform-nvim = {
       enable = true;
       settings = {
@@ -236,10 +241,15 @@
         };
       };
     };
+
     fileline.enable = true;
+
     gitsigns.enable = true;
+
     kitty-scrollback.enable = true;
+
     leap.enable = true;
+
     lsp = {
       enable = true;
       servers = {
@@ -256,11 +266,17 @@
         ty.enable = true;
       };
     };
+
     lsp-status.enable = true;
+
     lsp-signature.enable = true;
+
     lz-n.enable = true;
+
     nvim-surround.enable = true;
+
     plantuml-syntax.enable = true;
+
     telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
@@ -271,6 +287,7 @@
         "<leader>fh" = "help_tags";
       };
     };
+
     treesitter = {
       enable = true;
       folding.enable = true;
@@ -278,8 +295,11 @@
         highlight.enable = true;
       };
     };
+
     hmts.enable = true;
+
     web-devicons.enable = true;
+
     yazi.enable = true;
   };
 }
