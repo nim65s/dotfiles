@@ -7,6 +7,7 @@
   imports = [
     "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
     ./bpi-r4.nix
+    ../../nixos/minimal.nix
   ];
   services.getty.autologinUser = "root";
 

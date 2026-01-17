@@ -15,6 +15,7 @@
     catppuccin.nixosModules.catppuccin
     nixvim.nixosModules.nixvim
     ./access-tokens.nix
+    ./minimal.nix
     ./tinc.nix
   ];
 
@@ -27,8 +28,6 @@
     enable = true;
     accent = lib.mkDefault "blue";
   };
-
-  clan.core.settings.state-version.enable = true;
 
   console.useXkbConfig = lib.mkDefault true;
 
@@ -178,34 +177,22 @@
     flake = "github:nim65s/dotfiles";
   };
 
-  time.timeZone = "Europe/Paris";
-
-  users.users =
-    let
-      common = {
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBbE5nRZpgFdZJgC+hTzdyYLxKUBY59WFYOQ/O1oxwc gsaurel@upepesanke"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINlKH10l4IazTlC2UC0HV44iw/p7w7ufxaOk7VLX9vTG nim@ashitaka"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFPWyZK9yJEyY7DqxN+A2h4+LccOoZGt2OdWEYvwzXzT nim@yupa"
-          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIOwQHhg10BZUogtkz+MlOsnmQER2Kkf9YjL3taOcNtbJAAAABHNzaDo= nim@sk1"
-        ];
-        shell = pkgs.fish;
-      };
-    in
-    {
-      root = common;
-      nim = common // {
-        isNormalUser = true;
-        extraGroups = [
-          "dialout"
-          "docker"
-          "input"
-          "networkmanager"
-          "plugdev"
-          "video"
-          "wheel"
-        ];
-        uid = 1000;
-      };
+  users.users = {
+    root.shell = pkgs.fish;
+    nim = {
+      isNormalUser = true;
+      extraGroups = [
+        "dialout"
+        "docker"
+        "input"
+        "networkmanager"
+        "plugdev"
+        "video"
+        "wheel"
+      ];
+      uid = 1000;
+      shell = pkgs.fish;
+      openssh.authorizedKeys.keys = config.users.users.root.openssh.authorizedKeys.keys;
     };
+  };
 }
