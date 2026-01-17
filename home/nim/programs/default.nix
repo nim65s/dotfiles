@@ -61,9 +61,9 @@ in
       combineSettingsProfiles = true;
       package = pkgs.element-desktop.overrideAttrs {
         # ref. https://github.com/fabiospampinato/atomically/issues/13
-        postFixup = ''
+        postBuild = ''
           substituteInPlace \
-            $out/share/element/electron/node_modules/atomically/dist/constants.js \
+            node_modules/atomically/dist/constants.js \
             --replace-fail "os.userInfo().uid;" "process.geteuid ? process.geteuid() : -1;" \
             --replace-fail "os.userInfo().gid;" "process.getegid ? process.getegid() : -1;"
         '';
