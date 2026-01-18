@@ -17,5 +17,6 @@
   networking.useDHCP = false;
 
   stylix.targets.console.colors.enable = false;
+  services.getty.autologinUser = "root";
   catppuccin.tty.enable = false;
 }
