@@ -14,7 +14,13 @@
     name = "main-a0b291c142a29d9b41b9aaf8f398f426";
   };
 
-  networking.useDHCP = false;
+  networking = {
+    interfaces = {
+      "wan" = {
+        useDHCP = true;
+      };
+    };
+  };
 
   stylix.targets.console.colors.enable = false;
   services.getty.autologinUser = "root";
