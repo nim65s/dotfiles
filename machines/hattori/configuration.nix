@@ -12,6 +12,7 @@
     ../../nixos/shared.nix
     ../../nixos/nixos.nix
     # ../../nixos/parental-control.nix
+    ../../nixos/systemd-boot.nix
   ];
 
   console = {

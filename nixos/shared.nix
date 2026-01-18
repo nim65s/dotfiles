@@ -19,11 +19,6 @@
     ./tinc.nix
   ];
 
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 30;
-  };
-
   catppuccin = {
     enable = true;
     accent = lib.mkDefault "blue";

@@ -1,6 +1,7 @@
 {
   imports = [
     ../nixos/disko/ext4.nix
+    ../nixos/systemd-boot.nix
     ./shared.nix
     ./nixos.nix
     ./roversap.nix

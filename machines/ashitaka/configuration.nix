@@ -11,6 +11,7 @@
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
     ../../nixos/shared.nix
+    ../../nixos/systemd-boot.nix
     ../../nixos/nixos.nix
     ../../nixos/zenoh.nix
   ];

@@ -14,6 +14,7 @@
     # ../../nixos/teeworlds.nix
     ../../nixos/nixos.nix
     ../../nixos/wifi-laas.nix
+    ../../nixos/systemd-boot.nix
   ];
 
   boot = {
