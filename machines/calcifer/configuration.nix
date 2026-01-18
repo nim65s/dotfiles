@@ -15,4 +15,7 @@
   };
 
   networking.useDHCP = false;
+
+  stylix.targets.console.colors.enable = false;
+  catppuccin.tty.enable = false;
 }
