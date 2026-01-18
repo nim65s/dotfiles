@@ -9,3 +9,8 @@
 - burn uboot to Nand, ref. https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#How_to_burn_image_to_onboard_Nand, eg. `dd if=/mnt/u-boot-bpi-r4-nand.img of=/dev/mtdblock0`
 - `poweroff`
 - boot from USB Nand -> USB stick (boot selector up-down)
+
+Then real config, eg. `calcifer`:
+
+- `disko --mode destroy,format,mount -f .#calcifer`
+- `nixos-install -v --root /mnt --flake .#calcifer`
