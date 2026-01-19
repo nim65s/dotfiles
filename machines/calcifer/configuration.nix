@@ -22,6 +22,7 @@
     };
   };
 
+  home-manager.users.nim = import ../../home/nim/minimal.nix;
   stylix.targets.console.colors.enable = false;
   services.getty.autologinUser = "root";
   catppuccin.tty.enable = false;
