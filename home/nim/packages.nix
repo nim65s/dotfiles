@@ -108,7 +108,6 @@
     #noto-fonts-emoji
     nurl
     openldap
-    openssh
     openssl
     pandoc
     pwvucontrol

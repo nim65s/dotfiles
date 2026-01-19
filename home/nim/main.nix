@@ -62,7 +62,7 @@
       POETRY_VIRTUALENVS_IN_PROJECT = "true";
       RUSTC_WRAPPER = lib.getExe pkgs.sccache;
       SHELL = lib.getExe pkgs.fish;
-      SSH_ASKPASS = "$HOME/scripts/ask_rbw.py";
+      SSH_ASKPASS = ../../bin/ask_rbw.py;
       SSH_ASKPASS_REQUIRE = "prefer";
     };
   };
