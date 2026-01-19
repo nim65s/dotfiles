@@ -25,4 +25,5 @@
   stylix.targets.console.colors.enable = false;
   services.getty.autologinUser = "root";
   catppuccin.tty.enable = false;
+  system.autoUpgrade.enable = false;
 }
