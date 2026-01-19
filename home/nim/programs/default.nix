@@ -18,11 +18,8 @@ in
 {
   imports = [
     ./firefox.nix
-    ./git.nix
     ./kitty.nix
-    ./ssh.nix
     ./waybar.nix
-    ./yazi.nix
   ];
 
   programs = {

@@ -7,8 +7,7 @@
 
   imports = [
     catppuccin.homeModules.catppuccin
-    ./fish.nix
-    ./starship.nix
+    ./programs/minimal.nix
   ];
 
   catppuccin = {
