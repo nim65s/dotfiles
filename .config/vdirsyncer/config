@@ -153,3 +153,17 @@ fileext = ".ics"
 [storage evento_remote]
 type = "http"
 url = "https://evento.renater.fr/rest/MyCal/9hixzmcpl9fyktuwrxkblriym0rbcitb"
+
+[pair robots]
+a = "robots_local"
+b = "robots_remote"
+collections = null
+
+[storage robots_local]
+type = "filesystem"
+path = "~/.vdir/calendars/ro/robots"
+fileext = ".ics"
+
+[storage robots_remote]
+type = "http"
+url = "https://sogo.laas.fr/SOGo/dav/public/mallet/Calendar/1A45-4DB68780-4D-38E981C0.ics"

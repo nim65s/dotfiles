@@ -20,11 +20,6 @@ color = yellow
 path = ~/.vdir/calendars/laas/Guilhem
 color = dark magenta
 
-[[RIA]]
-path = ~/.vdir/calendars/laas_rob/RIA
-color = brown
-readonly = True
-
 [[BBB]]
 path = ~/.vdir/calendars/laas_bbb/BBB
 color = dark blue
@@ -37,6 +32,16 @@ readonly = True
 [[IDEA]]
 path = ~/.vdir/calendars/laas_idea/personal
 color = yellow
+readonly = True
+
+[[evento]]
+path = ~/.vdir/calendars/ro/evento
+color = brown
+readonly = True
+
+[[robots]]
+path = ~/.vdir/calendars/ro/robots
+color = brown
 readonly = True
 
 [[GoogLAAS]]
