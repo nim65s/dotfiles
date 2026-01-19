@@ -14,7 +14,6 @@
     ./options.nix
     ./packages.nix
     ./programs
-    ./ssh.nix
   ];
 
   laasProxy.enable = lib.mkDefault true;

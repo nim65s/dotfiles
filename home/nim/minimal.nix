@@ -8,6 +8,7 @@
   imports = [
     catppuccin.homeModules.catppuccin
     ./programs/minimal.nix
+    ./ssh.nix
   ];
 
   catppuccin = {
