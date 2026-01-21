@@ -69,6 +69,7 @@ in
           unmanaged = [ "interface-name:${cfg.interface}" ];
           wifi.powersave = false;
         };
+        wireless.interfaces = [ cfg.upstream ];
       };
 
       services = {
