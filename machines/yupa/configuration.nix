@@ -32,6 +32,9 @@
     device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
     name = "main-a855f7621e7c4f468b3e94c4ed4ade19";
   };
+  environment.systemPackages = [
+    pkgs.pololu-jrk-g2-software
+  ];
   home-manager.users.nim = import ../../home/nim/main.nix;
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [
@@ -62,6 +65,9 @@
       SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0138", \
         MODE="0660", GROUP="wheel"
     '';
-    packages = [ pkgs.probe-rs-tools ];
+    packages = [
+      pkgs.probe-rs-tools
+      pkgs.pololu-jrk-g2-software
+    ];
   };
 }
