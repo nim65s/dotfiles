@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   # When editing a file, always jump to the last known cursor position.
   # Don't do it when the position is invalid or when inside an event handler
@@ -253,7 +254,7 @@
     lsp = {
       enable = true;
       servers = {
-        clangd.enable = true;
+        clangd.enable = lib.mkDefault true;
         # cmake.enable = true;
         nil_ls.enable = true;
         rust_analyzer = {
@@ -275,7 +276,7 @@
 
     nvim-surround.enable = true;
 
-    plantuml-syntax.enable = true;
+    plantuml-syntax.enable = lib.mkDefault true;
 
     telescope = {
       enable = true;
@@ -300,6 +301,6 @@
 
     web-devicons.enable = true;
 
-    yazi.enable = true;
+    yazi.enable = lib.mkDefault true;
   };
 }

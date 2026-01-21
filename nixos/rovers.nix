@@ -3,6 +3,7 @@
     ../nixos/disko/ext4.nix
     ../nixos/systemd-boot.nix
     ./shared.nix
+    ./small.nix
     ./nixos.nix
     ./roversap.nix
   ];

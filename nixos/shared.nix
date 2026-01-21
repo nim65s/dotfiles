@@ -134,7 +134,7 @@
     nix-ld.enable = true;
     trippy.enable = true;
     vim.enable = true;
-    nixvim = import ../shared/nixvim.nix // {
+    nixvim = import ../shared/nixvim.nix { inherit lib; } // {
       enable = true;
       defaultEditor = true;
     };

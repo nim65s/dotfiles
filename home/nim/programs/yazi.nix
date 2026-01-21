@@ -1,10 +1,11 @@
 {
+  lib,
   pkgs,
   ...
 }:
 {
   programs.yazi = {
-    enable = true;
+    enable = lib.mkDefault true;
     initLua = ''
       require("git"):setup()
       require("starship"):setup()
