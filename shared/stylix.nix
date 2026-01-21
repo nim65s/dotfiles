@@ -22,8 +22,8 @@
         name = "Iosevka-Aile";
       };
       monospace = {
-        package = pkgs.nerd-fonts.iosevka;
-        name = "IosevkaNerdFont";
+        package = lib.mkDefault pkgs.nerd-fonts.iosevka;
+        name = lib.mkDefault "IosevkaNerdFont";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
