@@ -160,6 +160,8 @@
 
     fwupd.enable = true;
 
+    kanata.keyboards.arsenik.extraArgs = [ "-q" ];
+
     locate.enable = true;
 
     udev.packages = [
