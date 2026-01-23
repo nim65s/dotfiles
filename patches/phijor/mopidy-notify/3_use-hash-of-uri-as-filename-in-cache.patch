@@ -1,0 +1,26 @@
+From 16bf0bafcc6080e3c2de073c27beb6d447913b1f Mon Sep 17 00:00:00 2001
+From: Guilhem Saurel <guilhem.saurel@laas.fr>
+Date: Fri, 23 Jan 2026 13:21:39 +0100
+Subject: [PATCH] use hash of uri as filename in cache
+
+---
+ mopidy_notify/icon.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/mopidy_notify/icon.py b/mopidy_notify/icon.py
+index 67a89d5d718559c325c26c0c794f6f4411fd5f01..1726b232bc2612b960812cd49649422e0c494d44 100644
+--- a/mopidy_notify/icon.py
++++ b/mopidy_notify/icon.py
+@@ -1,5 +1,6 @@
+ import logging
+ import os
++from hashlib import md5
+ from pathlib import Path
+ from typing import Dict, Optional
+ from urllib.parse import quote, urljoin
+@@ -63,4 +64,4 @@ def format_uri(self, uri: str) -> str:
+         return urljoin(f"http://{self.hostname}:{self.port}/", uri)
+ 
+     def format_cache_target(self, uri: str) -> Path:
+-        return self.cache_location / quote(uri, safe="")
++        return self.cache_location / md5(uri.encode(), usedforsecurity=False).hexdigest()

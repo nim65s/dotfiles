@@ -12,6 +12,11 @@ let
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
+  mopidyPackages = prev.mopidyPackages // {
+    mopidy-notify = prev.mopidyPackages.mopidy-notify.overrideAttrs {
+      patches = final.lib.fileset.toList ./patches/phijor/mopidy-notify;
+    };
+  };
   nurl = prev.nurl.overrideAttrs {
     patches = [
       ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
