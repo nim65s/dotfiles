@@ -165,6 +165,8 @@
     udev.packages = [
       pkgs.stlink
     ];
+
+    upower.enable = true;
   };
 
   system.autoUpgrade = {
