@@ -5,9 +5,30 @@
 }:
 let
   moduleName = "kal";
-  secretInfluxDBToken = "todo";
+  tokenEnv = "KAL_INFLUXDB_TOKEN";
 in
 {
+  clan.core.vars.generators.kal-influxdb = {
+    files =
+      let
+        f = {
+          secret = true;
+          owner = moduleName;
+          group = moduleName;
+        };
+      in
+      {
+        token = f;
+        token-env = f;
+        password = f;
+      };
+    runtimeInputs = [ pkgs.pwgen ];
+    script = ''
+      pwgen -B 42 -c 1 > $out/token
+      echo "${tokenEnv}=$(cat $out/token)" > $out/token-env
+      pwgen -B 42 -c 1 > $out/password
+    '';
+  };
   services = {
 
     grafana = {
@@ -31,7 +52,7 @@ in
               organization = moduleName;
               defaultBucket = moduleName;
             };
-            secureJsonData.token = secretInfluxDBToken;
+            secureJsonData.token = "$__file{${config.clan.core.vars.generators.kal-influxdb.files.token.path}}";
           }
         ];
       };
@@ -44,8 +65,8 @@ in
         initialSetup = {
           bucket = moduleName;
           organization = moduleName;
-          tokenFile = pkgs.writeText "token" secretInfluxDBToken;
-          passwordFile = pkgs.writeText "password" "not-${secretInfluxDBToken}";
+          tokenFile = config.clan.core.vars.generators.kal-influxdb.files.token.path;
+          passwordFile = config.clan.core.vars.generators.kal-influxdb.files.password.path;
         };
       };
     };
@@ -70,6 +91,10 @@ in
       enable = true;
       plugins = [ pkgs.zenoh-plugin-mqtt ];
       backends = [ pkgs.zenoh-backend-influxdb ];
+      extraOptions = [
+        "--cfg=plugins/storage_manager/volumes/influxdb2/private/token:\${${tokenEnv}}"
+        "--cfg=plugins/storages/${moduleName}/volume/private/token:\${${tokenEnv}}"
+      ];
       settings.plugins = {
         mqtt = { };
         rest.http_port = 8000;
@@ -78,7 +103,6 @@ in
             url = "http://localhost:8086";
             private = {
               org_id = moduleName;
-              token = secretInfluxDBToken;
             };
           };
           storages."${moduleName}" = {
@@ -88,7 +112,6 @@ in
               db = moduleName;
               private = {
                 org_id = moduleName;
-                token = secretInfluxDBToken;
               };
             };
           };
@@ -98,5 +121,18 @@ in
 
   };
 
-  systemd.services.zenohd.after = [ "influxdb2.service" ];
+  systemd.services.zenohd = {
+    after = [ "influxdb2.service" ];
+    serviceConfig.EnvironmentFile = config.clan.core.vars.generators.kal-influxdb.files.token-env.path;
+  };
+
+  users.groups."${moduleName}" = { };
+  users.users."${moduleName}" = {
+    description = "kal user";
+    home = "/var/lib/${moduleName}";
+    createHome = true;
+    group = moduleName;
+  };
+  users.users.grafana.extraGroups = [ moduleName ];
+  users.users.influxdb2.extraGroups = [ moduleName ];
 }
