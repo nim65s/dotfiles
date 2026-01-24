@@ -7,6 +7,7 @@
     ../../nixos/disko/ext4-swap.nix
     ../../nixos/nixos.nix
     ../../nixos/shared.nix
+    ../../nixos/small.nix
     ./kal/module.nix
   ];
 
