@@ -1,11 +1,11 @@
 workspace "doc" {
-    open-on-output "HDMI-A-1"
+    open-on-output "GK0KD2A6A5GL"
 }
 workspace "web" {
-    open-on-output "DP-1"
+    open-on-output "U28D590"
 }
 workspace "alt" {
-    open-on-output "DP-2"
+    open-on-output "Unknown"
 }
 
 window-rule {
