@@ -132,6 +132,7 @@ in
     home = "/var/lib/${moduleName}";
     createHome = true;
     group = moduleName;
+    isSystemUser = true;
   };
   users.users.grafana.extraGroups = [ moduleName ];
   users.users.influxdb2.extraGroups = [ moduleName ];
