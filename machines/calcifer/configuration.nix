@@ -7,6 +7,7 @@
     ../../nixos/disko/ext4-swap.nix
     ../../nixos/nixos.nix
     ../../nixos/shared.nix
+    ./kal/module.nix
   ];
 
   disko.devices.disk.main = {
