@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -135,9 +136,36 @@ in
     ];
   };
 
-  systemd.services.zenohd = {
-    after = [ "influxdb2.service" ];
-    serviceConfig.EnvironmentFile = config.clan.core.vars.generators.kal-influxdb.files.token-env.path;
+  nixpkgs.overlays = [
+    (final: _prev: {
+      kal = final.callPackage ./package.nix { };
+    })
+  ];
+
+  systemd.services = {
+    zenohd = {
+      after = [ "influxdb2.service" ];
+      requires = [ "influxdb2.service" ];
+      serviceConfig.EnvironmentFile = config.clan.core.vars.generators.kal-influxdb.files.token-env.path;
+    };
+
+    "${moduleName}" = {
+      description = pkgs.kal.meta.description;
+      after = [ "zenohd.service" ];
+      requires = [ "zenohd.service" ];
+
+      before = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        Environment = "RUST_LOG=debug";
+        ExecStart = lib.getExe pkgs.kal;
+        Type = "exec";
+        DynamicUser = true;
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+    };
   };
 
   users.groups."${moduleName}" = { };
