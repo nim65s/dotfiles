@@ -140,6 +140,8 @@
     };
   };
 
+  security.acme.acceptTerms = true;
+
   services = {
     arsenik = {
       enable = true;
