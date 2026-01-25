@@ -5,6 +5,12 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.100"
+chrono = "0.4.43"
+derive_more = { version = "2.1.1", features = ["add", "from", "mul"] }
+env_logger = "0.11.8"
 gpio-cdev = { version = "0.6.0", features = ["async-tokio", "tokio"] }
-tokio = { version = "1.49.0", features = ["full"] }
+itertools = "0.14.0"
+log = "0.4.29"
+thiserror = "2.0.18"
+tokio = "1.49.0"
 zenoh = "1.7.2"
