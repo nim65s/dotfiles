@@ -75,6 +75,11 @@ in
     nginx = {
       enable = true;
       virtualHosts."${moduleName}.saurel.me" = {
+        serverAliases = [
+          "calcifer.azv"
+          "kal.azv"
+          "kal.m"
+        ];
         default = true;
         locations."/" = {
           recommendedProxySettings = true;
