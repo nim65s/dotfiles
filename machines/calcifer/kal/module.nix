@@ -161,7 +161,6 @@ in
         Environment = "RUST_LOG=debug";
         ExecStart = lib.getExe pkgs.kal;
         Type = "exec";
-        DynamicUser = true;
         Restart = "on-failure";
         RestartSec = 5;
       };
