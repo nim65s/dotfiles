@@ -95,6 +95,10 @@ in
       };
     };
 
+    udev.extraRules = ''
+      SUBSYSTEM=="gpio", KERNEL=="gpiochip*", MODE="0660", GROUP="gpio"
+    '';
+
     zenohd = {
       enable = true;
       plugins = [ pkgs.zenoh-plugin-mqtt ];
@@ -163,10 +167,13 @@ in
         Type = "exec";
         Restart = "on-failure";
         RestartSec = 5;
+        User = moduleName;
+        Group = moduleName;
       };
     };
   };
 
+  users.groups.gpio = { };
   users.groups."${moduleName}" = { };
   users.users."${moduleName}" = {
     description = "kal user";
@@ -174,6 +181,7 @@ in
     createHome = true;
     group = moduleName;
     isSystemUser = true;
+    extraGroups = [ "gpio" ];
   };
   users.users.grafana.extraGroups = [ moduleName ];
   users.users.influxdb2.extraGroups = [ moduleName ];
