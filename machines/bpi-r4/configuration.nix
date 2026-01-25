@@ -11,6 +11,14 @@
     ../../nixos/minimal.nix
   ];
 
+  networking = {
+    interfaces = {
+      "wan" = {
+        useDHCP = true;
+      };
+    };
+  };
+
   environment.systemPackages = [ pkgs.disko ];
   services.getty.autologinUser = "root";
 
