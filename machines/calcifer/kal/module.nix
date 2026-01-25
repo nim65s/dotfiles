@@ -128,10 +128,16 @@ in
 
   };
 
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+    ];
+    interfaces.lan1.allowedTCPPorts = [
+      1883
+      7447
+    ];
+  };
 
   systemd.services.zenohd = {
     after = [ "influxdb2.service" ];
