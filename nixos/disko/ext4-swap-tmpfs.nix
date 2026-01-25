@@ -17,11 +17,13 @@
         content = {
           type = "gpt";
           partitions = {
+
             "boot" = {
               size = "1M";
               type = "EF02"; # for grub MBR
               priority = 1;
             };
+
             "ESP" = {
               size = "512M";
               type = "EF00";
@@ -32,6 +34,7 @@
                 mountOptions = [ "nofail" ];
               };
             };
+
             "root" = {
               size = "100%";
               content = {
@@ -40,17 +43,20 @@
                 mountpoint = "/";
               };
             };
+
             "swap" = {
-              size = "16G";
+              size = config.nim-disko.swapSize;
               content = {
                 type = "swap";
                 discardPolicy = "both";
               };
             };
+
           };
         };
       };
     };
+
     nodev = {
       "/tmp" = {
         fsType = "tmpfs";
