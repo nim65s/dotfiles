@@ -105,6 +105,18 @@
       action = "<cmd>Yazi toggle<cr>";
     }
 
+    ## And thanks ploum, remap altgr.shift.+/- to incr/decr
+    {
+      mode = "";
+      key = "±";
+      action = "<C-a>";
+    }
+    {
+      mode = "";
+      key = "÷";
+      action = "<C-x>";
+    }
+
     # Ergo-L too slow release of AltGr for :
     {
       mode = "ca";
