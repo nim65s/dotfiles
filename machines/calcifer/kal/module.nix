@@ -99,8 +99,8 @@ in
       plugins = [ pkgs.zenoh-plugin-mqtt ];
       backends = [ pkgs.zenoh-backend-influxdb ];
       extraOptions = [
-        "--cfg=plugins/storage_manager/volumes/influxdb2/private/token:\${${tokenEnv}}"
-        "--cfg=plugins/storages/${moduleName}/volume/private/token:\${${tokenEnv}}"
+        "--cfg=plugins/storage_manager/volumes/influxdb2/private/token:\"\${${tokenEnv}}\""
+        "--cfg=plugins/storages/${moduleName}/volume/private/token:\"\${${tokenEnv}}\""
       ];
       settings.plugins = {
         mqtt = { };
