@@ -24,4 +24,5 @@
   catppuccin.tty.enable = false;
   system.autoUpgrade.enable = false;
   documentation.man.enable = false;
+  services.fail2ban.enable = true;
 }
