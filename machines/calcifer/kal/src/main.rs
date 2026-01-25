@@ -3,7 +3,8 @@ use std::{thread, time};
 use anyhow::Result;
 use gpio_cdev::{Chip, LineRequestFlags};
 
-fn main() -> Result<()> {
+#[tokio::main]
+async fn main() -> Result<()> {
     let mut chip = Chip::new("/dev/gpiochip0")?;
     let output = chip
         .get_line(17)?

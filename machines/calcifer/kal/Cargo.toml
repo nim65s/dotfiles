@@ -6,4 +6,5 @@ edition = "2024"
 [dependencies]
 anyhow = "1.0.100"
 gpio-cdev = { version = "0.6.0", features = ["async-tokio", "tokio"] }
+tokio = { version = "1.49.0", features = ["full"] }
 zenoh = "1.7.2"
