@@ -117,7 +117,7 @@ impl Daemon {
     async fn set_relay(&mut self, v: bool) {
         let p = if v { "On" } else { "Off" };
         debug!("relay {p}");
-        self.session.put("kal/cmnd/garage/relay", p).await.unwrap();
+        self.session.put("kal/tele/daemon/relay", p).await.unwrap();
         if let Err(e) = self.relay.set_value(if v { 1 } else { 0 }) {
             log::error!("cant set relay: {}", e);
         };
