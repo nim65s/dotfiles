@@ -74,7 +74,7 @@ in
 
     nginx = {
       enable = true;
-      virtualHosts.localhost = {
+      virtualHosts."${moduleName}.saurel.me" = {
         default = true;
         locations."/" = {
           recommendedProxySettings = true;

@@ -9,19 +9,13 @@
     ../../nixos/shared.nix
     ../../nixos/small.nix
     ./kal/module.nix
+    ./dnsmasq.nix
+    ./networking.nix
   ];
 
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025385b4140d4c7";
     name = "main-a0b291c142a29d9b41b9aaf8f398f426";
-  };
-
-  networking = {
-    interfaces = {
-      "wan" = {
-        useDHCP = true;
-      };
-    };
   };
 
   home-manager.users.nim = import ../../home/nim/minimal.nix;
