@@ -30,6 +30,7 @@ in
       pwgen -B 42 -c 1 > $out/password
     '';
   };
+
   services = {
 
     grafana = {
@@ -126,6 +127,11 @@ in
     };
 
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   systemd.services.zenohd = {
     after = [ "influxdb2.service" ];
