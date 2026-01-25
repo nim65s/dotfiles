@@ -18,6 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 1,
   "links": [],
   "panels": [
     {
@@ -159,7 +160,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.3.0",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "datasource": {
@@ -184,7 +185,7 @@
             "type": "influxdb"
           },
           "hide": false,
-          "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n",
+          "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n",
           "refId": "C"
         }
       ],
@@ -202,11 +203,11 @@
       {
         "current": {
           "text": [
-            "kal_garage",
+            "daemon",
             "tasmota_43D8FD"
           ],
           "value": [
-            "kal_garage",
+            "daemon",
             "tasmota_43D8FD"
           ]
         },
