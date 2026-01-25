@@ -15,6 +15,7 @@ in
           secret = true;
           owner = moduleName;
           group = moduleName;
+          mode = "0440";
         };
       in
       {
