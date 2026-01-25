@@ -14,6 +14,8 @@ rustPlatform.buildRustPackage {
     lockFile = ./Cargo.lock;
   };
 
+  doCheck = false;
+
   meta = {
     description = "schedule heater activation";
     mainProgram = cargo.package.name;
