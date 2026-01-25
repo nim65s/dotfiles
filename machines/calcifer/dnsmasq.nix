@@ -38,8 +38,8 @@
       enable-ra = true;
 
       dhcp-option = [
-        "option:domain-search:azv"
-        "option:domain-search:m"
+        "option:domain-search,azv"
+        "option:domain-search,m"
       ];
 
       server = [ "9.9.9.9" ];
