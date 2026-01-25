@@ -31,21 +31,21 @@
               priority = 10;
             };
 
+            "swap" = {
+              size = config.nim-disko.swapSize;
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+              };
+              priority = 20;
+            };
+
             "root" = {
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
-              };
-              priority = 20;
-            };
-
-            "swap" = {
-              size = config.nim-disko.swapSize;
-              content = {
-                type = "swap";
-                discardPolicy = "both";
               };
               priority = 30;
             };
