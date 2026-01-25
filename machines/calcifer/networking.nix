@@ -73,6 +73,16 @@
       };
 
     };
+
+    nat = {
+      enable = true;
+      externalInterface = "wan";
+      internalInterfaces = [
+        "lan1"
+        "lan2"
+        "lan3"
+      ];
+    };
   };
 
 }
