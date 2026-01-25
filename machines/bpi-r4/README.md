@@ -15,6 +15,10 @@ Then real config, eg. `calcifer`:
 - `disko --mode destroy,format,mount -f .#calcifer`
 - `nixos-install -v --root /mnt --flake .#calcifer`
 
+*OR*
+
+- `clan machines install calcifer --target-host root@192.168.8.136 --host-key-check tofu --build-on local --phases disko,install,reboot` (no kexec needed)
+
 ## boot on usb again after that
 
 once everything is set up, BPi-R4 will boot on NVMe. If you want to boot on USB:
