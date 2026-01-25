@@ -23,16 +23,12 @@
       # IPv4 DHCP ranges
       dhcp-range = [
         "lan1,192.168.1.100,192.168.1.200,12h"
+        "lan1,::,constructor:lan1,ra-only"
         # "lan2,192.168.2.100,192.168.2.200,12h"
         # "lan3,192.168.3.100,192.168.3.200,12h"
       ];
 
       enable-ra = true;
-      ra-param = [
-        "lan1,0,0"
-        # "lan2,0,0"
-        # "lan3,0,0"
-      ];
 
       server = [ "9.9.9.9" ];
       no-hosts = true;

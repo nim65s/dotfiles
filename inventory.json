@@ -49,7 +49,12 @@
       "name": "zhurong"
     },
     "calcifer": {
-      "installedAt": 1769348259
+      "installedAt": 1769348259,
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "192.168.1.1"
+      },
+      "name": "calcifer"
     }
   }
 }
