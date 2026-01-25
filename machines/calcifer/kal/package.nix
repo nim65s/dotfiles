@@ -8,7 +8,14 @@ in
 rustPlatform.buildRustPackage {
   inherit (cargo.package) name version;
 
-  src = lib.cleanSource ./.;
+  src = lib.fileset.toSource {
+    root = ./.;
+    fileset = lib.fileset.unions [
+      ./Cargo.lock
+      ./Cargo.toml
+      ./src
+    ];
+  };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
