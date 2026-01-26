@@ -13,17 +13,18 @@
         hostname = "miyanoura";
         user = "gsaurel";
       };
-      "totoro" = {
-        hostname = "totoro.saurel.me";
+      "calcifer" = {
+        hostname = "calcifer.saurel.me";
         user = "nim";
+        forwardAgent = true;
+      };
+      "totoro" = {
+        user = "nim";
+        forwardAgent = true;
       };
       "ashitaka" = {
         user = "nim";
-        proxyJump = "totoro";
-      };
-      "nausicaa" = {
-        user = "nim";
-        proxyJump = "totoro";
+        forwardAgent = true;
       };
       "datcat" = {
         port = 2222;
