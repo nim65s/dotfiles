@@ -23,6 +23,8 @@ in
         files.conf = {
           secret = true;
           owner = "nim";
+          group = "mopidy";
+          mode = "0440";
           restartUnits = [ "mopidy.service" ];
         };
         script = ''
@@ -37,6 +39,8 @@ in
         files.conf = {
           secret = true;
           owner = "nim";
+          group = "mopidy";
+          mode = "0440";
           restartUnits = [ "mopidy.service" ];
         };
         script = ''
@@ -81,5 +85,6 @@ in
       settings = { };
     };
 
+    users.users.mopidy = { };
   };
 }
