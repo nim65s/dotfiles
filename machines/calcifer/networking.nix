@@ -83,6 +83,11 @@
         "lan3"
       ];
     };
+
+    nftables = {
+      enable = true;
+    };
+
   };
 
 }
