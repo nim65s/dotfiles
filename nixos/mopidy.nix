@@ -85,6 +85,6 @@ in
       settings = { };
     };
 
-    users.users.mopidy = { };
+    users.groups.mopidy = { };
   };
 }
