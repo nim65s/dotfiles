@@ -58,11 +58,17 @@
     };
   };
 
-  services.udev.extraRules = ''
-    ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
-  '';
-  services.udev.packages = [ pkgs.steam ];
-  services.joycond.enable = true;
+  services = {
+    nim-mopidy.enable = true;
+    nim-mopidy.enable-hm = true;
+
+    udev.extraRules = ''
+      ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
+    '';
+    udev.packages = [ pkgs.steam ];
+
+    joycond.enable = true;
+  };
 
   stylix.image = ../../bg/ashitaka-3.jpg;
 
