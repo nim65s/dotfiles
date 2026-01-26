@@ -27,6 +27,7 @@
   documentation.man.enable = false;
   services.fail2ban.enable = true;
 
+  services.mopidy.settings.mpd.hostname = "::";
   services.nim-mopidy.enable = true;
   services.nim-mopidy.enable-nixos = true;
 }
