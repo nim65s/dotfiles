@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -18,7 +19,7 @@
       ];
       script = ''
         pwgen -B 42 -c 1 > $out/password
-        htpasswd -B -c $out/conf nim $(cat $out/password)
+        htpasswd -bBc $out/conf nim $(cat $out/password)
       '';
     };
   };
@@ -29,6 +30,22 @@
       6680
     ];
   };
+
+  security.acme.certs =
+    let
+      atjoin =
+        {
+          name,
+          host ? "saurel.me",
+        }:
+        lib.concatStringsSep "@" [
+          name
+          host
+        ];
+    in
+    {
+      "mpd.saurel.me".email = atjoin { name = "guilhem+calcifer-iot"; };
+    };
 
   services = {
     mopidy.settings = {

@@ -166,8 +166,8 @@ in
         ];
     in
     {
-      "calcifer.saurel.me".email = atjoin { name = "guilhem+calcifer"; };
-      "iot.saurel.me".email = atjoin { name = "guilhem+iot"; };
+      "calcifer.saurel.me".email = atjoin { name = "guilhem+calcifer-calcifer"; };
+      "iot.saurel.me".email = atjoin { name = "guilhem+calcifer-iot"; };
     };
 
   systemd.services = {
