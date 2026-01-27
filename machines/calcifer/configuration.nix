@@ -5,12 +5,12 @@
   imports = [
     ../bpi-r4/bpi-r4.nix
     ../../nixos/disko/ext4-swap.nix
-    ../../nixos/mopidy.nix
     ../../nixos/nixos.nix
     ../../nixos/shared.nix
     ../../nixos/small.nix
     ./kal/module.nix
     ./dnsmasq.nix
+    ./mopidy.nix
     ./networking.nix
   ];
 
@@ -26,8 +26,4 @@
   system.autoUpgrade.enable = false;
   documentation.man.enable = false;
   services.fail2ban.enable = true;
-
-  services.mopidy.settings.mpd.hostname = "::";
-  services.nim-mopidy.enable = true;
-  services.nim-mopidy.enable-nixos = true;
 }

@@ -10,13 +10,6 @@
 
     domain = "azv";
 
-    firewall = {
-      interfaces.lan1.allowedTCPPorts = [
-        6600
-        6680
-      ];
-    };
-
     interfaces = {
 
       "wan" = {
