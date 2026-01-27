@@ -322,6 +322,7 @@
                 dockgen
                 exif-diff
                 git-fork-clone
+                git-objects-cache
                 iosevka-aile
                 iosevka-etoile
                 iosevka-term

@@ -48,6 +48,7 @@
     ghostscript
     git-extras
     git-fork-clone
+    git-objects-cache
     git-statuses
     gnupg
     gparted
