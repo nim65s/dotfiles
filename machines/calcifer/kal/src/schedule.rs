@@ -15,7 +15,7 @@ impl Default for Schedule {
             points: BTreeMap::from([
                 (Time::from_hours_unchecked(0.0), 14.0.into()),
                 (Time::from_hours_unchecked(5.0), 15.5.into()),
-                (Time::from_hours_unchecked(8.0), 17.0.into()),
+                (Time::from_hours_unchecked(7.0), 17.0.into()),
                 (Time::from_hours_unchecked(22.0), 17.0.into()),
                 (Time::from_hours_unchecked(24.0), 14.0.into()),
             ]),
