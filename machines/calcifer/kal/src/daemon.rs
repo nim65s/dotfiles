@@ -64,6 +64,10 @@ impl Daemon {
                     if let Ok(payload) = sample.payload().try_to_string() {
                         self.mode = payload.as_ref().into();
                         info!("mode {}", self.mode);
+                        self.session
+                            .put("kal/tele/daemon/mode", self.mode.as_str())
+                            .await
+                            .unwrap();
                         if self.mode != Mode::Auto {
                             self.set_relay(self.mode == Mode::On).await;
                         }
