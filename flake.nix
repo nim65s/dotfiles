@@ -303,7 +303,7 @@
                         stylix
                         ;
                     };
-                    modules = [ ({ nixpkgs.overlays = lib.attrValues self.overlays; }) ] ++ modules;
+                    modules = [ { nixpkgs.overlays = lib.attrValues self.overlays; } ] ++ modules;
                   };
               in
               {
@@ -343,6 +343,7 @@
                 deadnix.enable = true;
                 mdformat.enable = true;
                 nixfmt.enable = true;
+                nixf-diagnose.enable = true;
                 ruff = {
                   check = true;
                   format = true;

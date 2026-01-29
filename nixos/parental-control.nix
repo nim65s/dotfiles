@@ -13,8 +13,8 @@ in
       table inet filter {
           chain output {
               type filter hook output priority filter; policy accept;
-              tcp dport ${builtins.toString proxyPort} ip daddr { 127.0.0.1, ${ip} } meta skgid ${builtins.toString gid} counter log prefix "[Nftables] accept kids on proxy: " flags all accept
-              meta skgid ${builtins.toString gid} counter log prefix "[Nftables] deny kids access: " flags all drop
+              tcp dport ${toString proxyPort} ip daddr { 127.0.0.1, ${ip} } meta skgid ${toString gid} counter log prefix "[Nftables] accept kids on proxy: " flags all accept
+              meta skgid ${toString gid} counter log prefix "[Nftables] deny kids access: " flags all drop
           }
       }
     '';

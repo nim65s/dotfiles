@@ -26,7 +26,7 @@ in
 
   config = lib.mkIf cfg.enable (
     let
-      subnet = builtins.toString cfg.subnet;
+      subnet = toString cfg.subnet;
       ip = "192.168.${subnet}.${subnet}";
     in
     {
