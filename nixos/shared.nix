@@ -95,6 +95,7 @@
   };
 
   nix = {
+    channel.enable = false;
     gc = {
       automatic = true;
       dates = "monthly";
@@ -106,13 +107,11 @@
       extra-substituters = [
         "https://gepetto.cachix.org"
         "https://nix-community.cachix.org"
-        "https://rycee.cachix.org"
         "https://ros.cachix.org"
       ];
       extra-trusted-public-keys = [
         "gepetto.cachix.org-1:toswMl31VewC0jGkN6+gOelO2Yom0SOHzPwJMY2XiDY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "rycee.cachix.org-1:TiiXyeSk0iRlzlys4c7HiXLkP3idRf20oQ/roEUAh/A="
         "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
       ];
     };
