@@ -19,9 +19,11 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelModules = [ "hid_nintendo" ];
 
-  disko.devices.disk.main = {
-    device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
-    name = "main-ab41b1b291c142a29d99aaf8f398f575";
+  disko.devices.disk = {
+    main = {
+      device = "/dev/disk/by-id/nvme-eui.0025385b4140cf80";
+      name = "main-ab41b1b291c142a29d99aaf8f398f575";
+    };
   };
 
   # environment.systemPackages = [ pkgs.factorio-space-age ];
@@ -71,6 +73,12 @@
   };
 
   stylix.image = ../../bg/ashitaka-3.jpg;
+
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/10873738-2775-4908-907a-9379aed2e174";
+    }
+  ];
 
   # system.extraDependencies = [ pkgs.factorio-space-age.src ];
 
