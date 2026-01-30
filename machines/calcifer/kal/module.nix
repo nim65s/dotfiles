@@ -96,7 +96,7 @@ in
             url = "http://localhost:8086";
           };
           storages."${moduleName}" = {
-            key_expr = "kal/**";
+            key_expr = "kal/tele/**";
             volume = {
               id = "influxdb2";
               db = moduleName;
