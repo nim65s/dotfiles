@@ -15,6 +15,6 @@ pub struct Temperature(f64);
 
 impl std::fmt::Display for Temperature {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}°C", self.0)
+        write!(f, "{}", self.0)
     }
 }
