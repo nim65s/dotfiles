@@ -137,6 +137,25 @@
                 "value": 25
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "D"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "celsius"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -187,6 +206,15 @@
           "hide": false,
           "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n",
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "name": "InfluxDB",
+            "type": "influxdb"
+          },
+          "hide": false,
+          "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/target$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n",
+          "refId": "D"
         }
       ],
       "title": "Kal",
