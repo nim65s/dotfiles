@@ -1,6 +1,5 @@
-use crate::{Mode, Schedule, Time};
+use crate::{Mode, Schedule, Temperature, Time};
 use log::{debug, info};
-use std::str::FromStr;
 use zenoh::{Result, Session, handlers::FifoChannelHandler, pubsub::Subscriber, sample::Sample};
 
 pub struct Daemon {
@@ -73,27 +72,19 @@ impl Daemon {
                         }
                     }
                 }
-                ke if ke.ends_with("/insert") => {
+                ke if ke.ends_with("/schedule") => {
                     if let Ok(payload) = sample.payload().try_to_string() {
-                        let data: Vec<&str> = payload.split("|").collect();
-                        if data.len() == 2 {
-                            if let Ok(time_str) = u32::from_str(data[0]) {
-                                if let Ok(time) = Time::from_minutes(time_str) {
-                                    if let Ok(temperature) = f64::from_str(data[1]) {
-                                        self.schedule.insert(time, temperature.into());
-                                    }
-                                }
-                            }
+                        if let Ok(s) = Schedule::from_str(&payload) {
+                            self.schedule = s;
                         }
                     }
                 }
-                ke if ke.ends_with("/remove") => {
-                    if let Ok(payload) = sample.payload().try_to_string() {
-                        if let Ok(time_str) = u32::from_str(&payload) {
-                            if let Ok(time) = Time::from_minutes(time_str) {
-                                self.schedule.remove(time);
-                            }
-                        }
+                ke if ke.ends_with("/get") => {
+                    if let Ok(s) = self.schedule.to_string() {
+                        self.session
+                            .put("kal/cnfg/daemon/schedule", s)
+                            .await
+                            .unwrap();
                     }
                 }
                 _ => unimplemented!(),
@@ -105,10 +96,17 @@ impl Daemon {
         if let Ok(sample) = reply {
             if let Ok(payload) = sample.payload().try_to_string() {
                 if let Ok(v) = payload.parse::<f64>() {
-                    let t = v.into();
+                    let t: Temperature = v.into();
                     debug!("received {t}");
                     let h = match self.mode {
-                        Mode::Auto => self.schedule.auto(Time::now(), t),
+                        Mode::Auto => {
+                            let target = self.schedule.target(Time::now());
+                            self.session
+                                .put("kal/tele/daemon/target", target.to_string())
+                                .await
+                                .unwrap();
+                            t < target
+                        }
                         Mode::On => true,
                         Mode::Off => false,
                     };

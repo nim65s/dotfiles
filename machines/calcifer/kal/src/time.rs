@@ -12,6 +12,8 @@ use thiserror::Error;
     derive_more::Add,
     derive_more::Sub,
     derive_more::Mul,
+    serde::Serialize,
+    serde::Deserialize,
 )]
 pub struct Time(u32);
 

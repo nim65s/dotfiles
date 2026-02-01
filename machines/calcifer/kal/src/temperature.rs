@@ -8,6 +8,8 @@
     derive_more::Sub,
     derive_more::Mul,
     derive_more::From,
+    serde::Deserialize,
+    serde::Serialize,
 )]
 pub struct Temperature(f64);
 
