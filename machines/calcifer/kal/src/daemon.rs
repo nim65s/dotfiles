@@ -72,6 +72,7 @@ impl Daemon {
                         }
                     }
                 }
+
                 ke if ke.ends_with("/schedule") => {
                     if let Ok(payload) = sample.payload().try_to_string() {
                         if let Ok(s) = Schedule::from_str(&payload) {
@@ -79,6 +80,7 @@ impl Daemon {
                         }
                     }
                 }
+
                 ke if ke.ends_with("/get") => {
                     if let Ok(s) = self.schedule.to_string() {
                         self.session
