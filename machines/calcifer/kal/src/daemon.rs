@@ -76,6 +76,7 @@ impl Daemon {
                 ke if ke.ends_with("/schedule") => {
                     if let Ok(payload) = sample.payload().try_to_string() {
                         if let Ok(s) = Schedule::from_str(&payload) {
+                            info!("set schedule {}", payload);
                             self.schedule = s;
                         }
                     }
@@ -83,6 +84,7 @@ impl Daemon {
 
                 ke if ke.ends_with("/get") => {
                     if let Ok(s) = self.schedule.to_string() {
+                        info!("get schedule {}", s);
                         self.session
                             .put("kal/cnfg/daemon/schedule", s)
                             .await
