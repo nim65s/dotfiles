@@ -8,6 +8,9 @@ importers:
       chart.js:
         specifier: ^4.5.1
         version: 4.5.1
+      chartjs-plugin-dragdata:
+        specifier: ^2.3.1
+        version: 2.3.1(chart.js@4.5.1)
     devDependencies:
       esbuild:
         specifier: ^0.27.2
@@ -148,6 +151,19 @@ packages:
   chart.js@4.5.1:
     resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
     engines: {pnpm: '>=8'}
+  chartjs-plugin-dragdata@2.3.1:
+    resolution: {integrity: sha512-CFD1e2d+gyH9EXb92qWu4Zb2zVoY4OtrbJYLMoGWOInE7ftoOD//4B0/k9IvKzQbdVU3JsPqUQI9KHcMpqQVfg==}
+    peerDependencies:
+      chart.js: ^3.9.1 || ^4.0.1
+  d3-dispatch@3.0.1:
+    resolution: {integrity: sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==}
+    engines: {node: '>=12'}
+  d3-drag@3.0.0:
+    resolution: {integrity: sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg==}
+    engines: {node: '>=12'}
+  d3-selection@3.0.0:
+    resolution: {integrity: sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ==}
+    engines: {node: '>=12'}
   esbuild@0.27.2:
     resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
     engines: {node: '>=18'}
@@ -209,6 +225,17 @@ snapshots:
   chart.js@4.5.1:
     dependencies:
       '@kurkle/color': 0.3.4
+  chartjs-plugin-dragdata@2.3.1(chart.js@4.5.1):
+    dependencies:
+      chart.js: 4.5.1
+      d3-drag: 3.0.0
+      d3-selection: 3.0.0
+  d3-dispatch@3.0.1: {}
+  d3-drag@3.0.0:
+    dependencies:
+      d3-dispatch: 3.0.1
+      d3-selection: 3.0.0
+  d3-selection@3.0.0: {}
   esbuild@0.27.2:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.27.2

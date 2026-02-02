@@ -8,9 +8,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import DragDataPlugin from 'chartjs-plugin-dragdata';
 
 // Register chart.js components
-Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
+Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend, DragDataPlugin);
 
 function minutesToHHMM(t) {
   const hours = Math.floor(t / 60);
@@ -89,12 +90,16 @@ class KalScheduleCard extends HTMLElement {
         },
 
         plugins: {
+          legend: { display: false },
           tooltip: {
             callbacks: {
               title: minutesToHHMMTooltip,
             },
           },
-          legend: { display: false },
+          dragData: {
+            round: 1,
+            showTooltip: true,
+          }
         },
       },
     };
