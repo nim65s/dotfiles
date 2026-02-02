@@ -1,0 +1,12 @@
+{
+  "name": "kal-schedule-card",
+  "scripts": {
+    "build": "esbuild src/kal-schedule-card.js --bundle --minify --outfile=dist/kal-schedule-card.js"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.2"
+  }
+}

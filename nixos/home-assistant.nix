@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -9,8 +10,18 @@ in
 {
   networking.firewall.allowedTCPPorts = [ 80 ];
 
+  # TODO
+  documentation.enable = false;
+  documentation.man.enable = false;
+  documentation.doc.enable = false;
+  documentation.info.enable = false;
+  documentation.nixos.enable = false;
+  home-manager.users.root.programs.man.enable = false;
+  home-manager.users.nim.programs.man.enable = false;
+
   services.home-assistant = {
     enable = true;
+
     configWritable = true; # only for now, will be overwritten
     config = {
 
@@ -73,6 +84,15 @@ in
               unit_of_measurement = "%";
               qos = 0.0;
             }
+
+            {
+              inherit device;
+              name = "Schedule";
+              state_topic = "kal/cnfg/daemon/schedule";
+              value_template = "{{ value_json.points | count }}";
+              json_attributes_topic = "kal/cnfg/daemon/schedule";
+              unique_id = "${id}_schedule";
+            }
           ];
 
           select = [
@@ -95,60 +115,83 @@ in
 
     };
 
+    customLovelaceModules = [
+      (pkgs.callPackage ./kal-schedule-card { })
+    ];
+
     lovelaceConfigWritable = true;
     lovelaceConfig = {
 
       title = "Azv";
+
       views = [
         {
           title = "Kal";
-          column_span = 1;
           cards = [
-
             {
-              type = "tile";
-              entity = "sensor.kal_temperature";
-            }
-
-            {
-              type = "tile";
-              entity = "sensor.kal_humidite";
-            }
-
-            {
-              type = "tile";
-              entity = "select.kal_mode";
-              show_entity_picture = false;
-              hide_state = false;
-              vertical = true;
-              features_position = "bottom";
-              features = [
+              type = "horizontal-stack";
+              cards = [
                 {
-                  type = "select-options";
+                  type = "tile";
+                  entity = "sensor.kal_temperature";
+                }
+                {
+                  type = "tile";
+                  entity = "sensor.kal_humidite";
                 }
               ];
             }
 
             {
-              type = "tile";
-              entity = "binary_sensor.kal_relay";
-              vertical = true;
-              features_position = "bottom";
-              grid_options = {
-                columns = 6;
-                rows = 3;
-              };
+              type = "horizontal-stack";
+              cards = [
+                {
+                  type = "tile";
+                  entity = "select.kal_mode";
+                  show_entity_picture = false;
+                  hide_state = false;
+                  vertical = true;
+                  features_position = "bottom";
+                  features = [
+                    {
+                      type = "select-options";
+                    }
+                  ];
+                }
+                {
+                  type = "tile";
+                  entity = "binary_sensor.kal_relay";
+                  vertical = true;
+                  features_position = "bottom";
+                  grid_options = {
+                    columns = 6;
+                    rows = 3;
+                  };
+                }
+              ];
             }
-
+            {
+              type = "custom:kal-schedule-card";
+              entity = "sensor.kal_schedule";
+            }
           ];
         }
       ];
 
     };
 
+    extraComponents = [
+      "default_config"
+      "met"
+      "esphome"
+      "tasmota"
+      "mqtt"
+    ];
+
     extraPackages = ps: [
       ps.hatasmota
       ps.paho-mqtt
+      ps.gtts
     ];
   };
 }
