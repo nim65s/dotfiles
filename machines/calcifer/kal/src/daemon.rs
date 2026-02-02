@@ -84,9 +84,12 @@ impl Daemon {
 
                 ke if ke.ends_with("/get") => {
                     if let Ok(s) = self.schedule.to_string() {
-                        info!("get schedule {}", s);
                         self.session
                             .put("kal/cnfg/daemon/schedule", s)
+                            .await
+                            .unwrap();
+                        self.session
+                            .put("kal/tele/daemon/mode", self.mode.as_str())
                             .await
                             .unwrap();
                     }
