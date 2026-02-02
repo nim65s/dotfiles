@@ -19,7 +19,6 @@
     file
     libreoffice
     pwvucontrol
-    tig
     ripgrep
     vim
   ];

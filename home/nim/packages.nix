@@ -170,7 +170,6 @@
     swaylock
     tailstamp
     tdf
-    tig
     toml-sort
     tree
     tree-sitter

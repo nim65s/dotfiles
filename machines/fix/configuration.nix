@@ -26,7 +26,6 @@
     pwvucontrol
     simple-scan
     spotify
-    tig
     ripgrep
     vim
   ];
