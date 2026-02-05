@@ -27,6 +27,13 @@
         end
       '';
     }
+
+    # html: 2 spaces
+    {
+      event = "BufEnter";
+      pattern = "*.html";
+      command = "setlocal shiftwidth=2";
+    }
   ];
 
   clipboard.providers.wl-copy.enable = true;
@@ -278,6 +285,7 @@
     lsp = {
       enable = true;
       servers = {
+        biome.enable = true;
         clangd.enable = lib.mkDefault true;
         # cmake.enable = true;
         nil_ls.enable = true;
