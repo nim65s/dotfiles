@@ -26,7 +26,10 @@
     };
   };
 
-  # environment.systemPackages = [ pkgs.factorio-space-age ];
+  environment.systemPackages = [
+    pkgs.distrobox
+    # pkgs.factorio-space-age
+  ];
 
   hardware.uinput.enable = true;
   home-manager.users.nim = import ./home.nix;
