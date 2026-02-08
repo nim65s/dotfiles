@@ -35,7 +35,7 @@
   environment.systemPackages = [
     pkgs.pololu-jrk-g2-software
   ];
-  home-manager.users.nim = import ../../home/nim/main.nix;
+  home-manager.users.nim = import ./home.nix;
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [
       {

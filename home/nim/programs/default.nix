@@ -157,6 +157,8 @@ in
       };
     };
 
+    rmpc.enable = true;
+
     rofi = {
       enable = true;
       terminal = lib.getExe pkgs.kitty;

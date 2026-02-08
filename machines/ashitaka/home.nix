@@ -24,7 +24,15 @@
     '';
   };
 
-  programs.btop.package = pkgs.btop-cuda;
+  programs = {
+    btop.package = pkgs.btop-cuda;
+
+    rmpc.config = ''
+      (
+        address = "calcifer.azv:6600",
+      )
+    '';
+  };
 
   xdg.autostart = {
     enable = true;
