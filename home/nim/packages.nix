@@ -89,6 +89,7 @@
     meshlab
     minicom
     mosh
+    mpc
     mpv
     mypy
     nb
