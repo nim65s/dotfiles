@@ -45,42 +45,34 @@
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
     recommendedProxySettings = true;
-    commonHttpConfig = ''
-      geo $is_lan {
-        default 0;
-
-        127.0.0.1/32 1;
-        ::1/128      1;
-
-        192.168.0.0/24 1;
-        192.168.1.0/24 1;
-        192.168.2.0/24 1;
-        192.168.3.0/24 1;
-
-        fe80::/10 1;
-
-        2a01:e0a:989:7190::/64 1;
-        2a01:e0a:989:7191::/64 1;
-        2a01:e0a:989:7192::/64 1;
-        2a01:e0a:989:7193::/64 1;
-      }
-    '';
 
     virtualHosts =
       let
-        azvProxy = _source: {
+        azvProxy = source: {
           forceSSL = true;
           enableACME = true;
           locations."/" = {
-            proxyWebsockets = true;
             extraConfig = ''
               satisfy any;
-              if ($is_lan = 1) {
-                  allow all;
-              }
+
+              allow 127.0.0.1;
+              allow ::1;
+              allow 192.168.0.0/24;
+              allow 192.168.1.0/24;
+              allow 192.168.2.0/24;
+              allow 192.168.3.0/24;
+              allow fc00::/7;
+              allow fe80::/10;
+              allow 2a01:e0a:989:7190::/64;
+              allow 2a01:e0a:989:7191::/64;
+              allow 2a01:e0a:989:7192::/64;
+              allow 2a01:e0a:989:7193::/64;
+
               deny all;
             '';
             basicAuthFile = config.clan.core.vars.generators.azv-nginx.files.conf.path;
+            proxyWebsockets = true;
+            proxyPass = source;
           };
         };
         grafana = config.services.grafana.settings.server;
@@ -95,7 +87,8 @@
 
         "iot.saurel.me" = azvProxy "http://${grafana.http_addr}:${toString grafana.http_port}";
         "mpd.saurel.me" = azvProxy "http://localhost:6680";
-        "snap.saurel.me" = azvProxy "http://localhost:${config.services.snapserver.settings.http.port}";
+        "snap.saurel.me" =
+          azvProxy "http://localhost:${toString config.services.snapserver.settings.http.port}";
       };
 
   };
