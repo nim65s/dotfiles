@@ -3,7 +3,7 @@
   ...
 }:
 let
-  fifo = "/run/mopidy-snapcast.fifo";
+  fifo = "/run/mopidy-snapserver.fifo";
 in
 {
   imports = [
@@ -44,20 +44,20 @@ in
       snapserver = {
         serviceConfig = {
           DynamicUser = lib.mkForce false;
-          User = "snapcast";
-          Group = "snapcast";
+          User = "snapserver";
+          Group = "snapserver";
         };
       };
     };
     tmpfiles.rules = [
-      "p ${fifo} 0640 mopidy snapcast - -"
+      "p ${fifo} 0640 mopidy snapserver - -"
     ];
   };
 
-  users.groups.snapcast = { };
-  users.users.mopidy.extraGroups = [ "snapcast" ];
-  users.users.snapcast = {
+  users.groups.snapserver = { };
+  users.users.mopidy.extraGroups = [ "snapserver" ];
+  users.users.snapserver = {
     isSystemUser = true;
-    group = "snapcast";
+    group = "snapserver";
   };
 }
