@@ -1,4 +1,5 @@
 {
+  lib,
   ...
 }:
 let
@@ -37,10 +38,26 @@ in
     };
   };
 
-  systemd.tmpfiles.rules = [
-    "p ${fifo} 0640 mopidy snapcast - -"
-  ];
+  systemd = {
+    services = {
+      mopidy.after = [ "systemd-tmpfiles-setup.service" ];
+      snapserver = {
+        serviceConfig = {
+          DynamicUser = lib.mkForce false;
+          User = "snapcast";
+          Group = "snapcast";
+        };
+      };
+    };
+    tmpfiles.rules = [
+      "p ${fifo} 0640 mopidy snapcast - -"
+    ];
+  };
 
   users.groups.snapcast = { };
   users.users.mopidy.extraGroups = [ "snapcast" ];
+  users.users.snapcast = {
+    isSystemUser = true;
+    group = "snapcast";
+  };
 }
