@@ -32,7 +32,7 @@ in
     snapserver = {
       enable = true;
       settings = {
-        stream.source = "${fifo}?name=mopidy";
+        stream.source = "pipe://${fifo}?name=mopidy";
         http.enable = true;
       };
     };
