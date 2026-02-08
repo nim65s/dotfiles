@@ -74,34 +74,6 @@ in
       };
     };
 
-    nginx = {
-      enable = true;
-      recommendedTlsSettings = true;
-      recommendedOptimisation = true;
-      recommendedGzipSettings = true;
-      recommendedProxySettings = true;
-      virtualHosts = {
-        "calcifer.saurel.me" = {
-          default = true;
-          addSSL = true;
-          enableACME = true;
-          globalRedirect = "https://www.laas.fr/fr/annuaire/gsaurel";
-        };
-        "iot.saurel.me" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyWebsockets = true;
-            proxyPass =
-              let
-                grafana = config.services.grafana.settings.server;
-              in
-              "http://${grafana.http_addr}:${toString grafana.http_port}";
-          };
-        };
-      };
-    };
-
     udev.extraRules = ''
       SUBSYSTEM=="gpio", KERNEL=="gpiochip*", MODE="0660", GROUP="gpio"
     '';
@@ -152,23 +124,6 @@ in
       kal = final.callPackage ./package.nix { };
     })
   ];
-
-  security.acme.certs =
-    let
-      atjoin =
-        {
-          name,
-          host ? "saurel.me",
-        }:
-        lib.concatStringsSep "@" [
-          name
-          host
-        ];
-    in
-    {
-      "calcifer.saurel.me".email = atjoin { name = "guilhem+calcifer-calcifer"; };
-      "iot.saurel.me".email = atjoin { name = "guilhem+calcifer-iot"; };
-    };
 
   systemd.services = {
     zenohd = {

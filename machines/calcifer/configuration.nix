@@ -8,10 +8,11 @@
     ../../nixos/nixos.nix
     ../../nixos/shared.nix
     ../../nixos/small.nix
+    ./azv-mpd.nix
     ./kal/module.nix
     ./dnsmasq.nix
-    ./mopidy.nix
     ./networking.nix
+    ./nginx.nix
   ];
 
   disko.devices.disk.main = {
