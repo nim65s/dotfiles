@@ -12,8 +12,8 @@ in
 
   networking.firewall = {
     interfaces.lan1.allowedTCPPorts = [
-      6600
-      6680
+      1704 # snapcast
+      6600 # mpd
     ];
   };
 
