@@ -33,7 +33,7 @@ in
       enable = true;
       settings = {
         stream.source = "pipe://${fifo}?name=mopidy";
-        http.enable = true;
+        http.enabled = true;
       };
     };
   };
