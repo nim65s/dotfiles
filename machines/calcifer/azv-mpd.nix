@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   ...
 }:
 let
@@ -41,6 +42,13 @@ in
   systemd = {
     services = {
       mopidy.after = [ "systemd-tmpfiles-setup.service" ];
+      snapclient = {
+        serviceConfig = {
+          User = "snapserver";
+          Group = "snapserver";
+          ExecStart = "${lib.getExe' pkgs.snapcast "snapclient"} -s default:CARD=Device tcp://localhost";
+        };
+      };
       snapserver = {
         serviceConfig = {
           DynamicUser = lib.mkForce false;
@@ -59,5 +67,6 @@ in
   users.users.snapserver = {
     isSystemUser = true;
     group = "snapserver";
+    extraGroups = [ "audio" ];
   };
 }
