@@ -57,7 +57,12 @@
             forceSSL = true;
             enableACME = true;
             locations."/" = {
-              extraConfig = lib.optionalString private ''
+              proxyWebsockets = true;
+              proxyPass = source;
+            }
+            // lib.optionalAttrs private {
+              basicAuthFile = config.clan.core.vars.generators.azv-nginx.files.conf.path;
+              extraConfig = ''
                 satisfy any;
 
                 allow 127.0.0.1;
@@ -75,9 +80,6 @@
 
                 deny all;
               '';
-              basicAuthFile = lib.optionalString private config.clan.core.vars.generators.azv-nginx.files.conf.path;
-              proxyWebsockets = true;
-              proxyPass = source;
             };
           };
         grafana = config.services.grafana.settings.server;
