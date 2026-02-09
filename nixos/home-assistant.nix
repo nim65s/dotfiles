@@ -10,15 +10,6 @@ in
 {
   networking.firewall.allowedTCPPorts = [ 80 ];
 
-  # TODO
-  documentation.enable = false;
-  documentation.man.enable = false;
-  documentation.doc.enable = false;
-  documentation.info.enable = false;
-  documentation.nixos.enable = false;
-  home-manager.users.root.programs.man.enable = false;
-  home-manager.users.nim.programs.man.enable = false;
-
   services.home-assistant = {
     enable = true;
 
