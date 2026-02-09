@@ -48,33 +48,38 @@
 
     virtualHosts =
       let
-        azvProxy = source: {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            extraConfig = ''
-              satisfy any;
+        azvProxy =
+          {
+            source,
+            private ? true,
+          }:
+          {
+            forceSSL = true;
+            enableACME = true;
+            locations."/" = {
+              extraConfig = lib.optionalString private ''
+                satisfy any;
 
-              allow 127.0.0.1;
-              allow ::1;
-              allow 192.168.0.0/24;
-              allow 192.168.1.0/24;
-              allow 192.168.2.0/24;
-              allow 192.168.3.0/24;
-              allow fc00::/7;
-              allow fe80::/10;
-              allow 2a01:e0a:989:7190::/64;
-              allow 2a01:e0a:989:7191::/64;
-              allow 2a01:e0a:989:7192::/64;
-              allow 2a01:e0a:989:7193::/64;
+                allow 127.0.0.1;
+                allow ::1;
+                allow 192.168.0.0/24;
+                allow 192.168.1.0/24;
+                allow 192.168.2.0/24;
+                allow 192.168.3.0/24;
+                allow fc00::/7;
+                allow fe80::/10;
+                allow 2a01:e0a:989:7190::/64;
+                allow 2a01:e0a:989:7191::/64;
+                allow 2a01:e0a:989:7192::/64;
+                allow 2a01:e0a:989:7193::/64;
 
-              deny all;
-            '';
-            basicAuthFile = config.clan.core.vars.generators.azv-nginx.files.conf.path;
-            proxyWebsockets = true;
-            proxyPass = source;
+                deny all;
+              '';
+              basicAuthFile = lib.optionalString private config.clan.core.vars.generators.azv-nginx.files.conf.path;
+              proxyWebsockets = true;
+              proxyPass = source;
+            };
           };
-        };
         grafana = config.services.grafana.settings.server;
       in
       {
@@ -85,10 +90,16 @@
           globalRedirect = "https://www.laas.fr/fr/annuaire/gsaurel";
         };
 
-        "iot.saurel.me" = azvProxy "http://${grafana.http_addr}:${toString grafana.http_port}";
-        "mpd.saurel.me" = azvProxy "http://localhost:6680";
-        "snap.saurel.me" =
-          azvProxy "http://localhost:${toString config.services.snapserver.settings.http.port}";
+        "iot.saurel.me" = azvProxy {
+          source = "http://${grafana.http_addr}:${toString grafana.http_port}";
+          private = false;
+        };
+        "mpd.saurel.me" = azvProxy {
+          source = "http://localhost:6680";
+        };
+        "snap.saurel.me" = azvProxy {
+          source = "http://localhost:${toString config.services.snapserver.settings.http.port}";
+        };
       };
 
   };
