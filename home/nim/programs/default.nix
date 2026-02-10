@@ -208,6 +208,7 @@ in
     zellij = {
       enable = true;
       attachExistingSession = true;
+      enableFishIntegration = true;
     };
   };
 }
