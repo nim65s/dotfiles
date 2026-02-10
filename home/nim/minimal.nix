@@ -162,6 +162,7 @@
       swaylock.enable = false;
       swaync.enable = false;
       yazi.enable = false;
+      zellij.enable = false;
     };
   };
 }

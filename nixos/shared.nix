@@ -48,7 +48,6 @@
     swaylock
     tmux
     usbutils
-    zellij
   ];
 
   home-manager = {

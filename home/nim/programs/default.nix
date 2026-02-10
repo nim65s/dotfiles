@@ -213,5 +213,10 @@ in
         n = "rotate";
       };
     };
+
+    zellij = {
+      enable = true;
+      attachExistingSession = true;
+    };
   };
 }

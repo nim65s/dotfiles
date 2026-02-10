@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     acpi
     age
+    bandwhich
     binutils
     black
     bloom
@@ -200,7 +201,6 @@
     yt-dlp
     zathura
     zeal
-    zellij
     zfs
     #zola
   ];
