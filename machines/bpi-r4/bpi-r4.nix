@@ -61,8 +61,8 @@ let
   '';
 
   kernel = crossPkgs.buildLinux {
-    version = "6.18.3";
-    modDirVersion = "6.18.6";
+    version = "6.18.9";
+    modDirVersion = "6.18.9";
     src = linux-bpi-r4;
 
     kernelPatches = [

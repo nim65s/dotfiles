@@ -17,11 +17,6 @@ in
       patches = final.lib.fileset.toList ./patches/phijor/mopidy-notify;
     };
   };
-  nurl = prev.nurl.overrideAttrs {
-    patches = [
-      ./patches/nix-community/nurl/388_feat-use-a-github-token-for-authorization-if-it-exists.patch
-    ];
-  };
   rofi-rbw = prev.rofi-rbw.overrideAttrs {
     patches = [
       ./patches/fdw/rofi-rbw/124_fix-typing-passwords-starting-with-dashes.patch

@@ -29,6 +29,7 @@
   };
 
   stylix = {
+    cursor = null;
     targets.qt.enable = false;
     fonts.monospace = {
       package = pkgs.dejavu_fonts;
