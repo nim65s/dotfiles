@@ -1,10 +1,13 @@
 workspace "doc" {
     open-on-output "GK0KD2A6A5GL"
 }
+workspace "pop" {
+    open-on-output "GK0KD2A6A5GL"
+}
 workspace "web" {
     open-on-output "U28D590"
 }
-workspace "alt" {
+workspace "com" {
     open-on-output "Unknown"
 }
 
@@ -25,19 +28,25 @@ window-rule {
 }
 window-rule {
     match at-startup=true app-id="Element"
-    open-on-workspace "alt"
+    open-on-workspace "com"
     default-column-width { proportion 0.65; }
 }
 window-rule {
     match at-startup=true app-id="thunderbird"
-    open-on-workspace "alt"
+    open-on-workspace "com"
     default-column-width { proportion 0.65; }
 }
 window-rule {
     match at-startup=true app-id="com.saivert.pwvucontrol"
-    open-on-workspace "alt"
+    open-on-workspace "com"
     default-column-width { proportion 0.35; }
 }
+window-rule {
+    match app-id="rviz2"
+    open-on-workspace "pop"
+    default-column-width { proportion 0.5; }
+}
+
 
 output "HDMI-A-1" {
     position x=0 y=180
