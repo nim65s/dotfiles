@@ -48,6 +48,7 @@
     swaylock
     tmux
     usbutils
+    wget
   ];
 
   home-manager = {
