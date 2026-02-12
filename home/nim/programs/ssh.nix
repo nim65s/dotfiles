@@ -40,6 +40,11 @@
           PubkeyAcceptedKeyTypes = "+ssh-rsa";
         };
       };
+      "root" = {
+        user = "root";
+        hostname = "localhost";
+        forwardAgent = true;
+      };
       "*.l" = config.laasProxy.value // {
         hostname = "%haas.fr";
         forwardAgent = true;
