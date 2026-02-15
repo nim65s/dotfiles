@@ -42,6 +42,11 @@ window-rule {
     default-column-width { proportion 0.35; }
 }
 window-rule {
+    match app-id="Gazebo GUI"
+    open-on-workspace "pop"
+    default-column-width { proportion 0.5; }
+}
+window-rule {
     match app-id="rviz2"
     open-on-workspace "pop"
     default-column-width { proportion 0.5; }
