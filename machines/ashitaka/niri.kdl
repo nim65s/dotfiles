@@ -51,6 +51,11 @@ window-rule {
     open-on-workspace "pop"
     default-column-width { proportion 0.5; }
 }
+window-rule {
+    match title="Constraint Graph: graph"
+    open-on-workspace "pop"
+    default-column-width { proportion 0.5; }
+}
 
 
 output "HDMI-A-1" {
