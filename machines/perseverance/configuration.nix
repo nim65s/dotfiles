@@ -17,7 +17,16 @@ in
   environment.sessionVariables.ROVER = config.system.name;
   networking = {
     interfaces = {
-      wlan0 = {
+      eno1 = {
+        ipv4.addresses = [
+          {
+            address = "192.168.2.${ip}";
+            prefixLength = 24;
+          }
+        ];
+        useDHCP = false;
+      };
+      wlp0s20f3 = {
         ipv4.addresses = [
           {
             address = "192.168.1.${ip}";
@@ -44,7 +53,8 @@ in
     roversap = {
       enable = true;
       subnet = 30;
-      upstream = "TODO";
+      upstream = "wlp0s20f3";
+      interface = "wlp0s20f0u1";
     };
   };
 
