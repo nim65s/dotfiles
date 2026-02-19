@@ -21,6 +21,10 @@ in
         type = lib.types.str;
         default = "wlan0";
       };
+      channel = lib.mkOption {
+        type = lib.types.int;
+        default = 1;
+      };
     };
   };
 
@@ -101,7 +105,7 @@ in
         hostapd = {
           enable = true;
           radios."${cfg.interface}" = {
-            channel = 1;
+            channel = cfg.channel;
             countryCode = "FR";
             networks."${cfg.interface}" = {
               ssid = config.networking.hostName;

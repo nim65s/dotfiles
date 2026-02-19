@@ -54,6 +54,7 @@ in
       enable = true;
       subnet = 30;
       upstream = "wlp0s20f3";
+      channel = 6;
     };
   };
 
