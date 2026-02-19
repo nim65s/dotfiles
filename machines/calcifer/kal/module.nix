@@ -9,28 +9,39 @@ let
   tokenEnv = "KAL_INFLUXDB_TOKEN";
 in
 {
-  clan.core.vars.generators.kal-influxdb = {
-    files =
-      let
-        f = {
-          secret = true;
-          owner = moduleName;
-          group = moduleName;
-          mode = "0440";
-        };
-      in
-      {
-        token = f;
-        token-env = f;
-        password = f;
+  clan.core.vars.generators =
+    let
+      f = {
+        secret = true;
+        owner = moduleName;
+        group = moduleName;
+        mode = "0440";
       };
-    runtimeInputs = [ pkgs.pwgen ];
-    script = ''
-      pwgen -B 42 -c 1 > $out/token
-      echo "${tokenEnv}=$(cat $out/token)" > $out/token-env
-      pwgen -B 42 -c 1 > $out/password
-    '';
-  };
+    in
+    {
+      grafana-secret-key = {
+        files = {
+          secret_key = f;
+        };
+        runtimeInputs = [ pkgs.pwgen ];
+        script = ''
+          pwgen -B 42 -c 1 > $out/secret_key
+        '';
+      };
+      kal-influxdb = {
+        files = {
+          token = f;
+          token-env = f;
+          password = f;
+        };
+        runtimeInputs = [ pkgs.pwgen ];
+        script = ''
+          pwgen -B 42 -c 1 > $out/token
+          echo "${tokenEnv}=$(cat $out/token)" > $out/token-env
+          pwgen -B 42 -c 1 > $out/password
+        '';
+      };
+    };
 
   services = {
 
@@ -59,6 +70,7 @@ in
           }
         ];
       };
+      settings.security.secret_key = "$__file{${config.clan.core.vars.generators.grafana-secret-key.files.secret_key.path}}";
     };
 
     influxdb2 = {

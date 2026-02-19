@@ -101,7 +101,6 @@
       vim = "nvim";
       vd = "nvim -d";
       vimdiff = "nvim -d";
-      y = "yazi";
       z = "zellij";
       za = "zathura";
     };

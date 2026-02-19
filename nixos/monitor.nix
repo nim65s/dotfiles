@@ -9,6 +9,14 @@ let
   lokiConfigFile = "loki.yaml";
 in
 {
+  clan.core.vars.generators.grafana-monitor = {
+    files.secret_key.secret = true;
+    runtimeInputs = [ pkgs.pwgen ];
+    script = ''
+      pwgen -B 42 -c 1 > $out/secret_key
+    '';
+  };
+
   environment.etc = {
     # ref. https://grafana.com/docs/loki/latest/configure/examples/configuration-examples/#1-local-configuration-exampleyaml
     "${lokiConfigFile}".source = (pkgs.formats.yaml { }).generate lokiConfigFile {
@@ -74,6 +82,7 @@ in
           }
         ];
       };
+      settings.security.secret_key = "$__file{${config.clan.core.vars.generators.grafana-monitor.files.secret_key.path}}";
       # TODO: grafana dont like my .m ?
       # settings.server.http_addr = "grafana.m";
     };
