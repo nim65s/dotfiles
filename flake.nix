@@ -184,12 +184,14 @@
                     lavelanet = { };
                     marsrovers = { };
                     neofarm = { };
+                    perseverance = { };
                     picto_cne = { };
                     prades = { };
                     sabliere = { };
                     share_fil = { };
                     share_nim = { };
                     toffan = { };
+                    zhurong = { };
                   };
                 };
               };
