@@ -30,6 +30,16 @@ in
       ip = "192.168.${subnet}.${subnet}";
     in
     {
+      clan.core.vars.generators = {
+        roversap = {
+          prompts.wifi-passwd.description = "wifi password";
+          files.wifi-passwd.secret = true;
+          script = ''
+            cat $prompts/wifi-passwd > $out/wifi-passwd
+          '';
+        };
+      };
+
       networking = {
         defaultGateway = {
           interface = cfg.upstream;
@@ -87,6 +97,7 @@ in
             domain-needed = true;
           };
         };
+
         hostapd = {
           enable = true;
           radios."${cfg.interface}" = {
@@ -94,10 +105,13 @@ in
             countryCode = "FR";
             networks."${cfg.interface}" = {
               ssid = config.networking.hostName;
-              authentication.saePasswords = [ { passwordFile = "/wifi-passwd"; } ];
+              authentication.saePasswords = [
+                { passwordFile = config.clan.core.vars.generators.roversap.files.wifi-passwd.path; }
+              ];
             };
           };
         };
+
         udev.extraRules = ''
           SUBSYSTEM=="net", ACTION=="add", ENV{ID_VENDOR_FROM_DATABASE}=="TP-Link", NAME="${cfg.interface}"
         '';
