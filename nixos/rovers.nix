@@ -10,6 +10,8 @@
 
   home-manager.users.nim = import ../home/nim/minimal.nix;
 
+  hardware.bluetooth.enable = false;
+
   networking = {
     defaultGateway = {
       address = "192.168.1.1";
