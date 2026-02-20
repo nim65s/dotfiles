@@ -25,6 +25,10 @@ in
         type = lib.types.int;
         default = 1;
       };
+      band = lib.mkOption {
+        type = lib.types.str;
+        default = "2g";
+      };
     };
   };
 
@@ -105,7 +109,7 @@ in
         hostapd = {
           enable = true;
           radios."${cfg.interface}" = {
-            channel = cfg.channel;
+            inherit (cfg) band channel;
             countryCode = "FR";
             networks."${cfg.interface}" = {
               ssid = config.networking.hostName;
