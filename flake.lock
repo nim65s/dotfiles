@@ -107,11 +107,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771787708,
-        "narHash": "sha256-219aQNj1QMEsJB8suO37tmgiTUzDeVjkw5wlJyMdhhk=",
-        "rev": "d7e40badb5f5de6f9682d03638a279b2fc8e1142",
+        "lastModified": 1771795374,
+        "narHash": "sha256-L/grlwaPzUGCzBjVPTABUtFX/jRLD6bT1Z1mhXcINuA=",
+        "rev": "8d6ff8d35a9033bf640f47d992f67f526dc58824",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/nim65s/clan-core/archive/d7e40badb5f5de6f9682d03638a279b2fc8e1142.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/nim65s/clan-core/archive/8d6ff8d35a9033bf640f47d992f67f526dc58824.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -485,11 +485,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771787086,
-        "narHash": "sha256-wBHcZaYINsBzDusIL+pnLnVUekIe4YBpPHGoiILhTlA=",
+        "lastModified": 1771793792,
+        "narHash": "sha256-xxXZ8N5NWUmibTWUoqYEKivIibGIyZtUzKteJmfpG18=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "c56b1e460d93df687d16c8348d094d217f060fd3",
+        "rev": "985838fbc589351ce8aad16283fb2f5290ae0d8d",
         "type": "github"
       },
       "original": {
@@ -595,11 +595,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1771626923,
-        "narHash": "sha256-Mn6oeKrY+Sw6kH0jK+hp5QQH4MTcqwBRQL/ScZDNcz8=",
+        "lastModified": 1771787992,
+        "narHash": "sha256-Vg4bGwwenNYI8p3nJTl9FRyeIyrjATeZrZr+GyUSDrw=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "b09847414b50c65788936199918272377f70fb91",
+        "rev": "30054cca073b49b42a71289edec858f535b27fe9",
         "type": "github"
       },
       "original": {
