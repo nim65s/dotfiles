@@ -159,6 +159,9 @@
                 };
               };
               sshd = {
+                roles.client = {
+                  tags.all = { };
+                };
                 roles.server = {
                   tags.all = { };
                 };
