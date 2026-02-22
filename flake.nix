@@ -221,7 +221,10 @@
               };
             };
           };
-          meta.name = "nim65s";
+          meta = {
+            name = "nim65s";
+            domain = "m";
+          };
           specialArgs = {
             inherit (inputs)
               catppuccin

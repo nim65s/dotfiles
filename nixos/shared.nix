@@ -68,7 +68,6 @@
   i18n.defaultLocale = "fr_FR.UTF-8";
 
   networking = {
-    domain = lib.mkDefault "m";
     firewall = {
       allowedTCPPorts = [ 655 ];
       allowedUDPPorts = [ 655 ];
