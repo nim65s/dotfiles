@@ -130,6 +130,7 @@
       pratches
       pre-commit
       pre-commit-sort
+      prek
       pulseaudio
       pwgen
       pwvucontrol
