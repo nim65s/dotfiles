@@ -34,21 +34,21 @@
         ]
         ++ (with kdePackages; [
           # keep-sorted start
+          blinken
           bomber
           granatier
+          kanagram
           kapman
           kblocks
           kbounce
           kbreakout
           kfourinline
-          kmahjongg
-          kpat
-          blinken
-          kanagram
-          khangman
-          ksudoku
-          kmines
           kgeography
+          khangman
+          kmahjongg
+          kmines
+          kpat
+          ksudoku
           kturtle
           # kstars  # TODO: build broken
           minuet
