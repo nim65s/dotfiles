@@ -13,12 +13,7 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         treefmt-nix.follows = "treefmt-nix";
-        nixos-facter-modules.follows = "nixos-facter-modules";
       };
-    };
-    nixos-facter-modules = {
-      # TODO: drop this, the modules have been upstreamed to nixpkgs
-      url = "github:nix-community/nixos-facter-modules";
     };
     flake-input-patcher = {
       url = "github:jfly/flake-input-patcher";
