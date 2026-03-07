@@ -348,6 +348,7 @@
             };
           };
         flake = {
+          inherit (inputs.nixpkgs) lib;
           overlays = {
             default = import ./overlay.nix {
               inherit (inputs)
