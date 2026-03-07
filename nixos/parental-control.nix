@@ -8,7 +8,6 @@ in
 {
   users.groups.kids.gid = 10000;
   networking.nftables = {
-    enable = true;
     ruleset = ''
       table inet filter {
           chain output {

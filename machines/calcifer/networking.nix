@@ -84,10 +84,6 @@
       ];
     };
 
-    nftables = {
-      enable = true;
-    };
-
   };
 
 }

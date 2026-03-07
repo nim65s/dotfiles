@@ -90,6 +90,7 @@
       in
       myceliumHosts;
     useNetworkd = true;
+    nftables.enable = true;
   };
 
   nix = {
