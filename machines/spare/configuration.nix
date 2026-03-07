@@ -5,6 +5,7 @@
     ../../nixos/shared.nix
     ../../nixos/nixos.nix
     ../../nixos/systemd-boot.nix
+    ./azv.nix
   ];
 
   disko.devices.disk.main = {

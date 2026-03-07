@@ -28,7 +28,7 @@
       };
       defaultSession = lib.mkDefault "niri";
       sddm = {
-        enable = true;
+        enable = lib.mkDefault true;
         autoNumlock = true;
         package = lib.mkDefault pkgs.kdePackages.sddm;
         wayland.enable = true;
