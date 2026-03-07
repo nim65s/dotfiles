@@ -11,6 +11,7 @@
     # ./azv-mpd.nix
     ./kal/module.nix
     ./dnsmasq.nix
+    ./firewall.nix
     ./networking.nix
     ./nginx.nix
   ];
