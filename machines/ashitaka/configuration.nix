@@ -91,7 +91,7 @@
   ];
 
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
 
   # clan dev tests
   nix.settings.auto-allocate-uids = true;
