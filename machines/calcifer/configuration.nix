@@ -8,7 +8,7 @@
     ../../nixos/nixos.nix
     ../../nixos/shared.nix
     ../../nixos/small.nix
-    ./azv-mpd.nix
+    # ./azv-mpd.nix
     ./kal/module.nix
     ./dnsmasq.nix
     ./networking.nix

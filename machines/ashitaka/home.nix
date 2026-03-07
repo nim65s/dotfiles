@@ -7,7 +7,7 @@
 {
   imports = [
     ../../home/nim/main.nix
-    ../../home/nim/azv-mpc.nix
+    # ../../home/nim/azv-mpc.nix
   ];
 
   home = {
