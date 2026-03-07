@@ -8,7 +8,7 @@
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     ../../nixos/laptop.nix
-    ../../nixos/monitored.nix
+    # ../../nixos/monitored.nix
     ../../nixos/shared.nix
     # ../../nixos/steam.nix
     # ../../nixos/teeworlds.nix
