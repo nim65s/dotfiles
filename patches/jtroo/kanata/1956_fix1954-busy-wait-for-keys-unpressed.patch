@@ -1,0 +1,99 @@
+From 24b1b6070df3292e04f822a431130c15054bba07 Mon Sep 17 00:00:00 2001
+From: randoragon <randoragongamedev@gmail.com>
+Date: Sat, 28 Feb 2026 12:27:51 +0100
+Subject: [PATCH 1/2] fix(linux): off-by-one error in KEY_MAX loop condition
+ (#1954)
+
+See https://github.com/jtroo/kanata/issues/1954#issuecomment-3965447368
+and https://github.com/rvaiya/keyd/blob/7c0aecb8bfd34dc8642bf4eefd2e59c89e61cec3/src/device.c#L356-L374
+
+The off-by-one error is an accidental error when porting the
+device_grab() C function from keyd to Rust. It does not seem like this
+error caused any noticeable behavior difference, but it is still worth
+correcting.
+
+It's unlikely that this has anything to do with #1954, but the problem
+was discovered as part of looking for a solution to #1954, making it a
+related issue.
+---
+ src/oskbd/linux.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/oskbd/linux.rs b/src/oskbd/linux.rs
+index 94accc0bcdf1104df8ec30aed39cc5b3fd711a4b..5383d81f73ec9c558f497d64c346ee348b44e170 100644
+--- a/src/oskbd/linux.rs
++++ b/src/oskbd/linux.rs
+@@ -790,7 +790,7 @@ fn wait_for_all_keys_unpressed(dev: &Device) -> Result<(), io::Error> {
+         ioctl_read_buf!(read_keystates, 'E', 0x18, u8);
+         unsafe { read_keystates(dev.as_raw_fd(), &mut keystate) }
+             .map_err(|_| io::Error::last_os_error())?;
+-        for i in 0..=KEY_MAX {
++        for i in 0..KEY_MAX {
+             if (keystate[i / 8] >> (i % 8)) & 0x1 > 0 {
+                 n_pressed_keys += 1;
+             }
+
+From 55670f2cbac4d9652d7519817374951495bbb173 Mon Sep 17 00:00:00 2001
+From: randoragon <randoragongamedev@gmail.com>
+Date: Sat, 28 Feb 2026 17:44:01 +0100
+Subject: [PATCH 2/2] fix(linux): sleep and timeout when waiting for keys
+ release (#1954)
+
+Prior, kanata would busy-wait for every keyboard-like device to release
+all its keys. Now, key release is checked every 4ms, every 5 seconds
+there is an info message like:
+
+    17:36:56.5095 [INFO] Waiting for "Hypothetical Keyboard" to release its keys (1 pressed) ...
+
+and after roughly a minute of unsuccessful polling, the keyboard is
+skipped.
+
+This avoids high CPU usage when waiting and makes it more apparent
+what's going on when running kanata from the terminal.
+---
+ src/oskbd/linux.rs | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+diff --git a/src/oskbd/linux.rs b/src/oskbd/linux.rs
+index 5383d81f73ec9c558f497d64c346ee348b44e170..b506e0918aa9315b14934611adad3d3d8c6971e1 100644
+--- a/src/oskbd/linux.rs
++++ b/src/oskbd/linux.rs
+@@ -785,6 +785,7 @@ fn wait_for_all_keys_unpressed(dev: &Device) -> Result<(), io::Error> {
+     let mut pending_release = false;
+     const KEY_MAX: usize = OsCode::KEY_MAX as usize;
+     let mut keystate = [0u8; KEY_MAX / 8 + 1];
++    let mut loop_attempts: usize = 0;
+     loop {
+         let mut n_pressed_keys = 0;
+         ioctl_read_buf!(read_keystates, 'E', 0x18, u8);
+@@ -799,6 +800,30 @@ fn wait_for_all_keys_unpressed(dev: &Device) -> Result<(), io::Error> {
+             0 => break,
+             _ => pending_release = true,
+         }
++        if loop_attempts > 1250 {
++            let dev_str = if let Some(dev_name) = dev.name() {
++                format!("\"{}\"", dev_name)
++            } else if let Some(dev_path) = dev.physical_path() {
++                format!("\"{}\"", dev_path)
++            } else {
++                let dev_input_id = dev.input_id();
++                let vendor = dev_input_id.vendor();
++                let product = dev_input_id.product();
++                let version = dev_input_id.version();
++                format!(
++                    "{{ Vendor:{:#04x}, Product:{:#04x}, Version:{:#04x} }}",
++                    vendor, product, version
++                )
++            };
++            log::warn!(
++                "timed out waiting for {} to release its keys ({} pressed)",
++                dev_str,
++                n_pressed_keys
++            );
++            break;
++        }
++        loop_attempts += 1;
++        std::thread::sleep(std::time::Duration::from_millis(4));
+     }
+     if pending_release {
+         std::thread::sleep(std::time::Duration::from_micros(100));

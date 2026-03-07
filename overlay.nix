@@ -12,6 +12,9 @@ let
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
+  kanata = prev.kanata.overrideAttrs {
+    patches = final.lib.fileset.toList ./patches/jtroo/kanata;
+  };
   mopidyPackages = prev.mopidyPackages // {
     mopidy-notify = prev.mopidyPackages.mopidy-notify.overrideAttrs {
       patches = final.lib.fileset.toList ./patches/phijor/mopidy-notify;
