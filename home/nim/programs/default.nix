@@ -54,8 +54,6 @@ in
 
     element-desktop = {
       enable = true;
-      combineDefaultSettings = true;
-      combineSettingsProfiles = true;
       settings = {
         default_server_config."m.homeserver" = {
           base_url = "https://matrix.laas.fr";

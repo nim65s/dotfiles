@@ -15,13 +15,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    flake-input-patcher = {
-      url = "github:jfly/flake-input-patcher";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "clan-core/systems";
-      };
-    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -89,14 +82,7 @@
   };
 
   outputs =
-    unpatchedInputs:
-    let
-      patcher = unpatchedInputs.flake-input-patcher.lib.x86_64-linux;
-      inputs = patcher.patch unpatchedInputs {
-        nixpkgs.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/NixOS/nixpkgs;
-        home-manager.patches = unpatchedInputs.nixpkgs.lib.fileset.toList ./patches/nix-community/home-manager;
-      };
-    in
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { lib, self, ... }:
       {
