@@ -18,12 +18,12 @@
         };
       in
       {
-        "ashitaka.m" = {
+        "ashitaka.w" = {
           default = true;
         };
-        # "grafana.m" = proxy grafana.http_addr grafana.http_port;
-        "grafana.m" = proxy "localhost" grafana.http_port;
-        "home-assistant.m" = proxy hass.server_host hass.server_port;
+        # "grafana.w" = proxy grafana.http_addr grafana.http_port;
+        "grafana.w" = proxy "localhost" grafana.http_port;
+        "home-assistant.w" = proxy hass.server_host hass.server_port;
       };
   };
 }

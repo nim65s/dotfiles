@@ -67,6 +67,13 @@
         user = "root";
         port = 2222;
       };
+      "*.w" = {
+        forwardAgent = true;
+      };
+      "*.W" = {
+        forwardAgent = true;
+        user = "root";
+      };
     };
   };
 }

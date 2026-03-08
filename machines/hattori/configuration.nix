@@ -40,7 +40,7 @@
     # alloria-escape = {
     #   enable = true;
     #   openFirewall = true;
-    #   rtp-ip = "yupa.m";
+    #   rtp-ip = "yupa.w";
     # };
     displayManager = {
       autoLogin.user = "mimi";

@@ -15,7 +15,7 @@ nix run github:nim65s/dotfiles#home-manager -- switch --flake github:nim65s/dotf
 
 ```
 set machine fix
-set remote $machine.m
+set remote $machine.w
 ssh-keygen -f ~/.ssh/known_hosts -R $remote
 ssh-keyscan $remote >> ~/.ssh/known_hosts
 ssh root@localhost "ssh-keygen -f ~/.ssh/known_hosts -R $remote"

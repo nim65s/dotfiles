@@ -235,7 +235,7 @@
           };
           meta = {
             name = "nim65s";
-            domain = "m";
+            domain = "w";
           };
           specialArgs = {
             inherit (inputs)

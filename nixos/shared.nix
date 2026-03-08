@@ -76,9 +76,9 @@
     hosts =
       let
         aliases = {
-          "ashitaka.m" = [
-            "grafana.m"
-            "home-assistant.m"
+          "ashitaka.w" = [
+            "grafana.w"
+            "home-assistant.w"
           ];
         };
         allPeersWithIp = builtins.mapAttrs (
