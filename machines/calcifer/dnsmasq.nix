@@ -59,4 +59,15 @@
       67
     ];
   };
+
+  systemd.services.dnsmasq = {
+    after = [
+      "sys-subsystem-net-devices-lan1.device"
+      "sys-subsystem-net-devices-wan.device"
+    ];
+    requires = [
+      "sys-subsystem-net-devices-lan1.device"
+      "sys-subsystem-net-devices-wan.device"
+    ];
+  };
 }
