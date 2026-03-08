@@ -114,7 +114,8 @@
                   settings.user = "root";
                 };
               };
-              users = {
+              users-nim = {
+                module.name = "users";
                 roles.default = {
                   tags.all = { };
                   settings.user = "nim";
