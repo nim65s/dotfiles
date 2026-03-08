@@ -218,9 +218,17 @@
                 roles.controller.machines = {
                   calcifer.settings.endpoint = "w.saurel.me";
                 };
-                roles.peer = {
-                  machines.ashitaka = { };
-                  machines.yupa = { };
+                roles.peer.machines = {
+                  ashitaka = { };
+                  bpi-r4 = { };
+                  fix = { };
+                  hattori = { };
+                  healoriaspi = { };
+                  perseverance = { };
+                  spare = { };
+                  tipunch = { };
+                  yupa = { };
+                  zhurong = { };
                 };
               };
             };
