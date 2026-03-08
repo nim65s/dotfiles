@@ -33,7 +33,9 @@ in
     9090
     9777
     1704 # snapcast
+    1780 # snapserver
     6600 # mpd
+    6680 # mpd http
   ];
 
   services = {
