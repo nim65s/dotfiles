@@ -212,9 +212,11 @@
                   };
                 };
               };
-              wireguard = {
+              w = {
+                module.name = "wireguard";
+                module.input = "clan-core";
                 roles.controller.machines = {
-                  calcifer.settings.endpoint = "calcifer.saurel.me";
+                  calcifer.settings.endpoint = "w.saurel.me";
                 };
                 roles.peer = {
                   machines.ashitaka = { };
