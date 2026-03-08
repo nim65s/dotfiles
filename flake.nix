@@ -212,6 +212,14 @@
                   };
                 };
               };
+              wireguard = {
+                roles.controller.machines = {
+                  calcifer.settings.endpoint = "calcifer.saurel.me";
+                };
+                roles.peer = {
+                  machines.ashitaka = { };
+                };
+              };
             };
           };
           meta = {
