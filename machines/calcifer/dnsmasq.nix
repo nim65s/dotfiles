@@ -1,12 +1,13 @@
 {
+  lib,
   config,
   ...
 }:
 {
   boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = true;
-    "net.ipv6.conf.all.forwarding" = true;
-    "net.ipv6.conf.default.forwarding" = true;
+    "net.ipv4.ip_forward" = lib.mkDefault 1;
+    "net.ipv6.conf.all.forwarding" = lib.mkDefault 1;
+    "net.ipv6.conf.default.forwarding" = lib.mkDefault 1;
   };
 
   services.dnsmasq = {
