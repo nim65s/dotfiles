@@ -3,7 +3,7 @@
     "ashitaka": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "ashitaka.m"
+        "targetHost": "ashitaka.w"
       },
       "name": "ashitaka"
     },
@@ -17,7 +17,7 @@
     "yupa": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "yupa.m"
+        "targetHost": "yupa.w"
       },
       "name": "yupa"
     },
@@ -34,7 +34,7 @@
     "spare": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "spare.m"
+        "targetHost": "spare.w"
       },
       "name": "spare"
     },
@@ -52,7 +52,7 @@
       "installedAt": 1769348259,
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "192.168.1.1"
+        "targetHost": "calcifer.w"
       },
       "name": "calcifer"
     }
