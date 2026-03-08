@@ -220,6 +220,7 @@
                 };
                 roles.peer = {
                   machines.ashitaka = { };
+                  machines.yupa = { };
                 };
               };
             };
