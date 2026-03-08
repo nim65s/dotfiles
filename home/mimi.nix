@@ -28,7 +28,7 @@
           gcompris
           klavaro
           # libsForQt5.ktouch # TODO: broken on qt6
-          superTuxKart
+          supertuxkart
           teeworlds
           vlc
         ]
