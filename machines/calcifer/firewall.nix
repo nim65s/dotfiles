@@ -11,7 +11,7 @@
             ct state { established, related } accept
             ct state invalid drop
 
-            tcp dport { ssh } accept
+            tcp dport { 22, 2222 } accept
 
             iifname "wan" oifname { "lan1", "lan2", "lan3" } drop;
           }
