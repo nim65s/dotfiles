@@ -35,6 +35,7 @@
   home-manager.users.nim = import ./home.nix;
 
   networking = {
+    extraHosts = "127.0.0.2 home-assistant.w";
     interfaces = {
       enp3s0 = {
         useDHCP = true;
