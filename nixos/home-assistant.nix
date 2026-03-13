@@ -24,7 +24,7 @@ in
 
       http = {
         use_x_forwarded_for = true;
-        server_host = "home-assistant.m";
+        server_host = "home-assistant.w";
         trusted_proxies = [
           "::1"
           "127.0.0.1"
