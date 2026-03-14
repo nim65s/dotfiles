@@ -10,6 +10,7 @@ in
   imports = [
     ../../nixos/small.nix
     ../../nixos/mopidy.nix
+    ../../nixos/nas.nix
   ];
 
   services.displayManager = {

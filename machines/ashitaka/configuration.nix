@@ -12,6 +12,7 @@
     ../../nixos/remote-decrypt.nix
     ../../nixos/shared.nix
     ../../nixos/systemd-boot.nix
+    ../../nixos/nas.nix
     ../../nixos/nixos.nix
     ../../nixos/zenoh.nix
   ];
