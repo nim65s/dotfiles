@@ -98,10 +98,10 @@
           private = false;
         };
         "mpd.saurel.me" = azvProxy {
-          source = "http://localhost:6680";
+          source = "http://spare.w:6680";
         };
         "snap.saurel.me" = azvProxy {
-          source = "http://localhost:${toString config.services.snapserver.settings.http.port}";
+          source = "http://spare.w:${toString config.services.snapserver.settings.http.port}";
         };
       };
 
