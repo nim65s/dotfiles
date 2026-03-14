@@ -7,7 +7,6 @@
 {
   imports = [
     ../../home/nim/main.nix
-    ../../home/nim/azv-mpc.nix
   ];
 
   home = {
@@ -32,10 +31,12 @@
 
     rmpc.config = ''
       (
-        address = "calcifer.azv:6600",
+        address = "spare.w:6600",
       )
     '';
   };
+
+  services.snapclient.enable = true;
 
   xdg.autostart = {
     enable = true;

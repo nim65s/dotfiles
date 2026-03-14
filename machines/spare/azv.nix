@@ -19,6 +19,7 @@ in
   };
 
   users.extraUsers.kodi.isNormalUser = true;
+  home-manager.users.kodi = import ./home.nix;
 
   services.xserver = {
     enable = true;
