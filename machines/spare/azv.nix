@@ -44,6 +44,7 @@ in
       audio.output = "audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! filesink location=${fifo}";
       mpd.hostname = "::";
       m3u.playlists_dir = "/var/lib/mopidy/Playlists";
+      http.hostname = "spare.w";
     };
 
     nim-mopidy = {
