@@ -8,6 +8,7 @@
       "upe" = config.laasProxy.value // {
         hostname = "upepesanke";
         user = "gsaurel";
+        forwardAgent = true;
       };
       "miya" = config.laasProxy.value // {
         hostname = "miyanoura";

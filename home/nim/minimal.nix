@@ -100,6 +100,7 @@
       matchBlocks = {
         "*" = {
           controlMaster = "auto";
+          controlPath = "~/.ssh/C-%C";
           userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
         };
         "gh" = {
