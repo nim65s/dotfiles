@@ -101,6 +101,7 @@
         "*" = {
           controlMaster = "auto";
           controlPath = "~/.ssh/C-%C";
+          controlPersist = "7200";
           userKnownHostsFile = "~/.ssh/known_hosts ~/dotfiles/known_hosts";
         };
         "gh" = {
