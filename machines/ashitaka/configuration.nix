@@ -15,6 +15,7 @@
     ../../nixos/nas.nix
     ../../nixos/nixos.nix
     ../../nixos/zenoh.nix
+    ./rotate-cam.nix
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
