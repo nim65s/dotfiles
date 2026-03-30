@@ -9,7 +9,7 @@ writeShellApplication {
     (
       echo '#! ${runtimeShell}'
       echo 'set -eux'
-      echo 'nix fmt'
+      echo 'nix flake check'
       echo 'git diff --quiet'
       if test -f ../.pre-commit-config.yaml
       then echo 'prek run -a'
