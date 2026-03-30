@@ -12,7 +12,7 @@ writeShellApplication {
       echo 'nix fmt'
       echo 'git diff --quiet'
       if test -f ../.pre-commit-config.yaml
-      then echo 'pre-commit run -a'
+      then echo 'prek run -a'
       fi
     ) > hooks/pre-commit
     chmod +x hooks/pre-commit
