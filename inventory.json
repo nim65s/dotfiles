@@ -27,7 +27,7 @@
     "hattori": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "hattori.m"
+        "targetHost": "hattori.w"
       },
       "name": "hattori"
     },
