@@ -5,7 +5,6 @@
 let
   logsServerAddr = "ashitaka.m";
   lokiPort = 3100;
-  nodeExporterPort = toString config.services.prometheus.exporters.node.port;
 in
 {
 
@@ -49,8 +48,8 @@ in
             "logind"
             "systemd"
           ];
-          firewallFilter = "-i mycelium -p tcp -m tcp --dport ${nodeExporterPort}";
-          firewallRules = ''iifname "mycelium" tcp dport ${nodeExporterPort} counter accept'';
+          # firewallFilter = "-i mycelium -p tcp -m tcp --dport ${nodeExporterPort}";
+          # firewallRules = ''iifname "mycelium" tcp dport ${nodeExporterPort} counter accept'';
           openFirewall = true;
         };
       };

@@ -116,7 +116,7 @@ in
     };
   };
 
-  networking.firewall.extraCommands = ''
-    ip46tables -A nixos-fw -i mycelium -p tcp -m tcp --dport ${toString lokiPort} -m comment --comment alloy-loki -j nixos-fw-accept
-  '';
+  # networking.firewall.extraCommands = ''
+  #   ip46tables -A nixos-fw -i mycelium -p tcp -m tcp --dport ${toString lokiPort} -m comment --comment alloy-loki -j nixos-fw-accept
+  # '';
 }

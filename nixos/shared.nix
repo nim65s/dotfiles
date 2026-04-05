@@ -73,22 +73,22 @@
       allowedUDPPorts = [ 655 ];
     };
     # https://git.clan.lol/clan/clan-core/commit/122dbf42400ff313bab1b5dcaf6c140cec3704e8
-    hosts =
-      let
-        aliases = {
-          "ashitaka.w" = [
-            "grafana.w"
-            "home-assistant.w"
-          ];
-        };
-        allPeersWithIp = builtins.mapAttrs (
-          _: x: lib.removeSuffix "\n" x.config.clan.core.vars.generators.mycelium.files.ip.value
-        ) flake.nixosConfigurations;
-        myceliumHosts = lib.mapAttrs' (
-          host: ip: lib.nameValuePair ip ([ "${host}.m" ] ++ (aliases."${host}.m" or [ ]))
-        ) allPeersWithIp;
-      in
-      myceliumHosts;
+    # hosts =
+    #   let
+    #     aliases = {
+    #       "ashitaka.w" = [
+    #         "grafana.w"
+    #         "home-assistant.w"
+    #       ];
+    #     };
+    #     allPeersWithIp = builtins.mapAttrs (
+    #       _: x: lib.removeSuffix "\n" x.config.clan.core.vars.generators.mycelium.files.ip.value
+    #     ) flake.nixosConfigurations;
+    #     myceliumHosts = lib.mapAttrs' (
+    #       host: ip: lib.nameValuePair ip ([ "${host}.m" ] ++ (aliases."${host}.m" or [ ]))
+    #     ) allPeersWithIp;
+    #   in
+    #   myceliumHosts;
     useNetworkd = true;
     nftables.enable = true;
   };

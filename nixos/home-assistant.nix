@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -29,7 +28,7 @@ in
           "::1"
           "127.0.0.1"
           "fd50:e721:6:600:cfb5:53ad:e6e0:78cd"
-          (lib.removeSuffix "\n" config.clan.core.vars.generators.mycelium.files.ip.value)
+          # (lib.removeSuffix "\n" config.clan.core.vars.generators.mycelium.files.ip.value)
         ];
       };
 

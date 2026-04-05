@@ -94,11 +94,11 @@
         clan = {
           inventory = {
             instances = {
-              mycelium = {
-                roles.peer = {
-                  tags.all = { };
-                };
-              };
+              # mycelium = {
+              #   roles.peer = {
+              #     tags.all = { };
+              #   };
+              # };
               harmonia = {
                 roles.server = {
                   machines.ashitaka = { };

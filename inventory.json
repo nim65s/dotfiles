@@ -10,7 +10,7 @@
     "fix": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "fix.m"
+        "targetHost": "fix.w"
       },
       "name": "fix"
     },
@@ -44,7 +44,7 @@
     "tipunch": {
       "deploy": {
         "buildHost": "localhost",
-        "targetHost": "tipunch.m"
+        "targetHost": "tipunch.w"
       },
       "name": "tipunch"
     },
