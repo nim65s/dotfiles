@@ -151,9 +151,11 @@
               };
               sshd = {
                 roles.client = {
+                  settings.certificate.searchDomains = [ "w" ];
                   tags.all = { };
                 };
                 roles.server = {
+                  settings.certificate.searchDomains = [ "w" ];
                   settings.authorizedKeys = {
                     "upe" =
                       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBbE5nRZpgFdZJgC+hTzdyYLxKUBY59WFYOQ/O1oxwc gsaurel@upepesanke";
