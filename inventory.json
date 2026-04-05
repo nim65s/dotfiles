@@ -32,12 +32,8 @@
       "name": "hattori"
     },
     "solarium": {
-      "deploy": {
-        "buildHost": "localhost",
-        "targetHost": "solarium.w"
-      },
-      "name": "solarium",
-    }:
+      "installedAt": 1775411267
+    },
     "spare": {
       "deploy": {
         "buildHost": "localhost",
@@ -62,9 +58,6 @@
         "targetHost": "calcifer.w"
       },
       "name": "calcifer"
-    },
-    "solarium": {
-      "installedAt": 1775411267
     }
   }
 }
