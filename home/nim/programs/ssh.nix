@@ -27,6 +27,10 @@
         user = "nim";
         forwardAgent = true;
       };
+      "kiki" = {
+        user = "root";
+        hostname = "192.168.1.2";
+      };
       "datcat" = {
         port = 2222;
         user = "root";
