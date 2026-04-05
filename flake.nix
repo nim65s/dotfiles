@@ -114,6 +114,13 @@
                   settings.user = "root";
                 };
               };
+              users-doud = {
+                module.name = "users";
+                roles.default = {
+                  machines.solarium = { };
+                  settings.user = "doud";
+                };
+              };
               users-nim = {
                 module.name = "users";
                 roles.default = {
@@ -164,6 +171,7 @@
                 roles.default = {
                   machines.fix = { };
                   machines.hattori = { };
+                  machines.solarium = { };
                   machines.tipunch = { };
                   machines.yupa = { };
                   settings.networks = {
@@ -226,6 +234,7 @@
                   hattori = { };
                   healoriaspi = { };
                   perseverance = { };
+                  solarium = { };
                   spare = { };
                   tipunch = { };
                   yupa = { };
