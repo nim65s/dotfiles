@@ -19,6 +19,9 @@
       username = "doud";
       keyboard.layout = "fr";
       packages = [
+        pkgs.chromium
+        pkgs.libreoffice
+        pkgs.sweethome3d.application
         pkgs.vlc
       ];
       stateVersion = "25.05";
