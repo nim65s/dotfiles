@@ -31,6 +31,13 @@
       },
       "name": "hattori"
     },
+    "solarium": {
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "solarium.w"
+      },
+      "name": "solarium",
+    }:
     "spare": {
       "deploy": {
         "buildHost": "localhost",
