@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ../../nixos/disko/zfs-swap.nix
+    ../../nixos/disko/ext4-swap-tmpfs.nix
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     ../../nixos/shared.nix
