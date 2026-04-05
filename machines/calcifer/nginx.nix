@@ -73,11 +73,11 @@
                 allow 192.168.3.0/24;
                 allow fc00::/7;
                 allow fe80::/10;
-                allow 2a01:e0a:989:7190::/64;
-                allow 2a01:e0a:989:7191::/64;
-                allow 2a01:e0a:989:7192::/64;
-                allow 2a01:e0a:989:7193::/64;
-                allow 2a01:e0a:989:7194::/64;
+                allow 2a01:e0a:941:c1d0::/64;
+                allow 2a01:e0a:941:c1d1::/64;
+                allow 2a01:e0a:941:c1d2::/64;
+                allow 2a01:e0a:941:c1d3::/64;
+                allow 2a01:e0a:941:c1d4::/64;
 
                 deny all;
               '';

@@ -23,9 +23,9 @@
 
       address = [
         "/calcifer.azv/192.168.1.1"
-        "/calcifer.azv/2a01:e0a:989:7191::1"
+        "/calcifer.azv/2a01:e0a:941:c1d1::1"
         "/calcifer.azv.saurel.me/82.65.234.111"
-        "/calcifer.azv.saurel.me/2a01:e0a:989:7194::1"
+        "/calcifer.azv.saurel.me/2a01:e0a:941:c1d4::1"
       ];
       dhcp-range = [
         "lan1,192.168.1.100,192.168.1.200,12h"

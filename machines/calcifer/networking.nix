@@ -21,7 +21,7 @@
         ];
         ipv6.addresses = [
           {
-            address = "2a01:e0a:989:7194::1";
+            address = "2a01:e0a:941:c1d4::1";
             prefixLength = 64;
           }
         ];
@@ -36,7 +36,7 @@
         ];
         ipv6.addresses = [
           {
-            address = "2a01:e0a:989:7191::1";
+            address = "2a01:e0a:941:c1d1::1";
             prefixLength = 64;
           }
         ];
@@ -51,7 +51,7 @@
         ];
         ipv6.addresses = [
           {
-            address = "2a01:e0a:989:7192::1";
+            address = "2a01:e0a:941:c1d2::1";
             prefixLength = 64;
           }
         ];
@@ -66,7 +66,7 @@
         ];
         ipv6.addresses = [
           {
-            address = "2a01:e0a:989:7193::1";
+            address = "2a01:e0a:941:c1d3::1";
             prefixLength = 64;
           }
         ];
