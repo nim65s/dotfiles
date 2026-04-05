@@ -55,6 +55,9 @@
         "targetHost": "calcifer.w"
       },
       "name": "calcifer"
+    },
+    "solarium": {
+      "installedAt": 1775397731
     }
   }
 }
