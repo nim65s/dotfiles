@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TEMPLATE_DIR="${1:-$HOME/local/gepetto/nix/template}"
+
+for f in $(git -C "$TEMPLATE_DIR" ls-files)
+do
+    test -d "$(dirname "$f")" || mkdir -p "$(dirname "$f")"
+    test -f "$f" || cp {"$TEMPLATE_DIR/",}"$f"
+    diff -q {"$TEMPLATE_DIR/",}"$f" || nvim -d {"$TEMPLATE_DIR/",}"$f"
+done

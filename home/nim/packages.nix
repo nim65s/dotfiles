@@ -156,6 +156,7 @@
       swaylock
       tailstamp
       tdf
+      templup
       toml-sort
       tree
       tree-sitter
