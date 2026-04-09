@@ -117,6 +117,7 @@
               users-doud = {
                 module.name = "users";
                 roles.default = {
+                  machines.hattori = { };
                   machines.solarium = { };
                   settings.user = "doud";
                 };

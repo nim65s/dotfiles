@@ -24,8 +24,9 @@
     name = "main-5960c9984f2d43c8b5158243d19fb2fc";
   };
   home-manager.users = {
-    nim = import ../../home/nim/main.nix;
+    doud = import ../../home/doud.nix;
     mimi = import ../../home/mimi.nix;
+    nim = import ../../home/nim/main.nix;
   };
   networking = {
     interfaces."tinc.mars".ipv4.addresses = [
@@ -50,9 +51,15 @@
     xserver.xkb.variant = "";
   };
   stylix.image = ../../bg/hattori.jpg;
-  users.users.mimi = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    # group = "kids";
+  users.users = {
+    doud = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+    };
+    mimi = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      # group = "kids";
+    };
   };
 }
