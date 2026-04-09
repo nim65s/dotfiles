@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-TEMPLATE_DIR="${1:-$HOME/local/gepetto/nix/template}"
+TEMPLATE_DIR="${1:-$HOME/local/gepetto/nix/templates/default}"
 
 for f in $(git -C "$TEMPLATE_DIR" ls-files)
 do
