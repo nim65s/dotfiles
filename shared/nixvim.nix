@@ -329,8 +329,6 @@
       };
     };
 
-    hmts.enable = true;
-
     web-devicons.enable = true;
 
     yazi.enable = lib.mkDefault true;
