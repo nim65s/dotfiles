@@ -26,31 +26,38 @@
 
   console.useXkbConfig = lib.mkDefault true;
 
-  environment.systemPackages = with pkgs; [
-    alacritty
-    btop
-    coreutils
-    cntr
-    dfc
-    dua
-    file
-    git
-    graphviz
-    htop
-    inetutils
-    iproute2
-    jq
-    kitty
-    nettools
-    ncdu
-    pciutils
-    psmisc
-    ripgrep
-    swaylock
-    tmux
-    usbutils
-    wget
-  ];
+  environment = {
+    etc."xdg/kwalletrc".text = ''
+      [Wallet]
+      Enabled=false
+    '';
+
+    systemPackages = with pkgs; [
+      alacritty
+      btop
+      coreutils
+      cntr
+      dfc
+      dua
+      file
+      git
+      graphviz
+      htop
+      inetutils
+      iproute2
+      jq
+      kitty
+      nettools
+      ncdu
+      pciutils
+      psmisc
+      ripgrep
+      swaylock
+      tmux
+      usbutils
+      wget
+    ];
+  };
 
   home-manager = {
     extraSpecialArgs = {
