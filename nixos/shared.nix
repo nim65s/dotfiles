@@ -32,6 +32,7 @@
     coreutils
     cntr
     dfc
+    dua
     file
     git
     graphviz
