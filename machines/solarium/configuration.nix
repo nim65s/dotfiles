@@ -37,7 +37,27 @@
   users.users.doud = {
     isNormalUser = true;
     shell = pkgs.fish;
-    # group = "kids";
+  };
+
+  fileSystems = {
+    "/mnt" = {
+      device = "/dev/disk/by-uuid/907d2275-a629-4bc8-b242-5522f52450f3";
+      fsType = "ext4";
+      options = [
+        "noauto"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=60"
+      ];
+    };
+    "/mnt/home" = {
+      device = "/dev/disk/by-uuid/c7794049-d177-42e1-808e-ae36af1feba3";
+      fsType = "ext4";
+      options = [
+        "noauto"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=60"
+      ];
+    };
   };
 
 }
