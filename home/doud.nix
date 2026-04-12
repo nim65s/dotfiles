@@ -23,7 +23,10 @@
         pkgs.libreoffice
         pkgs.sweethome3d.application
         pkgs.vlc
-      ];
+      ]
+      ++ (with pkgs.kdePackages; [
+        kmines
+      ]);
       stateVersion = "25.05";
     };
 
