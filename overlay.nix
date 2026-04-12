@@ -20,11 +20,6 @@ in
       patches = final.lib.fileset.toList ./patches/phijor/mopidy-notify;
     };
   };
-  rofi-rbw = prev.rofi-rbw.overrideAttrs {
-    patches = [
-      ./patches/fdw/rofi-rbw/124_fix-typing-passwords-starting-with-dashes.patch
-    ];
-  };
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
