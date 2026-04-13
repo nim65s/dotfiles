@@ -181,6 +181,7 @@
                   machines.fix = { };
                   machines.hattori = { };
                   machines.solarium = { };
+                  machines.tatsuo = { };
                   machines.tipunch = { };
                   machines.yupa = { };
                   settings.networks = {
@@ -245,6 +246,7 @@
                   perseverance = { };
                   solarium = { };
                   spare = { };
+                  tatsuo = { };
                   tipunch = { };
                   yupa = { };
                   zhurong = { };

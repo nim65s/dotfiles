@@ -60,7 +60,12 @@
       "name": "calcifer"
     },
     "tatsuo": {
-      "installedAt": 1775431814
+      "installedAt": 1775431814,
+      "deploy": {
+        "buildHost": "localhost",
+        "targetHost": "tatsuo.w"
+      },
+      "name": "tatsuo"
     }
   }
 }
