@@ -34,9 +34,13 @@
 
     systemPackages = with pkgs; [
       alacritty
+      bcc
+      bpftrace
       btop
+      comma
       coreutils
       cntr
+      config.boot.kernelPackages.cpupower
       dfc
       dua
       file
@@ -44,15 +48,19 @@
       graphviz
       htop
       inetutils
+      iotop
       iproute2
       jq
       kitty
       nettools
       ncdu
+      perf
       pciutils
       psmisc
       ripgrep
+      smartmontools
       swaylock
+      sysstat
       tmux
       usbutils
       wget
