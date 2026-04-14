@@ -45,6 +45,7 @@ dst/*
 *.egg-info/*
 htmlcov
 .coverage
+.coverage*
 tags
 build/*
 build2/*
