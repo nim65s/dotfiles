@@ -9,4 +9,5 @@ do
     test -d "$(dirname "$f")" || mkdir -p "$(dirname "$f")"
     test -f "$f" || cp {"$TEMPLATE_DIR/",}"$f"
     diff -q {"$TEMPLATE_DIR/",}"$f" || nvim -d {"$TEMPLATE_DIR/",}"$f"
+    grep -q CHANGEME "$f" || nvim "$f"
 done
