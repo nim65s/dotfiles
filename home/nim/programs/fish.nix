@@ -108,6 +108,8 @@
     shellAliases = {
       "+" = "echo";
       cp = "cp -r";
+      da = "direnv allow";
+      db = "direnv block";
       mv = "mv -v";
       rm = "rm -Iv";
       watch = "watch --color -d";
