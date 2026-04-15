@@ -159,7 +159,7 @@
 
   services = {
     arsenik = {
-      enable = true;
+      enable = lib.mkDefault true;
       package = pkgs.arsenik.overrideAttrs {
         patches = [
           (pkgs.fetchpatch {

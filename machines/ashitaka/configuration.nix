@@ -67,6 +67,7 @@
   };
 
   services = {
+    arsenik.enable = false;
     nim-mopidy.enable = true;
     nim-mopidy.enable-hm = true;
 
