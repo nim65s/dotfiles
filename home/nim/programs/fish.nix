@@ -60,6 +60,8 @@
       bi = "cmake --build build -t install";
       cdp = "cd (pwd -P)";
       demonte = "~/scripts/demonter.sh";
+      da = "direnv allow";
+      db = "direnv block";
       dc = "cd";
       gc = {
         expansion = "git commit -am '%'";
@@ -108,8 +110,6 @@
     shellAliases = {
       "+" = "echo";
       cp = "cp -r";
-      da = "direnv allow";
-      db = "direnv block";
       mv = "mv -v";
       rm = "rm -Iv";
       watch = "watch --color -d";
