@@ -157,6 +157,7 @@
       tailstamp
       tdf
       templup
+      tig
       toml-sort
       tree
       tree-sitter

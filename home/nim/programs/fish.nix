@@ -96,7 +96,6 @@
       man = "batman";
       monte = "~/scripts/monter.sh";
       psef = "ps -ef | grep -v grep | grep";
-      tig = "gitui";
       v = "nvim";
       vi = "nvim";
       vmi = "nvim";

@@ -61,6 +61,7 @@
       smartmontools
       swaylock
       sysstat
+      tig
       tmux
       usbutils
       wget
