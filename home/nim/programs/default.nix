@@ -68,6 +68,8 @@ in
 
     ghostty.enable = true;
 
+    gitui.enable = true;
+
     halloy = {
       enable = true;
       settings = {
