@@ -16,5 +16,5 @@ window-rule {
 window-rule {
     match at-startup=true app-id="firefox-devedition"
     open-on-workspace "web"
-    default-column-width { proportion 1; }
+    default-column-width { proportion 1.0; }
 }
