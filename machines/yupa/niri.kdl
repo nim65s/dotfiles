@@ -4,7 +4,7 @@ workspace "web" {
 }
 
 window-rule {
-    match at-startup=true app-id="Element"
+    match at-startup=true app-id="electron"
     open-on-workspace "com"
     default-column-width { proportion 0.66667; }
 }
