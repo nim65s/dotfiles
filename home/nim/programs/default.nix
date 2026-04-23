@@ -174,7 +174,7 @@ in
         settings = {
           "extensions.activeThemeID" = "{f6d05f0c-39a8-5c4d-96dd-4852202a8244}";
           "mail.identity.default.compose_html" = 1;
-          "mail.pane_config.dynamic" = 2;
+          "mail.pane_config.dynamic" = lib.mkDefault 2;
           "mail.server.default.check_all_folders_for_new" = true;
           "mail.uidensity" = 0;
           "mail.uifontsize" = 10;

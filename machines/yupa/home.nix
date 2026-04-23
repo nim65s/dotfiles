@@ -18,6 +18,9 @@
         address = "spare.w:6600",
       )
     '';
+    thunderbird.profiles.nim.settings = {
+      "mail.pane_config.dynamic" = 1;
+    };
   };
 
   services.snapclient = {
