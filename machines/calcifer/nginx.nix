@@ -36,7 +36,6 @@
       "calcifer.saurel.me".email = atjoin { name = "guilhem+calcifer-calcifer"; };
       "iot.saurel.me".email = atjoin { name = "guilhem+calcifer-iot"; };
       "mpd.saurel.me".email = atjoin { name = "guilhem+calcifer-mpd"; };
-      "snap.saurel.me".email = atjoin { name = "guilhem+calcifer-snap"; };
     };
 
   services.nginx = {
@@ -98,10 +97,7 @@
           private = false;
         };
         "mpd.saurel.me" = azvProxy {
-          source = "http://spare.w:6680";
-        };
-        "snap.saurel.me" = azvProxy {
-          source = "http://spare.w:${toString config.services.snapserver.settings.http.port}";
+          source = "http://spare.w:8095";
         };
       };
 

@@ -23,11 +23,6 @@
     };
   };
 
-  services.snapclient = {
-    enable = true;
-    autoStart = false;
-  };
-
   xdg.autostart = {
     enable = true;
     entries = [

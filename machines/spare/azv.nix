@@ -1,6 +1,4 @@
 {
-  lib,
-  pkgs,
   ...
 }:
 {
@@ -18,8 +16,6 @@
     8080
     9090
     9777
-    1704 # snapcast
-    1780 # snapserver
     8095 # music-assistant
   ];
 
@@ -54,29 +50,7 @@
         "listenbrainz_scrobble"
         "lrclib"
         "sendspin"
-        "snapcast"
       ];
     };
-  };
-
-  # snapclient
-
-  systemd = {
-    services = {
-      snapclient = {
-        serviceConfig = {
-          User = "snapclient";
-          Group = "snapclient";
-          ExecStart = "${lib.getExe' pkgs.snapcast "snapclient"} tcp://localhost";
-        };
-      };
-    };
-  };
-
-  users.groups.snapclient = { };
-  users.users.snapclient = {
-    isSystemUser = true;
-    group = "snapclient";
-    extraGroups = [ "audio" ];
   };
 }

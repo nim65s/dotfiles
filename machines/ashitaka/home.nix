@@ -38,8 +38,6 @@
     '';
   };
 
-  services.snapclient.enable = true;
-
   xdg.autostart = {
     enable = true;
     entries = [
@@ -51,7 +49,7 @@
       "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
       "${pkgs.signal-desktop}/share/applications/signal.desktop"
       "${pkgs.zulip}/share/applications/zulip.desktop"
-      "${pkgs.music-assistant-companion}/share/applications/Music Assistant.desktop"
+      "${pkgs.music-assistant-companion}/share/applications/Music\ Assistant.desktop"
     ];
   };
 }

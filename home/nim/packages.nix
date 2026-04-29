@@ -123,7 +123,6 @@
       sd
       shellcheck
       slurp
-      #snapcast
       sops
       sqlite
       ssh-to-age

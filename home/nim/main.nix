@@ -8,7 +8,6 @@
 {
   imports = [
     nixvim.homeModules.nixvim
-    ../homeModules/snapclient.nix
     ./minimal.nix
     ./accounts.nix
     ./nim-sync.nix
