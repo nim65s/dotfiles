@@ -13,6 +13,7 @@
     packages = with pkgs; [
       deluge-gtk
       filezilla
+      zulip
     ];
   };
 
