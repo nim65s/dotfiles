@@ -87,7 +87,7 @@
       #nix-du
       nix-diff
       nix-output-monitor
-      nix-tree
+      nix-tree-rs
       nix-update
       nixd
       nixfmt
