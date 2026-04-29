@@ -10,6 +10,9 @@ workspace "web" {
 workspace "com" {
     open-on-output "Unknown"
 }
+workspace "zik" {
+    open-on-output "Unknown"
+}
 
 window-rule {
     match at-startup=true app-id="org.zealdocs.zeal"
@@ -27,9 +30,19 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match at-startup=true app-id="Element"
+    match at-startup=true app-id="electron"
     open-on-workspace "com"
     default-column-width { proportion 0.65; }
+}
+window-rule {
+    match at-startup=true app-id="signal"
+    open-on-workspace "com"
+    default-column-width { proportion 0.35; }
+}
+window-rule {
+    match at-startup=true app-id="Zulip"
+    open-on-workspace "com"
+    default-column-width { proportion 0.35; }
 }
 window-rule {
     match at-startup=true app-id="thunderbird"
@@ -38,7 +51,7 @@ window-rule {
 }
 window-rule {
     match at-startup=true app-id="com.saivert.pwvucontrol"
-    open-on-workspace "com"
+    open-on-workspace "zik"
     default-column-width { proportion 0.35; }
 }
 window-rule {
