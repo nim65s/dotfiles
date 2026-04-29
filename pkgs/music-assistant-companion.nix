@@ -29,13 +29,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "music-assistant-companion";
-  version = "0.3.5";
+  version = "0.3.6";
 
   src = fetchFromGitHub {
     owner = "music-assistant";
     repo = "desktop-app";
     tag = finalAttrs.version;
-    hash = "sha256-0qhcuN2bTqJtx8n3FxYwIAiILFcIIAK+HUGAKuA/i4M=";
+    hash = "sha256-GL9Cpk6NDhRV0npVXwGjR3Dm0H/uo9cD4ebaI751VLM=";
   };
 
   cargoRoot = "src-tauri";
