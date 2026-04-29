@@ -154,6 +154,7 @@
       enable = true;
       defaultEditor = true;
     };
+    ssh.knownHostsFiles = [ ../known_hosts ];
   };
 
   security.acme.acceptTerms = true;
