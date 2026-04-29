@@ -13,6 +13,11 @@ in
     ../../nixos/nas.nix
   ];
 
+  fileSystems."/mnt/totoro".options = [
+    "x-systemd.after=systemd-networkd-wait-online@eno1.service"
+    "x-systemd.requires=systemd-networkd-wait-online@eno1.service"
+  ];
+
   services.displayManager = {
     autoLogin.user = "kodi";
     sddm.enable = false;
