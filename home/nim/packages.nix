@@ -88,7 +88,6 @@
       nix-diff
       nix-output-monitor
       nix-tree-rs
-      prefetch-npm-deps
       nix-update
       nixd
       nixfmt
@@ -110,11 +109,12 @@
       pratches
       pre-commit
       pre-commit-sort
+      prefetch-npm-deps
       prek
       pulseaudio
       pwgen
-      rofimoji
       rbw
+      rofimoji
       rosdep
       ruff
       rustc # nor pre-commit
@@ -181,41 +181,41 @@
     ]
     ++ lib.optionals config.nim-home.gui [
       # keep-sorted start
-      #wireplumber
-      wl-clipboard
-      wtype
-      libreoffice
-      xwayland-satellite
-      zathura
-      wdisplays
       brightnessctl
       cage
       d-spy
       gparted
       grim
       iosevka
+      iosevka-aile
+      iosevka-etoile
+      iosevka-term
       kcov
       kdePackages.kolourpaint
+      kdePackages.okular
+      libreoffice
+      meld
       mesa-demos
       meshlab
-      meld
       mpv
       niri
+      nitrogen
       pdfarranger
+      pdfpc
+      pinentry-qt
       pwvucontrol
       rofi-rbw
       signal-desktop
       swaybg
+      swaylock
       vlc
       vscode-fhs
-      swaylock
-      pdfpc
-      pinentry-qt
-      nitrogen
-      kdePackages.okular
-      iosevka-aile
-      iosevka-etoile
-      iosevka-term
+      wdisplays
+      #wireplumber
+      wl-clipboard
+      wtype
+      xwayland-satellite
+      zathura
       zeal
       # keep-sorted end
     ];
