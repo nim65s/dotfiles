@@ -88,6 +88,7 @@
       nix-diff
       nix-output-monitor
       nix-tree-rs
+      prefetch-npm-deps
       nix-update
       nixd
       nixfmt
