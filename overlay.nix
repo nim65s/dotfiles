@@ -15,11 +15,6 @@ in
   kanata = prev.kanata.overrideAttrs {
     patches = final.lib.fileset.toList ./patches/jtroo/kanata;
   };
-  mopidyPackages = prev.mopidyPackages // {
-    mopidy-notify = prev.mopidyPackages.mopidy-notify.overrideAttrs {
-      patches = final.lib.fileset.toList ./patches/phijor/mopidy-notify;
-    };
-  };
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;

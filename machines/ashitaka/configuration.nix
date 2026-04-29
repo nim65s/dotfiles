@@ -6,7 +6,6 @@
     ../../nixos/home-assistant.nix
     # ../../nixos/monitor.nix
     # ../../nixos/monitored.nix
-    ../../nixos/mopidy.nix
     ../../nixos/nginx.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
@@ -68,8 +67,6 @@
 
   services = {
     arsenik.enable = false;
-    nim-mopidy.enable = true;
-    nim-mopidy.enable-hm = true;
 
     udev.extraRules = ''
       ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
