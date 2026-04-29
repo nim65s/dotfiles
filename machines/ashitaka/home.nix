@@ -13,6 +13,7 @@
     packages = with pkgs; [
       deluge-gtk
       filezilla
+      music-assistant-companion
       zulip
     ];
   };
@@ -50,6 +51,7 @@
       "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
       "${pkgs.signal-desktop}/share/applications/signal.desktop"
       "${pkgs.zulip}/share/applications/zulip.desktop"
+      "${pkgs.music-assistant-companion}/share/applications/Music Assistant.desktop"
     ];
   };
 }

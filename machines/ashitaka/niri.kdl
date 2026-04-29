@@ -50,6 +50,11 @@ window-rule {
     default-column-width { proportion 0.65; }
 }
 window-rule {
+    match at-startup=true app-id="music-assistant-companion"
+    open-on-workspace "zik"
+    default-column-width { proportion 0.65; }
+}
+window-rule {
     match at-startup=true app-id="com.saivert.pwvucontrol"
     open-on-workspace "zik"
     default-column-width { proportion 0.35; }

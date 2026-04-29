@@ -372,6 +372,7 @@
                 iosevka-aile
                 iosevka-etoile
                 iosevka-term
+                music-assistant-companion
                 nixook
                 nurl
                 pmapnitor
