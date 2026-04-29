@@ -48,6 +48,8 @@
       "${lib.head config.programs.element-desktop.package.desktopItems}/share/applications/element-desktop.desktop"
       "${config.programs.thunderbird.package}/share/applications/thunderbird.desktop"
       "${pkgs.pwvucontrol}/share/applications/com.saivert.pwvucontrol.desktop"
+      "${pkgs.signal-desktop}/share/applications/signal.desktop"
+      "${pkgs.zulip}/share/applications/zulip.desktop"
     ];
   };
 }
