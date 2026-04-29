@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -11,7 +12,7 @@
   };
 
   programs.firefox = {
-    enable = true;
+    enable = config.nim-home.gui;
     package = pkgs.firefox-devedition;
     languagePacks = [
       "fr"

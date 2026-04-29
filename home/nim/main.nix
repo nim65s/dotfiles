@@ -45,7 +45,6 @@
     };
 
     sessionVariables = {
-      BROWSER = lib.getExe config.programs.firefox.finalPackage;
       CMAKE_BUILD_TYPE = "RelWithDebInfo";
       CMAKE_C_COMPILER_LAUNCHER = "sccache";
       CMAKE_CXX_COMPILER_LAUNCHER = "sccache";
@@ -57,13 +56,16 @@
       CTEST_PROGRESS_OUTPUT = "ON";
       DELTA_PAGER = "less -FR";
       GITHUB_TOKEN_CMD = "rbw get github-token";
-      NIXOS_OZONE_WL = 1;
       # PAGER = "vim -c PAGER -";
       POETRY_VIRTUALENVS_IN_PROJECT = "true";
       RUSTC_WRAPPER = lib.getExe pkgs.sccache;
       SHELL = lib.getExe pkgs.fish;
       SSH_ASKPASS = ../../bin/ask_rbw.py;
       SSH_ASKPASS_REQUIRE = "prefer";
+    }
+    // lib.optionalAttrs config.nim-home.gui {
+      BROWSER = lib.getExe config.programs.firefox.finalPackage;
+      NIXOS_OZONE_WL = 1;
     };
   };
 

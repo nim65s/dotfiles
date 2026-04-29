@@ -168,7 +168,7 @@ in
     };
 
     thunderbird = {
-      enable = true;
+      enable = config.nim-home.gui;
       profiles.nim = {
         isDefault = true;
         settings = {

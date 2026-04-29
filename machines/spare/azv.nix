@@ -21,6 +21,7 @@ in
 
   users.extraUsers.kodi.isNormalUser = true;
   home-manager.users.kodi = import ./home.nix;
+  home-manager.users.nim.nim-home.gui = false;
 
   services.xserver = {
     enable = true;

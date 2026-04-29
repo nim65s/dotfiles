@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -14,10 +15,8 @@
       binutils
       black
       bloom
-      brightnessctl
       broot
       cachix
-      cage
       caligula
       cargo
       cargo-binstall
@@ -28,7 +27,6 @@
       # cmake-format
       cntr
       comma
-      d-spy
       dcfldd
       deadnix
       # devenv
@@ -57,9 +55,7 @@
       git-statuses
       gnumake
       gnupg
-      gparted
-      grim
-      himalaya
+      # himalaya
       htop
       httpie
       hugo
@@ -67,41 +63,27 @@
       iftop
       imv
       inetutils
-      iosevka
-      iosevka-aile
-      iosevka-etoile
-      iosevka-term
       iotop
       jless
       jq
       just
-      kcov
-      kdePackages.kolourpaint
-      kdePackages.okular
       keep-sorted
       khal
       khard
       killall
       less
-      libreoffice
       lsof
       lurk
       md5cron
       mdbook
       mdcat
-      meld
-      mesa-demos
-      meshlab
       minicom
       mosh
       mpc
-      mpv
       mypy
       nb
       ncdu
       ninja
-      niri
-      nitrogen
       #nix-du
       nix-diff
       nix-output-monitor
@@ -118,9 +100,6 @@
       openssl
       pandoc
       pciutils
-      pdfarranger
-      pdfpc
-      pinentry-qt
       pipewire
       pipx
       pkg-config
@@ -133,9 +112,8 @@
       prek
       pulseaudio
       pwgen
-      pwvucontrol
-      rofi-rbw
       rofimoji
+      rbw
       rosdep
       ruff
       rustc # nor pre-commit
@@ -143,7 +121,6 @@
       sccache
       sd
       shellcheck
-      signal-desktop
       slurp
       #snapcast
       sops
@@ -152,8 +129,6 @@
       statix
       strace
       #sway
-      swaybg
-      swaylock
       tailstamp
       tdf
       templup
@@ -168,25 +143,13 @@
       uv
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       vdirsyncer
-      vlc
-      vscode-fhs
       watchexec
-      wdisplays
       weechat
       wev
       wget
-      #wireplumber
-      wl-clipboard
-      wtype
-      #xdg-desktop-portal
-      #xdg-desktop-portal-gtk
-      #xdg-desktop-portal-wlr
       xkcdpass
-      xwayland-satellite
       yq
       yt-dlp
-      zathura
-      zeal
       zfs
       #zola
       # keep-sorted end
@@ -214,6 +177,46 @@
           # keep-sorted end
         ]
       ))
+    ]
+    ++ lib.optionals config.nim-home.gui [
+      # keep-sorted start
+      #wireplumber
+      wl-clipboard
+      wtype
+      libreoffice
+      xwayland-satellite
+      zathura
+      wdisplays
+      brightnessctl
+      cage
+      d-spy
+      gparted
+      grim
+      iosevka
+      kcov
+      kdePackages.kolourpaint
+      mesa-demos
+      meshlab
+      meld
+      mpv
+      niri
+      pdfarranger
+      pwvucontrol
+      rofi-rbw
+      signal-desktop
+      swaybg
+      vlc
+      vscode-fhs
+      swaylock
+      pdfpc
+      pinentry-qt
+      nitrogen
+      kdePackages.okular
+      iosevka-aile
+      iosevka-etoile
+      iosevka-term
+      zeal
+      # keep-sorted end
     ];
 
 }
