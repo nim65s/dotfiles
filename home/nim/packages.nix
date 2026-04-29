@@ -117,7 +117,6 @@
       rofimoji
       rosdep
       ruff
-      rustc # nor pre-commit
       rustscan
       sccache
       sd
