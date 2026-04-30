@@ -61,6 +61,8 @@
       SHELL = lib.getExe pkgs.fish;
       SSH_ASKPASS = ../../bin/ask_rbw.py;
       SSH_ASKPASS_REQUIRE = "prefer";
+      EDITOR = lib.getExe config.programs.nixvim.build.package;
+      VISUAL = lib.getExe config.programs.nixvim.build.package;
     }
     // lib.optionalAttrs config.nim-home.gui {
       BROWSER = lib.getExe config.programs.firefox.finalPackage;

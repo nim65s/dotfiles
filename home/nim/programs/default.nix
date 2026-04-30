@@ -123,7 +123,6 @@ in
 
     nixvim = import ../../../shared/nixvim.nix { inherit lib; } // {
       enable = true;
-      defaultEditor = true;
     };
 
     notmuch.enable = true;
