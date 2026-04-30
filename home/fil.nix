@@ -20,7 +20,6 @@
       username = "fil";
       keyboard.layout = "fr";
       packages = [
-        pkgs.thunderbird
         pkgs.vlc
       ];
       stateVersion = "25.05";
@@ -47,7 +46,10 @@
         };
       };
       starship.enable = true;
-      # thunderbird.enable = true;
+      thunderbird = {
+        enable = true;
+        languagePacks = [ "fr" ];
+      };
     };
 
     qt = {
