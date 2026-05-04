@@ -140,6 +140,7 @@
       unzip
       usbutils
       uv
+      vcs2l
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       vdirsyncer
       watchexec
