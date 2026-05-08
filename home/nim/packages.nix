@@ -26,6 +26,7 @@
       cmeel
       # cmake-format
       cntr
+      colorized-logs
       comma
       dcfldd
       deadnix
