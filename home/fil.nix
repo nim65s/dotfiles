@@ -49,6 +49,7 @@
       thunderbird = {
         enable = true;
         languagePacks = [ "fr" ];
+        profiles.fil.isDefault = true;
       };
     };
 

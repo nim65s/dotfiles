@@ -121,7 +121,7 @@ in
       };
     };
 
-    nixvim = import ../../../shared/nixvim.nix { inherit lib; } // {
+    nixvim = import ../../../shared/nixvim.nix { inherit lib pkgs; } // {
       enable = true;
     };
 

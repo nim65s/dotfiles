@@ -383,7 +383,7 @@
                 ;
               inherit (inputs'.home-manager.packages) home-manager;
               inherit (inputs'.clan-core.packages) clan-cli;
-              nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import shared/nixvim.nix { inherit lib; });
+              nixvim = inputs'.nixvim.legacyPackages.makeNixvim (import shared/nixvim.nix { inherit lib pkgs; });
             };
             treefmt = {
               projectRootFile = "flake.nix";
