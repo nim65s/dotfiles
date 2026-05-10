@@ -31,7 +31,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-ros.follows = "nix-ros-overlay/nixpkgs";
     nix-ros-overlay = {
-      url = "github:lopsided98/nix-ros-overlay/develop";
+      # url = "github:lopsided98/nix-ros-overlay/develop";
+      url = "github:nim65s/nix-ros-overlay/bloom";
       inputs = {
         flake-utils.follows = "flake-utils";
       };
