@@ -3,10 +3,10 @@
   imports = [
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
-    ../../nixos/home-assistant.nix
+    # ../../nixos/home-assistant.nix
     # ../../nixos/monitor.nix
     # ../../nixos/monitored.nix
-    ../../nixos/nginx.nix
+    # ../../nixos/nginx.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
     ../../nixos/shared.nix
