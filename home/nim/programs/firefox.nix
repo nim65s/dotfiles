@@ -39,6 +39,11 @@
       search.force = true;
       search.default = "mojeek";
 
+      handlers.schemes = {
+        "element".action = 4;
+        "mailto".action = 4;
+      };
+
       settings = {
         "browser.theme.content-theme" = 0;
         "browser.theme.toolbar-theme" = 0;
