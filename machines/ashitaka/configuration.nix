@@ -92,6 +92,8 @@
   ];
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
   # virtualisation.virtualbox.host.enable = true;
 
   # clan dev tests
