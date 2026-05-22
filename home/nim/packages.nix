@@ -159,7 +159,6 @@
       (python3.withPackages (
         ps: with ps; [
           # keep-sorted start
-          (toPythonModule cmeel)
           django
           httpx
           ipython
