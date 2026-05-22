@@ -27,7 +27,6 @@ in
 
     asciinema = {
       enable = true;
-      package = pkgs.asciinema_3;
     };
 
     atuin = {
