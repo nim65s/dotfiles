@@ -122,12 +122,12 @@
       extra-substituters = [
         "https://gepetto.cachix.org"
         "https://nix-community.cachix.org"
-        "https://ros.cachix.org"
+        "https://attic.iid.ciirc.cvut.cz/ros"
       ];
       extra-trusted-public-keys = [
         "gepetto.cachix.org-1:toswMl31VewC0jGkN6+gOelO2Yom0SOHzPwJMY2XiDY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
+        "ros:JR95vUYsShSqfA1VTYoFt1Nz6uXasm5QrcOsGry9f6Q="
       ];
       trusted-users = [ "nim" ];
     };
