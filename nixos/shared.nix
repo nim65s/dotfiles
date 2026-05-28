@@ -189,6 +189,8 @@
     upower.enable = true;
   };
 
+  security.lockKernelModules = true;
+
   system.autoUpgrade = {
     enable = lib.mkDefault true;
     flake = "github:nim65s/dotfiles";
