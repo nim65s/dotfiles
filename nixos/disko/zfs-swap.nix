@@ -56,7 +56,6 @@
           compression = "lz4";
           acltype = "posixacl";
           xattr = "sa";
-          "com.sun:auto-snapshot" = "true";
           mountpoint = "none";
         };
         datasets = {
