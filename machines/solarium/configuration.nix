@@ -17,8 +17,8 @@
     keyMap = "fr";
   };
   disko.devices.disk.main = {
-    device = "/dev/disk/by-id/ata-WDC_WD5000LPVX-08V0TT5_WD-WXA1A25E1ECV";
-    name = "main-5960c9943c8b84f2d5158243d19fb2fc";
+    device = "/dev/disk/by-id/wwn-0x50014ee6b032c389";
+    name = "main-15960c9943c8b84f2d5158243d19fbf1";
   };
   home-manager.users = {
     nim = import ../../home/nim/main.nix;
@@ -39,15 +39,11 @@
     shell = pkgs.fish;
   };
 
-  fileSystems = {
-    "/mnt" = {
-      device = "/dev/disk/by-uuid/907d2275-a629-4bc8-b242-5522f52450f3";
-      fsType = "ext4";
-    };
-    "/mnt/home" = {
-      device = "/dev/disk/by-uuid/c7794049-d177-42e1-808e-ae36af1feba3";
-      fsType = "ext4";
-    };
-  };
+  # fileSystems = {
+  #   "/mnt" = {
+  #     device = "/dev/disk/by-id/ata-WDC_WD5000LPVX-08V0TT5_WD-WXA1A25E1ECV-part4";
+  #     fsType = "ext4";
+  #   };
+  # };
 
 }
