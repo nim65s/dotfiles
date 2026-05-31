@@ -38,12 +38,4 @@
     isNormalUser = true;
     shell = pkgs.fish;
   };
-
-  fileSystems = {
-    "/mnt" = {
-      device = "/dev/disk/by-id/ata-WDC_WD5000LPVX-08V0TT5_WD-WXA1A25E1ECV-part4";
-      fsType = "ext4";
-    };
-  };
-
 }
