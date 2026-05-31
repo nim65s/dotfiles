@@ -1083,7 +1083,7 @@
           "value": 133
         },
         "slot": {
-          "bus": 2,
+          "bus": 0,
           "number": 0
         },
         "base_class": {
@@ -1098,35 +1098,34 @@
         },
         "vendor": {
           "hex": "0000",
-          "name": "WDC",
+          "name": "KINGSTON",
           "value": 0
         },
         "device": {
           "hex": "0000",
-          "name": "WD5000LPVX-0",
+          "name": "SM2280S",
           "value": 0
         },
         "revision": {
           "hex": "0000",
-          "name": "1A05",
+          "name": "01.R",
           "value": 0
         },
-        "serial": "WD-WXA1A25E1ECV",
-        "model": "WDC WD5000LPVX-0",
+        "serial": "50026B7264065871",
+        "model": "KINGSTON SM2280S",
         "sysfs_id": "/class/block/sda",
-        "sysfs_bus_id": "2:0:0:0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0",
+        "sysfs_bus_id": "0:0:0:0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:17.0/ata1/host0/target0:0:0/0:0:0:0",
         "unix_device_names": [
-          "/dev/disk/by-id/ata-WDC_WD5000LPVX-08V0TT5_WD-WXA1A25E1ECV",
-          "/dev/disk/by-id/wwn-0x50014ee6b032c389",
-          "/dev/disk/by-path/pci-0000:00:17.0-ata-3",
-          "/dev/disk/by-path/pci-0000:00:17.0-ata-3.0",
+          "/dev/disk/by-id/ata-KINGSTON_SM2280S3G2480G_50026B7264065871",
+          "/dev/disk/by-path/pci-0000:00:17.0-ata-1",
+          "/dev/disk/by-path/pci-0000:00:17.0-ata-1.0",
           "/dev/sda"
         ],
         "resources": [
           {
             "type": "disk_geo",
-            "cylinders": 60801,
+            "cylinders": 58369,
             "heads": 255,
             "sectors": 63,
             "size": "0x0",
@@ -1135,7 +1134,7 @@
           {
             "type": "size",
             "unit": "sectors",
-            "value_1": 976773168,
+            "value_1": 937703088,
             "value_2": 512
           }
         ],
@@ -1597,7 +1596,7 @@
         "resources": [
           {
             "type": "hwaddr",
-            "address": 54
+            "address": 53
           },
           {
             "type": "phwaddr",
@@ -1756,28 +1755,6 @@
     "network_interface": [
       {
         "index": 39,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_names": [
-          "lo"
-        ]
-      },
-      {
-        "index": 40,
         "attached_to": 21,
         "class_list": [
           "network_interface"
@@ -1818,6 +1795,28 @@
         ]
       },
       {
+        "index": 40,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_names": [
+          "lo"
+        ]
+      },
+      {
         "index": 41,
         "attached_to": 12,
         "class_list": [
@@ -1842,7 +1841,7 @@
         "resources": [
           {
             "type": "hwaddr",
-            "address": 54
+            "address": 53
           },
           {
             "type": "phwaddr",
