@@ -17,7 +17,7 @@
     keyMap = "fr";
   };
   disko.devices.disk.main = {
-    device = "/dev/disk/by-id/wwn-0x50014ee6b032c389";
+    device = "/dev/disk/by-id/ata-KINGSTON_SM2280S3G2480G_50026B7264065871";
     name = "main-15960c9943c8b84f2d5158243d19fbf1";
   };
   home-manager.users = {
