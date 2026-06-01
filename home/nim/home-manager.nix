@@ -27,6 +27,7 @@
       enable = true;
       flakeDir = "${config.nim-home.homeDirectory}/dotfiles";
       frequency = "weekly";
+      preSwitchCommands = [ ]; # dont want "nix flake update", default for 26.05
       useFlake = true;
     };
   };
