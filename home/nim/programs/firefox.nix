@@ -13,6 +13,7 @@
 
   programs.firefox = {
     enable = config.nim-home.gui;
+    configPath = ".mozilla/firefox"; # Too lazy to switch to new "${config.xdg.configHome}/mozilla/firefox";
     package = pkgs.firefox-devedition;
     languagePacks = [
       "fr"
