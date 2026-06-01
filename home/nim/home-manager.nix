@@ -13,6 +13,7 @@
     ../../shared/stylix.nix
   ];
 
+  gtk.gtk4.theme = null; # silence 26.05 warning
   home = {
     packages = [ pkgs.nix ];
   };
