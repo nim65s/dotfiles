@@ -102,7 +102,7 @@
       pandoc
       pciutils
       pipewire
-      pipx
+      # pipx TODO https://github.com/NixOS/nixpkgs/pull/526458
       pkg-config
       plantuml
       playerctl
