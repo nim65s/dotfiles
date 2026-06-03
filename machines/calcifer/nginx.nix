@@ -97,7 +97,7 @@
           private = false;
         };
         "mpd.saurel.me" = azvProxy {
-          source = "http://spare.w:8095";
+          source = "http://spare.azv:8095";
         };
       };
 
