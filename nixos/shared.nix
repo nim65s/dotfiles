@@ -21,6 +21,7 @@
 
   catppuccin = {
     enable = true;
+    autoEnable = true;
     accent = lib.mkDefault "blue";
   };
 
