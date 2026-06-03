@@ -55,6 +55,7 @@
           {
             forceSSL = true;
             enableACME = true;
+            http2 = false; # break music-assistant ws ?
             locations."/" = {
               proxyWebsockets = true;
               proxyPass = source;
