@@ -14,6 +14,7 @@
       accent = "sapphire";
     };
 
+    gtk.gtk4.theme = null; # silence 26.05 warning
     home = {
       homeDirectory = "/home/martine";
       username = "martine";
@@ -30,6 +31,7 @@
       fish.enable = true;
       firefox = {
         enable = true;
+        configPath = ".mozilla/firefox"; # Too lazy to switch to new "${config.xdg.configHome}/mozilla/firefox";
         languagePacks = [
           "fr"
           "en"

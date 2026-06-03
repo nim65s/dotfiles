@@ -15,6 +15,7 @@
       flavor = "latte";
     };
 
+    gtk.gtk4.theme = null; # silence 26.05 warning
     home = {
       homeDirectory = "/home/fil";
       username = "fil";
@@ -29,6 +30,7 @@
       element-desktop.enable = true;
       firefox = {
         enable = true;
+        configPath = ".mozilla/firefox"; # Too lazy to switch to new "${config.xdg.configHome}/mozilla/firefox";
         languagePacks = [
           "fr"
           "en"
