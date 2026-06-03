@@ -76,7 +76,7 @@
       flake = false;
     };
     linux-bpi-r4 = {
-      url = "github:K900/linux/bpi-r4-618";
+      url = "github:K900/linux/bpi-r4-70";
       flake = false;
     };
   };

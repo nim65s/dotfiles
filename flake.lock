@@ -305,16 +305,16 @@
     "linux-bpi-r4": {
       "flake": false,
       "locked": {
-        "lastModified": 1770396573,
-        "narHash": "sha256-vypjrqFxJmDxOuq+CuHuAZDs+6O03ZE3rIxZUTk60i4=",
+        "lastModified": 1780391253,
+        "narHash": "sha256-3MfIG6RJN+nnQzCo7aSIjOOmB0AO6S/X1PGCHObsxLY=",
         "owner": "K900",
         "repo": "linux",
-        "rev": "5c0e092806bb4a5669a707dccaa29a8246b427c5",
+        "rev": "375520e724813af414adb65d337a8786be9a0098",
         "type": "github"
       },
       "original": {
         "owner": "K900",
-        "ref": "bpi-r4-618",
+        "ref": "bpi-r4-70",
         "repo": "linux",
         "type": "github"
       }
