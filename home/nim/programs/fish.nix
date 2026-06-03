@@ -73,6 +73,7 @@
       gst = "git status";
       gsts = "git statuses";
       gp = "git push";
+      gpu = "git push upstream";
       gf = "git fetch --all --prune";
       gcaf = "git commit -a --fixup";
       gcan = "git commit -a --amend --no-edit";
