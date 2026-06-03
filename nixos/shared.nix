@@ -114,7 +114,7 @@
     channel.enable = false;
     gc = {
       automatic = true;
-      dates = "monthly";
+      dates = "weekly";
       options = "--delete-older-than 60d";
     };
     settings = {
