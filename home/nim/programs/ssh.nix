@@ -4,7 +4,7 @@
 }:
 {
   programs.ssh = {
-    matchBlocks = {
+    settings = {
       "upe" = config.laasProxy.value // {
         hostname = "upepesanke";
         user = "gsaurel";
@@ -40,10 +40,8 @@
       "marsbase" = {
         user = "root";
         hostname = "192.168.1.1";
-        extraOptions = {
-          HostKeyAlgorithms = "+ssh-rsa";
-          PubkeyAcceptedKeyTypes = "+ssh-rsa";
-        };
+        HostKeyAlgorithms = "+ssh-rsa";
+        PubkeyAcceptedKeyTypes = "+ssh-rsa";
       };
       "root" = {
         user = "root";

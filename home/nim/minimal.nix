@@ -98,7 +98,7 @@
       enable = true;
       enableDefaultConfig = false;
       includes = [ "local_config" ];
-      matchBlocks = {
+      settings = {
         "*" = {
           controlMaster = "auto";
           controlPath = "~/.ssh/C-%C";
