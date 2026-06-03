@@ -196,6 +196,7 @@
     flake = "github:nim65s/dotfiles";
   };
 
+  users.groups.plugdev = { };
   users.users = {
     root.shell = pkgs.fish;
     nim = {
