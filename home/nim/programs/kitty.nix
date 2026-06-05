@@ -15,7 +15,7 @@
 
     keybindings = {
       "kitty_mod+a" = "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
-      "kitty_mod+u" = "launch --location=vsplit --cwd=current";
+      "kitty_mod+y" = "launch --location=vsplit --cwd=current";
       "kitty_mod+k" = "launch --location=hsplit --cwd=current";
       "kitty_mod+r" = "previous_window";
       "kitty_mod+t" = "next_window";
