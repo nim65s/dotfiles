@@ -51,6 +51,7 @@
   };
 
   programs = {
+    singularity.enable = true;
     steam = {
       enable = true;
       gamescopeSession = {
