@@ -15,7 +15,6 @@
       flavor = "latte";
     };
 
-    gtk.gtk4.theme = null; # silence 26.05 warning
     home = {
       homeDirectory = "/home/fil";
       username = "fil";

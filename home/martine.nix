@@ -14,7 +14,6 @@
       accent = "sapphire";
     };
 
-    gtk.gtk4.theme = null; # silence 26.05 warning
     home = {
       homeDirectory = "/home/martine";
       username = "martine";
