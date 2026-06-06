@@ -31,6 +31,10 @@
   programs = {
     btop.package = pkgs.btop-cuda;
 
+    fish.shellAliases = {
+      apptainer = "singularity";
+    };
+
     rmpc.config = ''
       (
         address = "spare.w:6600",
