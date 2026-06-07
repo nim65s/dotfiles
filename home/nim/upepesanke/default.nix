@@ -26,8 +26,6 @@
     pkgs.distrobox
   ];
 
-  programs.ssh.matchBlocks."*".identityFile = "/home/gsaurel/.ssh/id_ed25519";
-
   xdg.autostart = {
     enable = true;
     entries =
