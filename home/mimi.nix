@@ -11,6 +11,7 @@
   config = {
     catppuccin = {
       enable = true;
+      autoEnable = true;
       accent = "red";
       firefox.profiles.mimi = {
         enable = true;

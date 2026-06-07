@@ -11,6 +11,7 @@
   config = {
     catppuccin = {
       enable = true;
+      autoEnable = true;
       accent = "sapphire";
     };
 
