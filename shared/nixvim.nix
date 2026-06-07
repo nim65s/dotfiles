@@ -4,6 +4,10 @@
   ...
 }:
 {
+  nixpkgs = {
+    inherit pkgs;
+  };
+
   autoCmd = [
     # When editing a file, always jump to the last known cursor position.
     # Don't do it when the position is invalid or when inside an event handler
@@ -226,18 +230,6 @@
     barbar = {
       enable = true;
       # https://github.com/NixOS/nixpkgs/pull/518023
-      package = pkgs.vimPlugins.barbar-nvim.overrideAttrs {
-        meta.license = {
-          deprecated = false;
-          free = false;
-          fullName = "JSON License";
-          licenseType = "simple";
-          redistributable = false;
-          shortName = "json";
-          spdxId = "JSON";
-          url = "https://spdx.org/licenses/JSON.html";
-        };
-      };
       keymaps = {
         next.key = "<TAB>";
         previous.key = "<S-TAB>";
