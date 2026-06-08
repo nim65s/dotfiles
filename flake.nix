@@ -318,9 +318,9 @@
             }
             // (
               let
-                llvm = pkgs.llvmPackages_21;
+                llvm = pkgs.llvmPackages_22;
                 gcc = {
-                  stdenv = pkgs.gcc15Stdenv;
+                  stdenv = pkgs.gcc16Stdenv;
                 };
               in
               lib.mapAttrs (
