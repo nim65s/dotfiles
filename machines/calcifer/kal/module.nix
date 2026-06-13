@@ -172,11 +172,13 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = pkgs.writeShellApplication {
-          name = "tasmota2kal";
-          runtimeInputs = [ pkgs.mosquitto ];
-          text = ./tasmota2kal.sh;
-        };
+        ExecStart = lib.getExe (
+          pkgs.writeShellApplication {
+            name = "tasmota2kal";
+            runtimeInputs = [ pkgs.mosquitto ];
+            text = ./tasmota2kal.sh;
+          }
+        );
         Type = "exec";
         Restart = "on-failure";
         RestartSec = 5;
