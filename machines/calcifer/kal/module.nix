@@ -162,6 +162,28 @@ in
         Group = moduleName;
       };
     };
+
+    tasmota2kal = {
+      description = "forward tasmota temperature/humidity to kal";
+      after = [ "zenohd.service" ];
+      requires = [ "zenohd.service" ];
+
+      before = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        ExecStart = pkgs.writeShellApplication {
+          name = "tasmota2kal";
+          runtimeInputs = [ pkgs.mosquitto ];
+          text = ./tasmota2kal.sh;
+        };
+        Type = "exec";
+        Restart = "on-failure";
+        RestartSec = 5;
+        User = moduleName;
+        Group = moduleName;
+      };
+    };
   };
 
   users.groups.gpio = { };
