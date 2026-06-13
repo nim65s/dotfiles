@@ -38,7 +38,7 @@
                     "group": "influxdb",
                     "kind": "DataQuery",
                     "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/temperature$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n"
+                      "query": "import \"math\"\nimport \"strings\"\n\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/(temperature|humidity)$/\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => {\n      parts = strings.split(v: r._measurement, t: \"/\")\n\n      return {\n        _time: r._time,\n        device: parts[2],\n        metric: parts[3],\n        _value: float(v: r._value),\n      }\n  })\n  |> group(columns: [\"device\", \"metric\"])\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\n  |> pivot(\n      rowKey: [\"_time\", \"device\"],\n      columnKey: [\"metric\"],\n      valueColumn: \"_value\"\n  )\n  |> filter(fn: (r) =>\n      exists r.temperature and exists r.humidity\n  )\n  |> map(fn: (r) => {\n      a = 17.27\n      b = 237.7\n      alpha = (a * r.temperature) / (b + r.temperature) + \n              math.log(x: r.humidity / 100.0)\n      d = (b * alpha) / (a - alpha)\n\n      h = r.temperature + 0.5555 * (\n        6.11 * math.exp(x: 5417.7530 * (\n          1.0 / 273.16 - 1.0 / (273.15 + d)\n        ))\n      )\n\n\n      return {\n        _time: r._time,\n        device: r.device,\n        dew_point: d,\n        temperature: r.temperature,\n        humidity: r.humidity,\n        humidex: h,\n      }\n  })"
                     },
                     "version": "v0"
                   },
@@ -53,7 +53,7 @@
                     "group": "influxdb",
                     "kind": "DataQuery",
                     "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/humidity$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n"
+                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
                     },
                     "version": "v0"
                   },
@@ -68,26 +68,11 @@
                     "group": "influxdb",
                     "kind": "DataQuery",
                     "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n"
+                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/target$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
                     },
                     "version": "v0"
                   },
                   "refId": "C"
-                }
-              },
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "influxdb",
-                    "kind": "DataQuery",
-                    "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/target$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])\n"
-                    },
-                    "version": "v0"
-                  },
-                  "refId": "D"
                 }
               }
             ],
@@ -151,8 +136,16 @@
                       "value": 0
                     },
                     {
-                      "color": "red",
-                      "value": 80
+                      "color": "#EAB839",
+                      "value": 30
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 40
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 45
                     }
                   ]
                 }
@@ -160,8 +153,9 @@
               "overrides": [
                 {
                   "matcher": {
-                    "id": "byFrameRefID",
-                    "options": "A"
+                    "id": "byName",
+                    "options": "temperature",
+                    "scope": "series"
                   },
                   "properties": [
                     {
@@ -179,8 +173,9 @@
                 },
                 {
                   "matcher": {
-                    "id": "byFrameRefID",
-                    "options": "B"
+                    "id": "byName",
+                    "options": "humidity",
+                    "scope": "series"
                   },
                   "properties": [
                     {
@@ -198,8 +193,43 @@
                 },
                 {
                   "matcher": {
+                    "id": "byName",
+                    "options": "dew_point",
+                    "scope": "series"
+                  },
+                  "properties": [
+                    {
+                      "id": "unit",
+                      "value": "celsius"
+                    },
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "shades"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "humidex",
+                    "scope": "series"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "mode": "thresholds"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
                     "id": "byFrameRefID",
-                    "options": "C"
+                    "options": "B"
                   },
                   "properties": [
                     {
@@ -218,7 +248,7 @@
                 {
                   "matcher": {
                     "id": "byFrameRefID",
-                    "options": "D"
+                    "options": "C"
                   },
                   "properties": [
                     {
