@@ -175,7 +175,10 @@ in
         ExecStart = lib.getExe (
           pkgs.writeShellApplication {
             name = "tasmota2kal";
-            runtimeInputs = [ pkgs.mosquitto ];
+            runtimeInputs = [
+              pkgs.jq
+              pkgs.mosquitto
+            ];
             text = ./tasmota2kal.sh;
           }
         );

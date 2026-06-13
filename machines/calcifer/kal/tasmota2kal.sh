@@ -4,6 +4,6 @@ do
     grep -q Humidity <<< $payload || continue
     device=${topic#*/}
     device=${device%/*}
-    mosquitto_pub -t "kal/tele/$device/temperature" -m "$(echo $payload | '.[] | objects | .Temperature')"
-    mosquitto_pub -t "kal/tele/$device/humidity" -m "$(echo $payload | '.[] | objects | .Humidity')"
+    mosquitto_pub -t "kal/tele/$device/temperature" -m "$(echo $payload | jq '.[] | objects | .Temperature')"
+    mosquitto_pub -t "kal/tele/$device/humidity" -m "$(echo $payload | jq '.[] | objects | .Humidity')"
 done

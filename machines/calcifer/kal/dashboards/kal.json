@@ -1,374 +1,394 @@
 {
-  "annotations": [
-    {
-      "kind": "AnnotationQuery",
-      "spec": {
-        "builtIn": true,
-        "enable": true,
-        "hide": true,
-        "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
-        "query": {
-          "datasource": {
-            "name": "-- Grafana --"
+  "apiVersion": "dashboard.grafana.app/v2",
+  "kind": "Dashboard",
+  "metadata": {
+    "name": "adtbcsn",
+    "namespace": "default",
+    "uid": "c473b790-32a2-47f8-917d-085fed90267b",
+    "resourceVersion": "1781390860804988",
+    "generation": 1,
+    "creationTimestamp": "2026-06-13T22:47:40Z",
+    "labels": {
+      "grafana.app/deprecatedInternalID": "3280494125416448"
+    },
+    "annotations": {
+      "grafana.app/createdBy": "user:ffba13mzbxhxcf",
+      "grafana.app/folder": "",
+      "grafana.app/saved-from-ui": "Grafana v13.0.2 (NA)"
+    }
+  },
+  "spec": {
+    "annotations": [
+      {
+        "kind": "AnnotationQuery",
+        "spec": {
+          "query": {
+            "kind": "DataQuery",
+            "group": "grafana",
+            "version": "v0",
+            "datasource": {
+              "name": "-- Grafana --"
+            },
+            "spec": {}
           },
-          "group": "grafana",
-          "kind": "DataQuery",
-          "spec": {},
-          "version": "v0"
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "builtIn": true
         }
       }
-    }
-  ],
-  "cursorSync": "Off",
-  "editable": true,
-  "elements": {
-    "panel-1": {
-      "kind": "Panel",
-      "spec": {
-        "data": {
-          "kind": "QueryGroup",
-          "spec": {
-            "queries": [
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "influxdb",
-                    "kind": "DataQuery",
-                    "spec": {
-                      "query": "import \"math\"\nimport \"strings\"\n\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/(temperature|humidity)$/\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => {\n      parts = strings.split(v: r._measurement, t: \"/\")\n\n      return {\n        _time: r._time,\n        device: parts[2],\n        metric: parts[3],\n        _value: float(v: r._value),\n      }\n  })\n  |> group(columns: [\"device\", \"metric\"])\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\n  |> pivot(\n      rowKey: [\"_time\", \"device\"],\n      columnKey: [\"metric\"],\n      valueColumn: \"_value\"\n  )\n  |> filter(fn: (r) =>\n      exists r.temperature and exists r.humidity\n  )\n  |> map(fn: (r) => {\n      a = 17.27\n      b = 237.7\n      alpha = (a * r.temperature) / (b + r.temperature) + \n              math.log(x: r.humidity / 100.0)\n      d = (b * alpha) / (a - alpha)\n\n      h = r.temperature + 0.5555 * (\n        6.11 * math.exp(x: 5417.7530 * (\n          1.0 / 273.16 - 1.0 / (273.15 + d)\n        ))\n      )\n\n\n      return {\n        _time: r._time,\n        device: r.device,\n        dew_point: d,\n        temperature: r.temperature,\n        humidity: r.humidity,\n        humidex: h,\n      }\n  })"
+    ],
+    "cursorSync": "Off",
+    "editable": true,
+    "elements": {
+      "panel-1": {
+        "kind": "Panel",
+        "spec": {
+          "id": 1,
+          "title": "Kal",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "influxdb",
+                      "version": "v0",
+                      "spec": {
+                        "query": "import \"math\"\nimport \"strings\"\n\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/(temperature|humidity)$/\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => {\n      parts = strings.split(v: r._measurement, t: \"/\")\n\n      return {\n        _time: r._time,\n        device: parts[2],\n        metric: parts[3],\n        _value: float(v: r._value),\n      }\n  })\n  |> group(columns: [\"device\", \"metric\"])\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\n  |> pivot(\n      rowKey: [\"_time\", \"device\"],\n      columnKey: [\"metric\"],\n      valueColumn: \"_value\"\n  )\n  |> filter(fn: (r) =>\n      exists r.temperature and exists r.humidity\n  )\n  |> map(fn: (r) => {\n      a = 17.27\n      b = 237.7\n      alpha = (a * r.temperature) / (b + r.temperature) + \n              math.log(x: r.humidity / 100.0)\n      d = (b * alpha) / (a - alpha)\n\n      h = r.temperature + 0.5555 * (\n        6.11 * math.exp(x: 5417.7530 * (\n          1.0 / 273.16 - 1.0 / (273.15 + d)\n        ))\n      )\n\n\n      return {\n        _time: r._time,\n        device: r.device,\n        dew_point: d,\n        temperature: r.temperature,\n        humidity: r.humidity,\n        humidex: h,\n      }\n  })"
+                      }
                     },
-                    "version": "v0"
-                  },
-                  "refId": "A"
-                }
-              },
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "influxdb",
-                    "kind": "DataQuery",
-                    "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
-                    },
-                    "version": "v0"
-                  },
-                  "refId": "B"
-                }
-              },
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "influxdb",
-                    "kind": "DataQuery",
-                    "spec": {
-                      "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/target$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
-                    },
-                    "version": "v0"
-                  },
-                  "refId": "C"
-                }
-              }
-            ],
-            "queryOptions": {},
-            "transformations": []
-          }
-        },
-        "description": "",
-        "id": 1,
-        "links": [],
-        "title": "Kal",
-        "transparent": true,
-        "vizConfig": {
-          "group": "timeseries",
-          "kind": "VizConfig",
-          "spec": {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "showValues": false,
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
+                    "refId": "A",
+                    "hidden": false
                   }
                 },
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": 0
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "influxdb",
+                      "version": "v0",
+                      "spec": {
+                        "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/relay$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: bool(v: r._value == \"On\"),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
+                      }
                     },
-                    {
-                      "color": "#EAB839",
-                      "value": 30
+                    "refId": "B",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "influxdb",
+                      "version": "v0",
+                      "spec": {
+                        "query": "import \"strings\"\nfrom(bucket: \"kal\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) =>\n    r._measurement =~ /kal\\/tele\\/.+\\/target$/\n    and contains(\n      value: strings.split(v: r._measurement, t: \"/\")[2],\n      set: ${device:json}\n    )\n    and r._field == \"value\"\n  )\n  |> map(fn: (r) => ({\n      r with\n      _value: float(v: r._value),\n  }))\n  |> drop(columns: [\"kind\", \"_field\"])"
+                      }
                     },
-                    {
-                      "color": "dark-orange",
-                      "value": 40
-                    },
-                    {
-                      "color": "dark-red",
-                      "value": 45
-                    }
-                  ]
+                    "refId": "C",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1+security-01",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
                 }
               },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "temperature",
-                    "scope": "series"
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 30,
+                        "color": "#EAB839"
+                      },
+                      {
+                        "value": 40,
+                        "color": "dark-orange"
+                      },
+                      {
+                        "value": 45,
+                        "color": "dark-red"
+                      }
+                    ]
                   },
-                  "properties": [
-                    {
-                      "id": "unit",
-                      "value": "celsius"
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
                     },
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-yellow",
-                        "mode": "shades"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "humidity",
-                    "scope": "series"
-                  },
-                  "properties": [
-                    {
-                      "id": "unit",
-                      "value": "humidity"
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
                     },
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-blue",
-                        "mode": "shades"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "dew_point",
-                    "scope": "series"
-                  },
-                  "properties": [
-                    {
-                      "id": "unit",
-                      "value": "celsius"
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
                     },
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-purple",
-                        "mode": "shades"
-                      }
+                    "thresholdsStyle": {
+                      "mode": "off"
                     }
-                  ]
+                  }
                 },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "humidex",
-                    "scope": "series"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "thresholds"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byFrameRefID",
-                    "options": "B"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-red",
-                        "mode": "shades"
-                      }
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "scope": "series",
+                      "options": "temperature"
                     },
-                    {
-                      "id": "custom.fillOpacity",
-                      "value": 25
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byFrameRefID",
-                    "options": "C"
-                  },
-                  "properties": [
-                    {
-                      "id": "unit",
-                      "value": "celsius"
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "purple",
-                        "mode": "fixed"
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "celsius"
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-yellow",
+                          "mode": "shades"
+                        }
                       }
-                    }
-                  ]
-                }
-              ]
-            },
-            "options": {
-              "annotations": {
-                "clustering": -1,
-                "multiLane": false
-              },
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "hideZeros": false,
-                "mode": "single",
-                "sort": "none"
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "scope": "series",
+                      "options": "humidity"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "humidity"
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-blue",
+                          "mode": "shades"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "scope": "series",
+                      "options": "dew_point"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "celsius"
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-purple",
+                          "mode": "shades"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "scope": "series",
+                      "options": "humidex"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "mode": "thresholds"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byFrameRefID",
+                      "options": "B"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "dark-red",
+                          "mode": "shades"
+                        }
+                      },
+                      {
+                        "id": "custom.fillOpacity",
+                        "value": 25
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byFrameRefID",
+                      "options": "C"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "celsius"
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "purple",
+                          "mode": "fixed"
+                        }
+                      }
+                    ]
+                  }
+                ]
               }
             }
           },
-          "version": "13.0.1+security-01"
+          "transparent": true
         }
       }
-    }
-  },
-  "layout": {
-    "kind": "GridLayout",
-    "spec": {
-      "items": [
-        {
-          "kind": "GridLayoutItem",
-          "spec": {
-            "element": {
-              "kind": "ElementReference",
-              "name": "panel-1"
-            },
-            "height": 12,
-            "width": 24,
-            "x": 0,
-            "y": 0
-          }
-        }
-      ]
-    }
-  },
-  "links": [],
-  "liveNow": false,
-  "preload": false,
-  "tags": [],
-  "timeSettings": {
-    "autoRefresh": "5m",
-    "autoRefreshIntervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "fiscalYearStartMonth": 0,
-    "from": "now-2d",
-    "hideTimepicker": false,
-    "timezone": "browser",
-    "to": "now"
-  },
-  "title": "Kal",
-  "variables": [
-    {
-      "kind": "QueryVariable",
+    },
+    "layout": {
+      "kind": "GridLayout",
       "spec": {
-        "allowCustomValue": true,
-        "current": {
-          "text": [
-            "daemon",
-            "tasmota_43D8FD"
-          ],
-          "value": [
-            "daemon",
-            "tasmota_43D8FD"
-          ]
-        },
-        "definition": "import \"influxdata/influxdb/v1\"\nv1.measurements(bucket: v.bucket)",
-        "hide": "dontHide",
-        "includeAll": false,
-        "multi": true,
-        "name": "device",
-        "options": [],
-        "query": {
-          "group": "influxdb",
-          "kind": "DataQuery",
-          "spec": {
-            "query": "import \"influxdata/influxdb/v1\"\nv1.measurements(bucket: v.bucket)"
-          },
-          "version": "v0"
-        },
-        "refresh": "onDashboardLoad",
-        "regex": "kal/tele/(?<device>.*)/.*",
-        "regexApplyTo": "value",
-        "skipUrlSync": false,
-        "sort": "disabled"
+        "items": [
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 12,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-1"
+              }
+            }
+          }
+        ]
       }
-    }
-  ]
+    },
+    "links": [],
+    "liveNow": false,
+    "preload": false,
+    "tags": [],
+    "timeSettings": {
+      "timezone": "browser",
+      "from": "now-2d",
+      "to": "now",
+      "autoRefresh": "5m",
+      "autoRefreshIntervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "hideTimepicker": false,
+      "fiscalYearStartMonth": 0
+    },
+    "title": "Kala",
+    "variables": [
+      {
+        "kind": "QueryVariable",
+        "spec": {
+          "name": "device",
+          "current": {
+            "text": [
+              "daemon",
+              "tasmota_43D8FD"
+            ],
+            "value": [
+              "daemon",
+              "tasmota_43D8FD"
+            ]
+          },
+          "hide": "dontHide",
+          "refresh": "onDashboardLoad",
+          "skipUrlSync": false,
+          "query": {
+            "kind": "DataQuery",
+            "group": "influxdb",
+            "version": "v0",
+            "spec": {
+              "query": "import \"influxdata/influxdb/v1\"\nv1.measurements(bucket: v.bucket)"
+            }
+          },
+          "regex": "kal/tele/(?<device>.*)/.*",
+          "regexApplyTo": "value",
+          "sort": "disabled",
+          "definition": "import \"influxdata/influxdb/v1\"\nv1.measurements(bucket: v.bucket)",
+          "options": [],
+          "multi": true,
+          "includeAll": false,
+          "allowCustomValue": true
+        }
+      }
+    ]
+  }
 }
