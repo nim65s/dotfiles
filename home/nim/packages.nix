@@ -26,6 +26,7 @@
       cmeel
       # cmake-format
       cntr
+      colcon
       colorized-logs
       comma
       dcfldd
