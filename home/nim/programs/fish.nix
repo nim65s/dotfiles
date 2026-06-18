@@ -1,4 +1,8 @@
 {
+  lib,
+  ...
+}:
+{
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -87,12 +91,12 @@
       gsub = "git commit -am submodules; git push";
       ipa = "ip address";
       ipr = "ip route";
-      la = "eza -A";
-      ll = "eza -l --sort newest";
-      ls = "eza";
-      lt = "eza --tree";
-      lla = "eza -lA";
-      llt = "eza -l --tree";
+      la = lib.mkForce "eza -A";
+      ll = lib.mkForce "eza -l --sort newest";
+      ls = lib.mkForce "eza";
+      lt = lib.mkForce "eza --tree";
+      lla = lib.mkForce "eza -lA";
+      llt = lib.mkForce "eza -l --tree";
       lat = "eza -A --tree";
       lta = "eza -A --tree";
       man = "batman";
@@ -117,5 +121,7 @@
       virerdossiersvides = "find . -name .directory -print0 | xargs -0 /bin/rm -fv ; find . -name Thumbs.db -print0 | xargs -0 /bin/rm -fv ; find . -type d -empty -print0 | xargs -0 /bin/rmdir -pv --ignore-fail-on-non-empty";
       clean = "find -regextype posix-extended -regex '.*\.(orig|aux|nav|out|snm|toc|tmp|tns|pyg|vrb|fls|fdb_latexmk|blg|bbl|un~)' -delete";
     };
+
+    preferAbbrs = true;
   };
 }
