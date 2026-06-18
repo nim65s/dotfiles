@@ -50,7 +50,7 @@
       extraOptions = [
         "--classify"
         "--color-scale=all"
-        "--git-ignore"
+        # "--git-ignore"
         "--group"
         "--header"
         "--hyperlink"
