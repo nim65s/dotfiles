@@ -62,6 +62,7 @@
   filetype = {
     pattern = {
       "patch-.*" = "diff";
+      "*.repos" = "yaml";
     };
   };
 
