@@ -15,7 +15,7 @@
     ../../nixos/nixos.nix
     ../../nixos/wifi-laas.nix
     ../../nixos/systemd-boot.nix
-    ../../nixos/ethercat.nix
+    # ../../nixos/ethercat.nix
   ];
 
   boot = {
@@ -74,10 +74,10 @@
 
   services.xserver.desktopManager.xfce.enable = true;
 
-  services.ethercat = {
-    enable = true;
-    deviceModules = "generic";
-    master0Device = "enp4s0f4u1u1";
-  };
-  users.users.nim.extraGroups = [ "ethercat" ];
+  # services.ethercat = {
+  #   enable = true;
+  #   deviceModules = "generic";
+  #   master0Device = "enp4s0f4u1u1";
+  # };
+  # users.users.nim.extraGroups = [ "ethercat" ];
 }
