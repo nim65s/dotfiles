@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -16,6 +15,7 @@
     ../../nixos/nixos.nix
     ../../nixos/wifi-laas.nix
     ../../nixos/systemd-boot.nix
+    ../../nixos/ethercat.nix
   ];
 
   boot = {
@@ -28,7 +28,6 @@
       "rtw89_pci.disable_aspm_l1ss=Y"
       "rtw89_pci.disable_clkreq=Y"
     ];
-    extraModulePackages = with config.boot.kernelPackages; [ ethercat ];
   };
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
@@ -36,7 +35,6 @@
   };
   environment.systemPackages = [
     pkgs.pololu-jrk-g2-software
-    pkgs.ethercat
   ];
   home-manager.users.nim = import ./home.nix;
   networking = {
@@ -75,4 +73,11 @@
   };
 
   services.xserver.desktopManager.xfce.enable = true;
+
+  services.ethercat = {
+    enable = true;
+    deviceModules = "generic";
+    master0Device = "enp4s0f4u1u1";
+  };
+  users.users.nim.extraGroups = [ "ethercat" ];
 }
