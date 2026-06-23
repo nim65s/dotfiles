@@ -36,6 +36,7 @@
   };
   environment.systemPackages = [
     pkgs.pololu-jrk-g2-software
+    pkgs.ethercat
   ];
   home-manager.users.nim = import ./home.nix;
   networking = {
