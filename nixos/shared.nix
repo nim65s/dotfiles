@@ -190,7 +190,7 @@
     upower.enable = true;
   };
 
-  security.lockKernelModules = true;
+  security.lockKernelModules = false;
 
   system.autoUpgrade = {
     enable = lib.mkDefault true;
