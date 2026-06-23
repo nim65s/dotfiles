@@ -70,4 +70,6 @@
       pkgs.pololu-jrk-g2-software
     ];
   };
+
+  services.xserver.desktopManager.xfce.enable = true;
 }
