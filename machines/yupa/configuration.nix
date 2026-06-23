@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -27,6 +28,7 @@
       "rtw89_pci.disable_aspm_l1ss=Y"
       "rtw89_pci.disable_clkreq=Y"
     ];
+    extraModulePackages = with config.boot.kernelPackages; [ ethercat ];
   };
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-eui.0025388b11b2bd16";
