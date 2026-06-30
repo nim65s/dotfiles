@@ -1,5 +1,4 @@
 {
-  pkgs,
   ...
 }:
 {
@@ -25,15 +24,6 @@
     nim.programs = {
       man.enable = false;
       yazi.enable = false;
-    };
-  };
-
-  stylix = {
-    cursor = null;
-    targets.qt.enable = false;
-    fonts.monospace = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans Mono";
     };
   };
 }

@@ -57,8 +57,6 @@ in
     };
   };
 
-  stylix.image = ../../bg/zhurong.jpg;
-
   systemd.services = {
     calibration = {
       serviceConfig = {

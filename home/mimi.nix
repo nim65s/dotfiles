@@ -1,24 +1,9 @@
 {
-  catppuccin,
   pkgs,
   ...
 }:
 {
-  imports = [
-    catppuccin.homeModules.catppuccin
-  ];
-
   config = {
-    catppuccin = {
-      enable = true;
-      autoEnable = true;
-      accent = "red";
-      firefox.profiles.mimi = {
-        enable = true;
-        force = true;
-      };
-    };
-
     home = {
       homeDirectory = "/home/mimi";
       username = "mimi";
@@ -88,26 +73,6 @@
         };
       };
       starship.enable = true;
-    };
-
-    qt = {
-      enable = true;
-      platformTheme.name = "kvantum";
-      style.name = "kvantum";
-    };
-
-    stylix = {
-      cursor = {
-        name = "catppuccin-mocha-red-cursors";
-        package = pkgs.catppuccin-cursors.mochaRed;
-        size = 24;
-      };
-      targets = {
-        firefox.profileNames = [ "mimi" ];
-        mako.enable = false; # silence a HM assert
-        qt.enable = false;
-        starship.enable = false;
-      };
     };
   };
 }

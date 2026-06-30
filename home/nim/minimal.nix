@@ -1,22 +1,13 @@
 {
-  catppuccin,
   pkgs,
   ...
 }:
 {
 
   imports = [
-    catppuccin.homeModules.catppuccin
     ./programs/minimal.nix
     ./ssh.nix
   ];
-
-  catppuccin = {
-    enable = true;
-    autoEnable = true;
-    accent = "blue";
-    thunderbird.profile = "nim";
-  };
 
   home = {
     stateVersion = "25.05";
@@ -143,29 +134,6 @@
         "--cmd"
         "cd"
       ];
-    };
-  };
-
-  stylix = {
-    # Those are handled by catppuccin-nix
-    targets = {
-      alacritty.enable = false;
-      bat.enable = false;
-      btop.enable = false;
-      firefox.enable = false;
-      fzf.enable = false;
-      halloy.enable = false;
-      helix.enable = false;
-      kitty.enable = false;
-      mako.enable = false; # silence a HM assert in unused module
-      neovim.enable = false;
-      nixvim.enable = false;
-      qt.enable = false;
-      starship.enable = false;
-      swaylock.enable = false;
-      swaync.enable = false;
-      yazi.enable = false;
-      zellij.enable = false;
     };
   };
 }

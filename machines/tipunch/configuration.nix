@@ -5,7 +5,6 @@
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     ../../nixos/shared.nix
-    ../../nixos/nixos.nix
     ../../nixos/systemd-boot.nix
   ];
 
@@ -37,7 +36,6 @@
     desktopManager.plasma6.enable = true;
     xserver.xkb.variant = "";
   };
-  # stylix.image = ../../bg/hattori.jpg;
   users.users.martine = {
     isNormalUser = true;
     shell = pkgs.fish;

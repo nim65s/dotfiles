@@ -10,7 +10,6 @@
     ../../nixos/laptop.nix
     # ../../nixos/monitored.nix
     ../../nixos/shared.nix
-    ../../nixos/nixos.nix
     # ../../nixos/parental-control.nix
     ../../nixos/systemd-boot.nix
   ];
@@ -50,7 +49,6 @@
     desktopManager.plasma6.enable = true;
     xserver.xkb.variant = "";
   };
-  stylix.image = ../../bg/hattori.jpg;
   users.users = {
     doud = {
       isNormalUser = true;

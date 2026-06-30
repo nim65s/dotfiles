@@ -59,8 +59,6 @@ in
     };
   };
 
-  stylix.image = ../../bg/perseverance.jpeg;
-
   systemd.services = {
     calibration = {
       serviceConfig = {

@@ -13,7 +13,7 @@
       };
       swaybgs = lib.mkOption {
         type = lib.types.str;
-        default = "${lib.getExe pkgs.swaybg} -m fill -i ${config.stylix.image}";
+        default = "${lib.getExe pkgs.swaybg} -m fill -i ${../../bg/sleep.jpg}";
       };
       waybar-output = lib.mkOption {
         type = lib.types.str;

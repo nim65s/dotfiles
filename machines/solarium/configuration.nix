@@ -8,7 +8,6 @@
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     ../../nixos/shared.nix
-    ../../nixos/nixos.nix
     ../../nixos/systemd-boot.nix
   ];
 
@@ -34,7 +33,6 @@
     printing.enable = true;
     xserver.xkb.variant = "";
   };
-  stylix.image = ../../bg/hattori.jpg;
   users.users.doud = {
     isNormalUser = true;
     shell = pkgs.fish;

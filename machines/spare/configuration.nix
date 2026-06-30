@@ -3,7 +3,6 @@
     ../../nixos/disko/ext4-swap.nix
     ../../nixos/display.nix
     ../../nixos/shared.nix
-    ../../nixos/nixos.nix
     ../../nixos/systemd-boot.nix
     ./azv.nix
   ];
@@ -15,5 +14,4 @@
   home-manager.users = {
     nim = import ../../home/nim/main.nix;
   };
-  # stylix.image = ../../bg/hattori.jpg;
 }

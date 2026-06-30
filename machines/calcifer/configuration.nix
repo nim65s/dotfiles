@@ -5,7 +5,6 @@
   imports = [
     ../bpi-r4/bpi-r4.nix
     ../../nixos/disko/ext4-swap.nix
-    ../../nixos/nixos.nix
     ../../nixos/shared.nix
     ../../nixos/small.nix
     ./kal/module.nix
@@ -21,9 +20,7 @@
   };
 
   home-manager.users.nim = import ../../home/nim/minimal.nix;
-  stylix.targets.console.colors.enable = false;
   services.getty.autologinUser = "root";
-  catppuccin.tty.enable = false;
   system.autoUpgrade.enable = false;
   documentation.man.enable = false;
   services.fail2ban.enable = true;

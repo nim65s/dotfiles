@@ -1,29 +1,20 @@
 {
-  catppuccin,
   config,
   flake,
   home-manager,
   lib,
   nixvim,
   pkgs,
-  stylix,
   ...
 }:
 {
   imports = [
     home-manager.nixosModules.home-manager
-    catppuccin.nixosModules.catppuccin
     nixvim.nixosModules.nixvim
     ./access-tokens.nix
     ./minimal.nix
     ./tinc.nix
   ];
-
-  catppuccin = {
-    enable = true;
-    autoEnable = true;
-    accent = lib.mkDefault "blue";
-  };
 
   console.useXkbConfig = lib.mkDefault true;
 
@@ -73,9 +64,7 @@
     extraSpecialArgs = {
       inherit (config) sops;
       inherit
-        catppuccin
         nixvim
-        stylix
         ;
     };
     useGlobalPkgs = true;

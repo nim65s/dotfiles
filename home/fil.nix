@@ -1,21 +1,9 @@
 {
-  catppuccin,
   pkgs,
   ...
 }:
 {
-  imports = [
-    catppuccin.homeModules.catppuccin
-  ];
-
   config = {
-    catppuccin = {
-      enable = true;
-      autoEnable = true;
-      accent = "blue";
-      flavor = "latte";
-    };
-
     home = {
       homeDirectory = "/home/fil";
       username = "fil";
@@ -52,26 +40,6 @@
         enable = true;
         languagePacks = [ "fr" ];
         profiles.fil.isDefault = true;
-      };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme.name = "kvantum";
-      style.name = "kvantum";
-    };
-
-    stylix = {
-      cursor = {
-        name = "catppuccin-latte-blue-cursors";
-        package = pkgs.catppuccin-cursors.latteBlue;
-        size = 24;
-      };
-      targets = {
-        firefox.enable = false;
-        mako.enable = false; # silence a HM assert
-        qt.enable = false;
-        starship.enable = false;
       };
     };
   };

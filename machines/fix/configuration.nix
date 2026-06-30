@@ -5,14 +5,9 @@
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     ../../nixos/shared.nix
-    ../../nixos/nixos.nix
     ../../nixos/systemd-boot.nix
   ];
 
-  catppuccin = {
-    flavor = "latte";
-    accent = "blue";
-  };
   disko.devices.disk.main = {
     device = "/dev/disk/by-id/nvme-WD_BLACK_SN770_500GB_23313J803792";
     name = "main-cb1244c6-395c-44db-89db-709173ba9b44";
@@ -94,7 +89,6 @@
       options = "caps:digits_row";
     };
   };
-  # stylix.image = ../../bg/hattori.jpg;
   users.users.fil = {
     isNormalUser = true;
     shell = pkgs.fish;

@@ -1,20 +1,9 @@
 {
-  catppuccin,
   pkgs,
   ...
 }:
 {
-  imports = [
-    catppuccin.homeModules.catppuccin
-  ];
-
   config = {
-    catppuccin = {
-      enable = true;
-      autoEnable = true;
-      accent = "sapphire";
-    };
-
     home = {
       homeDirectory = "/home/martine";
       username = "martine";
@@ -48,26 +37,6 @@
         };
       };
       starship.enable = true;
-    };
-
-    qt = {
-      enable = true;
-      platformTheme.name = "kvantum";
-      style.name = "kvantum";
-    };
-
-    stylix = {
-      cursor = {
-        name = "catppuccin-mocha-sapphire-cursors";
-        package = pkgs.catppuccin-cursors.mochaSapphire;
-        size = 24;
-      };
-      targets = {
-        firefox.enable = false;
-        mako.enable = false; # silence a HM assert
-        qt.enable = false;
-        starship.enable = false;
-      };
     };
   };
 }

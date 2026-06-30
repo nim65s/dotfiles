@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -28,13 +27,13 @@
 
     settings = {
       allow_remote_control = "socket-only";
-      background_opacity = config.stylix.opacity.terminal;
+      background_opacity = 0.9;
       cursor_trail = "1";
       enable_audio_bell = false;
       enabled_layouts = "splits,fat,tall,grid,horizontal,vertical,stack";
       focus_follows_mouse = true;
-      font_family = config.stylix.fonts.monospace.name;
-      font_size = config.stylix.fonts.sizes.terminal;
+      font_family = "IosevkaNerdFont";
+      font_size = 9;
       listen_on = "unix:\${HOME}/.kitty-remote";
       scrollback_pager_history_size = 2;
       shell = lib.getExe pkgs.fish;

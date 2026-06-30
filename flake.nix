@@ -2,11 +2,6 @@
   description = "My dotfiles";
 
   inputs = {
-    # alloria.url = "github:nim65s/alloria";
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     clan-core = {
       url = "https://git.clan.lol/nim65s/clan-core/archive/harmonia.tar.gz";
       inputs = {
@@ -56,15 +51,6 @@
       inputs = {
         flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
-      };
-    };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nur.follows = "nur";
-        systems.follows = "clan-core/systems";
-        flake-parts.follows = "flake-parts";
       };
     };
     treefmt-nix = {
@@ -260,11 +246,9 @@
           };
           specialArgs = {
             inherit (inputs)
-              catppuccin
               home-manager
               nixpkgs
               nixvim
-              stylix
               linux-bpi-r4
               uboot-bpi-r4
               ;
@@ -344,9 +328,7 @@
                     inherit pkgs;
                     extraSpecialArgs = {
                       inherit (inputs)
-                        catppuccin
                         nixvim
-                        stylix
                         ;
                     };
                     modules = [ { nixpkgs.overlays = lib.attrValues self.overlays; } ] ++ modules;
