@@ -31,11 +31,19 @@
       defaultSession = null;
     };
     desktopManager.plasma6.enable = true;
+    printing.enable = true;
     xserver.xkb.variant = "";
   };
   stylix.image = ../../bg/hattori.jpg;
   users.users.doud = {
     isNormalUser = true;
     shell = pkgs.fish;
+    extraGroups = [
+      "lp"
+    ];
   };
+  hardware.sane.enable = true;
+  environment.systemPackages = [
+    pkgs.kdePackages.kolourpaint
+  ];
 }
