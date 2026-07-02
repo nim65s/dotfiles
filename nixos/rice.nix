@@ -3,6 +3,7 @@
   catppuccin,
   pkgs,
   stylix,
+  ...
 }:
 {
   imports = [
