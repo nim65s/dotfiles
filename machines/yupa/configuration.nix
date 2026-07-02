@@ -9,9 +9,11 @@
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     # ../../nixos/monitored.nix
+    ../../nixos/rice.nix
     ../../nixos/shared.nix
     # ../../nixos/steam.nix
     # ../../nixos/teeworlds.nix
+    ../../nixos/nixos.nix
     ../../nixos/wifi-laas.nix
     ../../nixos/systemd-boot.nix
     # ../../nixos/ethercat.nix
@@ -53,6 +55,7 @@
     #   rtp-ip = "hattori.m";
     # };
   };
+  stylix.image = ../../bg/yupa.jpg;
   # services.flatpak.enable = true;
   virtualisation.docker.enable = true;
   # virtualisation.virtualbox.host.enable = true;

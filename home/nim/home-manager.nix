@@ -4,9 +4,15 @@
   config,
   lib,
   pkgs,
+  stylix,
   ...
 }:
 {
+  imports = [
+    stylix.homeModules.stylix
+    ../../shared/stylix.nix
+  ];
+
   home = {
     packages = [ pkgs.nix ];
   };

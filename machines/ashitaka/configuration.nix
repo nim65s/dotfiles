@@ -9,9 +9,11 @@
     # ../../nixos/nginx.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
+    ../../nixos/rice.nix
     ../../nixos/shared.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/nas.nix
+    ../../nixos/nixos.nix
     ../../nixos/zenoh.nix
     ./rotate-cam.nix
   ];
@@ -75,6 +77,8 @@
 
     joycond.enable = true;
   };
+
+  stylix.image = ../../bg/ashitaka-3.jpg;
 
   swapDevices = [
     {

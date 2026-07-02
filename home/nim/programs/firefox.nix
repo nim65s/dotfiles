@@ -6,6 +6,11 @@
 {
   imports = [ ./firefox-search.nix ];
 
+  catppuccin.firefox.profiles.nim = {
+    enable = true;
+    force = true;
+  };
+
   programs.firefox = {
     enable = config.nim-home.gui;
     configPath = ".mozilla/firefox"; # Too lazy to switch to new "${config.xdg.configHome}/mozilla/firefox";

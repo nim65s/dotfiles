@@ -11,6 +11,8 @@
     #../aliens/upepesanke/home.nix
   ];
 
+  stylix.image = ../../../bg/gauche.jpg;
+
   nim-home = {
     niri = [ ./niri.kdl ];
     swaybgs = ''
