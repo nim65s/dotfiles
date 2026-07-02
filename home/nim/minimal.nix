@@ -15,6 +15,11 @@
     enable = true;
     autoEnable = true;
     accent = "blue";
+    sources = catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
+      _: _: {
+        whiskers = pkgs.catppuccin-whiskers;
+      }
+    );
     thunderbird.profile = "nim";
   };
 
