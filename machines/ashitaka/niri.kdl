@@ -30,7 +30,7 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 window-rule {
-    match at-startup=true app-id="electron"
+    match at-startup=true app-id="element"
     open-on-workspace "com"
     default-column-width { proportion 0.65; }
 }
