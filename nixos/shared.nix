@@ -1,15 +1,18 @@
 {
+  catppuccin,
   config,
   flake,
   home-manager,
   lib,
   nixvim,
   pkgs,
+  stylix,
   ...
 }:
 {
   imports = [
     home-manager.nixosModules.home-manager
+    catppuccin.nixosModules.catppuccin
     nixvim.nixosModules.nixvim
     ./access-tokens.nix
     ./minimal.nix
@@ -64,7 +67,9 @@
     extraSpecialArgs = {
       inherit (config) sops;
       inherit
+        catppuccin
         nixvim
+        stylix
         ;
     };
     useGlobalPkgs = true;

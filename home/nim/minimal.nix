@@ -1,12 +1,14 @@
 {
   catppuccin,
   pkgs,
+  stylix,
   ...
 }:
 {
 
   imports = [
     catppuccin.homeModules.catppuccin
+    stylix.homeModules.stylix
     ./programs/minimal.nix
     ./ssh.nix
   ];
