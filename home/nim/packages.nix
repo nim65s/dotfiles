@@ -87,7 +87,7 @@
       ncdu
       ninja
       #nix-du
-      nix-diff
+      nix-diff-rs
       nix-output-monitor
       nix-tree-rs
       nix-update

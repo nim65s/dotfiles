@@ -372,6 +372,7 @@
                 iosevka-aile
                 iosevka-etoile
                 iosevka-term
+                nix-diff-rs
                 nixook
                 nurl
                 pmapnitor
