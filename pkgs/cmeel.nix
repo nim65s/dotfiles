@@ -7,14 +7,14 @@
 
 python3.pkgs.buildPythonApplication (finalAttrs: {
   pname = "cmeel";
-  version = "0.60.0";
+  version = "0.60.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "cmake-wheel";
     repo = "cmeel";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Z5MsFjm5Zng4zIu8BAcF9dhrLk14z17LFhHRZaSuUUg=";
+    hash = "sha256-SI/RMJIm+zdIM2Mzui0GdbWBJutot8KFLP8+QsvmoUc=";
   };
 
   nativeBuildInputs = [
