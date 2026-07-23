@@ -72,7 +72,10 @@
       ];
     };
 
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      historyWidget.command = ""; # atuin handle this
+    };
 
     gh = {
       enable = true;
