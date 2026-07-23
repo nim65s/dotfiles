@@ -28,7 +28,6 @@
 
     settings = {
       allow_remote_control = "socket-only";
-      background_opacity = config.stylix.opacity.terminal;
       cursor_trail = "1";
       enable_audio_bell = false;
       enabled_layouts = "splits,fat,tall,grid,horizontal,vertical,stack";

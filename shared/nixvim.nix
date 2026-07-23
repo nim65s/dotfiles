@@ -46,18 +46,18 @@
 
   clipboard.providers.wl-copy.enable = true;
 
-  colorschemes.catppuccin = {
-    enable = true;
-    settings = {
-      flavor = "mocha";
-      integrations = {
-        cmp = true;
-        gitsigns = true;
-        treesitter.enable = true;
-      };
-      transparent_background = true;
-    };
-  };
+  # colorschemes.catppuccin = {
+  #   enable = true;
+  #   settings = {
+  #     flavor = "mocha";
+  #     integrations = {
+  #       cmp = true;
+  #       gitsigns = true;
+  #       treesitter.enable = true;
+  #     };
+  #     transparent_background = true;
+  #   };
+  # };
 
   filetype = {
     pattern = {

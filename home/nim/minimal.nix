@@ -1,30 +1,15 @@
 {
-  catppuccin,
   pkgs,
   ...
 }:
 {
 
   imports = [
-    catppuccin.homeModules.catppuccin
     ./programs/minimal.nix
     ./ssh.nix
   ];
 
-  catppuccin = {
-    enable = true;
-    autoEnable = true;
-    accent = "blue";
-    sources = catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
-      _: _: {
-        whiskers = pkgs.catppuccin-whiskers;
-      }
-    );
-    thunderbird.profile = "nim";
-  };
-
   home = {
-    pointerCursor.enable = true;
     stateVersion = "25.05";
   };
 

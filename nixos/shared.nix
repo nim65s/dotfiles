@@ -1,5 +1,4 @@
 {
-  catppuccin,
   config,
   flake,
   home-manager,
@@ -12,8 +11,9 @@
 {
   imports = [
     home-manager.nixosModules.home-manager
-    catppuccin.nixosModules.catppuccin
     nixvim.nixosModules.nixvim
+    stylix.nixosModules.stylix
+    ../shared/stylix.nix
     ./access-tokens.nix
     ./minimal.nix
     ./tinc.nix
@@ -67,7 +67,6 @@
     extraSpecialArgs = {
       inherit (config) sops;
       inherit
-        catppuccin
         nixvim
         stylix
         ;

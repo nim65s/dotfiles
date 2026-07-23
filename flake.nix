@@ -3,10 +3,6 @@
 
   inputs = {
     # alloria.url = "github:nim65s/alloria";
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     clan-core = {
       url = "https://git.clan.lol/nim65s/clan-core/archive/harmonia.tar.gz";
       inputs = {
@@ -260,7 +256,6 @@
           };
           specialArgs = {
             inherit (inputs)
-              catppuccin
               home-manager
               nixpkgs
               nixvim
@@ -344,7 +339,6 @@
                     inherit pkgs;
                     extraSpecialArgs = {
                       inherit (inputs)
-                        catppuccin
                         nixvim
                         stylix
                         ;

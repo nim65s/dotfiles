@@ -72,8 +72,6 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
   };
 
   services = {
@@ -88,6 +86,8 @@
       };
     };
   };
+
+  stylix.targets.firefox.profileNames = [ "nim" ];
 
   systemd = {
     user = {

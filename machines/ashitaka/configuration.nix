@@ -9,7 +9,6 @@
     # ../../nixos/nginx.nix
     ../../nixos/nvidia.nix
     ../../nixos/remote-decrypt.nix
-    ../../nixos/rice.nix
     ../../nixos/shared.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/nas.nix

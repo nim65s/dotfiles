@@ -6,11 +6,6 @@
 {
   imports = [ ./firefox-search.nix ];
 
-  catppuccin.firefox.profiles.nim = {
-    enable = true;
-    force = true;
-  };
-
   programs.firefox = {
     enable = config.nim-home.gui;
     configPath = ".mozilla/firefox"; # Too lazy to switch to new "${config.xdg.configHome}/mozilla/firefox";
@@ -50,10 +45,10 @@
         "browser.theme.toolbar-theme" = 0;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.urlbar.suggest.calculator" = true;
-        "font.name.monospace.x-western" = "Iosevka";
+        "font.name.monospace.x-western" = "IosevkaNerdFont";
         "font.name.sans-serif.x-western" = "Iosevka-Aile";
         "font.name.serif.x-western" = "Iosevka-Etoile";
-        "font.size.variable.x-western" = 12;
+        "font.size.variable.x-western" = 11;
         "layers.acceleration.disabled" = true; # TODO
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "signon.rememberSignons" = false;

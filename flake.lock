@@ -68,26 +68,6 @@
         "type": "github"
       }
     },
-    "catppuccin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1784366307,
-        "narHash": "sha256-VKatYOZwLQ+MuNkWH6/gZYxrNeSK1Mqb7mC0H1WSu+M=",
-        "owner": "catppuccin",
-        "repo": "nix",
-        "rev": "673f730d0fc8db3468c51575f1d3d777cc55e51f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "nix",
-        "type": "github"
-      }
-    },
     "clan-core": {
       "inputs": {
         "data-mesher": "data-mesher",
@@ -508,7 +488,6 @@
     },
     "root": {
       "inputs": {
-        "catppuccin": "catppuccin",
         "clan-core": "clan-core",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",

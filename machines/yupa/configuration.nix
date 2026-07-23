@@ -9,7 +9,6 @@
     ../../nixos/display.nix
     ../../nixos/laptop.nix
     # ../../nixos/monitored.nix
-    ../../nixos/rice.nix
     ../../nixos/shared.nix
     # ../../nixos/steam.nix
     # ../../nixos/teeworlds.nix

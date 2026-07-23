@@ -7,18 +7,13 @@
 {
   options = {
     nim-home = {
-      bg = lib.mkOption {
-        type = lib.types.path;
-        default = ../../bg/sleep.jpg;
-      };
       niri = lib.mkOption {
         type = lib.types.listOf lib.types.path;
         default = [ ];
       };
       swaybgs = lib.mkOption {
         type = lib.types.str;
-        # default = "${lib.getExe pkgs.swaybg} -m fill -i ${config.stylix.image}";
-        default = "${lib.getExe pkgs.swaybg} -m fill -i ${config.nim-home.bg}";
+        default = "${lib.getExe pkgs.swaybg} -m fill -i ${config.stylix.image}";
       };
       waybar-output = lib.mkOption {
         type = lib.types.str;

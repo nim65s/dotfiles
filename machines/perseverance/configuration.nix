@@ -59,7 +59,7 @@ in
     };
   };
 
-  # stylix.image = ../../bg/perseverance.jpeg;
+  stylix.image = ../../bg/perseverance.jpeg;
 
   systemd.services = {
     calibration = {
