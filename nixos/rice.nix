@@ -8,6 +8,8 @@
 {
   imports = [
     catppuccin.nixosModules.catppuccin
+    stylix.nixosModules.stylix
+    ../shared/stylix.nix
   ];
 
   catppuccin = {
