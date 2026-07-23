@@ -41,6 +41,8 @@ def main(prompt, host, pinentry):
         wrap(pinentry, prompt, "confirm")
     elif "password" in prompt.lower():
         wrap(pinentry, prompt, "getpin")
+    elif "confirm user presence" in prompt.lower():
+        print(prompt)
     else:
         print("I don't know what to do.", file=sys.stderr)
 
