@@ -29,4 +29,12 @@
         ;
     };
   };
+
+  stylix = {
+    targets = {
+      nixvim.enable = false;
+      qt.enable = false;
+    };
+  };
+
 }
