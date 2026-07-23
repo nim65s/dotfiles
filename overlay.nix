@@ -22,9 +22,6 @@ in
         "awk" "${final.lib.getExe final.gawk}"
     '';
   });
-  kanata = prev.kanata.overrideAttrs {
-    patches = final.lib.fileset.toList ./patches/jtroo/kanata;
-  };
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
