@@ -49,6 +49,7 @@
       formatjson5
       #font-awesome
       fuzzel
+      gazebros2nix
       gersemi
       ghostscript
       git-extras

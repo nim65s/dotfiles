@@ -367,6 +367,7 @@
                 cmeel
                 dockgen
                 exif-diff
+                gazebros2nix
                 git-fork-clone
                 git-objects-cache
                 iosevka-aile
