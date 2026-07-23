@@ -26,6 +26,7 @@
   };
 
   home = {
+    pointerCursor.enable = true;
     stateVersion = "25.05";
   };
 
