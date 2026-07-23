@@ -5,7 +5,7 @@
   nix-update-script,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
+rustPlatform.buildRustPackage (_finalAttrs: {
   pname = "nix-diff-rs";
   version = "0-unstable-2026-07-04";
   __structuredAttrs = true;
