@@ -69,6 +69,7 @@
       iotop
       jless
       jq
+      jrl-cmakemodules-scripts
       just
       keep-sorted
       khal

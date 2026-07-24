@@ -367,6 +367,7 @@
                 iosevka-aile
                 iosevka-etoile
                 iosevka-term
+                jrl-cmakemodules-scripts
                 nix-diff-rs
                 nixook
                 nurl
