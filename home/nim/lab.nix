@@ -3,7 +3,8 @@
   ...
 }:
 let
-  nss = "${pkgs.sssd}/lib/libnss_sss.so.2";
+  # nss = "${pkgs.sssd}/lib/libnss_sss.so.2";
+  nss = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
 in
 {
   imports = [
@@ -14,7 +15,6 @@ in
 
   nim-home.username = "gsaurel";
   home.sessionVariables = {
-    # LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     LD_PRELOAD = nss;
     PIP_INDEX_URL = "https://python.laas.fr/simple/";
     UV_INDEX = "https://python.laas.fr/simple/";
