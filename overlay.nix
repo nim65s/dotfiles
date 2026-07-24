@@ -22,6 +22,15 @@ in
         "awk" "${final.lib.getExe final.gawk}"
     '';
   });
+  pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+    (
+      python-final: _python-prev:
+      final.lib.filesystem.packagesFromDirectoryRecursive {
+        inherit (python-final) callPackage;
+        directory = ./py-pkgs;
+      }
+    )
+  ];
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
