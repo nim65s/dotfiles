@@ -14,6 +14,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
 
   dependencies = [
     python3Packages.cmake-parser
+    python3Packages.packaging
     python3Packages.rich
     python3Packages.ruamel-yaml
     python3Packages.tomlkit
