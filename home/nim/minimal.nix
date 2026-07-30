@@ -9,6 +9,10 @@
     ./ssh.nix
   ];
 
+  gtk = {
+    colorScheme = "dark";
+  };
+
   home = {
     stateVersion = "25.05";
   };
@@ -138,5 +142,10 @@
         "cd"
       ];
     };
+  };
+
+  qt = {
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
   };
 }
