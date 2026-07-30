@@ -1,4 +1,8 @@
 {
+  lib,
+  ...
+}:
+{
   imports = [
     ../../nixos/disko/ext4-swap.nix
     ../../nixos/display.nix
@@ -14,4 +18,5 @@
   home-manager.users = {
     nim = import ../../home/nim/main.nix;
   };
+  nix.gc.options = lib.mkForce "--delete-older-than 2d";
 }
