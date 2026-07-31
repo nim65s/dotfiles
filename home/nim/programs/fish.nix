@@ -91,6 +91,7 @@
       gsub = "git commit -am submodules; git push";
       ipa = "ip address";
       ipr = "ip route";
+      ipy = "ipython";
       la = lib.mkForce "eza -A";
       ll = lib.mkForce "eza -l --sort newest";
       ls = lib.mkForce "eza";
