@@ -4,6 +4,7 @@
 }:
 {
   imports = [
+    ../../nixos/azv-print.nix
     ../../nixos/disko/zfs-swap.nix
     ../../nixos/display.nix
     ../../nixos/laptop.nix
@@ -30,10 +31,6 @@
       defaultSession = null;
     };
     desktopManager.plasma6.enable = true;
-    printing = {
-      enable = true;
-      drivers = [ pkgs.epson-escpr2 ];
-    };
     xserver.xkb.variant = "";
   };
   users.users.doud = {
@@ -41,9 +38,9 @@
     shell = pkgs.fish;
     extraGroups = [
       "lp"
+      "scanner"
     ];
   };
-  hardware.sane.enable = true;
   environment.systemPackages = [
     pkgs.kdePackages.kolourpaint
   ];

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ../../nixos/azv-print.nix
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     # ../../nixos/home-assistant.nix
@@ -89,6 +90,8 @@
 
   users.users.nim.extraGroups = [
     "docker"
+    "lp"
+    "scanner"
     "uinput"
   ];
 
