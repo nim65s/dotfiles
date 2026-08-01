@@ -27,10 +27,11 @@
         "/calcifer.azv.saurel.me/82.65.234.111"
         "/calcifer.azv.saurel.me/2a01:e0a:941:c1d4::1"
         "/epson.azv/192.168.1.2"
-        "/epson.azv/2a01:e0a:941:c1d1::2"
+        "/totoro.azv/192.168.1.111"
       ];
       dhcp-host = [
         "01:38:1a:52:8f:c4:76,epson.azv,192.168.1.2"
+        "00:9c:02:97:5d:31,totoro.azv,192.168.1.111"
       ];
       dhcp-range = [
         "lan1,192.168.1.100,192.168.1.200,12h"
