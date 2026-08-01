@@ -16,7 +16,7 @@
       ensurePrinters = [
         {
           deviceUri = "ipp://epson.azv/ipp";
-          location = "azv";
+          location = "epson-inkjet-printer-escpr2/Epson-WF-3720_Series-epson-escpr2-en.ppd";
           name = "EPSON_WF-3720_Series";
           model = "EPSON WF-3720 Series";
         }
