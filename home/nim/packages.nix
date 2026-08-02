@@ -212,7 +212,7 @@
       swaybg
       swaylock
       vlc
-      vscode-fhs
+      # vscode-fhs
       wdisplays
       #wireplumber
       wl-clipboard
