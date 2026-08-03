@@ -8,12 +8,12 @@ A manual fetch cache for your git objects
 """
 
 from argparse import ArgumentParser
+from logging import basicConfig, getLogger
 from os import environ
-from logging import getLogger, basicConfig
-from subprocess import check_call, check_output
 from pathlib import Path
+from subprocess import check_call, check_output
 
-from tomlkit import load, dump
+from tomlkit import dump, load
 
 _NAME = "git-objects-cache"
 _NAME_UP = "GIT_OBJECTS_CACHE"
