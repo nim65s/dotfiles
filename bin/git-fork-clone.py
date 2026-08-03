@@ -13,11 +13,11 @@ Given a repo (or an owner), fork + clone + configure it (or all its repos):
 - configure push to fork
 """
 
-from logging import basicConfig, getLogger
 from argparse import ArgumentParser
-from pathlib import Path
+from logging import basicConfig, getLogger
 from os import environ
-from subprocess import check_output, DEVNULL, run
+from pathlib import Path
+from subprocess import DEVNULL, check_output, run
 
 from github import Auth, Github
 from github.GithubException import UnknownObjectException

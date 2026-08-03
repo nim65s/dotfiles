@@ -22,14 +22,14 @@ NB: updates involve a removal first and a download afterwards.
 Use at your own risk, and preferably with a VCS.
 """
 
-from unicodedata import normalize
-from asyncio import run, gather
-from logging import basicConfig, getLogger
 from argparse import ArgumentParser
-from pathlib import Path
+from asyncio import gather, run
+from logging import basicConfig, getLogger
 from os import chdir, environ
+from pathlib import Path
 from re import search, sub
 from subprocess import check_output
+from unicodedata import normalize
 
 from httpx import AsyncClient
 

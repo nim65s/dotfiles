@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from sys import stdin
 from datetime import datetime
+from sys import stdin
 
 
 def tailstamp():
