@@ -22,14 +22,14 @@ NB: updates involve a removal first and a download afterwards.
 Use at your own risk, and preferably with a VCS.
 """
 
-from unicodedata import normalize
-from asyncio import run, gather
-from logging import basicConfig, getLogger
 from argparse import ArgumentParser
-from pathlib import Path
+from asyncio import gather, run
+from logging import basicConfig, getLogger
 from os import chdir, environ
+from pathlib import Path
 from re import search, sub
 from subprocess import check_output
+from unicodedata import normalize
 
 from httpx import AsyncClient
 
@@ -56,7 +56,7 @@ parser.add_argument(
     "-q",
     "--quiet",
     action="count",
-    default=int(environ.get("QUIET", 0)),
+    default=int(environ.get("QUIET", "0")),
     help="decrement verbosity level",
 )
 
@@ -64,7 +64,7 @@ parser.add_argument(
     "-v",
     "--verbose",
     action="count",
-    default=int(environ.get("VERBOSITY", 0)),
+    default=int(environ.get("VERBOSITY", "0")),
     help="increment verbosity level",
 )
 

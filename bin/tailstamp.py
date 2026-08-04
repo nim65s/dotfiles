@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-from sys import stdin
 from datetime import datetime
+from sys import stdin
 
 
 def tailstamp():
     try:
         for line in stdin:
-            now = datetime.now()
+            now = datetime.now()  # noqa: DTZ005
             print(f"{now:%X} {line}", end="")
     except KeyboardInterrupt:
         pass
