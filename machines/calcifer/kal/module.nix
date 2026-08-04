@@ -183,7 +183,7 @@ in
           }
         );
         Type = "exec";
-        Restart = "on-failure";
+        Restart = "always";
         RestartSec = 5;
         User = moduleName;
         Group = moduleName;
