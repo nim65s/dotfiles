@@ -168,6 +168,7 @@
                       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFPWyZK9yJEyY7DqxN+A2h4+LccOoZGt2OdWEYvwzXzT nim@yupa";
                     "sk1" =
                       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIOwQHhg10BZUogtkz+MlOsnmQER2Kkf9YjL3taOcNtbJAAAABHNzaDo= nim@sk1";
+                    "brick" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEdSIqHBmLge/lF3ZvNWY1sNW/XSHO4N3/kGpIsyasmM brick";
                   };
                   tags.all = { };
                 };
