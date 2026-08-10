@@ -107,4 +107,7 @@
       #];
     };
   };
+
+  #hyprland is disabled, this is only here to silence a warning
+  wayland.windowManager.hyprland.configType = "lua";
 }
