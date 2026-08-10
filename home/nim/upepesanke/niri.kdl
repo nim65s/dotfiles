@@ -1,7 +1,7 @@
 workspace "web" {
     open-on-output "DP-2"
 }
-workspace "mel" {
+workspace "com" {
     open-on-output "DP-2"
 }
 workspace "doc" {
@@ -9,9 +9,14 @@ workspace "doc" {
 }
 
 window-rule {
+    match at-startup=true app-id="element"
+    open-on-workspace "com"
+    default-column-width { proportion 0.5; }
+}
+window-rule {
     match at-startup=true app-id="thunderbird"
-    open-on-workspace "mel"
-    open-maximized true
+    open-on-workspace "com"
+    default-column-width { proportion 0.5; }
 }
 window-rule {
     match at-startup=true app-id="firefox-devedition"

@@ -40,11 +40,23 @@
             ''
               sed 's|^Exec=.*|Exec=${lib.getExe pkg}|' ${pkg}${path} > $out
             '';
+        elementDesktop =
+          pkg: path:
+          pkgs.runCommandLocal "nix-${pkg.pname}.desktop"
+            {
+              buildInputs = [ pkg ];
+              nativeBuildInputs = [ pkgs.gnused ];
+            }
+            ''
+              sed 's|^Exec=.*|Exec=/run/system-manager/sw/bin/element-desktop|' ${pkg}${path} > $out
+            '';
+
       in
       [
         (fixDesktop config.programs.thunderbird.package "/share/applications/thunderbird.desktop")
         (fixDesktop config.programs.firefox.finalPackage "/share/applications/firefox-devedition.desktop")
         (fixDesktop pkgs.zeal "/share/applications/org.zealdocs.zeal.desktop")
+        (elementDesktop pkgs.element-desktop "/share/applications/element-desktop.desktop")
       ];
   };
 }
