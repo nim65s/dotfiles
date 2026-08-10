@@ -24,4 +24,7 @@ in
     "LD_PRELOAD=${nss}"
     "SSH_ASKPASS=${../../bin/ask_rbw.py}"
   ];
+
+  programs.swaylock.package = null;
+  programs.element-desktop.package = null;
 }
