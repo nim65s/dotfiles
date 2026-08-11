@@ -43,5 +43,8 @@
       terminal = 0.9;
     };
     polarity = "dark";
+    targets = {
+      qt.enable = true;
+    };
   };
 }
