@@ -298,7 +298,8 @@ binds {
     Mod+D { spawn "rofi" "-show" "run"; }
     Mod+I { spawn "rofi-rbw"; }
     Mod+M { spawn "rofimoji"; }
-    Super+Alt+L { spawn "systemctl" "suspend"; }
+    Super+Alt+S allow-when-locked=true { spawn "systemctl" "suspend"; }
+    Super+Alt+L allow-when-locked=true { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
