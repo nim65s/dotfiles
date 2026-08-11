@@ -32,6 +32,8 @@
     };
   };
 
+  stylix.targets.kde.plasmaWorkspacePackage = pkgs.kdePackages.plasma-workspace;
+
   systemd.user.services.home-manager-auto-upgrade = {
     Service.ExecStartPre = "${lib.getExe pkgs.git} pull https://github.com/nim65s/dotfiles";
   };
