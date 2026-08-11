@@ -8,7 +8,7 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = lib.mkDefault {
-      name = "gruppled_white_lite/";
+      name = "gruppled_white_lite";
       package = pkgs.gruppled-white-lite-cursors;
       size = 24;
     };
