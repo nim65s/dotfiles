@@ -82,7 +82,7 @@
     swayidle = {
       enable = true;
       events = {
-        before-sleep = lib.getExe pkgs.swaylock;
+        before-sleep = "swaylock";
       };
     };
   };

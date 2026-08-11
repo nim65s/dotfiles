@@ -210,7 +210,7 @@
       rofi-rbw
       signal-desktop
       swaybg
-      swaylock
+      # swaylock
       vlc
       # vscode-fhs
       wdisplays
