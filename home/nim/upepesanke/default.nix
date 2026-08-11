@@ -26,6 +26,10 @@
     pkgs.distrobox
   ];
 
+  programs.thunderbird.profiles.nim.settings = {
+    "mail.pane_config.dynamic" = 1;
+  };
+
   xdg.autostart = {
     enable = true;
     entries =
