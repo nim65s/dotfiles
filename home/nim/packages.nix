@@ -32,19 +32,12 @@
       dcfldd
       deadnix
       # devenv
-      dfc
-      dig
       docker-compose
       dockgen
-      doggo
       dos2unix
-      dua
-      dust
       erdtree
-      evince
       #eww-wayland
       ffmpeg
-      file
       fishPlugins.bass
       formatjson5
       #font-awesome
@@ -59,14 +52,9 @@
       gnumake
       gnupg
       # himalaya
-      htop
-      httpie
       hugo
       hwloc
-      iftop
       imv
-      inetutils
-      iotop
       jless
       jq
       jrl-cmakemodules-scripts
@@ -74,8 +62,6 @@
       keep-sorted
       khal
       khard
-      killall
-      less
       lsof
       lurk
       md5cron
@@ -86,7 +72,6 @@
       mpc
       mypy
       nb
-      ncdu
       ninja
       #nix-du
       nix-diff-rs
@@ -118,7 +103,6 @@
       pulseaudio
       pwgen
       rbw
-      rofimoji
       rosdep
       ruff
       rustscan
@@ -135,7 +119,6 @@
       tailstamp
       tdf
       templup
-      tig
       toml-sort
       tree
       tree-sitter
@@ -143,7 +126,6 @@
       typstyle
       unzip
       usbutils
-      uv
       vcs2l
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       vdirsyncer
@@ -187,6 +169,7 @@
       brightnessctl
       cage
       d-spy
+      evince
       gparted
       grim
       iosevka
@@ -208,6 +191,7 @@
       pinentry-qt
       pwvucontrol
       rofi-rbw
+      rofimoji
       signal-desktop
       swaybg
       # swaylock

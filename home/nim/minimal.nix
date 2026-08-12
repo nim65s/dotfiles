@@ -10,6 +10,24 @@
   ];
 
   home = {
+    packages = with pkgs; [
+      dfc
+      dig
+      doggo
+      dua
+      dust
+      file
+      htop
+      httpie
+      iftop
+      inetutils
+      iotop
+      killall
+      less
+      ncdu
+      tig
+      uv
+    ];
     stateVersion = "25.05";
   };
 
