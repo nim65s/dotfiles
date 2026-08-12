@@ -202,7 +202,6 @@
       #wireplumber
       wl-clipboard
       wtype
-      xwayland-satellite
       zathura
       zeal
       # keep-sorted end

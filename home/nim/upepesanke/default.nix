@@ -4,6 +4,25 @@
   pkgs,
   ...
 }:
+let
+  xwayland-satellite-auth = pkgs.writeShellApplication {
+    name = "xwayland-satellite";
+    text = ''
+      export XAUTHORITY="$HOME/.Xauthority"
+
+      xauth list | grep -q ':0  MIT-MAGIC-COOKIE-1' || xauth add :0 . "$(${lib.getExe pkgs.xxd} -l 16 -p /dev/urandom)"
+
+      exec ${lib.getExe pkgs.xwayland-satellite} "$@" -auth "$XAUTHORITY"
+    '';
+  };
+  niri-session-xwayland-satellite-auth = pkgs.writeShellApplication {
+    name = "niri-session-xwayland-satellite-auth";
+    text = ''
+      export PATH=${lib.getBin xwayland-satellite-auth}/bin:$PATH
+      exec ${lib.getExe' pkgs.niri "niri-session"}
+    '';
+  };
+in
 {
   imports = [
     ../main.nix
@@ -22,9 +41,15 @@
     '';
   };
 
-  home.packages = [
-    pkgs.distrobox
-  ];
+  home = {
+    packages = with pkgs; [
+      distrobox
+      niri-session-xwayland-satellite-auth
+    ];
+    sessionVariables = {
+      XAUTHORITY = "${config.nim-home.homeDirectory}/.Xauthority";
+    };
+  };
 
   programs.thunderbird.profiles.nim.settings = {
     "mail.pane_config.dynamic" = 1;
