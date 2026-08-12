@@ -16,6 +16,10 @@
     ./programs
   ];
 
+  fonts = lib.optionalAttrs config.nim-home.gui {
+    fontconfig.enable = true;
+  };
+
   laasProxy.enable = lib.mkDefault true;
 
   home = {
