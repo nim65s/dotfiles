@@ -27,6 +27,7 @@
       ncdu
       tig
       uv
+      xxd
     ];
     stateVersion = "25.05";
   };
