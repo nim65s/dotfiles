@@ -306,6 +306,7 @@
           installRustc = false;
         };
         ruff.enable = true;
+        slint_lsp.enable = true;
         ty.enable = true;
       };
     };

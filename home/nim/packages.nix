@@ -193,6 +193,7 @@
       rofi-rbw
       rofimoji
       signal-desktop
+      slint-viewer
       swaybg
       # swaylock
       vlc
