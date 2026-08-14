@@ -236,6 +236,62 @@
           ];
         };
 
+        "ROS Packages" = {
+          icon = "https://index.ros.org/assets/rosindex_logo.svg";
+          definedAliases = [ ":i" ];
+          urls = [
+            {
+              template = "https://index.ros.org/";
+              params = [
+                {
+                  name = "search_packages";
+                  value = "true";
+                }
+                {
+                  name = "pkgs";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
+        "ROS Repositories" = {
+          icon = "https://index.ros.org/assets/rosindex_logo.svg";
+          definedAliases = [ ":ir" ];
+          urls = [
+            {
+              template = "https://index.ros.org/";
+              params = [
+                {
+                  name = "search_repos";
+                  value = "true";
+                }
+                {
+                  name = "pkgs";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
+        "ROS System Dependencies" = {
+          icon = "https://index.ros.org/assets/rosindex_logo.svg";
+          definedAliases = [ ":is" ];
+          urls = [
+            {
+              template = "https://index.ros.org/search_deps/";
+              params = [
+                {
+                  name = "deps";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
         "Rust" = {
           icon = "https://doc.rust-lang.org/static.files/favicon-16x16-8b506e7a72182f1c.png";
           definedAliases = [ ":r" ];
