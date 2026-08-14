@@ -7,15 +7,15 @@
 
 python3Packages.buildPythonApplication (_finalAttrs: {
   pname = "gazebros2nix";
-  version = "0-unstable-2026-07-23";
+  version = "0-unstable-2026-08-14";
   pyproject = true;
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "Gepetto";
     repo = "gazebros2nix";
-    rev = "2bc2a8f9ce78b581ad88d2023300b2149b5db95a";
-    hash = "sha256-8xzMPdN0Yr+ntSPgg1PsAeplDZyGkR0d6GGQD+kyKLg=";
+    rev = "11add21f599c88b5db9aba0326f9bc1638f55674";
+    hash = "sha256-N1VD45tdFLkulZCfH6N4u0jDz586poOHCZ+Ce03vhpM=";
   };
 
   build-system = [
