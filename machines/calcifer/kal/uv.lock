@@ -1,0 +1,43 @@
+version = 1
+revision = 3
+requires-python = ">=3.14"
+
+[[package]]
+name = "eclipse-zenoh"
+version = "1.10.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4e/a5/c8defd28227a73bac8e7daf6de6274bbd7f22014f86fdd5e5c43c78bbd79/eclipse_zenoh-1.10.0.tar.gz", hash = "sha256:6904906783b7eb7ce8d5dbbb930b2e62c0ef93490b0e3dbf79e36fe4fd9727d6", size = 168852, upload-time = "2026-08-14T17:39:47.844Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/78/36/4750c10aaeee1a7a4eb863f807230e7cd24eaeddb62856cf5498ec9859bf/eclipse_zenoh-1.10.0-cp39-abi3-linux_armv6l.whl", hash = "sha256:215e1154209bdb73777b29ee78138706bddcd4d60a93625fa5912a9337cd72a1", size = 10925818, upload-time = "2026-08-14T17:39:30.458Z" },
+    { url = "https://files.pythonhosted.org/packages/38/c5/37a04681fb95d825f4220a0d16d5e058c24bbd785ae8ee45caa2db0da8e0/eclipse_zenoh-1.10.0-cp39-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:7cc386c2bc5f37999c9fecfec9f96c02d6b9302bb5d39a7d9c187d5d18bf49ec", size = 19279998, upload-time = "2026-08-14T17:39:32.993Z" },
+    { url = "https://files.pythonhosted.org/packages/19/3c/23ddbd4f9ed1785921beba52c903355f0ce66a4ff881aca5f99951f62624/eclipse_zenoh-1.10.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:9575f444584c6afaff2f5d2b8e9f23f4f9dee039b646abcb14c78d8485a5d596", size = 9867194, upload-time = "2026-08-14T17:39:34.972Z" },
+    { url = "https://files.pythonhosted.org/packages/4f/74/5c1462537e3ee0d53569ac04858b2058d7c5c5f04e7b34eb3f0be3109f15/eclipse_zenoh-1.10.0-cp39-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:7f9c270518cf72a2ded8635296f78e21f7a265c4b7a1e132cbf6dcd4a4f51765", size = 10772185, upload-time = "2026-08-14T17:39:37.13Z" },
+    { url = "https://files.pythonhosted.org/packages/f4/38/864a24eb0117be0c9f4340b2f25b6f5c4fdc74c231ad9259e4cc785f6ef8/eclipse_zenoh-1.10.0-cp39-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1f7ebdf4ed4c267a52bd985ecf29d0d19807db4b4b27b308879fdf6f5b37a445", size = 11727596, upload-time = "2026-08-14T17:39:39.109Z" },
+    { url = "https://files.pythonhosted.org/packages/45/0b/ea24a4d213827bf5d6dd77aa91dbeb54509492494493e9cb91a33f0b4f12/eclipse_zenoh-1.10.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8a824188a2fb2033133175c8d8f8b49dd4c80ee4286121ae10c1c3ca71812339", size = 10328615, upload-time = "2026-08-14T17:39:41.325Z" },
+    { url = "https://files.pythonhosted.org/packages/bc/e5/36f3914156f08de895f7eebf104e217433f9db8957597918f9703039c17a/eclipse_zenoh-1.10.0-cp39-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:5a07b44f43e3a1428544d0223f11afb7a41b39365358dcef0a7798ab1f24e3c1", size = 10872981, upload-time = "2026-08-14T17:39:43.453Z" },
+    { url = "https://files.pythonhosted.org/packages/41/49/15be7c1f59a3534374199a46ff2fb256bf521acc4254a1d2213fb73a8a4f/eclipse_zenoh-1.10.0-cp39-abi3-win_amd64.whl", hash = "sha256:012767abc4d60623eb77888fa891dd3f2931449c4692a8f98df2160d36329f6e", size = 9121884, upload-time = "2026-08-14T17:39:45.416Z" },
+]
+
+[[package]]
+name = "gpio"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c0/21/1655623a323191d7c01ee05ac23b75ad98ed8e2b889eba6febd166ca2cb2/gpio-1.0.1.tar.gz", hash = "sha256:2deb1dcd8be1b11e61ffe8701cbb32f3a354902467f16a55fd2d7724e5a3d631", size = 5281, upload-time = "2025-07-14T16:08:22.268Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6a/7e/9d81b4012363b68ee88aeff04f8c44cc9dc1c1d307356eb06cf3b745a826/gpio-1.0.1-py3-none-any.whl", hash = "sha256:56e75e24d569048add247085936fc8f8c12324265d78b21293f9fa7e9c199610", size = 5354, upload-time = "2025-07-14T16:08:21.125Z" },
+]
+
+[[package]]
+name = "kal"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "eclipse-zenoh" },
+    { name = "gpio" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "eclipse-zenoh", specifier = ">=1.10.0" },
+    { name = "gpio", specifier = ">=1.0.1" },
+]
