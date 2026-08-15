@@ -42,5 +42,6 @@
         profiles.fil.isDefault = true;
       };
     };
+    stylix.targets.qt.platform = "qtct"; # silence warning
   };
 }

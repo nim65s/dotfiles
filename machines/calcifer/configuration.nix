@@ -21,7 +21,6 @@
 
   home-manager.users.nim = import ../../home/nim/minimal.nix;
   services.getty.autologinUser = "root";
-  system.autoUpgrade.enable = false;
   documentation.man.enable = false;
   services.fail2ban.enable = true;
 }

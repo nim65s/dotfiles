@@ -158,4 +158,5 @@
       ];
     };
   };
+  stylix.targets.qt.platform = "qtct"; # silence warning
 }

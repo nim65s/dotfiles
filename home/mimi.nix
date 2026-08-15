@@ -74,5 +74,6 @@
       };
       starship.enable = true;
     };
+    stylix.targets.qt.platform = "qtct"; # silence warning
   };
 }
