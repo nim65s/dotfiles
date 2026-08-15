@@ -105,6 +105,7 @@
       rbw
       rosdep
       ruff
+      rustc
       rustscan
       sccache
       sd
