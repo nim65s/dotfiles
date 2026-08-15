@@ -1,6 +1,5 @@
 # Thanks https://gitlab.com/K900/nix/-/blob/master/shared/platform/bpi-r4.nix
 {
-  lib,
   pkgs,
   uboot-bpi-r4,
   ...
