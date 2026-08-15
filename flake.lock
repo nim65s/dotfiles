@@ -284,23 +284,6 @@
         "type": "github"
       }
     },
-    "linux-bpi-r4": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1781033046,
-        "narHash": "sha256-S0tK7WMkWOs+Xvq2lffF9DFQVMg+EtZHIvGWzMisx/4=",
-        "owner": "K900",
-        "repo": "linux",
-        "rev": "6b6ac42ff54e45a87096304c6444c9eded8058c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "K900",
-        "ref": "bpi-r4-70",
-        "repo": "linux",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -506,7 +489,6 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "linux-bpi-r4": "linux-bpi-r4",
         "nix-ros-overlay": "nix-ros-overlay",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-ros": [

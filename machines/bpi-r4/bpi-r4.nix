@@ -2,22 +2,18 @@
 {
   lib,
   pkgs,
-  pkgsHost,
   uboot-bpi-r4,
-  linux-bpi-r4,
   ...
 }:
 let
-  crossPkgs = pkgsHost.pkgsCross.aarch64-multiplatform;
-
-  uboot = crossPkgs.buildUBoot {
+  uboot = pkgs.buildUBoot {
     src = uboot-bpi-r4;
     version = "2025.07-bpi";
     defconfig = "mt7988a_bananapi_bpi-r4-bootstd_defconfig";
     filesToInstall = [ "u-boot.bin" ];
   };
 
-  tfA = crossPkgs.buildArmTrustedFirmware {
+  tfA = pkgs.buildArmTrustedFirmware {
     platform = "mt7988";
     extraMakeFlags = [
       "BL33=${uboot}/u-boot.bin" # FIP-ify our uboot
@@ -35,7 +31,7 @@ let
   };
 
   tfA' = tfA.overrideAttrs (old: {
-    src = pkgsHost.fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "mtk-openwrt";
       repo = "arm-trusted-firmware";
       rev = "e090770684e775711a624e68e0b28112227a4c38";
@@ -43,7 +39,7 @@ let
     };
     nativeBuildInputs =
       old.nativeBuildInputs
-      ++ (with pkgsHost; [
+      ++ (with pkgs; [
         dtc
         openssl
         ubootTools
@@ -51,7 +47,7 @@ let
       ]);
   });
 
-  uboot-combined = pkgsHost.runCommand "uboot.img" { } ''
+  uboot-combined = pkgs.runCommand "uboot.img" { } ''
     dd if=${tfA'}/bl2.img of=uboot.img
     # magic offset hardcoded in BL2 by default
     dd if=${tfA'}/fip.bin of=uboot.img conv=notrunc bs=512 seek=$((0x580000 / 512))
@@ -60,27 +56,9 @@ let
     mv uboot.img $out/
   '';
 
-  kernel = crossPkgs.buildLinux {
-    version = "7.0.12";
-    modDirVersion = "7.0.12";
-    src = linux-bpi-r4;
-
-    kernelPatches = [
-      {
-        name = "fix-build-with-phylink-builtin";
-        patch = null;
-        structuredExtraConfig = {
-          FWNODE_PCS = lib.kernel.yes;
-          PCS_MTK_USXGMII = lib.kernel.yes;
-        };
-      }
-    ];
-  };
 in
 {
   boot = {
-    kernelPackages = crossPkgs.linuxPackagesFor kernel;
-
     kernelParams = [
       "clk_ignore_unused" # FIXME: fix the clock tree ffs
       "cma=256M" # Needed to fit NVMe buffers
