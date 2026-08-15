@@ -22,6 +22,9 @@ in
         "awk" "${final.lib.getExe final.gawk}"
     '';
   });
+  jrl-cmakemodules-scripts = prev.jrl-cmakemodules-scripts.overrideAttrs (super: {
+    nativeBuildInputs = super.nativeBuildInputs ++ [ final.git ];
+  });
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
       python-final: _python-prev:
