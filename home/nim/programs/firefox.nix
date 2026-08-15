@@ -35,9 +35,24 @@
       search.force = true;
       search.default = "mojeek";
 
-      handlers.schemes = {
-        "element".action = 4;
-        "mailto".action = 4;
+      handlers = {
+        force = true;
+        mimeTypes = {
+          "application/pdf".action = 3;
+        };
+        schemes = {
+          "element".action = 4;
+          "mailto".action = 4;
+          "ext+treestyletab" = {
+            action = 2;
+            handlers = [
+              {
+                name = "Tree Style Tab";
+                uriTemplate = "moz-extension://cb3d065a-ba40-4f95-9e6e-f48d9117041a/resources/protocol-handler.html?%s";
+              }
+            ];
+          };
+        };
       };
 
       settings = {
