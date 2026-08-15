@@ -95,14 +95,6 @@
               #     tags.all = { };
               #   };
               # };
-              harmonia = {
-                roles.server = {
-                  machines.ashitaka = { };
-                };
-                roles.client = {
-                  tags.all = { };
-                };
-              };
               users-root = {
                 module.name = "users";
                 roles.default = {
