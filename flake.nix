@@ -26,6 +26,7 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-ros.follows = "nix-ros-overlay/nixpkgs";
+    nixpkgs-vim.follows = "nixvim/nixpkgs";
     nix-ros-overlay = {
       url = "github:lopsided98/nix-ros-overlay/develop";
       inputs = {
@@ -35,7 +36,6 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         systems.follows = "clan-core/systems";
       };
