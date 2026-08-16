@@ -27,10 +27,13 @@ in
   });
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
-      python-final: _python-prev:
+      python-final: python-prev:
       final.lib.filesystem.packagesFromDirectoryRecursive {
         inherit (python-final) callPackage;
         directory = ./py-pkgs;
+      }
+      // {
+        zenoh = python-prev.zenoh.overrideAttrs { pname = "eclipse-zenoh"; };
       }
     )
   ];
