@@ -122,8 +122,8 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "eclipse-zenoh", specifier = ">=1.10.0" },
-    { name = "gpiod", specifier = ">=2.5.0" },
+    { name = "eclipse-zenoh", specifier = ">=1.9.0" },
+    { name = "gpiod", specifier = ">=2.2.0" },
 ]
 
 [package.metadata.requires-dev]

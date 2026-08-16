@@ -43,7 +43,7 @@ def main():
     args = parse_args()
 
     if args.verbose == 0:
-        level = os.environ.get("KAL_LOG_LEVEL", "WARNING")
+        level = os.environ.get("KAL_LOG_LEVEL", "WARNING").upper()
     else:
         level = 30 - 10 * args.verbose
     logging.basicConfig(level=level)

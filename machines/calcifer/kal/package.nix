@@ -48,6 +48,7 @@ buildPythonApplication (_finalAttrs: {
     root = ./.;
     fileset = lib.fileset.unions [
       ./pyproject.toml
+      ./README.md
       ./src
     ];
   };

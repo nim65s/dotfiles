@@ -153,7 +153,7 @@ in
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        Environment = "RUST_LOG=debug";
+        Environment = "KAL_LOG_LEVEL=debug";
         ExecStart = lib.getExe pkgs.kal;
         Type = "exec";
         Restart = "on-failure";
