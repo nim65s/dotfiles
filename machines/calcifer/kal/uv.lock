@@ -46,12 +46,19 @@ wheels = [
 ]
 
 [[package]]
-name = "gpio"
-version = "1.0.1"
+name = "gpiod"
+version = "2.5.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c0/21/1655623a323191d7c01ee05ac23b75ad98ed8e2b889eba6febd166ca2cb2/gpio-1.0.1.tar.gz", hash = "sha256:2deb1dcd8be1b11e61ffe8701cbb32f3a354902467f16a55fd2d7724e5a3d631", size = 5281, upload-time = "2025-07-14T16:08:22.268Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/c2/c7bc26965855f39ae3e1b09b404a1fdc3b172dac371012c316f5b9b6a314/gpiod-2.5.0.tar.gz", hash = "sha256:53ae5a1f14d6388c155b591ca0fc0cfa73b44d4f6d8d117e8a9e68f5902d187a", size = 75527, upload-time = "2026-06-17T07:46:25.985Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6a/7e/9d81b4012363b68ee88aeff04f8c44cc9dc1c1d307356eb06cf3b745a826/gpio-1.0.1-py3-none-any.whl", hash = "sha256:56e75e24d569048add247085936fc8f8c12324265d78b21293f9fa7e9c199610", size = 5354, upload-time = "2025-07-14T16:08:21.125Z" },
+    { url = "https://files.pythonhosted.org/packages/c2/77/c713b1ef7c033081c564b9c4c9947d5e6e66f887dd8d2ec4c9db37f6c867/gpiod-2.5.0-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c23e246249f78628bcda026349e58e5414fa33c46ec30d214f51ac911c9e557e", size = 115749, upload-time = "2026-06-17T07:46:16.653Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/2f/12fc27a96f41cd0faa92db82732de6761c922da454543bcab826e690c761/gpiod-2.5.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8faf1337e74871980377ba19283d5f6cddec14d15b3741dca0981e98bf37f07b", size = 115267, upload-time = "2026-06-17T07:46:17.698Z" },
+    { url = "https://files.pythonhosted.org/packages/cd/bb/66266c13df04cc6467809dd099f3c30f3ef98a19a5d6e7b2445e56fbb56d/gpiod-2.5.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:087a7a81f3875c70a11691cc705321f7764358f6fb320e7e801b2c16b4e01d98", size = 113773, upload-time = "2026-06-17T07:46:18.819Z" },
+    { url = "https://files.pythonhosted.org/packages/b6/cf/bf30830aecba9eb146d7bf1054ed08dacf1468891ef375689174e351b564/gpiod-2.5.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:36810ddf5ad35d30eef75c8c317339b1da8e8faf799953406925fa6777f82de2", size = 113611, upload-time = "2026-06-17T07:46:19.988Z" },
+    { url = "https://files.pythonhosted.org/packages/3c/e3/c22faee30bd2341be94f8426b1829e141e1da4f24113aeeed77bcd0134c1/gpiod-2.5.0-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:30331f030422aa400670a9c004a64e3e2f715a2c03b61ee349fe94730b75d2f9", size = 122174, upload-time = "2026-06-17T07:46:21.323Z" },
+    { url = "https://files.pythonhosted.org/packages/25/5c/0245ab49b43d57d93fcf57504b728429f92a083d876bfcc1b42167417682/gpiod-2.5.0-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:34db3048b6e293ec387e7687e4027c9add8d55441bbaeb2d92cbcb528238dfc3", size = 120230, upload-time = "2026-06-17T07:46:22.45Z" },
+    { url = "https://files.pythonhosted.org/packages/f6/40/9d1786c5b1e0f8664f6d2e56de95cd43dceb430514e95c47137bda564133/gpiod-2.5.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:48e41ba6883fcf136bfae411440b3b05b211e84a751b4733a139ce9d90f920e1", size = 119723, upload-time = "2026-06-17T07:46:23.541Z" },
+    { url = "https://files.pythonhosted.org/packages/d2/ee/4f634d271e24138fe8bbc3aa890aa768efc03e98ee2bac8ded9ba0a27715/gpiod-2.5.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:72b768c1f847a5c75f301920d690e408120f4b0ceafe91304cadcd571f9c3e04", size = 118557, upload-time = "2026-06-17T07:46:24.744Z" },
 ]
 
 [[package]]
@@ -101,11 +108,11 @@ wheels = [
 
 [[package]]
 name = "kal"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "eclipse-zenoh" },
-    { name = "gpio" },
+    { name = "gpiod" },
 ]
 
 [package.dev-dependencies]
@@ -116,7 +123,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "eclipse-zenoh", specifier = ">=1.10.0" },
-    { name = "gpio", specifier = ">=1.0.1" },
+    { name = "gpiod", specifier = ">=2.5.0" },
 ]
 
 [package.metadata.requires-dev]

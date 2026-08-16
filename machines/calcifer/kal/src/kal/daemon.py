@@ -3,8 +3,9 @@
 import asyncio
 import logging
 
-import gpio
+import gpiod
 import zenoh
+from gpiod.line import Value
 
 from .mode import Mode
 from .schedule import Schedule
@@ -13,9 +14,9 @@ LOG = logging.getLogger("kal.daemon")
 
 
 class Daemon:
-    def __init__(self, relay: gpio.GPIOPin, session: zenoh.Session):
+    def __init__(self, relay: gpiod.LineRequest, session: zenoh.Session):
 
-        mode = Mode.AUTO
+        mode = Mode.default()
 
         for response in session.get("kal/cmnd/daemon/mode"):
             if reply := response.ok:
@@ -68,4 +69,4 @@ class Daemon:
         p = "On" if v else "Off"
         LOG.debug("relay %s", p)
         self.session.put("kal/tele/daemon/relay", p)
-        self.relay.write(gpio.HIGH if v else gpio.LOW)
+        self.relay.set_value(17, Value.ACTIVE if v else Value.INACTIVE)

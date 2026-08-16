@@ -4,9 +4,11 @@ import argparse
 import asyncio
 import logging
 import os
+import pathlib
 
-import gpio
+import gpiod
 import zenoh
+from gpiod.line import Direction, Value
 
 from .daemon import Daemon
 
@@ -48,8 +50,26 @@ def main():
 
     LOG.debug("parsed arguments: %s", args)
 
-    relay = gpio.GPIOPin(17, gpio.OUT)
+    chip_path = "/dev/gpiochip0"
+    assert pathlib.Path(chip_path).exists()
+    with gpiod.Chip(chip_path) as chip:
+        LOG.debug("chip: %s", chip)
 
-    with zenoh.open(zenoh.Config()) as session:
+    config = zenoh.Config()
+    config.insert_json5("connect/endpoints", '["tcp/127.0.0.1:7447"]')
+
+    with (
+        gpiod.request_lines(
+            chip_path,
+            consumer="kal",
+            config={
+                17: gpiod.LineSettings(
+                    direction=Direction.OUTPUT, output_value=Value.INACTIVE
+                )
+            },
+        ) as relay,
+        zenoh.open(config) as session,
+    ):
+        LOG.debug("relay: %s", relay)
         daemon = Daemon(relay, session)
         asyncio.run(daemon.run())

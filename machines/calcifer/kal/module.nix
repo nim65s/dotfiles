@@ -133,7 +133,7 @@ in
 
   nixpkgs.overlays = [
     (final: _prev: {
-      kal = final.callPackage ./package.nix { };
+      kal = final.python3Packages.callPackage ./package.nix { };
     })
   ];
 

@@ -1,30 +1,72 @@
+# {
+#   lib,
+#   rustPlatform,
+# }:
+# let
+#   cargo = lib.importTOML ./Cargo.toml;
+# in
+# rustPlatform.buildRustPackage {
+#   inherit (cargo.package) name version;
+#
+#   src = lib.fileset.toSource {
+#     root = ./.;
+#     fileset = lib.fileset.unions [
+#       ./Cargo.lock
+#       ./Cargo.toml
+#       ./src
+#     ];
+#   };
+#
+#   cargoLock = {
+#     lockFile = ./Cargo.lock;
+#   };
+#
+#   doCheck = false;
+#
+#   meta = {
+#     description = "schedule heater activation";
+#     mainProgram = cargo.package.name;
+#   };
+# }
+
 {
   lib,
-  rustPlatform,
+  buildPythonApplication,
+
+  uv-build,
+  gpiod,
+  zenoh,
 }:
 let
-  cargo = lib.importTOML ./Cargo.toml;
+  pyproject = lib.importTOML ./pyproject.toml;
 in
-rustPlatform.buildRustPackage {
-  inherit (cargo.package) name version;
+buildPythonApplication (_finalAttrs: {
+  inherit (pyproject.project) name version;
+  pyproject = true;
 
   src = lib.fileset.toSource {
     root = ./.;
     fileset = lib.fileset.unions [
-      ./Cargo.lock
-      ./Cargo.toml
+      ./pyproject.toml
       ./src
     ];
   };
 
-  cargoLock = {
-    lockFile = ./Cargo.lock;
-  };
+  build-system = [
+    uv-build
+  ];
 
-  doCheck = false;
+  dependencies = [
+    gpiod
+    zenoh
+  ];
+
+  pythonImportsCheck = [
+    pyproject.project.name
+  ];
 
   meta = {
     description = "schedule heater activation";
-    mainProgram = cargo.package.name;
+    mainProgram = pyproject.project.name;
   };
-}
+})

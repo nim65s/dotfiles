@@ -16,7 +16,13 @@ async fn main() -> Result<()> {
         .request(LineRequestFlags::OUTPUT, 0, "kal")?;
     log::debug!("relay: {relay:?}");
 
-    let mut daemon = Daemon::init(relay).await;
+    let mut config = zenoh::Config::default();
+    config
+        .insert_json5("connect/endpoints", "[\"tcp/127.0.0.1:7447\"]")
+        .unwrap();
+    let session = zenoh::open(config).await.unwrap();
+
+    let mut daemon = Daemon::init(relay, session).await;
     log::info!("Start !");
     loop {
         daemon.select().await;

@@ -1,6 +1,6 @@
 [project]
 name = "kal"
-version = "0.1.0"
+version = "0.2.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [
@@ -9,7 +9,7 @@ authors = [
 requires-python = ">=3.14"
 dependencies = [
     "eclipse-zenoh>=1.10.0",
-    "gpio>=1.0.1",
+    "gpiod>=2.5.0",
 ]
 
 [project.scripts]

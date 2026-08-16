@@ -12,6 +12,10 @@ class Mode(Enum):
         return self == Mode.ON
 
     @classmethod
+    def default(cls):
+        return cls.AUTO
+
+    @classmethod
     def from_nullable_bool(cls, value: None | bool):
         match value:
             case True:

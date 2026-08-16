@@ -12,13 +12,9 @@ pub struct Daemon {
 }
 
 impl Daemon {
-    pub async fn init(relay: gpio_cdev::LineHandle) -> Self {
+    pub async fn init(relay: gpio_cdev::LineHandle, session: zenoh::Session) -> Self {
         let mut mode = Mode::default();
-        let mut config = zenoh::Config::default();
-        config
-            .insert_json5("connect/endpoints", "[\"tcp/127.0.0.1:7447\"]")
-            .unwrap();
-        let session = zenoh::open(config).await.unwrap();
+
         let replies = session.get("kal/cmnd/daemon/mode").await.unwrap();
         while let Ok(reply) = replies.recv_async().await {
             if let Ok(payload) = reply.result().unwrap().payload().try_to_string() {
