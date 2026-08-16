@@ -8,41 +8,30 @@
     with pkgs;
     [
       # keep-sorted start
-
       acpi
       age
       bandwhich
       binutils
-      black
-      bloom
       broot
       cachix
       caligula
-      cargo
-      cargo-binstall
-      cargo-release
       chrpath
       cmake
-      cmeel
       # cmake-format
       cntr
-      colcon
       colorized-logs
       comma
       dcfldd
       deadnix
       # devenv
       docker-compose
-      dockgen
       dos2unix
       erdtree
       #eww-wayland
-      ffmpeg
       fishPlugins.bass
       formatjson5
       #font-awesome
       fuzzel
-      gazebros2nix
       gersemi
       ghostscript
       git-extras
@@ -52,16 +41,12 @@
       gnumake
       gnupg
       # himalaya
-      hugo
       hwloc
       imv
       jless
       jq
-      jrl-cmakemodules-scripts
       just
       keep-sorted
-      khal
-      khard
       lsof
       lurk
       md5cron
@@ -71,7 +56,6 @@
       mosh
       mpc
       mypy
-      nb
       ninja
       #nix-du
       nix-diff-rs
@@ -81,7 +65,6 @@
       nixd
       nixfmt
       nixook
-      nixpkgs-review
       nmap
       #noto-fonts-emoji
       nurl
@@ -92,7 +75,6 @@
       pipewire
       # pipx TODO https://github.com/NixOS/nixpkgs/pull/526458
       pkg-config
-      plantuml
       playerctl
       pmapnitor
       pratches
@@ -100,7 +82,6 @@
       pre-commit-sort
       prefetch-npm-deps
       prek
-      pulseaudio
       pwgen
       rbw
       rosdep
@@ -118,7 +99,6 @@
       #sway
       tailstamp
       tdf
-      templup
       toml-sort
       tree
       tree-sitter
@@ -126,7 +106,6 @@
       typstyle
       unzip
       usbutils
-      vcs2l
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       vdirsyncer
       watchexec

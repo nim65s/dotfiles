@@ -6,6 +6,7 @@
 {
   imports = [
     ../../home/nim/main.nix
+    ../../home/nim/dev.nix
   ];
 
   nim-home = {

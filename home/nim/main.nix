@@ -9,7 +9,6 @@
   imports = [
     nixvim.homeModules.nixvim
     ./minimal.nix
-    ./accounts.nix
     ./nim-sync.nix
     ./options.nix
     ./packages.nix

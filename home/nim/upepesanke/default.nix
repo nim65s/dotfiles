@@ -27,6 +27,7 @@ in
   imports = [
     ../main.nix
     ../lab.nix
+    ../dev.nix
     #../aliens/upepesanke/home.nix
   ];
 
