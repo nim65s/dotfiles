@@ -29,4 +29,5 @@
     cargo-release
     rustc
   ];
+  programs.notmuch.enable = true;
 }

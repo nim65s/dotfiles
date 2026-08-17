@@ -124,8 +124,6 @@ in
       enable = true;
     };
 
-    notmuch.enable = true;
-
     numbat.enable = true;
 
     nushell.enable = true;
