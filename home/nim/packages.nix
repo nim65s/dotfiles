@@ -164,7 +164,6 @@
       meshlab
       mpv
       niri
-      nitrogen
       pdfarranger
       pdfpc
       pinentry-qt
