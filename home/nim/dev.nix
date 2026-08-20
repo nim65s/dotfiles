@@ -22,6 +22,7 @@
     nb
     nixpkgs-review
     plantuml
+    qemu
     templup
     vcs2l
     khard
