@@ -1,10 +1,25 @@
 {
   lib,
+  pkgs,
   ...
 }:
 {
   programs.fish = {
     enable = true;
+    completions = lib.genAttrs [ "colcon" "ros2" ] (
+      name:
+      let
+        file =
+          pkgs.runCommand "${name}-completion.fish"
+            {
+              nativeBuildInputs = [ pkgs.python3Packages.argcomplete ];
+            }
+            ''
+              register-python-argcomplete --shell fish ${name} > $out
+            '';
+      in
+      "source ${file}"
+    );
     interactiveShellInit = ''
       set -U fish_color_autosuggestion cba6f7 #cba6f7
       set -U fish_color_comment 94e2d5        #94e2d5
