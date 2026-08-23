@@ -49,7 +49,7 @@ in
           {
             name = "InfluxDB";
             type = "influxdb";
-            isDefault = true;
+            # isDefault = true;
             access = "proxy";
             url = "http://localhost:8086";
             jsonData = {
