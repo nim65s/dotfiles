@@ -86,6 +86,19 @@
         clan = {
           inventory = {
             instances = {
+              monitoring = {
+                roles.server = {
+                  machines.calcifer = { };
+                  settings = {
+                    grafana.enable = true;
+                    host = "iot.saurel.me";
+                  };
+                };
+                roles.client = {
+                  tags.all = { };
+                  settings.useSSL = true;
+                };
+              };
               # mycelium = {
               #   roles.peer = {
               #     tags.all = { };
