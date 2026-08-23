@@ -103,7 +103,7 @@
               inherit (config.services.nginx.virtualHosts."calcifer.azv") locations;
             };
         "mpd.saurel.me" = azvProxy {
-          source = "http://spare.azv:8095";
+          source = "http://localhost:8095";
         };
       };
 

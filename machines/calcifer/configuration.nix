@@ -5,11 +5,13 @@
   imports = [
     ../bpi-r4/bpi-r4.nix
     ../../nixos/disko/ext4-swap.nix
+    ../../nixos/nas.nix
     ../../nixos/shared.nix
     ../../nixos/small.nix
     ./kal/module.nix
     ./dnsmasq.nix
     ./firewall.nix
+    ./music.nix
     ./networking.nix
     ./nginx.nix
   ];

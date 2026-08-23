@@ -16,7 +16,6 @@
     8080
     9090
     9777
-    8095 # music-assistant
   ];
 
   # kodi
@@ -36,21 +35,6 @@
     desktopManager.kodi.enable = true;
     displayManager = {
       lightdm.greeter.enable = false;
-    };
-  };
-
-  # music-assistant
-
-  services = {
-    music-assistant = {
-      enable = true;
-      openFirewall = true;
-      providers = [
-        "filesystem_nfs"
-        "listenbrainz_scrobble"
-        "lrclib"
-        "sendspin"
-      ];
     };
   };
 }
