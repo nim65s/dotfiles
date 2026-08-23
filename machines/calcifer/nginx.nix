@@ -93,10 +93,15 @@
           globalRedirect = "https://www.laas.fr/fr/annuaire/gsaurel";
         };
 
-        "iot.saurel.me" = azvProxy {
-          source = "http://${grafana.http_addr}:${toString grafana.http_port}";
-          private = false;
-        };
+        "iot.saurel.me" =
+          lib.recursiveUpdate
+            (azvProxy {
+              source = "http://${grafana.http_addr}:${toString grafana.http_port}";
+              private = false;
+            })
+            {
+              inherit (config.services.nginx.virtualHosts."calcifer.azv") locations;
+            };
         "mpd.saurel.me" = azvProxy {
           source = "http://spare.azv:8095";
         };
