@@ -19,15 +19,6 @@ in
       };
     in
     {
-      grafana-secret-key = {
-        files = {
-          secret_key = f;
-        };
-        runtimeInputs = [ pkgs.pwgen ];
-        script = ''
-          pwgen -B 42 -c 1 > $out/secret_key
-        '';
-      };
       kal-influxdb = {
         files = {
           token = f;
@@ -70,7 +61,6 @@ in
           }
         ];
       };
-      settings.security.secret_key = "$__file{${config.clan.core.vars.generators.grafana-secret-key.files.secret_key.path}}";
     };
 
     influxdb2 = {
