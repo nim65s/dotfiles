@@ -323,30 +323,32 @@
                 }
               ) { inherit gcc llvm; }
             );
-            legacyPackages.homeConfigurations =
-              let
-                homeConfiguration =
-                  modules:
-                  inputs.home-manager.lib.homeManagerConfiguration {
-                    inherit pkgs;
-                    extraSpecialArgs = {
-                      inherit (inputs)
-                        nixvim
-                        stylix
-                        ;
+            legacyPackages = pkgs // {
+              homeConfigurations =
+                let
+                  homeConfiguration =
+                    modules:
+                    inputs.home-manager.lib.homeManagerConfiguration {
+                      inherit pkgs;
+                      extraSpecialArgs = {
+                        inherit (inputs)
+                          nixvim
+                          stylix
+                          ;
+                      };
+                      modules = [ { nixpkgs.overlays = lib.attrValues self.overlays; } ] ++ modules;
                     };
-                    modules = [ { nixpkgs.overlays = lib.attrValues self.overlays; } ] ++ modules;
-                  };
-              in
-              {
-                "gsaurel" = homeConfiguration [
-                  ./home/nim/main.nix
-                  ./home/nim/lab.nix
-                ];
-                "gsaurel@upepesanke" = homeConfiguration [
-                  ./home/nim/upepesanke
-                ];
-              };
+                in
+                {
+                  "gsaurel" = homeConfiguration [
+                    ./home/nim/main.nix
+                    ./home/nim/lab.nix
+                  ];
+                  "gsaurel@upepesanke" = homeConfiguration [
+                    ./home/nim/upepesanke
+                  ];
+                };
+            };
 
             packages = {
               inherit (pkgs)
