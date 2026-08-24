@@ -22,18 +22,24 @@ in
         "awk" "${final.lib.getExe final.gawk}"
     '';
   });
+  # https://github.com/NixOS/nixpkgs/pull/551441
   jrl-cmakemodules-scripts = prev.jrl-cmakemodules-scripts.overrideAttrs (super: {
     nativeBuildInputs = super.nativeBuildInputs ++ [ final.git ];
   });
+  # https://github.com/NixOS/nixpkgs/pull/555902
+  music-assistant = prev.music-assistant.overrideAttrs (super: {
+    disabledTests =
+      (super.disabledTests or [ ])
+      ++ final.lib.optionals (final.stdenv.hostPlatform.isLinux && final.stdenv.hostPlatform.isAarch64) [
+        "test_digital_silence_yields_finite_spectral_centroid"
+      ];
+  });
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
-      python-final: python-prev:
+      python-final: _python-prev:
       final.lib.filesystem.packagesFromDirectoryRecursive {
         inherit (python-final) callPackage;
         directory = ./py-pkgs;
-      }
-      // {
-        zenoh = python-prev.zenoh.overrideAttrs { pname = "eclipse-zenoh"; };
       }
     )
   ];
