@@ -22,7 +22,7 @@ in
   programs.ssh.package = pkgs.openssh_gssapi;
   systemd.user.services.nim-sync.Service.Environment = [
     "LD_PRELOAD=${nss}"
-    "SSH_ASKPASS=${../../bin/ask_rbw.py}"
+    "SSH_ASKPASS=ask-rbw"
   ];
 
   programs.swaylock.package = null;

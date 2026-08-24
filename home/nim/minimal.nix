@@ -11,6 +11,7 @@
 
   home = {
     packages = with pkgs; [
+      ask-rbw
       dfc
       dig
       doggo
