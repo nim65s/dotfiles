@@ -308,6 +308,22 @@
           ];
         };
 
+        "urban" = {
+          icon = "https://www.urbandictionary.com/apple-touch-icon.png";
+          definedAliases = [ ":u" ];
+          urls = [
+            {
+              template = "https://www.urbandictionary.com/define.php";
+              params = [
+                {
+                  name = "term";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
         "Wikipedia" = {
           definedAliases = [ ":wp" ];
           urls = [
