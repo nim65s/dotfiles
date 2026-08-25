@@ -118,6 +118,7 @@
       man = "batman";
       monte = "~/scripts/monter.sh";
       psef = "ps -ef | grep -v grep | grep";
+      rlz = "jrl-release --git-commit --git-tag --sign-tag --push-tag --git-archive --sign-archive --gh-release --bump";
       v = "nvim";
       vi = "nvim";
       vmi = "nvim";
