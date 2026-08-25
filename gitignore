@@ -53,6 +53,7 @@ build-rel/*
 node_modules/
 *.tar.gz
 *.tar.gz.asc
+*.tar.gz.sig
 *.so
 .env
 .python-version
