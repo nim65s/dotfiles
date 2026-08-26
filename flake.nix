@@ -352,6 +352,7 @@
 
             packages = {
               inherit (pkgs)
+                ros2cli
                 cmeel
                 dockgen
                 exif-diff

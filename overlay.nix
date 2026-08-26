@@ -51,6 +51,43 @@ in
       }
     )
   ];
+
+  ros2cli =
+    with rosPkgs.rosPackages.rolling;
+    rosPkgs.stdenv.mkDerivation {
+      pname = "ros2cli";
+      inherit (ros2cli) version;
+
+      dontUnpack = true;
+      dontConfigure = true;
+      dontBuild = true;
+      dontWrapQtApps = true;
+      doCheck = false;
+
+      nativeBuildInputs = [ rosPkgs.makeWrapper ];
+      buildInputs = [
+        ros2action
+        ros2cli
+        ros2component
+        ros2controlcli
+        ros2doctor
+        ros2interface
+        ros2lifecycle
+        # ros2log
+        ros2multicast
+        ros2node
+        ros2param
+        ros2pkg
+        ros2run
+        ros2service
+        ros2topic
+      ];
+
+      installPhase = ''
+        makeWrapper '${ros2cli}/bin/ros2' "$out/bin/ros2" \
+          --prefix PYTHONPATH : "$PYTHONPATH"
+      '';
+    };
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;

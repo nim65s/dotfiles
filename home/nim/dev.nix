@@ -28,6 +28,7 @@
     khard
     cargo-binstall
     cargo-release
+    ros2cli
     rustc
   ];
   programs.notmuch.enable = true;
