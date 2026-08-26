@@ -2,6 +2,7 @@
 {
   imports = [
     ../../nixos/azv-print.nix
+    ../../nixos/dev.nix
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     # ../../nixos/home-assistant.nix

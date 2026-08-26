@@ -5,6 +5,7 @@
 {
   imports = [
     # inputs.alloria.nixosModules.control
+    ../../nixos/dev.nix
     ../../nixos/disko/zfs.nix
     ../../nixos/display.nix
     ../../nixos/laptop.nix
