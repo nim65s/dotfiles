@@ -156,8 +156,28 @@
               template = "https://search.nixos.org/packages";
               params = [
                 {
-                  name = "type";
-                  value = "packages";
+                  name = "channel";
+                  value = "unstable";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
+        "Nix Options" = {
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ ":no" ];
+          urls = [
+            {
+              template = "https://search.nixos.org/options";
+              params = [
+                {
+                  name = "channel";
+                  value = "unstable";
                 }
                 {
                   name = "query";
