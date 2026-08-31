@@ -21,7 +21,7 @@ password.fetch = ["command", "rbw", "get", "vdirsyncer"]
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
-collections = [["Gepetto", "Gepetto", "Gepetto"], ["LAAS", "LAAS", "LAAS"], ["Guilhem", "Guilhem", "Guilhem"]]
+collections = [["Gepetto", "Gepetto", "Gepetto"], ["LAAS", "LAAS", "LAAS"], ["Guilhem", "Guilhem", "Guilhem"], ["test-gepetto-calendar", "test-gepetto-calendar", "test-gepetto-calendar"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
