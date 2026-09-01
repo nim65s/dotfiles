@@ -21,7 +21,7 @@ password.fetch = ["command", "rbw", "get", "vdirsyncer"]
 [pair laas]
 a = "laas_local"
 b = "laas_remote"
-collections = [["Gepetto", "Gepetto", "Gepetto"], ["LAAS", "LAAS", "LAAS"], ["Guilhem", "Guilhem", "Guilhem"], ["test-gepetto-calendar", "test-gepetto-calendar", "test-gepetto-calendar"]]
+collections = [["Gepetto", "Gepetto", "Gepetto"], ["LAAS", "LAAS", "LAAS"], ["Guilhem", "Guilhem", "Guilhem"]]
 conflict_resolution = ["command", "vimdiff"]
 
 [storage laas_local]
@@ -167,3 +167,20 @@ fileext = ".ics"
 [storage robots_remote]
 type = "http"
 url = "https://sogo.laas.fr/SOGo/dav/public/mallet/Calendar/1A45-4DB68780-4D-38E981C0.ics"
+
+[pair gepetto_calendar]
+a = "gepetto_calendar_laas"
+b = "gepetto_calendar_google"
+collections = [["test-gepetto-calendar", "test-gepetto-calendar", "f0fca1350ace057f3d16cf1d9f82faead594597cf448da2ccd8e50a398fd4322@group.calendar.google.com"],["Gepetto", "Gepetto", "75049ebce38a7cd811ac51734f876716ce6d657e659a71394726f41b8476fa49@group.calendar.google.com"]]
+
+[storage gepetto_calendar_laas]
+type = "caldav"
+url = "https://partage.laas.fr/remote.php/caldav/calendars/gsaurel/"
+username = "gsaurel"
+password.fetch = ["command", "rbw", "get", "--folder", "laas", "cloud-token"]
+
+[storage gepetto_calendar_google]
+type = "google_calendar"
+token_file = "~/.cache/vdirsyncer-gepetto-calendar-remote-token-file"
+client_id.fetch = ["command", "rbw", "get", "-f", "username", "gepetto-calendar"]
+client_secret.fetch = ["command", "rbw", "get", "-f", "password", "gepetto-calendar"]
