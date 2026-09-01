@@ -106,7 +106,7 @@
       typstyle
       unzip
       usbutils
-      #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
+      #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
       watchexec
       weechat
       wev

@@ -1,4 +1,4 @@
-# NixOS machines
+# NixOS machines
 
 clan thinks every folder here is a NixOS machine, and include a few thigs automatically:
 

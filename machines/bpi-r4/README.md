@@ -1,4 +1,4 @@
-# get NixOS on BPi-R4
+# get NixOS on BPi-R4
 
 - `nix build -L .#nixosConfigurations.bpi-r4.config.system.build.sdImage`
 - burn that to USB stick, eg. `caligula burn result/sd-image/nixos-image-sd-card-26.05.19700101.dirty-aarch64-linux.img.zst`

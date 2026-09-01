@@ -110,7 +110,7 @@ class Fork:
                 else:
                     self.upstream = self.origin
                     logger.debug(
-                        "Found that %s **is NOT a fork**. Use it as upstream anyway."
+                        "Found that %s **is NOT a fork**. Use it as upstream anyway."
                     )
             except UnknownObjectException:
                 logger.info(
