@@ -5,6 +5,8 @@
 }:
 final: prev:
 let
+  inherit (final) lib;
+
   rosPkgs = import nixpkgs-ros {
     inherit (final.stdenv.hostPlatform) system;
     overlays = [ nix-ros-overlay.overlays.default ];
@@ -12,7 +14,7 @@ let
 
   tmpOverride =
     prevPkg: prevVersion:
-    final.lib.throwIfNot (final.lib.versionAtLeast prevVersion prevPkg.version)
+    lib.throwIfNot (lib.versionAtLeast prevVersion prevPkg.version)
       "${prevPkg.pname} ${prevPkg.version} is now available. Please remove (or update) its override for ${prevVersion}"
       prevPkg;
 in
@@ -22,11 +24,11 @@ in
   ethercat = prev.ethercat.overrideAttrs (super: {
     configureFlags = (super.configureFlags or [ ]) ++ [
       "--with-kmod-dir=${final.kmod}/bin"
-      "--with-ip-cmd=${final.lib.getExe' final.iproute2 "ip"}"
+      "--with-ip-cmd=${lib.getExe' final.iproute2 "ip"}"
     ];
     postPatch = (super.postPatch or "") + ''
       substituteInPlace script/ethercatctl.in --replace-fail \
-        "awk" "${final.lib.getExe final.gawk}"
+        "awk" "${lib.getExe final.gawk}"
     '';
   });
 
@@ -47,7 +49,7 @@ in
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
       (super.disabledTests or [ ])
-      ++ final.lib.optionals (final.stdenv.hostPlatform.isLinux && final.stdenv.hostPlatform.isAarch64) [
+      ++ lib.optionals (final.stdenv.hostPlatform.isLinux && final.stdenv.hostPlatform.isAarch64) [
         "test_digital_silence_yields_finite_spectral_centroid"
       ];
   });
@@ -55,7 +57,7 @@ in
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
       python-final: python-prev:
-      final.lib.filesystem.packagesFromDirectoryRecursive {
+      lib.filesystem.packagesFromDirectoryRecursive {
         inherit (python-final) callPackage;
         directory = ./py-pkgs;
       }
