@@ -9,6 +9,12 @@ let
     inherit (final.stdenv.hostPlatform) system;
     overlays = [ nix-ros-overlay.overlays.default ];
   };
+
+  tmpOverride =
+    prevPkg: prevVersion:
+    final.lib.throwIfNot (final.lib.versionAtLeast prevVersion prevPkg.version)
+      "${prevPkg.pname} ${prevPkg.version} is now available. Please remove (or update) its override for ${prevVersion}"
+      prevPkg;
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
@@ -25,19 +31,17 @@ in
   });
 
   # https://github.com/NixOS/nixpkgs/pull/551441
-  jrl-cmakemodules-scripts =
-    assert (final.lib.versionOlder prev.jrl-cmakemodules-scripts.version "2.3.0");
-    prev.jrl-cmakemodules-scripts.overrideAttrs (
-      finalAttrs: previousAttrs: {
-        version = "2.3.0";
-        src = final.fetchFromGitHub {
-          inherit (previousAttrs.src) owner repo;
-          tag = "v${finalAttrs.version}";
-          hash = "sha256-PjEE/JIb6gegW5fqKiFgN0th8Fi58Pe0u5qrdIz2Rm8=";
-        };
-        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.git ];
-      }
-    );
+  jrl-cmakemodules-scripts = (tmpOverride prev.jrl-cmakemodules-scripts "2.2.4").overrideAttrs (
+    finalAttrs: previousAttrs: {
+      version = "2.3.0";
+      src = final.fetchFromGitHub {
+        inherit (previousAttrs.src) owner repo;
+        tag = "v${finalAttrs.version}";
+        hash = "sha256-PjEE/JIb6gegW5fqKiFgN0th8Fi58Pe0u5qrdIz2Rm8=";
+      };
+      nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.git ];
+    }
+  );
 
   # https://github.com/NixOS/nixpkgs/pull/555902
   music-assistant = prev.music-assistant.overrideAttrs (super: {
@@ -57,17 +61,15 @@ in
       }
       // {
         # retry
-        vdirsyncer =
-          assert (final.lib.versionOlder prev.jrl-cmakemodules-scripts.version "0.20.1");
-          python-prev.vdirsyncer.overridePythonAttrs (super: {
-            src = final.fetchFromGitHub {
-              owner = "pimutils";
-              repo = "vdirsyncer";
-              rev = "7ef30bfaad2891c3fb177d1d8a9bd4a486be8a1c";
-              hash = "sha256-pSMDQGceooVLV0/ZaWw7YEZM3/aAWFr0nRheb7vDMMI=";
-            };
-            dependencies = super.dependencies ++ [ python-final.tenacity ];
-          });
+        vdirsyncer = (tmpOverride python-prev.vdirsyncer "0.20.0").overridePythonAttrs (super: {
+          src = final.fetchFromGitHub {
+            owner = "pimutils";
+            repo = "vdirsyncer";
+            rev = "7ef30bfaad2891c3fb177d1d8a9bd4a486be8a1c";
+            hash = "sha256-pSMDQGceooVLV0/ZaWw7YEZM3/aAWFr0nRheb7vDMMI=";
+          };
+          dependencies = super.dependencies ++ [ python-final.tenacity ];
+        });
       }
     )
   ];
