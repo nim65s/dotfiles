@@ -5,6 +5,7 @@
 {
   imports = [
     ./accounts.nix
+    ./nim-sync.nix
   ];
   home.packages = with pkgs; [
     # keep-sorted start
@@ -30,6 +31,14 @@
     cargo-release
     ros2cli
     rustc
+    vdirsyncer
   ];
-  programs.notmuch.enable = true;
+
+  programs = {
+    notmuch.enable = true;
+  };
+
+  services = {
+    nim-sync.enable = true;
+  };
 }

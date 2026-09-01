@@ -9,7 +9,6 @@
   imports = [
     nixvim.homeModules.nixvim
     ./minimal.nix
-    ./nim-sync.nix
     ./options.nix
     ./packages.nix
     ./programs
@@ -79,7 +78,6 @@
 
   services = {
     home-manager.autoExpire.enable = true;
-    nim-sync.enable = true;
     ssh-agent.enable = true;
     swaync.enable = true;
     swayidle = {

@@ -44,10 +44,24 @@ in
   });
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
-      python-final: _python-prev:
+      python-final: python-prev:
       final.lib.filesystem.packagesFromDirectoryRecursive {
         inherit (python-final) callPackage;
         directory = ./py-pkgs;
+      }
+      // {
+        # retry
+        vdirsyncer =
+          assert (!final.lib.versionAtLeast python-prev.vdirsyncer.version "0.20.1");
+          python-prev.vdirsyncer.overridePythonAttrs (super: {
+            src = final.fetchFromGitHub {
+              owner = "pimutils";
+              repo = "vdirsyncer";
+              rev = "7ef30bfaad2891c3fb177d1d8a9bd4a486be8a1c";
+              hash = "sha256-pSMDQGceooVLV0/ZaWw7YEZM3/aAWFr0nRheb7vDMMI=";
+            };
+            dependencies = super.dependencies ++ [ python-final.tenacity ];
+          });
       }
     )
   ];

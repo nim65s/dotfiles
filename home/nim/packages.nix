@@ -107,7 +107,6 @@
       unzip
       usbutils
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
-      vdirsyncer
       watchexec
       weechat
       wev
