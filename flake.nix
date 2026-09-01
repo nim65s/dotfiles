@@ -329,14 +329,13 @@
                   homeConfiguration =
                     modules:
                     inputs.home-manager.lib.homeManagerConfiguration {
-                      inherit pkgs;
+                      inherit modules pkgs;
                       extraSpecialArgs = {
                         inherit (inputs)
                           nixvim
                           stylix
                           ;
                       };
-                      modules = [ { nixpkgs.overlays = lib.attrValues self.overlays; } ] ++ modules;
                     };
                 in
                 {
