@@ -12,6 +12,7 @@ let
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
+
   ethercat = prev.ethercat.overrideAttrs (super: {
     configureFlags = (super.configureFlags or [ ]) ++ [
       "--with-kmod-dir=${final.kmod}/bin"
@@ -22,18 +23,22 @@ in
         "awk" "${final.lib.getExe final.gawk}"
     '';
   });
+
   # https://github.com/NixOS/nixpkgs/pull/551441
-  jrl-cmakemodules-scripts = prev.jrl-cmakemodules-scripts.overrideAttrs (
-    finalAttrs: previousAttrs: {
-      version = "2.3.0";
-      src = final.fetchFromGitHub {
-        inherit (previousAttrs.src) owner repo;
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-PjEE/JIb6gegW5fqKiFgN0th8Fi58Pe0u5qrdIz2Rm8=";
-      };
-      nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.git ];
-    }
-  );
+  jrl-cmakemodules-scripts =
+    assert (final.lib.versionOlder prev.jrl-cmakemodules-scripts.version "2.3.0");
+    prev.jrl-cmakemodules-scripts.overrideAttrs (
+      finalAttrs: previousAttrs: {
+        version = "2.3.0";
+        src = final.fetchFromGitHub {
+          inherit (previousAttrs.src) owner repo;
+          tag = "v${finalAttrs.version}";
+          hash = "sha256-PjEE/JIb6gegW5fqKiFgN0th8Fi58Pe0u5qrdIz2Rm8=";
+        };
+        nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.git ];
+      }
+    );
+
   # https://github.com/NixOS/nixpkgs/pull/555902
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
@@ -42,6 +47,7 @@ in
         "test_digital_silence_yields_finite_spectral_centroid"
       ];
   });
+
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
       python-final: python-prev:
@@ -52,7 +58,7 @@ in
       // {
         # retry
         vdirsyncer =
-          assert (!final.lib.versionAtLeast python-prev.vdirsyncer.version "0.20.1");
+          assert (final.lib.versionOlder prev.jrl-cmakemodules-scripts.version "0.20.1");
           python-prev.vdirsyncer.overridePythonAttrs (super: {
             src = final.fetchFromGitHub {
               owner = "pimutils";
