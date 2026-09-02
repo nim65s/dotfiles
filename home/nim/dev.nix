@@ -41,4 +41,8 @@
   services = {
     nim-sync.enable = true;
   };
+
+  stylix = {
+    autoEnable = true;
+  };
 }

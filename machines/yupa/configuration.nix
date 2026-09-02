@@ -54,7 +54,10 @@
     #   rtp-ip = "hattori.m";
     # };
   };
-  stylix.image = ../../bg/yupa.jpg;
+  stylix = {
+    autoEnable = true;
+    image = ../../bg/yupa.jpg;
+  };
   # services.flatpak.enable = true;
   virtualisation.docker.enable = true;
   # virtualisation.virtualbox.host.enable = true;

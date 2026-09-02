@@ -6,6 +6,7 @@
 {
   stylix = {
     enable = true;
+    autoEnable = lib.mkDefault false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = lib.mkDefault {
       name = "gruppled_white_lite";

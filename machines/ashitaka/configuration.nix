@@ -77,7 +77,10 @@
     joycond.enable = true;
   };
 
-  stylix.image = ../../bg/ashitaka-3.jpg;
+  stylix = {
+    autoEnable = true;
+    image = ../../bg/ashitaka-3.jpg;
+  };
 
   swapDevices = [
     {
