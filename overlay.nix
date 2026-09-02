@@ -32,19 +32,6 @@ in
     '';
   });
 
-  # https://github.com/NixOS/nixpkgs/pull/551441
-  jrl-cmakemodules-scripts = (tmpOverride prev.jrl-cmakemodules-scripts "2.2.4").overrideAttrs (
-    finalAttrs: previousAttrs: {
-      version = "2.3.0";
-      src = final.fetchFromGitHub {
-        inherit (previousAttrs.src) owner repo;
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-PjEE/JIb6gegW5fqKiFgN0th8Fi58Pe0u5qrdIz2Rm8=";
-      };
-      nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.git ];
-    }
-  );
-
   # https://github.com/NixOS/nixpkgs/pull/555902
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
