@@ -13,5 +13,4 @@
   home-manager.users = {
     nim = import ../../home/nim/main.nix;
   };
-  stylix.autoEnable = false;
 }

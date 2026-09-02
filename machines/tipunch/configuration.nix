@@ -36,7 +36,6 @@
     desktopManager.plasma6.enable = true;
     xserver.xkb.variant = "";
   };
-  stylix.autoEnable = false;
   users.users.martine = {
     isNormalUser = true;
     shell = pkgs.fish;

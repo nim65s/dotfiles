@@ -89,7 +89,6 @@
       options = "caps:digits_row";
     };
   };
-  stylix.autoEnable = false;
   users.users.fil = {
     isNormalUser = true;
     shell = pkgs.fish;
