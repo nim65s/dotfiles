@@ -10,6 +10,7 @@
       keyboard.layout = "fr";
       packages = [
         pkgs.chromium
+        pkgs.gimp
         pkgs.libreoffice
         pkgs.sweethome3d.application
         pkgs.vlc
@@ -43,6 +44,9 @@
       };
       starship.enable = true;
     };
-    stylix.targets.qt.platform = "qtct"; # silence warning
+    stylix = {
+      autoEnable = false;
+      targets.qt.platform = "qtct"; # silence warning
+    };
   };
 }
