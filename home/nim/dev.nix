@@ -35,6 +35,7 @@
   ];
 
   programs = {
+    helix.enable = true;
     notmuch.enable = true;
   };
 
