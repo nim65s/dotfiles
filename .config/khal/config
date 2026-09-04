@@ -30,7 +30,7 @@ color = yellow
 readonly = True
 
 [[IDEA]]
-path = ~/.vdir/calendars/laas_idea/personal
+path = ~/.vdir/calendars/laas_idea/IDEA
 color = yellow
 readonly = True
 
