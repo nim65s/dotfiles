@@ -29,7 +29,7 @@ in
     };
     period = lib.mkOption {
       type = lib.types.str;
-      default = "5m";
+      default = "20m";
     };
   };
 
