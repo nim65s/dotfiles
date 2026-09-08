@@ -14,6 +14,7 @@
         fish_indicator = "";
         bash_indicator = "";
       };
+      username.format = "[$user]($style)@";
     };
   };
 }
