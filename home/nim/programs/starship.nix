@@ -15,6 +15,7 @@
         bash_indicator = "";
       };
       username.format = "[$user]($style)@";
+      hostname.ssh_symbol = "";
     };
   };
 }
