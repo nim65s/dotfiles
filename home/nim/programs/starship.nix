@@ -9,6 +9,11 @@
       status.disabled = false;
       package.disabled = true;
       os.disabled = false;
+      shell = {
+        disabled = false;
+        fish_indicator = "";
+        bash_indicator = "";
+      };
     };
   };
 }
