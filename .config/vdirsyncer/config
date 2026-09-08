@@ -201,3 +201,15 @@ type = "google_calendar"
 token_file = "~/.cache/vdirsyncer-gepetto-calendar-remote-token-file"
 client_id.fetch = ["command", "rbw", "get", "-f", "username", "gepetto-calendar"]
 client_secret.fetch = ["command", "rbw", "get", "-f", "password", "gepetto-calendar"]
+
+[pair datcat_istr]
+a = "datcat_calendars_remote"
+b = "istr_remote"
+collections = [["istr", "istr", null]]
+conflict_resolution = "b wins"
+
+[pair datcat_sri]
+a = "datcat_calendars_remote"
+b = "sri_remote"
+collections = [["sri", "sri", null]]
+conflict_resolution = "b wins"
