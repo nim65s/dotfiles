@@ -108,6 +108,38 @@
           ];
         };
 
+        "LAAS Intranet" = {
+          icon = "https://www.laas.fr/static/img/favicon.ico";
+          definedAliases = [ ":li" ];
+          urls = [
+            {
+              template = "https://intranet.laas.fr/fr/search/";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
+        "LAAS Catalogue de services" = {
+          icon = "https://www.laas.fr/static/img/favicon.ico";
+          definedAliases = [ ":lc" ];
+          urls = [
+            {
+              template = "https://intranet.laas.fr/fr/catalogue-des-services/visioconf%C3%A9rences-au-laas/";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
         "LAAS Search" = {
           icon = "https://www.laas.fr/static/img/favicon.ico";
           definedAliases = [ ":ls" ];
@@ -117,6 +149,30 @@
               params = [
                 {
                   name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
+        "LAAS Wiki" = {
+          icon = "https://www.laas.fr/static/img/favicon.ico";
+          definedAliases = [ ":ls" ];
+          urls = [
+            {
+              template = "https://wiki.laas.fr/sysadmin/action/fullsearch/AccueilSysadmin";
+              params = [
+                {
+                  name = "action";
+                  value = "fullsearch";
+                }
+                {
+                  name = "titlesearch";
+                  value = "0";
+                }
+                {
+                  name = "value";
                   value = "{searchTerms}";
                 }
               ];
