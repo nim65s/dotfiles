@@ -2,21 +2,18 @@
   "machines": {
     "ashitaka": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "ashitaka.w"
       },
       "name": "ashitaka"
     },
     "fix": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "fix.w"
       },
       "name": "fix"
     },
     "yupa": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "yupa.w"
       },
       "name": "yupa"
@@ -26,7 +23,6 @@
     },
     "hattori": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "hattori.w"
       },
       "name": "hattori"
@@ -36,14 +32,12 @@
     },
     "spare": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "spare.w"
       },
       "name": "spare"
     },
     "tipunch": {
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "tipunch.w"
       },
       "name": "tipunch"
@@ -54,7 +48,6 @@
     "calcifer": {
       "installedAt": 1769348259,
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "calcifer.w"
       },
       "name": "calcifer"
@@ -62,7 +55,6 @@
     "tatsuo": {
       "installedAt": 1775431814,
       "deploy": {
-        "buildHost": "localhost",
         "targetHost": "tatsuo.w"
       },
       "name": "tatsuo"
