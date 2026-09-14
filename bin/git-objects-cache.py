@@ -133,12 +133,12 @@ def main():
 
     if args.command == "add":
         name = args.name or args.url.strip("/").split("/")[-1].removesuffix(".git")
-        _LOG.info("adding remote '%s' to '%s'", name, args.url)
+        _LOG.info("adding remote '%s' to '%s in config'", name, args.url)
         config.conf["remotes"][name] = args.url
         config.dump()
 
     elif args.command == "remove":
-        _LOG.info("removing remote '%s'", args.name)
+        _LOG.info("removing remote '%s' from config", args.name)
         del config.conf["remotes"][args.name]
         config.dump()
 
@@ -158,18 +158,21 @@ def main():
 
         for name, url in remotes.items():
             if name not in config.conf["remotes"]:
-                _LOG.warning("removing '%s' remote to '%s'", name, url)
+                _LOG.warning("removing '%s' remote to '%s' in cache", name, url)
                 check_call(["git", "remote", "remove", name], cwd=config.repo)
 
         for name, url in config.conf["remotes"].items():
             if name not in remotes:
-                _LOG.info("adding '%s' remote to '%s'", name, url)
+                _LOG.info("adding '%s' remote to '%s' in cache", name, url)
                 check_call(
                     ["git", "remote", "add", "--no-tags", name, url], cwd=config.repo
                 )
             elif remotes[name] != url:
                 _LOG.info(
-                    "updating '%s' remote from '%s' to '%s'", name, remotes[name], url
+                    "updating '%s' remote from '%s' to '%s' in cache",
+                    name,
+                    remotes[name],
+                    url,
                 )
                 check_call(["git", "remote", "set-url", name, url], cwd=config.repo)
 
