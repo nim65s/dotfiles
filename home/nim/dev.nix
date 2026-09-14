@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -35,6 +36,14 @@
   ];
 
   programs = {
+    git.settings.maintenance.repo = [
+      "${config.home.homeDirectory}/dotfiles"
+      "${config.home.homeDirectory}/local/gepetto/gazebros2nix"
+      "${config.home.homeDirectory}/local/gepetto/nix"
+      "${config.home.homeDirectory}/local/lopsided98/nix-ros-overlay"
+      "${config.home.homeDirectory}/local/NixOS/nixpkgs"
+      "${config.home.homeDirectory}/local/pi2/homes"
+    ];
     helix.enable = true;
     notmuch.enable = true;
   };
