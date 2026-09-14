@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -54,5 +55,28 @@
 
   stylix = {
     autoEnable = true;
+  };
+
+  systemd.user = {
+    services = {
+      git-objects-cache = {
+        Service = {
+          Type = "oneshot";
+          ExecStart = lib.getExe pkgs.git-objects-cache;
+        };
+        Unit.Description = "sync git objects-cache";
+      };
+    };
+    timers = {
+      git-objects-cache = {
+        Install.WantedBy = [ "timers.target" ];
+        Timer = {
+          OnActiveSec = "daily";
+          OnUnitActiveSec = "daily";
+          Unit = "git-objects-cache.service";
+        };
+        Unit.Description = "sync git objects-cache";
+      };
+    };
   };
 }
