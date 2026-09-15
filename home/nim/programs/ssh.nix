@@ -28,7 +28,7 @@
         forwardAgent = true;
       };
       "kairos" = {
-        user = "p26079srl";
+        user = "p26079srlg";
         hostname = "kairoslogin.calmip.univ-toulouse.fr";
         forwardAgent = true;
       };
