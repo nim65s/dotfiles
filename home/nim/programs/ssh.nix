@@ -27,6 +27,11 @@
         user = "nim";
         forwardAgent = true;
       };
+      "kairos" = {
+        user = "p26079srl";
+        hostname = "kairoslogin.calmip.univ-toulouse.fr";
+        forwardAgent = true;
+      };
       "kiki" = {
         user = "root";
         hostname = "192.168.1.2";
