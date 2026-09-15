@@ -71,8 +71,7 @@
       git-objects-cache = {
         Install.WantedBy = [ "timers.target" ];
         Timer = {
-          OnActiveSec = "daily";
-          OnUnitActiveSec = "daily";
+          OnCalendar = "daily";
           Unit = "git-objects-cache.service";
         };
         Unit.Description = "sync git objects-cache";
