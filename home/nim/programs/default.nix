@@ -146,11 +146,11 @@ in
 
     rofi = {
       enable = true;
-      terminal = lib.getExe pkgs.kitty;
-      extraConfig = {
+      settings = {
         color-enabled = true;
         matching = "prefix";
         no-lazy-grab = true;
+        terminal = lib.getExe pkgs.kitty;
       };
     };
 
