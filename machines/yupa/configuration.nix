@@ -60,7 +60,11 @@
   };
   # services.flatpak.enable = true;
   virtualisation.docker.enable = true;
-  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host = {
+    enable = true;
+    addNetworkInterface = false;
+    enableKvm = true;
+  };
 
   # thermostasvenoh
   boot.blacklistedKernelModules = [ "rtw88_8822bu" ];
