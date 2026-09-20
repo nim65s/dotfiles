@@ -5,6 +5,7 @@
   ];
   environment.systemPackages = [
     pkgs.nautilus
+    pkgs.xwayland-satellite
   ];
   fonts.packages = [
     pkgs.peppercarrot-fonts
@@ -14,7 +15,6 @@
     sniffnet.enable = true;
     waybar.enable = lib.mkDefault true;
     wireshark.enable = true;
-    xwayland.enable = true;
   };
   security = {
     pam.services.swaylock = { };
