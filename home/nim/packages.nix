@@ -122,21 +122,18 @@
       (python3.withPackages (
         ps: with ps; [
           # keep-sorted start
-          django
           httpx
           ipython
           jinja2
-          ldap3
           numpy
           pandas
-          pandocfilters
           pip
           pyarrow
+          pytest
           pyyaml
           tabulate
           tomlkit
           tqdm
-          wand
           wheel
           # keep-sorted end
         ]
