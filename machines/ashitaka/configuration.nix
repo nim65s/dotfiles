@@ -29,7 +29,6 @@
 
   environment.systemPackages = [
     pkgs.distrobox
-    pkgs.amarok
     # pkgs.factorio-space-age
   ];
 
