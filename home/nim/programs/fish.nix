@@ -84,7 +84,7 @@
       db = "direnv block";
       dc = "cd";
       gc = {
-        expansion = "git commit -am '%'";
+        expansion = "git commit -am \"$(printf \"%\")\"";
         setCursor = true;
       };
       gd = "git difftool";
