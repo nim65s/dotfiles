@@ -95,6 +95,26 @@ in
         user = {
           inherit (config.programs.git.settings.user) name email;
         };
+        # https://arialdo.codeberg.page/ju-ju-tsu/appendix/log.html
+        templates.log = "simple_log";
+        template-aliases = {
+          empty_commit_marker = "label('empty', '▢')";
+          simple_log = ''
+            separate(" ",
+              pad_end(
+                4,
+                separate("/",
+                  self.change_id().shortest(),
+                  if(self.divergent() || self.hidden(), self.change_offset())
+                )
+              ),
+              if(self.immutable(), "🔒", "  ") ++ " ",
+              if(self.empty(), empty_commit_marker),
+              if(self.description(), self.description().first_line(), if(self.empty(), ''', label('no_description', '←'))),
+              self.bookmarks()
+            )
+          '';
+        };
       };
     };
 
