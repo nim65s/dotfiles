@@ -47,6 +47,13 @@
     ];
     helix.enable = true;
     notmuch.enable = true;
+    starship = {
+      package = pkgs.starship_jj_merge_commit;
+      settings.vcs.order = [
+        "jj"
+        "git"
+      ];
+    };
   };
 
   services = {

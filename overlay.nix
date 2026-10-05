@@ -99,6 +99,22 @@ in
           --prefix PYTHONPATH : "$PYTHONPATH"
       '';
     };
+  # jj support
+  starship_jj_merge_commit = (tmpOverride prev.starship "1.26.0").overrideAttrs (
+    finalAttrs: prevAttrs: {
+      src = final.fetchFromGitHub {
+        inherit (prevAttrs.src) owner repo;
+        # merge commit for https://github.com/starship/starship/pull/7612
+        rev = "131bf9552d7e927607e155ea3a9b8c8a170a0356";
+        hash = "sha256-H85gbkcFiGIOAx11F2/U+V2WxkDKhIF1qcasvnxN8L8=";
+      };
+      cargoDeps = final.rustPlatform.fetchCargoVendor {
+        inherit (finalAttrs) src;
+        hash = "sha256-g06GmHmTC5X6R/YgIvKcwnN//fvLwh3hhnOAFhWnMwA=";
+      };
+      doCheck = false;
+    }
+  );
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
