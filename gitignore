@@ -50,6 +50,8 @@ build/*
 build2/*
 build3/*
 build-rel/*
+install/*
+log/
 node_modules/
 *.tar.gz
 *.tar.gz.asc
