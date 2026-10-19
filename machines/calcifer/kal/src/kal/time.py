@@ -11,7 +11,7 @@ class Time:
         self._value: int = value
 
     def __str__(self):
-        return f"{self._value / 60:02}H{self._value % 60:02}"
+        return f"{self._value // 60:02}H{self._value % 60:02}"
 
     def json(self) -> str:
         return str(self._value)
