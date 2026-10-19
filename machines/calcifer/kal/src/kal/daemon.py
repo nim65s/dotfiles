@@ -87,7 +87,7 @@ class Daemon:
                     self.set_relay(False)
                 case Mode.AUTO:
                     target = self.schedule.target(Time.now())
-                    self.session.put("kal/tele/daemon/target", f"${target:.3f}")
+                    self.session.put("kal/tele/daemon/target", f"{target:.3f}")
                     self.set_relay(t < target)
 
     def set_relay(self, v: bool):
