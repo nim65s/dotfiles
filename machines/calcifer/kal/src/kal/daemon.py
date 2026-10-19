@@ -78,7 +78,7 @@ class Daemon:
     async def temperature_task(self, queue: asyncio.Queue):
         LOG.debug("start temperature task")
         while sample := await queue.get():
-            t = Temperature(sample.payload.to_string())
+            t = Temperature(float(sample.payload.to_string()))
             LOG.debug("received %s", t)
             match self.mode:
                 case Mode.ON:
