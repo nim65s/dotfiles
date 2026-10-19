@@ -62,18 +62,23 @@ class Daemon:
     async def daemon_task(self, queue: asyncio.Queue):
         LOG.debug("start daemon task")
         while sample := await queue.get():
-            if sample.key_expr.ends_with("/mode"):
-                self.mode = Mode.from_sample(sample)
-                LOG.info("mode %s", self.mode)
-                self.session.put("kal/tele/daemon/mode", self.mode.to_string())
-                if self.mode != Mode.AUTO:
-                    self.set_relay(bool(self.mode))
-            elif sample.key_expr.ends_with("/schedule"):
-                self.schedule = Schedule.from_sample(sample)
-                LOG.info("set schedule %s", self.schedule)
-            elif sample.key_expr.ends_with("/get"):
-                self.session.put("kal/tele/daemon/schedule", self.schedule.to_string())
-                self.session.put("kal/tele/daemon/mode", self.mode.to_string())
+            cmnd = str(sample.key_expr).split("/")[-1]
+            LOG.debug("cmnd: %s", cmnd)
+            match cmnd:
+                case "mode":
+                    self.mode = Mode.from_sample(sample)
+                    LOG.info("mode %s", self.mode)
+                    self.session.put("kal/tele/daemon/mode", self.mode.to_string())
+                    if self.mode != Mode.AUTO:
+                        self.set_relay(bool(self.mode))
+                case "schedule":
+                    self.schedule = Schedule.from_sample(sample)
+                    LOG.info("set schedule %s", self.schedule)
+                case "get":
+                    self.session.put(
+                        "kal/tele/daemon/schedule", self.schedule.to_string()
+                    )
+                    self.session.put("kal/tele/daemon/mode", self.mode.to_string())
 
     async def temperature_task(self, queue: asyncio.Queue):
         LOG.debug("start temperature task")
