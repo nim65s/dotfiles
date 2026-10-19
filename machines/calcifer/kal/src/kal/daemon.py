@@ -15,6 +15,15 @@ from .time import Time
 LOG = logging.getLogger("kal.daemon")
 
 
+class AsyncQueueThreadSafe(asyncio.Queue):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.loop = asyncio.get_running_loop()
+
+    def put_threadsafe(self, item):
+        return self.loop.call_soon_threadsafe(self.put_nowait, item)
+
+
 class Daemon:
     def __init__(self, relay: gpiod.LineRequest, session: zenoh.Session):
 
@@ -29,20 +38,26 @@ class Daemon:
         self.mode = mode
         self.session = session
         self.relay = relay
+        self.subscribers = []
 
     async def run(self):
-        daemon_queue = asyncio.Queue()
-        temperature_queue = asyncio.Queue()
+        daemon_queue = AsyncQueueThreadSafe()
+        temperature_queue = AsyncQueueThreadSafe()
 
-        self.session.declare_subscriber("kal/cmnd/daemon/*", daemon_queue.put_nowait)
-        self.session.declare_subscriber(
-            "kal/tele/tasmota_43D8FD/temperature", temperature_queue.put_nowait
-        )
+        self.subscribers = [
+            self.session.declare_subscriber(
+                "kal/cmnd/daemon/*", daemon_queue.put_threadsafe
+            ),
+            self.session.declare_subscriber(
+                "kal/tele/tasmota_43D8FD/temperature", temperature_queue.put_threadsafe
+            ),
+        ]
 
-        await asyncio.gather(
-            self.daemon_task(daemon_queue),
-            self.temperature_task(temperature_queue),
-        )
+        async with asyncio.TaskGroup() as tg:
+            tg.create_task(self.daemon_task(daemon_queue))
+            tg.create_task(self.temperature_task(temperature_queue))
+
+        LOG.info("Daemon run shutdown")
 
     async def daemon_task(self, queue: asyncio.Queue):
         LOG.debug("start daemon task")
