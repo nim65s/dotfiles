@@ -11,12 +11,6 @@ let
     inherit (final.stdenv.hostPlatform) system;
     overlays = [ nix-ros-overlay.overlays.default ];
   };
-
-  tmpOverride =
-    prevPkg: prevVersion:
-    lib.throwIfNot (lib.versionAtLeast prevVersion prevPkg.version)
-      "${prevPkg.pname} ${prevPkg.version} is now available. Please remove (or update) its override for ${prevVersion}"
-      prevPkg;
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
@@ -43,22 +37,10 @@ in
 
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (
-      python-final: python-prev:
+      python-final: _python-prev:
       lib.filesystem.packagesFromDirectoryRecursive {
         inherit (python-final) callPackage;
         directory = ./py-pkgs;
-      }
-      // {
-        # retry
-        vdirsyncer = (tmpOverride python-prev.vdirsyncer "0.20.0").overridePythonAttrs (super: {
-          src = final.fetchFromGitHub {
-            owner = "pimutils";
-            repo = "vdirsyncer";
-            rev = "7ef30bfaad2891c3fb177d1d8a9bd4a486be8a1c";
-            hash = "sha256-pSMDQGceooVLV0/ZaWw7YEZM3/aAWFr0nRheb7vDMMI=";
-          };
-          dependencies = super.dependencies ++ [ python-final.tenacity ];
-        });
       }
     )
   ];
