@@ -112,7 +112,7 @@ in
         inherit (finalAttrs) src;
         hash = "sha256-g06GmHmTC5X6R/YgIvKcwnN//fvLwh3hhnOAFhWnMwA=";
       };
-      doCheck = false;
+      # doCheck = false;
     }
   );
 }
