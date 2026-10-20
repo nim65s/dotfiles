@@ -21,6 +21,7 @@ class AsyncQueueThreadSafe(asyncio.Queue):
         self.loop = asyncio.get_running_loop()
 
     def put_threadsafe(self, item):
+        LOG.debug("queuing %s", item)
         return self.loop.call_soon_threadsafe(self.put_nowait, item)
 
 
