@@ -107,6 +107,9 @@
       ipa = "ip address";
       ipr = "ip route";
       ipy = "ipython";
+      ldaph = "ldapsearch -H ldaps://ldap2.laas.fr -LLL -x -b ou=hosts,dc=laas,dc=fr cn=";
+      ldapm = "ldapsearch -H ldaps://ldap2.laas.fr -LLL -x -b ou=machines,dc=laas,dc=fr cn=";
+      ldapu = "ldapsearch -H ldaps://ldap2.laas.fr -LLL -x -b ou=users,dc=laas,dc=fr uid=";
       la = lib.mkForce "eza -A";
       ll = lib.mkForce "eza -l --sort newest";
       ls = lib.mkForce "eza";
