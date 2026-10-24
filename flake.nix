@@ -4,7 +4,7 @@
   inputs = {
     # alloria.url = "github:nim65s/alloria";
     clan-core = {
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "https://git.clan.lol/nim65s/clan-core/archive/nix_2_34.tar.gz";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
