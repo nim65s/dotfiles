@@ -37,7 +37,6 @@ in
     sphinxBuilders = [ "html man" ];
   };
 
-  # https://github.com/NixOS/nixpkgs/pull/555902
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
       (super.disabledTests or [ ])
@@ -92,19 +91,6 @@ in
           --prefix PYTHONPATH : "$PYTHONPATH"
       '';
     };
-
-  # https://github.com/NixOS/nixpkgs/pull/576228
-  toml-sort = (tmpOverride prev.toml-sort "0.24.4").overridePythonAttrs (
-    finalAttrs: prevAttrs: {
-      version = "0.25.0";
-      src = final.fetchFromGitHub {
-        inherit (prevAttrs.src) owner repo;
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-uEmIQq0Mc7dpDOzfhSgj6MY2EJMrn6MiT8SL1eYLtzE=";
-      };
-      dependencies = [ final.python3Packages.tomlrt ];
-    }
-  );
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
