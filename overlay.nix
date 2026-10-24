@@ -11,12 +11,6 @@ let
     inherit (final.stdenv.hostPlatform) system;
     overlays = [ nix-ros-overlay.overlays.default ];
   };
-
-  tmpOverride =
-    prevPkg: prevVersion:
-    lib.throwIfNot (lib.versionAtLeast prevVersion prevPkg.version)
-      "${prevPkg.pname} ${prevPkg.version} is now available. Please remove (or update) its override for ${prevVersion}"
-      prevPkg;
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
@@ -31,11 +25,6 @@ in
         "awk" "${lib.getExe final.gawk}"
     '';
   });
-
-  # https://github.com/NixOS/nixpkgs/pull/576662
-  khal = (tmpOverride prev.khal "0.24.4").overrideAttrs {
-    sphinxBuilders = [ "html man" ];
-  };
 
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
