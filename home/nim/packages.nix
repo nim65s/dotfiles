@@ -18,26 +18,18 @@
       chrpath
       cmake
       # cmake-format
-      cntr
       colorized-logs
       comma
       dcfldd
-      deadnix
       # devenv
       docker-compose
-      dos2unix
-      erdtree
       #eww-wayland
       fishPlugins.bass
-      formatjson5
       #font-awesome
-      fuzzel
       gersemi
-      ghostscript
       git-extras
       git-fork-clone
       git-objects-cache
-      git-statuses
       gnumake
       gnupg
       # himalaya
@@ -45,18 +37,15 @@
       imv
       jless
       jq
-      just
       keep-sorted
       lsof
       lurk
       md5cron
-      mdbook
       mdcat
       minicom
       mosh
       mpc
       mypy
-      ninja
       #nix-du
       nix-output-monitor
       nix-update
@@ -66,9 +55,7 @@
       nmap
       #noto-fonts-emoji
       nurl
-      openldap
       openssl
-      pandoc
       pciutils
       pipewire
       # pipx TODO https://github.com/NixOS/nixpkgs/pull/526458
@@ -77,14 +64,10 @@
       pmapnitor
       pratches
       pre-commit
-      prefetch-npm-deps
-      prek
       pwgen
       rbw
-      rosdep
       ruff
       rustscan
-      sccache
       sd
       shellcheck
       slurp
@@ -92,25 +75,18 @@
       sqlite
       ssh-to-age
       statix
-      strace
       #sway
       tailstamp
       tdf
-      toml-sort
       tree
       tree-sitter
-      typst
-      typstyle
       unzip
       usbutils
       #ventoy  # TODO: https://github.com/ventoy/Ventoy/issues/3224
-      watchexec
-      weechat
       wev
       wget
       xkcdpass
       yq
-      yt-dlp
       zfs
       #zola
       # keep-sorted end

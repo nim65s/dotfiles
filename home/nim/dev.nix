@@ -26,6 +26,29 @@
     nixpkgs-review
     nix-diff-rs
     nix-tree-rs
+    yt-dlp
+    watchexec
+    weechat
+    typst
+    toml-sort
+    strace
+    sccache
+    rosdep
+    prek
+    prefetch-npm-deps
+    pandoc
+    openldap
+    ninja
+    mdbook
+    just
+    git-statuses
+    ghostscript
+    formatjson5
+    erdtree
+    dos2unix
+    deadnix
+    cntr
+    typstyle
     plantuml
     qemu
     templup
