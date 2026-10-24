@@ -24,6 +24,8 @@
     khal
     nb
     nixpkgs-review
+    nix-diff-rs
+    nix-tree-rs
     plantuml
     qemu
     templup
@@ -31,6 +33,7 @@
     khard
     cargo-binstall
     cargo-release
+    pre-commit-sort
     ros2cli
     rustc
     vdirsyncer

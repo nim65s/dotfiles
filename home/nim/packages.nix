@@ -58,9 +58,7 @@
       mypy
       ninja
       #nix-du
-      nix-diff-rs
       nix-output-monitor
-      nix-tree-rs
       nix-update
       nixd
       nixfmt
@@ -79,7 +77,6 @@
       pmapnitor
       pratches
       pre-commit
-      pre-commit-sort
       prefetch-npm-deps
       prek
       pwgen
