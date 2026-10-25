@@ -16,6 +16,7 @@
     ../../nixos/wifi-laas.nix
     ../../nixos/systemd-boot.nix
     # ../../nixos/ethercat.nix
+    ../../nixos/kanata-config-aekeynox.nix
   ];
 
   boot = {

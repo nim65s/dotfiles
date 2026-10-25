@@ -153,26 +153,9 @@
   security.acme.acceptTerms = true;
 
   services = {
-    arsenik = {
-      enable = lib.mkDefault true;
-      package = pkgs.arsenik.overrideAttrs {
-        patches = [
-          (pkgs.fetchpatch {
-            name = "kanata-numpad-add-operators.patch";
-            url = "https://github.com/OneDeadKey/arsenik/pull/77.patch";
-            hash = "sha256-fIGp9IZ19gUq5tsnuX4I2KOLBA7HaF6u1berDleSnKg=";
-          })
-        ];
-      };
-      long_hold_timeout = 180;
-      lt = true;
-      vim = true;
-    };
     avahi.enable = true;
 
     fwupd.enable = true;
-
-    kanata.keyboards.arsenik.extraArgs = [ "-q" ];
 
     locate.enable = true;
 
