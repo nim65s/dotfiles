@@ -6,6 +6,7 @@
       flavor = "flavor_hrm";
       hostLayout = "ergol";
       navigation = "navigation_vim";
+      numbers = "numrow";
       quickTap = 180;
     };
   };
