@@ -69,20 +69,6 @@ url = "https://sogo.laas.fr/SOGo/dav/blain/Calendar/8883-63EE5480-101-2BE38300/"
 username = "gsaurel"
 password.fetch = ["command", "rbw", "get", "--folder", "laas", "main"]
 
-[pair holiday]
-a = "holiday_local"
-b = "holiday_remote"
-collections = null
-
-[storage holiday_local]
-type = "filesystem"
-path = "~/.vdir/calendars/ro/holiday"
-fileext = ".ics"
-
-[storage holiday_remote]
-type = "http"
-url = "https://fr.ftp.opendatasoft.com/openscol/fr-en-calendrier-scolaire/Zone-C.ics"
-
 [pair sri]
 a = "sri_local"
 b = "sri_remote"

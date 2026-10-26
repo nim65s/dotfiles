@@ -48,11 +48,6 @@ readonly = True
 path = ~/.vdir/calendars/ro/googlaas
 readonly = True
 
-[[holiday]]
-path = ~/.vdir/calendars/ro/holiday
-color = light red
-readonly = True
-
 [[sri]]
 path = ~/.vdir/calendars/ro/sri
 color = dark red
