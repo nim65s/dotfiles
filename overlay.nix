@@ -1,11 +1,14 @@
 {
+  flakoboros,
   nixpkgs-ros,
   nix-ros-overlay,
   ...
 }:
 final: prev:
 let
-  inherit (final) lib;
+  lib = final.lib // {
+    inherit (flakoboros.lib) tmpOverride;
+  };
 
   rosPkgs = import nixpkgs-ros {
     inherit (final.stdenv.hostPlatform) system;

@@ -20,6 +20,11 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "clan-core/systems";
     };
+    flakoboros = {
+      url = "github:gepetto/flakoboros";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -400,6 +405,7 @@
           overlays = {
             default = import ./overlay.nix {
               inherit (inputs)
+                flakoboros
                 nixpkgs-ros
                 nix-ros-overlay
                 ;
