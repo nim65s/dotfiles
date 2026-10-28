@@ -16,8 +16,20 @@ let
   };
 in
 {
-  inherit (rosPkgs.python3Packages) bloom rosdep;
-  inherit (flakoboros.packages."${final.stdenv.system.system}") flakoboros;
+  inherit (rosPkgs.python3Packages) rosdep;
+  inherit (flakoboros.packages."${final.stdenv.system}") flakoboros;
+
+  bloom = (lib.tmpOverride rosPkgs.python3Packages.bloom "0.14.3").overrideAttrs (
+    finalAttrs: prevAttrs: {
+      version = "0.14.4";
+      src = final.fetchFromGitHub {
+        inherit (prevAttrs.src) owner repo;
+        rev = finalAttrs.version;
+        hash = "sha256-zLmxIbCOfQFXsko7Vfy7L97hV1rSnvEcYjnyObWJGSI=";
+      };
+      dependencies = prevAttrs.dependencies ++ [ rosPkgs.python3Packages.tomli-w ];
+    }
+  );
 
   ethercat = prev.ethercat.overrideAttrs (super: {
     configureFlags = (super.configureFlags or [ ]) ++ [
