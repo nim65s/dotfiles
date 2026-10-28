@@ -18,6 +18,7 @@
     colcon
     dockgen
     ffmpeg
+    flakoboros
     gazebros2nix
     hugo
     jrl-cmakemodules-scripts

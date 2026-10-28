@@ -17,6 +17,7 @@ let
 in
 {
   inherit (rosPkgs.python3Packages) bloom rosdep;
+  inherit (flakoboros.packages."${final.stdenv.system.system}") flakoboros;
 
   ethercat = prev.ethercat.overrideAttrs (super: {
     configureFlags = (super.configureFlags or [ ]) ++ [
