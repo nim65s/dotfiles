@@ -19,7 +19,7 @@ in
   inherit (rosPkgs.python3Packages) rosdep;
   inherit (flakoboros.packages."${final.stdenv.system}") flakoboros;
 
-  bloom = (lib.tmpOverride rosPkgs.python3Packages.bloom "0.14.3").overrideAttrs (
+  bloom = (lib.tmpOverride rosPkgs.python3Packages.bloom "0.14.3").overridePythonAttrs (
     finalAttrs: prevAttrs: {
       version = "0.14.4";
       src = final.fetchFromGitHub {
