@@ -41,21 +41,21 @@ in
       };
     };
 
-    halloy = {
-      enable = true;
-      settings = {
-        "buffer.channel.topic" = {
-          enabled = true;
-        };
-        "servers.liberachat" = {
-          channels = [
-            "#tetaneutral.net"
-          ];
-          nickname = "nim65s";
-          server = "irc.libera.chat";
-        };
-      };
-    };
+    # halloy = {
+    #   enable = true;
+    #   settings = {
+    #     "buffer.channel.topic" = {
+    #       enabled = true;
+    #     };
+    #     "servers.liberachat" = {
+    #       channels = [
+    #         "#tetaneutral.net"
+    #       ];
+    #       nickname = "nim65s";
+    #       server = "irc.libera.chat";
+    #     };
+    #   };
+    # };
 
     hwatch.enable = true;
 
