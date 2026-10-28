@@ -1,7 +1,19 @@
 {
+  lib,
+  pkgs,
+  nixvim,
   ...
 }:
 {
+  imports = [
+    nixvim.nixosModules.nixvim
+  ];
+
+  programs.nixvim = import ../shared/nixvim.nix { inherit lib pkgs; } // {
+    enable = true;
+    defaultEditor = true;
+  };
+
   services = {
     earlyoom = {
       enable = true;

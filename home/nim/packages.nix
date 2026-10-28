@@ -54,7 +54,6 @@
       nixook
       nmap
       #noto-fonts-emoji
-      nurl
       openssl
       pciutils
       pipewire
@@ -115,32 +114,17 @@
     ++ lib.optionals config.nim-home.gui [
       # keep-sorted start
       brightnessctl
-      cage
-      d-spy
       evince
       gparted
       grim
-      iosevka
-      iosevka-aile
-      iosevka-etoile
-      iosevka-term
-      kcov
-      kdePackages.kolourpaint
-      kdePackages.okular
       libreoffice
-      meld
-      mesa-demos
-      meshlab
       mpv
       niri
       pdfarranger
-      pdfpc
       pinentry-qt
       pwvucontrol
       rofi-rbw
       rofimoji
-      signal-desktop
-      slint-viewer
       swaybg
       # swaylock
       vlc
@@ -150,7 +134,6 @@
       wl-clipboard
       wtype
       zathura
-      zeal
       # keep-sorted end
     ];
 

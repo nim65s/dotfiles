@@ -10,12 +10,12 @@
     nixos.enable = false;
   };
 
-  programs.nixvim.plugins = {
-    lsp.servers.clangd.enable = false;
-    plantuml-syntax.enable = false;
-    yazi.enable = false;
-  };
-
+  # programs.nixvim.plugins = {
+  #   lsp.servers.clangd.enable = false;
+  #   plantuml-syntax.enable = false;
+  #   yazi.enable = false;
+  # };
+  #
   home-manager.users = {
     root.programs = {
       man.enable = false;
