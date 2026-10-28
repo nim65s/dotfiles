@@ -21,11 +21,6 @@
   console.useXkbConfig = lib.mkDefault true;
 
   environment = {
-    etc."xdg/kwalletrc".text = ''
-      [Wallet]
-      Enabled=false
-    '';
-
     systemPackages = with pkgs; [
       alacritty
       bcc

@@ -9,6 +9,13 @@
     nixvim.nixosModules.nixvim
   ];
 
+  environment = {
+    etc."xdg/kwalletrc".text = ''
+      [Wallet]
+      Enabled=false
+    '';
+  };
+
   programs.nixvim = import ../shared/nixvim.nix { inherit lib pkgs; } // {
     enable = true;
     defaultEditor = true;
