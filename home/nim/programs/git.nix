@@ -138,14 +138,14 @@ in
         sort = "version:refname";
       };
 
-      url = {
-        "git@github.com:" = {
-          insteadOf = "https://github.com/";
-        };
-        "git@gitlab.laas.fr:" = {
-          insteadOf = "https://gitlab.laas.fr/";
-        };
-      };
+      # url = {
+      #   "git@github.com:" = {
+      #     insteadOf = "https://github.com/";
+      #   };
+      #   "git@gitlab.laas.fr:" = {
+      #     insteadOf = "https://gitlab.laas.fr/";
+      #   };
+      # };
     };
 
     includes = [
