@@ -31,6 +31,28 @@ in
     }
   );
 
+  # https://github.com/NixOS/nixpkgs/pull/547709
+  epkowa = (prev.epkowa.override { gtk2 = null; }).overrideAttrs {
+    configureFlags = [
+      "--enable-dependency-reduction"
+      "--disable-frontend"
+      "--disable-gimp"
+      # fix build with gcc 15
+      "CFLAGS=-std=gnu17"
+    ];
+
+    preConfigure = ''
+      mkdir pkg-config
+      cat > pkg-config/gtk+-2.0.pc << EOF
+      Name: GTK+
+      Version: 2.24.thisisfake
+      Description: gtk is only needed for the frontend, which we do not build, but the configure script really insists on having gtk
+      EOF
+      export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(readlink -f pkg-config)"
+      $PKG_CONFIG --cflags gtk+-2.0 --debug
+    '';
+  };
+
   ethercat = prev.ethercat.overrideAttrs (super: {
     configureFlags = (super.configureFlags or [ ]) ++ [
       "--with-kmod-dir=${final.kmod}/bin"
