@@ -16,20 +16,8 @@ let
   };
 in
 {
-  inherit (rosPkgs.python3Packages) rosdep;
+  inherit (rosPkgs.python3Packages) bloom rosdep;
   inherit (flakoboros.packages."${final.stdenv.system}") flakoboros;
-
-  bloom = (lib.tmpOverride rosPkgs.python3Packages.bloom "0.14.3").overridePythonAttrs (
-    finalAttrs: prevAttrs: {
-      version = "0.14.4";
-      src = final.fetchFromGitHub {
-        inherit (prevAttrs.src) owner repo;
-        rev = finalAttrs.version;
-        hash = "sha256-zLmxIbCOfQFXsko7Vfy7L97hV1rSnvEcYjnyObWJGSI=";
-      };
-      dependencies = prevAttrs.dependencies ++ [ rosPkgs.python3Packages.tomli-w ];
-    }
-  );
 
   # https://github.com/NixOS/nixpkgs/pull/547709
   epkowa = (prev.epkowa.override { gtk2 = null; }).overrideAttrs {
