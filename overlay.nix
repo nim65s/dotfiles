@@ -108,6 +108,13 @@ in
       '';
     };
 
+  # https://github.com/NixOS/nixpkgs/pull/585077
+  slint-lsp = (lib.tmpOverride prev.slint-lsp "1.18.1").overrideAttrs (
+    _finalAttrs: prevAttrs: {
+      rpathLibs = prevAttrs.rpathLibs ++ [ final.rust-jemalloc-sys ];
+    }
+  );
+
   # https://github.com/NixOS/nixpkgs/pull/585310
   sniffnet = (lib.tmpOverride prev.sniffnet "1.5.1").overrideAttrs (
     _finalAttrs: prevAttrs: {
