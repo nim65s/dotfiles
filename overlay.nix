@@ -107,6 +107,13 @@ in
           --prefix PYTHONPATH : "$PYTHONPATH"
       '';
     };
+
+  # https://github.com/NixOS/nixpkgs/pull/585310
+  sniffnet = (lib.tmpOverride prev.sniffnet "1.5.1").overrideAttrs (
+    _finalAttrs: prevAttrs: {
+      buildInputs = prevAttrs.buildInputs ++ [ final.aws-lc ];
+    }
+  );
 }
 // prev.lib.filesystem.packagesFromDirectoryRecursive {
   inherit (final) callPackage;
