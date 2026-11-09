@@ -30,6 +30,24 @@ in
     '';
   });
 
+  # https://github.com/NixOS/nixpkgs/pull/582758
+  git-statuses = (lib.tmpOverride prev.git-statuses "0.8.2").overrideAttrs (
+    _finalAttrs: prevAttrs: {
+      version = "1.0.0";
+      src = final.fetchFromGitHub {
+        inherit (prevAttrs.src)
+          owner
+          repo
+          tag
+          ;
+        hash = "sha256-2TY5/3+NLCews07fQ5nrmubmICmdKhqFFvvI0VvFlRI=";
+      };
+      cargoHash = "sha256-LWeQYsH6xG9RCCp8BROmrK2jP5XcXnyGZPy7rVnvr94=";
+      buildInputs = prevAttrs.buildInputs ++ [ final.libgit2 ];
+      preCheck = "stty -F /dev/stdout cols 100";
+    }
+  );
+
   music-assistant = prev.music-assistant.overrideAttrs (super: {
     disabledTests =
       (super.disabledTests or [ ])
