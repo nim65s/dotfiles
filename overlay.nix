@@ -30,6 +30,11 @@ in
     '';
   });
 
+  # https://github.com/NixOS/nixpkgs/pull/585437
+  gersemi = (lib.tmpOverride prev.gersemi "0.29.2").overrideAttrs {
+    buildInputs = [ final.sqlite ];
+  };
+
   # https://github.com/NixOS/nixpkgs/pull/582758
   git-statuses = (lib.tmpOverride prev.git-statuses "0.8.2").overrideAttrs (
     _finalAttrs: prevAttrs: {
