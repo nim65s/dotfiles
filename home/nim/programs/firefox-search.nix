@@ -60,6 +60,25 @@
           ];
         };
 
+        "ddg" = {
+          icon = "https://duckduckgo.com/assets/logo_header.v109.svg";
+          definedAliases = [
+            ":d"
+            ":ddg"
+          ];
+          urls = [
+            {
+              template = "https://noai.duckduckgo.com/";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
         "Github" = {
           icon = "https://github.com/favicon.ico";
           definedAliases = [ ":gh" ];
@@ -174,30 +193,6 @@
                 {
                   name = "value";
                   value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-        };
-
-        "mojeek" = {
-          icon = "https://www.mojeek.com/logos/icon_cc.svg";
-          definedAliases = [ ":m" ];
-          urls = [
-            {
-              template = "https://www.mojeek.com/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-                {
-                  name = "theme";
-                  value = "dark";
-                }
-                {
-                  name = "qss";
-                  value = "Ecosia,Google";
                 }
               ];
             }

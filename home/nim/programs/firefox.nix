@@ -33,7 +33,7 @@
         violentmonkey
       ];
       search.force = true;
-      search.default = "mojeek";
+      search.default = "ddg";
 
       handlers = {
         force = true;
