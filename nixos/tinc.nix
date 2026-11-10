@@ -56,40 +56,6 @@
         ];
       };
 
-      loon = {
-        addresses = [
-          {
-            address = "192.168.1.204";
-            port = 655;
-          }
-          {
-            address = "192.168.8.240";
-            port = 655;
-          }
-        ];
-        subnets = [
-          {
-            address = "10.0.55.204";
-            prefixLength = 32;
-          }
-        ];
-        rsaPublicKey = ''
-          -----BEGIN RSA PUBLIC KEY-----
-          MIICCgKCAgEAl2gdD25WOuGSuSlM2Si9KgYS8Ync9PygggaQMAJhgDnLr4QsHFES
-          vLwekjawC7YNZ0K7wAq/OA49EA2MuLonRIZxezhRE4xHpS8N7SH3MF9mx3tyGvbY
-          +1FwKEM1/paSQ0OOszWVG43yhqpdXue2Q6kEl0nYLPnyDiCvzOimnDSu/MOj33q9
-          7o/r3gm8eL3wimu6TZRgG1/GaNq4/9HvKxGeEyIBa5LDtypmiFw4oORj575Ppk6n
-          JHCo7xeoYGyP/GVHLPCaxwZ0MZbmt5oOAdd6HN5JytwNc25ZU5FEKeNweyQN06IG
-          BO+ZM9IPUGpjsNalhtoFOXr2zFCyGROGjd11hUwNrG4J3rKz/HmMH5i+RXM6/Ya0
-          Tsn5I4aryzFff6kstf9B2YEFJA9//1Ta82uIsPzcdAXZLhF+ww4aBS6Xsav8Udrz
-          BxaTnynL+XJSVUZnlCkSK2HevBpd/0DWUqkjt3ixGlzpQenkwQ3hcwrfO/JgKEaZ
-          7l+lk/IGoGop3ZDknp10tnHJOiDI8FN99KbYOv/MN3pOoEWhk7igToY9utYUtoZu
-          eGPVSnB62opoGzV0lKYYmA4OiFBqh+RZ7+S/uy3V5TlbjhwZE0Dnic8EWaFNQA6q
-          nrB/t/frqSwj//EG3SjAUzIJvQnk0GTa2DvbTTz1F8eG46caljSYI5UCAwEAAQ==
-          -----END RSA PUBLIC KEY-----
-        '';
-      };
-
       mononoke = {
         addresses = [
           {
