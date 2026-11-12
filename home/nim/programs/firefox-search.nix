@@ -275,6 +275,25 @@
           ];
         };
 
+        "OpenStreetMap Search" = {
+          icon = "https://www.openstreetmap.org/assets/osm_logo_256-ed028f90468224a272961c380ecee0cfb73b8048b34f4b4b204b7f0d1097875d.png";
+          definedAliases = [
+            ":o"
+            ":osm"
+          ];
+          urls = [
+            {
+              template = "https://www.openstreetmap.org/search";
+              params = [
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+        };
+
         "Python" = {
           icon = "https://www.python.org/images/favicon16x16.ico";
           definedAliases = [ ":p" ];
