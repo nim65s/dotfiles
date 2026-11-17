@@ -13,7 +13,6 @@
     name = "main-cb1244c6-395c-44db-89db-709173ba9b44";
   };
   environment.systemPackages = with pkgs; [
-    bftpd
     evince
     fd
     file
