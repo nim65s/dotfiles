@@ -25,7 +25,7 @@
     };
     autoUpgrade = {
       enable = true;
-      flakeDir = "${config.nim-home.homeDirectory}/dotfiles";
+      flakeUrl = "git+https://github.com/nim65s/dotfiles";
       frequency = "weekly";
       preSwitchCommands = [ ]; # dont want "nix flake update", default for 26.05
       useFlake = true;
@@ -34,9 +34,6 @@
 
   stylix.targets.kde.plasmaWorkspacePackage = pkgs.kdePackages.plasma-workspace;
 
-  systemd.user.services.home-manager-auto-upgrade = {
-    Service.ExecStartPre = "${lib.getExe pkgs.git} pull https://github.com/nim65s/dotfiles";
-  };
   xdg.portal = {
     enable = true;
     configPackages = [ pkgs.niri ];

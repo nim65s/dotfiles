@@ -26,7 +26,7 @@
       inputs.treefmt-nix.follows = "treefmt-nix";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/refs/pull/9855/merge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
