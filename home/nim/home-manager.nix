@@ -1,8 +1,6 @@
 # Standalone HM things
 # ie. not nixos hm
 {
-  config,
-  lib,
   pkgs,
   stylix,
   ...

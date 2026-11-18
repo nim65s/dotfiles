@@ -37,6 +37,9 @@
 
   networking = {
     extraHosts = "127.0.0.2 home-assistant.w";
+    hosts = {
+      "127.14.45.1" = [ "pfcalcul.laas.fr" ];
+    };
     interfaces = {
       enp3s0 = {
         useDHCP = true;
