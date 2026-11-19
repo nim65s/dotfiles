@@ -54,6 +54,7 @@
       tmux
       usbutils
       wget
+      wl-mirror
     ];
   };
 
