@@ -11,7 +11,7 @@
       packages = [
         pkgs.chromium
         pkgs.libreoffice
-        pkgs.sweethome3d.application
+        pkgs.sweethome3d
         pkgs.vlc
       ]
       ++ (with pkgs.kdePackages; [
