@@ -70,8 +70,6 @@
   };
 
   services = {
-    arsenik.enable = false;
-
     udev.extraRules = ''
       ENV{LIBINPUT_ATTR_KEYBOARD_DEBOUNCE_DELAY}="50"
     '';
