@@ -52,7 +52,7 @@
         "option:domain-search,azv"
       ];
 
-      server = [ "9.9.9.9" ];
+      server = [ "1.1.1.1" ];
       no-hosts = true;
       domain = config.networking.domain;
       local = "/${config.networking.domain}/";
