@@ -93,18 +93,23 @@
 
   users.users.nim.extraGroups = [
     "docker"
+    "incus-admin"
     "lp"
     "scanner"
     "uinput"
   ];
 
-  virtualisation.docker.enable = true;
   # virtualisation.docker.enableNvidia = true; silence warning, but was required
   hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.virtualbox.host = {
-    enable = true;
-    addNetworkInterface = false;
-    enableKvm = true;
+
+  virtualisation = {
+    docker.enable = true;
+    incus.enable = true;
+    virtualbox.host = {
+      enable = true;
+      addNetworkInterface = false;
+      enableKvm = true;
+    };
   };
 
   # clan dev tests
